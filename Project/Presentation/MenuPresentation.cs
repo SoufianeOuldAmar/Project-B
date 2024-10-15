@@ -85,10 +85,12 @@ public static class MenuPresentation
         switch (choice)
         {
             case "1":
-                MenuLogic.PushMenu(OrderTicketMenu);
+                // MenuLogic.PushMenu(OrderTicketMenu);
+                Console.WriteLine("This feature isn't available yet.");
                 break;
             case "2":
-                MenuLogic.PushMenu(ViewTicketHistoryMenu);
+                // MenuLogic.PushMenu(ViewTicketHistoryMenu);
+                Console.WriteLine("This feature isn't available yet.");
                 break;
             case "3":
                 Console.WriteLine("\nLogging out...");

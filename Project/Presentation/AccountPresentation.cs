@@ -15,7 +15,8 @@ public static class AccountPresentation
             AccountModel? accountModel = accountsLogic.CheckLogin(emailAddress, password);
 
             if (accountModel != null)
-            {
+            {   
+                Console.WriteLine("\nSucces! Welcome back!\n");
                 MenuLogic.PushMenu(() => MenuPresentation.FrontPage(accountModel));
                 break;
             }
@@ -60,7 +61,7 @@ public static class AccountPresentation
             Console.Clear();
             Console.WriteLine("=== Create account ===");
 
-            Console.Write("Full name: ");
+            Console.Write("\nFull name: ");
             string fullName = Console.ReadLine();
 
             Console.Write("Email address: ");
