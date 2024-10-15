@@ -1,14 +1,14 @@
 public static class MenuPresentation
 {
-    public static Stack<Action> menuStack = new Stack<Action>();
+    public static Stack<Action> menuStack = new Stack<Action>(); // Een stack voor functies
     public static AccountsLogic accountsLogic = new AccountsLogic();
 
     public static void Start()
     {
         // Start with the main menu
-        menuStack.Push(AuthenticateAccountMenu);
+        menuStack.Push(AuthenticateAccountMenu); // Voeg AuthenticateAccountMenu() toe aan de lege stack
 
-        while (menuStack.Count > 0)
+        while (menuStack.Count > 0) // terwijl de stack nog functies bevat, blijft ie doorgaan. Zo niet dan stopt de loop en dus het programma.
         {
             Action currentMenu = menuStack.Peek();
             Console.Clear();
@@ -19,7 +19,7 @@ public static class MenuPresentation
         }
     }
 
-    public static void AuthenticateAccountMenu()
+    public static void AuthenticateAccountMenu() // Begin menu wanneer het programma opstart.
     {
         Console.WriteLine("=== Main Menu ===");
         Console.WriteLine("1. Log in");
