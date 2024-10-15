@@ -1,4 +1,4 @@
-﻿[
+[
 	{
 		"id": 1,
 		"emailAddress": "n@b.c",
@@ -10,5 +10,17 @@
 		"emailAddress": "t@b.c",
 		"password": "xyz",
 		"fullName": "Thomas Edison"
+	},
+	{
+		"id": 3,
+		"emailAddress": "soufiane_ouldamar@outlook.com",
+		"password": "password",
+		"fullName": "Soufiane Ould Amar"
+	},
+	{
+		"id": 4,
+		"emailAddress": "soufiane_ouldamar@",
+		"password": "password1",
+		"fullName": "Soufiane Ould Amar"
 	}
 ]
