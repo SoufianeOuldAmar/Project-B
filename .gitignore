@@ -400,3 +400,6 @@ FodyWeavers.xsd
 # Ignore bin and obj
 bin/
 obj/
+
+# Ignore .DS_Store
+.DS_Store
