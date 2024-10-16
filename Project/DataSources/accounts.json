@@ -22,11 +22,5 @@
     "emailAddress": "soufiane_ouldamar@",
     "password": "password1",
     "fullName": "Soufiane Ould Amar"
-  },
-  {
-    "id": 5,
-    "emailAddress": "iemand@",
-    "password": "iemand",
-    "fullName": "iemand"
   }
 ]

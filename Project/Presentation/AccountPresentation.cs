@@ -3,6 +3,7 @@ public static class AccountPresentation
     public static AccountsLogic accountsLogic = new AccountsLogic();
     public static void LogIn()
     {
+        bool newLineValid = true;
         while (true)
         {
             Console.WriteLine("=== Log in ===\n");
@@ -15,8 +16,8 @@ public static class AccountPresentation
             AccountModel? accountModel = accountsLogic.CheckLogin(emailAddress, password);
 
             if (accountModel != null)
-            {   
-                Console.WriteLine("\nSucces! Welcome back!\n");
+            {
+                Console.WriteLine("\nSucces! Welcome back!");
                 MenuLogic.PushMenu(() => MenuPresentation.FrontPage(accountModel));
                 break;
             }
@@ -25,7 +26,8 @@ public static class AccountPresentation
                 bool validInput = false;
                 do
                 {
-                    Console.WriteLine("\nUsername or password is incorrect! Do you want to try again? (Input either yes or no)");
+                    string newLine = newLineValid ? "\n" : "";
+                    Console.Write($"{newLine}Username or password is incorrect! Do you want to try again? (Input either yes or no): ");
                     string choice = Console.ReadLine();
                     bool? yesOrNo = accountsLogic.TryLogInAgain(choice);
 
@@ -33,16 +35,19 @@ public static class AccountPresentation
                     {
                         Console.Clear();
                         validInput = true;
+                        newLineValid = true;
                         break;
                     }
                     else if (yesOrNo.HasValue && !yesOrNo.Value)
                     {
                         MenuLogic.PopMenu();
+                        newLineValid = true;
                         return;
                     }
                     else
                     {
-                        Console.WriteLine("Invalid input! Please type 'yes' or 'no'.");
+                        Console.WriteLine("\nInvalid input! Please type 'yes' or 'no'.\n");
+                        newLineValid = false;
                         Console.WriteLine("Press any key to continue...");
                         Console.ReadKey();
                         Console.Clear();
@@ -83,7 +88,7 @@ public static class AccountPresentation
             else
             {
                 // Only ask the user if they want to try again if account creation failed
-                Console.WriteLine("\nWould you like to try again? (Input either yes or no)");
+                Console.Write("\nWould you like to try again? (Input either yes or no): ");
                 string choice = Console.ReadLine();
                 bool? yesOrNo = accountsLogic.TryLogInAgain(choice);
 

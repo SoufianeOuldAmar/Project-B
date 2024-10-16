@@ -14,7 +14,7 @@ public static class MenuPresentation
             Console.Clear();
             currentMenu.Invoke();
 
-            Console.WriteLine("Press any key to continue...");
+            Console.Write("\nPress any key to continue... ");
             Console.ReadKey();
         }
     }
@@ -86,11 +86,11 @@ public static class MenuPresentation
         {
             case "1":
                 // MenuLogic.PushMenu(OrderTicketMenu);
-                Console.WriteLine("This feature isn't available yet.");
+                Console.WriteLine("\nThis feature isn't available yet.");
                 break;
             case "2":
                 // MenuLogic.PushMenu(ViewTicketHistoryMenu);
-                Console.WriteLine("This feature isn't available yet.");
+                Console.WriteLine("\nThis feature isn't available yet.");
                 break;
             case "3":
                 Console.WriteLine("\nLogging out...");
