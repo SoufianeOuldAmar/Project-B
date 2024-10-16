@@ -1,6 +1,8 @@
+using AirplaneSeatReservation.PresentationLayer;
+
 static class Menu
 {
-    private static AirplaneLayout airplaneLayout = new AirplaneLayout();
+    private static AirplaneLayoutUI airplaneLayout = new AirplaneLayoutUI();
     //This shows the menu. You can call back to this method to show the menu again
     //after another presentation method is completed.
     //You could edit this to show different menus depending on the user's role
