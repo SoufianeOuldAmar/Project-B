@@ -19,7 +19,7 @@ public class FlightsAccess
             string jsonData = File.ReadAllText(filePath);
 
             List<FlightModel> flights = JsonConvert.DeserializeObject<List<FlightModel>>(jsonData);
-            return flights;
+            return JsonConvert.DeserializeObject<List<FlightModel>>(jsonData);
         }
 
         return new List<FlightModel>();
