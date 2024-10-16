@@ -84,7 +84,7 @@ public class AccountsLogic
     }
 
 
-    private List<CreateAccountStatus> CheckCreateAccount(string fullName, string email, string password)
+    public List<CreateAccountStatus> CheckCreateAccount(string fullName, string email, string password)
     {
         List<CreateAccountStatus> statusList = new List<CreateAccountStatus>();
 
