@@ -12,11 +12,26 @@ static class Menu
         string input = Console.ReadLine();
         if (input == "1")
         {
-            UserLogin.Start();
+            Console.WriteLine("Are you Admin or User? A/U");
+            string input1 = Console.ReadLine().ToLower();
+            if (input1 == "u")
+            {
+                UserLogin.Start();
+            }
+            else if (input1 == "a")
+            {
+                AdminAccountPresentation.Login();
+            }
+            else
+            {
+                Console.WriteLine("Invalid input");
+                Start();
+            }
         }
         else if (input == "2")
         {
             Console.WriteLine("This feature is not yet implemented");
+
         }
         else
         {

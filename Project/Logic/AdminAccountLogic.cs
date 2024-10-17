@@ -10,27 +10,40 @@ public class AdminAccountLogic
         _accounts = AdminAccountAccess.LoadAll();
     }
 
-    public void UpdateList(AdminAccountModel acc)
+    public void GetList(AdminAccountModel acc)
     {
 
-        int index = _accounts.FindIndex(s => s.Id == acc.Id);
+        int index = _accounts.FindIndex(s => s.UserName == acc.UserName);
 
         if (index != -1)
         {
 
             _accounts[index] = acc;
         }
-        else
-        {
-            //add new model
-            _accounts.Add(acc);
-        }
-        AdminAccountAccess.WriteAll(_accounts);
+        // else
+        // {
+        //     //add new model
+        //     // _accounts.Add(acc);
+
+        // }
+        // AdminAccountAccess.WriteAll(_accounts);
 
     }
-    public AdminAccountModel GetByEmail(string email)
+    // public AdminAccountModel GetByEmail(string email)
+    // {
+    //     return _accounts.Find(i => i.EmailAddress.ToLower() == email.ToLower());
+    // }
+    public bool ValidateLogin(string username, string password)
     {
-        return _accounts.Find(i => i.EmailAddress.ToLower() == email.ToLower());
+        AdminAccountModel account = _accounts.Find(i => i.UserName.ToLower() == username.ToLower());
+
+
+        if (account != null && account.Password == password)
+        {
+            return true;
+        }
+
+        return false;
     }
 
 }
