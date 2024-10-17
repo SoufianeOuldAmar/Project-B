@@ -20,23 +20,11 @@ public class AdminAccountLogic
 
             _accounts[index] = acc;
         }
-        // else
-        // {
-        //     //add new model
-        //     // _accounts.Add(acc);
-
-        // }
-        // AdminAccountAccess.WriteAll(_accounts);
-
     }
-    // public AdminAccountModel GetByEmail(string email)
-    // {
-    //     return _accounts.Find(i => i.EmailAddress.ToLower() == email.ToLower());
-    // }
     public bool ValidateLogin(string username, string password)
     {
         AdminAccountModel account = _accounts.Find(i => i.UserName.ToLower() == username.ToLower());
-       
+
 
         if (account != null && account.Password == password)
         {
