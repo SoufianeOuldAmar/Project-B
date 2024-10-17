@@ -3,10 +3,10 @@ using System.Text.Json.Serialization;
 
 public class AdminAccountModel
 {
-    // [JsonPropertyName("id")]
-    // public int Id { get; set; }
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
 
-    [JsonPropertyName("usename")]
+    [JsonPropertyName("username")]
     public string UserName { get; set; }
 
     [JsonPropertyName("password")]

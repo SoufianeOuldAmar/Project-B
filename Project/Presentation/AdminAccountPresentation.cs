@@ -21,7 +21,7 @@ static class AdminAccountPresentation
 
         if (isValid)
         {
-            Console.WriteLine("Login as Admin successfil. Welcome!");
+            Console.WriteLine("Login as Admin successful. Welcome!");
 
         }
         else

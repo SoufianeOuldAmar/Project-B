@@ -36,7 +36,7 @@ public class AdminAccountLogic
     public bool ValidateLogin(string username, string password)
     {
         AdminAccountModel account = _accounts.Find(i => i.UserName.ToLower() == username.ToLower());
-
+       
 
         if (account != null && account.Password == password)
         {
