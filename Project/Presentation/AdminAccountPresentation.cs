@@ -4,11 +4,6 @@ using System.Data.Common;
 static class AdminAccountPresentation
 {
     static AdminAccountLogic logic = new AdminAccountLogic();
-    // public static void Start()
-    // {
-    //     Login();
-
-    // }
     public static void Login()
     {
         Console.WriteLine("Enter Your Username: ");

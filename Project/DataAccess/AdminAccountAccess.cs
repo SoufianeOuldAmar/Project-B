@@ -13,13 +13,4 @@ public class AdminAccountAccess
     }
 
 
-    // public static void WriteAll(List<AdminAccountModel> accounts)
-    // {
-    //     var options = new JsonSerializerOptions { WriteIndented = true };
-    //     string json = JsonSerializer.Serialize(accounts, options);
-    //     File.WriteAllText(path, json);
-    // }
-
-
-
 }
