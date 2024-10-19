@@ -8,7 +8,7 @@ public class CancelFlight
     // fields 
     
     // list to store the booked flights and the cancelled flights the user has 
-    public List<FlightModel> Booked = new List<Flightmodel>();
+    public List<FlightModel> Booked = new List<FlightModel>();
     public List<FlightModel> Cancelled = new List<FlightModel>();
 
     // methods 
@@ -31,22 +31,20 @@ public class CancelFlight
 
     }
 
-    public void CancelFlights(string airline)
+    public string CancelFlights(int index)
     {
-        // get flight by looping through booked list
-        for (int i=0; i<Booked.Count; i++ )
+        if (index<0 || index >=Booked.Count)
         {
-            if(Booked[i].Airline== airline)
-            {
-                Booked[i].IsCancelled= true;
-                // add to cancelled list 
-                Cancelled.Add(Booked[i]);
-
-                Booked.RemoveAt(i);
-                return $"Flight:{Booked[i].Airline} Ticket Price: {Booked[i].TicketPrice:C}, Gate: {Booked[i].Gate}, Airport: {Booked[i].Airport}, Cancelled: {Booked[i].IsCancelled} ";
-            } 
+            return null;
         }
-            
+            // see if i matches with index user input 
+
+        Booked[index].IsCancelled = true;
+        Cancelled.Add(Booked[index]);
+        string result = $"Cancelled: Flight {Booked[index].Airline}, Ticket Price: {Booked[index].TicketPrice:C}, Gate: {Booked[index].Gate}, Airport: {Booked[index].Airport}, Cancelled: {Booked[index].IsCancelled}";
+        Booked.RemoveAt(index);
+        return result;
+  
 
     }
 
