@@ -19,7 +19,8 @@ public static class MenuPresentation
         }
     }
 
-    public static void AuthenticateAccountMenu() // Begin menu wanneer het programma opstart.
+    public static void AuthenticateAccountMenu() // Begin menu wanneer het programma opstart.cls
+    
     {
         Console.WriteLine("=== Main Menu ===");
         Console.WriteLine("1. Log in");
