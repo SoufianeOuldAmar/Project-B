@@ -31,6 +31,14 @@ public static class Cancel
                         string indexinput = Console.ReadLine();
 
                         int index = Convert.ToInt32(indexinput);
+
+                        // invalid index 
+                        if (index < 0 || index >= cancel.Booked.Count)
+                        {
+                            Console.WriteLine("Invalid index. Please re-enter index");
+                            continue;
+                        }
+                        
                         
                         cancel.CancelFlights(index); 
                         Console.WriteLine("Flight succesfully cancelled");
