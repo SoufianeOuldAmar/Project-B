@@ -24,14 +24,23 @@ public static class Cancel
 
                 if (input == "C")
                 {
-                    Console.WriteLine("Enter the index of the flight you want to cancel:");
+                    while (true)
+                    {
+                        Console.WriteLine("Enter the index of the flight you want to cancel:");
 
-                    string indexinput = Console.ReadLine();
+                        string indexinput = Console.ReadLine();
 
-                    int index = Convert.ToInt32(indexinput);
+                        int index = Convert.ToInt32(indexinput);
                         
-                    cancel.CancelFlights(index); 
+                        cancel.CancelFlights(index); 
+                        Console.WriteLine("Flight succesfully cancelled");
+                        break;
+                    }
 
+                }
+                else 
+                {
+                    Console.WriteLine("Invalid input");
                 }
             }
             else 

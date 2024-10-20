@@ -33,7 +33,7 @@ public class CancelFlight
     {
         if (index<0 || index >=Booked.Count)
         {
-            return null;
+            return$"Incorrect index";
         }
             // see if i matches with index user input 
 
