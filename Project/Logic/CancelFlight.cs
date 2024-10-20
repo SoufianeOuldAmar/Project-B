@@ -4,9 +4,7 @@
 public class CancelFlight
 
 {
-
-    // fields 
-    
+   
     // list to store the booked flights and the cancelled flights the user has 
     public List<FlightModel> Booked = new List<FlightModel>();
     public List<FlightModel> Cancelled = new List<FlightModel>();

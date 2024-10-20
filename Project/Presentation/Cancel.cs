@@ -1,8 +1,8 @@
 using System;
 
-static class Cancel 
+public static class Cancel 
 {
-    static void Main()
+    public static void Main()
     {
         CancelFlight cancel = new CancelFlight();
 
