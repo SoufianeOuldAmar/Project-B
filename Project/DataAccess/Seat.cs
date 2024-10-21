@@ -4,12 +4,14 @@ public class Seat
     public char SeatLetter { get; set; }
     public string Class { get; set; }
     public decimal Price { get; set; }
-    public bool IsAvailable { get; set; }
+    
+    // Make sure the set accessor is public
+    public bool IsAvailable { get; set; } 
 
     public Seat(int row, char seatLetter)
     {
         Row = row;
         SeatLetter = seatLetter;
-        IsAvailable = true;
+        IsAvailable = true; // Set initially to true
     }
 }
