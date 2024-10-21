@@ -4,6 +4,7 @@ public static class AccountPresentation
     public static void LogIn()
     {
         bool newLineValid = true;
+        int i = 0;
         while (true)
         {
             Console.WriteLine("=== Log in ===\n");
@@ -26,6 +27,15 @@ public static class AccountPresentation
                 bool validInput = false;
                 do
                 {
+                    i++;
+                    Console.WriteLine("Invalid email or password. Please try again.");
+                    if (i >= 3)
+                    {
+                        Console.WriteLine("You will be locked out for 1 minute due to multiple failed attempts.");
+                        Thread.Sleep(60000);
+                        i = 0;
+                    }
+
                     string newLine = newLineValid ? "\n" : "";
                     Console.Write($"{newLine}Username or password is incorrect! Do you want to try again? (Input either yes or no): ");
                     string choice = Console.ReadLine();
@@ -62,6 +72,7 @@ public static class AccountPresentation
         bool validInput = false;
 
         do
+
         {
             Console.Clear();
             Console.WriteLine("=== Create account ===");
