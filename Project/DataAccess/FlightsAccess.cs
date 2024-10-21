@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -19,7 +20,6 @@ public class FlightsAccess
             jsonLines.Add($"    \"TicketPrice\": {flight.TicketPrice},");
             jsonLines.Add($"    \"Gate\": \"{flight.Gate}\",");
             jsonLines.Add($"    \"DepartureAirport\": \"{flight.DepartureAirport}\",");
-            jsonLines.Add($"    \"ArrivalAirport\": \"{flight.ArrivalAirport}\",");
             jsonLines.Add($"    \"ArrivalDestination\": \"{flight.ArrivalDestination}\",");
             jsonLines.Add($"    \"IsCancelled\": {flight.IsCancelled.ToString().ToLower()},");
             jsonLines.Add($"    \"AvailableSeats\": [\"{string.Join("\", \"", flight.AvailableSeats)}\"],");
@@ -41,22 +41,21 @@ public class FlightsAccess
             string json = string.Join("\n", jsonLines);
             json = json.Replace("[", "").Replace("]", "").Trim(); // Verwijder de array-haken
 
-            string[] flightEntries = json.Split(new[] { "}," }, System.StringSplitOptions.RemoveEmptyEntries);
+            string[] flightEntries = json.Split(new[] { "}," }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var entry in flightEntries)
             {
                 // Verwerk elke vluchtinvoer
                 var fields = entry.Split(',');
                 FlightModel flight = new FlightModel(
-                    GetFieldValue(fields[0]),
+                    GetFieldValue(fields[0]), // Airline
                     null, // Aangenomen dat Layout null is
-                    decimal.Parse(GetFieldValue(fields[2])),
-                    GetFieldValue(fields[3]),
-                    GetFieldValue(fields[4]),
-                    GetFieldValue(fields[5]),
-                    GetFieldValue(fields[6]),
-                    bool.Parse(GetFieldValue(fields[7])),
-                    GetFieldValue(fields[8]),
-                    GetFieldValue(fields[9])
+                    decimal.Parse(GetFieldValue(fields[2])), // TicketPrice
+                    GetFieldValue(fields[3]), // Gate
+                    GetFieldValue(fields[4]), // DepartureAirport
+                    GetFieldValue(fields[5]), // ArrivalDestination
+                    bool.Parse(GetFieldValue(fields[6])), // IsCancelled
+                    GetFieldValue(fields[7]), // DepartureDate
+                    GetFieldValue(fields[8]) // FlightTime
                 );
                 flights.Add(flight);
             }

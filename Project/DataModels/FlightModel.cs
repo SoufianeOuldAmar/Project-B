@@ -2,52 +2,60 @@ using System.Collections.Generic;
 
 public class FlightModel
 {
+    // Properties
     public string Airline { get; set; }
-    public string Layout { get; set; }
-    public decimal TicketPrice { get; set; }
+    public Layout Layout { get; set; }
+    public decimal TicketPrice { get; set; } 
     public string Gate { get; set; }
     public string DepartureAirport { get; set; }
-    public string ArrivalAirport { get; set; }
-    public string ArrivalDestination { get; set; }
+    public string ArrivalDestination { get; set; } // Stad, Vliegveld
     public bool IsCancelled { get; set; }
-    public List<string> AvailableSeats { get; set; } = new List<string>();
+    public List<string> AvailableSeats { get; set; }
     public string DepartureDate { get; set; }
     public string FlightTime { get; set; }
 
-    public FlightModel(string airline, string layout, decimal ticketPrice, string gate, string departureAirport, string arrivalAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime)
+    // Constructor
+    public FlightModel(string airline, Layout layout, decimal ticketPrice, string gate, string departureAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime)
     {
         Airline = airline;
         Layout = layout;
         TicketPrice = ticketPrice;
         Gate = gate;
         DepartureAirport = departureAirport;
-        ArrivalAirport = arrivalAirport;
-        ArrivalDestination = arrivalDestination;
+        ArrivalDestination = arrivalDestination; // Bijvoorbeeld: "Istanbul, Istanbul Airport"
         IsCancelled = isCancelled;
         DepartureDate = departureDate;
         FlightTime = flightTime;
-        AvailableSeats = new List<string> { "1A", "1B", "1C", "2A", "2B", "2C" };
-    }
 
-    public bool IsFull()
-    {
-        return AvailableSeats.Count == 0;
-    }
-
-    public bool BookSeat(string seat)
-    {
-        if (AvailableSeats.Contains(seat))
+        // Initialiseer de lijst met standaard beschikbare stoelen, nu uitgebreid met D, E en F
+        AvailableSeats = new List<string>();
+        for (int row = 1; row <= 10; row++) // Stel het aantal rijen in (bijv. 10)
         {
-            AvailableSeats.Remove(seat);
-            return true;
+            AvailableSeats.Add($"{row}A");
+            AvailableSeats.Add($"{row}B");
+            AvailableSeats.Add($"{row}C");
+            AvailableSeats.Add($"{row}D");
+            AvailableSeats.Add($"{row}E");
+            AvailableSeats.Add($"{row}F");
         }
-        return false;
     }
 
+    // Methode om informatie van de vlucht weer te geven
     public override string ToString()
     {
-        return $"Airline: {Airline}, Ticket Price: {TicketPrice:C}, Gate: {Gate}, Departure Airport: {DepartureAirport}, " +
-               $"Arrival Airport: {ArrivalAirport}, Arrival Destination: {ArrivalDestination}, Departure Date: {DepartureDate}, " +
-               $"Flight Time: {FlightTime}, Cancelled: {IsCancelled}";
+        return $"Airline: {Airline}, Departure: {DepartureAirport}, Arrival: {ArrivalDestination}, " +
+               $"Price: {TicketPrice:C}, Gate: {Gate}, Date: {DepartureDate}, Time: {FlightTime}, " +
+               $"Cancelled: {IsCancelled}";
+    }
+}
+
+// Mock Layout class
+public class Layout
+{
+    public string LayoutType { get; set; }
+
+    public Layout(string layoutType)
+    {
+        LayoutType = layoutType;
     }
 }

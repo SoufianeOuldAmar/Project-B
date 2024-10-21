@@ -3,10 +3,11 @@ using System.Collections.Generic;
 
 public class BookFlightLogic
 {
-    private List<FlightModel> flights;
+    private List<FlightModel> flights; // Private veld voor vluchten
 
     public BookFlightLogic()
     {
+        flights = new List<FlightModel>(); // Initialiseer de flights lijst
         LoadAllFlights();
     }
 
@@ -21,40 +22,26 @@ public class BookFlightLogic
     {
         List<FlightModel> randomFlights = new List<FlightModel>();
         Random random = new Random();
-        string[] europeanAirports = {
-            "Schiphol Airport",
-            "Charles de Gaulle Airport",
-            "Heathrow Airport",
-            "Frankfurt Airport",
-            "Brussels Airport",
-            "Istanbul Airport",
-            "Warsaw Chopin Airport",
-            "Budapest Ferenc Liszt International Airport",
-            "Barcelona-El Prat Airport",
-            "Riga International Airport",
-            "Athens International Airport",
-            "Lisbon Airport"
+        
+        string[] europeanCities = {
+            "Amsterdam, Schiphol Airport",
+            "Paris, Charles de Gaulle Airport",
+            "London, Heathrow Airport",
+            "Frankfurt, Frankfurt Airport",
+            "Brussels, Brussels Airport",
+            "Istanbul, Istanbul Airport",
+            "Warsaw, Warsaw Chopin Airport",
+            "Budapest, Budapest Ferenc Liszt International Airport",
+            "Barcelona, Barcelona-El Prat Airport",
+            "Riga, Riga International Airport",
+            "Athens, Athens International Airport",
+            "Lisbon, Lisbon Airport"
         };
 
-        string[] europeanDestinations = {
-            "Amsterdam",
-            "Paris",
-            "London",
-            "Frankfurt",
-            "Brussels",
-            "Istanbul",
-            "Warsaw",
-            "Budapest",
-            "Barcelona",
-            "Riga",
-            "Athens",
-            "Lisbon"
-        };
-        
         for (int i = 0; i < numberOfFlights; i++)
         {
-            string arrivalAirport = europeanAirports[random.Next(europeanAirports.Length)];
-            string arrivalDestination = europeanDestinations[random.Next(europeanDestinations.Length)];
+            int index = random.Next(europeanCities.Length); // Willekeurige bestemming en vliegveld
+            string arrivalDestination = europeanCities[index]; // Haal de stad en vliegveld op
             decimal ticketPrice = random.Next(100, 500); // Willekeurige prijs tussen 100 en 500
             string gate = "Gate " + random.Next(1, 10); // Willekeurige gate tussen 1 en 10
             string departureDate = GenerateRandomDate(); // Willekeurige datum genereren
@@ -66,7 +53,6 @@ public class BookFlightLogic
                 ticketPrice, 
                 gate, 
                 "Rotterdam The Hague Airport", 
-                arrivalAirport, 
                 arrivalDestination, 
                 false, 
                 departureDate, 
