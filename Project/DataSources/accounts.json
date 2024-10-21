@@ -12,15 +12,15 @@
     "fullName": "Thomas Edison"
   },
   {
-    "id": 3,
-    "emailAddress": "soufiane_ouldamar@outlook.com",
-    "password": "password",
-    "fullName": "Soufiane Ould Amar"
-  },
-  {
     "id": 4,
     "emailAddress": "soufiane_ouldamar@",
     "password": "password1",
     "fullName": "Soufiane Ould Amar"
+  },
+  {
+    "id": 3,
+    "emailAddress": "BOOST-29",
+    "Password": "airline",
+    "fullName": "Albert Einstein"
   }
 ]
