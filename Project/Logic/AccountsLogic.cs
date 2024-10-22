@@ -54,7 +54,7 @@ public class AccountsLogic
         if (statusList.Count == 0)
         {
             int id = _accounts.Count + 1;
-            AccountModel account = new AccountModel(id, email, password, fullName);
+            AccountModel account = new AccountModel(id, email, password, fullName, false);
             UpdateList(account);
             return "\nAccount created successfully!";
         }
@@ -121,6 +121,7 @@ public class AccountsLogic
         {
             return null;
         }
+
         CurrentAccount = _accounts.Find(i => i.EmailAddress == email && i.Password == password);
         return CurrentAccount;
     }
@@ -132,7 +133,3 @@ public class AccountsLogic
         else return null;
     }
 }
-
-
-
-
