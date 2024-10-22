@@ -16,12 +16,19 @@ public static class AccountPresentation
 
             AccountModel? accountModel = accountsLogic.CheckLogin(emailAddress, password);
 
-            if (accountModel != null)
+            if (accountModel != null && accountModel.IsAdmin == false)
             {
                 Console.WriteLine("\nSucces! Welcome back!");
-                MenuLogic.PushMenu(() => MenuPresentation.FrontPage(accountModel));
+                MenuLogic.PushMenu(() => MenuPresentation.FrontPageUser(accountModel));
                 break;
             }
+            else if (accountModel != null && accountModel.IsAdmin == true)
+            {
+                Console.WriteLine("\nSucces! Welcome back!");
+                MenuLogic.PushMenu(() => MenuPresentation.FrontPageAdmin(accountModel));
+                break;
+            }
+
             else
             {
                 bool validInput = false;
