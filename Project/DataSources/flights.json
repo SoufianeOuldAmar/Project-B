@@ -1,1 +1,121 @@
-[]
+[
+    {
+        "flightNumber": "BOSST001",
+        "airline": "BOSST Airlines",
+        "ticketPrice": 250,
+        "gate": "Gate 1",
+        "departureAirport": "Rotterdam The Hague Airport",
+        "arrivalDestination": "Istanbul, Istanbul Airport",
+        "departureDate": "29-10-2024",
+        "flightTime": "08:00-13:00",
+        "layout": null
+    },
+
+    {
+        "flightNumber": "BOSST002",
+        "airline": "BOSST Airlines",
+        "ticketPrice": 300,
+        "gate": "Gate 2",
+        "departureAirport": "Rotterdam The Hague Airport",
+        "arrivalDestination": "Paris, Charles de Gaulle Airport",
+        "departureDate": "30-10-2024",
+        "flightTime": "10:00-11:30",
+        "layout": null
+    },
+
+    {
+        "flightNumber": "BOSST003",
+        "airline": "BOSST Airlines",
+        "ticketPrice": 220,
+        "gate": "Gate 3",
+        "departureAirport": "Rotterdam The Hague Airport",
+        "arrivalDestination": "London, Heathrow Airport",
+        "departureDate": "01-11-2024",
+        "flightTime": "14:00-16:00",
+        "layout": null
+    },
+
+    {
+        "flightNumber": "BOSST004",
+        "airline": "BOSST Airlines",
+        "ticketPrice": 180,
+        "gate": "Gate 4",
+        "departureAirport": "Rotterdam The Hague Airport",
+        "arrivalDestination": "Frankfurt, Frankfurt Airport",
+        "departureDate": "02-11-2024",
+        "flightTime": "12:00-13:30",
+        "layout": null
+    },
+
+    {
+        "flightNumber": "BOSST005",
+        "airline": "BOSST Airlines",
+        "ticketPrice": 150,
+        "gate": "Gate 5",
+        "departureAirport": "Rotterdam The Hague Airport",
+        "arrivalDestination": "Brussels, Brussels Airport",
+        "departureDate": "05-11-2024",
+        "flightTime": "09:00-10:00",
+        "layout": null
+    },
+
+    {
+        "flightNumber": "BOSST006",
+        "airline": "BOSST Airlines",
+        "ticketPrice": 280,
+        "gate": "Gate 6",
+        "departureAirport": "Rotterdam The Hague Airport",
+        "arrivalDestination": "Istanbul, Istanbul Airport",
+        "departureDate": "07-11-2024",
+        "flightTime": "16:00-20:00",
+        "layout": null
+    },
+
+    {
+        "flightNumber": "BOSST007",
+        "airline": "BOSST Airlines",
+        "ticketPrice": 210,
+        "gate": "Gate 7",
+        "departureAirport": "Rotterdam The Hague Airport",
+        "arrivalDestination": "Warsaw, Warsaw Chopin Airport",
+        "departureDate": "10-11-2024",
+        "flightTime": "11:00-13:15",
+        "layout": null
+    },
+
+    {
+        "flightNumber": "BOSST008",
+        "airline": "BOSST Airlines",
+        "ticketPrice": 230,
+        "gate": "Gate 8",
+        "departureAirport": "Rotterdam The Hague Airport",
+        "arrivalDestination": "Budapest, Budapest Ferenc Liszt International Airport",
+        "departureDate": "12-11-2024",
+        "flightTime": "13:30-15:25",
+        "layout": null
+    },
+
+    {
+        "flightNumber": "BOSST009",
+        "airline": "BOSST Airlines",
+        "ticketPrice": 190,
+        "gate": "Gate 9",
+        "departureAirport": "Rotterdam The Hague Airport",
+        "arrivalDestination": "Barcelona, Barcelona-El Prat Airport",
+        "departureDate": "15-11-2024",
+        "flightTime": "17:00-19:10",
+        "layout": null
+    },
+    
+    {
+        "flightNumber": "BOSST010",
+        "airline": "BOSST Airlines",
+        "ticketPrice": 240,
+        "gate": "Gate 10",
+        "departureAirport": "Rotterdam The Hague Airport",
+        "arrivalDestination": "Athens, Athens International Airport",
+        "departureDate": "18-11-2024",
+        "flightTime": "21:00-23:45",
+        "layout": null
+    }
+]
