@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class LayoutModel
 {
     public int Rows { get; set; }
