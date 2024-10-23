@@ -50,4 +50,6 @@ public class TestAccountLogic
         CollectionAssert.AreEqual(statusListEmailWrong, unsuccessfulEmailAccount, "statusListEmailWrong should not be empty.");
         CollectionAssert.AreEqual(statusListPasswordWrong, unsuccessfulPasswordAccount, "statusListPasswordWrong should not be empty.");
     }
+
+    
 }
