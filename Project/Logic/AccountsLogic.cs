@@ -8,13 +8,8 @@
         CorrectCredentials
     }
 
-    private static List<AccountModel> _accounts;
+    private static List<AccountModel> _accounts = AccountsAccess.LoadAll();
     static public AccountModel? CurrentAccount { get; private set; }
-
-    static AccountsLogic() // Static constructor
-    {
-        _accounts = AccountsAccess.LoadAll();
-    }
 
     public static void UpdateList(AccountModel acc)
     {
@@ -41,7 +36,7 @@
         if (statusList.Count == 0)
         {
             int id = _accounts.Count + 1; // Use the next id
-            AccountModel account = new AccountModel(id, email, password, fullName);
+            AccountModel account = new AccountModel(id, email, password, fullName, false);
             UpdateList(account);
             return "\nAccount created successfully!";
         }
