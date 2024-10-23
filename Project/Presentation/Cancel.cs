@@ -10,10 +10,13 @@ public static class Cancel
         {
             if (cancel.Booked.Count > 0) 
             {
-                Console.WriteLine("Booked Flights:");
-                Console.WriteLine(cancel.BookedFlights()); 
 
-                Console.WriteLine("Enter 'C' to cancel a flight or 'Q' to quit:");
+                Console.WriteLine("\nMenu:");
+                Console.WriteLine("1. See booked flights");
+                Console.WriteLine("2. Cancel a flight");
+                Console.WriteLine("3. See cancelled flights");
+                Console.WriteLine("Q. Quit");
+
                 string input = Console.ReadLine().ToUpper(); 
 
                 if (input == "Q")
@@ -21,8 +24,13 @@ public static class Cancel
                     Console.WriteLine("Quitting the program");
                     break; 
                 }
+                if (input== "1")
+                {
+                    Console.WriteLine("Booked Flights:");
+                    Console.WriteLine(cancel.BookedFlights());
+                }
 
-                if (input == "C")
+                else if (input == "2")
                 {
                     while (true)
                     {
@@ -43,6 +51,19 @@ public static class Cancel
                         cancel.CancelFlights(index); 
                         Console.WriteLine("Flight succesfully cancelled");
                         break;
+                    }
+
+                }
+                else if (input== "3")
+                {
+                    string cancelled = cancel.CancelledOverview();
+                    if (cancelled.Length == 0)
+                    {
+                        Console.WriteLine("No cancelled flights.");
+                    }
+                    else
+                    {
+                        Console.WriteLine(cancelled);
                     }
 
                 }
