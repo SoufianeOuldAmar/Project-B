@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text.Json;
-
-
-//This class is not static so later on we can use inheritance and interfaces
-public class AccountsLogic
+﻿public static class AccountsLogic
 {
     public enum CreateAccountStatus
     {
@@ -15,46 +8,40 @@ public class AccountsLogic
         CorrectCredentials
     }
 
-    private List<AccountModel> _accounts;
-
-    //Static properties are shared across all instances of the class
-    //This can be used to get the current logged in account from anywhere in the program
-    //private set, so this can only be set by the class itself
+    private static List<AccountModel> _accounts;
     static public AccountModel? CurrentAccount { get; private set; }
 
-    public AccountsLogic()
+    static AccountsLogic() // Static constructor
     {
         _accounts = AccountsAccess.LoadAll();
     }
 
-
-    public void UpdateList(AccountModel acc)
+    public static void UpdateList(AccountModel acc)
     {
-        //Find if there is already an model with the same id
         int index = _accounts.FindIndex(s => s.Id == acc.Id);
 
         if (index != -1)
         {
-            //update existing model
+            // Update existing model
             _accounts[index] = acc;
         }
         else
         {
-            //add new model
+            // Add new model
             _accounts.Add(acc);
         }
-        AccountsAccess.WriteAll(_accounts);
 
+        AccountsAccess.WriteAll(_accounts);
     }
 
-    public string CreateAccount(string fullName, string email, string password)
+    public static string CreateAccount(string fullName, string email, string password)
     {
         List<CreateAccountStatus> statusList = CheckCreateAccount(fullName, email, password);
 
         if (statusList.Count == 0)
         {
-            int id = _accounts.Count + 1;
-            AccountModel account = new AccountModel(id, email, password, fullName, false);
+            int id = _accounts.Count + 1; // Use the next id
+            AccountModel account = new AccountModel(id, email, password, fullName);
             UpdateList(account);
             return "\nAccount created successfully!";
         }
@@ -83,8 +70,7 @@ public class AccountsLogic
         }
     }
 
-
-    public List<CreateAccountStatus> CheckCreateAccount(string fullName, string email, string password)
+    public static List<CreateAccountStatus> CheckCreateAccount(string fullName, string email, string password)
     {
         List<CreateAccountStatus> statusList = new List<CreateAccountStatus>();
 
@@ -92,30 +78,28 @@ public class AccountsLogic
         bool hasAtSymbol = email.Contains("@");
         bool hasMoreThanFiveChar = password.Length >= 5;
 
-
         if (hasNonLetters)
         {
-            statusList.Add(CreateAccountStatus.IncorrectFullName); // Return status for invalid full name
+            statusList.Add(CreateAccountStatus.IncorrectFullName);
         }
         if (!hasAtSymbol)
         {
-            statusList.Add(CreateAccountStatus.IncorrectEmail); // Return status for invalid email
+            statusList.Add(CreateAccountStatus.IncorrectEmail);
         }
         if (!hasMoreThanFiveChar)
         {
-            statusList.Add(CreateAccountStatus.IncorrectPassword); // Return status for invalid password
+            statusList.Add(CreateAccountStatus.IncorrectPassword);
         }
 
-        return statusList; // Return status for successful account creation
+        return statusList;
     }
 
-
-    public AccountModel GetById(int id)
+    public static AccountModel GetById(int id)
     {
         return _accounts.Find(i => i.Id == id);
     }
 
-    public AccountModel CheckLogin(string email, string password)
+    public static AccountModel CheckLogin(string email, string password)
     {
         if (email == null || password == null)
         {
@@ -126,7 +110,7 @@ public class AccountsLogic
         return CurrentAccount;
     }
 
-    public bool? TryLogInAgain(string input)
+    public static bool? TryLogInAgain(string input)
     {
         if (input.ToLower() == "yes") return true;
         else if (input.ToLower() == "no") return false;

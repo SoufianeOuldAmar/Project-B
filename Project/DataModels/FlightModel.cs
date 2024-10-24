@@ -1,21 +1,43 @@
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 public class FlightModel
 {
     // Properties
+    [JsonPropertyName("id")]
+    public int Id { get; set; }
+
+    [JsonPropertyName("Airline")]
     public string Airline { get; set; }
-    public Layout Layout { get; set; }
-    public decimal TicketPrice { get; set; } 
+
+    [JsonPropertyName("Layout")]
+    public LayoutModel Layout { get; set; }
+
+    [JsonPropertyName("TicketPrice")]
+    public decimal TicketPrice { get; set; }
+
+    [JsonPropertyName("Gate")]
     public string Gate { get; set; }
+
+    [JsonPropertyName("DepartureAirport")]
     public string DepartureAirport { get; set; }
+
+    [JsonPropertyName("ArrivalDestination")]
     public string ArrivalDestination { get; set; } // Stad, Vliegveld
+
+    [JsonPropertyName("IsCancelled")]
     public bool IsCancelled { get; set; }
-    public List<string> AvailableSeats { get; set; }
+
+
+    [JsonPropertyName("DepartureDate")]
     public string DepartureDate { get; set; }
+
+    [JsonPropertyName("FlightTime")]
     public string FlightTime { get; set; }
 
-    // Constructor
-    public FlightModel(string airline, Layout layout, decimal ticketPrice, string gate, string departureAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime)
+    // Constructor sort of values terug geven
+    public FlightModel(string airline, LayoutModel layout, decimal ticketPrice, string gate, string departureAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime)
+
     {
         Airline = airline;
         Layout = layout;
@@ -26,18 +48,6 @@ public class FlightModel
         IsCancelled = isCancelled;
         DepartureDate = departureDate;
         FlightTime = flightTime;
-
-        // Initialiseer de lijst met standaard beschikbare stoelen, nu uitgebreid met D, E en F
-        AvailableSeats = new List<string>();
-        for (int row = 1; row <= 10; row++) // Stel het aantal rijen in (bijv. 10)
-        {
-            AvailableSeats.Add($"{row}A");
-            AvailableSeats.Add($"{row}B");
-            AvailableSeats.Add($"{row}C");
-            AvailableSeats.Add($"{row}D");
-            AvailableSeats.Add($"{row}E");
-            AvailableSeats.Add($"{row}F");
-        }
     }
 
     // Methode om informatie van de vlucht weer te geven
@@ -46,16 +56,5 @@ public class FlightModel
         return $"Airline: {Airline}, Departure: {DepartureAirport}, Arrival: {ArrivalDestination}, " +
                $"Price: {TicketPrice:C}, Gate: {Gate}, Date: {DepartureDate}, Time: {FlightTime}, " +
                $"Cancelled: {IsCancelled}";
-    }
-}
-
-// Mock Layout class
-public class Layout
-{
-    public string LayoutType { get; set; }
-
-    public Layout(string layoutType)
-    {
-        LayoutType = layoutType;
     }
 }

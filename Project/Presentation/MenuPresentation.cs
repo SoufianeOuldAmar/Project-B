@@ -1,7 +1,6 @@
 public static class MenuPresentation
 {
     public static Stack<Action> menuStack = new Stack<Action>(); // Een stack voor functies
-    public static AccountsLogic accountsLogic = new AccountsLogic();
 
     public static void Start()
     {
@@ -19,8 +18,7 @@ public static class MenuPresentation
         }
     }
 
-    public static void AuthenticateAccountMenu() // Begin menu wanneer het programma opstart.cls
-
+    public static void AuthenticateAccountMenu() // Begin menu wanneer het programma opstart.
     {
         Console.WriteLine("=== Main Menu ===");
         Console.WriteLine("1. Log in");
@@ -63,17 +61,17 @@ public static class MenuPresentation
 
 
 
-    public static void OrderTicketMenu()
+    public static void BookFlightMenu()
     {
-
+        BookFlightPresentation.BookFlightMenu();
     }
 
     public static void ViewTicketHistoryMenu()
     {
-
+        BookFlightPresentation.CancelBookedFlightMenu();
     }
 
-    public static void FrontPageUser(AccountModel accountModel)
+    public static void FrontPage(AccountModel accountModel)
     {
         Console.WriteLine($"Logged in as: {accountModel.FullName}\n");
         Console.WriteLine("=== Front page ===");
@@ -86,41 +84,15 @@ public static class MenuPresentation
         switch (choice)
         {
             case "1":
-                // MenuLogic.PushMenu(OrderTicketMenu);
-                Console.WriteLine("\nThis feature isn't available yet.");
+                MenuLogic.PushMenu(BookFlightMenu);
                 break;
             case "2":
-                // MenuLogic.PushMenu(ViewTicketHistoryMenu);
+                MenuLogic.PushMenu(ViewTicketHistoryMenu);
                 Console.WriteLine("\nThis feature isn't available yet.");
                 break;
             case "3":
                 Console.WriteLine("\nLogging out...");
                 // AccountsLogic.LogOut();
-                MenuLogic.PopMenu();
-                MenuLogic.PopMenu();
-                break;
-            default:
-                Console.WriteLine("Invalid choice. Please try again.");
-                break;
-        }
-    }
-
-    public static void FrontPageAdmin(AccountModel accountModel)
-    {
-        Console.WriteLine($"Logged in as admin: {accountModel.FullName}\n");
-        Console.WriteLine("=== Front page ===");
-        Console.WriteLine("1. Modify flights");
-        Console.WriteLine("2. Log out");
-        Console.Write("\nChoose an option: ");
-        string choice = Console.ReadLine();
-
-        switch (choice)
-        {
-            case "1":
-                // MenuLogic.PushMenu(OrderTicketMenu);
-                Console.WriteLine("\nThis feature isn't available yet.");
-                break;
-            case "2":
                 MenuLogic.PopMenu();
                 MenuLogic.PopMenu();
                 break;
