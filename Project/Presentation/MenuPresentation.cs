@@ -71,7 +71,7 @@ public static class MenuPresentation
         BookFlightPresentation.CancelBookedFlightMenu();
     }
 
-    public static void FrontPage(AccountModel accountModel)
+    public static void FrontPageUser(AccountModel accountModel)
     {
         Console.WriteLine($"Logged in as: {accountModel.FullName}\n");
         Console.WriteLine("=== Front page ===");
@@ -93,6 +93,31 @@ public static class MenuPresentation
             case "3":
                 Console.WriteLine("\nLogging out...");
                 // AccountsLogic.LogOut();
+                MenuLogic.PopMenu();
+                MenuLogic.PopMenu();
+                break;
+            default:
+                Console.WriteLine("Invalid choice. Please try again.");
+                break;
+        }
+    }
+
+    public static void FrontPageAdmin(AccountModel accountModel)
+    {
+        Console.WriteLine($"Logged in as admin: {accountModel.FullName}\n");
+        Console.WriteLine("=== Front page ===");
+        Console.WriteLine("1. Modify flights");
+        Console.WriteLine("2. Log out");
+        Console.Write("\nChoose an option: ");
+        string choice = Console.ReadLine();
+
+        switch (choice)
+        {
+            case "1":
+                // MenuLogic.PushMenu(OrderTicketMenu);
+                Console.WriteLine("\nThis feature isn't available yet.");
+                break;
+            case "2":
                 MenuLogic.PopMenu();
                 MenuLogic.PopMenu();
                 break;
