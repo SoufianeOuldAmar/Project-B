@@ -16,6 +16,8 @@ public class AccountModel
     [JsonPropertyName("isAdmin")]
     public bool IsAdmin { get; set; }
 
+    public int FlightPoints { get; set; } = 0;
+
     public AccountModel(int id, string emailAddress, string password, string fullName, bool isAdmin)
     {
         Id = id;

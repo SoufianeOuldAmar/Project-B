@@ -13,23 +13,24 @@ public static class BookFlightPresentation
                 return;
             }
 
-            Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12}",
+            Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12} {6,-30}",
                               "ID", "Airline", "Departure Airport", "Arrival Destination",
-                              "Flight Time", "Cancelled");
-            Console.WriteLine(new string('-', 195));
+                              "Flight Time", "Cancelled", "Ticket Price");
+            Console.WriteLine(new string('-', 200));
 
             foreach (var flight in allFlights)
             {
-                Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12}",
+                Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12} {6,-30}",
                                   flight.Id,
                                   flight.Airline,
                                   flight.DepartureAirport,
                                   flight.ArrivalDestination,
                                   flight.FlightTime,
-                                  flight.IsCancelled ? "Yes" : "No");
+                                  flight.IsCancelled ? "Yes" : "No",
+                                  $"€ {flight.TicketPrice},-");
             }
 
-            Console.WriteLine("\n" + new string('-', 195));
+            Console.WriteLine("\n" + new string('-', 200));
             Console.Write("\nEnter the ID of the flight you wish to book: ");
 
             if (int.TryParse(Console.ReadLine(), out int selectedId))
@@ -42,7 +43,9 @@ public static class BookFlightPresentation
                     Console.WriteLine("{0,-20} {1,-35}", "Departure Airport:", selectedFlight.DepartureAirport);
                     Console.WriteLine("{0,-20} {1,-35}", "Arrival Destination:", selectedFlight.ArrivalDestination);
                     Console.WriteLine("{0,-20} {1,-35}", "Flight Time:", selectedFlight.FlightTime);
-                    Console.WriteLine("{0,-20} {1,-35}", "Is Cancelled:", (selectedFlight.IsCancelled ? "Yes" : "No"));
+                    Console.WriteLine("{0,-20} {1,-35}", "Cancelled:", (selectedFlight.IsCancelled ? "Yes" : "No"));
+                    Console.WriteLine("{0,-20} {1,-35}", "Ticket Price:", ($"€ {selectedFlight.TicketPrice},-"));
+
 
                     Console.Write("\nAre you sure you want to book this flight? (yes/no) ");
                     string confirmation = Console.ReadLine();
