@@ -36,7 +36,7 @@
         if (statusList.Count == 0)
         {
             int id = _accounts.Count + 1; // Use the next id
-            AccountModel account = new AccountModel(id, email, password, fullName, false);
+            AccountModel account = new AccountModel(id, email, password, fullName);
             UpdateList(account);
             return "\nAccount created successfully!";
         }
