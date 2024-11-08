@@ -2,36 +2,51 @@ public static class BookFlightPresentation
 {
     public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
     public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
+    
     public static void BookFlightMenu(AccountModel? accountModel = null)
+{
+    while (true)
     {
-        while (true)
+        Console.WriteLine("=== Book Ticket ===\n");
+        if (allFlights.Count == 0)
         {
-            Console.WriteLine("=== Book Ticket ===\n");
-            if (allFlights.Count == 0)
-            {
-                Console.WriteLine("No flights available.");
-                return;
-            }
+            Console.WriteLine("No flights available.");
+            return;
+        }
 
-            Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12}",
-                              "ID", "Airline", "Departure Airport", "Arrival Destination",
-                              "Flight Time", "Cancelled");
-            Console.WriteLine(new string('-', 195));
+        // Voeg "Available Seats" toe aan de header
+        Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12} {6,-15}",
+                          "ID", "Airline", "Departure Airport", "Arrival Destination",
+                          "Flight Time", "Cancelled", "Available Seats");
+        Console.WriteLine(new string('-', 210));
 
-            foreach (var flight in allFlights)
-            {
-                Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12}",
-                                  flight.Id,
-                                  flight.Airline,
-                                  flight.DepartureAirport,
-                                  flight.ArrivalDestination,
-                                  flight.FlightTime,
-                                  flight.IsCancelled ? "Yes" : "No");
-            }
+        foreach (var flight in allFlights)
+        {
+            // Haal het aantal beschikbare stoelen op voor elke vlucht
+            int availableSeats = BookFlightLogic.GetAvailableSeatsCount(flight);
 
-            Console.WriteLine("\n" + new string('-', 195));
-            Console.Write("\nEnter the ID of the flight you wish to book: ");
+            // Toon vluchtinformatie inclusief beschikbare stoelen
+            Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12} {6,-15}",
+                              flight.Id,
+                              flight.Airline,
+                              flight.DepartureAirport,
+                              flight.ArrivalDestination,
+                              flight.FlightTime,
+                              flight.IsCancelled ? "Yes" : "No",
+                              flight.AvailableSeats);
+        }
 
+        Console.WriteLine("\n" + new string('-', 210));
+        Console.Write("\nEnter the ID of the flight you wish to book (or 'Q' to quit): ");
+        string input = Console.ReadLine()?.Trim();
+
+        if (input?.ToUpper() == "Q")
+        {
+            Console.WriteLine("Exiting booking process... Returning to the login menu.");
+            MenuLogic.PopMenu(); // Roep PopMenu aan om terug te keren naar het hoofdmenu (bijv. loginmenu)
+            break; // Verlaat de boekingsfunctie
+        }
+        
             if (int.TryParse(Console.ReadLine(), out int selectedId))
             {
                 var selectedFlight = BookFlightLogic.SearchFlightByID(selectedId);
@@ -43,15 +58,23 @@ public static class BookFlightPresentation
                     Console.WriteLine("{0,-20} {1,-35}", "Arrival Destination:", selectedFlight.ArrivalDestination);
                     Console.WriteLine("{0,-20} {1,-35}", "Flight Time:", selectedFlight.FlightTime);
                     Console.WriteLine("{0,-20} {1,-35}", "Is Cancelled:", (selectedFlight.IsCancelled ? "Yes" : "No"));
+                    Console.WriteLine("{0,-20} {1,-35}", "Available Seats", (selectedFlight.Layout.AvailableSeats.Count));
+                    
+
+                    Console.WriteLine("Available seats in layout:");
+                    foreach (var seat in selectedFlight.Layout.AvailableSeats)
+                    {
+                        Console.WriteLine(seat);
+                    }
 
                     Console.Write("\nAre you sure you want to book this flight? (yes/no) ");
                     string confirmation = Console.ReadLine();
 
                     if (confirmation == "yes")
                     {
-                        // Seat selection process
+                        // Seat kiezen proces
                         List<string> chosenSeats = new List<string>();
-                        selectedFlight.Layout.PrintLayout(); // Print the initial layout
+                        selectedFlight.Layout.PrintLayout(); // Print de layout
 
                         while (true)
                         {
@@ -61,27 +84,25 @@ public static class BookFlightPresentation
                             if (seat == "Q")
                             {
                                 break; // Exit seat selection
+
                             }
                             else if (string.IsNullOrWhiteSpace(seat))
                             {
                                 Console.WriteLine("Confirming your selected seats...");
-                                selectedFlight.Layout.ConfirmBooking(); // Confirm booking (turn yellow seats to red)
+                                selectedFlight.Layout.ConfirmBooking(); // Confirm booking yellow wordt rood
                                 break;
                             }
-                            // else
-                            // {   
-                            //     Console.WriteLine("Invalid input");
-                            //     Console.WriteLine("Press any key to continue...");
-                            //     Console.ReadKey();
-                            //     continue;
-                            // }
-
-                            // Book the seat temporarily (yellow)
-                            selectedFlight.Layout.BookFlight(seat);
-
-                            // Clear console and reprint the layout to show updates
-                            Console.Clear();
-                            selectedFlight.Layout.PrintLayout(); // Show updated layout with chosen seats in yellow
+                            else if (BookFlightLogic.IsSeatAlreadyBooked(selectedFlight, seat))
+                            {
+                                Console.WriteLine("Seat is already booked. Please choose a different seat.");
+                            }
+                            else
+                            {
+                                // Book the seat temporarily (yellow)
+                                selectedFlight.Layout.BookFlight(seat);
+                                Console.Clear();
+                                selectedFlight.Layout.PrintLayout(); // Show updated layout with chosen seats
+                            }
                         }
 
                         List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
@@ -91,8 +112,6 @@ public static class BookFlightPresentation
                         var currentAccount = AccountsLogic.CurrentAccount;
                         FlightsAccess.WriteAll(allFlights);
                         BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, bookedFlightModel);
-                        // Optionally, save booked seats to an external source (e.g., file, database) after confirming
-                        // SaveBookedSeats(accountModel.Email, selectedFlight.Id, chosenSeats);
 
                     }
                     else if (confirmation == "no")

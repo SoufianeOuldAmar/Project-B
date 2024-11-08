@@ -10,4 +10,15 @@ public static class BookFlightLogic
         return allFlights.FirstOrDefault(flight => flight.Id == id);
     }
 
+    // Method om te controleren of een zitplaats al geboekt is
+    public static bool IsSeatAlreadyBooked(FlightModel flight, string seat)
+    {
+        return flight.Layout.BookedSeats.Contains(seat);
+    }
+
+    // Method om te berekenen hoeveel beschikbare seats er nog zijn
+    public static int GetAvailableSeatsCount(FlightModel flight)
+    {
+        return (flight.Layout.Rows * flight.Layout.Columns) - flight.Layout.BookedSeats.Count;
+    }
 }

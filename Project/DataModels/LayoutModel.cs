@@ -135,6 +135,12 @@ public class LayoutModel
         {
             Console.WriteLine($"Seat {seat} is not available.");
         }
+
+        Console.WriteLine("Available seats after booking:");
+        foreach (var availableSeat in AvailableSeats)
+        {
+            Console.WriteLine(availableSeat);
+        }
     }
 
     // Confirm booking of chosen seats
@@ -146,5 +152,6 @@ public class LayoutModel
         }
         ChosenSeats.Clear();         // Clear the chosen seats list
         Console.WriteLine("Seats have been successfully booked.");
+
     }
 }

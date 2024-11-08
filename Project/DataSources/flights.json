@@ -307,19 +307,16 @@
         "20E",
         "20F",
         "21A",
-        "21B",
         "21C",
         "21D",
         "21E",
         "21F",
         "22A",
-        "22B",
         "22C",
         "22D",
         "22E",
         "22F",
         "23A",
-        "23B",
         "23C",
         "23D",
         "23E",
@@ -371,7 +368,11 @@
         "10A",
         "10B"
       ],
-      "ChosenSeats": []
+      "ChosenSeats": [
+        "21B",
+        "23B",
+        "22B"
+      ]
     },
     "TicketPrice": 150.00,
     "Gate": "A12",
@@ -379,7 +380,8 @@
     "ArrivalDestination": "Paris, Charles de Gaulle Airport",
     "IsCancelled": false,
     "DepartureDate": "2024-11-22",
-    "FlightTime": "14:30"
+    "FlightTime": "14:30",
+    "availableSeats": 178
   },
   {
     "id": 2,
@@ -664,7 +666,6 @@
         "16C",
         "16D",
         "16E",
-        "16F",
         "17A",
         "17B",
         "17C",
@@ -751,7 +752,8 @@
         "30F"
       ],
       "BookedSeats": [
-        "10A"
+        "10A",
+        "16F"
       ],
       "ChosenSeats": []
     },
@@ -761,7 +763,8 @@
     "ArrivalDestination": "Frankfurt, Frankfurt Airport",
     "IsCancelled": false,
     "DepartureDate": "2024-11-23",
-    "FlightTime": "09:45"
+    "FlightTime": "09:45",
+    "availableSeats": 178
   },
   {
     "id": 3,
@@ -961,7 +964,8 @@
     "ArrivalDestination": "Brussels, Brussels Airport",
     "IsCancelled": false,
     "DepartureDate": "2024-11-24",
-    "FlightTime": "11:00"
+    "FlightTime": "11:00",
+    "availableSeats": 180
   },
   {
     "id": 4,
@@ -1282,8 +1286,6 @@
         "22B",
         "22C",
         "22D",
-        "22E",
-        "22F",
         "23A",
         "23B",
         "23C",
@@ -1293,9 +1295,6 @@
         "24A",
         "24B",
         "24C",
-        "24D",
-        "24E",
-        "24F",
         "25A",
         "25B",
         "25C",
@@ -1330,10 +1329,16 @@
         "30B",
         "30C",
         "30D",
-        "30E",
-        "30F"
+        "30E"
       ],
-      "BookedSeats": [],
+      "BookedSeats": [
+        "30F",
+        "24F",
+        "24E",
+        "24D",
+        "22F",
+        "22E"
+      ],
       "ChosenSeats": []
     },
     "TicketPrice": 250.00,
@@ -1342,7 +1347,8 @@
     "ArrivalDestination": "Warsaw, Warsaw Chopin Airport",
     "IsCancelled": false,
     "DepartureDate": "2024-11-25",
-    "FlightTime": "13:20"
+    "FlightTime": "13:20",
+    "availableSeats": 174
   },
   {
     "id": 5,
@@ -1629,7 +1635,6 @@
         "16D",
         "16E",
         "16F",
-        "17A",
         "17B",
         "17C",
         "17D",
@@ -1665,7 +1670,6 @@
         "22D",
         "22E",
         "22F",
-        "23A",
         "23B",
         "23C",
         "23D",
@@ -1714,8 +1718,12 @@
         "30E",
         "30F"
       ],
-      "BookedSeats": [],
-      "ChosenSeats": []
+      "BookedSeats": [
+        "23A"
+      ],
+      "ChosenSeats": [
+        "17A"
+      ]
     },
     "TicketPrice": 160.00,
     "Gate": "E11",
@@ -1723,7 +1731,8 @@
     "ArrivalDestination": "Budapest, Budapest Ferenc Liszt International Airport",
     "IsCancelled": false,
     "DepartureDate": "2024-11-26",
-    "FlightTime": "16:10"
+    "FlightTime": "16:10",
+    "availableSeats": 179
   },
   {
     "id": 6,
@@ -2104,7 +2113,8 @@
     "ArrivalDestination": "Riga, Riga International Airport",
     "IsCancelled": false,
     "DepartureDate": "2024-11-27",
-    "FlightTime": "18:25"
+    "FlightTime": "18:25",
+    "availableSeats": 180
   },
   {
     "id": 7,
@@ -2420,7 +2430,6 @@
         "21C",
         "21D",
         "21E",
-        "21F",
         "22A",
         "22B",
         "22C",
@@ -2476,7 +2485,9 @@
         "30E",
         "30F"
       ],
-      "BookedSeats": [],
+      "BookedSeats": [
+        "21F"
+      ],
       "ChosenSeats": []
     },
     "TicketPrice": 190.00,
@@ -2485,6 +2496,7 @@
     "ArrivalDestination": "Lisbon, Lisbon Airport",
     "IsCancelled": false,
     "DepartureDate": "2024-11-28",
-    "FlightTime": "21:15"
+    "FlightTime": "21:15",
+    "availableSeats": 179
   }
 ]
