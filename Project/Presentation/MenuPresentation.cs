@@ -71,13 +71,19 @@ public static class MenuPresentation
         BookFlightPresentation.CancelBookedFlightMenu();
     }
 
+    public static void ViewFlightPointsMenu()
+    {
+        AccountPresentation.ViewFlightPoints();
+    }
+
     public static void FrontPageUser(AccountModel accountModel)
     {
         Console.WriteLine($"Logged in as: {accountModel.FullName}\n");
         Console.WriteLine("=== Front page ===");
         Console.WriteLine("1. Order a ticket");
         Console.WriteLine("2. View history of tickets");
-        Console.WriteLine("3. Log out");
+        Console.WriteLine("3. View Flight Points");
+        Console.WriteLine("4. Log out");
         Console.Write("\nChoose an option: ");
         string choice = Console.ReadLine();
 
@@ -91,6 +97,9 @@ public static class MenuPresentation
                 Console.WriteLine("\nThis feature isn't available yet.");
                 break;
             case "3":
+                MenuLogic.PushMenu(ViewFlightPointsMenu);
+                break;
+            case "4":
                 Console.WriteLine("\nLogging out...");
                 // AccountsLogic.LogOut();
                 MenuLogic.PopMenu();

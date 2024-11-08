@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
@@ -35,6 +36,8 @@ public class FlightModel
     [JsonPropertyName("FlightTime")]
     public string FlightTime { get; set; }
 
+    public int FlightPoints { get; set; }
+
     // Constructor sort of values terug geven
     public FlightModel(string airline, LayoutModel layout, decimal ticketPrice, string gate, string departureAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime)
 
@@ -48,6 +51,7 @@ public class FlightModel
         IsCancelled = isCancelled;
         DepartureDate = departureDate;
         FlightTime = flightTime;
+        FlightPoints = Convert.ToInt32(TicketPrice / 10);
     }
 
     // Methode om informatie van de vlucht weer te geven

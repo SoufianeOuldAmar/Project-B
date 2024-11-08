@@ -1,4 +1,3 @@
-
 public static class AccountPresentation
 {
     public static void LogIn()
@@ -133,5 +132,27 @@ public static class AccountPresentation
             }
 
         } while (!validInput); // Loop until a valid account is created or user opts to quit
+    }
+
+    public static void ViewFlightPoints()
+    {
+        Console.WriteLine("=== Flight Points ===\n");
+        Console.WriteLine($"Total flight points: {AccountsLogic.CurrentAccount.FlightPoints}");
+
+        while (true)
+        {
+            Console.WriteLine("Press 'Q' to go back");
+            string input = Console.ReadLine();
+
+            if (input == "q")
+            {
+                MenuLogic.PopMenu();
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Incorrect input. Enter 'Q'.");
+            }
+        }
     }
 }

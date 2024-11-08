@@ -69,15 +69,9 @@ public static class BookFlightPresentation
                             {
                                 Console.WriteLine("Confirming your selected seats...");
                                 selectedFlight.Layout.ConfirmBooking(); // Confirm booking (turn yellow seats to red)
+                                AccountsLogic.CurrentAccount.FlightPoints += selectedFlight.FlightPoints;
                                 break;
                             }
-                            // else
-                            // {   
-                            //     Console.WriteLine("Invalid input");
-                            //     Console.WriteLine("Press any key to continue...");
-                            //     Console.ReadKey();
-                            //     continue;
-                            // }
 
                             // Book the seat temporarily (yellow)
                             selectedFlight.Layout.BookFlight(seat);
@@ -160,22 +154,24 @@ public static class BookFlightPresentation
         if (bookedFlightModels.Count > 0)
         {
             Console.WriteLine("Your booked flights:\n");
-            Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-28} {6, -18}",
+            Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-28} {6, -27} {7,-18} {8,-29}",
                               "ID", "Airline", "Departure Airport", "Arrival Destination",
-                              "Flight Time", "Cancelled by airline", "Cancelled by customer");
+                              "Flight Time", "Cancelled by airline", "Cancelled by customer", "Ticket Price", "Flight Points");
 
-            Console.WriteLine(new string('-', 220));
+            Console.WriteLine(new string('-', 275));
 
             foreach (var flight in bookedFlightModels)
             {
-                Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-28} {6, -18}",
+                Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-28} {6, -27} {7,-18} {8,-29}",
                                   flight.Id,
                                   flight.Airline,
                                   flight.DepartureAirport,
                                   flight.ArrivalDestination,
                                   flight.FlightTime,
                                   flight.IsCancelled ? "Yes" : "No",
-                                  bookedFlights[index].IsCancelled ? "Yes" : "No");
+                                  bookedFlights[index].IsCancelled ? "Yes" : "No",
+                                  flight.TicketPrice,
+                                  flight.FlightPoints);
                 index++;
             }
 
