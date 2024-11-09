@@ -269,6 +269,18 @@
         "30F"
       ],
       "IsCancelled": false
+    },
+    {
+      "FlightID": 24,
+      "BookedSeats": [
+        "27F"
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 32,
+      "BookedSeats": [],
+      "IsCancelled": false
     }
   ]
 }

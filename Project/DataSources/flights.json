@@ -8961,7 +8961,6 @@
         "27C",
         "27D",
         "27E",
-        "27F",
         "28A",
         "28B",
         "28C",
@@ -8981,7 +8980,9 @@
         "30E",
         "30F"
       ],
-      "BookedSeats": [],
+      "BookedSeats": [
+        "27F"
+      ],
       "ChosenSeats": []
     },
     "TicketPrice": 335.25,
@@ -8991,7 +8992,7 @@
     "IsCancelled": false,
     "DepartureDate": "2024-11-30",
     "FlightTime": "14:45",
-    "availableSeats": 180
+    "availableSeats": 179
   },
   {
     "id": 25,
