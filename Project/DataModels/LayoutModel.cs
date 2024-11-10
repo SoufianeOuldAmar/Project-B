@@ -95,6 +95,60 @@ public class LayoutModel
 
         return new LayoutModel(rows, columns, seatArrangement);
     }
+    public static LayoutModel CreateAirbusA330200Layout()
+{
+    int rows = 50;
+    int columns = 10;
+
+    List<string> seatArrangement = new List<string>();
+    for (int i = 1; i <= rows; i++)
+    {
+        // Add leading zero for single-digit row numbers
+        string rowNumber = i < 10 ? $"0{i}" : $"{i}";
+
+        if (i >= 1 && i <= 10)
+        {
+            // Business class configuration in front section
+            seatArrangement.Add($"{rowNumber}A");
+            seatArrangement.Add($"{rowNumber}B");
+            seatArrangement.Add($"{rowNumber}D");
+            seatArrangement.Add($"{rowNumber}E");
+            seatArrangement.Add($"{rowNumber}F");
+            seatArrangement.Add($"{rowNumber}G");
+            seatArrangement.Add($"{rowNumber}J");
+            seatArrangement.Add($"{rowNumber}K");
+        }
+        else if (i >= 11 && i <= 36)
+        {
+            // Economy section 1 configuration
+            seatArrangement.Add($"{rowNumber}A");
+            seatArrangement.Add($"{rowNumber}B");
+            seatArrangement.Add($"{rowNumber}C");
+            seatArrangement.Add($"{rowNumber}D");
+            seatArrangement.Add($"{rowNumber}E");
+            seatArrangement.Add($"{rowNumber}F");
+            seatArrangement.Add($"{rowNumber}G");
+            seatArrangement.Add($"{rowNumber}H");
+            seatArrangement.Add($"{rowNumber}J");
+            seatArrangement.Add($"{rowNumber}K");
+        }
+        else if (i >= 37 && i <= 50)
+        {
+            // Economy section 2 configuration in rear section
+            seatArrangement.Add($"{rowNumber}A");
+            seatArrangement.Add($"{rowNumber}B");
+            seatArrangement.Add($"{rowNumber}C");
+            seatArrangement.Add($"{rowNumber}D");
+            seatArrangement.Add($"{rowNumber}E");
+            seatArrangement.Add($"{rowNumber}F");
+            seatArrangement.Add($"{rowNumber}G");
+            seatArrangement.Add($"{rowNumber}H");
+            seatArrangement.Add($"{rowNumber}J");
+            seatArrangement.Add($"{rowNumber}K");
+        }
+    }
+
+    return new LayoutModel(rows, columns, seatArrangement);
 
     // Factory method to create a Boeing 757 layout
     public static LayoutModel CreateBoeing757Layout()
