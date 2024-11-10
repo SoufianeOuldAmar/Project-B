@@ -17,7 +17,21 @@ namespace DataAccess
                 if (File.Exists(filePath))
                 {
                     string jsonString = File.ReadAllText(filePath);
-                    var flights = JsonSerializer.Deserialize<List<FlightModel>>(jsonString);
+                    var options = new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true  // This is the key fix for the ID issue
+                    };
+                    
+                    var flights = JsonSerializer.Deserialize<List<FlightModel>>(jsonString, options);
+
+                    foreach (var flight in flights ?? new List<FlightModel>())
+                    {
+                        if (flight.Layout == null)
+                        {
+                            flight.Layout = AssignDefaultLayout(flight.Airline);
+                        }
+                    }
+
                     return flights ?? new List<FlightModel>();
                 }
                 return new List<FlightModel>();
@@ -33,7 +47,13 @@ namespace DataAccess
         {
             try
             {
-                string jsonString = JsonSerializer.Serialize(flights, new JsonSerializerOptions { WriteIndented = true });
+                var options = new JsonSerializerOptions
+                {
+                    WriteIndented = true,
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase  // This ensures "Id" is written as "id"
+                };
+
+                string jsonString = JsonSerializer.Serialize(flights, options);
                 File.WriteAllText(filePath, jsonString);
             }
             catch (Exception ex)
@@ -42,36 +62,37 @@ namespace DataAccess
             }
         }
 
-        // Logic to randomly assign a layout to flights
-        public static void UpdateFlightsWithRandomLayouts()
+        private static LayoutModel AssignDefaultLayout(string airline)
         {
-            try
+            string airlineLower = airline.ToLower();
+                    
+            if (airlineLower.Contains("british airways"))
             {
-                // Read JSON file and deserialize it
-                var flightsData = ReadAll();
-
-                // Layout providers to use for random assignment
-                var layouts = new List<Func<LayoutModel>>
-                {
-                    LayoutModel.CreateBoeing737Layout,
-                    LayoutModel.CreateAirbusA330200Layout,
-                    LayoutModel.CreateBoeing757Layout
-                };
-
-                // Randomly assign a layout to each flight
-                var random = new Random();
-                foreach (var flight in flightsData)
-                {
-                    int index = random.Next(layouts.Count);
-                    flight.Layout = layouts[index]();
-                }
-
-                // Serialize updated data back to JSON
-                WriteAll(flightsData);
+                return LayoutModel.CreateBoeing737Layout();
             }
-            catch (Exception ex)
+            else if (airlineLower.Contains("airbus"))
             {
-                Console.WriteLine($"Error updating flights with random layouts: {ex.Message}");
+                return LayoutModel.CreateAirbusA330200Layout();
+            }
+            else if (airlineLower.Contains("emirates"))
+            {
+                return LayoutModel.CreateAirbusA330200Layout();
+            }
+            else if (airlineLower.Contains("klm"))
+            {
+                return LayoutModel.CreateBoeing737Layout();
+            }
+            else if (airlineLower.Contains("lufthansa"))
+            {
+                return LayoutModel.CreateBoeing757Layout();
+            }
+            else if (airlineLower.Contains("turkish airlines"))
+            {
+                return LayoutModel.CreateAirbusA330200Layout();
+            }
+            else
+            {
+                return LayoutModel.CreateBoeing737Layout();
             }
         }
     }
