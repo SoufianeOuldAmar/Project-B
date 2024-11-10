@@ -2,49 +2,77 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using DataModels;
 
-
-public static class FlightsAccess
+namespace DataAccess
 {
-    private static string filePath = "DataSources/flights.json";
-
-    // ReadAll methode: Lees alle vluchten uit JSON
-    public static List<FlightModel> ReadAll()
+    public static class FlightsAccess
     {
-        try
+        private static string filePath = "DataSources/flights.json";
+
+        public static List<FlightModel> ReadAll()
         {
-            if (File.Exists(filePath))
+            try
             {
-                string jsonString = File.ReadAllText(filePath); // Lees het JSON-bestand
-                var flights = JsonSerializer.Deserialize<List<FlightModel>>(jsonString); // Deserialiseer naar lijst van FlightModel
-                if (flights == null || flights.Count == 0)
+                if (File.Exists(filePath))
                 {
-                    return new List<FlightModel>(); // Lege lijst teruggeven als er geen vluchten zijn
+                    string jsonString = File.ReadAllText(filePath);
+                    var flights = JsonSerializer.Deserialize<List<FlightModel>>(jsonString);
+                    return flights ?? new List<FlightModel>();
                 }
-                return flights;
+                return new List<FlightModel>();
             }
-            else
+            catch (Exception ex)
             {
-                return new List<FlightModel>(); // Lege lijst teruggeven als bestand niet bestaat
+                Console.WriteLine($"Error reading flights data: {ex.Message}");
+                return new List<FlightModel>();
             }
         }
-        catch (Exception ex)
-        {
-            return new List<FlightModel>(); // Lege lijst teruggeven bij fout
-        }
-    }
 
-    // WriteAll methode: Schrijf alle vluchten naar JSON
-    public static void WriteAll(List<FlightModel> flights)
-    {
-        try
+        public static void WriteAll(List<FlightModel> flights)
         {
-            string jsonString = JsonSerializer.Serialize(flights, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(filePath, jsonString); // Schrijf de JSON-string naar het bestand
+            try
+            {
+                string jsonString = JsonSerializer.Serialize(flights, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(filePath, jsonString);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error writing flights data: {ex.Message}");
+            }
         }
-        catch (Exception ex)
+
+        // Logic to randomly assign a layout to flights
+        public static void UpdateFlightsWithRandomLayouts()
         {
-            Console.WriteLine($"Error writing all flights to JSON: {ex.Message}");
+            try
+            {
+                // Read JSON file and deserialize it
+                var flightsData = ReadAll();
+
+                // Layout providers to use for random assignment
+                var layouts = new List<Func<LayoutModel>>
+                {
+                    LayoutModel.CreateBoeing737Layout,
+                    LayoutModel.CreateAirbusA330200Layout,
+                    LayoutModel.CreateBoeing757Layout
+                };
+
+                // Randomly assign a layout to each flight
+                var random = new Random();
+                foreach (var flight in flightsData)
+                {
+                    int index = random.Next(layouts.Count);
+                    flight.Layout = layouts[index]();
+                }
+
+                // Serialize updated data back to JSON
+                WriteAll(flightsData);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating flights with random layouts: {ex.Message}");
+            }
         }
     }
 }

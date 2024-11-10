@@ -23,15 +23,12 @@ public class LayoutModel
         for (int i = 0; i < SeatArrangement.Count; i += Columns)
         {
             int currentRow = (i / Columns) + 1;
-
-            // Determine the seat type headers based on the current row
             string seatTypeHeaderBusiness = currentRow == 1 ? "Business Class ↓" : "";
             string seatTypeHeaderEconomy = currentRow == 10 ? "Economy Class ↓" : "";
 
-            // Add a space before row 10 (for exit row formatting)
             if (currentRow == 10)
             {
-                Console.WriteLine(); // Empty line
+                Console.WriteLine();
                 Console.WriteLine("                                     Exit row");
                 Console.WriteLine();
             }
@@ -39,29 +36,21 @@ public class LayoutModel
             for (int j = 0; j < Columns; j++)
             {
                 string seat = SeatArrangement[i + j];
-
-                // Print seat colors based on its status
                 if (BookedSeats.Contains(seat))
                 {
-                    // Change color to red for booked seats
                     Console.ForegroundColor = ConsoleColor.Red;
                 }
                 else if (ChosenSeats.Contains(seat))
                 {
-                    // Change color to yellow for temporarily chosen seats
                     Console.ForegroundColor = ConsoleColor.Yellow;
                 }
 
-                // Print seat
                 Console.Write($"{seat}  ");
-
-                // Reset color to default
                 Console.ResetColor();
 
-                // Add space between seats C and D
                 if (j == 2)
                 {
-                    Console.Write("       "); // Space for walking
+                    Console.Write("       ");
                 }
 
                 if (j == 5)
@@ -70,20 +59,19 @@ public class LayoutModel
                     Console.Write(seatTypeHeaderBusiness);
                 }
             }
-            Console.WriteLine(); // Move to the next line after printing one row
+            Console.WriteLine();
         }
     }
 
     // Factory method to create a Boeing 737 layout
     public static LayoutModel CreateBoeing737Layout()
     {
-        int rows = 30;  // typical number of rows in a 737
-        int columns = 6;  // 6 seats per row (A-F)
-
+        int rows = 30;
+        int columns = 6;
         List<string> seatArrangement = new List<string>();
+
         for (int i = 1; i <= rows; i++)
         {
-            // Add leading zero for single-digit row numbers
             string rowNumber = i < 10 ? $"0{i}" : $"{i}";
             seatArrangement.Add($"{rowNumber}A");
             seatArrangement.Add($"{rowNumber}B");
@@ -95,71 +83,56 @@ public class LayoutModel
 
         return new LayoutModel(rows, columns, seatArrangement);
     }
+
+    // Factory method to create an Airbus A330-200 layout
     public static LayoutModel CreateAirbusA330200Layout()
-{
-    int rows = 50;
-    int columns = 10;
-
-    List<string> seatArrangement = new List<string>();
-    for (int i = 1; i <= rows; i++)
     {
-        // Add leading zero for single-digit row numbers
-        string rowNumber = i < 10 ? $"0{i}" : $"{i}";
+        int rows = 50;
+        int columns = 10;
+        List<string> seatArrangement = new List<string>();
 
-        if (i >= 1 && i <= 10)
+        for (int i = 1; i <= rows; i++)
         {
-            // Business class configuration in front section
-            seatArrangement.Add($"{rowNumber}A");
-            seatArrangement.Add($"{rowNumber}B");
-            seatArrangement.Add($"{rowNumber}D");
-            seatArrangement.Add($"{rowNumber}E");
-            seatArrangement.Add($"{rowNumber}F");
-            seatArrangement.Add($"{rowNumber}G");
-            seatArrangement.Add($"{rowNumber}J");
-            seatArrangement.Add($"{rowNumber}K");
+            string rowNumber = i < 10 ? $"0{i}" : $"{i}";
+
+            if (i >= 1 && i <= 10)
+            {
+                seatArrangement.Add($"{rowNumber}A");
+                seatArrangement.Add($"{rowNumber}B");
+                seatArrangement.Add($"{rowNumber}D");
+                seatArrangement.Add($"{rowNumber}E");
+                seatArrangement.Add($"{rowNumber}F");
+                seatArrangement.Add($"{rowNumber}G");
+                seatArrangement.Add($"{rowNumber}J");
+                seatArrangement.Add($"{rowNumber}K");
+            }
+            else
+            {
+                seatArrangement.Add($"{rowNumber}A");
+                seatArrangement.Add($"{rowNumber}B");
+                seatArrangement.Add($"{rowNumber}C");
+                seatArrangement.Add($"{rowNumber}D");
+                seatArrangement.Add($"{rowNumber}E");
+                seatArrangement.Add($"{rowNumber}F");
+                seatArrangement.Add($"{rowNumber}G");
+                seatArrangement.Add($"{rowNumber}H");
+                seatArrangement.Add($"{rowNumber}J");
+                seatArrangement.Add($"{rowNumber}K");
+            }
         }
-        else if (i >= 11 && i <= 36)
-        {
-            // Economy section 1 configuration
-            seatArrangement.Add($"{rowNumber}A");
-            seatArrangement.Add($"{rowNumber}B");
-            seatArrangement.Add($"{rowNumber}C");
-            seatArrangement.Add($"{rowNumber}D");
-            seatArrangement.Add($"{rowNumber}E");
-            seatArrangement.Add($"{rowNumber}F");
-            seatArrangement.Add($"{rowNumber}G");
-            seatArrangement.Add($"{rowNumber}H");
-            seatArrangement.Add($"{rowNumber}J");
-            seatArrangement.Add($"{rowNumber}K");
-        }
-        else if (i >= 37 && i <= 50)
-        {
-            // Economy section 2 configuration in rear section
-            seatArrangement.Add($"{rowNumber}A");
-            seatArrangement.Add($"{rowNumber}B");
-            seatArrangement.Add($"{rowNumber}C");
-            seatArrangement.Add($"{rowNumber}D");
-            seatArrangement.Add($"{rowNumber}E");
-            seatArrangement.Add($"{rowNumber}F");
-            seatArrangement.Add($"{rowNumber}G");
-            seatArrangement.Add($"{rowNumber}H");
-            seatArrangement.Add($"{rowNumber}J");
-            seatArrangement.Add($"{rowNumber}K");
-        }
+
+        return new LayoutModel(rows, columns, seatArrangement);
     }
-
-    return new LayoutModel(rows, columns, seatArrangement);
 
     // Factory method to create a Boeing 757 layout
     public static LayoutModel CreateBoeing757Layout()
     {
-        int rows = 40;  // typical number of rows in a 757
-        int columns = 6;  // 6 seats per row (A-F)
-
+        int rows = 40;
+        int columns = 6;
         List<string> seatArrangement = new List<string>();
+
         for (int i = 1; i <= rows; i++)
         {
-            // Add leading zero for single-digit row numbers
             string rowNumber = i < 10 ? $"0{i}" : $"{i}";
             seatArrangement.Add($"{rowNumber}A");
             seatArrangement.Add($"{rowNumber}B");
@@ -177,8 +150,8 @@ public class LayoutModel
     {
         if (AvailableSeats.Contains(seat))
         {
-            AvailableSeats.Remove(seat);   // Remove from available
-            ChosenSeats.Add(seat);         // Add to chosen list (temporary before confirmation)
+            AvailableSeats.Remove(seat);
+            ChosenSeats.Add(seat);
             Console.WriteLine($"Seat {seat} is temporarily chosen.");
         }
         else if (BookedSeats.Contains(seat))
@@ -196,9 +169,9 @@ public class LayoutModel
     {
         foreach (var seat in ChosenSeats)
         {
-            BookedSeats.Add(seat);  // Move chosen seats to booked seats
+            BookedSeats.Add(seat);
         }
-        ChosenSeats.Clear();         // Clear the chosen seats list
+        ChosenSeats.Clear();
         Console.WriteLine("Seats have been successfully booked.");
     }
 }

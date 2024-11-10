@@ -1,3 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using DataModels; // FlightModel, LayoutModel, BookedFlightsModel, AccountModel
+using DataAccess; // FlightsAccess, BookedFlightsAccess
+
 public static class BookFlightPresentation
 {
     public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
