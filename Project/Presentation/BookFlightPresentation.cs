@@ -31,9 +31,19 @@ public static class BookFlightPresentation
             }
 
             Console.WriteLine("\n" + new string('-', 200));
-            Console.Write("\nEnter the ID of the flight you wish to book: ");
+            Console.Write("\nEnter the ID of the flight you wish to book (or press 'Q' to quit the booking process): ");
 
-            if (int.TryParse(Console.ReadLine(), out int selectedId))
+            string idInput = Console.ReadLine();
+
+            if (idInput.ToUpper() == "Q")
+            {   
+                Console.WriteLine("Exiting booking process menu. Press any key to continue.");
+                Console.ReadKey();
+                MenuLogic.PopMenu();
+                break;
+            }
+
+            if (int.TryParse(idInput, out int selectedId))
             {
                 var selectedFlight = BookFlightLogic.SearchFlightByID(selectedId);
                 if (selectedFlight != null)
@@ -49,7 +59,7 @@ public static class BookFlightPresentation
 
                     Console.Write("\nAre you sure you want to book this flight? (yes/no) ");
                     string confirmation = Console.ReadLine();
-
+                    // TODO: Make more people be able to choose a seat and when, multiple seats are chosen, increase those points to that amount.
                     if (confirmation == "yes")
                     {
                         // Seat selection process
@@ -108,6 +118,7 @@ public static class BookFlightPresentation
                     }
 
                 }
+                
                 else
                 {
                     Console.WriteLine("Invalid ID selected. Please try again.");
