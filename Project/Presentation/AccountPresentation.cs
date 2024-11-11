@@ -7,68 +7,69 @@ public static class AccountPresentation
         while (true)
         {
             Console.WriteLine("=== Log in ===\n");
-            Console.Write("Email address: ");
-            string emailAddress = Console.ReadLine();
-
-            Console.Write("Password: ");
-            string password = Console.ReadLine();
-
-            AccountModel? accountModel = AccountsLogic.CheckLogin(emailAddress, password);
-
-            if (accountModel != null && accountModel.IsAdmin == false)
+            Console.WriteLine("Are you Admin or User? A/U");
+            string input1 = Console.ReadLine().ToLower();
+            if (input1 == "a")
             {
-                Console.WriteLine("\nSucces! Welcome back!");
-                MenuLogic.PushMenu(() => MenuPresentation.FrontPageUser(accountModel));
-                break;
-            }
-            else if (accountModel != null && accountModel.IsAdmin == true)
-            {
-                Console.WriteLine("\nSucces! Welcome back!");
-                MenuLogic.PushMenu(() => MenuPresentation.FrontPageAdmin(accountModel));
+                AdminAccountPresentation.Login();
                 break;
             }
 
-            else
+            else if (input1 == "u")
             {
-                bool validInput = false;
-                do
+                Console.Write("Email address: ");
+                string emailAddress = Console.ReadLine();
+                Console.Write("Password: ");
+                string password = Console.ReadLine();
+
+                AccountModel? accountModel = AccountsLogic.CheckLogin(emailAddress, password);
+                if (accountModel != null)
                 {
-                    i++;
-                    Console.WriteLine("Invalid email or password. Please try again.");
-                    if (i >= 3)
+                    Console.WriteLine("\nSucces! Welcome back!");
+                    MenuLogic.PushMenu(() => MenuPresentation.FrontPageUser(accountModel));
+                    break;
+                }
+                else
+                {
+                    bool validInput = false;
+                    do
                     {
-                        Console.WriteLine("You will be locked out for 1 minute due to multiple failed attempts.");
-                        Thread.Sleep(60000);
-                        i = 0;
-                    }
+                        i++;
+                        Console.WriteLine("Invalid email or password. Please try again.");
+                        if (i >= 3)
+                        {
+                            Console.WriteLine("You will be locked out for 1 minute due to multiple failed attempts.");
+                            Thread.Sleep(60000);
+                            i = 0;
+                        }
 
-                    string newLine = newLineValid ? "\n" : "";
-                    Console.Write($"{newLine}Username or password is incorrect! Do you want to try again? (Input either yes or no): ");
-                    string choice = Console.ReadLine();
-                    bool? yesOrNo = AccountsLogic.TryLogInAgain(choice);
-
-                    if (yesOrNo.HasValue && yesOrNo.Value)
-                    {
-                        Console.Clear();
-                        validInput = true;
-                        newLineValid = true;
-                        break;
-                    }
-                    else if (yesOrNo.HasValue && !yesOrNo.Value)
-                    {
-                        MenuLogic.PopMenu();
-                        newLineValid = true;
-                        return;
-                    }
-                    else
-                    {
-                        Console.WriteLine("\nInvalid input! Please type 'yes' or 'no'.\n");
-                        newLineValid = false;
-                        Console.WriteLine("Press any key to continue...");
-                        Console.ReadKey();
-                        Console.Clear();
-                    }
-                } while (!validInput);
+                        string newLine = newLineValid ? "\n" : "";
+                        Console.Write($"{newLine}Username or password is incorrect! Do you want to try again? (Input either yes or no): ");
+                        string choice = Console.ReadLine();
+                        bool? yesOrNo = AccountsLogic.TryLogInAgain(choice);
+                        if (yesOrNo.HasValue && yesOrNo.Value)
+                        {
+                            Console.Clear();
+                            validInput = true;
+                            newLineValid = true;
+                            break;
+                        }
+                        else if (yesOrNo.HasValue && !yesOrNo.Value)
+                        {
+                            MenuLogic.PopMenu();
+                            newLineValid = true;
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nInvalid input! Please type 'yes' or 'no'.\n");
+                            newLineValid = false;
+                            Console.WriteLine("Press any key to continue...");
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                    } while (!validInput);
+                }
             }
         }
     }

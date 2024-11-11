@@ -3,28 +3,18 @@
     "id": 1,
     "emailAddress": "n@b.c",
     "password": "xyz",
-    "fullName": "Nikola Tesla",
-    "isAdmin": false
+    "fullName": "Nikola Tesla"
   },
   {
     "id": 2,
     "emailAddress": "t@b.c",
     "password": "xyz",
-    "fullName": "Thomas Edison",
-    "isAdmin": false
+    "fullName": "Thomas Edison"
   },
   {
     "id": 3,
     "emailAddress": "soufiane_ouldamar@",
     "password": "password1",
-    "fullName": "Soufiane Ould Amar",
-    "isAdmin": false
-  },
-  {
-    "id": 4,
-    "emailAddress": "BOOST",
-    "password": "airline",
-    "fullName": "Albert Einstein",
-    "isAdmin": true
+    "fullName": "Soufiane Ould Amar"
   }
 ]
