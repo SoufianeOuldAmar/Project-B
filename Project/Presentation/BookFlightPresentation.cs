@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public static class BookFlightPresentation
 {
     public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
@@ -36,7 +38,7 @@ public static class BookFlightPresentation
             string idInput = Console.ReadLine();
 
             if (idInput.ToUpper() == "Q")
-            {   
+            {
                 Console.WriteLine("Exiting booking process menu. Press any key to continue.");
                 Console.ReadKey();
                 MenuLogic.PopMenu();
@@ -62,12 +64,13 @@ public static class BookFlightPresentation
                     // TODO: Make more people be able to choose a seat and when, multiple seats are chosen, increase those points to that amount.
                     if (confirmation == "yes")
                     {
+
                         // Seat selection process
                         List<string> chosenSeats = new List<string>();
                         selectedFlight.Layout.PrintLayout(); // Print the initial layout
 
                         while (true)
-                        {
+                        {   
                             Console.Write("\nWhich seat do you want? (press Q to quit or Enter to confirm booking and keep choosing by seat number if you want more seats): ");
                             string seat = Console.ReadLine();
 
@@ -118,7 +121,7 @@ public static class BookFlightPresentation
                     }
 
                 }
-                
+
                 else
                 {
                     Console.WriteLine("Invalid ID selected. Please try again.");
