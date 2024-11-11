@@ -187,14 +187,13 @@ public static void SearchFlightsMenu()
     // Verwerk de vluchtkeuze
     if (int.TryParse(choice, out int flightIndex) && flightIndex >= 1 && flightIndex <= searchResults.Count)
     {
-        // Boek de geselecteerde vlucht
+        // Haal de geselecteerde vlucht op
         FlightModel selectedFlight = searchResults[flightIndex - 1];
         
         // Controleer of er nog beschikbare stoelen zijn
         if (selectedFlight.AvailableSeats > 0)
         {
-            BookFlight(selectedFlight);  // Boek de vlucht
-            Console.WriteLine($"You have successfully booked the flight: {selectedFlight.ToString()}");
+            DisplayFlightLayoutAndChooseSeat(selectedFlight); // Toon de layout en kies een stoel
         }
         else
         {
@@ -211,14 +210,58 @@ public static void SearchFlightsMenu()
     MenuLogic.PopMenu(); // Keer terug naar het vorige menu
 }
 
-// Methode om de vlucht te boeken
-public static void BookFlight(FlightModel flight)
+// Nieuwe methode voor het tonen van de layout en het kiezen van een stoel
+public static void DisplayFlightLayoutAndChooseSeat(FlightModel selectedFlight)
 {
-    // Voeg de vlucht toe aan de lijst van geboekte vluchten
-    bookedFlights.Add(flight);
+    Console.Clear();
+    Console.WriteLine($"You have selected the following flight:\n");
+    Console.WriteLine("{0,-20} {1,-35}", "Airline:", selectedFlight.Airline);
+    Console.WriteLine("{0,-20} {1,-35}", "Departure Airport:", selectedFlight.DepartureAirport);
+    Console.WriteLine("{0,-20} {1,-35}", "Arrival Destination:", selectedFlight.ArrivalDestination);
+    Console.WriteLine("{0,-20} {1,-35}", "Flight Time:", selectedFlight.FlightTime);
+    Console.WriteLine("{0,-20} {1,-35}", "Is Cancelled:", (selectedFlight.IsCancelled ? "Yes" : "No"));
+    Console.WriteLine("{0,-20} {1,-35}", "Available Seats", selectedFlight.Layout.AvailableSeats.Count);
 
-    // Update het aantal beschikbare stoelen
-    flight.AvailableSeats--;
+    Console.WriteLine("Available seats in layout:");
+    selectedFlight.Layout.PrintLayout(); // Print de layout
 
-}
+    // Seat kiezen proces
+    while (true)
+    {
+        Console.Write("\nWhich seat do you want? (press Q to quit or Enter to confirm booking): ");
+        string seat = Console.ReadLine();
+
+        if (seat.Equals("Q", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine("Exiting seat selection.");
+                break;
+            }
+
+        else if (string.IsNullOrWhiteSpace(seat))
+            {
+                Console.WriteLine("Confirming your selected seats...");
+                selectedFlight.Layout.ConfirmBooking(); // Bevestig de boeking
+                Console.WriteLine("Booking confirmed. Enjoy your flight!");
+                break;
+            }
+
+        else if (BookFlightLogic.IsSeatAlreadyBooked(selectedFlight, seat))
+            {
+                Console.WriteLine("Seat is already booked. Please choose a different seat.");
+            }
+        else
+            {
+                // Boek de stoel tijdelijk
+                selectedFlight.Layout.BookFlight(seat);
+                Console.Clear();
+                selectedFlight.Layout.PrintLayout(); // Toon bijgewerkte layout
+            }
+    }
+
+        // Update de data en sla de boeking op
+        bookedFlights.Add(selectedFlight);
+        selectedFlight.AvailableSeats--;
+        FlightsAccess.WriteAll(flights);
+        Console.WriteLine("\nBooking process complete.");
+    }
 }

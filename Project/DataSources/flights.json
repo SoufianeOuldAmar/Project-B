@@ -11613,7 +11613,6 @@
         "23D",
         "23E",
         "23F",
-        "24A",
         "24B",
         "24C",
         "24D",
@@ -11653,10 +11652,12 @@
         "30B",
         "30C",
         "30D",
-        "30E",
-        "30F"
+        "30E"
       ],
-      "BookedSeats": [],
+      "BookedSeats": [
+        "30F",
+        "24A"
+      ],
       "ChosenSeats": []
     },
     "TicketPrice": 415.00,
@@ -11666,7 +11667,7 @@
     "IsCancelled": false,
     "DepartureDate": "2024-12-14",
     "FlightTime": "12:30",
-    "availableSeats": 180
+    "availableSeats": 178
   },
   {
     "id": 32,
