@@ -28,8 +28,8 @@ public class AdminAddFlightsPresentation
         while (true)
         {
             Console.WriteLine("Enter Ticket Price: ");
-            ticketPrice = decimal.Parse(Console.ReadLine());
-            if (ticketPrice is decimal)
+            string input = Console.ReadLine();
+            if (decimal.TryParse(input, out ticketPrice))
             {
                 break;
             }
@@ -130,6 +130,10 @@ public class AdminAddFlightsPresentation
                     {
                         Console.WriteLine("Invalid date. Please enter a valid date.");
                     }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid date format. Please enter a valid date in yyyy-mm-dd format.");
                 }
             }
             else
