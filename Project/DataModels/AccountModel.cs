@@ -12,6 +12,7 @@ public class AccountModel
 
     [JsonPropertyName("fullName")]
     public string FullName { get; set; }
+    public int FlightPoints { get; set; }
 
     public AccountModel(int id, string emailAddress, string password, string fullName)
     {
