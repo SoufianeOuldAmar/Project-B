@@ -47,4 +47,12 @@ public static class FlightsAccess
             Console.WriteLine($"Error writing all flights to JSON: {ex.Message}");
         }
     }
+    public static void AdminAddNewFlight(FlightModel newFlight)
+    {
+        var flights = ReadAll();
+
+        flights.Add(newFlight);
+
+        WriteAll(flights);
+    }
 }
