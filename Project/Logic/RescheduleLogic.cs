@@ -1,5 +1,6 @@
+using System.Net;
 using System.Text.Json;
-public class Reschedule : CancelLogic
+public static class Reschedule 
 {
     public static void WriteJson(string fileName, List<FlightModel> allFlights)
     {
@@ -32,12 +33,32 @@ public class Reschedule : CancelLogic
     }
 
     // See booked flights
-    public string BookedFlights(string email)
+    public static string BookedFlights(string email)
     {
-        return base.BookedFlights(email);
+        if (!BookFlightPresentation.allBookedFlights.ContainsKey(email))
+        {
+            return $"You have no flights booked";
+        }
+        if (BookFlightPresentation.allBookedFlights[email].Count == 0)
+        {
+            return $"You have no flights booked";
+        }
+        
+        string FlightDetails = "";
+        foreach(var flight in BookFlightPresentation.allBookedFlights[email])
+        {
+            // find flight by ID in Allflights list of BookFlightPresentation
+            var neededflight = BookFlightPresentation.allFlights.Find(x => x.Id == flight.FlightID);
+            // if flight not found by id 
+            if (neededflight!= null)
+            {
+                FlightDetails+= $"Flight ID: {neededflight.Id}, Airline: {neededflight.Airline}, Ticket Price: {neededflight.TicketPrice:C}, Cancelled: {flight.IsCancelled}\n"; // cancelled is directly accessed from model class
+            }
+        }
+        return FlightDetails;
     }
 
-    public string AvailableSeats(LayoutModel flight)
+    public static string AvailableSeats(LayoutModel flight)
     {
         List<string> availableSeats = flight.AvailableSeats;
 
@@ -52,14 +73,14 @@ public class Reschedule : CancelLogic
         }
     }
 
-    public string RescheduleFlight(string email, int currentId, int newId)
+    public static string RescheduleFlight(string email, int currentId, int newId)
     {
         if (!BookFlightPresentation.allBookedFlights.ContainsKey(email))
         {
             return $"No booked flights for {email}.";
         }
 
-        // Assuming the structure is different and you use "BookingModel" or another class
+
         var userBookings = BookFlightPresentation.allBookedFlights[email];
         var bookedFlight = userBookings.Find(x => x.FlightID == currentId);
         if (bookedFlight == null)
@@ -102,7 +123,7 @@ public class Reschedule : CancelLogic
     }
 
     // Show / Review Policy
-    public string Policy()
+    public static string Policy()
     {
         return "Cancellation policy: You can cancel your flight at any time before departure for a refund, except for the non-refundable fee.\n" +
                "Rescheduling policy: Reschedule your flight with a €50 fee, plus any price difference for the new flight.";
