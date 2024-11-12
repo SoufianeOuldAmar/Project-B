@@ -31,13 +31,19 @@ public static class MenuPresentation
             Console.Write(c);
             Thread.Sleep(2);
         }
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 7; i++)
         {
             Console.Clear();
-            Thread.Sleep(200);
-            Console.ForegroundColor = (ConsoleColor)rand.Next(1, 14);
-            Console.WriteLine(bigText);
+            foreach (char c in bigText)
+            {
+                Console.ForegroundColor = (ConsoleColor)rand.Next(1, 14);
+                Console.Write(c);
+            }
             Thread.Sleep(300);
+            // Thread.Sleep(200);
+            // Console.ForegroundColor = (ConsoleColor)rand.Next(1, 14);
+            // Console.WriteLine(bigText);
+            // Thread.Sleep(200);
         }
         Console.ResetColor();
 
