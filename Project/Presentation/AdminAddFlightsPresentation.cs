@@ -172,8 +172,9 @@ public class AdminAddFlightsPresentation
             }
 
         }
-
+        int nextFlightId = BookFlightPresentation.allFlights.Count;
         FlightModel newFight = new FlightModel(
+
             airline,
             layout,
             ticketPrice,
@@ -184,6 +185,10 @@ public class AdminAddFlightsPresentation
             date,
             time
         );
+
+        nextFlightId++;
+        newFight.Id = nextFlightId;
+
 
         Console.WriteLine("New flight added:");
         Console.WriteLine(newFight);
