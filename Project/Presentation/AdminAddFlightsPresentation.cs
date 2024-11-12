@@ -1,10 +1,9 @@
 using System.Text.RegularExpressions;
 using System.Text.RegularExpressions;
-
+using DataModels;
 
 public class AdminAddFlightsPresentation
 {
-
     public FlightModel AddNewFlights()
     {
         Console.Clear();
@@ -24,12 +23,12 @@ public class AdminAddFlightsPresentation
             }
 
         }
-        decimal ticketPrice;
+        double ticketPrice;
         while (true)
         {
             Console.WriteLine("Enter Ticket Price: ");
             string input = Console.ReadLine();
-            if (decimal.TryParse(input, out ticketPrice))
+            if (double.TryParse(input, out ticketPrice))
             {
                 break;
             }
@@ -196,4 +195,3 @@ public class AdminAddFlightsPresentation
     }
 
 }
-
