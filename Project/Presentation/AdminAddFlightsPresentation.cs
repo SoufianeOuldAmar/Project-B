@@ -182,7 +182,8 @@ public class AdminAddFlightsPresentation
             arrivalDestination,
             IsCancelled,
             date,
-            time
+            time,
+            0
         );
 
         nextFlightId++;

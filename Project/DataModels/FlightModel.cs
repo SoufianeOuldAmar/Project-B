@@ -12,7 +12,9 @@ namespace DataModels
         public bool IsCancelled { get; set; }
         public string DepartureDate { get; set; }
         public string FlightTime { get; set; }
-        public FlightModel(string airline, LayoutModel layout, double ticketPrice, string gate, string departureAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime)
+
+        public int AvailableSeats { get; set;}
+        public FlightModel(string airline, LayoutModel layout, double ticketPrice, string gate, string departureAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime, int availableSeats)
 
         {
             Airline = airline;
@@ -24,6 +26,7 @@ namespace DataModels
             IsCancelled = isCancelled;
             DepartureDate = departureDate;
             FlightTime = flightTime;
+            AvailableSeats = availableSeats;
         }
     }
 
