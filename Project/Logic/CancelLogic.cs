@@ -1,7 +1,7 @@
 using System.Text.Json;
-public class CancelLogic
+public static class CancelLogic
 {
-    public string fileName = "flights.json";
+    public static string fileName = "flights.json";
 
     public static void WriteJson(string fileName, List<FlightModel> allFlights)
     {
@@ -20,7 +20,7 @@ public class CancelLogic
         return new List<FlightModel>();
     }
 
-    public string BookedFlights(string email)
+    public static string BookedFlights(string email)
     {
         if (!BookFlightPresentation.allBookedFlights.ContainsKey(email))
         {
@@ -45,7 +45,7 @@ public class CancelLogic
         return FlightDetails;
     }
 
-    public string CancelFlights(string email, int id)
+    public static string CancelFlights(string email, int id)
     {
         if (!BookFlightPresentation.allBookedFlights.ContainsKey(email))
         {
@@ -84,7 +84,7 @@ public class CancelLogic
         return "Flight is cancelled";
     }
 
-    public string CancelledOverview(string email)
+    public static string CancelledOverview(string email)
     {
         if (!BookFlightPresentation.allBookedFlights.ContainsKey(email))
         {

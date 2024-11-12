@@ -1,7 +1,8 @@
 using System.Net;
 using System.Text.Json;
-public static class Reschedule 
+public static class RescheduleLogic
 {
+    public static string fileName = "flights.json";
     public static void WriteJson(string fileName, List<FlightModel> allFlights)
     {
         string json = JsonSerializer.Serialize(allFlights, new JsonSerializerOptions { WriteIndented = true });
@@ -47,7 +48,7 @@ public static class Reschedule
         string FlightDetails = "";
         foreach(var flight in BookFlightPresentation.allBookedFlights[email])
         {
-            // find flight by ID in Allflights list of BookFlightPresentation
+
             var neededflight = BookFlightPresentation.allFlights.Find(x => x.Id == flight.FlightID);
             // if flight not found by id 
             if (neededflight!= null)
@@ -58,49 +59,59 @@ public static class Reschedule
         return FlightDetails;
     }
 
-    public static string AvailableSeats(LayoutModel flight)
+ 
+
+    public static string RescheduleFlight(string email, string currentDepartureAirport, string currentArrivalAirport, string newDepartureAirport, string newArrivalDestination)
     {
-        List<string> availableSeats = flight.AvailableSeats;
-
-
-        if (availableSeats.Count > 0)
-        {
-            return string.Join(", ", availableSeats);
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    public static string RescheduleFlight(string email, int currentId, int newId)
-    {
+        // Check if the user has any bookings
         if (!BookFlightPresentation.allBookedFlights.ContainsKey(email))
         {
             return $"No booked flights for {email}.";
         }
-
-
+        // Get the user's bookings from the list 
         var userBookings = BookFlightPresentation.allBookedFlights[email];
-        var bookedFlight = userBookings.Find(x => x.FlightID == currentId);
+         // Find the specific booked flight matching the departure and arrival locations
+        var bookedFlight = userBookings.Find(x => BookFlightLogic.SearchFlightByID(x.FlightID).DepartureAirport == currentDepartureAirport && BookFlightLogic.SearchFlightByID(x.FlightID).ArrivalDestination== currentArrivalAirport);
+         // If the flight is not found, return null
         if (bookedFlight == null)
         {
-            return $"Flight {currentId} not found in bookings.";
+            return $"Flight from {currentDepartureAirport} to {currentArrivalAirport} not found in bookings.";
+        }
+        // Find the new flight (use the FlightID from the booked flight) 
+        //  Retrieve the full flight details (FlightModel) using the FlightID from the user's booked flight.
+        var newFlight = BookFlightLogic.SearchFlightByID(bookedFlight.FlightID);
+
+        // Check if there are available seats on the new flight
+        if (BookFlightLogic.GetAvailableSeatsCount(newFlight) <= 0)
+        {
+            return "No available seats on the new flight.";
         }
 
-        // Find the current and new flight details
-        var currentFlight = BookFlightPresentation.allFlights.FirstOrDefault(x => x.Id == currentId);
-        var newFlight = BookFlightPresentation.allFlights.FirstOrDefault(x => x.Id == newId);
-
-
+        // Check if the new flight is cancelled if yes return message 
         if (newFlight.IsCancelled)
         {
             return "The new flight is cancelled and can't be booked.";
         }
 
-        // Price difference calculation
-        double priceDifference = (double)(newFlight.TicketPrice - currentFlight.TicketPrice);
-        double fee50 = 50.00;
+        if (newFlight == null)
+        {
+            return "No matching new flight found from the selected departure to arrival airports.";
+        }
+        // Check if the new flight's date and time are in the future
+        DateTime departureDateTime = DateTime.Parse($"{newFlight.DepartureDate} {newFlight.FlightTime}");
+        if (departureDateTime <= DateTime.Now)
+        {
+            return "Incorrect date.";
+        }
+
+        // Retrieve the full FlightModel for the booked flight to access TicketPrice
+        var retrieveTicketprice = BookFlightLogic.SearchFlightByID(bookedFlight.FlightID);
+
+
+
+        // Calculate the fee and price difference for the rescheduling
+        double priceDifference = (double)(newFlight.TicketPrice - retrieveTicketprice.TicketPrice);
+        double fee50 = 50.00;  // Rescheduling fee
         double totalFee;
 
         if (priceDifference > 0)
@@ -112,20 +123,25 @@ public static class Reschedule
             totalFee = fee50;
         }
 
-        bookedFlight.FlightID = newFlight.Id;  // Update the flight ID to the new one
-        bookedFlight.IsCancelled = false;
 
-
+        // update the details to match the new one 
+        newFlight.DepartureAirport = newFlight.DepartureAirport;
+        newFlight.ArrivalDestination = newFlight.ArrivalDestination;
+        newFlight.DepartureDate = newFlight.DepartureDate;
+        newFlight.FlightTime = newFlight.FlightTime;
+        // Save the updated flights list
         WriteJson(fileName, BookFlightPresentation.allFlights);
 
-        return $"Flight successfully rescheduled. Additional fee: {totalFee:C}. " +
-               $"New Flight Date: {newFlight.DepartureDate} at {newFlight.FlightTime}.";
+        return $"Flight successfully rescheduled. Additional fee: {totalFee:C}. New Flight Date: {newFlight.DepartureDate} at {newFlight.FlightTime}.";
     }
+
 
     // Show / Review Policy
     public static string Policy()
     {
-        return "Cancellation policy: You can cancel your flight at any time before departure for a refund, except for the non-refundable fee.\n" +
+        return "Cancellation policy: You can cancel your flight 24h before departure for a refund.\n" +
                "Rescheduling policy: Reschedule your flight with a €50 fee, plus any price difference for the new flight.";
     }
+
+
 }

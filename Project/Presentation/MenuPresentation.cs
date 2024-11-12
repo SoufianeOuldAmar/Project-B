@@ -66,11 +66,14 @@ public static class MenuPresentation
         BookFlightPresentation.BookFlightMenu();
     }
 
-    public static void CancelFlights(string email, int id)
+    public static void CancelMain(string email)
     {
-        CancelLogic cancelLogic = new CancelLogic();
-        string Cancel = cancelLogic.CancelFlights(email, id);
-        Console.WriteLine(Cancel);
+        CancelLogic.BookedFlights(email);
+    }
+
+    public static void RescheduleLogic()
+    {
+        RescheduleLogic();
     }
 
     public static void FrontPageUser(AccountModel accountModel)
@@ -89,7 +92,7 @@ public static class MenuPresentation
                 MenuLogic.PushMenu(BookFlightMenu);
                 break;
             case "2":
-                MenuLogic.PushMenu(CancelFlights);
+                MenuLogic.PushMenu(() => CancelMain(accountModel.EmailAddress));
                 break;
             case "3":
                 Console.WriteLine("\nLogging out...");
