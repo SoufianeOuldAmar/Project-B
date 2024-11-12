@@ -21,7 +21,7 @@ namespace DataAccess
                     {
                         PropertyNameCaseInsensitive = true  // This is the key fix for the ID issue
                     };
-                    
+
                     var flights = JsonSerializer.Deserialize<List<FlightModel>>(jsonString, options);
 
                     foreach (var flight in flights ?? new List<FlightModel>())
@@ -65,7 +65,7 @@ namespace DataAccess
         private static LayoutModel AssignDefaultLayout(string airline)
         {
             string airlineLower = airline.ToLower();
-                    
+
             if (airlineLower.Contains("british airways"))
             {
                 return LayoutModel.CreateBoeing737Layout();
@@ -94,6 +94,14 @@ namespace DataAccess
             {
                 return LayoutModel.CreateBoeing737Layout();
             }
+        }
+        public static void AdminAddNewFlight(FlightModel newFlight)
+        {
+            var flights = ReadAll();
+
+            flights.Add(newFlight);
+
+            WriteAll(flights);
         }
     }
 }

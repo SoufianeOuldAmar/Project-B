@@ -10,7 +10,22 @@ namespace DataModels
         public string DepartureAirport { get; set; }
         public string ArrivalDestination { get; set; }
         public bool IsCancelled { get; set; }
-        public DateTime DepartureDate { get; set; }
+        public string DepartureDate { get; set; }
         public string FlightTime { get; set; }
+        public FlightModel(string airline, LayoutModel layout, double ticketPrice, string gate, string departureAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime)
+
+        {
+            Airline = airline;
+            Layout = layout;
+            TicketPrice = ticketPrice;
+            Gate = gate;
+            DepartureAirport = departureAirport;
+            ArrivalDestination = arrivalDestination; // Bijvoorbeeld: "Istanbul, Istanbul Airport"
+            IsCancelled = isCancelled;
+            DepartureDate = departureDate;
+            FlightTime = flightTime;
+        }
     }
+
+    // Constructor sort of values terug geven
 }
