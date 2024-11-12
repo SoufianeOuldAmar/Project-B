@@ -5,33 +5,45 @@ public class LayoutModel
     public List<string> SeatArrangement { get; set; }
     public List<string> AvailableSeats { get; set; }
     public List<string> BookedSeats { get; set; }
-    public List<string> ChosenSeats { get; set; } // Track temporarily chosen seats
+    public List<string> ChosenSeats { get; set; }
+    public bool IsAirbusA330 { get; set; }
+    public Dictionary<string, string> SeatInitials { get; set; } = new Dictionary<string, string>();
 
-    public LayoutModel(int rows, int columns, List<string> seatArrangement)
+    public LayoutModel(int rows, int columns, List<string> seatArrangement, bool isAirbusA330 = false)
     {
         Rows = rows;
         Columns = columns;
         SeatArrangement = seatArrangement;
-        AvailableSeats = new List<string>(seatArrangement); // Initially, all seats are available
+        AvailableSeats = new List<string>(seatArrangement);
         BookedSeats = new List<string>();
-        ChosenSeats = new List<string>(); // Initially, no seats are chosen
+        ChosenSeats = new List<string>();
+        IsAirbusA330 = isAirbusA330;
+        SeatInitials = new Dictionary<string, string>();
     }
 
-    // Print function to display the layout with different colors
     public void PrintLayout()
+    {
+        if (IsAirbusA330)
+        {
+            PrintAirbusA330Layout();
+        }
+        else
+        {
+            PrintStandardLayout();
+        }
+    }
+
+    private void PrintStandardLayout()
     {
         for (int i = 0; i < SeatArrangement.Count; i += Columns)
         {
             int currentRow = (i / Columns) + 1;
-
-            // Determine the seat type headers based on the current row
             string seatTypeHeaderBusiness = currentRow == 1 ? "Business Class ↓" : "";
             string seatTypeHeaderEconomy = currentRow == 10 ? "Economy Class ↓" : "";
 
-            // Add a space before row 10 (for exit row formatting)
             if (currentRow == 10)
             {
-                Console.WriteLine(); // Empty line
+                Console.WriteLine();
                 Console.WriteLine("                                     Exit row");
                 Console.WriteLine();
             }
@@ -39,97 +51,94 @@ public class LayoutModel
             for (int j = 0; j < Columns; j++)
             {
                 string seat = SeatArrangement[i + j];
-
-                // Print seat colors based on its status
                 if (BookedSeats.Contains(seat))
                 {
-                    // Change color to red for booked seats
                     Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write($"{(SeatInitials.ContainsKey(seat) ? SeatInitials[seat] : seat)}  ");
                 }
                 else if (ChosenSeats.Contains(seat))
                 {
-                    // Change color to yellow for temporarily chosen seats
                     Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write($"{(SeatInitials.ContainsKey(seat) ? SeatInitials[seat] : seat)}  ");
                 }
-
-                // Print seat
-                Console.Write($"{seat}  ");
-
-                // Reset color to default
+                else
+                {
+                    Console.Write($"{seat}  ");
+                }
                 Console.ResetColor();
 
-                // Add space between seats C and D
                 if (j == 2)
                 {
-                    Console.Write("       "); // Space for walking
-                }
-
-                if (j == 5)
-                {
-                    Console.Write(seatTypeHeaderEconomy);
-                    Console.Write(seatTypeHeaderBusiness);
+                    Console.Write("       ");
                 }
             }
-            Console.WriteLine(); // Move to the next line after printing one row
+            Console.WriteLine();
         }
     }
 
-    // Factory method to create a Boeing 737 layout
-    public static LayoutModel CreateBoeing737Layout()
+    private void PrintAirbusA330Layout()
     {
-        int rows = 30;  // typical number of rows in a 737
-        int columns = 6;  // 6 seats per row (A-F)
-
-        List<string> seatArrangement = new List<string>();
-        for (int i = 1; i <= rows; i++)
+        int index = 0;
+        for (int row = 1; row <= Rows; row++)
         {
-            // Add leading zero for single-digit row numbers
-            string rowNumber = i < 10 ? $"0{i}" : $"{i}";
-            seatArrangement.Add($"{rowNumber}A");
-            seatArrangement.Add($"{rowNumber}B");
-            seatArrangement.Add($"{rowNumber}C");
-            seatArrangement.Add($"{rowNumber}D");
-            seatArrangement.Add($"{rowNumber}E");
-            seatArrangement.Add($"{rowNumber}F");
-        }
+            if (row == 1)
+                Console.WriteLine("Business Class ↓");
+            else if (row == 11)
+            {
+                Console.WriteLine("\n                                     Business/Economy Separator");
+                Console.WriteLine("\nEconomy Class ↓");
+            }
 
-        return new LayoutModel(rows, columns, seatArrangement);
+            string rowNum = row < 10 ? $"0{row}" : row.ToString();
+            int seatsInRow = row <= 10 ? 8 : 10;
+
+            for (int seatIndex = 0; seatIndex < seatsInRow; seatIndex++)
+            {
+                string seat = SeatArrangement[index + seatIndex];
+                if (BookedSeats.Contains(seat))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write($"{(SeatInitials.ContainsKey(seat) ? SeatInitials[seat] : seat)}  ");
+                }
+                else if (ChosenSeats.Contains(seat))
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write($"{(SeatInitials.ContainsKey(seat) ? SeatInitials[seat] : seat)}  ");
+                }
+                else
+                {
+                    Console.Write($"{seat}  ");
+                }
+                Console.ResetColor();
+
+                if (row <= 10)
+                {
+                    if (seatIndex == 1 || seatIndex == 5)
+                        Console.Write("    ");
+                }
+                else
+                {
+                    if (seatIndex == 2 || seatIndex == 6)
+                        Console.Write("    ");
+                }
+            }
+            Console.WriteLine();
+            index += seatsInRow;
+        }
     }
 
-    // Factory method to create a Boeing 757 layout
-    public static LayoutModel CreateBoeing757Layout()
-    {
-        int rows = 40;  // typical number of rows in a 757
-        int columns = 6;  // 6 seats per row (A-F)
-
-        List<string> seatArrangement = new List<string>();
-        for (int i = 1; i <= rows; i++)
-        {
-            // Add leading zero for single-digit row numbers
-            string rowNumber = i < 10 ? $"0{i}" : $"{i}";
-            seatArrangement.Add($"{rowNumber}A");
-            seatArrangement.Add($"{rowNumber}B");
-            seatArrangement.Add($"{rowNumber}C");
-            seatArrangement.Add($"{rowNumber}D");
-            seatArrangement.Add($"{rowNumber}E");
-            seatArrangement.Add($"{rowNumber}F");
-        }
-
-        return new LayoutModel(rows, columns, seatArrangement);
-    }
-
-    // Book flight function (with chosen seats functionality)
-    public void BookFlight(string seat)
+    public void BookFlight(string seat, string initials)
     {
         if (AvailableSeats.Contains(seat))
         {
-            AvailableSeats.Remove(seat);   // Remove from available
-            ChosenSeats.Add(seat);         // Add to chosen list (temporary before confirmation)
-            Console.WriteLine($"Seat {seat} is temporarily chosen.");
+            AvailableSeats.Remove(seat);
+            ChosenSeats.Add(seat);
+            SeatInitials[seat] = initials;
+            Console.WriteLine($"Seat {seat} is temporarily chosen by {initials}.");
         }
         else if (BookedSeats.Contains(seat))
         {
-            Console.WriteLine($"Seat {seat} is already booked.");
+            Console.WriteLine($"Seat {seat} is already booked by {(SeatInitials.ContainsKey(seat) ? SeatInitials[seat] : "someone")}.");
         }
         else
         {
@@ -143,15 +152,91 @@ public class LayoutModel
         }
     }
 
-    // Confirm booking of chosen seats
     public void ConfirmBooking()
     {
         foreach (var seat in ChosenSeats)
         {
-            BookedSeats.Add(seat);  // Move chosen seats to booked seats
+            BookedSeats.Add(seat);
         }
-        ChosenSeats.Clear();         // Clear the chosen seats list
+        ChosenSeats.Clear();
         Console.WriteLine("Seats have been successfully booked.");
 
+    }
+
+    public static LayoutModel CreateBoeing737Layout()
+    {
+        int rows = 30;
+        int columns = 6;
+        List<string> seatArrangement = new List<string>();
+
+        for (int i = 1; i <= rows; i++)
+        {
+            string rowNumber = i < 10 ? $"0{i}" : $"{i}";
+            seatArrangement.Add($"{rowNumber}A");
+            seatArrangement.Add($"{rowNumber}B");
+            seatArrangement.Add($"{rowNumber}C");
+            seatArrangement.Add($"{rowNumber}D");
+            seatArrangement.Add($"{rowNumber}E");
+            seatArrangement.Add($"{rowNumber}F");
+        }
+
+        return new LayoutModel(rows, columns, seatArrangement);
+    }
+
+    public static LayoutModel CreateAirbusA330200Layout()
+    {
+        int rows = 50;
+        int columns = 10;
+        List<string> seatArrangement = new List<string>();
+
+        for (int i = 1; i <= 10; i++)
+        {
+            string rowNumber = i < 10 ? $"0{i}" : $"{i}";
+            seatArrangement.Add($"{rowNumber}A");
+            seatArrangement.Add($"{rowNumber}B");
+            seatArrangement.Add($"{rowNumber}D");
+            seatArrangement.Add($"{rowNumber}E");
+            seatArrangement.Add($"{rowNumber}F");
+            seatArrangement.Add($"{rowNumber}G");
+            seatArrangement.Add($"{rowNumber}J");
+            seatArrangement.Add($"{rowNumber}K");
+        }
+
+        for (int i = 11; i <= 50; i++)
+        {
+            string rowNumber = $"{i}";
+            seatArrangement.Add($"{rowNumber}A");
+            seatArrangement.Add($"{rowNumber}B");
+            seatArrangement.Add($"{rowNumber}C");
+            seatArrangement.Add($"{rowNumber}D");
+            seatArrangement.Add($"{rowNumber}E");
+            seatArrangement.Add($"{rowNumber}F");
+            seatArrangement.Add($"{rowNumber}G");
+            seatArrangement.Add($"{rowNumber}H");
+            seatArrangement.Add($"{rowNumber}J");
+            seatArrangement.Add($"{rowNumber}K");
+        }
+
+        return new LayoutModel(rows, columns, seatArrangement, true);
+    }
+
+    public static LayoutModel CreateBoeing757Layout()
+    {
+        int rows = 40;
+        int columns = 6;
+        List<string> seatArrangement = new List<string>();
+
+        for (int i = 1; i <= rows; i++)
+        {
+            string rowNumber = i < 10 ? $"0{i}" : $"{i}";
+            seatArrangement.Add($"{rowNumber}A");
+            seatArrangement.Add($"{rowNumber}B");
+            seatArrangement.Add($"{rowNumber}C");
+            seatArrangement.Add($"{rowNumber}D");
+            seatArrangement.Add($"{rowNumber}E");
+            seatArrangement.Add($"{rowNumber}F");
+        }
+
+        return new LayoutModel(rows, columns, seatArrangement);
     }
 }

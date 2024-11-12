@@ -16,17 +16,5 @@
     "emailAddress": "soufiane_ouldamar@",
     "password": "password1",
     "fullName": "Soufiane Ould Amar"
-  },
-  {
-    "id": 4,
-    "emailAddress": "BOOST",
-    "password": "airline",
-    "fullName": "Albert Einstein"
-  },
-  {
-    "id": 5,
-    "emailAddress": "ozan@",
-    "password": "ozana",
-    "fullName": "ozan"
   }
 ]

@@ -1,3 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using DataModels; // FlightModel, LayoutModel
+using DataAccess; // FlightsAccess
+
 public static class BookFlightLogic
 {
     // Method to search for a flight by its ID
@@ -10,7 +16,6 @@ public static class BookFlightLogic
         return allFlights.FirstOrDefault(flight => flight.Id == id);
     }
 
-    // Method om te controleren of een zitplaats al geboekt is
     public static bool IsSeatAlreadyBooked(FlightModel flight, string seat)
     {
         return flight.Layout.BookedSeats.Contains(seat);
@@ -21,4 +26,6 @@ public static class BookFlightLogic
     {
         return (flight.Layout.Rows * flight.Layout.Columns) - flight.Layout.BookedSeats.Count;
     }
+
 }
+a
