@@ -144,12 +144,6 @@ public class LayoutModel
         {
             Console.WriteLine($"Seat {seat} is not available.");
         }
-
-        Console.WriteLine("Available seats after booking:");
-        foreach (var availableSeat in AvailableSeats)
-        {
-            Console.WriteLine(availableSeat);
-        }
     }
 
     public void ConfirmBooking()
@@ -160,7 +154,6 @@ public class LayoutModel
         }
         ChosenSeats.Clear();
         Console.WriteLine("Seats have been successfully booked.");
-
     }
 
     public static LayoutModel CreateBoeing737Layout()

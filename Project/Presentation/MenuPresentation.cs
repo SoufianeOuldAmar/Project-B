@@ -1,3 +1,6 @@
+using DataModels;
+using DataAccess;
+
 public static class MenuPresentation
 {
     public static Stack<Action> menuStack = new Stack<Action>(); // Een stack voor functies
@@ -194,7 +197,7 @@ public static void SearchFlightsMenu()
     {
         for (int i = 0; i < searchResults.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. {searchResults[i].ToString()}");
+            Console.WriteLine($"{i + 1}. {searchResults[i].Airline} - {searchResults[i].DepartureAirport} to {searchResults[i].ArrivalDestination} on {searchResults[i].DepartureDate}");
         }
     }
 
@@ -279,7 +282,6 @@ public static void DisplayFlightLayoutAndChooseSeat(FlightModel selectedFlight)
         else
             {
                 // Boek de stoel tijdelijk
-                selectedFlight.Layout.BookFlight(seat);
                 Console.Clear();
                 selectedFlight.Layout.PrintLayout(); // Toon bijgewerkte layout
             }

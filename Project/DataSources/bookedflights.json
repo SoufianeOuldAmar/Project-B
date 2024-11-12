@@ -282,5 +282,17 @@
       "BookedSeats": [],
       "IsCancelled": false
     }
+  ],
+  "n@b.c": [
+    {
+      "FlightID": 4,
+      "BookedSeats": [],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 4,
+      "BookedSeats": [],
+      "IsCancelled": false
+    }
   ]
 }
