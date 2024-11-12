@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DataModels;
 using DataAccess;
+using System.Threading;
 
 public static class BookFlightPresentation
 {
@@ -19,26 +20,39 @@ public static class BookFlightPresentation
                 return;
             }
 
-            Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12}",
+            Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12} {6,-30}",
                               "ID", "Airline", "Departure Airport", "Arrival Destination",
-                              "Flight Time", "Cancelled");
-            Console.WriteLine(new string('-', 195));
+                              "Flight Time", "Cancelled", "Ticket Price");
+            Console.WriteLine(new string('-', 200));
 
             foreach (var flight in allFlights)
             {
-                Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12}",
+                Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12} {6,-30}",
                                   flight.Id,
                                   flight.Airline,
                                   flight.DepartureAirport,
                                   flight.ArrivalDestination,
                                   flight.FlightTime,
-                                  flight.IsCancelled ? "Yes" : "No");
+                                  flight.IsCancelled ? "Yes" : "No",
+                                  $"€ {flight.TicketPrice},-");
             }
 
             Console.WriteLine("\n" + new string('-', 195));
-            Console.Write("\nEnter the ID of the flight you wish to book: ");
+            Console.Write("\nEnter the ID of the flight you wish to book (or press 'q' to quit): ");
 
-            if (int.TryParse(Console.ReadLine(), out int selectedId))
+            string idInput = Console.ReadLine();
+
+            if (idInput.ToUpper() == "Q")
+            {
+                Console.WriteLine("Exiting booking process menu. Press any key to continue.");
+                Console.ReadKey();
+                MenuLogic.PopMenu();
+                break;
+            }
+
+            // TODO: Make it so when more than two persons order, the price is right.
+
+            if (int.TryParse(idInput, out int selectedId))
             {
                 var selectedFlight = BookFlightLogic.SearchFlightByID(selectedId);
                 if (selectedFlight != null)
@@ -49,9 +63,13 @@ public static class BookFlightPresentation
                     Console.WriteLine("{0,-20} {1,-35}", "Arrival Destination:", selectedFlight.ArrivalDestination);
                     Console.WriteLine("{0,-20} {1,-35}", "Flight Time:", selectedFlight.FlightTime);
                     Console.WriteLine("{0,-20} {1,-35}", "Is Cancelled:", (selectedFlight.IsCancelled ? "Yes" : "No"));
+                    Console.WriteLine("{0,-20} {1,-35}", "Ticket Price:", ($"€ {selectedFlight.TicketPrice},-"));
 
                     Console.Write("\nAre you sure you want to book this flight? (yes/no) ");
                     string confirmation = Console.ReadLine();
+
+                    List<AccountModel> accountModels = new List<AccountModel>();
+                    int num = 0;
 
                     if (confirmation.ToLower() == "yes")
                     {
@@ -71,6 +89,8 @@ public static class BookFlightPresentation
                             {
                                 Console.WriteLine("Confirming your selected seats...");
                                 selectedFlight.Layout.ConfirmBooking();
+                                // accountModels.Add(AccountsLogic.CurrentAccount);
+                                AccountsAccess.WriteAll(AccountsLogic._accounts);
                                 break;
                             }
 
@@ -85,6 +105,8 @@ public static class BookFlightPresentation
 
                             // Book the seat with initials
                             selectedFlight.Layout.BookFlight(seat, initials);
+
+                            AccountsLogic.CurrentAccount.FlightPoints += selectedFlight.FlightPoints;
 
                             Console.Clear();
                             selectedFlight.Layout.PrintLayout();
