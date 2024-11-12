@@ -190,7 +190,6 @@ public class AdminAddFlightsPresentation
 
 
         Console.WriteLine("New flight added:");
-        Console.WriteLine(newFight);
         return newFight;
     }
 
