@@ -66,9 +66,11 @@ public static class MenuPresentation
         BookFlightPresentation.BookFlightMenu();
     }
 
-    public static void ViewTicketHistoryMenu()
+    public static void CancelFlights(string email, int id)
     {
-        BookFlightPresentation.CancelBookedFlightMenu();
+        CancelLogic cancelLogic = new CancelLogic();
+        string Cancel = cancelLogic.CancelFlights(email, id);
+        Console.WriteLine(Cancel);
     }
 
     public static void FrontPageUser(AccountModel accountModel)
@@ -87,8 +89,7 @@ public static class MenuPresentation
                 MenuLogic.PushMenu(BookFlightMenu);
                 break;
             case "2":
-                MenuLogic.PushMenu(ViewTicketHistoryMenu);
-                Console.WriteLine("\nThis feature isn't available yet.");
+                MenuLogic.PushMenu(CancelFlights);
                 break;
             case "3":
                 Console.WriteLine("\nLogging out...");
