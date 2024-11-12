@@ -95,8 +95,7 @@ namespace DataAccess
                 return LayoutModel.CreateBoeing737Layout();
             }
         }
-    }
-    public static void AdminAddNewFlight(FlightModel newFlight)
+        public static void AdminAddNewFlight(FlightModel newFlight)
         {
             var flights = ReadAll();
 
@@ -105,3 +104,4 @@ namespace DataAccess
             WriteAll(flights);
         }
     }
+}
