@@ -8,7 +8,7 @@
         CorrectCredentials
     }
 
-    private static List<AccountModel> _accounts = AccountsAccess.LoadAll();
+    public static List<AccountModel> _accounts = AccountsAccess.LoadAll();
     static public AccountModel? CurrentAccount { get; private set; }
 
     public static void UpdateList(AccountModel acc)

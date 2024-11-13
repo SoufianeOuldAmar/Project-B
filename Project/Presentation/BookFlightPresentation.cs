@@ -9,7 +9,8 @@ public static class BookFlightPresentation
     public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
     public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
     public static void BookFlightMenu(bool searchFlightFunction = false, FlightModel flightModel = null)
-    {
+    {   
+        var currentAccount = AccountsLogic.CurrentAccount;
 
         if (!searchFlightFunction)
         {
@@ -49,7 +50,7 @@ public static class BookFlightPresentation
                 break;
                 }
 
-                if (int.TryParse(Console.ReadLine(), out int selectedId))
+                if (int.TryParse(input, out int selectedId))
                 {
                     var selectedFlight = BookFlightLogic.SearchFlightByID(selectedId);
                     if (selectedFlight != null)
@@ -82,6 +83,7 @@ public static class BookFlightPresentation
                                 {
                                     Console.WriteLine("Confirming your selected seats...");
                                     selectedFlight.Layout.ConfirmBooking();
+                                    AccountsAccess.WriteAll(AccountsLogic._accounts);
                                     break;
                                 }
 
@@ -99,13 +101,13 @@ public static class BookFlightPresentation
 
                                 Console.Clear();
                                 selectedFlight.Layout.PrintLayout();
+                                currentAccount.FlightPoints += selectedFlight.FlightPoints;
                             }
 
                             List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
                         {
                             new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, false)
                         };
-                            var currentAccount = AccountsLogic.CurrentAccount;
                             FlightsAccess.WriteAll(allFlights);
                             BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, bookedFlightModel);
                         }
@@ -191,7 +193,6 @@ public static class BookFlightPresentation
                         {
                             new BookedFlightsModel(flightModel.Id, flightModel.Layout.BookedSeats, false)
                         };
-                    var currentAccount = AccountsLogic.CurrentAccount;
 
                     var index = allFlights.FindIndex(f => f.Id == flightModel.Id);
                     if (index >= 0)

@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Runtime.Versioning;
+using System.Text.Json.Serialization;
 public class AccountModel
 {
     [JsonPropertyName("id")]
@@ -13,12 +14,16 @@ public class AccountModel
     [JsonPropertyName("fullName")]
     public string FullName { get; set; }
 
+    [JsonPropertyName("flightPoints")]
+    public int FlightPoints { get; set; }
+
     public AccountModel(int id, string emailAddress, string password, string fullName)
     {
         Id = id;
         EmailAddress = emailAddress;
         Password = password;
         FullName = fullName;
+        FlightPoints = 0;
     }
 
 }

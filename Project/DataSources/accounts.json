@@ -3,18 +3,21 @@
     "id": 1,
     "emailAddress": "n@b.c",
     "password": "xyz",
-    "fullName": "Nikola Tesla"
+    "fullName": "Nikola Tesla",
+    "flightPoints": 0
   },
   {
     "id": 2,
     "emailAddress": "t@b.c",
     "password": "xyz",
-    "fullName": "Thomas Edison"
+    "fullName": "Thomas Edison",
+    "flightPoints": 0
   },
   {
     "id": 3,
     "emailAddress": "soufiane_ouldamar@",
     "password": "password1",
-    "fullName": "Soufiane Ould Amar"
+    "fullName": "Soufiane Ould Amar",
+    "flightPoints": 0
   }
 ]

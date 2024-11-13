@@ -133,7 +133,7 @@ public class LayoutModel
         {
             AvailableSeats.Remove(seat);
             ChosenSeats.Add(seat);
-            SeatInitials[seat] = initials;
+            SeatInitials[seat] = initials + " ";
             Console.WriteLine($"Seat {seat} is temporarily chosen by {initials}.");
         }
         else if (BookedSeats.Contains(seat))
