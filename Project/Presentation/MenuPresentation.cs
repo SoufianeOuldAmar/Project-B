@@ -1,5 +1,6 @@
 using DataModels;
 using DataAccess;
+using System.Runtime.CompilerServices;
 
 public static class MenuPresentation
 {
@@ -101,6 +102,31 @@ public static class MenuPresentation
         BookFlightPresentation.CancelBookedFlightMenu();
     }
 
+    public static void ViewFlightPointsMenu()
+    {
+        Console.WriteLine("=== View Flight Points ===");
+        var currentAccount = AccountsLogic.CurrentAccount;
+
+        Console.WriteLine($"Total Flight Points: {currentAccount.FlightPoints}");
+        string input = Console.ReadLine().ToUpper();
+        while (true)
+        {
+            Console.WriteLine("Press 'Q' to go back.");
+
+            if (input != "Q")
+            {
+                Console.WriteLine("Wrong input try again");
+            }
+            else
+            {
+                MenuLogic.PopMenu();
+                break;
+            }
+        }
+
+
+    }
+
     public static void FrontPageUser(AccountModel accountModel)
     {
         Console.WriteLine($"Logged in as: {accountModel.FullName}\n");
@@ -108,9 +134,9 @@ public static class MenuPresentation
         Console.WriteLine("1. Order a ticket");
         Console.WriteLine("2. View history of tickets");
         Console.WriteLine("3. Search for flights");
-        Console.WriteLine("4. Log out");
+        Console.WriteLine("4. View Flight Points");
+        Console.WriteLine("5. Log out");
         Console.Write("\nChoose an option: ");
-
         string choice = Console.ReadLine();
 
         switch (choice)
@@ -120,12 +146,14 @@ public static class MenuPresentation
                 break;
             case "2":
                 MenuLogic.PushMenu(ViewTicketHistoryMenu);
-                Console.WriteLine("\nThis feature isn't available yet.");
                 break;
             case "3":
                 MenuLogic.PushMenu(SearchFlightsMenu);  // Voeg de zoekfunctie toe
                 break;
             case "4":
+                MenuLogic.PushMenu(ViewFlightPointsMenu);
+                break;
+            case "5":
                 Console.WriteLine("\nLogging out...");
                 // AccountsLogic.LogOut(); (voeg logout-logica toe indien nodig)
                 MenuLogic.PopMenu();

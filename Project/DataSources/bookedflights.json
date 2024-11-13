@@ -57,6 +57,27 @@
         "10A"
       ],
       "IsCancelled": false
+    },
+    {
+      "FlightID": 1,
+      "BookedSeats": [
+        "10A"
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 15,
+      "BookedSeats": [
+        "10C"
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 13,
+      "BookedSeats": [
+        "11A"
+      ],
+      "IsCancelled": false
     }
   ]
 }

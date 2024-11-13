@@ -1,3 +1,5 @@
+using System;
+
 namespace DataModels
 {
     public class FlightModel
@@ -14,6 +16,7 @@ namespace DataModels
         public string FlightTime { get; set; }
 
         public int AvailableSeats { get; set; }
+        public int FlightPoints { get; set; }
         public FlightModel(string airline, LayoutModel layout, double ticketPrice, string gate, string departureAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime, int availableSeats)
 
         {
@@ -27,6 +30,7 @@ namespace DataModels
             DepartureDate = departureDate;
             FlightTime = flightTime;
             AvailableSeats = availableSeats;
+            FlightPoints = Convert.ToInt32(TicketPrice) / 10;
         }
     }
 

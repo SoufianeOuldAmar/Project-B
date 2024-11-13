@@ -242,7 +242,6 @@
         "09D",
         "09E",
         "09F",
-        "10A",
         "10B",
         "10C",
         "10D",
@@ -369,10 +368,14 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "10A"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "10A": "SO "
+      }
     },
     "ticketPrice": 150,
     "gate": "A12",
@@ -381,7 +384,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-22",
     "flightTime": "14:30",
-    "availableSeats": 178
+    "availableSeats": 178,
+    "flightPoints": 15
   },
   {
     "id": 2,
@@ -765,7 +769,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-23",
     "flightTime": "09:45",
-    "availableSeats": 178
+    "availableSeats": 178,
+    "flightPoints": 20
   },
   {
     "id": 3,
@@ -1269,7 +1274,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-24",
     "flightTime": "11:00",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 18
   },
   {
     "id": 4,
@@ -2256,7 +2262,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-25",
     "flightTime": "13:20",
-    "availableSeats": 173
+    "availableSeats": 173,
+    "flightPoints": 25
   },
   {
     "id": 5,
@@ -2640,7 +2647,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-26",
     "flightTime": "16:10",
-    "availableSeats": 176
+    "availableSeats": 176,
+    "flightPoints": 16
   },
   {
     "id": 6,
@@ -3024,7 +3032,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-27",
     "flightTime": "18:25",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 14
   },
   {
     "id": 7,
@@ -3408,7 +3417,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-28",
     "flightTime": "21:15",
-    "availableSeats": 179
+    "availableSeats": 179,
+    "flightPoints": 19
   },
   {
     "id": 8,
@@ -4392,7 +4402,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-29",
     "flightTime": "21:30",
-    "availableSeats": 179
+    "availableSeats": 179,
+    "flightPoints": 23
   },
   {
     "id": 9,
@@ -4776,7 +4787,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-26",
     "flightTime": "21:30",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 27
   },
   {
     "id": 10,
@@ -5160,7 +5172,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-26",
     "flightTime": "21:30",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 31
   },
   {
     "id": 11,
@@ -5664,7 +5677,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-26",
     "flightTime": "16:30",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 31
   },
   {
     "id": 12,
@@ -6048,7 +6062,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-24",
     "flightTime": "15:30",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 21
   },
   {
     "id": 13,
@@ -6299,7 +6314,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -6420,10 +6434,14 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "11A"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "11A": "SO "
+      }
     },
     "ticketPrice": 275,
     "gate": "C6",
@@ -6432,7 +6450,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-29",
     "flightTime": "12:30",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 27
   },
   {
     "id": 14,
@@ -6819,7 +6838,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-26",
     "flightTime": "14:15",
-    "availableSeats": 179
+    "availableSeats": 179,
+    "flightPoints": 27
   },
   {
     "id": 15,
@@ -7066,7 +7086,6 @@
         "09F",
         "10A",
         "10B",
-        "10C",
         "10D",
         "10E",
         "10F",
@@ -7191,10 +7210,14 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "10C"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "10C": "SO "
+      }
     },
     "ticketPrice": 410,
     "gate": "E4",
@@ -7203,7 +7226,8 @@
     "isCancelled": false,
     "departureDate": "2024-12-04",
     "flightTime": "14:30",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 41
   },
   {
     "id": 16,
@@ -7587,7 +7611,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-26",
     "flightTime": "09:50",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 18
   },
   {
     "id": 17,
@@ -7971,7 +7996,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-22",
     "flightTime": "07:30",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 34
   },
   {
     "id": 18,
@@ -8355,7 +8381,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-30",
     "flightTime": "14:30",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 28
   },
   {
     "id": 19,
@@ -8739,7 +8766,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-21",
     "flightTime": "15:30",
-    "availableSeats": 179
+    "availableSeats": 179,
+    "flightPoints": 31
   },
   {
     "id": 20,
@@ -9123,7 +9151,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-26",
     "flightTime": "13:30",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 30
   },
   {
     "id": 21,
@@ -9507,7 +9536,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-19",
     "flightTime": "11:30",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 21
   },
   {
     "id": 22,
@@ -9891,7 +9921,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-17",
     "flightTime": "10:10",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 27
   },
   {
     "id": 23,
@@ -10875,7 +10906,8 @@
     "isCancelled": false,
     "departureDate": "2024-12-06",
     "flightTime": "20:30",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 31
   },
   {
     "id": 24,
@@ -11259,7 +11291,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-30",
     "flightTime": "14:45",
-    "availableSeats": 179
+    "availableSeats": 179,
+    "flightPoints": 33
   },
   {
     "id": 25,
@@ -11643,7 +11676,8 @@
     "isCancelled": false,
     "departureDate": "2024-12-01",
     "flightTime": "12:15",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 28
   },
   {
     "id": 26,
@@ -12027,7 +12061,8 @@
     "isCancelled": false,
     "departureDate": "2024-12-10",
     "flightTime": "10:45",
-    "availableSeats": 179
+    "availableSeats": 179,
+    "flightPoints": 45
   },
   {
     "id": 27,
@@ -12411,7 +12446,8 @@
     "isCancelled": false,
     "departureDate": "2024-12-03",
     "flightTime": "11:50",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 30
   },
   {
     "id": 28,
@@ -12795,7 +12831,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-26",
     "flightTime": "21:30",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 27
   },
   {
     "id": 29,
@@ -13179,7 +13216,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-29",
     "flightTime": "19:45",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 27
   },
   {
     "id": 30,
@@ -13563,7 +13601,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-30",
     "flightTime": "15:00",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 30
   },
   {
     "id": 31,
@@ -14547,7 +14586,8 @@
     "isCancelled": false,
     "departureDate": "2024-12-14",
     "flightTime": "12:30",
-    "availableSeats": 178
+    "availableSeats": 178,
+    "flightPoints": 41
   },
   {
     "id": 32,
@@ -14931,7 +14971,8 @@
     "isCancelled": false,
     "departureDate": "2024-11-16",
     "flightTime": "14:15",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 30
   },
   {
     "id": 33,
@@ -15315,6 +15356,7 @@
     "isCancelled": false,
     "departureDate": "2024-11-25",
     "flightTime": "06:55",
-    "availableSeats": 180
+    "availableSeats": 180,
+    "flightPoints": 20
   }
 ]
