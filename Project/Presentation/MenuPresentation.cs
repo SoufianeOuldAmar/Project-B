@@ -68,7 +68,7 @@ public static class MenuPresentation
 
     public static void CancelMain(string email)
     {
-        CancelLogic.BookedFlights(email);
+        CancelPres.CancelMain(email);
     }
 
     public static void RescheduleLogic()
@@ -77,7 +77,8 @@ public static class MenuPresentation
     }
 
     public static void FrontPageUser(AccountModel accountModel)
-    {
+    {   
+        Console.WriteLine(accountModel.EmailAddress);
         Console.WriteLine($"Logged in as: {accountModel.FullName}\n");
         Console.WriteLine("=== Front page ===");
         Console.WriteLine("1. Order a ticket");
