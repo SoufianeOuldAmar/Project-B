@@ -101,6 +101,11 @@ public static class MenuPresentation
         BookFlightPresentation.CancelBookedFlightMenu();
     }
 
+    public static void CancelMain(string email)
+    {
+        CancelPres.CancelMain(email);
+    }
+
     public static void FrontPageUser(AccountModel accountModel)
     {
         Console.WriteLine($"Logged in as: {accountModel.FullName}\n");
@@ -119,8 +124,7 @@ public static class MenuPresentation
                 MenuLogic.PushMenu(BookFlightMenu);
                 break;
             case "2":
-                MenuLogic.PushMenu(ViewTicketHistoryMenu);
-                Console.WriteLine("\nThis feature isn't available yet.");
+                MenuLogic.PushMenu(() => CancelMain(accountModel.EmailAddress));
                 break;
             case "3":
                 MenuLogic.PushMenu(SearchFlightsMenu);  // Voeg de zoekfunctie toe
