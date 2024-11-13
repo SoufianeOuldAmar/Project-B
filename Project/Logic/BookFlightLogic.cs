@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+
 // using DataModels; // FlightModel, LayoutModel
 // using DataAccess; // FlightsAccess
+
 
 public static class BookFlightLogic
 {
@@ -34,5 +36,4 @@ public static class BookFlightLogic
             .Where(flight => flight.DepartureAirport == departureAirport && flight.ArrivalDestination == arrivalDestination && !flight.IsCancelled)
             .ToList();
     }
-
 }

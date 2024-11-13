@@ -1,3 +1,9 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using DataModels;
+using DataAccess;
+
 public static class BookFlightPresentation
 {
     public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
@@ -47,41 +53,41 @@ public static class BookFlightPresentation
                     Console.Write("\nAre you sure you want to book this flight? (yes/no) ");
                     string confirmation = Console.ReadLine();
 
-                    if (confirmation == "yes")
+                    if (confirmation.ToLower() == "yes")
                     {
-                        // Seat selection process
                         List<string> chosenSeats = new List<string>();
-                        selectedFlight.Layout.PrintLayout(); // Print the initial layout
+                        selectedFlight.Layout.PrintLayout();
 
                         while (true)
                         {
                             Console.Write("\nWhich seat do you want? (press Q to quit or Enter to confirm booking and keep choosing by seat number if you want more seats): ");
-                            string seat = Console.ReadLine();
+                            string seat = Console.ReadLine()?.ToUpper();
 
                             if (seat == "Q")
                             {
-                                break; // Exit seat selection
+                                break;
                             }
                             else if (string.IsNullOrWhiteSpace(seat))
                             {
                                 Console.WriteLine("Confirming your selected seats...");
-                                selectedFlight.Layout.ConfirmBooking(); // Confirm booking (turn yellow seats to red)
+                                selectedFlight.Layout.ConfirmBooking();
                                 break;
                             }
-                            // else
-                            // {   
-                            //     Console.WriteLine("Invalid input");
-                            //     Console.WriteLine("Press any key to continue...");
-                            //     Console.ReadKey();
-                            //     continue;
-                            // }
 
-                            // Book the seat temporarily (yellow)
-                            selectedFlight.Layout.BookFlight(seat);
+                            // Get user initials
+                            Console.Write("Enter your initials (2 characters): ");
+                            string initials = Console.ReadLine()?.ToUpper() ?? "";
+                            while (initials.Length != 2)
+                            {
+                                Console.Write("Please enter exactly 2 characters for your initials: ");
+                                initials = Console.ReadLine()?.ToUpper() ?? "";
+                            }
 
-                            // Clear console and reprint the layout to show updates
+                            // Book the seat with initials
+                            selectedFlight.Layout.BookFlight(seat, initials);
+
                             Console.Clear();
-                            selectedFlight.Layout.PrintLayout(); // Show updated layout with chosen seats in yellow
+                            selectedFlight.Layout.PrintLayout();
                         }
 
                         List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
@@ -91,11 +97,8 @@ public static class BookFlightPresentation
                         var currentAccount = AccountsLogic.CurrentAccount;
                         FlightsAccess.WriteAll(allFlights);
                         BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, bookedFlightModel);
-                        // Optionally, save booked seats to an external source (e.g., file, database) after confirming
-                        // SaveBookedSeats(accountModel.Email, selectedFlight.Id, chosenSeats);
-
                     }
-                    else if (confirmation == "no")
+                    else if (confirmation.ToLower() == "no")
                     {
                         Console.WriteLine("Booking flight is cancelled, choose a new flight.\n");
                         Console.WriteLine("Press any key to continue...");
@@ -109,7 +112,6 @@ public static class BookFlightPresentation
                         Console.ReadKey();
                         continue;
                     }
-
                 }
                 else
                 {
@@ -123,5 +125,87 @@ public static class BookFlightPresentation
         }
     }
 
-  
+
+    public static void CancelBookedFlightMenu()
+    {
+        Console.WriteLine("=== Cancel Booked Flight ===\n");
+
+        var currentAccount = AccountsLogic.CurrentAccount;
+        var email = currentAccount.EmailAddress;
+
+        if (!allBookedFlights.ContainsKey(email) || allBookedFlights[email].Count == 0)
+        {
+            Console.WriteLine("No booked tickets.");
+            return;
+        }
+
+        var bookedFlightModels = new List<FlightModel>();
+        var bookedFlights = allBookedFlights[email];
+        int index = 0;
+
+        foreach (var bookedFlightModel in bookedFlights)
+        {
+            var flightModel = BookFlightLogic.SearchFlightByID(bookedFlightModel.FlightID);
+            if (flightModel != null)
+            {
+                bookedFlightModels.Add(flightModel);
+            }
+        }
+
+        if (bookedFlightModels.Count > 0)
+        {
+            Console.WriteLine("Your booked flights:\n");
+            Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-28} {6, -18}",
+                              "ID", "Airline", "Departure Airport", "Arrival Destination",
+                              "Flight Time", "Cancelled by airline", "Cancelled by customer");
+
+            Console.WriteLine(new string('-', 220));
+
+            foreach (var flight in bookedFlightModels)
+            {
+                Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-28} {6, -18}",
+                                  flight.Id,
+                                  flight.Airline,
+                                  flight.DepartureAirport,
+                                  flight.ArrivalDestination,
+                                  flight.FlightTime,
+                                  flight.IsCancelled ? "Yes" : "No",
+                                  bookedFlights[index].IsCancelled ? "Yes" : "No");
+                index++;
+            }
+
+            Console.Write("\nEnter the ID of the flight you wish to cancel (or 'Q' to quit): ");
+            string input = Console.ReadLine();
+
+            if (input.ToUpper() == "Q")
+            {
+                Console.WriteLine("Exiting cancellation process.");
+                MenuLogic.PopMenu();
+                return;
+            }
+
+            if (int.TryParse(input, out int flightToCancelId))
+            {
+                var bookedFlightToCancel = bookedFlights.FirstOrDefault(b => b.FlightID == flightToCancelId);
+                if (bookedFlightToCancel != null)
+                {
+                    bookedFlightToCancel.IsCancelled = true;
+                    Console.WriteLine($"Flight ID {flightToCancelId} has been successfully cancelled.");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Flight ID. Please try again.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a numeric ID or 'Q' to quit.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("You have no booked flights.");
+        }
+    }
 }
+
