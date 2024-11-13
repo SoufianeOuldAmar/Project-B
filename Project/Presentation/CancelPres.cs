@@ -83,7 +83,7 @@ public class CancelPres
 
                 case "5":
                     // Quit the program
-                    Console.WriteLine("Goodbye! Thank you for using Bosst Airlines");
+                    MenuLogic.PopMenu();
                     return;
 
                 default:

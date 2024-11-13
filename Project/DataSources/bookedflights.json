@@ -50,6 +50,13 @@
         "10F"
       ],
       "IsCancelled": false
+    },
+    {
+      "FlightID": 14,
+      "BookedSeats": [
+        "10A"
+      ],
+      "IsCancelled": false
     }
   ]
 }

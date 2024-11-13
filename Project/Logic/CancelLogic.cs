@@ -37,10 +37,11 @@ public static class CancelLogic
         {
             // find flight by ID in Allflights list of BookFlightPresentation
             var neededflight = BookFlightPresentation.allFlights.Find(x => x.Id == flight.FlightID);
+            
             // if flight not found by id 
             if (neededflight!= null)
             {
-                FlightDetails+= $"Flight ID: {neededflight.Id}, Airline: {neededflight.Airline}, Ticket Price: {neededflight.TicketPrice:C}, Cancelled: {flight.IsCancelled}\n"; // cancelled is directly accessed from model class
+                FlightDetails+= $"Flight ID: {neededflight.Id}, Airline: {neededflight.Airline}, Departure Airport: {BookFlightLogic.SearchFlightByID(neededflight.Id).DepartureAirport}, Arrival Destination: {BookFlightLogic.SearchFlightByID(neededflight.Id).ArrivalDestination}, Ticket Price: {neededflight.TicketPrice:C}, Cancelled: {flight.IsCancelled}\n"; // cancelled is directly accessed from model class
             }
         }
         return FlightDetails;
