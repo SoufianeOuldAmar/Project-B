@@ -102,20 +102,26 @@ public static class MenuPresentation
         BookFlightPresentation.CancelBookedFlightMenu();
     }
 
+    public static void CancelMain(string email)
+    {
+        CancelPres.CancelMain(email);
+    }
+
     public static void ViewFlightPointsMenu()
     {
         Console.WriteLine("=== View Flight Points ===");
         var currentAccount = AccountsLogic.CurrentAccount;
 
-        Console.WriteLine($"Total Flight Points: {currentAccount.FlightPoints}");
-        string input = Console.ReadLine().ToUpper();
+        Console.WriteLine($"Total Flight Points: {currentAccount.FlightPoints}\n\n");
         while (true)
         {
-            Console.WriteLine("Press 'Q' to go back.");
+            Console.Write("Press 'Q' to go back: ");
+            string input = Console.ReadLine().ToUpper();
 
             if (input != "Q")
             {
-                Console.WriteLine("Wrong input try again");
+                Console.WriteLine("Wrong input try again, press 'Q' to go back");
+                continue;
             }
             else
             {
@@ -145,7 +151,7 @@ public static class MenuPresentation
                 MenuLogic.PushMenu(BookFlightMenu);
                 break;
             case "2":
-                MenuLogic.PushMenu(ViewTicketHistoryMenu);
+                MenuLogic.PushMenu(() => CancelMain(accountModel.EmailAddress));
                 break;
             case "3":
                 MenuLogic.PushMenu(SearchFlightsMenu);  // Voeg de zoekfunctie toe
