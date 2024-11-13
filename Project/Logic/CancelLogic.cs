@@ -42,10 +42,10 @@ public static class CancelLogic
             if (neededflight != null)
             {
                 FlightDetails += $"Flight ID: {neededflight.Id}, Airline: {neededflight.Airline}, Departure Airport: {BookFlightLogic.SearchFlightByID(neededflight.Id).DepartureAirport}, Arrival Destination: {BookFlightLogic.SearchFlightByID(neededflight.Id).ArrivalDestination}, Ticket Price: {neededflight.TicketPrice:C}, Cancelled: {flight.IsCancelled}\n"; // cancelled is directly accessed from model class
-
             }
-            return FlightDetails;
+
         }
+        return FlightDetails;
     }
 
     public static string CancelFlights(string email, int id)
