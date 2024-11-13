@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Linq;
 using DataModels;
 
 namespace DataAccess
@@ -21,7 +22,7 @@ namespace DataAccess
                     {
                         PropertyNameCaseInsensitive = true  // This is the key fix for the ID issue
                     };
-                    
+
                     var flights = JsonSerializer.Deserialize<List<FlightModel>>(jsonString, options);
 
                     foreach (var flight in flights ?? new List<FlightModel>())
@@ -65,7 +66,7 @@ namespace DataAccess
         private static LayoutModel AssignDefaultLayout(string airline)
         {
             string airlineLower = airline.ToLower();
-                    
+
             if (airlineLower.Contains("british airways"))
             {
                 return LayoutModel.CreateBoeing737Layout();
@@ -94,6 +95,34 @@ namespace DataAccess
             {
                 return LayoutModel.CreateBoeing737Layout();
             }
+        }
+
+        public static void AdminAddNewFlight(FlightModel newFlight)
+        {
+            var flights = ReadAll();
+
+            flights.Add(newFlight);
+
+            WriteAll(flights);
+        }
+
+        // Search flight method
+        public static List<FlightModel> SearchFlights(
+            string departureAirport = null,
+            string arrivalDestination = null,
+            DateTime? departureDate = null,
+            string flightTime = null)
+        {
+            var flights = ReadAll();
+
+            return flights.Where(flight =>
+                (departureAirport == null || flight.DepartureAirport == departureAirport) &&
+                (arrivalDestination == null || flight.ArrivalDestination == arrivalDestination) &&
+                (!departureDate.HasValue ||
+                    (DateTime.TryParse(flight.DepartureDate, out DateTime flightDepartureDate) &&
+                     flightDepartureDate.Date == departureDate.Value.Date)) &&
+                (flightTime == null || flight.FlightTime == flightTime)
+            ).ToList();
         }
     }
 }

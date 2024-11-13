@@ -33,22 +33,28 @@
       "IsCancelled": false
     }
   ],
-  "soufiane_ouldamar@": [
-    {
-      "FlightID": 1,
-      "BookedSeats": [
-        "10A",
-        "10B"
-      ],
-      "IsCancelled": false
-    }
-  ],
   "n@b.c": [
     {
       "FlightID": 1,
       "BookedSeats": [
         "10A",
-        "10B"
+        "10B",
+        "10C"
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 2,
+      "BookedSeats": [
+        "10A",
+        "10F"
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 14,
+      "BookedSeats": [
+        "10A"
       ],
       "IsCancelled": false
     }

@@ -1,6 +1,8 @@
 using System.Collections.Concurrent;
 using System.Data.Common;
 using System.Threading;
+using DataModels;
+using DataAccess;
 static class AdminAccountPresentation
 {
     static AdminAccountLogic logic = new AdminAccountLogic();
@@ -22,12 +24,27 @@ static class AdminAccountPresentation
             {
                 Console.WriteLine("Login as Admin successful. Welcome!");
                 Console.WriteLine("What do you want to do?");
-                Console.WriteLine("Enter q to logout");
-                string input = Console.ReadLine().ToLower();
-                if (input == "q")
+                Console.WriteLine("Enter (a) to add new flight");
+                Console.WriteLine("Press 'Esc' to logout");
+
+                // string addflight = Console.ReadLine().ToLower();
+                var keyInfo = Console.ReadKey(intercept: true);
+                if (keyInfo.Key == ConsoleKey.Escape)
                 {
-                    Console.WriteLine("You logged out");
+                    Console.WriteLine("You chose to exit.");
+                    Console.Clear();
+                    MenuPresentation.AuthenticateAccountMenu();
+                }
+                else if (keyInfo.KeyChar == 'a' || keyInfo.KeyChar == 'A')
+                {
+                    AdminAddFlightsPresentation adminAddflight = new AdminAddFlightsPresentation();
+                    FlightModel newFlight = adminAddflight.AddNewFlights();
+                    FlightsAccess.AdminAddNewFlight(newFlight);
                     break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid key. Press 'Esc' to exit or 'a' to add a new flight.");
                 }
 
             }

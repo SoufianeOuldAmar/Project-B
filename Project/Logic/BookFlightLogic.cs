@@ -15,4 +15,24 @@ public static class BookFlightLogic
         // Return the flight that matches the given ID, or null if not found
         return allFlights.FirstOrDefault(flight => flight.Id == id);
     }
+
+    public static bool IsSeatAlreadyBooked(FlightModel flight, string seat)
+    {
+        return flight.Layout.BookedSeats.Contains(seat);
+    }
+
+    // Method om te berekenen hoeveel beschikbare seats er nog zijn
+    public static int GetAvailableSeatsCount(FlightModel flight)
+    {
+        return (flight.Layout.Rows * flight.Layout.Columns) - flight.Layout.BookedSeats.Count;
+    }
+
+    public static List<FlightModel> SearchFlights(string departureAirport, string arrivalDestination)
+    {
+        // Return all flights that match the departure and arrival airport
+        return BookFlightPresentation.allFlights
+            .Where(flight => flight.DepartureAirport == departureAirport && flight.ArrivalDestination == arrivalDestination && !flight.IsCancelled)
+            .ToList();
+    }
+
 }
