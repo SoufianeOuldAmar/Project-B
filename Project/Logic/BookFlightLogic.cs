@@ -27,4 +27,12 @@ public static class BookFlightLogic
         return (flight.Layout.Rows * flight.Layout.Columns) - flight.Layout.BookedSeats.Count;
     }
 
+    public static List<FlightModel> SearchFlights(string departureAirport, string arrivalDestination)
+    {
+        // Return all flights that match the departure and arrival airport
+        return BookFlightPresentation.allFlights
+            .Where(flight => flight.DepartureAirport == departureAirport && flight.ArrivalDestination == arrivalDestination && !flight.IsCancelled)
+            .ToList();
+    }
+
 }
