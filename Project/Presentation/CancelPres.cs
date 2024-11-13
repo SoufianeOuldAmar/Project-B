@@ -9,7 +9,8 @@ public class CancelPres
             Console.WriteLine("2. Reschedule a flight");
             Console.WriteLine("3. View Booked Flights");
             Console.WriteLine("4. View Canceled Flights");
-            Console.WriteLine("5. Quit");
+            Console.WriteLine("5. Review policy");
+            Console.WriteLine("6. Quit");
             Console.WriteLine("Please enter your choice (1, 2, 3, 4, or 5): ");
 
             string userInput = Console.ReadLine();
@@ -82,6 +83,11 @@ public class CancelPres
                     break;
 
                 case "5":
+                    string policy = RescheduleLogic.Policy();
+                    Console.WriteLine(policy);
+                    break;
+
+                case "6":
                     // Quit the program
                     MenuLogic.PopMenu();
                     return;

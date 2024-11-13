@@ -43,7 +43,7 @@ public static class RescheduleLogic
         }
         if (BookFlightPresentation.allBookedFlights[email].Count == 0)
         {
-            return $"You have no flights booked";
+            return $"You have no  flights booked";
         }
         
         string FlightDetails = "";
