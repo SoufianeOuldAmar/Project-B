@@ -1,6 +1,7 @@
 using System.Net;
 using System.Text.Json;
 using DataModels;
+using DataAccess;
 public static class RescheduleLogic
 {
     public static string fileName = "flights.json";
@@ -62,8 +63,9 @@ public static class RescheduleLogic
 
  
 
-    public static string RescheduleFlight(string email, string currentDepartureAirport, string currentArrivalAirport, string newDepartureAirport, string newArrivalDestination)
-    {
+    public static string RescheduleFlight(string email, string currentDepartureAirport, string currentArrivalAirport, string newTime, string newDate)
+    {   
+        var allFlights = BookFlightPresentation.allFlights;
         // Check if the user has any bookings
         if (!BookFlightPresentation.allBookedFlights.ContainsKey(email))
         {
@@ -126,12 +128,12 @@ public static class RescheduleLogic
 
 
         // update the details to match the new one 
-        newFlight.DepartureAirport = newFlight.DepartureAirport;
-        newFlight.ArrivalDestination = newFlight.ArrivalDestination;
-        newFlight.DepartureDate = newFlight.DepartureDate;
-        newFlight.FlightTime = newFlight.FlightTime;
+        newFlight.DepartureDate = newDate;
+        newFlight.FlightTime = newTime;
         // Save the updated flights list
-        WriteJson(fileName, BookFlightPresentation.allFlights);
+        // WriteJson(fileName, BookFlightPresentation.allFlights);
+        allFlights.Add(newFlight);
+        FlightsAccess.WriteAll(allFlights); // json 
 
         return $"Flight successfully rescheduled. Additional fee: {totalFee:C}. New Flight Date: {newFlight.DepartureDate} at {newFlight.FlightTime}.";
     }

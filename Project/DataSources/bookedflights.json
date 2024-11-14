@@ -78,6 +78,69 @@
         "11A"
       ],
       "IsCancelled": false
+    },
+    {
+      "FlightID": 1,
+      "BookedSeats": [
+        "10A",
+        "30D"
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 30,
+      "BookedSeats": [
+        "10A"
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 11,
+      "BookedSeats": [
+        "10B"
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 15,
+      "BookedSeats": [
+        "10C",
+        "01E"
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 21,
+      "BookedSeats": [
+        "09A"
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 25,
+      "BookedSeats": [],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 25,
+      "BookedSeats": [
+        "30F"
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 25,
+      "BookedSeats": [
+        "30F"
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 25,
+      "BookedSeats": [
+        "30F"
+      ],
+      "IsCancelled": false
     }
   ]
 }

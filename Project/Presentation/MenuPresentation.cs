@@ -231,7 +231,7 @@ public static class MenuPresentation
         {
             for (int i = 0; i < searchResults.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. {searchResults[i].Airline} - {searchResults[i].DepartureAirport} to {searchResults[i].ArrivalDestination} on {searchResults[i].DepartureDate}");
+                Console.WriteLine($"{i + 1}. {searchResults[i].Airline} - {searchResults[i].DepartureAirport} to {searchResults[i].ArrivalDestination} on {searchResults[i].DepartureDate} for €{searchResults[i].TicketPrice},-");
             }
         }
 
