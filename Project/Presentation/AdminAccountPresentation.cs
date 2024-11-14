@@ -54,8 +54,8 @@ static class AdminAccountPresentation
                 Console.WriteLine("Invalid email or password. Please try again.");
                 if (i >= 3)
                 {
-                    Console.WriteLine("You will be locked out for 1 minute due to multiple failed attempts.");
-                    Thread.Sleep(60000);
+                    Console.WriteLine("You will be locked out for 30 seconds due to multiple failed attempts.");
+                    Thread.Sleep(30000);
                     i = 0;
                 }
 

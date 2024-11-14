@@ -27,7 +27,7 @@ public class AdminAddFlightsPresentation
         {
             Console.WriteLine("Enter Ticket Price: ");
             string input = Console.ReadLine();
-            if (double.TryParse(input, out ticketPrice))
+            if (double.TryParse(input, out ticketPrice) && ticketPrice > 0)
             {
                 break;
             }
@@ -45,7 +45,7 @@ public class AdminAddFlightsPresentation
         {
             Console.WriteLine("Enter Gate: ");
             string gate = Console.ReadLine();
-            if (gate.Length >= 2 && gate.Length <= 3 && "ABCDF".Contains(char.ToUpper(gate[0])) &&
+            if (gate.Length >= 2 && gate.Length <= 3 && "ABCDEF".Contains(char.ToUpper(gate[0])) &&
             int.TryParse(gate.Substring(1), out int number) &&
             number >= 1 && number <= 30)
             {
@@ -95,16 +95,16 @@ public class AdminAddFlightsPresentation
         string date;
         while (true)
         {
-            Console.WriteLine("Enter a Date (yyyy-mm-dd):");
-            string input = Console.ReadLine(); // yyyy-mm-dd
+            Console.WriteLine("Enter a Date (dd-mm-yyyy):");
+            string input = Console.ReadLine(); // dd-mm-yyyy
             string[] dateParts = input.Split('-');
 
             if (dateParts.Length == 3)
             {
-                string yearStr = dateParts[0];
+                string yearStr = dateParts[2];
                 string monthStr = dateParts[1].PadLeft(2, '0');
-                string dayStr = dateParts[2].PadLeft(2, '0');
-                date = $"{yearStr}-{monthStr}-{dayStr}";
+                string dayStr = dateParts[0].PadLeft(2, '0');
+                date = $"{dayStr}-{monthStr}-{yearStr}";
 
                 if (yearStr.Length == 4 && monthStr.Length == 2 && dayStr.Length == 2)
                 {
