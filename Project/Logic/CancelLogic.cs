@@ -2,7 +2,7 @@ using System.Text.Json;
 using DataModels;
 public static class CancelLogic
 {
-    public static string fileName = "flights.json";
+    public static string fileName = "DataSources/flights.json";
 
     public static void WriteJson(string fileName, List<FlightModel> allFlights)
     {

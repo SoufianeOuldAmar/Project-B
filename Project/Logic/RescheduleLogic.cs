@@ -4,7 +4,7 @@ using DataModels;
 using DataAccess;
 public static class RescheduleLogic
 {
-    public static string fileName = "flights.json";
+    public static string fileName = "DataSources/flights.json";
     public static void WriteJson(string fileName, List<FlightModel> allFlights)
     {
         string json = JsonSerializer.Serialize(allFlights, new JsonSerializerOptions { WriteIndented = true });
