@@ -141,6 +141,14 @@
         "30F"
       ],
       "IsCancelled": false
+    },
+    {
+      "FlightID": 13,
+      "BookedSeats": [
+        "11A",
+        "30D"
+      ],
+      "IsCancelled": false
     }
   ]
 }
