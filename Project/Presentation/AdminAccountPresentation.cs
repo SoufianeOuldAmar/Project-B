@@ -40,6 +40,7 @@ static class AdminAccountPresentation
                     AdminAddFlightsPresentation adminAddflight = new AdminAddFlightsPresentation();
                     FlightModel newFlight = adminAddflight.AddNewFlights();
                     FlightsAccess.AdminAddNewFlight(newFlight);
+                    adminAddflight.Exit();
                     break;
                 }
                 else

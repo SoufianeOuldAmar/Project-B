@@ -8,14 +8,7 @@ public static class AccountPresentation
         {
             Console.WriteLine("=== Log in ===\n");
             Console.WriteLine("Are you Admin or User? A/U");
-            Console.WriteLine("Enter q to exit");
             string input1 = Console.ReadLine().ToLower();
-            if (input1 == "q")
-            {
-                Console.WriteLine("You chose to exit.");
-                Console.Clear();
-                MenuPresentation.AuthenticateAccountMenu();
-            }
             if (input1 == "a")
             {
                 AdminAccountPresentation.Login();
