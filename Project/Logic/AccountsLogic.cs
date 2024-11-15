@@ -5,6 +5,7 @@
         IncorrectFullName,
         IncorrectEmail,
         IncorrectPassword,
+        EmailExists,
         CorrectCredentials
     }
 
@@ -59,6 +60,12 @@
                 {
                     errorMessages += "Password is too short. It must be at least 5 characters.\n";
                 }
+
+                if (item == CreateAccountStatus.EmailExists)
+                {
+                    errorMessages += "Email already exists. Use another email.\n";
+                }
+
             }
 
             return errorMessages;
@@ -72,6 +79,15 @@
         bool hasNonLetters = fullName.Any(c => !char.IsLetter(c) && c != ' ');
         bool hasAtSymbol = email.Contains("@");
         bool hasMoreThanFiveChar = password.Length >= 5;
+        bool EmailExists = false;
+
+        foreach (var account in _accounts)
+        {
+            if (email == account.EmailAddress)
+            {
+                EmailExists = true;
+            }
+        }
 
         if (hasNonLetters)
         {
@@ -85,6 +101,11 @@
         {
             statusList.Add(CreateAccountStatus.IncorrectPassword);
         }
+        if (EmailExists)
+        {
+            statusList.Add(CreateAccountStatus.EmailExists);
+        }
+
 
         return statusList;
     }
