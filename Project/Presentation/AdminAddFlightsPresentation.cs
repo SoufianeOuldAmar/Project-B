@@ -192,5 +192,15 @@ public class AdminAddFlightsPresentation
         Console.WriteLine("New flight added:");
         return newFight;
     }
+    public void Exit()
+    {
+        Console.WriteLine("press any key...");
+        Console.ReadKey();
+        MenuLogic.PopMenu();
+        // Console.Clear();
+        // MenuPresentation.AuthenticateAccountMenu();
+
+
+    }
 
 }
