@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -390,7 +390,7 @@
   },
   {
     "id": 2,
-    "airline": "British Airways",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -775,7 +775,7 @@
   },
   {
     "id": 3,
-    "airline": "Lufthansa",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 40,
       "columns": 6,
@@ -1280,7 +1280,7 @@
   },
   {
     "id": 4,
-    "airline": "Turkish Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -2268,7 +2268,7 @@
   },
   {
     "id": 5,
-    "airline": "LOT Polish Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -2653,7 +2653,7 @@
   },
   {
     "id": 6,
-    "airline": "Vueling",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -3038,7 +3038,7 @@
   },
   {
     "id": 7,
-    "airline": "Aegean Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -3423,7 +3423,7 @@
   },
   {
     "id": 8,
-    "airline": "Turkish Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -4408,7 +4408,7 @@
   },
   {
     "id": 9,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -4793,7 +4793,7 @@
   },
   {
     "id": 10,
-    "airline": "Pegasus Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -5178,7 +5178,7 @@
   },
   {
     "id": 11,
-    "airline": "Lufthansa",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 40,
       "columns": 6,
@@ -5686,7 +5686,7 @@
   },
   {
     "id": 12,
-    "airline": "Transavia Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -6071,7 +6071,7 @@
   },
   {
     "id": 13,
-    "airline": "Eurowings Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -6453,14 +6453,14 @@
     "departureAirport": "Munich, Munich Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
     "isCancelled": false,
-    "departureDate": "12:00",
-    "flightTime": "2030-09-09",
+    "departureDate": "2024-12-09",
+    "flightTime": "12:45",
     "availableSeats": 180,
     "flightPoints": 27
   },
   {
     "id": 14,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -6848,7 +6848,7 @@
   },
   {
     "id": 15,
-    "airline": "British Airways",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -7237,7 +7237,7 @@
   },
   {
     "id": 16,
-    "airline": "Iberia Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -7622,7 +7622,7 @@
   },
   {
     "id": 17,
-    "airline": "Brussels Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -8007,7 +8007,7 @@
   },
   {
     "id": 18,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -8392,7 +8392,7 @@
   },
   {
     "id": 19,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -8777,7 +8777,7 @@
   },
   {
     "id": 20,
-    "airline": "Pegasus Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -9162,7 +9162,7 @@
   },
   {
     "id": 21,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -9543,14 +9543,14 @@
     "departureAirport": "Eindhoven, Eindhoven Airport",
     "arrivalDestination": "Vienna, International Airport",
     "isCancelled": false,
-    "departureDate": "21:20",
-    "flightTime": "2025-01-01",
+    "departureDate": "2025-12-01",
+    "flightTime": "11:20",
     "availableSeats": 180,
     "flightPoints": 21
   },
   {
     "id": 22,
-    "airline": "Transavia Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -9935,7 +9935,7 @@
   },
   {
     "id": 23,
-    "airline": "Turkish Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -10920,7 +10920,7 @@
   },
   {
     "id": 24,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -11305,7 +11305,7 @@
   },
   {
     "id": 25,
-    "airline": "Corendon",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -11688,14 +11688,14 @@
     "departureAirport": "Istanbul, Istanbul Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
     "isCancelled": false,
-    "departureDate": "24:30",
-    "flightTime": "2050-02-02",
+    "departureDate": "2024-11-30",
+    "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 28
   },
   {
     "id": 26,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -12080,7 +12080,7 @@
   },
   {
     "id": 27,
-    "airline": "Transavia Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -12465,7 +12465,7 @@
   },
   {
     "id": 28,
-    "airline": "Sun Express Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -12850,7 +12850,7 @@
   },
   {
     "id": 29,
-    "airline": "Transavia Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -13235,7 +13235,7 @@
   },
   {
     "id": 30,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -13623,7 +13623,7 @@
   },
   {
     "id": 31,
-    "airline": "Turkish Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -14608,7 +14608,7 @@
   },
   {
     "id": 32,
-    "airline": "Transavia Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -14993,7 +14993,7 @@
   },
   {
     "id": 33,
-    "airline": "British Airways",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -15377,8 +15377,8 @@
     "flightPoints": 20
   },
   {
-    "id": 21,
-    "airline": "KLM",
+    "id": 34,
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -15759,14 +15759,14 @@
     "departureAirport": "Eindhoven, Eindhoven Airport",
     "arrivalDestination": "Vienna, International Airport",
     "isCancelled": false,
-    "departureDate": "21:20",
-    "flightTime": "2025-01-01",
+    "departureDate": "2025-01-01",
+    "flightTime": "21:20",
     "availableSeats": 180,
     "flightPoints": 21
   },
   {
-    "id": 25,
-    "airline": "Corendon",
+    "id": 35,
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -16144,14 +16144,14 @@
     "departureAirport": "Istanbul, Istanbul Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
     "isCancelled": false,
-    "departureDate": "24:30",
-    "flightTime": "2050-02-02",
+    "departureDate": "2024-12-02",
+    "flightTime": "21:30",
     "availableSeats": 180,
     "flightPoints": 28
   },
   {
-    "id": 13,
-    "airline": "Eurowings Airlines",
+    "id": 36,
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -16533,8 +16533,8 @@
     "departureAirport": "Munich, Munich Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
     "isCancelled": false,
-    "departureDate": "12:00",
-    "flightTime": "2030-09-09",
+    "departureDate": "2024-12-09",
+    "flightTime": "12:00",
     "availableSeats": 180,
     "flightPoints": 27
   }
