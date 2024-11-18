@@ -149,6 +149,11 @@
         "30D"
       ],
       "IsCancelled": false
+    },
+    {
+      "FlightID": 8,
+      "BookedSeats": [],
+      "IsCancelled": false
     }
   ]
 }
