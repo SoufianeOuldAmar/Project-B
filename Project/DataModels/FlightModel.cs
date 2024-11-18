@@ -33,6 +33,4 @@ namespace DataModels
             FlightPoints = Convert.ToInt32(TicketPrice) / 10;
         }
     }
-
-    // Constructor sort of values terug geven
 }
