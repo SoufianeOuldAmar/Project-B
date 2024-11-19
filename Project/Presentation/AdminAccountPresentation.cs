@@ -25,6 +25,7 @@ static class AdminAccountPresentation
                 Console.WriteLine("Login as Admin successful. Welcome!");
                 Console.WriteLine("What do you want to do?");
                 Console.WriteLine("Enter (a) to add new flight");
+                Console.WriteLine("Enter (c) to add change flights details");
                 Console.WriteLine("Press 'Esc' to logout");
 
                 // string addflight = Console.ReadLine().ToLower();
@@ -42,6 +43,14 @@ static class AdminAccountPresentation
                     FlightsAccess.AdminAddNewFlight(newFlight);
                     adminAddflight.Exit();
                     break;
+                }
+                else if (keyInfo.KeyChar == 'c' || keyInfo.KeyChar == 'C')
+                {
+                    AdminFlightManagerLogic.LaodFlight();
+                    Console.WriteLine("Enter the flight ID: ");
+                    int id = int.Parse(Console.ReadLine());
+                    AdminFlightManagerPresentation.UpdateDetailsPresentation(id);
+                    AdminFlightManagerPresentation.Exit();
                 }
                 else
                 {
