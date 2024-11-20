@@ -106,7 +106,7 @@ public static class BookFlightPresentation
 
                             List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
                         {
-                            new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, false)
+                            new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats,new List<BaggageLogic>(), false)
                         };
                             FlightsAccess.WriteAll(allFlights);
                             BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, bookedFlightModel);
@@ -191,7 +191,7 @@ public static class BookFlightPresentation
 
                     List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
                         {
-                            new BookedFlightsModel(flightModel.Id, flightModel.Layout.BookedSeats, false)
+                            new BookedFlightsModel(flightModel.Id, flightModel.Layout.BookedSeats,new List<BaggageLogic>(), false)
                         };
 
                     var index = allFlights.FindIndex(f => f.Id == flightModel.Id);
