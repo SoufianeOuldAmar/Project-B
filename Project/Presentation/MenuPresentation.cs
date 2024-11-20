@@ -196,23 +196,106 @@ public static class MenuPresentation
                 break;
         }
     }
-    public static List<FlightModel> bookedFlights = new List<FlightModel>(); // Lijst van geboekte vluchten
-    public static List<FlightModel> flights = FlightsAccess.ReadAll(); // Dit zou je vluchtdata kunnen laden van een bestand of database
+    
+    public static List<FlightModel> bookedFlights = new List<FlightModel>(); // We maken een lijst van geboekte vluchten
+    public static List<FlightModel> flights = FlightsAccess.ReadAll(); // dit zorgt ervoor dat we de json file kunnen lezen
 
+    //Een lijst met de destinations waar de user uit kan kiezen
+    static readonly List<string> ArrivalDestinations = new List<string>
+    {
+        "Paris, Charles de Gaulle Airport",
+        "Frankfurt, Frankfurt Airport",
+        "Brussels, Brussels Airport",
+        "Warsaw, Warsaw Chopin Airport",
+        "Budapest, Budapest Ferenc Liszt International Airport",
+        "Riga, Riga International Airport",
+        "Lisbon, Lisbon Airport",
+        "London, Heathrow Airport",
+        "Mallorca, Palma de Mallorca Airport",
+        "Istanbul, Istanbul Airport",
+        "Milan, Malpensa Airport",
+        "Oslo, Oslo Gardermoen Airport",
+        "Zurich, Zurich Airport",
+        "Vienna, International Airport",
+        "Naples, Naples Airport",
+        "Madrid, Madrid Barajas Airport"
+    };
     public static void SearchFlightsMenu()
     {
         Console.Clear();
         Console.WriteLine("=== Search Flights ===");
 
-        // Vraag de gebruiker om zoekcriteria in te vullen
-        Console.Write("Enter departure airport (or leave blank for any): ");
-        string departureAirport = Console.ReadLine();
+        // Vraag de gebruiker om vertrek luchthaven met validatie
+        string departureAirport = string.Empty;
+        while (true)
+        {
+            Console.Write("Enter departure airport (or leave blank for any): ");
+            departureAirport = Console.ReadLine();
 
-        Console.Write("Enter arrival destination (or leave blank for any): ");
-        string arrivalDestination = Console.ReadLine();
+            // Lijst van toegestane invoeropties
+            List<string> validDepartures = new List<string>
+            {
+                "Rotterdam",
+                "rotterdam",
+                "Rotterdam, The Hague Airport",
+                "rotterdam, the hague airport"
+            };
 
-        Console.Write("Enter departure date (yyyy-MM-dd) (or leave blank for any): ");
-        string departureDate = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(departureAirport) || validDepartures.Contains(departureAirport))
+            {
+                break; // Geldige invoer of leeg
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter one of the following: Rotterdam, rotterdam, Rotterdam, The Hague Airport, or rotterdam, the hague airport.");
+            }
+        }
+
+        // Vraag de gebruiker om een aankomst bestemming met validatie
+        string arrivalDestination = string.Empty;
+        while (true)
+        {
+            Console.Write("Enter arrival destination, you can choose out (or leave blank for any): ");
+            for (int i = 0; i < ArrivalDestinations.Count; i++)
+            {
+                Console.WriteLine($"\n{i + 1}. {ArrivalDestinations[i]}");
+            }
+
+            Console.Write("Select the number of the arrival destination (or leave blank for any): ");
+            string arrivalChoice = Console.ReadLine();
+            int choiceNumber;
+            if (string.IsNullOrWhiteSpace(arrivalChoice))
+            {
+                break; // Geen keuze betekent "alle bestemmingen"
+            }
+
+            if (int.TryParse(arrivalChoice, out choiceNumber) && choiceNumber >= 1 && choiceNumber <= ArrivalDestinations.Count)
+            {
+                arrivalDestination = ArrivalDestinations[choiceNumber - 1];
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid number corresponding to a destination.");
+            }
+        }
+
+        // Vraag om een vertrekdatum met validatie
+        string departureDate = string.Empty;
+        while (true)
+        {
+            Console.Write("Enter departure date (yyyy-MM-dd) (or leave blank for any): ");
+            departureDate = Console.ReadLine();
+
+            if (string.IsNullOrWhiteSpace(departureDate) || DateTime.TryParseExact(departureDate, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out _))
+            {
+                break; // Geldige invoer of leeg
+            }
+            else
+            {
+                Console.WriteLine("Invalid date format. Please enter a date in the format yyyy-MM-dd.");
+            }
+        }
 
         // Filter de vluchten op basis van de zoekcriteria
         var searchResults = flights.Where(flight =>
@@ -231,12 +314,10 @@ public static class MenuPresentation
         {
             for (int i = 0; i < searchResults.Count; i++)
             {
-                // search flight method hier moet je de flight time bij zetten
-                Console.WriteLine($"{i + 1}. {searchResults[i].Airline} - {searchResults[i].DepartureAirport} to {searchResults[i].ArrivalDestination} on {searchResults[i].DepartureDate} for €{searchResults[i].TicketPrice},-");
+                Console.WriteLine($"{i + 1}. {searchResults[i].Airline} - {searchResults[i].DepartureAirport} to {searchResults[i].ArrivalDestination} on {searchResults[i].DepartureDate} on {searchResults[i].FlightTime} for €{searchResults[i].TicketPrice},-");
             }
         }
 
-        // Voeg de Q-optie toe om te stoppen met zoeken
         Console.WriteLine("\nEnter the number of the flight you want to book, or 'Q' to quit.");
 
         // Gebruikersinvoer

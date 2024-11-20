@@ -23,19 +23,21 @@ public static class BookFlightPresentation
                     return;
                 }
 
-                Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12}",
+                Console.WriteLine("{0,-5} {1,-25} {2,-46} {3,-58} {4,-15} {5,-14} {6,-14} {7,-15}",
                                   "ID", "Airline", "Departure Airport", "Arrival Destination",
-                                  "Flight Time", "Cancelled");
+                                  "Flight Date", "Flight Time", "Ticket Price", "Cancelled");
                 Console.WriteLine(new string('-', 195));
 
                 foreach (var flight in allFlights)
                 {
-                    Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12}",
+                    Console.WriteLine("{0,-5} {1,-25} {2,-46} {3,-58} {4,-15} {5,-14} {6,-14} {7,-15}",
                                       flight.Id,
                                       flight.Airline,
                                       flight.DepartureAirport,
                                       flight.ArrivalDestination,
+                                      flight.DepartureDate,
                                       flight.FlightTime,
+                                      flight.TicketPrice,
                                       flight.IsCancelled ? "Yes" : "No");
                 }
 
@@ -59,7 +61,10 @@ public static class BookFlightPresentation
                         Console.WriteLine("{0,-20} {1,-35}", "Airline:", selectedFlight.Airline);
                         Console.WriteLine("{0,-20} {1,-35}", "Departure Airport:", selectedFlight.DepartureAirport);
                         Console.WriteLine("{0,-20} {1,-35}", "Arrival Destination:", selectedFlight.ArrivalDestination);
+                        Console.WriteLine("{0,-20} {1,-35}", "Flight Date:", selectedFlight.DepartureDate);
                         Console.WriteLine("{0,-20} {1,-35}", "Flight Time:", selectedFlight.FlightTime);
+                        Console.WriteLine("{0,-20} {1,-35}", "Ticket Price:", selectedFlight.TicketPrice);
+                        Console.WriteLine("{0,-20} {1,-35}", "Available Seats:", selectedFlight.AvailableSeats);
                         Console.WriteLine("{0,-20} {1,-35}", "Is Cancelled:", (selectedFlight.IsCancelled ? "Yes" : "No"));
 
                         Console.Write("\nAre you sure you want to book this flight? (yes/no) ");
@@ -142,12 +147,14 @@ public static class BookFlightPresentation
         {
             if (flightModel != null)
             {
-                // order a ticket hier moet je de flight datum bij zetten
                 Console.WriteLine($"\nYou have selected the following flight:\n");
                 Console.WriteLine("{0,-20} {1,-35}", "Airline:", flightModel.Airline);
                 Console.WriteLine("{0,-20} {1,-35}", "Departure Airport:", flightModel.DepartureAirport);
                 Console.WriteLine("{0,-20} {1,-35}", "Arrival Destination:", flightModel.ArrivalDestination);
                 Console.WriteLine("{0,-20} {1,-35}", "Flight Time:", flightModel.FlightTime);
+                Console.WriteLine("{0,-20} {1,-35}", "Flight Date:", flightModel.DepartureDate);
+                Console.WriteLine("{0,-20} {1,-35}", "Ticket Price:", flightModel.TicketPrice);
+                Console.WriteLine("{0,-20} {1,-35}", "Available Seats:", flightModel.AvailableSeats);
                 Console.WriteLine("{0,-20} {1,-35}", "Is Cancelled:", (flightModel.IsCancelled ? "Yes" : "No"));
 
                 Console.Write("\nAre you sure you want to book this flight? (yes/no) ");
