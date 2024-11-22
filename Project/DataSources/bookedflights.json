@@ -5,6 +5,8 @@
       "BookedSeats": [
         "10A"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -12,6 +14,8 @@
       "BookedSeats": [
         "10A"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     }
   ],
@@ -22,6 +26,8 @@
         "10A",
         "10B"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -30,6 +36,8 @@
         "10A",
         "10B"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     }
   ],
@@ -41,6 +49,8 @@
         "10B",
         "10C"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -49,6 +59,8 @@
         "10A",
         "10F"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -56,6 +68,8 @@
       "BookedSeats": [
         "10A"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -63,6 +77,8 @@
       "BookedSeats": [
         "10A"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -70,6 +86,8 @@
       "BookedSeats": [
         "10C"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -77,6 +95,8 @@
       "BookedSeats": [
         "11A"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -85,6 +105,8 @@
         "10A",
         "30D"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -92,6 +114,8 @@
       "BookedSeats": [
         "10A"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -99,6 +123,8 @@
       "BookedSeats": [
         "10B"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -107,6 +133,8 @@
         "10C",
         "01E"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -114,11 +142,15 @@
       "BookedSeats": [
         "09A"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
       "FlightID": 25,
       "BookedSeats": [],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -126,6 +158,8 @@
       "BookedSeats": [
         "30F"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -133,6 +167,8 @@
       "BookedSeats": [
         "30F"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -140,6 +176,8 @@
       "BookedSeats": [
         "30F"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
       "IsCancelled": false
     },
     {
@@ -148,6 +186,179 @@
         "11A",
         "30D"
       ],
+      "Pets": null,
+      "BaggageInfo": null,
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 1,
+      "BookedSeats": [
+        "10A",
+        "30D",
+        "30F"
+      ],
+      "Pets": null,
+      "BaggageInfo": [],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 5,
+      "BookedSeats": [
+        "30D"
+      ],
+      "Pets": null,
+      "BaggageInfo": [],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 6,
+      "BookedSeats": [],
+      "Pets": null,
+      "BaggageInfo": [],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 1,
+      "BookedSeats": [
+        "10A",
+        "30D",
+        "30F",
+        "01A"
+      ],
+      "Pets": null,
+      "BaggageInfo": [],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 13,
+      "BookedSeats": [
+        "11A",
+        "30D"
+      ],
+      "Pets": null,
+      "BaggageInfo": [
+        {
+          "Initials": null,
+          "BaggageType": "3",
+          "BaggageWeight": 20,
+          "Fee": 0
+        }
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 1,
+      "BookedSeats": [
+        "10A",
+        "30D",
+        "30F",
+        "01A"
+      ],
+      "Pets": null,
+      "BaggageInfo": [],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 4,
+      "BookedSeats": [
+        "50A"
+      ],
+      "Pets": null,
+      "BaggageInfo": [],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 27,
+      "BookedSeats": [
+        "06E"
+      ],
+      "Pets": null,
+      "BaggageInfo": [],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 24,
+      "BookedSeats": [
+        "24E"
+      ],
+      "Pets": null,
+      "BaggageInfo": [
+        {
+          "Initials": null,
+          "BaggageType": "1",
+          "BaggageWeight": 14,
+          "Fee": 50
+        }
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 16,
+      "BookedSeats": [],
+      "Pets": null,
+      "BaggageInfo": [],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 7,
+      "BookedSeats": [],
+      "Pets": null,
+      "BaggageInfo": [
+        {
+          "Initials": null,
+          "BaggageType": "3",
+          "BaggageWeight": 20,
+          "Fee": 0
+        }
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 27,
+      "BookedSeats": [
+        "06E",
+        "30E"
+      ],
+      "Pets": null,
+      "BaggageInfo": [
+        {
+          "Initials": "LL",
+          "BaggageType": "3",
+          "BaggageWeight": 20,
+          "Fee": 0
+        }
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 28,
+      "BookedSeats": [
+        "30F"
+      ],
+      "Pets": [],
+      "BaggageInfo": [
+        {
+          "Initials": "GG",
+          "BaggageType": "2",
+          "BaggageWeight": 20,
+          "Fee": 0
+        }
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 7,
+      "BookedSeats": [
+        "09D",
+        "24D"
+      ],
+      "Pets": [
+        {
+          "AnimalType": null,
+          "Fee": 50
+        }
+      ],
+      "BaggageInfo": [],
       "IsCancelled": false
     }
   ]

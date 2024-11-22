@@ -1,14 +1,29 @@
 public class BaggageLogic 
 {
-    public string ChosenSeats {get; set;} // chosen seat with initial 
+    public string Initials {get; set;} // ties baggage to an initial
     public string BaggageType { get; set; } // Carry on or Checked
     public double BaggageWeight {get; set; } // Weight of baggage in kg
 
-    public BaggageLogic(string chosenSeats, string baggageType, double baggageWeight)
+    private double _fee;
+
+    public double Fee 
     {
-        ChosenSeats = chosenSeats;
+        get 
+        {
+            return _fee;
+        }
+        set
+        {
+            _fee = value;
+        }
+    }
+
+    public BaggageLogic( string initials, string baggageType, double baggageWeight)
+    {
+        Initials= initials;
         BaggageType = baggageType;
         BaggageWeight = baggageWeight;
+        Fee= CalcFee();
     }
     public double CalcFee()
     {

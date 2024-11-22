@@ -6,16 +6,19 @@ public class BookedFlightsModel
 {
     public int FlightID { get; set; }
     public List<string> BookedSeats { get; set; }
+    public List<PetLogic> Pets { get; set; }
     public List<BaggageLogic> BaggageInfo{ get; set; } 
     public bool IsCancelled { get; set; }
 
-    public BookedFlightsModel(int flightID, List<string> bookedSeats, List<BaggageLogic> baggageInfo, bool isCancelled)
+    public BookedFlightsModel(int flightID, List<string> bookedSeats, List<BaggageLogic> baggageInfo, List<PetLogic> pets,bool isCancelled)
     {
         FlightID = flightID;
         BookedSeats = bookedSeats;
+        Pets= pets;
         BaggageInfo = baggageInfo;
         IsCancelled = isCancelled;
     }
+
 
     // Total fee 
     public double FeeTotal()

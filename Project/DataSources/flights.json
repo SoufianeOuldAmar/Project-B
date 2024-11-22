@@ -188,7 +188,6 @@
         "30F"
       ],
       "availableSeats": [
-        "01A",
         "01B",
         "01C",
         "01D",
@@ -364,18 +363,21 @@
         "30A",
         "30B",
         "30C",
-        "30E",
-        "30F"
+        "30E"
       ],
       "bookedSeats": [
         "10A",
-        "30D"
+        "30D",
+        "30F",
+        "01A"
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "seatInitials": {
         "10A": "SO ",
-        "30D": "AA "
+        "30D": "AA ",
+        "30F": "DD ",
+        "01A": "LL "
       }
     },
     "ticketPrice": 150,
@@ -386,7 +388,8 @@
     "departureDate": "2024-11-22",
     "flightTime": "14:30",
     "availableSeats": 178,
-    "flightPoints": 15
+    "flightPoints": 15,
+    "totalPets": 0
   },
   {
     "id": 2,
@@ -771,7 +774,8 @@
     "departureDate": "2024-11-23",
     "flightTime": "09:45",
     "availableSeats": 178,
-    "flightPoints": 20
+    "flightPoints": 20,
+    "totalPets": 0
   },
   {
     "id": 3,
@@ -1276,7 +1280,8 @@
     "departureDate": "2024-11-24",
     "flightTime": "11:00",
     "availableSeats": 180,
-    "flightPoints": 18
+    "flightPoints": 18,
+    "totalPets": 0
   },
   {
     "id": 4,
@@ -2247,10 +2252,10 @@
         "50J",
         "50K"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [
+      "bookedSeats": [
         "50A"
       ],
+      "chosenSeats": [],
       "isAirbusA330": true,
       "seatInitials": {
         "50A": "MT"
@@ -2264,7 +2269,8 @@
     "departureDate": "2024-11-25",
     "flightTime": "13:20",
     "availableSeats": 173,
-    "flightPoints": 25
+    "flightPoints": 25,
+    "totalPets": 0
   },
   {
     "id": 5,
@@ -2632,14 +2638,17 @@
         "30A",
         "30B",
         "30C",
-        "30D",
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "30D"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30D": "FF "
+      }
     },
     "ticketPrice": 160,
     "gate": "E11",
@@ -2649,7 +2658,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "16:10",
     "availableSeats": 176,
-    "flightPoints": 16
+    "flightPoints": 16,
+    "totalPets": 0
   },
   {
     "id": 6,
@@ -2873,7 +2883,6 @@
         "06A",
         "06B",
         "06C",
-        "06D",
         "06E",
         "06F",
         "07A",
@@ -3022,9 +3031,13 @@
         "30F"
       ],
       "bookedSeats": [],
-      "chosenSeats": [],
+      "chosenSeats": [
+        "06D"
+      ],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "06D": "UU "
+      }
     },
     "ticketPrice": 140,
     "gate": "F3",
@@ -3034,7 +3047,8 @@
     "departureDate": "2024-11-27",
     "flightTime": "18:25",
     "availableSeats": 180,
-    "flightPoints": 14
+    "flightPoints": 14,
+    "totalPets": 0
   },
   {
     "id": 7,
@@ -3276,7 +3290,6 @@
         "09A",
         "09B",
         "09C",
-        "09D",
         "09E",
         "09F",
         "10A",
@@ -3366,7 +3379,6 @@
         "24A",
         "24B",
         "24C",
-        "24D",
         "24E",
         "24F",
         "25A",
@@ -3406,10 +3418,16 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "09D",
+        "24D"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "09D": "KL ",
+        "24D": "NN "
+      }
     },
     "ticketPrice": 190,
     "gate": "G5",
@@ -3419,7 +3437,8 @@
     "departureDate": "2024-11-28",
     "flightTime": "21:15",
     "availableSeats": 179,
-    "flightPoints": 19
+    "flightPoints": 19,
+    "totalPets": 1
   },
   {
     "id": 8,
@@ -4404,7 +4423,8 @@
     "departureDate": "2024-11-29",
     "flightTime": "21:30",
     "availableSeats": 179,
-    "flightPoints": 23
+    "flightPoints": 23,
+    "totalPets": 0
   },
   {
     "id": 9,
@@ -4789,7 +4809,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "21:30",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0
   },
   {
     "id": 10,
@@ -5174,7 +5195,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "21:30",
     "availableSeats": 180,
-    "flightPoints": 31
+    "flightPoints": 31,
+    "totalPets": 0
   },
   {
     "id": 11,
@@ -5682,7 +5704,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "16:30",
     "availableSeats": 180,
-    "flightPoints": 31
+    "flightPoints": 31,
+    "totalPets": 0
   },
   {
     "id": 12,
@@ -6067,7 +6090,8 @@
     "departureDate": "2024-11-24",
     "flightTime": "15:30",
     "availableSeats": 180,
-    "flightPoints": 21
+    "flightPoints": 21,
+    "totalPets": 0
   },
   {
     "id": 13,
@@ -6456,7 +6480,8 @@
     "departureDate": "12:00",
     "flightTime": "2030-09-09",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0
   },
   {
     "id": 14,
@@ -6844,7 +6869,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "14:15",
     "availableSeats": 179,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0
   },
   {
     "id": 15,
@@ -7233,7 +7259,8 @@
     "departureDate": "2024-12-04",
     "flightTime": "14:30",
     "availableSeats": 180,
-    "flightPoints": 41
+    "flightPoints": 41,
+    "totalPets": 0
   },
   {
     "id": 16,
@@ -7618,7 +7645,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "09:50",
     "availableSeats": 180,
-    "flightPoints": 18
+    "flightPoints": 18,
+    "totalPets": 0
   },
   {
     "id": 17,
@@ -8003,7 +8031,8 @@
     "departureDate": "2024-11-22",
     "flightTime": "07:30",
     "availableSeats": 180,
-    "flightPoints": 34
+    "flightPoints": 34,
+    "totalPets": 0
   },
   {
     "id": 18,
@@ -8388,7 +8417,8 @@
     "departureDate": "2024-11-30",
     "flightTime": "14:30",
     "availableSeats": 180,
-    "flightPoints": 28
+    "flightPoints": 28,
+    "totalPets": 0
   },
   {
     "id": 19,
@@ -8773,7 +8803,8 @@
     "departureDate": "2024-11-21",
     "flightTime": "15:30",
     "availableSeats": 179,
-    "flightPoints": 31
+    "flightPoints": 31,
+    "totalPets": 0
   },
   {
     "id": 20,
@@ -9158,7 +9189,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "13:30",
     "availableSeats": 180,
-    "flightPoints": 30
+    "flightPoints": 30,
+    "totalPets": 0
   },
   {
     "id": 21,
@@ -9546,7 +9578,8 @@
     "departureDate": "21:20",
     "flightTime": "2025-01-01",
     "availableSeats": 180,
-    "flightPoints": 21
+    "flightPoints": 21,
+    "totalPets": 0
   },
   {
     "id": 22,
@@ -9931,7 +9964,8 @@
     "departureDate": "2024-11-17",
     "flightTime": "10:10",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0
   },
   {
     "id": 23,
@@ -10916,7 +10950,8 @@
     "departureDate": "2024-12-06",
     "flightTime": "20:30",
     "availableSeats": 180,
-    "flightPoints": 31
+    "flightPoints": 31,
+    "totalPets": 0
   },
   {
     "id": 24,
@@ -11249,7 +11284,6 @@
         "24B",
         "24C",
         "24D",
-        "24E",
         "24F",
         "25A",
         "25B",
@@ -11288,10 +11322,14 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "24E"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "24E": "JJ "
+      }
     },
     "ticketPrice": 335.25,
     "gate": "B1",
@@ -11301,7 +11339,8 @@
     "departureDate": "2024-11-30",
     "flightTime": "14:45",
     "availableSeats": 179,
-    "flightPoints": 33
+    "flightPoints": 33,
+    "totalPets": 0
   },
   {
     "id": 25,
@@ -11691,7 +11730,8 @@
     "departureDate": "24:30",
     "flightTime": "2050-02-02",
     "availableSeats": 180,
-    "flightPoints": 28
+    "flightPoints": 28,
+    "totalPets": 0
   },
   {
     "id": 26,
@@ -12076,7 +12116,8 @@
     "departureDate": "2024-12-10",
     "flightTime": "10:45",
     "availableSeats": 179,
-    "flightPoints": 45
+    "flightPoints": 45,
+    "totalPets": 0
   },
   {
     "id": 27,
@@ -12301,7 +12342,6 @@
         "06B",
         "06C",
         "06D",
-        "06E",
         "06F",
         "07A",
         "07B",
@@ -12445,13 +12485,18 @@
         "30B",
         "30C",
         "30D",
-        "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "06E",
+        "30E"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "06E": "NN ",
+        "30E": "LL "
+      }
     },
     "ticketPrice": 300.15,
     "gate": "B3",
@@ -12461,7 +12506,8 @@
     "departureDate": "2024-12-03",
     "flightTime": "11:50",
     "availableSeats": 180,
-    "flightPoints": 30
+    "flightPoints": 30,
+    "totalPets": 7
   },
   {
     "id": 28,
@@ -12830,13 +12876,16 @@
         "30B",
         "30C",
         "30D",
-        "30E",
+        "30E"
+      ],
+      "bookedSeats": [
         "30F"
       ],
-      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30F": "GG "
+      }
     },
     "ticketPrice": 275,
     "gate": "E5",
@@ -12846,7 +12895,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "21:30",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0
   },
   {
     "id": 29,
@@ -13231,7 +13281,8 @@
     "departureDate": "2024-11-29",
     "flightTime": "19:45",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0
   },
   {
     "id": 30,
@@ -13619,7 +13670,8 @@
     "departureDate": "2024-11-30",
     "flightTime": "15:00",
     "availableSeats": 180,
-    "flightPoints": 30
+    "flightPoints": 30,
+    "totalPets": 0
   },
   {
     "id": 31,
@@ -14604,7 +14656,8 @@
     "departureDate": "2024-12-14",
     "flightTime": "12:30",
     "availableSeats": 178,
-    "flightPoints": 41
+    "flightPoints": 41,
+    "totalPets": 0
   },
   {
     "id": 32,
@@ -14989,7 +15042,8 @@
     "departureDate": "2024-11-16",
     "flightTime": "14:15",
     "availableSeats": 180,
-    "flightPoints": 30
+    "flightPoints": 30,
+    "totalPets": 0
   },
   {
     "id": 33,
@@ -15374,7 +15428,8 @@
     "departureDate": "2024-11-25",
     "flightTime": "06:55",
     "availableSeats": 180,
-    "flightPoints": 20
+    "flightPoints": 20,
+    "totalPets": 0
   },
   {
     "id": 21,
@@ -15762,7 +15817,8 @@
     "departureDate": "21:20",
     "flightTime": "2025-01-01",
     "availableSeats": 180,
-    "flightPoints": 21
+    "flightPoints": 21,
+    "totalPets": 0
   },
   {
     "id": 25,
@@ -16147,7 +16203,8 @@
     "departureDate": "24:30",
     "flightTime": "2050-02-02",
     "availableSeats": 180,
-    "flightPoints": 28
+    "flightPoints": 28,
+    "totalPets": 0
   },
   {
     "id": 13,
@@ -16536,6 +16593,7 @@
     "departureDate": "12:00",
     "flightTime": "2030-09-09",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0
   }
 ]
