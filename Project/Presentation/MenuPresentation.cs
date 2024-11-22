@@ -25,31 +25,31 @@ public static class MenuPresentation
     public static void AuthenticateAccountMenu() // Begin menu wanneer het programma opstart.
     {
 
-        string message = "Welcome to BOSST Airlines";
-        string bigText = Figgle.FiggleFonts.Standard.Render(message);
-        Random rand = new Random();
+        // string message = "Welcome to BOSST Airlines";
+        // string bigText = Figgle.FiggleFonts.Standard.Render(message);
+        // Random rand = new Random();
 
-        foreach (char c in bigText)
-        {
-            Console.ForegroundColor = (ConsoleColor)rand.Next(1, 14);
-            Console.Write(c);
-            Thread.Sleep(2);
-        }
-        for (int i = 0; i < 7; i++)
-        {
-            Console.Clear();
-            foreach (char c in bigText)
-            {
-                Console.ForegroundColor = (ConsoleColor)rand.Next(1, 14);
-                Console.Write(c);
-            }
-            Thread.Sleep(300);
-            // Thread.Sleep(200);
-            // Console.ForegroundColor = (ConsoleColor)rand.Next(1, 14);
-            // Console.WriteLine(bigText);
-            // Thread.Sleep(200);
-        }
-        Console.ResetColor();
+        // foreach (char c in bigText)
+        // {
+        //     Console.ForegroundColor = (ConsoleColor)rand.Next(1, 14);
+        //     Console.Write(c);
+        //     Thread.Sleep(2);
+        // }
+        // for (int i = 0; i < 7; i++)
+        // {
+        //     Console.Clear();
+        //     foreach (char c in bigText)
+        //     {
+        //         Console.ForegroundColor = (ConsoleColor)rand.Next(1, 14);
+        //         Console.Write(c);
+        //     }
+        //     Thread.Sleep(300);
+        //     // Thread.Sleep(200);
+        //     // Console.ForegroundColor = (ConsoleColor)rand.Next(1, 14);
+        //     // Console.WriteLine(bigText);
+        //     // Thread.Sleep(200);
+        // }
+        // Console.ResetColor();
 
         Console.WriteLine("=== Main Menu ===");
         Console.WriteLine("1. Log in");
@@ -109,10 +109,15 @@ public static class MenuPresentation
 
     public static void ViewFlightPointsMenu()
     {
+
         Console.WriteLine("=== View Flight Points ===");
         var currentAccount = AccountsLogic.CurrentAccount;
 
-        Console.WriteLine($"Total Flight Points: {currentAccount.FlightPoints}\n\n");
+        foreach (var fp in currentAccount.FlightPointsDataList)
+        {
+            Console.WriteLine($"Date: {fp.TicketsBought}, Flightpoints gained: {fp.Points}, FlightID: {fp.FlightId}");
+        }
+
         while (true)
         {
             Console.Write("Press 'Q' to go back: ");
@@ -142,6 +147,7 @@ public static class MenuPresentation
         Console.WriteLine("3. Search for flights");
         Console.WriteLine("4. View Flight Points");
         Console.WriteLine("5. Log out");
+        Console.WriteLine("R. Reset all flights");
         Console.Write("\nChoose an option: ");
         string choice = Console.ReadLine();
 
@@ -158,12 +164,17 @@ public static class MenuPresentation
                 break;
             case "4":
                 MenuLogic.PushMenu(ViewFlightPointsMenu);
+                // Console.WriteLine("This feautre isn't implemented yet.");
                 break;
             case "5":
                 Console.WriteLine("\nLogging out...");
                 // AccountsLogic.LogOut(); (voeg logout-logica toe indien nodig)
                 MenuLogic.PopMenu();
                 MenuLogic.PopMenu();
+                break;
+            case "R":
+                LayoutModel layout = LayoutModel.CreateBoeing737Layout();
+                layout.ResetAllSeats();
                 break;
 
             default:

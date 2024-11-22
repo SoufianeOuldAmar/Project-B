@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using DataModels;
 using DataAccess;
+using System.Threading;
 
 public static class BookFlightPresentation
 {
     public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
     public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
     public static void BookFlightMenu(bool searchFlightFunction = false, FlightModel flightModel = null)
-    {   
+    {
         var currentAccount = AccountsLogic.CurrentAccount;
+        int totalFlightpoints = 0;
 
         if (!searchFlightFunction)
         {
@@ -41,13 +43,13 @@ public static class BookFlightPresentation
 
                 Console.WriteLine("\n" + new string('-', 195));
                 Console.Write("\nEnter the ID of the flight you wish to book (or 'Q' to quit): ");
-            
+
                 var input = Console.ReadLine();
                 if (input?.ToUpper() == "Q")
                 {
-                Console.WriteLine("Booking canceled. Returning to main menu.");
-                MenuLogic.PopMenu();
-                break;
+                    Console.WriteLine("Booking canceled. Returning to main menu.");
+                    MenuLogic.PopMenu();
+                    break;
                 }
 
                 if (int.TryParse(input, out int selectedId))
@@ -83,6 +85,9 @@ public static class BookFlightPresentation
                                 {
                                     Console.WriteLine("Confirming your selected seats...");
                                     selectedFlight.Layout.ConfirmBooking();
+                                    var FlightPointData = new FlightPoint(DateTime.Now, totalFlightpoints, selectedFlight.Id);
+                                    currentAccount.FlightPointsDataList.Add(FlightPointData);
+
                                     AccountsAccess.WriteAll(AccountsLogic._accounts);
                                     break;
                                 }
@@ -101,13 +106,14 @@ public static class BookFlightPresentation
 
                                 Console.Clear();
                                 selectedFlight.Layout.PrintLayout();
-                                currentAccount.FlightPoints += selectedFlight.FlightPoints;
+                                totalFlightpoints += selectedFlight.FlightPoints;
                             }
 
+                            var bookedFlight = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, false);
                             List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
-                        {
-                            new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, false)
-                        };
+                            {
+                                bookedFlight
+                            };
                             FlightsAccess.WriteAll(allFlights);
                             BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, bookedFlightModel);
                         }
@@ -189,10 +195,13 @@ public static class BookFlightPresentation
                         flightModel.Layout.PrintLayout();
                     }
 
+                    var bookedFlight = new BookedFlightsModel(flightModel.Id, flightModel.Layout.BookedSeats, false);
+                    // bookedFlight.FlightPoints += selecte
+
                     List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
-                        {
-                            new BookedFlightsModel(flightModel.Id, flightModel.Layout.BookedSeats, false)
-                        };
+                    {
+                        bookedFlight
+                    };
 
                     var index = allFlights.FindIndex(f => f.Id == flightModel.Id);
                     if (index >= 0)

@@ -1,4 +1,6 @@
-﻿using System.Runtime.Versioning;
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Versioning;
 using System.Text.Json.Serialization;
 public class AccountModel
 {
@@ -14,8 +16,8 @@ public class AccountModel
     [JsonPropertyName("fullName")]
     public string FullName { get; set; }
 
-    [JsonPropertyName("flightPoints")]
-    public int FlightPoints { get; set; }
+    [JsonPropertyName("flightPointsDataList")]
+    public List<FlightPoint> FlightPointsDataList { get; set; }
 
     public AccountModel(int id, string emailAddress, string password, string fullName)
     {
@@ -23,7 +25,7 @@ public class AccountModel
         EmailAddress = emailAddress;
         Password = password;
         FullName = fullName;
-        FlightPoints = 0;
+        FlightPointsDataList = new List<FlightPoint>();
     }
 
 }
