@@ -186,7 +186,6 @@ public static class MenuPresentation
         Console.WriteLine("3. Search for flights");
         Console.WriteLine("4. View Flight Points");
         Console.WriteLine("5. Log out");
-        Console.WriteLine("R. Reset all flights");
         Console.Write("\nChoose an option: ");
         string choice = Console.ReadLine();
 
@@ -211,11 +210,6 @@ public static class MenuPresentation
                 MenuLogic.PopMenu();
                 MenuLogic.PopMenu();
                 break;
-            case "R":
-                LayoutModel layout = LayoutModel.CreateBoeing737Layout();
-                layout.ResetAllSeats();
-                break;
-
             default:
                 Console.WriteLine("Invalid choice. Please try again.");
                 break;

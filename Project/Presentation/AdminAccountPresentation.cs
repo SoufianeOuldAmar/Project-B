@@ -25,6 +25,7 @@ static class AdminAccountPresentation
                 Console.WriteLine("Login as Admin successful. Welcome!");
                 Console.WriteLine("What do you want to do?");
                 Console.WriteLine("Enter (a) to add new flight");
+                Console.WriteLine("R. Reset all flights");
                 Console.WriteLine("Press 'Esc' to logout");
 
                 // string addflight = Console.ReadLine().ToLower();
@@ -43,6 +44,15 @@ static class AdminAccountPresentation
                     adminAddflight.Exit();
                     break;
                 }
+
+                else if (keyInfo.KeyChar == 'r' || keyInfo.KeyChar == 'R')
+                {
+
+                    LayoutModel layout = LayoutModel.CreateBoeing737Layout();
+                    layout.ResetAllSeats();
+                }
+
+
                 else
                 {
                     Console.WriteLine("Invalid key. Press 'Esc' to exit or 'a' to add a new flight.");

@@ -7967,16 +7967,13 @@
         "30D",
         "30E",
         "30F",
-        "25A"
-      ],
-      "bookedSeats": [
+        "25A",
         "10A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "10A": "SO "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 345.5,
     "gate": "C8",
@@ -11650,16 +11647,13 @@
         "30D",
         "30F",
         "30E",
-        "30A"
-      ],
-      "bookedSeats": [
+        "30A",
         "15A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "15A": "SO "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 285,
     "gate": "F6",

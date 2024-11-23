@@ -161,6 +161,7 @@ public class LayoutModel
     {
         // Move all booked seats back to available seats
         var allFlights = FlightsAccess.ReadAll();
+        string filePath = "DataSources/bookedflights.json";
 
         foreach (var flight in allFlights)
         {
@@ -175,6 +176,24 @@ public class LayoutModel
             }
 
             flight.Layout.SeatInitials.Clear();
+        }
+
+        try
+        {
+            // Check if the file exists before deleting
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+            else
+            {
+                Console.WriteLine($"The file '{filePath}' does not exist.");
+            }
+        }
+        catch (Exception ex)
+        {
+            // Handle exceptions such as UnauthorizedAccessException or IOException
+            Console.WriteLine($"An error occurred: {ex.Message}");
         }
 
         FlightsAccess.WriteAll(allFlights);
