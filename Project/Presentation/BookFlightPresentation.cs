@@ -142,6 +142,7 @@ public static class BookFlightPresentation
         {
             if (flightModel != null)
             {
+                // order a ticket hier moet je de flight datum bij zetten
                 Console.WriteLine($"\nYou have selected the following flight:\n");
                 Console.WriteLine("{0,-20} {1,-35}", "Airline:", flightModel.Airline);
                 Console.WriteLine("{0,-20} {1,-35}", "Departure Airport:", flightModel.DepartureAirport);
