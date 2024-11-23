@@ -161,24 +161,26 @@ public class LayoutModel
 
             if (row <= 6) // Business Class
             {
-                Console.ForegroundColor = ConsoleColor.Yellow; // Yellow colour (Business)
                 for (int seatIndex = 0; seatIndex < 6; seatIndex++)
                 {
                     string seat = SeatArrangement[index + seatIndex];
+
                     if (BookedSeats.Contains(seat))
                     {
-                        Console.ForegroundColor = ConsoleColor.Red; // Red colour (Booked)
-                        Console.Write($"{seat}  ");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write($"{(SeatInitials.ContainsKey(seat) ? SeatInitials[seat] : seat)}  ");
                     }
                     else if (ChosenSeats.Contains(seat))
                     {
-                        Console.ForegroundColor = ConsoleColor.Magenta; // Purple colour (Selected)
-                        Console.Write($"{seat}  ");
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.Write($"{(SeatInitials.ContainsKey(seat) ? SeatInitials[seat] : seat)}  ");
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Yellow; // Business Class color
                         Console.Write($"{seat}  ");
                     }
+
                     Console.ResetColor();
 
                     if (seatIndex == 1 || seatIndex == 3)
@@ -188,24 +190,26 @@ public class LayoutModel
             }
             else if (row != 15 && row != 27) // Economy Class (excluding special rows)
             {
-                Console.ForegroundColor = ConsoleColor.Cyan; // Cyan colour (Economy)
                 for (int seatIndex = 0; seatIndex < 9; seatIndex++)
                 {
                     string seat = SeatArrangement[index + seatIndex];
+
                     if (BookedSeats.Contains(seat))
                     {
-                        Console.ForegroundColor = ConsoleColor.Red; // Red colour (Booked)
-                        Console.Write($"{seat}  ");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write($"{(SeatInitials.ContainsKey(seat) ? SeatInitials[seat] : seat)}  ");
                     }
                     else if (ChosenSeats.Contains(seat))
                     {
-                        Console.ForegroundColor = ConsoleColor.Magenta; // Purple colour (Selected)
-                        Console.Write($"{seat}  ");
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.Write($"{(SeatInitials.ContainsKey(seat) ? SeatInitials[seat] : seat)}  ");
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Cyan; // Economy Class color
                         Console.Write($"{seat}  ");
                     }
+
                     Console.ResetColor();
 
                     if (seatIndex == 2 || seatIndex == 5)
