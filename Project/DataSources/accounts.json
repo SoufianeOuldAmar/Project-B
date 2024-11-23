@@ -9,6 +9,11 @@
         "ticketsBought": "2024-11-22T23:25:35.8367392+01:00",
         "points": 34,
         "flightId": 17
+      },
+      {
+        "ticketsBought": "2024-11-23T17:13:43.6824837+01:00",
+        "points": 28,
+        "flightId": 25
       }
     ]
   },
@@ -49,7 +54,7 @@
   {
     "id": 6,
     "emailAddress": "n@x.c",
-    "password": "xyzxyz",
+    "password": "xyz",
     "fullName": "Soufiane OuLD",
     "flightPointsDataList": []
   }

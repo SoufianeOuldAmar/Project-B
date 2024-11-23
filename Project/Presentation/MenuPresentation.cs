@@ -109,15 +109,55 @@ public static class MenuPresentation
 
     public static void ViewFlightPointsMenu()
     {
+        int index = 1;
 
-        Console.WriteLine("=== View Flight Points ===");
+        Console.WriteLine("=== View Flight Points ===\n");
         var currentAccount = AccountsLogic.CurrentAccount;
 
-        foreach (var fp in currentAccount.FlightPointsDataList)
+
+        if (currentAccount.FlightPointsDataList.Count == 0)
         {
-            Console.WriteLine($"Date: {fp.TicketsBought}, Flightpoints gained: {fp.Points}, FlightID: {fp.FlightId}");
+            Console.WriteLine("You have zero booked flights so there is no transaction history.\n");
+        }
+        else
+        {
+            Console.WriteLine(new string('-', 105));
+            // Header
+            Console.WriteLine("| {0,-8} | {1,-22} | {2,-17} | {3,-22}  | {4,-18} |",
+                              "Index", "Flight Points Earned",
+                              "Flight ID", "Tickets Bought", "Total Flight Points");
+            Console.WriteLine(new string('-', 105)); // Divider with adjusted width
+
+            int totalFlightPoints = 0;
+
+            // Rows
+            foreach (var fp in currentAccount.FlightPointsDataList)
+            {
+                Console.WriteLine("| {0,-8} | {1,-22} | {2,-17} | {3,-22}  | {4,-18}  |",
+                                  index,
+                                  fp.Points,
+                                  fp.FlightId,
+                                  fp.TicketsBought,
+                                  ""); // Empty for total column in rows
+                index++;
+                totalFlightPoints += fp.Points;
+            }
+
+            Console.WriteLine(new string('-', 105));
+
+            // Total Row
+            Console.WriteLine("| {0,-8} | {1,-22} | {2,-17} | {3,-22}  | {4,-18}  |",
+                              "", // Empty for other columns
+                              "",
+                              "",
+                              "",
+                              totalFlightPoints);
+
+            Console.WriteLine(new string('-', 105) + "\n");
         }
 
+
+        // Prompt to go back
         while (true)
         {
             Console.Write("Press 'Q' to go back: ");
@@ -134,9 +174,8 @@ public static class MenuPresentation
                 break;
             }
         }
-
-
     }
+
 
     public static void FrontPageUser(AccountModel accountModel)
     {

@@ -11556,7 +11556,6 @@
         "14D",
         "14E",
         "14F",
-        "15A",
         "15B",
         "15C",
         "15D",
@@ -11653,10 +11652,14 @@
         "30E",
         "30A"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "15A"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "15A": "SO "
+      }
     },
     "ticketPrice": 285,
     "gate": "F6",
