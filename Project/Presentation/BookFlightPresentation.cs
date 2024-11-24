@@ -25,19 +25,20 @@ public static class BookFlightPresentation
                     return;
                 }
 
-                Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12}",
+                Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-17} {6,-15}",
                                   "ID", "Airline", "Departure Airport", "Arrival Destination",
-                                  "Flight Time", "Cancelled");
+                                  "Flight Time", "Return Flight", "Cancelled");
                 Console.WriteLine(new string('-', 195));
 
                 foreach (var flight in allFlights)
                 {
-                    Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-12}",
+                    Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-17} {6,-15}",
                                       flight.Id,
                                       flight.Airline,
                                       flight.DepartureAirport,
                                       flight.ArrivalDestination,
                                       flight.FlightTime,
+                                      flight.ReturnFlight != null ? "Yes" : "No",
                                       flight.IsCancelled ? "Yes" : "No");
                 }
 

@@ -1,5 +1,8 @@
 using System.Text.RegularExpressions;
 using DataModels;
+using System;
+using System.Globalization;
+
 
 public class AdminAddFlightsPresentation
 {
@@ -170,8 +173,9 @@ public class AdminAddFlightsPresentation
             }
 
         }
+
         int nextFlightId = BookFlightPresentation.allFlights.Count;
-        FlightModel newFight = new FlightModel(
+        FlightModel newFlight = new FlightModel(
 
             airline,
             layout,
@@ -186,11 +190,99 @@ public class AdminAddFlightsPresentation
         );
 
         nextFlightId++;
-        newFight.Id = nextFlightId;
+        newFlight.Id = nextFlightId;
+
+        FlightModel returnFlight = null;
+        string returnDate;
+        string returnTime;
+        string returnGate;
+        while (true)
+        {
+            Console.WriteLine("Add a return flight? (yes/no):");
+            string returnFlightYesNo = Console.ReadLine().ToLower();
+
+            if (returnFlightYesNo == "no")
+            {
+                break;
+            }
+            else if (returnFlightYesNo == "yes")
+            {
+                while (true)
+                {
+                    Console.WriteLine("Return Date (dd-mm-yyyy):");
+                    string dateString = Console.ReadLine();
+
+                    if (DateTime.TryParseExact(dateString, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+                    {
+                        if (parsedDate <= DateTime.Now)
+                        {
+                            Console.WriteLine("The date is before the current time. Try again.");
+                            continue;
+                        }
+                        else
+                        {
+                            returnDate = parsedDate.ToString("dd-MM-yyyy");
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid date format. Try again.");
+                        continue;
+                    }
+
+                }
+
+                while (true)
+                {
+                    Console.WriteLine("Return Time (HH:MM)");
+                    string timeStr = Console.ReadLine();
+
+                    if (DateTime.TryParseExact(timeStr, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedTime))
+                    {
+                        returnTime = parsedTime.ToString("HH:mm");
+                        break; // Exit the loop if valid
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid time format. Please enter in HH:MM format.");
+                        continue;
+                    }
+                }
+
+                while (true)
+                {
+                    Console.WriteLine("Enter Gate: ");
+                    string gate = Console.ReadLine();
+                    if (gate.Length >= 2 && gate.Length <= 3 && "ABCDEF".Contains(char.ToUpper(gate[0])) &&
+                    int.TryParse(gate.Substring(1), out int number) &&
+                    number >= 1 && number <= 30)
+                    {
+                        // Substring(startIndex, length);
+                        string letterPart = gate.Substring(0, 1).ToUpper();
+                        string numberPart = gate.Substring(1);
+                        returnGate = $"{letterPart}{numberPart}";
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid format. The string must be a letter followed by digit.");
+                        continue;
+                    }
+                }
+
+                returnFlight = newFlight.CreateReturnFlight(returnDate, returnTime, returnGate);
+                break;
+            }
+
+        }
+
+        newFlight.ReturnFlight = returnFlight;
+
 
 
         Console.WriteLine("New flight added:");
-        return newFight;
+        return newFlight;
     }
     public void Exit()
     {
