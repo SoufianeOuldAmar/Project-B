@@ -11285,16 +11285,13 @@
         "30C",
         "30D",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "15A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "15A": "SO "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 335.25,
     "gate": "B1",
