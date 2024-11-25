@@ -16,7 +16,42 @@ static class AdminAccountPresentation
             string username = Console.ReadLine();
 
             Console.WriteLine("Enter Your password: ");
-            string password = Console.ReadLine();
+            // string password = Console.ReadLine();
+            string password = "";
+            bool passwordVisible = false;
+
+            while (true)
+            {
+                var key = Console.ReadKey(intercept: true);
+
+                if (key.Key == ConsoleKey.Enter)
+                    break;
+                if (key.Key == ConsoleKey.Tab)
+                {
+                    passwordVisible = !passwordVisible;
+                }
+                else if (key.Key == ConsoleKey.Backspace)
+                {
+                    if (password.Length > 0)
+                    {
+                        password = password.Remove(password.Length - 1);
+                        Console.Write("\b \b");
+                    }
+                }
+                else
+                {
+                    password += key.KeyChar;
+                    if (passwordVisible)
+                    {
+                        Console.Write(key.KeyChar);
+                    }
+                    else
+                    {
+                        Console.Write("*");
+                    }
+                }
+            }
+            Console.WriteLine();
 
             bool isValid = logic.ValidateLogin(username, password);
 
@@ -33,7 +68,6 @@ static class AdminAccountPresentation
                 if (keyInfo.Key == ConsoleKey.Escape)
                 {
                     Console.WriteLine("You chose to exit.");
-                    Console.Clear();
                     MenuPresentation.AuthenticateAccountMenu();
                 }
                 else if (keyInfo.KeyChar == 'a' || keyInfo.KeyChar == 'A')
@@ -46,11 +80,10 @@ static class AdminAccountPresentation
                 }
                 else if (keyInfo.KeyChar == 'c' || keyInfo.KeyChar == 'C')
                 {
-                    AdminFlightManagerLogic.LaodFlight();
-                    Console.WriteLine("Enter the flight ID: ");
-                    int id = int.Parse(Console.ReadLine());
-                    AdminFlightManagerPresentation.UpdateDetailsPresentation(id);
+                    AdminFlightManagerPresentation.LaodFlightPresentaion();
+                    AdminFlightManagerPresentation.UpdateDetailsPresentation();
                     AdminFlightManagerPresentation.Exit();
+                    break;
                 }
                 else
                 {

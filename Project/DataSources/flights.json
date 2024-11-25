@@ -379,12 +379,12 @@
       }
     },
     "ticketPrice": 150,
-    "gate": "A12",
+    "gate": "E3",
     "departureAirport": "Amsterdam, Schiphol Airport",
     "arrivalDestination": "Paris, Charles de Gaulle Airport",
     "isCancelled": false,
-    "departureDate": "2024-11-22",
-    "flightTime": "14:30",
+    "departureDate": "1-1-2024",
+    "flightTime": "12:12",
     "availableSeats": 178,
     "flightPoints": 15
   },
