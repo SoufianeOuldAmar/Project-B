@@ -357,26 +357,29 @@
         "29A",
         "29B",
         "29C",
-        "29D",
         "29E",
         "29F",
         "30A",
         "30B",
-        "30C",
-        "30E",
-        "30F"
+        "30C"
       ],
       "bookedSeats": [
         "10A",
         "30D",
-        "27F"
+        "27F",
+        "30E",
+        "30F",
+        "29D"
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "seatInitials": {
         "10A": "SO ",
         "30D": "AA ",
-        "27F": "FF "
+        "27F": "FF ",
+        "30E": "MM ",
+        "30F": "BB ",
+        "29D": "LL "
       }
     },
     "ticketPrice": 150,
@@ -3420,14 +3423,17 @@
         "30A",
         "30B",
         "30C",
-        "30D",
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "30D"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30D": "AA "
+      }
     },
     "ticketPrice": 190,
     "gate": "G5",
@@ -6458,18 +6464,19 @@
         "30A",
         "30B",
         "30C",
-        "30E",
         "30F"
       ],
       "bookedSeats": [
         "11A",
-        "30D"
+        "30D",
+        "30E"
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "seatInitials": {
         "11A": "SO ",
-        "30D": "LL "
+        "30D": "LL ",
+        "30E": "SS "
       }
     },
     "ticketPrice": 275,
@@ -6481,7 +6488,7 @@
     "flightTime": "12:45",
     "availableSeats": 180,
     "flightPoints": 27,
-    "totalPets": 0
+    "totalPets": 7
   },
   {
     "id": 14,
@@ -6728,7 +6735,6 @@
         "09F",
         "10B",
         "10C",
-        "10D",
         "10E",
         "10F",
         "11A",
@@ -6853,12 +6859,14 @@
         "30F"
       ],
       "bookedSeats": [
-        "10A"
+        "10A",
+        "10D"
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "seatInitials": {
-        "10A": "SO"
+        "10A": "SO",
+        "10D": "VV "
       }
     },
     "ticketPrice": 275,
@@ -6870,7 +6878,7 @@
     "flightTime": "14:15",
     "availableSeats": 179,
     "flightPoints": 27,
-    "totalPets": 0
+    "totalPets": 7
   },
   {
     "id": 15,
@@ -7230,7 +7238,6 @@
         "29A",
         "29B",
         "29C",
-        "29D",
         "29E",
         "29F",
         "30A",
@@ -7242,13 +7249,15 @@
       ],
       "bookedSeats": [
         "10C",
-        "01E"
+        "01E",
+        "29D"
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "seatInitials": {
         "10C": "SO ",
-        "01E": "AA "
+        "01E": "AA ",
+        "29D": "JJ "
       }
     },
     "ticketPrice": 410,
@@ -7260,7 +7269,7 @@
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 41,
-    "totalPets": 0
+    "totalPets": 1
   },
   {
     "id": 16,
@@ -8014,14 +8023,17 @@
         "30A",
         "30B",
         "30C",
-        "30D",
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "30D"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30D": "FF "
+      }
     },
     "ticketPrice": 345.5,
     "gate": "C8",
@@ -8032,7 +8044,7 @@
     "flightTime": "07:30",
     "availableSeats": 180,
     "flightPoints": 34,
-    "totalPets": 0
+    "totalPets": 1
   },
   {
     "id": 18,
@@ -8401,13 +8413,16 @@
         "30B",
         "30C",
         "30D",
-        "30E",
+        "30E"
+      ],
+      "bookedSeats": [
         "30F"
       ],
-      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30F": "XX "
+      }
     },
     "ticketPrice": 285,
     "gate": "B4",
@@ -8418,7 +8433,7 @@
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 28,
-    "totalPets": 0
+    "totalPets": 1
   },
   {
     "id": 19,
@@ -9176,13 +9191,16 @@
         "30B",
         "30C",
         "30D",
-        "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "30E"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30E": "II "
+      }
     },
     "ticketPrice": 300,
     "gate": "B2",
@@ -10539,7 +10557,6 @@
         "10G",
         "10J",
         "10K",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -10940,12 +10957,16 @@
         "50J",
         "50K"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "11A"
+      ],
       "chosenSeats": [],
       "isAirbusA330": true,
-      "seatInitials": {}
+      "seatInitials": {
+        "11A": "HH "
+      }
     },
-    "ticketPrice": 315,
+    "ticketPrice": 265,
     "gate": "G7",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Vienna, International Airport",
@@ -13083,7 +13104,6 @@
         "01A",
         "01B",
         "01C",
-        "01D",
         "01E",
         "01F",
         "02A",
@@ -13261,10 +13281,14 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "01D"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "01D": "BB "
+      }
     },
     "ticketPrice": 275,
     "gate": "E1",
@@ -13275,7 +13299,7 @@
     "flightTime": "19:45",
     "availableSeats": 180,
     "flightPoints": 27,
-    "totalPets": 0
+    "totalPets": 2
   },
   {
     "id": 30,
@@ -13567,7 +13591,6 @@
         "17D",
         "17E",
         "17F",
-        "18A",
         "18B",
         "18C",
         "18D",
@@ -13647,12 +13670,14 @@
         "30F"
       ],
       "bookedSeats": [
-        "10A"
+        "10A",
+        "18A"
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "seatInitials": {
-        "10A": "AA "
+        "10A": "AA ",
+        "18A": "SO "
       }
     },
     "ticketPrice": 305.25,
@@ -15363,7 +15388,6 @@
         "23B",
         "23C",
         "23D",
-        "23E",
         "23F",
         "24A",
         "24B",
@@ -15408,12 +15432,16 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "23E"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "23E": "GG "
+      }
     },
-    "ticketPrice": 205,
+    "ticketPrice": 230,
     "gate": "A6",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Brussels, Brussels Airport",

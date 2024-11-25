@@ -33,6 +33,10 @@ public static class CancelLogic
             return $"You have no flights booked";
         }
 
+        Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
+
+        BookFlightPresentation.allBookedFlights = allBookedFlights;
+
         string FlightDetails = "";
         foreach (var flight in BookFlightPresentation.allBookedFlights[email])
         {

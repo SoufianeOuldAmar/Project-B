@@ -17,6 +17,9 @@ public class AccountModel
     [JsonPropertyName("flightPoints")]
     public int FlightPoints { get; set; }
 
+    [JsonPropertyName("fees")]
+    public double Fee{get; set;}
+
     public AccountModel(int id, string emailAddress, string password, string fullName)
     {
         Id = id;
@@ -24,6 +27,7 @@ public class AccountModel
         Password = password;
         FullName = fullName;
         FlightPoints = 0;
+        Fee = 0;
     }
 
 }
