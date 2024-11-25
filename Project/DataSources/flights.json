@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -188,6 +188,7 @@
         "30F"
       ],
       "availableSeats": [
+        "01A",
         "01B",
         "01C",
         "01D",
@@ -347,7 +348,6 @@
         "27C",
         "27D",
         "27E",
-        "27F",
         "28A",
         "28B",
         "28C",
@@ -363,26 +363,25 @@
         "30A",
         "30B",
         "30C",
-        "30E"
+        "30E",
+        "30F"
       ],
       "bookedSeats": [
         "10A",
         "30D",
-        "30F",
-        "01A"
+        "27F"
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "seatInitials": {
         "10A": "SO ",
         "30D": "AA ",
-        "30F": "DD ",
-        "01A": "LL "
+        "27F": "FF "
       }
     },
     "ticketPrice": 150,
     "gate": "A12",
-    "departureAirport": "Amsterdam, Schiphol Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Paris, Charles de Gaulle Airport",
     "isCancelled": false,
     "departureDate": "2024-11-22",
@@ -393,7 +392,7 @@
   },
   {
     "id": 2,
-    "airline": "British Airways",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -757,29 +756,32 @@
         "30A",
         "30B",
         "30C",
-        "30D",
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "30D"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30D": "YE "
+      }
     },
     "ticketPrice": 200,
     "gate": "B4",
-    "departureAirport": "London, Heathrow Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Frankfurt, Frankfurt Airport",
     "isCancelled": false,
     "departureDate": "2024-11-23",
     "flightTime": "09:45",
     "availableSeats": 178,
     "flightPoints": 20,
-    "totalPets": 0
+    "totalPets": 1
   },
   {
     "id": 3,
-    "airline": "Lufthansa",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 40,
       "columns": 6,
@@ -1203,7 +1205,6 @@
         "30A",
         "30B",
         "30C",
-        "30D",
         "30E",
         "30F",
         "31A",
@@ -1267,25 +1268,29 @@
         "40E",
         "40F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "30D"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30D": "JK "
+      }
     },
     "ticketPrice": 180,
     "gate": "C7",
-    "departureAirport": "Frankfurt, Frankfurt Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Brussels, Brussels Airport",
     "isCancelled": false,
     "departureDate": "2024-11-24",
     "flightTime": "11:00",
     "availableSeats": 180,
     "flightPoints": 18,
-    "totalPets": 0
+    "totalPets": 5
   },
   {
     "id": 4,
-    "airline": "Turkish Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -2244,7 +2249,6 @@
         "49K",
         "50B",
         "50C",
-        "50D",
         "50E",
         "50F",
         "50G",
@@ -2253,28 +2257,30 @@
         "50K"
       ],
       "bookedSeats": [
-        "50A"
+        "50A",
+        "50D"
       ],
       "chosenSeats": [],
       "isAirbusA330": true,
       "seatInitials": {
-        "50A": "MT"
+        "50A": "MT",
+        "50D": "CC "
       }
     },
     "ticketPrice": 250,
     "gate": "D9",
-    "departureAirport": "Istanbul, Istanbul Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Warsaw, Warsaw Chopin Airport",
     "isCancelled": false,
     "departureDate": "2024-11-25",
     "flightTime": "13:20",
     "availableSeats": 173,
     "flightPoints": 25,
-    "totalPets": 0
+    "totalPets": 8
   },
   {
     "id": 5,
-    "airline": "LOT Polish Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -2638,32 +2644,33 @@
         "30A",
         "30B",
         "30C",
-        "30E",
         "30F"
       ],
       "bookedSeats": [
-        "30D"
+        "30D",
+        "30E"
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "seatInitials": {
-        "30D": "FF "
+        "30D": "YY ",
+        "30E": "NN "
       }
     },
     "ticketPrice": 160,
     "gate": "E11",
-    "departureAirport": "Warsaw, Warsaw Chopin Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Budapest, Budapest Ferenc Liszt International Airport",
     "isCancelled": false,
     "departureDate": "2024-11-26",
     "flightTime": "16:10",
     "availableSeats": 176,
     "flightPoints": 16,
-    "totalPets": 0
+    "totalPets": 8
   },
   {
     "id": 6,
-    "airline": "Vueling",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -2883,6 +2890,7 @@
         "06A",
         "06B",
         "06C",
+        "06D",
         "06E",
         "06F",
         "07A",
@@ -3031,17 +3039,13 @@
         "30F"
       ],
       "bookedSeats": [],
-      "chosenSeats": [
-        "06D"
-      ],
+      "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "06D": "UU "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 140,
     "gate": "F3",
-    "departureAirport": "Barcelona, Barcelona-El Prat Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Riga, Riga International Airport",
     "isCancelled": false,
     "departureDate": "2024-11-27",
@@ -3052,7 +3056,7 @@
   },
   {
     "id": 7,
-    "airline": "Aegean Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -3290,6 +3294,7 @@
         "09A",
         "09B",
         "09C",
+        "09D",
         "09E",
         "09F",
         "10A",
@@ -3379,6 +3384,7 @@
         "24A",
         "24B",
         "24C",
+        "24D",
         "24E",
         "24F",
         "25A",
@@ -3418,31 +3424,25 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [
-        "09D",
-        "24D"
-      ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "09D": "KL ",
-        "24D": "NN "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 190,
     "gate": "G5",
-    "departureAirport": "Athens, Athens International Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Lisbon, Lisbon Airport",
     "isCancelled": false,
     "departureDate": "2024-11-28",
     "flightTime": "21:15",
     "availableSeats": 179,
     "flightPoints": 19,
-    "totalPets": 1
+    "totalPets": 0
   },
   {
     "id": 8,
-    "airline": "Turkish Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -4417,7 +4417,7 @@
     },
     "ticketPrice": 230,
     "gate": "G7",
-    "departureAirport": "Istanbul, Istanbul Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Lisbon, Lisbon Airport",
     "isCancelled": false,
     "departureDate": "2024-11-29",
@@ -4428,7 +4428,7 @@
   },
   {
     "id": 9,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -4803,7 +4803,7 @@
     },
     "ticketPrice": 275,
     "gate": "E4",
-    "departureAirport": "Amsterdam, Schiphol Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "London, Heathrow Airport",
     "isCancelled": false,
     "departureDate": "2024-11-26",
@@ -4814,7 +4814,7 @@
   },
   {
     "id": 10,
-    "airline": "Pegasus Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -5189,8 +5189,8 @@
     },
     "ticketPrice": 310,
     "gate": "F4",
-    "departureAirport": "Istanbul, Istanbul Airport",
-    "arrivalDestination": "Eindhoven, Eindhoven Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
+    "arrivalDestination": "Naples, Naples Airport",
     "isCancelled": false,
     "departureDate": "2024-11-26",
     "flightTime": "21:30",
@@ -5200,7 +5200,7 @@
   },
   {
     "id": 11,
-    "airline": "Lufthansa",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 40,
       "columns": 6,
@@ -5698,7 +5698,7 @@
     },
     "ticketPrice": 315,
     "gate": "B6",
-    "departureAirport": "Frankfurt, Am Main Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "London, Heathrow Airport",
     "isCancelled": false,
     "departureDate": "2024-11-26",
@@ -5709,7 +5709,7 @@
   },
   {
     "id": 12,
-    "airline": "Transavia Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -6084,7 +6084,7 @@
     },
     "ticketPrice": 215,
     "gate": "E4",
-    "departureAirport": "Amsterdam, Schiphol Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Lisbon, Lisbon Airport",
     "isCancelled": false,
     "departureDate": "2024-11-24",
@@ -6095,7 +6095,7 @@
   },
   {
     "id": 13,
-    "airline": "Eurowings Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -6474,18 +6474,18 @@
     },
     "ticketPrice": 275,
     "gate": "C6",
-    "departureAirport": "Munich, Munich Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
     "isCancelled": false,
-    "departureDate": "12:00",
-    "flightTime": "2030-09-09",
+    "departureDate": "2024-12-09",
+    "flightTime": "12:45",
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0
   },
   {
     "id": 14,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -6863,7 +6863,7 @@
     },
     "ticketPrice": 275,
     "gate": "B6",
-    "departureAirport": "Amsterdam, Schiphol Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "London, Heathrow Airport",
     "isCancelled": false,
     "departureDate": "2024-11-26",
@@ -6874,7 +6874,7 @@
   },
   {
     "id": 15,
-    "airline": "British Airways",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -7253,7 +7253,7 @@
     },
     "ticketPrice": 410,
     "gate": "E4",
-    "departureAirport": "London, Heathrow Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Istanbul, Istanbul Airport",
     "isCancelled": false,
     "departureDate": "2024-12-04",
@@ -7264,7 +7264,7 @@
   },
   {
     "id": 16,
-    "airline": "Iberia Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -7639,7 +7639,7 @@
     },
     "ticketPrice": 185,
     "gate": "E4",
-    "departureAirport": "Madrid, Madrid Barajas Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Milan, Malpensa Airport",
     "isCancelled": false,
     "departureDate": "2024-11-26",
@@ -7650,7 +7650,7 @@
   },
   {
     "id": 17,
-    "airline": "Brussels Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -8025,7 +8025,7 @@
     },
     "ticketPrice": 345.5,
     "gate": "C8",
-    "departureAirport": "Brussels, Brussels Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "London, Heathrow Airport",
     "isCancelled": false,
     "departureDate": "2024-11-22",
@@ -8036,7 +8036,7 @@
   },
   {
     "id": 18,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -8411,7 +8411,7 @@
     },
     "ticketPrice": 285,
     "gate": "B4",
-    "departureAirport": "Amsterdam, Schiphol Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "London, Heathrow Airport",
     "isCancelled": false,
     "departureDate": "2024-11-30",
@@ -8422,7 +8422,7 @@
   },
   {
     "id": 19,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -8787,17 +8787,20 @@
         "30B",
         "30C",
         "30D",
-        "30E",
-        "30F"
+        "30E"
       ],
       "bookedSeats": [],
-      "chosenSeats": [],
+      "chosenSeats": [
+        "30F"
+      ],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30F": "OO "
+      }
     },
     "ticketPrice": 315,
     "gate": "C4",
-    "departureAirport": "Amsterdam, Schiphol Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Oslo, Oslo Gardermoen Airport",
     "isCancelled": false,
     "departureDate": "2024-11-21",
@@ -8808,7 +8811,7 @@
   },
   {
     "id": 20,
-    "airline": "Pegasus Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -9183,7 +9186,7 @@
     },
     "ticketPrice": 300,
     "gate": "B2",
-    "departureAirport": "Istanbul, Istanbul Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Zurich, Zurich Airport",
     "isCancelled": false,
     "departureDate": "2024-11-26",
@@ -9194,7 +9197,7 @@
   },
   {
     "id": 21,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -9572,18 +9575,18 @@
     },
     "ticketPrice": 215,
     "gate": "E4",
-    "departureAirport": "Eindhoven, Eindhoven Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Vienna, International Airport",
     "isCancelled": false,
-    "departureDate": "21:20",
-    "flightTime": "2025-01-01",
+    "departureDate": "2025-12-01",
+    "flightTime": "11:20",
     "availableSeats": 180,
     "flightPoints": 21,
     "totalPets": 0
   },
   {
     "id": 22,
-    "airline": "Transavia Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -9969,7 +9972,7 @@
   },
   {
     "id": 23,
-    "airline": "Turkish Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -10944,7 +10947,7 @@
     },
     "ticketPrice": 315,
     "gate": "G7",
-    "departureAirport": "Istanbul, Istanbul Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Vienna, International Airport",
     "isCancelled": false,
     "departureDate": "2024-12-06",
@@ -10955,7 +10958,7 @@
   },
   {
     "id": 24,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -11284,6 +11287,7 @@
         "24B",
         "24C",
         "24D",
+        "24E",
         "24F",
         "25A",
         "25B",
@@ -11322,14 +11326,10 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [
-        "24E"
-      ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "24E": "JJ "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 335.25,
     "gate": "B1",
@@ -11344,7 +11344,7 @@
   },
   {
     "id": 25,
-    "airline": "Corendon",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -11724,18 +11724,18 @@
     },
     "ticketPrice": 285,
     "gate": "F6",
-    "departureAirport": "Istanbul, Istanbul Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
     "isCancelled": false,
-    "departureDate": "24:30",
-    "flightTime": "2050-02-02",
+    "departureDate": "2024-11-30",
+    "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 28,
     "totalPets": 0
   },
   {
     "id": 26,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -12110,7 +12110,7 @@
     },
     "ticketPrice": 450,
     "gate": "E5",
-    "departureAirport": "Amsterdam, Schiphol Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Naples, Naples Airport",
     "isCancelled": false,
     "departureDate": "2024-12-10",
@@ -12121,7 +12121,7 @@
   },
   {
     "id": 27,
-    "airline": "Transavia Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -12342,6 +12342,7 @@
         "06B",
         "06C",
         "06D",
+        "06E",
         "06F",
         "07A",
         "07B",
@@ -12485,18 +12486,13 @@
         "30B",
         "30C",
         "30D",
+        "30E",
         "30F"
       ],
-      "bookedSeats": [
-        "06E",
-        "30E"
-      ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "06E": "NN ",
-        "30E": "LL "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 300.15,
     "gate": "B3",
@@ -12507,11 +12503,11 @@
     "flightTime": "11:50",
     "availableSeats": 180,
     "flightPoints": 30,
-    "totalPets": 7
+    "totalPets": 0
   },
   {
     "id": 28,
-    "airline": "Sun Express Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -12876,20 +12872,17 @@
         "30B",
         "30C",
         "30D",
-        "30E"
-      ],
-      "bookedSeats": [
+        "30E",
         "30F"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "30F": "GG "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 275,
     "gate": "E5",
-    "departureAirport": "Brussels, Brussels Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Istanbul, Istanbul Airport",
     "isCancelled": false,
     "departureDate": "2024-11-26",
@@ -12900,7 +12893,7 @@
   },
   {
     "id": 29,
-    "airline": "Transavia Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -13275,7 +13268,7 @@
     },
     "ticketPrice": 275,
     "gate": "E1",
-    "departureAirport": "Eindhoven, Eindhoven Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Budapest, Budapest Ferenc Liszt International Airport",
     "isCancelled": false,
     "departureDate": "2024-11-29",
@@ -13286,7 +13279,7 @@
   },
   {
     "id": 30,
-    "airline": "KLM",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -13675,7 +13668,7 @@
   },
   {
     "id": 31,
-    "airline": "Turkish Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -14650,7 +14643,7 @@
     },
     "ticketPrice": 415,
     "gate": "C8",
-    "departureAirport": "Amsterdam, Schiphol Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Istanbul, Istanbul Airport",
     "isCancelled": false,
     "departureDate": "2024-12-14",
@@ -14661,7 +14654,7 @@
   },
   {
     "id": 32,
-    "airline": "Transavia Airlines",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -15036,8 +15029,8 @@
     },
     "ticketPrice": 305,
     "gate": "E4",
-    "departureAirport": "Madrid, Madrid Barajas Airport",
-    "arrivalDestination": "Eindhoven, Eindhoven Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
+    "arrivalDestination": "Madrid, Madrid Barajas Airport",
     "isCancelled": false,
     "departureDate": "2024-11-16",
     "flightTime": "14:15",
@@ -15047,7 +15040,7 @@
   },
   {
     "id": 33,
-    "airline": "British Airways",
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -15422,7 +15415,7 @@
     },
     "ticketPrice": 205,
     "gate": "A6",
-    "departureAirport": "London, Heathrow Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Brussels, Brussels Airport",
     "isCancelled": false,
     "departureDate": "2024-11-25",
@@ -15432,8 +15425,8 @@
     "totalPets": 0
   },
   {
-    "id": 21,
-    "airline": "KLM",
+    "id": 34,
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -15796,33 +15789,35 @@
         "30A",
         "30B",
         "30C",
-        "30D",
         "30E",
         "30F"
       ],
       "bookedSeats": [
         "09A"
       ],
-      "chosenSeats": [],
+      "chosenSeats": [
+        "30D"
+      ],
       "isAirbusA330": false,
       "seatInitials": {
-        "09A": "AA "
+        "09A": "AA ",
+        "30D": "HH "
       }
     },
     "ticketPrice": 215,
     "gate": "E4",
-    "departureAirport": "Eindhoven, Eindhoven Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Vienna, International Airport",
     "isCancelled": false,
-    "departureDate": "21:20",
-    "flightTime": "2025-01-01",
+    "departureDate": "2025-01-01",
+    "flightTime": "21:20",
     "availableSeats": 180,
     "flightPoints": 21,
-    "totalPets": 0
+    "totalPets": 7
   },
   {
-    "id": 25,
-    "airline": "Corendon",
+    "id": 35,
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -16197,18 +16192,18 @@
     },
     "ticketPrice": 285,
     "gate": "F6",
-    "departureAirport": "Istanbul, Istanbul Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
     "isCancelled": false,
-    "departureDate": "24:30",
-    "flightTime": "2050-02-02",
+    "departureDate": "2024-12-02",
+    "flightTime": "21:30",
     "availableSeats": 180,
     "flightPoints": 28,
     "totalPets": 0
   },
   {
-    "id": 13,
-    "airline": "Eurowings Airlines",
+    "id": 36,
+    "airline": "BOSST Airlines",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -16587,11 +16582,11 @@
     },
     "ticketPrice": 275,
     "gate": "C6",
-    "departureAirport": "Munich, Munich Airport",
+    "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
     "isCancelled": false,
-    "departureDate": "12:00",
-    "flightTime": "2030-09-09",
+    "departureDate": "2024-12-09",
+    "flightTime": "12:00",
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0

@@ -71,10 +71,7 @@ public static class BookFlightPresentation
                         if (confirmation.ToLower() == "yes")
                         {
                             List<string> chosenSeats = new List<string>();
-                            selectedFlight.Layout.PrintLayout();
-
-                        
-                            
+                            selectedFlight.Layout.PrintLayout();               
 
                             while (true)
                             {
@@ -130,15 +127,33 @@ public static class BookFlightPresentation
                                     }
                                     else if (baggageType== "2" ||baggageType== "3")
                                     {
-                                        Console.WriteLine("Enter weight for checked baggage (in kg): ");
-                                        weightBaggage = double.Parse(Console.ReadLine());
 
-                                        if (weightBaggage > 25)
+                                        while (true)
                                         {
-                                            feeBaggage= 50;
-                                            Console.WriteLine($"Your checked bag on goes over the 25 kg limit. you'll have to pay a fee of {feeBaggage} EUR.");
-                                        }
+                                            Console.WriteLine("Enter weight for checked baggage choose 20 or 25(in kg): ");
+                                            weightBaggage = double.Parse(Console.ReadLine());
 
+                                            if (weightBaggage == 20)
+                                            {
+                                                Console.WriteLine("Your checked baggage weight is 20 kg. No additional fee  required.");
+                                                break;
+                                            }
+                                            else if (weightBaggage == 25)
+                                            {
+                                                Console.WriteLine("Your checked baggage weight is 25 kg. No additional fee is required.");
+                                                break;
+                                            }
+                                            else if (weightBaggage > 25)
+                                            {
+                                                feeBaggage = 50;
+                                                Console.WriteLine($"Your checked baggage weight exceeds the 25 kg limit. You'll have to pay a fee of {feeBaggage} EUR.");
+                                                break;
+                                            }
+                                            else 
+                                            {
+                                                Console.WriteLine("Invalid weight. Please enter a valid weight for your checked baggage.");
+                                            }
+                                        }
 
                                     }
                                     else 
@@ -159,7 +174,9 @@ public static class BookFlightPresentation
                                     // Check current pet count for the flight
                                     if (selectedFlight.TotalPets >= 7)
                                     {
+                                        
                                         Console.WriteLine("Sorry, no more pet space available on this flight.");
+                                        break;
                                     }
                                     else
                                     {
@@ -170,7 +187,8 @@ public static class BookFlightPresentation
 
                                             if (petType == "dog" || petType == "cat" || petType == "bunny" || petType == "bird")
                                             {
-                                                petInfo.Add(new PetLogic(petType)); // Adds a new pet with a 50 EUR fee
+                                                var newPet = new PetLogic(petType) { Fee = 50.0 }; // Adds a new pet with a 50 EUR fee
+                                                petInfo.Add(newPet); 
                                                 selectedFlight.TotalPets++; // Increment total pets for the flight
                                                 Console.WriteLine($"Pet {petType} added. Fee: 50 EUR."); // Notify the user of the fee
 
@@ -306,16 +324,32 @@ public static class BookFlightPresentation
                             }
                             else if (baggageType== "2" ||baggageType== "3")
                             {
-                                Console.WriteLine("Enter weight for checked baggage (in kg): ");
-                                weightBaggage = double.Parse(Console.ReadLine());
-
-                                if (weightBaggage > 25)
+                                while (true)
                                 {
-                                    feeBaggage= 50;
-                                    Console.WriteLine($"Your checked bag on goes over the 25 kg limit. you'll have to pay a fee of {feeBaggage} EUR.");
+                                    Console.WriteLine("Enter weight for checked baggage (in kg) choose 20 or 25 : ");
+                                    weightBaggage = double.Parse(Console.ReadLine());
+
+                                        if (weightBaggage == 20)
+                                        {
+                                            Console.WriteLine("Your checked baggage weight is 20 kg. No additional fee  required.");
+                                            break;
+                                        }
+                                        else if (weightBaggage == 25)
+                                        {
+                                            Console.WriteLine("Your checked baggage weight is 25 kg. No additional fee is required.");
+                                            break;
+                                        }
+                                        else if (weightBaggage > 25)
+                                        {
+                                            feeBaggage = 50;
+                                            Console.WriteLine($"Your checked baggage weight exceeds the 25 kg limit. You'll have to pay a fee of {feeBaggage} EUR.");
+                                            break;
+                                        }
+                                        else 
+                                        {
+                                            Console.WriteLine("Invalid weight. Please enter a valid weight for your checked baggage.");
+                                        }
                                 }
-
-
                             }
                             else 
                             {
@@ -327,7 +361,7 @@ public static class BookFlightPresentation
                             
 
                         }
-                        Console.WriteLine("Do you want to add a pet? (yes/no):");
+                        Console.WriteLine("Do you want to add a pet? max 7 pets (yes/no):");
                         string userPet = Console.ReadLine()?.ToLower();
 
                         if (userPet == "yes")
@@ -336,6 +370,7 @@ public static class BookFlightPresentation
                             if (flightModel.TotalPets >= 7)
                             {
                                 Console.WriteLine("Sorry, no more pet space available on this flight.");
+                                break;
                             }
                             else
                             {
@@ -346,7 +381,8 @@ public static class BookFlightPresentation
 
                                     if (petType == "dog" || petType == "cat" || petType == "bunny" || petType == "bird")
                                     {
-                                        petInfo.Add(new PetLogic(petType)); // Adds a new pet with a 50 EUR fee
+                                        var newPet = new PetLogic(petType) { Fee = 50.0 }; // Adds a new pet with a 50 EUR fee
+                                        petInfo.Add(newPet); 
                                         flightModel.TotalPets++; // Increment total pets for the flight
                                         Console.WriteLine($"Pet {petType} added. Fee: 50 EUR."); // Notify the user of the fee
 

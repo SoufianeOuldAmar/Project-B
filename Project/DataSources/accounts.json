@@ -4,14 +4,14 @@
     "emailAddress": "n@b.c",
     "password": "xyz",
     "fullName": "Nikola Tesla",
-    "flightPoints": 419
+    "flightPoints": 652
   },
   {
     "id": 2,
     "emailAddress": "t@b.c",
     "password": "xyz",
     "fullName": "Thomas Edison",
-    "flightPoints": 0
+    "flightPoints": 209
   },
   {
     "id": 3,

@@ -5,7 +5,7 @@ public class PetLogic
 
     public PetLogic(string animalType)
     {
-        AnimalType= AnimalType;
+        AnimalType= animalType;
         Fee= CalcFee();
     }
 

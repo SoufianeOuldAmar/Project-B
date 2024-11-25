@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Numerics;
 using System.Runtime.InteropServices;
+using DataModels;
 
 public class BookedFlightsModel
 {
@@ -10,8 +11,10 @@ public class BookedFlightsModel
     public List<BaggageLogic> BaggageInfo{ get; set; } 
     public bool IsCancelled { get; set; }
 
+
     public BookedFlightsModel(int flightID, List<string> bookedSeats, List<BaggageLogic> baggageInfo, List<PetLogic> pets,bool isCancelled)
     {
+
         FlightID = flightID;
         BookedSeats = bookedSeats;
         Pets= pets;

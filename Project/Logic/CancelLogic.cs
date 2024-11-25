@@ -39,10 +39,31 @@ public static class CancelLogic
             // find flight by ID in Allflights list of BookFlightPresentation
             var neededflight = BookFlightPresentation.allFlights.Find(x => x.Id == flight.FlightID);
 
+            double totalPetFee= 0;
+            double totalBaggageFee= 0;
+
+            // calculate total pet fee
+            if (flight.Pets != null && flight.Pets.Count > 0)
+            {
+                foreach (var pet in flight.Pets)
+                {
+                    totalPetFee += pet.Fee;
+                }
+            }
+            if (flight.BaggageInfo != null && flight.BaggageInfo.Count > 0)
+            {
+                foreach (var baggage in flight.BaggageInfo)
+                {
+                    totalBaggageFee += baggage.Fee;
+                }
+            }
+
             // if flight not found by id 
             if (neededflight != null)
             {
-                FlightDetails += $"Flight ID: {neededflight.Id}, Airline: {neededflight.Airline}, Date: {neededflight.DepartureDate}, Departure Airport: {BookFlightLogic.SearchFlightByID(neededflight.Id).DepartureAirport}, Arrival Destination: {BookFlightLogic.SearchFlightByID(neededflight.Id).ArrivalDestination}, Ticket Price: {neededflight.TicketPrice:C}, Cancelled: {flight.IsCancelled}\n"; // cancelled is directly accessed from model class
+                double totalTicketPrice = neededflight.TicketPrice + totalPetFee + totalBaggageFee;
+
+                FlightDetails += $"Flight ID: {neededflight.Id}, Airline: {neededflight.Airline}, Date: {neededflight.DepartureDate}, Departure Airport: {BookFlightLogic.SearchFlightByID(neededflight.Id).DepartureAirport}, Arrival Destination: {BookFlightLogic.SearchFlightByID(neededflight.Id).ArrivalDestination}, Ticket Price: {totalTicketPrice:C}, Cancelled: {flight.IsCancelled}\n"; // cancelled is directly accessed from model class
             }
             // pets 
             if (flight.Pets != null && flight.Pets.Count > 0)
@@ -50,7 +71,7 @@ public static class CancelLogic
                 FlightDetails += $"  Pets on this flight:\n";
                 foreach (var pet in flight.Pets)
                 {
-                    FlightDetails += $" Animal Type: {pet.AnimalType}, Fee: {pet.Fee:C}\n";
+                    FlightDetails += $" Animal: {pet.AnimalType}, Fee: {pet.Fee:C}\n";
                 }
             }
             else
@@ -63,7 +84,24 @@ public static class CancelLogic
                 FlightDetails += $"  Baggage Details:\n";
                 foreach (var baggage in flight.BaggageInfo)
                 {
-                    FlightDetails += $" Baggage Type: {baggage.BaggageType}, " + $"Weight: {baggage.BaggageWeight}kg, " + $"Fee: {baggage.Fee:C}\n";
+                    string baggageTypeToPrint;
+                    if (baggage.BaggageType == "1")
+                    {
+                        baggageTypeToPrint = "Carry On";
+                    }
+                    else if (baggage.BaggageType == "2")
+                    {
+                        baggageTypeToPrint = "Checked";
+                    }
+                    else if (baggage.BaggageType == "3")
+                    {
+                        baggageTypeToPrint = "Both Carry On and Checked";
+                    }
+                    else
+                    {
+                        baggageTypeToPrint = "Unknown Baggage Type";
+                    }
+                    FlightDetails += $" Baggage : {baggageTypeToPrint}, " + $"Weight: {baggage.BaggageWeight}kg, " + $"Fee: {baggage.Fee:C}\n";
                 }
             }
             else
