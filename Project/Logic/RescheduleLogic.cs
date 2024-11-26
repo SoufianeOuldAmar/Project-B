@@ -37,42 +37,6 @@ public static class RescheduleLogic
         }
     }
 
-    // See booked flights
-    // public static string BookedFlights(string email)
-    // {
-
-
-
-    //     if (!BookFlightPresentation.allBookedFlights.ContainsKey(email))
-    //     {
-    //         return $"You have no flights booked";
-    //     }
-    //     if (BookFlightPresentation.allBookedFlights[email].Count == 0)
-    //     {
-    //         return $"You have no flights booked";
-    //     }
-
-    //     List<FlightModel> allFlights = LoadFlights(fileName);
-    //     Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
-    //     BookFlightPresentation.allFlights = allFlights;
-    //     BookFlightPresentation.allBookedFlights = allBookedFlights;
-
-    //     // load all list
-
-    //     string FlightDetails = "";
-    //     foreach(var flight in BookFlightPresentation.allBookedFlights[email])
-    //     {
-
-    //         var neededflight = BookFlightPresentation.allFlights.Find(x => x.Id == flight.FlightID);
-    //         // if flight not found by id 
-    //         if (neededflight!= null)
-    //         {
-    //             FlightDetails+= $"Flight ID: {neededflight.Id}, Airline: {neededflight.Airline}, Ticket Price: {neededflight.TicketPrice:C}, Cancelled: {flight.IsCancelled}\n"; // cancelled is directly accessed from model class
-    //         }
-    //     }
-    //     return FlightDetails;
-    // }
-
 
 
     public static List<BookedFlightsModel> BookedFlightsUser(string email)
@@ -167,16 +131,29 @@ public static class RescheduleLogic
 
         double totalNewPrice = (double)newFlightIdGiven.TicketPrice + totalFee;
 
-        // add fee to the fee property in accountmodel !!!!
         
-
-
         // update 
         specificFlight.FlightID = newFlightIdGiven.Id;
         BookFlightPresentation.allBookedFlights[email]= retrieveBookFlights;
         FlightsAccess.WriteAll(BookFlightPresentation.allFlights);
 
-        return $"Flight successfully rescheduled. Additional fee: {totalFee:C} and new Price {totalNewPrice}. New Flight Date: {newFlightIdGiven.DepartureDate} at {newFlightIdGiven.FlightTime}.";
+        totalFee = Math.Round(totalFee, 2);
+
+        // update the fee to users account
+        List<AccountModel> accounts = AccountsAccess.LoadAll(); 
+        AccountModel account = accounts.FirstOrDefault(x => x.EmailAddress == email);
+        if (account != null) 
+        { 
+            account.Fee = totalFee; AccountsAccess.WriteAll(accounts); 
+            
+        }
+        else 
+        {
+            return $"Account with email {email} not found.";
+        }
+
+
+        return $"Flight successfully rescheduled. Additional fee: {totalFee:C} and new Price {totalNewPrice:C}. New Flight Date: {newFlightIdGiven.DepartureDate} at {newFlightIdGiven.FlightTime}.";
 
 
     }

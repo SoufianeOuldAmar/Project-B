@@ -4,34 +4,39 @@
     "emailAddress": "n@b.c",
     "password": "xyz",
     "fullName": "Nikola Tesla",
-    "flightPoints": 1011
+    "flightPoints": 1109,
+    "fees": 50
   },
   {
     "id": 2,
     "emailAddress": "t@b.c",
     "password": "xyz",
     "fullName": "Thomas Edison",
-    "flightPoints": 209
+    "flightPoints": 209,
+    "fees": 0
   },
   {
     "id": 3,
     "emailAddress": "soufiane_ouldamar@",
     "password": "password1",
     "fullName": "Soufiane Ould Amar",
-    "flightPoints": 0
+    "flightPoints": 0,
+    "fees": 0
   },
   {
     "id": 4,
     "emailAddress": "la@gmail.com",
     "password": "password",
     "fullName": "lala",
-    "flightPoints": 0
+    "flightPoints": 0,
+    "fees": 0
   },
   {
     "id": 5,
     "emailAddress": "la@gmail.com",
     "password": "passwordd",
     "fullName": "lala",
-    "flightPoints": 0
+    "flightPoints": 0,
+    "fees": 0
   }
 ]

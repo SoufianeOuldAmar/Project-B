@@ -12490,7 +12490,6 @@
         "27C",
         "27D",
         "27E",
-        "27F",
         "28A",
         "28B",
         "28C",
@@ -12510,10 +12509,14 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "27F"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "27F": "FF "
+      }
     },
     "ticketPrice": 300.15,
     "gate": "B3",
@@ -12524,7 +12527,7 @@
     "flightTime": "11:50",
     "availableSeats": 180,
     "flightPoints": 30,
-    "totalPets": 0
+    "totalPets": 1
   },
   {
     "id": 28,
@@ -12892,14 +12895,17 @@
         "30A",
         "30B",
         "30C",
-        "30D",
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "30D"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30D": "UU "
+      }
     },
     "ticketPrice": 275,
     "gate": "E5",
@@ -14657,14 +14663,17 @@
         "50E",
         "50F",
         "50G",
-        "50H",
         "50J",
         "50K"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "50H"
+      ],
       "chosenSeats": [],
       "isAirbusA330": true,
-      "seatInitials": {}
+      "seatInitials": {
+        "50H": "NN "
+      }
     },
     "ticketPrice": 415,
     "gate": "C8",

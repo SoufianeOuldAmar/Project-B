@@ -1166,6 +1166,52 @@
       "Pets": [],
       "BaggageInfo": [],
       "IsCancelled": false
+    },
+    {
+      "FlightID": 27,
+      "BookedSeats": [
+        "27F"
+      ],
+      "Pets": [
+        {
+          "AnimalType": "dog",
+          "Fee": 50
+        }
+      ],
+      "BaggageInfo": [],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 28,
+      "BookedSeats": [
+        "30D"
+      ],
+      "Pets": [],
+      "BaggageInfo": [
+        {
+          "Initials": "UU",
+          "BaggageType": "3",
+          "BaggageWeight": 25,
+          "Fee": 0
+        }
+      ],
+      "IsCancelled": false
+    },
+    {
+      "FlightID": 31,
+      "BookedSeats": [
+        "50H"
+      ],
+      "Pets": [],
+      "BaggageInfo": [
+        {
+          "Initials": "NN",
+          "BaggageType": "3",
+          "BaggageWeight": 25,
+          "Fee": 0
+        }
+      ],
+      "IsCancelled": false
     }
   ]
 }

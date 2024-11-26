@@ -100,6 +100,7 @@ public static class CancelLogic
                     else if (baggage.BaggageType == "3")
                     {
                         baggageTypeToPrint = "Both Carry On and Checked";
+                        baggage.BaggageWeight += 10;
                     }
                     else
                     {
