@@ -28,14 +28,14 @@ public static class BookFlightPresentation
                     return;
                 }
 
-                Console.WriteLine("{0,-5} {1,-25} {2,-46} {3,-58} {4,-15} {5,-14} {6,-14} {7,-15}",
-                                  "ID", "Airline", "Departure Airport", "Arrival Destination",
-                                  "Flight Date", "Flight Time", "Ticket Price", "Cancelled");
-                Console.WriteLine(new string('-', 195));
+                Console.WriteLine("{0,-5} {1,-25} {2,-46} {3,-58} {4,-15} {5,-14} {6,-14} {7,-15} {8,-10}",
+                  "ID", "Airline", "Departure Airport", "Arrival Destination",
+                  "Flight Date", "Flight Time", "Ticket Price", "Cancelled", "Return Flight");
+                Console.WriteLine(new string('-', 205));
 
                 foreach (var flight in allFlights)
                 {
-                    Console.WriteLine("{0,-5} {1,-25} {2,-46} {3,-58} {4,-15} {5,-14} {6,-14} {7,-15}",
+                    Console.WriteLine("{0,-5} {1,-25} {2,-46} {3,-58} {4,-15} {5,-14} {6,-14} {7,-15} {8,-10}",
                                       flight.Id,
                                       flight.Airline,
                                       flight.DepartureAirport,
@@ -43,11 +43,13 @@ public static class BookFlightPresentation
                                       flight.DepartureDate,
                                       flight.FlightTime,
                                       flight.TicketPrice,
-                                      flight.IsCancelled ? "Yes" : "No");
+                                      flight.IsCancelled ? "Yes" : "No",
+                                      flight.ReturnFlight == null ? "No" : "Yes");
                 }
 
-                Console.WriteLine("\n" + new string('-', 195));
+                Console.WriteLine("\n" + new string('-', 205));
                 Console.Write("\nEnter the ID of the flight you wish to book (or 'Q' to quit): ");
+
 
                 var input = Console.ReadLine();
                 if (input?.ToUpper() == "Q")
@@ -235,7 +237,7 @@ public static class BookFlightPresentation
                             }
 
                             // var bookedFlight = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, false);1
-                            
+
                             List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
                         {
                             new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false)
