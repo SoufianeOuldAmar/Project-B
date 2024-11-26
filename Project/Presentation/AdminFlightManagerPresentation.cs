@@ -306,6 +306,7 @@ namespace DataAccess
                 {
                     Console.WriteLine("Is the flight cancelled? (yes/no): ");
                     newIsCancelled = Console.ReadLine().ToLower() == "yes";
+                    break;
                 }
                 else
                 {
