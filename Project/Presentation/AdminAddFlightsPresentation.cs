@@ -74,12 +74,35 @@ public class AdminAddFlightsPresentation
                 Console.WriteLine("Invalid input. Please enter letters only.");
             }
         }
+        var europeanCapitalsAirports = new List<string>
+            {
+            "Amsterdam-Schiphol",
+            "Athens-Eleftherios Venizelos",
+            "Belgrade-Nikola Tesla",
+            "Berlin-Brandenburg",
+            "Brussels-Zaventem",
+            "Bucharest-Henri Coandă",
+            "Budapest-Ferenc Liszt",
+            "Copenhagen-Kastrup",
+            "Dublin-Dublin Airport",
+            "Helsinki-Vantaa",
+            "Lisbon-Humberto Delgado",
+            "London-Heathrow",
+            "Madrid-Barajas",
+            "Oslo-Gardermoen",
+            "Paris-Charles de Gaulle",
+            "Prague-Václav Havel",
+            "Rome-Fiumicino",
+            "Stockholm-Arlanda",
+            "Vienna-Schwechat",
+            "Warsaw-Chopin"
+            };
         string arrivalDestination;
         while (true)
         {
             Console.WriteLine("Enter Arrival Destination: ");
             arrivalDestination = Console.ReadLine();
-            if (arrivalDestination is string)
+            if (europeanCapitalsAirports.Contains(arrivalDestination))
             {
                 break;
             }

@@ -25,31 +25,31 @@ public static class MenuPresentation
     public static void AuthenticateAccountMenu() // Begin menu wanneer het programma opstart.
     {
 
-        string message = "Welcome to BOSST Airlines";
-        string bigText = Figgle.FiggleFonts.Standard.Render(message);
-        Random rand = new Random();
+        // string message = "Welcome to BOSST Airlines";
+        // string bigText = Figgle.FiggleFonts.Standard.Render(message);
+        // Random rand = new Random();
 
-        foreach (char c in bigText)
-        {
-            Console.ForegroundColor = (ConsoleColor)rand.Next(1, 14);
-            Console.Write(c);
-            Thread.Sleep(2);
-        }
-        for (int i = 0; i < 7; i++)
-        {
-            Console.Clear();
-            foreach (char c in bigText)
-            {
-                Console.ForegroundColor = (ConsoleColor)rand.Next(1, 14);
-                Console.Write(c);
-            }
-            Thread.Sleep(300);
-            // Thread.Sleep(200);
-            // Console.ForegroundColor = (ConsoleColor)rand.Next(1, 14);
-            // Console.WriteLine(bigText);
-            // Thread.Sleep(200);
-        }
-        Console.ResetColor();
+        // foreach (char c in bigText)
+        // {
+        //     Console.ForegroundColor = (ConsoleColor)rand.Next(1, 14);
+        //     Console.Write(c);
+        //     Thread.Sleep(2);
+        // }
+        // for (int i = 0; i < 7; i++)
+        // {
+        //     Console.Clear();
+        //     foreach (char c in bigText)
+        //     {
+        //         Console.ForegroundColor = (ConsoleColor)rand.Next(1, 14);
+        //         Console.Write(c);
+        //     }
+        //     Thread.Sleep(300);
+        //     // Thread.Sleep(200);
+        //     // Console.ForegroundColor = (ConsoleColor)rand.Next(1, 14);
+        //     // Console.WriteLine(bigText);
+        //     // Thread.Sleep(200);
+        // }
+        // Console.ResetColor();
 
         Console.WriteLine("=== Main Menu ===");
         Console.WriteLine("1. Log in");
@@ -231,6 +231,7 @@ public static class MenuPresentation
         {
             for (int i = 0; i < searchResults.Count; i++)
             {
+                // search flight method hier moet je de flight time bij zetten
                 Console.WriteLine($"{i + 1}. {searchResults[i].Airline} - {searchResults[i].DepartureAirport} to {searchResults[i].ArrivalDestination} on {searchResults[i].DepartureDate} for €{searchResults[i].TicketPrice},-");
             }
         }

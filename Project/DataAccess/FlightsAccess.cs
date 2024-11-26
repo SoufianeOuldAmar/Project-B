@@ -124,5 +124,4 @@ namespace DataAccess
                 (flightTime == null || flight.FlightTime == flightTime)
             ).ToList();
         }
-    }
 }

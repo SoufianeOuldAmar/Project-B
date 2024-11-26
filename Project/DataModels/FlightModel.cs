@@ -35,6 +35,4 @@ namespace DataModels
             TotalPets= totalPets;
         }
     }
-
-    // Constructor sort of values terug geven
 }
