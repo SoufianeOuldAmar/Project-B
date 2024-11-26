@@ -61,6 +61,7 @@ static class AdminAccountPresentation
                 Console.WriteLine("What do you want to do?");
                 Console.WriteLine("Enter (a) to add new flight");
                 Console.WriteLine("Enter (c) to add change flights details");
+                Console.WriteLine("R. Reset all flights");
                 Console.WriteLine("Press 'Esc' to logout");
 
                 // string addflight = Console.ReadLine().ToLower();
@@ -68,7 +69,8 @@ static class AdminAccountPresentation
                 if (keyInfo.Key == ConsoleKey.Escape)
                 {
                     Console.WriteLine("You chose to exit.");
-                    MenuPresentation.AuthenticateAccountMenu();
+                    MenuLogic.PopMenu(); // Correctly navigate back by popping the current menu
+                    break; // Exit the current while loop
                 }
                 else if (keyInfo.KeyChar == 'a' || keyInfo.KeyChar == 'A')
                 {
@@ -85,6 +87,13 @@ static class AdminAccountPresentation
                     AdminFlightManagerPresentation.Exit();
                     break;
                 }
+
+                else if (keyInfo.KeyChar == 'r' || keyInfo.KeyChar == 'R')
+                {
+                    LayoutModel layout = LayoutModel.CreateBoeing737Layout();
+                    layout.ResetAllSeats();
+                }
+
                 else
                 {
                     Console.WriteLine("Invalid key. Press 'Esc' to exit or 'a' to add a new flight.");

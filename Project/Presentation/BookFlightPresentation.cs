@@ -225,11 +225,12 @@ public static class BookFlightPresentation
                                 totalFlightpoints += selectedFlight.FlightPoints;
                             }
 
-                            var bookedFlight = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, false);
+                            // var bookedFlight = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, false);1
+                            
                             List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
                         {
-                            new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, false)
-                            // baggageInfo, petInfo, false
+                            new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false)
+
                         };
                             FlightsAccess.WriteAll(allFlights);
                             BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, bookedFlightModel);
@@ -421,13 +422,12 @@ public static class BookFlightPresentation
                         flightModel.Layout.PrintLayout();
                     }
 
-                    var bookedFlight = new BookedFlightsModel(flightModel.Id, flightModel.Layout.BookedSeats, false);
+                    // var bookedFlight = new BookedFlightsModel(flightModel.Id, flightModel.Layout.BookedSeats, false);
                     // bookedFlight.FlightPoints += selecte
 
                     List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
                         {
-                            new BookedFlightsModel(flightModel.Id, flightModel.Layout.BookedSeats, false)
-                            // baggageInfo,petInfo, false
+                            new BookedFlightsModel(flightModel.Id, flightModel.Layout.BookedSeats, baggageInfo,petInfo, false)
                         };
 
                     var index = allFlights.FindIndex(f => f.Id == flightModel.Id);

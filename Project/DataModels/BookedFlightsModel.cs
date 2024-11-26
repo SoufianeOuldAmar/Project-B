@@ -11,14 +11,13 @@ public class BookedFlightsModel
     public List<BaggageLogic> BaggageInfo { get; set; }
     public bool IsCancelled { get; set; }
 
-    //  List<BaggageLogic> baggageInfo, List<PetLogic> pets, 
 
-    public BookedFlightsModel(int flightID, List<string> bookedSeats, bool isCancelled)
+    public BookedFlightsModel(int flightID, List<string> bookedSeats, List<BaggageLogic> baggageInfo, List<PetLogic> pets, bool isCancelled)
     {
 
         FlightID = flightID;
         BookedSeats = bookedSeats;
-        Pets= pets;
+        Pets = pets;
         BaggageInfo = baggageInfo;
         IsCancelled = isCancelled;
     }
