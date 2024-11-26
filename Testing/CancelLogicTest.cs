@@ -12,25 +12,13 @@ public class TestCancelLogic
 
         // cancel the flight 
         _cancel.CancelFlights(0);
-
+ 
         // empty 
         Assert.AreEqual(0, _cancel.Booked.Count);
-
-
-
- 
 
   
 
     }
-
-
-
-
-
-
-
-
 
 
 

@@ -193,6 +193,34 @@ public class AdminAddFlightsPresentation
             }
 
         }
+        int totalPets = 0;
+
+        while (true)
+        {
+            Console.WriteLine("Enter the current total number of pets on this flight (0-7): ");
+            string input = Console.ReadLine();
+
+            // Check if input is a valid number
+            if (int.TryParse(input, out totalPets))
+            {
+
+                if (totalPets >= 0 && totalPets <= 7)
+                {
+                    break; // Valid input exit
+                }
+                else
+                {
+                    Console.WriteLine("The number must be between 0 and 7."); 
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a number."); 
+            }
+        }
+
+
+
         int nextFlightId = BookFlightPresentation.allFlights.Count;
         FlightModel newFight = new FlightModel(
 
@@ -205,7 +233,8 @@ public class AdminAddFlightsPresentation
             IsCancelled,
             date,
             time,
-            0
+            0,
+            totalPets
         );
 
         nextFlightId++;
