@@ -18,8 +18,8 @@ public class BookedFlightsModel
 
         FlightID = flightID;
         BookedSeats = bookedSeats;
-        // Pets= pets;
-        // BaggageInfo = baggageInfo;
+        Pets= pets;
+        BaggageInfo = baggageInfo;
         IsCancelled = isCancelled;
     }
 
