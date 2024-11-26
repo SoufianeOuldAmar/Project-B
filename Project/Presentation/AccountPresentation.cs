@@ -138,7 +138,7 @@ public static class AccountPresentation
     public static void ViewFlightPoints()
     {
         Console.WriteLine("=== Flight Points ===\n");
-        Console.WriteLine($"Total flight points: {AccountsLogic.CurrentAccount.FlightPoints}");
+        // Console.WriteLine($"Total flight points: {AccountsLogic.CurrentAccount.FlightPoints}");
 
         while (true)
         {

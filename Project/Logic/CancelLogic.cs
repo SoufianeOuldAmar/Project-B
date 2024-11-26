@@ -43,6 +43,7 @@ public static class CancelLogic
             // find flight by ID in Allflights list of BookFlightPresentation
             var neededflight = BookFlightPresentation.allFlights.Find(x => x.Id == flight.FlightID);
 
+            string returnFlightAvailable = neededflight.ReturnFlight != null ? "Yes" : "No";
             double totalPetFee= 0;
             double totalBaggageFee= 0;
 
@@ -65,6 +66,7 @@ public static class CancelLogic
             // if flight not found by id 
             if (neededflight != null)
             {
+                FlightDetails += $"Flight ID: {neededflight.Id}, Airline: {neededflight.Airline}, Departure Airport: {BookFlightLogic.SearchFlightByID(neededflight.Id).DepartureAirport}, Arrival Destination: {BookFlightLogic.SearchFlightByID(neededflight.Id).ArrivalDestination}, Ticket Price: {neededflight.TicketPrice:C}, Return Flight: {returnFlightAvailable}, Cancelled: {flight.IsCancelled}\n"; // cancelled is directly accessed from model class
                 double totalTicketPrice = neededflight.TicketPrice + totalPetFee + totalBaggageFee;
 
                 FlightDetails += $"Flight ID: {neededflight.Id}, Airline: {neededflight.Airline}, Date: {neededflight.DepartureDate}, Departure Airport: {BookFlightLogic.SearchFlightByID(neededflight.Id).DepartureAirport}, Arrival Destination: {BookFlightLogic.SearchFlightByID(neededflight.Id).ArrivalDestination}, Ticket Price: {totalTicketPrice:C}, Cancelled: {flight.IsCancelled}\n"; // cancelled is directly accessed from model class
