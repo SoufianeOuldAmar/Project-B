@@ -97,10 +97,10 @@ public static class MenuPresentation
         BookFlightPresentation.BookFlightMenu();
     }
 
-    public static void ViewTicketHistoryMenu()
-    {
-        BookFlightPresentation.CancelBookedFlightMenu();
-    }
+    // public static void ViewTicketHistoryMenu()
+    // {
+    //     BookFlightPresentation.CancelBookedFlightMenu();
+    // }
 
     public static void CancelMain(string email)
     {

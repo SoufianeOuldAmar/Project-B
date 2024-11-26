@@ -348,7 +348,6 @@
         "27C",
         "27D",
         "27E",
-        "27F",
         "28A",
         "28B",
         "28C",
@@ -358,24 +357,29 @@
         "29A",
         "29B",
         "29C",
-        "29D",
         "29E",
         "29F",
         "30A",
         "30B",
-        "30C",
-        "30E",
-        "30F"
+        "30C"
       ],
       "bookedSeats": [
         "10A",
-        "30D"
+        "30D",
+        "27F",
+        "30E",
+        "30F",
+        "29D"
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "seatInitials": {
         "10A": "SO ",
-        "30D": "AA "
+        "30D": "AA ",
+        "27F": "FF ",
+        "30E": "MM ",
+        "30F": "BB ",
+        "29D": "LL "
       }
     },
     "ticketPrice": 150,
@@ -386,7 +390,8 @@
     "departureDate": "2024-11-22",
     "flightTime": "14:30",
     "availableSeats": 178,
-    "flightPoints": 15
+    "flightPoints": 15,
+    "totalPets": 0
   },
   {
     "id": 2,
@@ -754,14 +759,17 @@
         "30A",
         "30B",
         "30C",
-        "30D",
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "30D"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30D": "YE "
+      }
     },
     "ticketPrice": 200,
     "gate": "B4",
@@ -771,7 +779,8 @@
     "departureDate": "2024-11-23",
     "flightTime": "09:45",
     "availableSeats": 178,
-    "flightPoints": 20
+    "flightPoints": 20,
+    "totalPets": 1
   },
   {
     "id": 3,
@@ -1199,7 +1208,6 @@
         "30A",
         "30B",
         "30C",
-        "30D",
         "30E",
         "30F",
         "31A",
@@ -1263,10 +1271,14 @@
         "40E",
         "40F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "30D"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30D": "JK "
+      }
     },
     "ticketPrice": 180,
     "gate": "C7",
@@ -1276,7 +1288,8 @@
     "departureDate": "2024-11-24",
     "flightTime": "11:00",
     "availableSeats": 180,
-    "flightPoints": 18
+    "flightPoints": 18,
+    "totalPets": 5
   },
   {
     "id": 4,
@@ -2239,7 +2252,6 @@
         "49K",
         "50B",
         "50C",
-        "50D",
         "50E",
         "50F",
         "50G",
@@ -2247,13 +2259,15 @@
         "50J",
         "50K"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [
-        "50A"
+      "bookedSeats": [
+        "50A",
+        "50D"
       ],
+      "chosenSeats": [],
       "isAirbusA330": true,
       "seatInitials": {
-        "50A": "MT"
+        "50A": "MT",
+        "50D": "CC "
       }
     },
     "ticketPrice": 250,
@@ -2264,7 +2278,8 @@
     "departureDate": "2024-11-25",
     "flightTime": "13:20",
     "availableSeats": 173,
-    "flightPoints": 25
+    "flightPoints": 25,
+    "totalPets": 8
   },
   {
     "id": 5,
@@ -2632,14 +2647,18 @@
         "30A",
         "30B",
         "30C",
-        "30D",
-        "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "30D",
+        "30E"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30D": "YY ",
+        "30E": "NN "
+      }
     },
     "ticketPrice": 160,
     "gate": "E11",
@@ -2649,7 +2668,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "16:10",
     "availableSeats": 176,
-    "flightPoints": 16
+    "flightPoints": 16,
+    "totalPets": 8
   },
   {
     "id": 6,
@@ -3034,7 +3054,8 @@
     "departureDate": "2024-11-27",
     "flightTime": "18:25",
     "availableSeats": 180,
-    "flightPoints": 14
+    "flightPoints": 14,
+    "totalPets": 0
   },
   {
     "id": 7,
@@ -3402,14 +3423,17 @@
         "30A",
         "30B",
         "30C",
-        "30D",
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "30D"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30D": "AA "
+      }
     },
     "ticketPrice": 190,
     "gate": "G5",
@@ -3419,7 +3443,8 @@
     "departureDate": "2024-11-28",
     "flightTime": "21:15",
     "availableSeats": 179,
-    "flightPoints": 19
+    "flightPoints": 19,
+    "totalPets": 0
   },
   {
     "id": 8,
@@ -4404,7 +4429,8 @@
     "departureDate": "2024-11-29",
     "flightTime": "21:30",
     "availableSeats": 179,
-    "flightPoints": 23
+    "flightPoints": 23,
+    "totalPets": 0
   },
   {
     "id": 9,
@@ -4789,7 +4815,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "21:30",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0
   },
   {
     "id": 10,
@@ -5174,7 +5201,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "21:30",
     "availableSeats": 180,
-    "flightPoints": 31
+    "flightPoints": 31,
+    "totalPets": 0
   },
   {
     "id": 11,
@@ -5682,7 +5710,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "16:30",
     "availableSeats": 180,
-    "flightPoints": 31
+    "flightPoints": 31,
+    "totalPets": 0
   },
   {
     "id": 12,
@@ -6067,7 +6096,8 @@
     "departureDate": "2024-11-24",
     "flightTime": "15:30",
     "availableSeats": 180,
-    "flightPoints": 21
+    "flightPoints": 21,
+    "totalPets": 0
   },
   {
     "id": 13,
@@ -6434,18 +6464,19 @@
         "30A",
         "30B",
         "30C",
-        "30E",
         "30F"
       ],
       "bookedSeats": [
         "11A",
-        "30D"
+        "30D",
+        "30E"
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "seatInitials": {
         "11A": "SO ",
-        "30D": "LL "
+        "30D": "LL ",
+        "30E": "SS "
       }
     },
     "ticketPrice": 275,
@@ -6456,7 +6487,8 @@
     "departureDate": "2024-12-09",
     "flightTime": "12:45",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 7
   },
   {
     "id": 14,
@@ -6703,7 +6735,6 @@
         "09F",
         "10B",
         "10C",
-        "10D",
         "10E",
         "10F",
         "11A",
@@ -6828,12 +6859,14 @@
         "30F"
       ],
       "bookedSeats": [
-        "10A"
+        "10A",
+        "10D"
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "seatInitials": {
-        "10A": "SO"
+        "10A": "SO",
+        "10D": "VV "
       }
     },
     "ticketPrice": 275,
@@ -6844,7 +6877,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "14:15",
     "availableSeats": 179,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 7
   },
   {
     "id": 15,
@@ -7204,7 +7238,6 @@
         "29A",
         "29B",
         "29C",
-        "29D",
         "29E",
         "29F",
         "30A",
@@ -7216,13 +7249,15 @@
       ],
       "bookedSeats": [
         "10C",
-        "01E"
+        "01E",
+        "29D"
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "seatInitials": {
         "10C": "SO ",
-        "01E": "AA "
+        "01E": "AA ",
+        "29D": "JJ "
       }
     },
     "ticketPrice": 410,
@@ -7233,7 +7268,8 @@
     "departureDate": "2024-12-04",
     "flightTime": "14:30",
     "availableSeats": 180,
-    "flightPoints": 41
+    "flightPoints": 41,
+    "totalPets": 1
   },
   {
     "id": 16,
@@ -7618,7 +7654,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "09:50",
     "availableSeats": 180,
-    "flightPoints": 18
+    "flightPoints": 18,
+    "totalPets": 0
   },
   {
     "id": 17,
@@ -7986,14 +8023,17 @@
         "30A",
         "30B",
         "30C",
-        "30D",
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "30D"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30D": "FF "
+      }
     },
     "ticketPrice": 345.5,
     "gate": "C8",
@@ -8003,7 +8043,8 @@
     "departureDate": "2024-11-22",
     "flightTime": "07:30",
     "availableSeats": 180,
-    "flightPoints": 34
+    "flightPoints": 34,
+    "totalPets": 1
   },
   {
     "id": 18,
@@ -8372,13 +8413,16 @@
         "30B",
         "30C",
         "30D",
-        "30E",
+        "30E"
+      ],
+      "bookedSeats": [
         "30F"
       ],
-      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30F": "XX "
+      }
     },
     "ticketPrice": 285,
     "gate": "B4",
@@ -8388,7 +8432,8 @@
     "departureDate": "2024-11-30",
     "flightTime": "14:30",
     "availableSeats": 180,
-    "flightPoints": 28
+    "flightPoints": 28,
+    "totalPets": 1
   },
   {
     "id": 19,
@@ -8757,13 +8802,16 @@
         "30B",
         "30C",
         "30D",
-        "30E",
-        "30F"
+        "30E"
       ],
       "bookedSeats": [],
-      "chosenSeats": [],
+      "chosenSeats": [
+        "30F"
+      ],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30F": "OO "
+      }
     },
     "ticketPrice": 315,
     "gate": "C4",
@@ -8773,7 +8821,8 @@
     "departureDate": "2024-11-21",
     "flightTime": "15:30",
     "availableSeats": 179,
-    "flightPoints": 31
+    "flightPoints": 31,
+    "totalPets": 0
   },
   {
     "id": 20,
@@ -9142,13 +9191,16 @@
         "30B",
         "30C",
         "30D",
-        "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "30E"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30E": "II "
+      }
     },
     "ticketPrice": 300,
     "gate": "B2",
@@ -9158,7 +9210,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "13:30",
     "availableSeats": 180,
-    "flightPoints": 30
+    "flightPoints": 30,
+    "totalPets": 0
   },
   {
     "id": 21,
@@ -9546,7 +9599,8 @@
     "departureDate": "2025-12-01",
     "flightTime": "11:20",
     "availableSeats": 180,
-    "flightPoints": 21
+    "flightPoints": 21,
+    "totalPets": 0
   },
   {
     "id": 22,
@@ -9931,7 +9985,8 @@
     "departureDate": "2024-11-17",
     "flightTime": "10:10",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0
   },
   {
     "id": 23,
@@ -10502,7 +10557,6 @@
         "10G",
         "10J",
         "10K",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -10903,12 +10957,16 @@
         "50J",
         "50K"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "11A"
+      ],
       "chosenSeats": [],
       "isAirbusA330": true,
-      "seatInitials": {}
+      "seatInitials": {
+        "11A": "HH "
+      }
     },
-    "ticketPrice": 315,
+    "ticketPrice": 265,
     "gate": "G7",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Vienna, International Airport",
@@ -10916,7 +10974,8 @@
     "departureDate": "2024-12-06",
     "flightTime": "20:30",
     "availableSeats": 180,
-    "flightPoints": 31
+    "flightPoints": 31,
+    "totalPets": 0
   },
   {
     "id": 24,
@@ -11301,7 +11360,8 @@
     "departureDate": "2024-11-30",
     "flightTime": "14:45",
     "availableSeats": 179,
-    "flightPoints": 33
+    "flightPoints": 33,
+    "totalPets": 0
   },
   {
     "id": 25,
@@ -11691,7 +11751,8 @@
     "departureDate": "2024-11-30",
     "flightTime": "14:30",
     "availableSeats": 180,
-    "flightPoints": 28
+    "flightPoints": 28,
+    "totalPets": 0
   },
   {
     "id": 26,
@@ -12076,7 +12137,8 @@
     "departureDate": "2024-12-10",
     "flightTime": "10:45",
     "availableSeats": 179,
-    "flightPoints": 45
+    "flightPoints": 45,
+    "totalPets": 0
   },
   {
     "id": 27,
@@ -12428,7 +12490,6 @@
         "27C",
         "27D",
         "27E",
-        "27F",
         "28A",
         "28B",
         "28C",
@@ -12448,10 +12509,14 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "27F"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "27F": "FF "
+      }
     },
     "ticketPrice": 300.15,
     "gate": "B3",
@@ -12461,7 +12526,8 @@
     "departureDate": "2024-12-03",
     "flightTime": "11:50",
     "availableSeats": 180,
-    "flightPoints": 30
+    "flightPoints": 30,
+    "totalPets": 1
   },
   {
     "id": 28,
@@ -12829,14 +12895,17 @@
         "30A",
         "30B",
         "30C",
-        "30D",
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "30D"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30D": "UU "
+      }
     },
     "ticketPrice": 275,
     "gate": "E5",
@@ -12846,7 +12915,8 @@
     "departureDate": "2024-11-26",
     "flightTime": "21:30",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0
   },
   {
     "id": 29,
@@ -13040,7 +13110,6 @@
         "01A",
         "01B",
         "01C",
-        "01D",
         "01E",
         "01F",
         "02A",
@@ -13218,10 +13287,14 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "01D"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "01D": "BB "
+      }
     },
     "ticketPrice": 275,
     "gate": "E1",
@@ -13231,7 +13304,8 @@
     "departureDate": "2024-11-29",
     "flightTime": "19:45",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 2
   },
   {
     "id": 30,
@@ -13523,7 +13597,6 @@
         "17D",
         "17E",
         "17F",
-        "18A",
         "18B",
         "18C",
         "18D",
@@ -13603,12 +13676,14 @@
         "30F"
       ],
       "bookedSeats": [
-        "10A"
+        "10A",
+        "18A"
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "seatInitials": {
-        "10A": "AA "
+        "10A": "AA ",
+        "18A": "SO "
       }
     },
     "ticketPrice": 305.25,
@@ -13619,7 +13694,8 @@
     "departureDate": "2024-11-30",
     "flightTime": "15:00",
     "availableSeats": 180,
-    "flightPoints": 30
+    "flightPoints": 30,
+    "totalPets": 0
   },
   {
     "id": 31,
@@ -14587,14 +14663,17 @@
         "50E",
         "50F",
         "50G",
-        "50H",
         "50J",
         "50K"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "50H"
+      ],
       "chosenSeats": [],
       "isAirbusA330": true,
-      "seatInitials": {}
+      "seatInitials": {
+        "50H": "NN "
+      }
     },
     "ticketPrice": 415,
     "gate": "C8",
@@ -14604,7 +14683,8 @@
     "departureDate": "2024-12-14",
     "flightTime": "12:30",
     "availableSeats": 178,
-    "flightPoints": 41
+    "flightPoints": 41,
+    "totalPets": 0
   },
   {
     "id": 32,
@@ -14989,7 +15069,8 @@
     "departureDate": "2024-11-16",
     "flightTime": "14:15",
     "availableSeats": 180,
-    "flightPoints": 30
+    "flightPoints": 30,
+    "totalPets": 0
   },
   {
     "id": 33,
@@ -15316,7 +15397,6 @@
         "23B",
         "23C",
         "23D",
-        "23E",
         "23F",
         "24A",
         "24B",
@@ -15361,12 +15441,16 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "23E"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "23E": "GG "
+      }
     },
-    "ticketPrice": 205,
+    "ticketPrice": 230,
     "gate": "A6",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Brussels, Brussels Airport",
@@ -15374,7 +15458,8 @@
     "departureDate": "2024-11-25",
     "flightTime": "06:55",
     "availableSeats": 180,
-    "flightPoints": 20
+    "flightPoints": 20,
+    "totalPets": 0
   },
   {
     "id": 34,
@@ -15741,17 +15826,19 @@
         "30A",
         "30B",
         "30C",
-        "30D",
         "30E",
         "30F"
       ],
       "bookedSeats": [
         "09A"
       ],
-      "chosenSeats": [],
+      "chosenSeats": [
+        "30D"
+      ],
       "isAirbusA330": false,
       "seatInitials": {
-        "09A": "AA "
+        "09A": "AA ",
+        "30D": "HH "
       }
     },
     "ticketPrice": 215,
@@ -15762,7 +15849,8 @@
     "departureDate": "2025-01-01",
     "flightTime": "21:20",
     "availableSeats": 180,
-    "flightPoints": 21
+    "flightPoints": 21,
+    "totalPets": 7
   },
   {
     "id": 35,
@@ -16147,7 +16235,8 @@
     "departureDate": "2024-12-02",
     "flightTime": "21:30",
     "availableSeats": 180,
-    "flightPoints": 28
+    "flightPoints": 28,
+    "totalPets": 0
   },
   {
     "id": 36,
@@ -16536,54 +16625,7 @@
     "departureDate": "2024-12-09",
     "flightTime": "12:00",
     "availableSeats": 180,
-    "flightPoints": 27
-  },
-  {
-    "id": 37,
-    "airline": "BOSST Airlines",
-    "layout": {
-      "rows": 42,
-      "columns": 9,
-      "seatArrangement": ["01A","01C","01D","01G","01H","01K","02A","02C","02D","02G","02H","02K","03A","03C","03D","03G","03H","03K","04A","04C","04D","04G","04H","04K","05A","05C","05D","05G","05H","05K","06A","06C","06D","06G","06H","06K","07A","07B","07C","07D","07E","07F","07G","07H","07K","08A","08B","08C","08D","08E","08F","08G","08H","08K","09A","09B","09C","09D","09E","09F","09G","09H","09K","10A","10B","10C","10D","10E","10F","10G","10H","10K","11A","11B","11C","11D","11E","11F","11G","11H","11K","12A","12B","12C","12D","12E","12F","12G","12H","12K","13A","13B","13C","13D","13E","13F","13G","13H","13K","14A","14B","14C","14D","14E","14F","14G","14H","14K","16A","16B","16C","16D","16E","16F","16G","16H","16K","17A","17B","17C","17D","17E","17F","17G","17H","17K","18A","18B","18C","18D","18E","18F","18G","18H","18K","19A","19B","19C","19D","19E","19F","19G","19H","19K","20A","20B","20C","20D","20E","20F","20G","20H","20K","21A","21B","21C","21D","21E","21F","21G","21H","21K","22A","22B","22C","22D","22E","22F","22G","22H","22K","23A","23B","23C","23D","23E","23F","23G","23H","23K","24A","24B","24C","24D","24E","24F","24G","24H","24K","25A","25B","25C","25D","25E","25F","25G","25H","25K","26A","26B","26C","26D","26E","26F","26G","26H","26K","28A","28B","28C","28D","28E","28F","28G","28H","28K","29A","29B","29C","29D","29E","29F","29G","29H","29K","30A","30B","30C","30D","30E","30F","30G","30H","30K","31A","31B","31C","31D","31E","31F","31G","31H","31K","32A","32B","32C","32D","32E","32F","32G","32H","32K","33A","33B","33C","33D","33E","33F","33G","33H","33K","34A","34B","34C","34D","34E","34F","34G","34H","34K","35A","35B","35C","35D","35E","35F","35G","35H","35K","36A","36B","36C","36D","36E","36F","36G","36H","36K","37A","37B","37C","37D","37E","37F","37G","37H","37K","38A","38B","38C","38D","38E","38F","38G","38H","38K","39A","39B","39C","39D","39E","39F","39G","39H","39K","40A","40B","40C","40D","40E","40F","40G","40H","40K","41A","41B","41C","41D","41E","41F","41G","41H","41K","42A","42B","42C","42D","42E","42F","42G","42H","42K"],
-      "availableSeats": ["01A","01C","01D","01G","01H","01K","02A","02C","02D","02G","02H","02K","03A","03C","03D","03G","03H","03K","04A","04C","04D","04G","04H","04K","05A","05C","05D","05G","05H","05K","06A","06C","06D","06G","06H","06K","07A","07B","07C","07D","07E","07F","07G","07H","07K","08A","08B","08C","08D","08E","08F","08G","08H","08K","09A","09B","09C","09D","09E","09F","09G","09H","09K","10A","10B","10C","10D","10E","10F","10G","10H","10K","11A","11B","11C","11D","11E","11F","11G","11H","11K","12A","12B","12C","12D","12E","12F","12G","12H","12K","13A","13B","13C","13D","13E","13F","13G","13H","13K","14A","14B","14C","14D","14E","14F","14G","14H","14K","16A","16B","16C","16D","16E","16F","16G","16H","16K","17A","17B","17C","17D","17E","17F","17G","17H","17K","18A","18B","18C","18D","18E","18F","18G","18H","18K","19A","19B","19C","19D","19E","19F","19G","19H","19K","20A","20B","20C","20D","20E","20F","20G","20H","20K","21A","21B","21C","21D","21E","21F","21G","21H","21K","22A","22B","22C","22D","22E","22F","22G","22H","22K","23A","23B","23C","23D","23E","23F","23G","23H","23K","24A","24B","24C","24D","24E","24F","24G","24H","24K","25A","25B","25C","25D","25E","25F","25G","25H","25K","26A","26B","26C","26D","26E","26F","26G","26H","26K","28A","28B","28C","28D","28E","28F","28G","28H","28K","29A","29B","29C","29D","29E","29F","29G","29H","29K","30A","30B","30C","30D","30E","30F","30G","30H","30K","31A","31B","31C","31D","31E","31F","31G","31H","31K","32A","32B","32C","32D","32E","32F","32G","32H","32K","33A","33B","33C","33D","33E","33F","33G","33H","33K","34A","34B","34C","34D","34E","34F","34G","34H","34K","35A","35B","35C","35D","35E","35F","35G","35H","35K","36A","36B","36C","36D","36E","36F","36G","36H","36K","37A","37B","37C","37D","37E","37F","37G","37H","37K","38A","38B","38C","38D","38E","38F","38G","38H","38K","39A","39B","39C","39D","39E","39F","39G","39H","39K","40A","40B","40C","40D","40E","40F","40G","40H","40K","41A","41B","41C","41D","41E","41F","41G","41H","41K","42A","42B","42C","42D","42E","42F","42G","42H","42K"],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": true,
-      "seatInitials": {}
-    },
-    "ticketPrice": 350,
-    "gate": "A12",
-    "departureAirport": "Rotterdam, The Hague Airport",
-    "arrivalDestination": "Paris, Charles de Gaulle Airport",
-    "isCancelled": false,
-    "departureDate": "2024-11-22",
-    "flightTime": "14:30",
-    "availableSeats": 315,
-    "flightPoints": 35
-  },
-  {
-    "id": 38,
-    "airline": "BOSST Airlines",
-    "layout": {
-      "rows": 42,
-      "columns": 9,
-      "seatArrangement": ["01A","01C","01D","01G","01H","01K","02A","02C","02D","02G","02H","02K","03A","03C","03D","03G","03H","03K","04A","04C","04D","04G","04H","04K","05A","05C","05D","05G","05H","05K","06A","06C","06D","06G","06H","06K","07A","07B","07C","07D","07E","07F","07G","07H","07K","08A","08B","08C","08D","08E","08F","08G","08H","08K","09A","09B","09C","09D","09E","09F","09G","09H","09K","10A","10B","10C","10D","10E","10F","10G","10H","10K","11A","11B","11C","11D","11E","11F","11G","11H","11K","12A","12B","12C","12D","12E","12F","12G","12H","12K","13A","13B","13C","13D","13E","13F","13G","13H","13K","14A","14B","14C","14D","14E","14F","14G","14H","14K","16A","16B","16C","16D","16E","16F","16G","16H","16K","17A","17B","17C","17D","17E","17F","17G","17H","17K","18A","18B","18C","18D","18E","18F","18G","18H","18K","19A","19B","19C","19D","19E","19F","19G","19H","19K","20A","20B","20C","20D","20E","20F","20G","20H","20K","21A","21B","21C","21D","21E","21F","21G","21H","21K","22A","22B","22C","22D","22E","22F","22G","22H","22K","23A","23B","23C","23D","23E","23F","23G","23H","23K","24A","24B","24C","24D","24E","24F","24G","24H","24K","25A","25B","25C","25D","25E","25F","25G","25H","25K","26A","26B","26C","26D","26E","26F","26G","26H","26K","28A","28B","28C","28D","28E","28F","28G","28H","28K","29A","29B","29C","29D","29E","29F","29G","29H","29K","30A","30B","30C","30D","30E","30F","30G","30H","30K","31A","31B","31C","31D","31E","31F","31G","31H","31K","32A","32B","32C","32D","32E","32F","32G","32H","32K","33A","33B","33C","33D","33E","33F","33G","33H","33K","34A","34B","34C","34D","34E","34F","34G","34H","34K","35A","35B","35C","35D","35E","35F","35G","35H","35K","36A","36B","36C","36D","36E","36F","36G","36H","36K","37A","37B","37C","37D","37E","37F","37G","37H","37K","38A","38B","38C","38D","38E","38F","38G","38H","38K","39A","39B","39C","39D","39E","39F","39G","39H","39K","40A","40B","40C","40D","40E","40F","40G","40H","40K","41A","41B","41C","41D","41E","41F","41G","41H","41K","42A","42B","42C","42D","42E","42F","42G","42H","42K"],
-      "availableSeats": ["01A","01C","01D","01G","01H","01K","02A","02C","02D","02G","02H","02K","03A","03C","03D","03G","03H","03K","04A","04C","04D","04G","04H","04K","05A","05C","05D","05G","05H","05K","06A","06C","06D","06G","06H","06K","07A","07B","07C","07D","07E","07F","07G","07H","07K","08A","08B","08C","08D","08E","08F","08G","08H","08K","09A","09B","09C","09D","09E","09F","09G","09H","09K","10A","10B","10C","10D","10E","10F","10G","10H","10K","11A","11B","11C","11D","11E","11F","11G","11H","11K","12A","12B","12C","12D","12E","12F","12G","12H","12K","13A","13B","13C","13D","13E","13F","13G","13H","13K","14A","14B","14C","14D","14E","14F","14G","14H","14K","16A","16B","16C","16D","16E","16F","16G","16H","16K","17A","17B","17C","17D","17E","17F","17G","17H","17K","18A","18B","18C","18D","18E","18F","18G","18H","18K","19A","19B","19C","19D","19E","19F","19G","19H","19K","20A","20B","20C","20D","20E","20F","20G","20H","20K","21A","21B","21C","21D","21E","21F","21G","21H","21K","22A","22B","22C","22D","22E","22F","22G","22H","22K","23A","23B","23C","23D","23E","23F","23G","23H","23K","24A","24B","24C","24D","24E","24F","24G","24H","24K","25A","25B","25C","25D","25E","25F","25G","25H","25K","26A","26B","26C","26D","26E","26F","26G","26H","26K","28A","28B","28C","28D","28E","28F","28G","28H","28K","29A","29B","29C","29D","29E","29F","29G","29H","29K","30A","30B","30C","30D","30E","30F","30G","30H","30K","31A","31B","31C","31D","31E","31F","31G","31H","31K","32A","32B","32C","32D","32E","32F","32G","32H","32K","33A","33B","33C","33D","33E","33F","33G","33H","33K","34A","34B","34C","34D","34E","34F","34G","34H","34K","35A","35B","35C","35D","35E","35F","35G","35H","35K","36A","36B","36C","36D","36E","36F","36G","36H","36K","37A","37B","37C","37D","37E","37F","37G","37H","37K","38A","38B","38C","38D","38E","38F","38G","38H","38K","39A","39B","39C","39D","39E","39F","39G","39H","39K","40A","40B","40C","40D","40E","40F","40G","40H","40K","41A","41B","41C","41D","41E","41F","41G","41H","41K","42A","42B","42C","42D","42E","42F","42G","42H","42K"],	
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": true,
-      "seatInitials": {}
-    },
-    "ticketPrice": 350,
-    "gate": "A12",
-    "departureAirport": "Rotterdam, The Hague Airport",
-    "arrivalDestination": "Milan, Malpensa Airport",
-    "isCancelled": false,
-    "departureDate": "2024-11-24",
-    "flightTime": "15:45",
-    "availableSeats": 315,
-    "flightPoints": 43
-   }
+    "flightPoints": 27,
+    "totalPets": 0
+  }
 ]
