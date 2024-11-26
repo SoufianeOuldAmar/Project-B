@@ -57,7 +57,10 @@ public static class BookFlightPresentation
                     var selectedFlight = BookFlightLogic.SearchFlightByID(selectedId);
                     if (selectedFlight != null)
                     {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine($"\nYou have selected the following flight:\n");
+                        Console.ResetColor();
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("{0,-20} {1,-35}", "Airline:", selectedFlight.Airline);
                         Console.WriteLine("{0,-20} {1,-35}", "Departure Airport:", selectedFlight.DepartureAirport);
                         Console.WriteLine("{0,-20} {1,-35}", "Arrival Destination:", selectedFlight.ArrivalDestination);
@@ -66,9 +69,11 @@ public static class BookFlightPresentation
                         Console.WriteLine("{0,-20} {1,-35}", "Ticket Price:", selectedFlight.TicketPrice);
                         Console.WriteLine("{0,-20} {1,-35}", "Available Seats:", selectedFlight.AvailableSeats);
                         Console.WriteLine("{0,-20} {1,-35}", "Is Cancelled:", (selectedFlight.IsCancelled ? "Yes" : "No"));
+                        Console.ResetColor();
 
                         Console.Write("\nAre you sure you want to book this flight? (yes/no) ");
                         string confirmation = Console.ReadLine();
+                        Console.Clear();
 
                         if (confirmation.ToLower() == "yes")
                         {
