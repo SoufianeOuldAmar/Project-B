@@ -8,17 +8,18 @@ public class BookedFlightsModel
     public int FlightID { get; set; }
     public List<string> BookedSeats { get; set; }
     public List<PetLogic> Pets { get; set; }
-    public List<BaggageLogic> BaggageInfo{ get; set; } 
+    public List<BaggageLogic> BaggageInfo { get; set; }
     public bool IsCancelled { get; set; }
 
+    //  List<BaggageLogic> baggageInfo, List<PetLogic> pets, 
 
-    public BookedFlightsModel(int flightID, List<string> bookedSeats, List<BaggageLogic> baggageInfo, List<PetLogic> pets,bool isCancelled)
+    public BookedFlightsModel(int flightID, List<string> bookedSeats, bool isCancelled)
     {
 
         FlightID = flightID;
         BookedSeats = bookedSeats;
-        Pets= pets;
-        BaggageInfo = baggageInfo;
+        // Pets= pets;
+        // BaggageInfo = baggageInfo;
         IsCancelled = isCancelled;
     }
 
@@ -26,7 +27,7 @@ public class BookedFlightsModel
     // Total fee 
     public double FeeTotal()
     {
-        double fee= 0;
+        double fee = 0;
         foreach (var bag in BaggageInfo)
         {
             fee += bag.CalcFee();
