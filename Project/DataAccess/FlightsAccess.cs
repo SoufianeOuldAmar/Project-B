@@ -124,13 +124,4 @@ namespace DataAccess
                 (flightTime == null || flight.FlightTime == flightTime)
             ).ToList();
         }
-
-        // public static void AdminManageFlight()
-        // {
-
-
-
-        // }
-
-    }
 }
