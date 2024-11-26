@@ -105,5 +105,23 @@ namespace DataAccess
 
             WriteAll(flights);
         }
-    }
+
+        // Search flight method
+        public static List<FlightModel> SearchFlights(
+            string departureAirport = null,
+            string arrivalDestination = null,
+            DateTime? departureDate = null,
+            string flightTime = null)
+        {
+            var flights = ReadAll();
+
+            return flights.Where(flight =>
+                (departureAirport == null || flight.DepartureAirport == departureAirport) &&
+                (arrivalDestination == null || flight.ArrivalDestination == arrivalDestination) &&
+                (!departureDate.HasValue ||
+                    (DateTime.TryParse(flight.DepartureDate, out DateTime flightDepartureDate) &&
+                     flightDepartureDate.Date == departureDate.Value.Date)) &&
+                (flightTime == null || flight.FlightTime == flightTime)
+            ).ToList();
+        }
 }
