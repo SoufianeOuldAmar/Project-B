@@ -233,7 +233,7 @@ public class AdminAddFlightsPresentation
             gateStr,
             departureAirport,
             arrivalDestination,
-            IsCancelled,
+            false,
             date,
             time,
             0

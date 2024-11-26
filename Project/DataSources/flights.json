@@ -373,6 +373,7 @@
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {
         "10A": "SO ",
         "30D": "AA "
@@ -387,7 +388,9 @@
     "departureDate": "2024-11-22",
     "flightTime": "14:30",
     "availableSeats": 178,
-    "flightPoints": 15
+    "flightPoints": 15,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 2,
@@ -762,6 +765,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 200,
@@ -773,7 +777,9 @@
     "departureDate": "2024-11-23",
     "flightTime": "09:45",
     "availableSeats": 178,
-    "flightPoints": 20
+    "flightPoints": 20,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 3,
@@ -1268,6 +1274,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 180,
@@ -1279,7 +1286,9 @@
     "departureDate": "2024-11-24",
     "flightTime": "11:00",
     "availableSeats": 180,
-    "flightPoints": 18
+    "flightPoints": 18,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 4,
@@ -2255,6 +2264,7 @@
         "50A"
       ],
       "isAirbusA330": true,
+      "isBoeing787": false,
       "seatInitials": {
         "50A": "MT"
       }
@@ -2268,7 +2278,9 @@
     "departureDate": "2024-11-25",
     "flightTime": "13:20",
     "availableSeats": 173,
-    "flightPoints": 25
+    "flightPoints": 25,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 5,
@@ -2643,6 +2655,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 160,
@@ -2654,7 +2667,9 @@
     "departureDate": "2024-11-26",
     "flightTime": "16:10",
     "availableSeats": 176,
-    "flightPoints": 16
+    "flightPoints": 16,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 6,
@@ -3029,6 +3044,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 140,
@@ -3040,7 +3056,9 @@
     "departureDate": "2024-11-27",
     "flightTime": "18:25",
     "availableSeats": 180,
-    "flightPoints": 14
+    "flightPoints": 14,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 7,
@@ -3415,6 +3433,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 190,
@@ -3426,7 +3445,9 @@
     "departureDate": "2024-11-28",
     "flightTime": "21:15",
     "availableSeats": 179,
-    "flightPoints": 19
+    "flightPoints": 19,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 8,
@@ -4401,6 +4422,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": true,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 230,
@@ -4412,7 +4434,9 @@
     "departureDate": "2024-11-29",
     "flightTime": "21:30",
     "availableSeats": 179,
-    "flightPoints": 23
+    "flightPoints": 23,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 9,
@@ -4787,6 +4811,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 275,
@@ -4798,7 +4823,9 @@
     "departureDate": "2024-11-26",
     "flightTime": "21:30",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 10,
@@ -5043,7 +5070,6 @@
         "09D",
         "09E",
         "09F",
-        "10A",
         "10B",
         "10C",
         "10D",
@@ -5170,10 +5196,15 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "10A"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {}
+      "isBoeing787": false,
+      "seatInitials": {
+        "10A": "SO "
+      }
     },
     "ticketPrice": 310,
     "gate": "F4",
@@ -5184,7 +5215,9 @@
     "departureDate": "2024-11-26",
     "flightTime": "21:30",
     "availableSeats": 180,
-    "flightPoints": 31
+    "flightPoints": 31,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 11,
@@ -5680,6 +5713,7 @@
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {
         "10B": "AA "
       }
@@ -5693,7 +5727,9 @@
     "departureDate": "2024-11-26",
     "flightTime": "16:30",
     "availableSeats": 180,
-    "flightPoints": 31
+    "flightPoints": 31,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 12,
@@ -6068,6 +6104,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 215,
@@ -6079,7 +6116,9 @@
     "departureDate": "2024-11-24",
     "flightTime": "15:30",
     "availableSeats": 180,
-    "flightPoints": 21
+    "flightPoints": 21,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 13,
@@ -6455,6 +6494,7 @@
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {
         "11A": "SO ",
         "30D": "LL "
@@ -6469,7 +6509,9 @@
     "departureDate": "2024-12-09",
     "flightTime": "12:45",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 14,
@@ -6845,6 +6887,7 @@
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {
         "10A": "SO"
       }
@@ -6858,7 +6901,9 @@
     "departureDate": "2024-11-26",
     "flightTime": "14:15",
     "availableSeats": 179,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 15,
@@ -7234,6 +7279,7 @@
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {
         "10C": "SO ",
         "01E": "AA "
@@ -7248,7 +7294,9 @@
     "departureDate": "2024-12-04",
     "flightTime": "14:30",
     "availableSeats": 180,
-    "flightPoints": 41
+    "flightPoints": 41,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 16,
@@ -7623,6 +7671,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 185,
@@ -7634,7 +7683,9 @@
     "departureDate": "2024-11-26",
     "flightTime": "09:50",
     "availableSeats": 180,
-    "flightPoints": 18
+    "flightPoints": 18,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 17,
@@ -8009,6 +8060,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 345.5,
@@ -8020,7 +8072,9 @@
     "departureDate": "2024-11-22",
     "flightTime": "07:30",
     "availableSeats": 180,
-    "flightPoints": 34
+    "flightPoints": 34,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 18,
@@ -8395,6 +8449,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 285,
@@ -8406,7 +8461,9 @@
     "departureDate": "2024-11-30",
     "flightTime": "14:30",
     "availableSeats": 180,
-    "flightPoints": 28
+    "flightPoints": 28,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 19,
@@ -8781,6 +8838,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 315,
@@ -8792,7 +8850,9 @@
     "departureDate": "2024-11-21",
     "flightTime": "15:30",
     "availableSeats": 179,
-    "flightPoints": 31
+    "flightPoints": 31,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 20,
@@ -9168,6 +9228,7 @@
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {
         "22B": "OA "
       }
@@ -9181,7 +9242,9 @@
     "departureDate": "2024-11-26",
     "flightTime": "13:30",
     "availableSeats": 180,
-    "flightPoints": 30
+    "flightPoints": 30,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 21,
@@ -9557,6 +9620,7 @@
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {
         "09A": "AA "
       }
@@ -9570,7 +9634,9 @@
     "departureDate": "2025-12-01",
     "flightTime": "11:20",
     "availableSeats": 180,
-    "flightPoints": 21
+    "flightPoints": 21,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 22,
@@ -9945,6 +10011,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 275,
@@ -9956,7 +10023,9 @@
     "departureDate": "2024-11-17",
     "flightTime": "10:10",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 23,
@@ -10931,6 +11000,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": true,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 315,
@@ -10942,7 +11012,9 @@
     "departureDate": "2024-12-06",
     "flightTime": "20:30",
     "availableSeats": 180,
-    "flightPoints": 31
+    "flightPoints": 31,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 24,
@@ -11317,6 +11389,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 335.25,
@@ -11328,7 +11401,9 @@
     "departureDate": "2024-11-30",
     "flightTime": "14:45",
     "availableSeats": 179,
-    "flightPoints": 33
+    "flightPoints": 33,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 25,
@@ -11705,6 +11780,7 @@
         "30E"
       ],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {
         "30F": "AA ",
         "30E": "BB "
@@ -11719,7 +11795,9 @@
     "departureDate": "2024-11-30",
     "flightTime": "14:30",
     "availableSeats": 180,
-    "flightPoints": 28
+    "flightPoints": 28,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 26,
@@ -12094,6 +12172,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 450,
@@ -12105,7 +12184,9 @@
     "departureDate": "2024-12-10",
     "flightTime": "10:45",
     "availableSeats": 179,
-    "flightPoints": 45
+    "flightPoints": 45,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 27,
@@ -12480,6 +12561,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 300.15,
@@ -12491,7 +12573,9 @@
     "departureDate": "2024-12-03",
     "flightTime": "11:50",
     "availableSeats": 180,
-    "flightPoints": 30
+    "flightPoints": 30,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 28,
@@ -12866,6 +12950,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 275,
@@ -12877,7 +12962,9 @@
     "departureDate": "2024-11-26",
     "flightTime": "21:30",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 29,
@@ -13252,6 +13339,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 275,
@@ -13263,7 +13351,9 @@
     "departureDate": "2024-11-29",
     "flightTime": "19:45",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 30,
@@ -13639,6 +13729,7 @@
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {
         "10A": "AA "
       }
@@ -13652,7 +13743,9 @@
     "departureDate": "2024-11-30",
     "flightTime": "15:00",
     "availableSeats": 180,
-    "flightPoints": 30
+    "flightPoints": 30,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 31,
@@ -14627,6 +14720,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": true,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 415,
@@ -14638,7 +14732,9 @@
     "departureDate": "2024-12-14",
     "flightTime": "12:30",
     "availableSeats": 178,
-    "flightPoints": 41
+    "flightPoints": 41,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 32,
@@ -15013,6 +15109,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 305,
@@ -15024,7 +15121,9 @@
     "departureDate": "2024-11-16",
     "flightTime": "14:15",
     "availableSeats": 180,
-    "flightPoints": 30
+    "flightPoints": 30,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 33,
@@ -15399,6 +15498,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 205,
@@ -15410,7 +15510,9 @@
     "departureDate": "2024-11-25",
     "flightTime": "06:55",
     "availableSeats": 180,
-    "flightPoints": 20
+    "flightPoints": 20,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 34,
@@ -15786,6 +15888,7 @@
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {
         "09A": "AA "
       }
@@ -15799,7 +15902,9 @@
     "departureDate": "2025-01-01",
     "flightTime": "21:20",
     "availableSeats": 180,
-    "flightPoints": 21
+    "flightPoints": 21,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 35,
@@ -16174,6 +16279,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 285,
@@ -16185,7 +16291,9 @@
     "departureDate": "2024-12-02",
     "flightTime": "21:30",
     "availableSeats": 180,
-    "flightPoints": 28
+    "flightPoints": 28,
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 36,
@@ -16561,6 +16669,7 @@
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {
         "11A": "SO ",
         "30D": "LL "
@@ -16575,6 +16684,8 @@
     "departureDate": "2024-12-09",
     "flightTime": "12:00",
     "availableSeats": 180,
-    "flightPoints": 27
+    "flightPoints": 27,
+    "totalPets": 0,
+    "returnFlight": null
   }
 ]
