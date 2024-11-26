@@ -1,0 +1,13 @@
+{
+  "n@b.c": [
+    {
+      "FlightID": 10,
+      "BookedSeats": [
+        "10A"
+      ],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false
+    }
+  ]
+}
