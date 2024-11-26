@@ -77,12 +77,35 @@ public class AdminAddFlightsPresentation
                 Console.WriteLine("Invalid input. Please enter letters only.");
             }
         }
+        var europeanCapitalsAirports = new List<string>
+            {
+            "Amsterdam-Schiphol",
+            "Athens-Eleftherios Venizelos",
+            "Belgrade-Nikola Tesla",
+            "Berlin-Brandenburg",
+            "Brussels-Zaventem",
+            "Bucharest-Henri Coandă",
+            "Budapest-Ferenc Liszt",
+            "Copenhagen-Kastrup",
+            "Dublin-Dublin Airport",
+            "Helsinki-Vantaa",
+            "Lisbon-Humberto Delgado",
+            "London-Heathrow",
+            "Madrid-Barajas",
+            "Oslo-Gardermoen",
+            "Paris-Charles de Gaulle",
+            "Prague-Václav Havel",
+            "Rome-Fiumicino",
+            "Stockholm-Arlanda",
+            "Vienna-Schwechat",
+            "Warsaw-Chopin"
+            };
         string arrivalDestination;
         while (true)
         {
             Console.WriteLine("Enter Arrival Destination: ");
             arrivalDestination = Console.ReadLine();
-            if (arrivalDestination is string)
+            if (europeanCapitalsAirports.Contains(arrivalDestination))
             {
                 break;
             }
@@ -173,6 +196,33 @@ public class AdminAddFlightsPresentation
             }
 
         }
+        int totalPets = 0;
+
+        while (true)
+        {
+            Console.WriteLine("Enter the current total number of pets on this flight (0-7): ");
+            string input = Console.ReadLine();
+
+            // Check if input is a valid number
+            if (int.TryParse(input, out totalPets))
+            {
+
+                if (totalPets >= 0 && totalPets <= 7)
+                {
+                    break; // Valid input exit
+                }
+                else
+                {
+                    Console.WriteLine("The number must be between 0 and 7."); 
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a number."); 
+            }
+        }
+
+
 
         int nextFlightId = BookFlightPresentation.allFlights.Count;
         FlightModel newFlight = new FlightModel(
@@ -186,7 +236,8 @@ public class AdminAddFlightsPresentation
             IsCancelled,
             date,
             time,
-            0
+            0,
+            totalPets
         );
 
         nextFlightId++;

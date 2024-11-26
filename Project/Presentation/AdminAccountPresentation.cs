@@ -16,7 +16,42 @@ static class AdminAccountPresentation
             string username = Console.ReadLine();
 
             Console.WriteLine("Enter Your password: ");
-            string password = Console.ReadLine();
+            // string password = Console.ReadLine();
+            string password = "";
+            bool passwordVisible = false;
+
+            while (true)
+            {
+                var key = Console.ReadKey(intercept: true);
+
+                if (key.Key == ConsoleKey.Enter)
+                    break;
+                if (key.Key == ConsoleKey.Tab)
+                {
+                    passwordVisible = !passwordVisible;
+                }
+                else if (key.Key == ConsoleKey.Backspace)
+                {
+                    if (password.Length > 0)
+                    {
+                        password = password.Remove(password.Length - 1);
+                        Console.Write("\b \b");
+                    }
+                }
+                else
+                {
+                    password += key.KeyChar;
+                    if (passwordVisible)
+                    {
+                        Console.Write(key.KeyChar);
+                    }
+                    else
+                    {
+                        Console.Write("*");
+                    }
+                }
+            }
+            Console.WriteLine();
 
             bool isValid = logic.ValidateLogin(username, password);
 
@@ -25,7 +60,7 @@ static class AdminAccountPresentation
                 Console.WriteLine("Login as Admin successful. Welcome!");
                 Console.WriteLine("What do you want to do?");
                 Console.WriteLine("Enter (a) to add new flight");
-                Console.WriteLine("R. Reset all flights");
+                Console.WriteLine("Enter (c) to add change flights details");
                 Console.WriteLine("Press 'Esc' to logout");
 
                 // string addflight = Console.ReadLine().ToLower();
@@ -33,7 +68,6 @@ static class AdminAccountPresentation
                 if (keyInfo.Key == ConsoleKey.Escape)
                 {
                     Console.WriteLine("You chose to exit.");
-                    Console.Clear();
                     MenuPresentation.AuthenticateAccountMenu();
                 }
                 else if (keyInfo.KeyChar == 'a' || keyInfo.KeyChar == 'A')
@@ -44,15 +78,13 @@ static class AdminAccountPresentation
                     adminAddflight.Exit();
                     break;
                 }
-
-                else if (keyInfo.KeyChar == 'r' || keyInfo.KeyChar == 'R')
+                else if (keyInfo.KeyChar == 'c' || keyInfo.KeyChar == 'C')
                 {
-
-                    LayoutModel layout = LayoutModel.CreateBoeing737Layout();
-                    layout.ResetAllSeats();
+                    AdminFlightManagerPresentation.LaodFlightPresentaion();
+                    AdminFlightManagerPresentation.UpdateDetailsPresentation();
+                    AdminFlightManagerPresentation.Exit();
+                    break;
                 }
-
-
                 else
                 {
                     Console.WriteLine("Invalid key. Press 'Esc' to exit or 'a' to add a new flight.");

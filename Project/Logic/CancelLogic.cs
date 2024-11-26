@@ -10,6 +10,7 @@ public static class CancelLogic
         File.WriteAllText(fileName, json);
     }
 
+
     public static List<FlightModel> LoadFlights(string fileName)
     {
         if (File.Exists(fileName))
@@ -32,6 +33,10 @@ public static class CancelLogic
             return $"You have no flights booked";
         }
 
+        Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
+
+        BookFlightPresentation.allBookedFlights = allBookedFlights;
+
         string FlightDetails = "";
         foreach (var flight in BookFlightPresentation.allBookedFlights[email])
         {
@@ -39,11 +44,76 @@ public static class CancelLogic
             var neededflight = BookFlightPresentation.allFlights.Find(x => x.Id == flight.FlightID);
 
             string returnFlightAvailable = neededflight.ReturnFlight != null ? "Yes" : "No";
+            double totalPetFee= 0;
+            double totalBaggageFee= 0;
+
+            // calculate total pet fee
+            if (flight.Pets != null && flight.Pets.Count > 0)
+            {
+                foreach (var pet in flight.Pets)
+                {
+                    totalPetFee += pet.Fee;
+                }
+            }
+            if (flight.BaggageInfo != null && flight.BaggageInfo.Count > 0)
+            {
+                foreach (var baggage in flight.BaggageInfo)
+                {
+                    totalBaggageFee += baggage.Fee;
+                }
+            }
 
             // if flight not found by id 
             if (neededflight != null)
             {
                 FlightDetails += $"Flight ID: {neededflight.Id}, Airline: {neededflight.Airline}, Departure Airport: {BookFlightLogic.SearchFlightByID(neededflight.Id).DepartureAirport}, Arrival Destination: {BookFlightLogic.SearchFlightByID(neededflight.Id).ArrivalDestination}, Ticket Price: {neededflight.TicketPrice:C}, Return Flight: {returnFlightAvailable}, Cancelled: {flight.IsCancelled}\n"; // cancelled is directly accessed from model class
+                double totalTicketPrice = neededflight.TicketPrice + totalPetFee + totalBaggageFee;
+
+                FlightDetails += $"Flight ID: {neededflight.Id}, Airline: {neededflight.Airline}, Date: {neededflight.DepartureDate}, Departure Airport: {BookFlightLogic.SearchFlightByID(neededflight.Id).DepartureAirport}, Arrival Destination: {BookFlightLogic.SearchFlightByID(neededflight.Id).ArrivalDestination}, Ticket Price: {totalTicketPrice:C}, Cancelled: {flight.IsCancelled}\n"; // cancelled is directly accessed from model class
+            }
+            // pets 
+            if (flight.Pets != null && flight.Pets.Count > 0)
+            {
+                FlightDetails += $"  Pets on this flight:\n";
+                foreach (var pet in flight.Pets)
+                {
+                    FlightDetails += $" Animal: {pet.AnimalType}, Fee: {pet.Fee:C}\n";
+                }
+            }
+            else
+            {
+                FlightDetails += $"  No pets booked for this flight.\n";
+            }
+            // baggage 
+            if (flight.BaggageInfo != null && flight.BaggageInfo.Count > 0)
+            {
+                FlightDetails += $"  Baggage Details:\n";
+                foreach (var baggage in flight.BaggageInfo)
+                {
+                    string baggageTypeToPrint;
+                    if (baggage.BaggageType == "1")
+                    {
+                        baggageTypeToPrint = "Carry On";
+                    }
+                    else if (baggage.BaggageType == "2")
+                    {
+                        baggageTypeToPrint = "Checked";
+                    }
+                    else if (baggage.BaggageType == "3")
+                    {
+                        baggageTypeToPrint = "Both Carry On and Checked";
+                        baggage.BaggageWeight += 10;
+                    }
+                    else
+                    {
+                        baggageTypeToPrint = "Unknown Baggage Type";
+                    }
+                    FlightDetails += $" Baggage : {baggageTypeToPrint}, " + $"Weight: {baggage.BaggageWeight}kg, " + $"Fee: {baggage.Fee:C}\n";
+                }
+            }
+            else
+            {
+                FlightDetails += $"  No baggage added for this flight.\n";
             }
 
         }

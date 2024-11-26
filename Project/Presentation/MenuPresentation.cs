@@ -97,10 +97,10 @@ public static class MenuPresentation
         BookFlightPresentation.BookFlightMenu();
     }
 
-    public static void ViewTicketHistoryMenu()
-    {
-        BookFlightPresentation.CancelBookedFlightMenu();
-    }
+    // public static void ViewTicketHistoryMenu()
+    // {
+    //     BookFlightPresentation.CancelBookedFlightMenu();
+    // }
 
     public static void CancelMain(string email)
     {
@@ -275,6 +275,7 @@ public static class MenuPresentation
         {
             for (int i = 0; i < searchResults.Count; i++)
             {
+                // search flight method hier moet je de flight time bij zetten
                 Console.WriteLine($"{i + 1}. {searchResults[i].Airline} - {searchResults[i].DepartureAirport} to {searchResults[i].ArrivalDestination} on {searchResults[i].DepartureDate} for €{searchResults[i].TicketPrice},-");
             }
         }
