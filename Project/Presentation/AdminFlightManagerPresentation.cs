@@ -302,16 +302,10 @@ namespace DataAccess
             bool newIsCancelled;
             while (true)
             {
-                if (!string.IsNullOrWhiteSpace(newArrivalDestination))
-                {
-                    Console.WriteLine("Is the flight cancelled? (yes/no): ");
-                    newIsCancelled = Console.ReadLine().ToLower() == "yes";
-                    break;
-                }
-                else
-                {
-                    break;
-                }
+                Console.WriteLine("Is the flight cancelled? (yes/no): ");
+                newIsCancelled = Console.ReadLine().ToLower() == "yes";
+                flight.IsCancelled = newIsCancelled;
+                break;
             }
             while (true)
             {
