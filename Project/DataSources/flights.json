@@ -361,9 +361,7 @@
         "29F",
         "30A",
         "30B",
-        "30C"
-      ],
-      "bookedSeats": [
+        "30C",
         "10A",
         "30D",
         "27F",
@@ -371,16 +369,11 @@
         "30F",
         "29D"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "10A": "SO ",
-        "30D": "AA ",
-        "27F": "FF ",
-        "30E": "MM ",
-        "30F": "BB ",
-        "29D": "LL "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 150,
     "gate": "A12",
@@ -391,7 +384,8 @@
     "flightTime": "14:30",
     "availableSeats": 178,
     "flightPoints": 15,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 2,
@@ -760,16 +754,14 @@
         "30B",
         "30C",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "30D"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "30D": "YE "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 200,
     "gate": "B4",
@@ -780,7 +772,8 @@
     "flightTime": "09:45",
     "availableSeats": 178,
     "flightPoints": 20,
-    "totalPets": 1
+    "totalPets": 1,
+    "returnFlight": null
   },
   {
     "id": 3,
@@ -1269,16 +1262,14 @@
         "40C",
         "40D",
         "40E",
-        "40F"
-      ],
-      "bookedSeats": [
+        "40F",
         "30D"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "30D": "JK "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 180,
     "gate": "C7",
@@ -1289,7 +1280,8 @@
     "flightTime": "11:00",
     "availableSeats": 180,
     "flightPoints": 18,
-    "totalPets": 5
+    "totalPets": 5,
+    "returnFlight": null
   },
   {
     "id": 4,
@@ -2257,18 +2249,15 @@
         "50G",
         "50H",
         "50J",
-        "50K"
-      ],
-      "bookedSeats": [
+        "50K",
         "50A",
         "50D"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": true,
-      "seatInitials": {
-        "50A": "MT",
-        "50D": "CC "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 250,
     "gate": "D9",
@@ -2279,7 +2268,8 @@
     "flightTime": "13:20",
     "availableSeats": 173,
     "flightPoints": 25,
-    "totalPets": 8
+    "totalPets": 8,
+    "returnFlight": null
   },
   {
     "id": 5,
@@ -2647,18 +2637,15 @@
         "30A",
         "30B",
         "30C",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "30D",
         "30E"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "30D": "YY ",
-        "30E": "NN "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 160,
     "gate": "E11",
@@ -2669,7 +2656,8 @@
     "flightTime": "16:10",
     "availableSeats": 176,
     "flightPoints": 16,
-    "totalPets": 8
+    "totalPets": 8,
+    "returnFlight": null
   },
   {
     "id": 6,
@@ -3044,6 +3032,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 140,
@@ -3055,7 +3044,8 @@
     "flightTime": "18:25",
     "availableSeats": 180,
     "flightPoints": 14,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 7,
@@ -3424,16 +3414,14 @@
         "30B",
         "30C",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "30D"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "30D": "AA "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 190,
     "gate": "G5",
@@ -3444,7 +3432,8 @@
     "flightTime": "21:15",
     "availableSeats": 179,
     "flightPoints": 19,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 8,
@@ -4419,6 +4408,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": true,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 230,
@@ -4430,7 +4420,8 @@
     "flightTime": "21:30",
     "availableSeats": 179,
     "flightPoints": 23,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 9,
@@ -4805,6 +4796,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 275,
@@ -4816,7 +4808,8 @@
     "flightTime": "21:30",
     "availableSeats": 180,
     "flightPoints": 27,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 10,
@@ -5191,6 +5184,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 310,
@@ -5202,7 +5196,8 @@
     "flightTime": "21:30",
     "availableSeats": 180,
     "flightPoints": 31,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 11,
@@ -5691,16 +5686,14 @@
         "40C",
         "40D",
         "40E",
-        "40F"
-      ],
-      "bookedSeats": [
+        "40F",
         "10B"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "10B": "AA "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 315,
     "gate": "B6",
@@ -5711,7 +5704,8 @@
     "flightTime": "16:30",
     "availableSeats": 180,
     "flightPoints": 31,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 12,
@@ -6086,6 +6080,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 215,
@@ -6097,7 +6092,8 @@
     "flightTime": "15:30",
     "availableSeats": 180,
     "flightPoints": 21,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 13,
@@ -6464,20 +6460,16 @@
         "30A",
         "30B",
         "30C",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "11A",
         "30D",
         "30E"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "11A": "SO ",
-        "30D": "LL ",
-        "30E": "SS "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 275,
     "gate": "C6",
@@ -6488,7 +6480,8 @@
     "flightTime": "12:45",
     "availableSeats": 180,
     "flightPoints": 27,
-    "totalPets": 7
+    "totalPets": 7,
+    "returnFlight": null
   },
   {
     "id": 14,
@@ -6856,18 +6849,15 @@
         "30C",
         "30D",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "10A",
         "10D"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "10A": "SO",
-        "10D": "VV "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 275,
     "gate": "B6",
@@ -6878,7 +6868,8 @@
     "flightTime": "14:15",
     "availableSeats": 179,
     "flightPoints": 27,
-    "totalPets": 7
+    "totalPets": 7,
+    "returnFlight": null
   },
   {
     "id": 15,
@@ -7245,20 +7236,16 @@
         "30C",
         "30D",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "10C",
         "01E",
         "29D"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "10C": "SO ",
-        "01E": "AA ",
-        "29D": "JJ "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 410,
     "gate": "E4",
@@ -7269,7 +7256,8 @@
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 41,
-    "totalPets": 1
+    "totalPets": 1,
+    "returnFlight": null
   },
   {
     "id": 16,
@@ -7644,6 +7632,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 185,
@@ -7655,7 +7644,8 @@
     "flightTime": "09:50",
     "availableSeats": 180,
     "flightPoints": 18,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 17,
@@ -8024,16 +8014,14 @@
         "30B",
         "30C",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "30D"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "30D": "FF "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 345.5,
     "gate": "C8",
@@ -8044,7 +8032,8 @@
     "flightTime": "07:30",
     "availableSeats": 180,
     "flightPoints": 34,
-    "totalPets": 1
+    "totalPets": 1,
+    "returnFlight": null
   },
   {
     "id": 18,
@@ -8413,16 +8402,14 @@
         "30B",
         "30C",
         "30D",
-        "30E"
-      ],
-      "bookedSeats": [
+        "30E",
         "30F"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "30F": "XX "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 285,
     "gate": "B4",
@@ -8433,7 +8420,8 @@
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 28,
-    "totalPets": 1
+    "totalPets": 1,
+    "returnFlight": null
   },
   {
     "id": 19,
@@ -8809,9 +8797,8 @@
         "30F"
       ],
       "isAirbusA330": false,
-      "seatInitials": {
-        "30F": "OO "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 315,
     "gate": "C4",
@@ -8822,7 +8809,8 @@
     "flightTime": "15:30",
     "availableSeats": 179,
     "flightPoints": 31,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 20,
@@ -9191,16 +9179,14 @@
         "30B",
         "30C",
         "30D",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "30E"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "30E": "II "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 300,
     "gate": "B2",
@@ -9211,7 +9197,8 @@
     "flightTime": "13:30",
     "availableSeats": 180,
     "flightPoints": 30,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 21,
@@ -9580,16 +9567,14 @@
         "30C",
         "30D",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "09A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "09A": "AA "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 215,
     "gate": "E4",
@@ -9600,7 +9585,8 @@
     "flightTime": "11:20",
     "availableSeats": 180,
     "flightPoints": 21,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 22,
@@ -9975,6 +9961,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 275,
@@ -9986,7 +9973,8 @@
     "flightTime": "10:10",
     "availableSeats": 180,
     "flightPoints": 27,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 23,
@@ -10955,16 +10943,14 @@
         "50G",
         "50H",
         "50J",
-        "50K"
-      ],
-      "bookedSeats": [
+        "50K",
         "11A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": true,
-      "seatInitials": {
-        "11A": "HH "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 265,
     "gate": "G7",
@@ -10975,7 +10961,8 @@
     "flightTime": "20:30",
     "availableSeats": 180,
     "flightPoints": 31,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 24,
@@ -11350,6 +11337,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 335.25,
@@ -11361,7 +11349,8 @@
     "flightTime": "14:45",
     "availableSeats": 179,
     "flightPoints": 33,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 25,
@@ -11729,19 +11718,16 @@
         "30A",
         "30B",
         "30C",
-        "30D"
-      ],
-      "bookedSeats": [
+        "30D",
         "30F"
       ],
+      "bookedSeats": [],
       "chosenSeats": [
         "30E"
       ],
       "isAirbusA330": false,
-      "seatInitials": {
-        "30F": "AA ",
-        "30E": "BB "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 285,
     "gate": "F6",
@@ -11752,7 +11738,8 @@
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 28,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 26,
@@ -12127,6 +12114,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 450,
@@ -12138,7 +12126,8 @@
     "flightTime": "10:45",
     "availableSeats": 179,
     "flightPoints": 45,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 27,
@@ -12507,16 +12496,14 @@
         "30C",
         "30D",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "27F"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "27F": "FF "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 300.15,
     "gate": "B3",
@@ -12527,7 +12514,8 @@
     "flightTime": "11:50",
     "availableSeats": 180,
     "flightPoints": 30,
-    "totalPets": 1
+    "totalPets": 1,
+    "returnFlight": null
   },
   {
     "id": 28,
@@ -12896,16 +12884,14 @@
         "30B",
         "30C",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "30D"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "30D": "UU "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 275,
     "gate": "E5",
@@ -12916,7 +12902,8 @@
     "flightTime": "21:30",
     "availableSeats": 180,
     "flightPoints": 27,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 29,
@@ -13160,7 +13147,6 @@
         "09D",
         "09E",
         "09F",
-        "10A",
         "10B",
         "10C",
         "10D",
@@ -13285,16 +13271,15 @@
         "30C",
         "30D",
         "30E",
-        "30F"
+        "30F",
+        "01D",
+        "10A"
       ],
-      "bookedSeats": [
-        "01D"
-      ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "01D": "BB "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 275,
     "gate": "E1",
@@ -13305,7 +13290,8 @@
     "flightTime": "19:45",
     "availableSeats": 180,
     "flightPoints": 27,
-    "totalPets": 2
+    "totalPets": 3,
+    "returnFlight": null
   },
   {
     "id": 30,
@@ -13673,18 +13659,15 @@
         "30C",
         "30D",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "10A",
         "18A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "10A": "AA ",
-        "18A": "SO "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 305.25,
     "gate": "B6",
@@ -13695,7 +13678,8 @@
     "flightTime": "15:00",
     "availableSeats": 180,
     "flightPoints": 30,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 31,
@@ -14664,16 +14648,14 @@
         "50F",
         "50G",
         "50J",
-        "50K"
-      ],
-      "bookedSeats": [
+        "50K",
         "50H"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": true,
-      "seatInitials": {
-        "50H": "NN "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 415,
     "gate": "C8",
@@ -14684,7 +14666,8 @@
     "flightTime": "12:30",
     "availableSeats": 178,
     "flightPoints": 41,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 32,
@@ -15059,6 +15042,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 305,
@@ -15070,7 +15054,8 @@
     "flightTime": "14:15",
     "availableSeats": 180,
     "flightPoints": 30,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 33,
@@ -15439,16 +15424,14 @@
         "30C",
         "30D",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "23E"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "23E": "GG "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 230,
     "gate": "A6",
@@ -15459,7 +15442,8 @@
     "flightTime": "06:55",
     "availableSeats": 180,
     "flightPoints": 20,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 34,
@@ -15827,19 +15811,16 @@
         "30B",
         "30C",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "09A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [
         "30D"
       ],
       "isAirbusA330": false,
-      "seatInitials": {
-        "09A": "AA ",
-        "30D": "HH "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 215,
     "gate": "E4",
@@ -15850,7 +15831,8 @@
     "flightTime": "21:20",
     "availableSeats": 180,
     "flightPoints": 21,
-    "totalPets": 7
+    "totalPets": 7,
+    "returnFlight": null
   },
   {
     "id": 35,
@@ -16225,6 +16207,7 @@
       "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
+      "isBoeing787": false,
       "seatInitials": {}
     },
     "ticketPrice": 285,
@@ -16236,7 +16219,8 @@
     "flightTime": "21:30",
     "availableSeats": 180,
     "flightPoints": 28,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
   },
   {
     "id": 36,
@@ -16604,18 +16588,15 @@
         "30B",
         "30C",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "11A",
         "30D"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
-      "seatInitials": {
-        "11A": "SO ",
-        "30D": "LL "
-      }
+      "isBoeing787": false,
+      "seatInitials": {}
     },
     "ticketPrice": 275,
     "gate": "C6",
@@ -16626,6 +16607,782 @@
     "flightTime": "12:00",
     "availableSeats": 180,
     "flightPoints": 27,
-    "totalPets": 0
+    "totalPets": 0,
+    "returnFlight": null
+  },
+  {
+    "id": 37,
+    "airline": "sss",
+    "layout": {
+      "rows": 30,
+      "columns": 6,
+      "seatArrangement": [
+        "01A",
+        "01B",
+        "01C",
+        "01D",
+        "01E",
+        "01F",
+        "02A",
+        "02B",
+        "02C",
+        "02D",
+        "02E",
+        "02F",
+        "03A",
+        "03B",
+        "03C",
+        "03D",
+        "03E",
+        "03F",
+        "04A",
+        "04B",
+        "04C",
+        "04D",
+        "04E",
+        "04F",
+        "05A",
+        "05B",
+        "05C",
+        "05D",
+        "05E",
+        "05F",
+        "06A",
+        "06B",
+        "06C",
+        "06D",
+        "06E",
+        "06F",
+        "07A",
+        "07B",
+        "07C",
+        "07D",
+        "07E",
+        "07F",
+        "08A",
+        "08B",
+        "08C",
+        "08D",
+        "08E",
+        "08F",
+        "09A",
+        "09B",
+        "09C",
+        "09D",
+        "09E",
+        "09F",
+        "10A",
+        "10B",
+        "10C",
+        "10D",
+        "10E",
+        "10F",
+        "11A",
+        "11B",
+        "11C",
+        "11D",
+        "11E",
+        "11F",
+        "12A",
+        "12B",
+        "12C",
+        "12D",
+        "12E",
+        "12F",
+        "13A",
+        "13B",
+        "13C",
+        "13D",
+        "13E",
+        "13F",
+        "14A",
+        "14B",
+        "14C",
+        "14D",
+        "14E",
+        "14F",
+        "15A",
+        "15B",
+        "15C",
+        "15D",
+        "15E",
+        "15F",
+        "16A",
+        "16B",
+        "16C",
+        "16D",
+        "16E",
+        "16F",
+        "17A",
+        "17B",
+        "17C",
+        "17D",
+        "17E",
+        "17F",
+        "18A",
+        "18B",
+        "18C",
+        "18D",
+        "18E",
+        "18F",
+        "19A",
+        "19B",
+        "19C",
+        "19D",
+        "19E",
+        "19F",
+        "20A",
+        "20B",
+        "20C",
+        "20D",
+        "20E",
+        "20F",
+        "21A",
+        "21B",
+        "21C",
+        "21D",
+        "21E",
+        "21F",
+        "22A",
+        "22B",
+        "22C",
+        "22D",
+        "22E",
+        "22F",
+        "23A",
+        "23B",
+        "23C",
+        "23D",
+        "23E",
+        "23F",
+        "24A",
+        "24B",
+        "24C",
+        "24D",
+        "24E",
+        "24F",
+        "25A",
+        "25B",
+        "25C",
+        "25D",
+        "25E",
+        "25F",
+        "26A",
+        "26B",
+        "26C",
+        "26D",
+        "26E",
+        "26F",
+        "27A",
+        "27B",
+        "27C",
+        "27D",
+        "27E",
+        "27F",
+        "28A",
+        "28B",
+        "28C",
+        "28D",
+        "28E",
+        "28F",
+        "29A",
+        "29B",
+        "29C",
+        "29D",
+        "29E",
+        "29F",
+        "30A",
+        "30B",
+        "30C",
+        "30D",
+        "30E",
+        "30F"
+      ],
+      "availableSeats": [
+        "01A",
+        "01B",
+        "01C",
+        "01D",
+        "01E",
+        "01F",
+        "02A",
+        "02B",
+        "02C",
+        "02D",
+        "02E",
+        "02F",
+        "03A",
+        "03B",
+        "03C",
+        "03D",
+        "03E",
+        "03F",
+        "04A",
+        "04B",
+        "04C",
+        "04D",
+        "04E",
+        "04F",
+        "05A",
+        "05B",
+        "05C",
+        "05D",
+        "05E",
+        "05F",
+        "06A",
+        "06B",
+        "06C",
+        "06D",
+        "06E",
+        "06F",
+        "07A",
+        "07B",
+        "07C",
+        "07D",
+        "07E",
+        "07F",
+        "08A",
+        "08B",
+        "08C",
+        "08D",
+        "08E",
+        "08F",
+        "09A",
+        "09B",
+        "09C",
+        "09D",
+        "09E",
+        "09F",
+        "10A",
+        "10B",
+        "10C",
+        "10D",
+        "10E",
+        "10F",
+        "11A",
+        "11B",
+        "11C",
+        "11D",
+        "11E",
+        "11F",
+        "12A",
+        "12B",
+        "12C",
+        "12D",
+        "12E",
+        "12F",
+        "13A",
+        "13B",
+        "13C",
+        "13D",
+        "13E",
+        "13F",
+        "14A",
+        "14B",
+        "14C",
+        "14D",
+        "14E",
+        "14F",
+        "15A",
+        "15B",
+        "15C",
+        "15D",
+        "15E",
+        "15F",
+        "16A",
+        "16B",
+        "16C",
+        "16D",
+        "16E",
+        "16F",
+        "17A",
+        "17B",
+        "17C",
+        "17D",
+        "17E",
+        "17F",
+        "18A",
+        "18B",
+        "18C",
+        "18D",
+        "18E",
+        "18F",
+        "19A",
+        "19B",
+        "19C",
+        "19D",
+        "19E",
+        "19F",
+        "20A",
+        "20B",
+        "20C",
+        "20D",
+        "20E",
+        "20F",
+        "21A",
+        "21B",
+        "21C",
+        "21D",
+        "21E",
+        "21F",
+        "22A",
+        "22B",
+        "22C",
+        "22D",
+        "22E",
+        "22F",
+        "23A",
+        "23B",
+        "23C",
+        "23D",
+        "23E",
+        "23F",
+        "24A",
+        "24B",
+        "24C",
+        "24D",
+        "24E",
+        "24F",
+        "25A",
+        "25B",
+        "25C",
+        "25D",
+        "25E",
+        "25F",
+        "26A",
+        "26B",
+        "26C",
+        "26D",
+        "26E",
+        "26F",
+        "27A",
+        "27B",
+        "27C",
+        "27D",
+        "27E",
+        "27F",
+        "28A",
+        "28B",
+        "28C",
+        "28D",
+        "28E",
+        "28F",
+        "29A",
+        "29B",
+        "29C",
+        "29D",
+        "29E",
+        "29F",
+        "30A",
+        "30B",
+        "30C",
+        "30E",
+        "30F",
+        "30D"
+      ],
+      "bookedSeats": [],
+      "chosenSeats": [],
+      "isAirbusA330": false,
+      "isBoeing787": false,
+      "seatInitials": {}
+    },
+    "ticketPrice": 130,
+    "gate": "A01",
+    "departureAirport": "ROtterdam",
+    "arrivalDestination": "Amsterdam-Schiphol",
+    "isCancelled": false,
+    "departureDate": "01-12-2024",
+    "flightTime": "12:00",
+    "availableSeats": 0,
+    "flightPoints": 13,
+    "totalPets": 1,
+    "returnFlight": {
+      "id": 0,
+      "airline": "sss",
+      "layout": {
+        "rows": 30,
+        "columns": 6,
+        "seatArrangement": [
+          "01A",
+          "01B",
+          "01C",
+          "01D",
+          "01E",
+          "01F",
+          "02A",
+          "02B",
+          "02C",
+          "02D",
+          "02E",
+          "02F",
+          "03A",
+          "03B",
+          "03C",
+          "03D",
+          "03E",
+          "03F",
+          "04A",
+          "04B",
+          "04C",
+          "04D",
+          "04E",
+          "04F",
+          "05A",
+          "05B",
+          "05C",
+          "05D",
+          "05E",
+          "05F",
+          "06A",
+          "06B",
+          "06C",
+          "06D",
+          "06E",
+          "06F",
+          "07A",
+          "07B",
+          "07C",
+          "07D",
+          "07E",
+          "07F",
+          "08A",
+          "08B",
+          "08C",
+          "08D",
+          "08E",
+          "08F",
+          "09A",
+          "09B",
+          "09C",
+          "09D",
+          "09E",
+          "09F",
+          "10A",
+          "10B",
+          "10C",
+          "10D",
+          "10E",
+          "10F",
+          "11A",
+          "11B",
+          "11C",
+          "11D",
+          "11E",
+          "11F",
+          "12A",
+          "12B",
+          "12C",
+          "12D",
+          "12E",
+          "12F",
+          "13A",
+          "13B",
+          "13C",
+          "13D",
+          "13E",
+          "13F",
+          "14A",
+          "14B",
+          "14C",
+          "14D",
+          "14E",
+          "14F",
+          "15A",
+          "15B",
+          "15C",
+          "15D",
+          "15E",
+          "15F",
+          "16A",
+          "16B",
+          "16C",
+          "16D",
+          "16E",
+          "16F",
+          "17A",
+          "17B",
+          "17C",
+          "17D",
+          "17E",
+          "17F",
+          "18A",
+          "18B",
+          "18C",
+          "18D",
+          "18E",
+          "18F",
+          "19A",
+          "19B",
+          "19C",
+          "19D",
+          "19E",
+          "19F",
+          "20A",
+          "20B",
+          "20C",
+          "20D",
+          "20E",
+          "20F",
+          "21A",
+          "21B",
+          "21C",
+          "21D",
+          "21E",
+          "21F",
+          "22A",
+          "22B",
+          "22C",
+          "22D",
+          "22E",
+          "22F",
+          "23A",
+          "23B",
+          "23C",
+          "23D",
+          "23E",
+          "23F",
+          "24A",
+          "24B",
+          "24C",
+          "24D",
+          "24E",
+          "24F",
+          "25A",
+          "25B",
+          "25C",
+          "25D",
+          "25E",
+          "25F",
+          "26A",
+          "26B",
+          "26C",
+          "26D",
+          "26E",
+          "26F",
+          "27A",
+          "27B",
+          "27C",
+          "27D",
+          "27E",
+          "27F",
+          "28A",
+          "28B",
+          "28C",
+          "28D",
+          "28E",
+          "28F",
+          "29A",
+          "29B",
+          "29C",
+          "29D",
+          "29E",
+          "29F",
+          "30A",
+          "30B",
+          "30C",
+          "30D",
+          "30E",
+          "30F"
+        ],
+        "availableSeats": [
+          "01A",
+          "01B",
+          "01C",
+          "01D",
+          "01E",
+          "01F",
+          "02A",
+          "02B",
+          "02C",
+          "02D",
+          "02E",
+          "02F",
+          "03A",
+          "03B",
+          "03C",
+          "03D",
+          "03E",
+          "03F",
+          "04A",
+          "04B",
+          "04C",
+          "04D",
+          "04E",
+          "04F",
+          "05A",
+          "05B",
+          "05C",
+          "05D",
+          "05E",
+          "05F",
+          "06A",
+          "06B",
+          "06C",
+          "06D",
+          "06E",
+          "06F",
+          "07A",
+          "07B",
+          "07C",
+          "07D",
+          "07E",
+          "07F",
+          "08A",
+          "08B",
+          "08C",
+          "08D",
+          "08E",
+          "08F",
+          "09A",
+          "09B",
+          "09C",
+          "09D",
+          "09E",
+          "09F",
+          "10A",
+          "10B",
+          "10C",
+          "10D",
+          "10E",
+          "10F",
+          "11A",
+          "11B",
+          "11C",
+          "11D",
+          "11E",
+          "11F",
+          "12A",
+          "12B",
+          "12C",
+          "12D",
+          "12E",
+          "12F",
+          "13A",
+          "13B",
+          "13C",
+          "13D",
+          "13E",
+          "13F",
+          "14A",
+          "14B",
+          "14C",
+          "14D",
+          "14E",
+          "14F",
+          "15A",
+          "15B",
+          "15C",
+          "15D",
+          "15E",
+          "15F",
+          "16A",
+          "16B",
+          "16C",
+          "16D",
+          "16E",
+          "16F",
+          "17A",
+          "17B",
+          "17C",
+          "17D",
+          "17E",
+          "17F",
+          "18A",
+          "18B",
+          "18C",
+          "18D",
+          "18E",
+          "18F",
+          "19A",
+          "19B",
+          "19C",
+          "19D",
+          "19E",
+          "19F",
+          "20A",
+          "20B",
+          "20C",
+          "20D",
+          "20E",
+          "20F",
+          "21A",
+          "21B",
+          "21C",
+          "21D",
+          "21E",
+          "21F",
+          "22A",
+          "22B",
+          "22C",
+          "22D",
+          "22E",
+          "22F",
+          "23A",
+          "23B",
+          "23C",
+          "23D",
+          "23E",
+          "23F",
+          "24A",
+          "24B",
+          "24C",
+          "24D",
+          "24E",
+          "24F",
+          "25A",
+          "25B",
+          "25C",
+          "25D",
+          "25E",
+          "25F",
+          "26A",
+          "26B",
+          "26C",
+          "26D",
+          "26E",
+          "26F",
+          "27A",
+          "27B",
+          "27C",
+          "27D",
+          "27E",
+          "27F",
+          "28A",
+          "28B",
+          "28C",
+          "28D",
+          "28E",
+          "28F",
+          "29A",
+          "29B",
+          "29C",
+          "29D",
+          "29E",
+          "29F",
+          "30A",
+          "30B",
+          "30C",
+          "30D",
+          "30E",
+          "30F"
+        ],
+        "bookedSeats": [],
+        "chosenSeats": [],
+        "isAirbusA330": false,
+        "isBoeing787": false,
+        "seatInitials": {}
+      },
+      "ticketPrice": 130,
+      "gate": "E04",
+      "departureAirport": "Amsterdam-Schiphol",
+      "arrivalDestination": "ROtterdam",
+      "isCancelled": false,
+      "departureDate": "14-12-2024",
+      "flightTime": "12:00",
+      "availableSeats": 0,
+      "flightPoints": 13,
+      "totalPets": 0,
+      "returnFlight": null
+    }
   }
 ]

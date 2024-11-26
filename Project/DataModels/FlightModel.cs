@@ -18,7 +18,8 @@ namespace DataModels
         public int FlightPoints { get; set; }
         public int TotalPets { get; set; } = 0;
 
-        
+        public FlightModel? ReturnFlight { get; set; }
+
 
         public FlightModel(string airline, LayoutModel layout, double ticketPrice, string gate, string departureAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime, int availableSeats)
         {
@@ -33,6 +34,22 @@ namespace DataModels
             FlightTime = flightTime;
             AvailableSeats = availableSeats;
             FlightPoints = Convert.ToInt32(TicketPrice) / 10;
+        }
+
+        public FlightModel CreateReturnFlight(string returnDate, string returnTime, string returnGate)
+        {
+            return new FlightModel(
+                Airline,
+                Layout,
+                TicketPrice, // Same ticket price
+                returnGate, // New gate for the return flight
+                ArrivalDestination, // Swap the departure and arrival
+                DepartureAirport,
+                false, // Assuming the return flight isn't cancelled
+                returnDate,
+                returnTime,
+                AvailableSeats // Assume same number of seats initially
+            );
         }
     }
 

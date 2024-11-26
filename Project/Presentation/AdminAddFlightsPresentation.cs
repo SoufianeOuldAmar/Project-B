@@ -236,12 +236,12 @@ public class AdminAddFlightsPresentation
             IsCancelled,
             date,
             time,
-            0,
-            totalPets
+            0
         );
 
         nextFlightId++;
         newFlight.Id = nextFlightId;
+        newFlight.TotalPets = totalPets;
 
         FlightModel returnFlight = null;
         string returnDate;
