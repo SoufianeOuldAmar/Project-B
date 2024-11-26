@@ -1,3 +1,4 @@
+using DataAccess;
 public class LayoutModel
 {
     public int Rows { get; set; }
@@ -155,6 +156,52 @@ public class LayoutModel
         ChosenSeats.Clear();
         Console.WriteLine("Seats have been successfully booked.");
     }
+
+    public void ResetAllSeats()
+    {
+        // Move all booked seats back to available seats
+        var allFlights = FlightsAccess.ReadAll();
+        string filePath = "DataSources/bookedflights.json";
+
+        foreach (var flight in allFlights)
+        {
+            // Iterate over a copy of BookedSeats to avoid modifying the collection while iterating
+            foreach (var seat in flight.Layout.BookedSeats.ToList())
+            {
+                // Remove seat from BookedSeats
+                flight.Layout.BookedSeats.Remove(seat);
+
+                // Add seat to AvailableSeats
+                flight.Layout.AvailableSeats.Add(seat);
+            }
+
+            flight.Layout.SeatInitials.Clear();
+        }
+
+        try
+        {
+            // Check if the file exists before deleting
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+            else
+            {
+                Console.WriteLine($"The file '{filePath}' does not exist.");
+            }
+        }
+        catch (Exception ex)
+        {
+            // Handle exceptions such as UnauthorizedAccessException or IOException
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+
+        FlightsAccess.WriteAll(allFlights);
+        Console.WriteLine("Seats have been reset");
+
+
+    }
+
 
     public static LayoutModel CreateBoeing737Layout()
     {

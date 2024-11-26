@@ -14,25 +14,27 @@ namespace DataModels
         public bool IsCancelled { get; set; }
         public string DepartureDate { get; set; }
         public string FlightTime { get; set; }
-
         public int AvailableSeats { get; set; }
         public int FlightPoints { get; set; }
         public int TotalPets { get; set; } = 0;
-        public FlightModel(string airline, LayoutModel layout, double ticketPrice, string gate, string departureAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime, int availableSeats, int totalPets)
 
+        
+
+        public FlightModel(string airline, LayoutModel layout, double ticketPrice, string gate, string departureAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime, int availableSeats)
         {
             Airline = airline;
             Layout = layout;
             TicketPrice = ticketPrice;
             Gate = gate;
             DepartureAirport = departureAirport;
-            ArrivalDestination = arrivalDestination; // Bijvoorbeeld: "Istanbul, Istanbul Airport"
+            ArrivalDestination = arrivalDestination;
             IsCancelled = isCancelled;
             DepartureDate = departureDate;
             FlightTime = flightTime;
             AvailableSeats = availableSeats;
             FlightPoints = Convert.ToInt32(TicketPrice) / 10;
-            TotalPets= totalPets;
         }
     }
+
+    // Constructor sort of values terug geven
 }
