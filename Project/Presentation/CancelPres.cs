@@ -33,42 +33,48 @@ public class CancelPres
                     }
                     break;
 
-                case "2":
-                    // Reschedule a flight
-                    Console.WriteLine("Please enter the Flight ID of the flight you want to reschedule:");
-                    string rescheduleFlightID = Console.ReadLine();
-                    try
-                    {
-                        // Convert the flight ID input to an integer
-                        int flightIDToReschedule = Convert.ToInt32(rescheduleFlightID);
+            case "2":
+                // Reschedule a flight
 
-                        // Ask for new departure and arrival details
-                        Console.WriteLine("Please enter the new departure airport:");
-                        string newDepartureAirport = Console.ReadLine();
+                Console.WriteLine("Please enter the Flight ID of the flight you want to reschedule:");
+                string rescheduleFlightIDInput = Console.ReadLine();
 
-                        Console.WriteLine("Please enter the new arrival destination:");
-                        string newArrivalDestination = Console.ReadLine();
+                //if can't convert to an int 
 
-                        // Ask for the new departure date
-                        Console.WriteLine("Please enter the new departure date (e.g., 2024-12-25):");
-                        string newDepartureDate = Console.ReadLine();
-
-                        // Ask for the new departure time
-                        Console.WriteLine("Please enter the new departure time (e.g., 14:30):");
-                        string newFlightTime = Console.ReadLine();
-
-                        // Call RescheduleFlight from CancelLogic to attempt rescheduling
-                        string rescheduleResult = RescheduleLogic.RescheduleFlight(email, newDepartureAirport, newArrivalDestination, newDepartureDate, newFlightTime);
-
-                        // Output the result of the rescheduling 
-                        Console.WriteLine(rescheduleResult);
-                    }
-                    catch (FormatException)
-                    {
-                        // Handle invalid input format (e.g., non-numeric input for flight ID)
-                        Console.WriteLine("Invalid Flight ID. Please enter a valid number.");
-                    }
+                if (!int.TryParse(rescheduleFlightIDInput, out int flightIDToReschedule))
+                {
+                    Console.WriteLine("Invalid Flight ID. Please enter a valid number.");
                     break;
+                }
+
+                // Calling the RescheduleFlight method to get the available flights
+                string rescheduleMessage = RescheduleLogic.RescheduleFlight(email, flightIDToReschedule);
+
+                // no available flights message 
+                Console.WriteLine(rescheduleMessage);
+
+
+                if (rescheduleMessage.Contains("No available flights"))
+                {
+                    Console.WriteLine("Exiting rescheduling process.");
+                    break; 
+                }
+
+                Console.WriteLine("Please enter the Flight ID of the flight you want to reschedule to:");
+                string selectedFlightIDInput = Console.ReadLine();
+
+                if (!int.TryParse(selectedFlightIDInput, out int selectedFlightID))
+                {
+                    Console.WriteLine("Invalid Flight ID. Please enter a valid number.");
+                    break;
+                }
+
+                string rescheduleResult = RescheduleLogic.RescheduleFlight(email, flightIDToReschedule,selectedFlightID);
+
+                // Output the result of the rescheduling
+                Console.WriteLine(rescheduleResult);
+                break;
+
 
                 case "3":
                     // View booked flights for the user
@@ -99,5 +105,7 @@ public class CancelPres
             }
         }
     }
+    
 }
+
 

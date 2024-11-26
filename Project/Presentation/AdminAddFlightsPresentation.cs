@@ -1,5 +1,8 @@
 using System.Text.RegularExpressions;
 using DataModels;
+using System;
+using System.Globalization;
+
 
 public class AdminAddFlightsPresentation
 {
@@ -74,12 +77,35 @@ public class AdminAddFlightsPresentation
                 Console.WriteLine("Invalid input. Please enter letters only.");
             }
         }
+        var europeanCapitalsAirports = new List<string>
+            {
+            "Amsterdam-Schiphol",
+            "Athens-Eleftherios Venizelos",
+            "Belgrade-Nikola Tesla",
+            "Berlin-Brandenburg",
+            "Brussels-Zaventem",
+            "Bucharest-Henri Coandă",
+            "Budapest-Ferenc Liszt",
+            "Copenhagen-Kastrup",
+            "Dublin-Dublin Airport",
+            "Helsinki-Vantaa",
+            "Lisbon-Humberto Delgado",
+            "London-Heathrow",
+            "Madrid-Barajas",
+            "Oslo-Gardermoen",
+            "Paris-Charles de Gaulle",
+            "Prague-Václav Havel",
+            "Rome-Fiumicino",
+            "Stockholm-Arlanda",
+            "Vienna-Schwechat",
+            "Warsaw-Chopin"
+            };
         string arrivalDestination;
         while (true)
         {
             Console.WriteLine("Enter Arrival Destination: ");
             arrivalDestination = Console.ReadLine();
-            if (arrivalDestination is string)
+            if (europeanCapitalsAirports.Contains(arrivalDestination))
             {
                 break;
             }
@@ -170,8 +196,36 @@ public class AdminAddFlightsPresentation
             }
 
         }
+        int totalPets = 0;
+
+        while (true)
+        {
+            Console.WriteLine("Enter the current total number of pets on this flight (0-7): ");
+            string input = Console.ReadLine();
+
+            // Check if input is a valid number
+            if (int.TryParse(input, out totalPets))
+            {
+
+                if (totalPets >= 0 && totalPets <= 7)
+                {
+                    break; // Valid input exit
+                }
+                else
+                {
+                    Console.WriteLine("The number must be between 0 and 7."); 
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a number."); 
+            }
+        }
+
+
+
         int nextFlightId = BookFlightPresentation.allFlights.Count;
-        FlightModel newFight = new FlightModel(
+        FlightModel newFlight = new FlightModel(
 
             airline,
             layout,
@@ -186,11 +240,100 @@ public class AdminAddFlightsPresentation
         );
 
         nextFlightId++;
-        newFight.Id = nextFlightId;
+        newFlight.Id = nextFlightId;
+        newFlight.TotalPets = totalPets;
+
+        FlightModel returnFlight = null;
+        string returnDate;
+        string returnTime;
+        string returnGate;
+        while (true)
+        {
+            Console.WriteLine("Add a return flight? (yes/no):");
+            string returnFlightYesNo = Console.ReadLine().ToLower();
+
+            if (returnFlightYesNo == "no")
+            {
+                break;
+            }
+            else if (returnFlightYesNo == "yes")
+            {
+                while (true)
+                {
+                    Console.WriteLine("Return Date (dd-mm-yyyy):");
+                    string dateString = Console.ReadLine();
+
+                    if (DateTime.TryParseExact(dateString, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+                    {
+                        if (parsedDate <= DateTime.Now)
+                        {
+                            Console.WriteLine("The date is before the current time. Try again.");
+                            continue;
+                        }
+                        else
+                        {
+                            returnDate = parsedDate.ToString("dd-MM-yyyy");
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid date format. Try again.");
+                        continue;
+                    }
+
+                }
+
+                while (true)
+                {
+                    Console.WriteLine("Return Time (HH:MM)");
+                    string timeStr = Console.ReadLine();
+
+                    if (DateTime.TryParseExact(timeStr, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedTime))
+                    {
+                        returnTime = parsedTime.ToString("HH:mm");
+                        break; // Exit the loop if valid
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid time format. Please enter in HH:MM format.");
+                        continue;
+                    }
+                }
+
+                while (true)
+                {
+                    Console.WriteLine("Enter Gate: ");
+                    string gate = Console.ReadLine();
+                    if (gate.Length >= 2 && gate.Length <= 3 && "ABCDEF".Contains(char.ToUpper(gate[0])) &&
+                    int.TryParse(gate.Substring(1), out int number) &&
+                    number >= 1 && number <= 30)
+                    {
+                        // Substring(startIndex, length);
+                        string letterPart = gate.Substring(0, 1).ToUpper();
+                        string numberPart = gate.Substring(1);
+                        returnGate = $"{letterPart}{numberPart}";
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid format. The string must be a letter followed by digit.");
+                        continue;
+                    }
+                }
+
+                returnFlight = newFlight.CreateReturnFlight(returnDate, returnTime, returnGate);
+                break;
+            }
+
+        }
+
+        newFlight.ReturnFlight = returnFlight;
+
 
 
         Console.WriteLine("New flight added:");
-        return newFight;
+        return newFlight;
     }
     public void Exit()
     {

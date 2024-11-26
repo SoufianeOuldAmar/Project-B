@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Text.Json;
-using System.Linq;
 using DataModels;
 
 namespace DataAccess
@@ -20,7 +16,7 @@ namespace DataAccess
                     string jsonString = File.ReadAllText(filePath);
                     var options = new JsonSerializerOptions
                     {
-                        PropertyNameCaseInsensitive = true  // This is the key fix for the ID issue
+                        PropertyNameCaseInsensitive = true
                     };
 
                     var flights = JsonSerializer.Deserialize<List<FlightModel>>(jsonString, options);
@@ -51,7 +47,7 @@ namespace DataAccess
                 var options = new JsonSerializerOptions
                 {
                     WriteIndented = true,
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase  // This ensures "Id" is written as "id"
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
                 };
 
                 string jsonString = JsonSerializer.Serialize(flights, options);
@@ -85,7 +81,7 @@ namespace DataAccess
             }
             else if (airlineLower.Contains("lufthansa"))
             {
-                return LayoutModel.CreateBoeing757Layout();
+                return LayoutModel.CreateBoeing787Layout(); // Changed from Boeing 757
             }
             else if (airlineLower.Contains("turkish airlines"))
             {
@@ -100,10 +96,27 @@ namespace DataAccess
         public static void AdminAddNewFlight(FlightModel newFlight)
         {
             var flights = ReadAll();
-
             flights.Add(newFlight);
-
             WriteAll(flights);
+        }
+
+        // Search flight method
+        public static List<FlightModel> SearchFlights(
+            string departureAirport = null,
+            string arrivalDestination = null,
+            DateTime? departureDate = null,
+            string flightTime = null)
+        {
+            var flights = ReadAll();
+
+            return flights.Where(flight =>
+                (departureAirport == null || flight.DepartureAirport == departureAirport) &&
+                (arrivalDestination == null || flight.ArrivalDestination == arrivalDestination) &&
+                (!departureDate.HasValue ||
+                    (DateTime.TryParse(flight.DepartureDate, out DateTime flightDepartureDate) &&
+                     flightDepartureDate.Date == departureDate.Value.Date)) &&
+                (flightTime == null || flight.FlightTime == flightTime)
+            ).ToList();
         }
     }
 }

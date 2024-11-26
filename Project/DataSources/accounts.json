@@ -4,34 +4,79 @@
     "emailAddress": "n@b.c",
     "password": "xyz",
     "fullName": "Nikola Tesla",
-    "flightPoints": 193
+    "flightPointsDataList": [
+      {
+        "ticketsBought": "2024-11-22T23:25:35.8367392+01:00",
+        "points": 34,
+        "flightId": 17
+      },
+      {
+        "ticketsBought": "2024-11-23T17:13:43.6824837+01:00",
+        "points": 28,
+        "flightId": 25
+      },
+      {
+        "ticketsBought": "2024-11-24T15:50:10.1832761+01:00",
+        "points": 33,
+        "flightId": 24
+      },
+      {
+        "ticketsBought": "2024-11-26T13:58:30.8858146+01:00",
+        "points": 27,
+        "flightId": 29
+      },
+      {
+        "ticketsBought": "2024-11-26T14:00:29.7878516+01:00",
+        "points": 13,
+        "flightId": 37
+      }
+    ],
+    "fees": 0
   },
   {
     "id": 2,
     "emailAddress": "t@b.c",
     "password": "xyz",
     "fullName": "Thomas Edison",
-    "flightPoints": 0
+    "flightPointsDataList": [
+      {
+        "ticketsBought": "0001-01-01T00:00:00",
+        "points": 0,
+        "flightId": 0
+      }
+    ],
+    "fees": 0
   },
   {
     "id": 3,
     "emailAddress": "soufiane_ouldamar@",
     "password": "password1",
     "fullName": "Soufiane Ould Amar",
-    "flightPoints": 0
+    "flightPointsDataList": [],
+    "fees": 0
   },
   {
     "id": 4,
     "emailAddress": "la@gmail.com",
     "password": "password",
     "fullName": "lala",
-    "flightPoints": 0
+    "flightPointsDataList": [],
+    "fees": 0
   },
   {
     "id": 5,
     "emailAddress": "la@gmail.com",
     "password": "passwordd",
     "fullName": "lala",
-    "flightPoints": 0
+    "flightPointsDataList": [],
+    "fees": 0
+  },
+  {
+    "id": 6,
+    "emailAddress": "n@x.c",
+    "password": "xyz",
+    "fullName": "Soufiane OuLD",
+    "flightPointsDataList": [],
+    "fees": 0
   }
 ]
