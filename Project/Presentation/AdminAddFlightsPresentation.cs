@@ -101,6 +101,12 @@ public class AdminAddFlightsPresentation
             "Warsaw-Chopin"
             };
         string arrivalDestination;
+
+        foreach(var capital in europeanCapitalsAirports)
+        {
+            Console.WriteLine($"- {capital}");
+        }
+
         while (true)
         {
             Console.WriteLine("Enter Arrival Destination: ");

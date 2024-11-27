@@ -35,10 +35,8 @@ public static class CancelLogic
 
         Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
 
-        BookFlightPresentation.allBookedFlights = allBookedFlights;
-
         string FlightDetails = "";
-        foreach (var flight in BookFlightPresentation.allBookedFlights[email])
+        foreach (var flight in allBookedFlights[email])
         {
             // find flight by ID in Allflights list of BookFlightPresentation
             var neededflight = BookFlightPresentation.allFlights.Find(x => x.Id == flight.FlightID);
