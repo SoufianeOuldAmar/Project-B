@@ -34,6 +34,11 @@
         "ticketsBought": "2024-11-26T19:31:04.8795008+01:00",
         "points": 31,
         "flightId": 10
+      },
+      {
+        "ticketsBought": "2024-11-27T11:49:10.6231336+01:00",
+        "points": 41,
+        "flightId": 31
       }
     ],
     "fees": 0
@@ -81,6 +86,14 @@
     "emailAddress": "n@x.c",
     "password": "xyz",
     "fullName": "Soufiane OuLD",
+    "flightPointsDataList": [],
+    "fees": 0
+  },
+  {
+    "id": 7,
+    "emailAddress": "niemand@",
+    "password": "password1",
+    "fullName": "Iemand Anders",
     "flightPointsDataList": [],
     "fees": 0
   }

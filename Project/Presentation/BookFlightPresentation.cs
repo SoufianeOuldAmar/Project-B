@@ -30,8 +30,8 @@ public static class BookFlightPresentation
 
                 Console.WriteLine("{0,-5} {1,-25} {2,-46} {3,-58} {4,-15} {5,-14} {6,-14} {7,-15} {8,-10}",
                   "ID", "Airline", "Departure Airport", "Arrival Destination",
-                  "Flight Date", "Flight Time", "Ticket Price", "Cancelled", "Return Flight");
-                Console.WriteLine(new string('-', 205));
+                  "Flight Date", "Flight Time", "Ticket Price", "Return Flight", "Cancelled");
+                Console.WriteLine(new string('-', 213));
 
                 foreach (var flight in allFlights)
                 {
@@ -43,11 +43,11 @@ public static class BookFlightPresentation
                                       flight.DepartureDate,
                                       flight.FlightTime,
                                       flight.TicketPrice,
-                                      flight.IsCancelled ? "Yes" : "No",
-                                      flight.ReturnFlight == null ? "No" : "Yes");
+                                      flight.ReturnFlight == null ? "No" : "Yes",
+                                      flight.IsCancelled ? "Yes" : "No");
                 }
 
-                Console.WriteLine("\n" + new string('-', 205));
+                Console.WriteLine("\n" + new string('-', 213));
                 Console.Write("\nEnter the ID of the flight you wish to book (or 'Q' to quit): ");
 
 
