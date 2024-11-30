@@ -8,6 +8,7 @@ namespace DataModels
         public string Airline { get; set; }
         public LayoutModel Layout { get; set; }
         public double TicketPrice { get; set; }
+        public double OriginalTicketPrice { get; set; }
         public string Gate { get; set; }
         public string DepartureAirport { get; set; }
         public string ArrivalDestination { get; set; }
@@ -21,6 +22,7 @@ namespace DataModels
         public int TotalPets { get; set; } = 0;
 
         public FlightModel? ReturnFlight { get; set; }
+        public DateTime LastUpdated { get; set; }
 
 
         public FlightModel(string airline, LayoutModel layout, double ticketPrice, string gate, string departureAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime, int availableSeats, string timeOfDay = null)

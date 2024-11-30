@@ -237,10 +237,10 @@ public static class BookFlightPresentation
                             }
 
                             // var bookedFlight = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, false);1
-
+                            double ticketPrice = flightModel.TicketPrice;
                             List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
                         {
-                            new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false)
+                            new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false, ticketPrice)
 
                         };
                             FlightsAccess.WriteAll(allFlights);
@@ -437,10 +437,10 @@ public static class BookFlightPresentation
 
                     // var bookedFlight = new BookedFlightsModel(flightModel.Id, flightModel.Layout.BookedSeats, false);
                     // bookedFlight.FlightPoints += selecte
-
+                    double ticketPrice = flightModel.TicketPrice;
                     List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
                         {
-                            new BookedFlightsModel(flightModel.Id, flightModel.Layout.BookedSeats, baggageInfo,petInfo, false)
+                            new BookedFlightsModel(flightModel.Id, flightModel.Layout.BookedSeats, baggageInfo,petInfo, false, ticketPrice)
                         };
 
                     var index = allFlights.FindIndex(f => f.Id == flightModel.Id);

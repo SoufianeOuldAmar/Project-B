@@ -376,6 +376,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 150,
+    "originalTicketPrice": 0,
     "gate": "A12",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Paris, Charles de Gaulle Airport",
@@ -386,7 +387,8 @@
     "availableSeats": 178,
     "flightPoints": 15,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 2,
@@ -765,6 +767,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 200,
+    "originalTicketPrice": 0,
     "gate": "B4",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Frankfurt, Frankfurt Airport",
@@ -775,7 +778,8 @@
     "availableSeats": 178,
     "flightPoints": 20,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 3,
@@ -1274,6 +1278,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 180,
+    "originalTicketPrice": 0,
     "gate": "C7",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Brussels, Brussels Airport",
@@ -1284,7 +1289,8 @@
     "availableSeats": 180,
     "flightPoints": 18,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 4,
@@ -2264,6 +2270,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 250,
+    "originalTicketPrice": 0,
     "gate": "D9",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Warsaw, Warsaw Chopin Airport",
@@ -2274,7 +2281,8 @@
     "availableSeats": 173,
     "flightPoints": 25,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 5,
@@ -2653,6 +2661,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 160,
+    "originalTicketPrice": 0,
     "gate": "E11",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Budapest, International Airport",
@@ -2663,7 +2672,8 @@
     "availableSeats": 176,
     "flightPoints": 16,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 6,
@@ -3042,6 +3052,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 140,
+    "originalTicketPrice": 0,
     "gate": "F3",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Riga, Riga International Airport",
@@ -3052,7 +3063,8 @@
     "availableSeats": 180,
     "flightPoints": 14,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 7,
@@ -3431,6 +3443,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 190,
+    "originalTicketPrice": 0,
     "gate": "G5",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Lisbon, Lisbon Airport",
@@ -3441,7 +3454,8 @@
     "availableSeats": 179,
     "flightPoints": 19,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 8,
@@ -4420,6 +4434,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 230,
+    "originalTicketPrice": 0,
     "gate": "G7",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Lisbon, Lisbon Airport",
@@ -4430,7 +4445,8 @@
     "availableSeats": 179,
     "flightPoints": 23,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 9,
@@ -4809,6 +4825,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 275,
+    "originalTicketPrice": 0,
     "gate": "E4",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "London, Heathrow Airport",
@@ -4819,7 +4836,8 @@
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 10,
@@ -5198,6 +5216,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 310,
+    "originalTicketPrice": 0,
     "gate": "F4",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Naples, Naples Airport",
@@ -5208,7 +5227,8 @@
     "availableSeats": 180,
     "flightPoints": 31,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 11,
@@ -5707,6 +5727,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 315,
+    "originalTicketPrice": 0,
     "gate": "B6",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "London, Heathrow Airport",
@@ -5717,7 +5738,8 @@
     "availableSeats": 180,
     "flightPoints": 31,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 12,
@@ -6096,6 +6118,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 215,
+    "originalTicketPrice": 0,
     "gate": "E4",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Lisbon, Lisbon Airport",
@@ -6106,7 +6129,8 @@
     "availableSeats": 180,
     "flightPoints": 21,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 13,
@@ -6485,6 +6509,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 275,
+    "originalTicketPrice": 0,
     "gate": "C6",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
@@ -6495,7 +6520,8 @@
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 14,
@@ -6874,6 +6900,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 275,
+    "originalTicketPrice": 0,
     "gate": "B6",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "London, Heathrow Airport",
@@ -6884,7 +6911,8 @@
     "availableSeats": 179,
     "flightPoints": 27,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 15,
@@ -7263,6 +7291,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 410,
+    "originalTicketPrice": 0,
     "gate": "E4",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Istanbul, Istanbul Airport",
@@ -7273,7 +7302,8 @@
     "availableSeats": 180,
     "flightPoints": 41,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 16,
@@ -7652,6 +7682,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 185,
+    "originalTicketPrice": 0,
     "gate": "E4",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Milan, Malpensa Airport",
@@ -7662,7 +7693,8 @@
     "availableSeats": 180,
     "flightPoints": 18,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 17,
@@ -8041,6 +8073,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 345.5,
+    "originalTicketPrice": 0,
     "gate": "C8",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "London, Heathrow Airport",
@@ -8051,7 +8084,8 @@
     "availableSeats": 180,
     "flightPoints": 34,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 18,
@@ -8430,6 +8464,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 285,
+    "originalTicketPrice": 0,
     "gate": "B4",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "London, Heathrow Airport",
@@ -8440,7 +8475,8 @@
     "availableSeats": 180,
     "flightPoints": 28,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 19,
@@ -8819,6 +8855,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 315,
+    "originalTicketPrice": 0,
     "gate": "C4",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Oslo, Oslo Gardermoen Airport",
@@ -8829,7 +8866,8 @@
     "availableSeats": 179,
     "flightPoints": 31,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 20,
@@ -9208,6 +9246,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 300,
+    "originalTicketPrice": 0,
     "gate": "B2",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Zurich, Zurich Airport",
@@ -9218,7 +9257,8 @@
     "availableSeats": 180,
     "flightPoints": 30,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 21,
@@ -9597,6 +9637,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 215,
+    "originalTicketPrice": 0,
     "gate": "E4",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Vienna, International Airport",
@@ -9607,7 +9648,8 @@
     "availableSeats": 180,
     "flightPoints": 21,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 22,
@@ -9986,6 +10028,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 275,
+    "originalTicketPrice": 0,
     "gate": "E4",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Madrid, Madrid Barajas Airport",
@@ -9996,7 +10039,8 @@
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 23,
@@ -10975,6 +11019,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 315,
+    "originalTicketPrice": 0,
     "gate": "G7",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Vienna, International Airport",
@@ -10985,7 +11030,8 @@
     "availableSeats": 180,
     "flightPoints": 31,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 24,
@@ -11364,6 +11410,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 335.25,
+    "originalTicketPrice": 0,
     "gate": "B1",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "London, Heathrow Airport",
@@ -11374,7 +11421,8 @@
     "availableSeats": 179,
     "flightPoints": 33,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 25,
@@ -11754,6 +11802,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 285,
+    "originalTicketPrice": 0,
     "gate": "F6",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
@@ -11764,7 +11813,8 @@
     "availableSeats": 180,
     "flightPoints": 28,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 26,
@@ -12143,6 +12193,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 450,
+    "originalTicketPrice": 0,
     "gate": "E5",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Naples, Naples Airport",
@@ -12153,7 +12204,8 @@
     "availableSeats": 179,
     "flightPoints": 45,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 27,
@@ -12532,6 +12584,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 300.15,
+    "originalTicketPrice": 0,
     "gate": "B3",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Milan, Malpensa Airport",
@@ -12542,7 +12595,8 @@
     "availableSeats": 180,
     "flightPoints": 30,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 28,
@@ -12921,6 +12975,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 275,
+    "originalTicketPrice": 0,
     "gate": "E5",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Istanbul, Istanbul Airport",
@@ -12931,7 +12986,8 @@
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 29,
@@ -13310,6 +13366,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 275,
+    "originalTicketPrice": 0,
     "gate": "E1",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Budapest, International Airport",
@@ -13320,7 +13377,8 @@
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 30,
@@ -13699,6 +13757,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 305.25,
+    "originalTicketPrice": 0,
     "gate": "B6",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Warsaw, Warsaw Chopin Airport",
@@ -13709,7 +13768,8 @@
     "availableSeats": 180,
     "flightPoints": 30,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 31,
@@ -14390,7 +14450,6 @@
         "21H",
         "21J",
         "21K",
-        "22A",
         "22B",
         "22C",
         "22D",
@@ -14469,7 +14528,6 @@
         "29H",
         "29J",
         "29K",
-        "30A",
         "30B",
         "30C",
         "30D",
@@ -14677,31 +14735,39 @@
         "50F",
         "50G",
         "50H",
-        "50J",
         "50K"
       ],
       "bookedSeats": [
         "29A"
       ],
-      "chosenSeats": [],
+      "chosenSeats": [
+        "22A",
+        "30A",
+        "50J"
+      ],
       "isAirbusA330": true,
       "isBoeing787": false,
       "seatInitials": {
-        "29A": "SO "
+        "29A": "SO ",
+        "22A": "BD ",
+        "30A": "SO ",
+        "50J": "BA "
       }
     },
-    "ticketPrice": 415,
+    "ticketPrice": 31,
+    "originalTicketPrice": 19,
     "gate": "C8",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Istanbul, Istanbul Airport",
     "timeOfDay": null,
     "isCancelled": false,
-    "departureDate": "2024-12-14",
+    "departureDate": "4-4-2030",
     "flightTime": "12:30",
     "availableSeats": 178,
     "flightPoints": 41,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 32,
@@ -15080,6 +15146,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 305,
+    "originalTicketPrice": 0,
     "gate": "E4",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Madrid, Madrid Barajas Airport",
@@ -15090,7 +15157,8 @@
     "availableSeats": 180,
     "flightPoints": 30,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 33,
@@ -15469,6 +15537,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 205,
+    "originalTicketPrice": 0,
     "gate": "A6",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Brussels, Brussels Airport",
@@ -15479,7 +15548,8 @@
     "availableSeats": 180,
     "flightPoints": 20,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 34,
@@ -15858,6 +15928,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 215,
+    "originalTicketPrice": 0,
     "gate": "E4",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Vienna, International Airport",
@@ -15868,7 +15939,8 @@
     "availableSeats": 180,
     "flightPoints": 21,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 35,
@@ -16247,6 +16319,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 285,
+    "originalTicketPrice": 0,
     "gate": "F6",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
@@ -16257,7 +16330,8 @@
     "availableSeats": 180,
     "flightPoints": 28,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 36,
@@ -16636,6 +16710,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 275,
+    "originalTicketPrice": 0,
     "gate": "C6",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
@@ -16646,7 +16721,8 @@
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
-    "returnFlight": null
+    "returnFlight": null,
+    "lastUpdated": "0001-01-01T00:00:00"
   },
   {
     "id": 37,
@@ -17025,6 +17101,7 @@
       "seatInitials": {}
     },
     "ticketPrice": 150,
+    "originalTicketPrice": 0,
     "gate": "A10",
     "departureAirport": "Rotterdam",
     "arrivalDestination": "Athens-Eleftherios Venizelos",
@@ -17412,6 +17489,7 @@
         "seatInitials": {}
       },
       "ticketPrice": 150,
+      "originalTicketPrice": 0,
       "gate": "B09",
       "departureAirport": "Athens-Eleftherios Venizelos",
       "arrivalDestination": "Rotterdam",
@@ -17422,7 +17500,9 @@
       "availableSeats": 0,
       "flightPoints": 15,
       "totalPets": 0,
-      "returnFlight": null
-    }
+      "returnFlight": null,
+      "lastUpdated": "0001-01-01T00:00:00"
+    },
+    "lastUpdated": "0001-01-01T00:00:00"
   }
 ]

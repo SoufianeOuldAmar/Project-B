@@ -29,10 +29,8 @@ public static class BookFlightLogic
 
     public static List<FlightModel> SearchFlights(string departureAirport, string arrivalDestination)
     {
-    
-    
         // Return all flights that match the departure and arrival airport
-        var availableFlights= BookFlightPresentation.allFlights
+        var availableFlights = BookFlightPresentation.allFlights
             .Where(flight => flight.DepartureAirport == departureAirport && flight.ArrivalDestination == arrivalDestination && !flight.IsCancelled)
             .ToList();
 

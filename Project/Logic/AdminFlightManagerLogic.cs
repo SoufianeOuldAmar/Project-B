@@ -17,6 +17,7 @@ namespace DataAccess
         }
         public static bool SaveChangesLogic(FlightModel flight)
         {
+            // flight.LastUpdated = DateTime.UtcNow;
             var flights = FlightsAccess.ReadAll();
             var flightToUpdate = flights.FirstOrDefault(f => f.Id == flight.Id);
             if (flightToUpdate != null)
@@ -100,6 +101,29 @@ namespace DataAccess
             return false;
         }
 
+        // public static bool IsFlightDataOutdated()
+        // {
+        //     var filePath = "flights.json";
+        //     try
+        //     {
+        //         var fileLastModified = File.GetLastWriteTimeUtc(filePath);
+        //         return (DateTime.UtcNow - fileLastModified).TotalHours > 1;
+        //     }
+        //     catch (FileNotFoundException)
+        //     {
+        //         return true;
+        //     }
+        //     catch (Exception)
+        //     {
+        //         return true;
+        //     }
+        // }
+
+        public static void RefreshFlightData()
+        {
+
+            List<FlightModel> flightList = FlightsAccess.ReadAll();
+        }
 
     }
 }

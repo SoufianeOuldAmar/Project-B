@@ -7,7 +7,20 @@
       ],
       "Pets": [],
       "BaggageInfo": [],
-      "IsCancelled": false
+      "IsCancelled": false,
+      "BookedTicketprice": 0
+    }
+  ],
+  "t@b.c": [
+    {
+      "FlightID": 31,
+      "BookedSeats": [
+        "29A"
+      ],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "BookedTicketprice": 0
     }
   ]
 }
