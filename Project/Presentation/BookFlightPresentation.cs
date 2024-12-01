@@ -404,7 +404,7 @@ public static class BookFlightPresentation
 
                                     if (petType == "dog" || petType == "cat" || petType == "bunny" || petType == "bird")
                                     {
-                                        var newPet = new PetLogic(petType) { Fee = 50.0 }; // Adds a new pet with a 50 EUR fee
+                                        var newPet = new PetLogic(petType) { Fee = 50.0 }; // Adds a new pet object with a 50 EUR fee
                                         petInfo.Add(newPet);
                                         flightModel.TotalPets++; // Increment total pets for the flight
                                         Console.WriteLine($"Pet {petType} added. Fee: 50 EUR."); // Notify the user of the fee

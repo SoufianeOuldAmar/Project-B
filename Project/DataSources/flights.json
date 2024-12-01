@@ -6086,14 +6086,17 @@
         "30B",
         "30C",
         "30D",
-        "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "30E"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30E": "KK "
+      }
     },
     "ticketPrice": 215,
     "gate": "E4",
@@ -6105,7 +6108,7 @@
     "flightTime": "15:30",
     "availableSeats": 180,
     "flightPoints": 21,
-    "totalPets": 0,
+    "totalPets": 7,
     "returnFlight": null
   },
   {
