@@ -49,6 +49,11 @@
         "ticketsBought": "2024-11-27T13:29:34.864796+01:00",
         "points": 15,
         "flightId": 1
+      },
+      {
+        "ticketsBought": "2024-12-02T14:39:06.9746847+01:00",
+        "points": 21,
+        "flightId": 12
       }
     ],
     "fees": 0

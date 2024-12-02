@@ -11,6 +11,8 @@ public class BookedFlightsModel
     public List<BaggageLogic> BaggageInfo { get; set; }
     public bool IsCancelled { get; set; }
 
+    public double TicketBill { get; set; }
+
 
     public BookedFlightsModel(int flightID, List<string> bookedSeats, List<BaggageLogic> baggageInfo, List<PetLogic> pets, bool isCancelled)
     {
@@ -20,6 +22,7 @@ public class BookedFlightsModel
         Pets = pets;
         BaggageInfo = baggageInfo;
         IsCancelled = isCancelled;
+        TicketBill = 0;
     }
 
 
