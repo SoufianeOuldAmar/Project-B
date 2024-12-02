@@ -1,7 +1,7 @@
 ﻿// Welcome.Message();
-// MenuPresentation.Start();
-using DataAccess;
+MenuPresentation.Start();
+// using DataAccess;
 
 
-string email = Console.ReadLine();
-AdminManageBookingLogic.AdminSearchBooking(email);
+// string email = Console.ReadLine();
+// AdminManageBookingLogic.AdminSearchBooking(email);
