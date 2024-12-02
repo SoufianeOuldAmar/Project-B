@@ -8,6 +8,25 @@
       "Pets": [],
       "BaggageInfo": [],
       "IsCancelled": false
+    },
+    {
+      "FlightID": 23,
+      "BookedSeats": [],
+      "Pets": [
+        {
+          "AnimalType": "dog",
+          "Fee": 50
+        }
+      ],
+      "BaggageInfo": [
+        {
+          "Initials": "EF",
+          "BaggageType": "2",
+          "BaggageWeight": 25,
+          "Fee": 0
+        }
+      ],
+      "IsCancelled": false
     }
   ]
 }
