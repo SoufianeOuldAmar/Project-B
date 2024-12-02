@@ -13,6 +13,7 @@ public static class BookFlightPresentation
     {
         var currentAccount = AccountsLogic.CurrentAccount;
         int totalFlightpoints = 0;
+        double TotalTicketBill = 0;
 
         List<BaggageLogic> baggageInfo = new List<BaggageLogic>();
         List<PetLogic> petInfo = new List<PetLogic>();
@@ -234,15 +235,19 @@ public static class BookFlightPresentation
                                 Console.Clear();
                                 selectedFlight.Layout.PrintLayout();
                                 totalFlightpoints += selectedFlight.FlightPoints;
+                                TotalTicketBill += selectedFlight.TicketPrice;
                             }
 
                             // var bookedFlight = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, false);1
 
-                            List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
-                        {
-                            new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false)
+                            var bookedflight = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false);
+                            bookedflight.TicketBill = TotalTicketBill;
 
-                        };
+                            List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
+                            {
+                                bookedflight
+                            };
+
                             FlightsAccess.WriteAll(allFlights);
                             BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, bookedFlightModel);
                         }
@@ -438,10 +443,13 @@ public static class BookFlightPresentation
                     // var bookedFlight = new BookedFlightsModel(flightModel.Id, flightModel.Layout.BookedSeats, false);
                     // bookedFlight.FlightPoints += selecte
 
+                    var bookedflight = new BookedFlightsModel(flightModel.Id, flightModel.Layout.BookedSeats, baggageInfo, petInfo, false);
+                    bookedflight.TicketBill = TotalTicketBill;
+
                     List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
-                        {
-                            new BookedFlightsModel(flightModel.Id, flightModel.Layout.BookedSeats, baggageInfo,petInfo, false)
-                        };
+                    {
+                        bookedflight
+                    };
 
                     var index = allFlights.FindIndex(f => f.Id == flightModel.Id);
                     if (index >= 0)
@@ -469,88 +477,5 @@ public static class BookFlightPresentation
         }
 
     }
-
-
-    // public static void CancelBookedFlightMenu()
-    // {
-    //     Console.WriteLine("=== Cancel Booked Flight ===\n");
-
-    //     var currentAccount = AccountsLogic.CurrentAccount;
-    //     var email = currentAccount.EmailAddress;
-
-    //     if (!allBookedFlights.ContainsKey(email) || allBookedFlights[email].Count == 0)
-    //     {
-    //         Console.WriteLine("No booked tickets.");
-    //         return;
-    //     }
-
-    //     var bookedFlightModels = new List<FlightModel>();
-    //     var bookedFlights = allBookedFlights[email];
-    //     int index = 0;
-
-    //     foreach (var bookedFlightModel in bookedFlights)
-    //     {
-    //         var flightModel = BookFlightLogic.SearchFlightByID(bookedFlightModel.FlightID);
-    //         if (flightModel != null)
-    //         {
-    //             bookedFlightModels.Add(flightModel);
-    //         }
-    //     }
-
-    //     if (bookedFlightModels.Count > 0)
-    //     {
-    //         Console.WriteLine("Your booked flights:\n");
-    //         Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-28} {6, -18}",
-    //                           "ID", "Airline", "Departure Airport", "Arrival Destination",
-    //                           "Flight Time", "Cancelled by airline", "Cancelled by customer");
-
-    //         Console.WriteLine(new string('-', 220));
-
-    //         foreach (var flight in bookedFlightModels)
-    //         {
-    //             Console.WriteLine("{0,-5} {1,-25} {2,-55} {3,-60} {4,-15} {5,-28} {6, -18}",
-    //                               flight.Id,
-    //                               flight.Airline,
-    //                               flight.DepartureAirport,
-    //                               flight.ArrivalDestination,
-    //                               flight.FlightTime,
-    //                               flight.IsCancelled ? "Yes" : "No",
-    //                               bookedFlights[index].IsCancelled ? "Yes" : "No");
-    //             index++;
-    //         }
-
-    //         Console.Write("\nEnter the ID of the flight you wish to cancel (or 'Q' to quit): ");
-    //         string input = Console.ReadLine();
-
-    //         if (input.ToUpper() == "Q")
-    //         {
-    //             Console.WriteLine("Exiting cancellation process.");
-    //             MenuLogic.PopMenu();
-    //             return;
-    //         }
-
-    //         if (int.TryParse(input, out int flightToCancelId))
-    //         {
-    //             var bookedFlightToCancel = bookedFlights.FirstOrDefault(b => b.FlightID == flightToCancelId);
-    //             if (bookedFlightToCancel != null)
-    //             {
-    //                 bookedFlightToCancel.IsCancelled = true;
-    //                 Console.WriteLine($"Flight ID {flightToCancelId} has been successfully cancelled.");
-    //             }
-    //             else
-    //             {
-    //                 Console.WriteLine("Invalid Flight ID. Please try again.");
-    //             }
-    //         }
-    //         else
-    //         {
-    //             Console.WriteLine("Invalid input. Please enter a numeric ID or 'Q' to quit.");
-    //         }
-    //     }
-    //     else
-    //     {
-    //         Console.WriteLine("You have no booked flights.");
-    //     }
-    // }
 }
 

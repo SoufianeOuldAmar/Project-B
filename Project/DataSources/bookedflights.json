@@ -7,26 +7,38 @@
       ],
       "Pets": [],
       "BaggageInfo": [],
-      "IsCancelled": false
+      "IsCancelled": false,
+      "TicketBill": 0
     },
     {
-      "FlightID": 23,
-      "BookedSeats": [],
-      "Pets": [
-        {
-          "AnimalType": "dog",
-          "Fee": 50
-        }
+      "FlightID": 29,
+      "BookedSeats": [
+        "10A"
       ],
-      "BaggageInfo": [
-        {
-          "Initials": "EF",
-          "BaggageType": "2",
-          "BaggageWeight": 25,
-          "Fee": 0
-        }
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 0
+    },
+    {
+      "FlightID": 1,
+      "BookedSeats": [
+        "10A"
       ],
-      "IsCancelled": false
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 0
+    },
+    {
+      "FlightID": 12,
+      "BookedSeats": [
+        "10A"
+      ],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 215
     }
   ]
 }
