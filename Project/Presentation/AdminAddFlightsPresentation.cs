@@ -13,7 +13,7 @@ public class AdminAddFlightsPresentation
         string airline;
         while (true)
         {
-            Console.WriteLine("Enter the Airline name: ");
+            Console.Write("Enter the Airline name: ");
             airline = Console.ReadLine();
             if (airline is string)
             {
@@ -28,7 +28,7 @@ public class AdminAddFlightsPresentation
         double ticketPrice;
         while (true)
         {
-            Console.WriteLine("Enter Ticket Price: ");
+            Console.Write("\nEnter Ticket Price: ");
             string input = Console.ReadLine();
             if (double.TryParse(input, out ticketPrice) && ticketPrice > 0)
             {
@@ -36,7 +36,7 @@ public class AdminAddFlightsPresentation
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter letters only.");
+                Console.WriteLine("Invalid input. Please enter digits only.");
             }
 
         }
@@ -46,7 +46,7 @@ public class AdminAddFlightsPresentation
         string gateStr;
         while (true)
         {
-            Console.WriteLine("Enter Gate: ");
+            Console.Write("\nEnter Gate: ");
             string gate = Console.ReadLine();
             if (gate.Length >= 2 && gate.Length <= 3 && "ABCDEF".Contains(char.ToUpper(gate[0])) &&
             int.TryParse(gate.Substring(1), out int number) &&
@@ -66,7 +66,7 @@ public class AdminAddFlightsPresentation
         string departureAirport;
         while (true)
         {
-            Console.WriteLine("Enter Departure Airport: ");
+            Console.Write("\nEnter Departure Airport: ");
             departureAirport = Console.ReadLine();
             if (departureAirport is string)
             {
@@ -77,6 +77,9 @@ public class AdminAddFlightsPresentation
                 Console.WriteLine("Invalid input. Please enter letters only.");
             }
         }
+
+        int index = 1;
+
         var europeanCapitalsAirports = new List<string>
             {
             "Amsterdam-Schiphol",
@@ -102,32 +105,46 @@ public class AdminAddFlightsPresentation
             };
         string arrivalDestination;
 
-        foreach(var capital in europeanCapitalsAirports)
+        foreach (var capital in europeanCapitalsAirports)
         {
-            Console.WriteLine($"- {capital}");
+            Console.WriteLine($"{index}. {capital}");
+            index++;
         }
 
         while (true)
         {
-            Console.WriteLine("Enter Arrival Destination: ");
-            arrivalDestination = Console.ReadLine();
-            if (europeanCapitalsAirports.Contains(arrivalDestination))
+            Console.Write("\nEnter Arrival Destination (choose by the index): ");
+            string arrivalDestinationIndexStr = Console.ReadLine();
+
+            try
             {
+                // This could throw an exception if the string cannot be converted to an integer.
+                int arrivalDestinationIndex = Convert.ToInt32(arrivalDestinationIndexStr);
+
+                // This could throw an exception if the index is out of range.
+                arrivalDestination = europeanCapitalsAirports[arrivalDestinationIndex + 1];
                 break;
             }
-            else
+            catch (FormatException)
             {
-                Console.WriteLine("Invalid input. Please enter letters only.");
+                Console.WriteLine("Invalid input. Please enter a valid number.");
             }
-        }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("The selected index is out of range. Please try again.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+            }
 
-        Console.WriteLine("Is the flight cancelled? (yes/no): ");
-        bool IsCancelled = Console.ReadLine().ToLower() == "yes";
+
+        }
 
         string date;
         while (true)
         {
-            Console.WriteLine("Enter a Date (dd-mm-yyyy):");
+            Console.Write("\nEnter a Date (dd-mm-yyyy): ");
             string input = Console.ReadLine(); // dd-mm-yyyy
             string[] dateParts = input.Split('-');
 
@@ -178,7 +195,7 @@ public class AdminAddFlightsPresentation
         string time;
         while (true)
         {
-            Console.WriteLine("Enter Flight Time (HH:MM): ");
+            Console.Write("\nEnter Flight Time (HH:MM): ");
             string flightTime = Console.ReadLine();
             if (!flightTime.Contains(":"))
             {
@@ -206,7 +223,7 @@ public class AdminAddFlightsPresentation
 
         while (true)
         {
-            Console.WriteLine("Enter the current total number of pets on this flight (0-7): ");
+            Console.Write("\nEnter the current total number of pets on this flight (0-7): ");
             string input = Console.ReadLine();
 
             // Check if input is a valid number
@@ -219,12 +236,12 @@ public class AdminAddFlightsPresentation
                 }
                 else
                 {
-                    Console.WriteLine("The number must be between 0 and 7."); 
+                    Console.WriteLine("The number must be between 0 and 7.");
                 }
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a number."); 
+                Console.WriteLine("Invalid input. Please enter a number.");
             }
         }
 
@@ -255,7 +272,7 @@ public class AdminAddFlightsPresentation
         string returnGate;
         while (true)
         {
-            Console.WriteLine("Add a return flight? (yes/no):");
+            Console.Write("\nAdd a return flight? (yes/no): ");
             string returnFlightYesNo = Console.ReadLine().ToLower();
 
             if (returnFlightYesNo == "no")
@@ -266,7 +283,7 @@ public class AdminAddFlightsPresentation
             {
                 while (true)
                 {
-                    Console.WriteLine("Return Date (dd-mm-yyyy):");
+                    Console.Write("\nReturn Date (dd-mm-yyyy): ");
                     string dateString = Console.ReadLine();
 
                     if (DateTime.TryParseExact(dateString, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
@@ -292,7 +309,7 @@ public class AdminAddFlightsPresentation
 
                 while (true)
                 {
-                    Console.WriteLine("Return Time (HH:MM)");
+                    Console.Write("\nReturn Time (HH:MM): ");
                     string timeStr = Console.ReadLine();
 
                     if (DateTime.TryParseExact(timeStr, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedTime))
@@ -309,7 +326,7 @@ public class AdminAddFlightsPresentation
 
                 while (true)
                 {
-                    Console.WriteLine("Enter Gate: ");
+                    Console.Write("\nEnter Gate: ");
                     string gate = Console.ReadLine();
                     if (gate.Length >= 2 && gate.Length <= 3 && "ABCDEF".Contains(char.ToUpper(gate[0])) &&
                     int.TryParse(gate.Substring(1), out int number) &&
@@ -338,12 +355,12 @@ public class AdminAddFlightsPresentation
 
 
 
-        Console.WriteLine("New flight added:");
+        Console.WriteLine("New flight added.");
         return newFlight;
     }
     public void Exit()
     {
-        Console.WriteLine("press any key...");
+        Console.WriteLine("Press any key to continue...");
         Console.ReadKey();
         MenuLogic.PopMenu();
         // Console.Clear();

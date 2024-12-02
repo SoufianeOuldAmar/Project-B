@@ -9,14 +9,14 @@ static class AdminAccountPresentation
     public static void Login()
     {
         int i = 0;
-        while (true)
-        {
+        bool isRunning = true; // Add a flag to control the main loop
 
+        while (isRunning)
+        {
             Console.Write("Enter Your Username: ");
             string username = Console.ReadLine();
 
             Console.Write("Enter Your password: ");
-            // string password = Console.ReadLine();
             string password = "";
             bool passwordVisible = false;
 
@@ -64,78 +64,73 @@ static class AdminAccountPresentation
 
                 Console.Clear();
 
-                Console.WriteLine("=== Admin Page ===\n");
-
-                Console.WriteLine("1. Add a new flight");
-                Console.WriteLine("2. Change current flight details");
-                Console.WriteLine("3. Reset all flights");
-                Console.WriteLine("4. Log out");
-
-                // string addflight = Console.ReadLine().ToLower();
-                string logOut;
-                var keyInfo = Console.ReadLine();
-                if (keyInfo == "4")
+                bool adminMenuRunning = true; // Flag for admin menu loop
+                while (adminMenuRunning)
                 {
+                    Console.WriteLine("=== Admin Page ===\n");
 
-                    while (true)
+                    Console.WriteLine("1. Add a new flight");
+                    Console.WriteLine("2. Change current flight details");
+                    Console.WriteLine("3. Reset all flights");
+                    Console.WriteLine("4. Log out");
+
+                    Console.Write("\nChoose an option: ");
+                    string keyInfo = Console.ReadLine();
+
+                    if (keyInfo == "4")
                     {
-                        Console.Write("Are you sure you want to log out? (yes/no): ");
-                        logOut = Console.ReadLine();
+                        while (true)
+                        {
+                            Console.Write("\nAre you sure you want to log out? (yes/no): ");
+                            string logOut = Console.ReadLine()?.ToLower();
 
-                        if (logOut == "yes")
-                        {
-                            MenuLogic.PopMenu(); // Correctly navigate back by popping the current menu
-                            break; // Exit the current while loop
-                        }
-
-                        else if (logOut == "no")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Incorrect input, enter either 'yes' or 'no'.");
+                            if (logOut == "yes")
+                            {
+                                Console.WriteLine("Logging out...");
+                                MenuLogic.PopMenu();
+                                adminMenuRunning = false;
+                                isRunning = false; // Exit the main login loop
+                                break;
+                            }
+                            else if (logOut == "no")
+                            {
+                                Console.Clear();
+                                break;
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Incorrect input, enter either 'yes' or 'no'.");
+                            }
                         }
                     }
-
-                    if (logOut == "yes")
+                    else if (keyInfo == "1")
                     {
-                        break;
+                        AdminAddFlightsPresentation adminAddflight = new AdminAddFlightsPresentation();
+                        FlightModel newFlight = adminAddflight.AddNewFlights();
+                        FlightsAccess.AdminAddNewFlight(newFlight);
+                        adminAddflight.Exit();
                     }
-                    else if (logOut == "no")
+                    else if (keyInfo == "2")
                     {
-                        continue;
+                        AdminFlightManagerPresentation.LaodFlightPresentaion();
+                        AdminFlightManagerPresentation.UpdateDetailsPresentation();
+                        AdminFlightManagerPresentation.Exit();
                     }
+                    else if (keyInfo == "3")
+                    {
+                        LayoutModel layout = LayoutModel.CreateBoeing737Layout();
+                        layout.ResetAllSeats();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid option. Please try again.");
+                        Console.WriteLine("\nPress any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
 
-
+                    }
                 }
-                else if (keyInfo == "1")
-                {
-                    AdminAddFlightsPresentation adminAddflight = new AdminAddFlightsPresentation();
-                    FlightModel newFlight = adminAddflight.AddNewFlights();
-                    FlightsAccess.AdminAddNewFlight(newFlight);
-                    adminAddflight.Exit();
-                    break;
-                }
-                else if (keyInfo == "2")
-                {
-                    AdminFlightManagerPresentation.LaodFlightPresentaion();
-                    AdminFlightManagerPresentation.UpdateDetailsPresentation();
-                    AdminFlightManagerPresentation.Exit();
-                    break;
-                }
-
-                else if (keyInfo == "3")
-                {
-                    LayoutModel layout = LayoutModel.CreateBoeing737Layout();
-                    layout.ResetAllSeats();
-                }
-
-                else
-                {
-                    Console.WriteLine("Invalid key. Press 'Esc' to exit or 'a' to add a new flight.");
-                }
-
             }
             else
             {
@@ -147,10 +142,9 @@ static class AdminAccountPresentation
                     Thread.Sleep(30000);
                     i = 0;
                 }
-
             }
         }
-
     }
+
 
 }
