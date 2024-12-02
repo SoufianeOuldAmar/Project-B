@@ -12,10 +12,10 @@ static class AdminAccountPresentation
         while (true)
         {
 
-            Console.WriteLine("Enter Your Username: ");
+            Console.Write("Enter Your Username: ");
             string username = Console.ReadLine();
 
-            Console.WriteLine("Enter Your password: ");
+            Console.Write("Enter Your password: ");
             // string password = Console.ReadLine();
             string password = "";
             bool passwordVisible = false;
@@ -57,22 +57,59 @@ static class AdminAccountPresentation
 
             if (isValid)
             {
-                Console.WriteLine("Login as Admin successful. Welcome!");
-                Console.WriteLine("What do you want to do?");
-                Console.WriteLine("Enter (a) to add new flight");
-                Console.WriteLine("Enter (c) to add change flights details");
-                Console.WriteLine("R. Reset all flights");
-                Console.WriteLine("Press 'Esc' to logout");
+                Console.WriteLine("\nLogin as Admin successful. Welcome!");
+
+                Console.Write("\nPress any key to continue... ");
+                Console.ReadKey();
+
+                Console.Clear();
+
+                Console.WriteLine("=== Admin Page ===\n");
+
+                Console.WriteLine("1. Add a new flight");
+                Console.WriteLine("2. Change current flight details");
+                Console.WriteLine("3. Reset all flights");
+                Console.WriteLine("4. Log out");
 
                 // string addflight = Console.ReadLine().ToLower();
-                var keyInfo = Console.ReadKey(intercept: true);
-                if (keyInfo.Key == ConsoleKey.Escape)
+                string logOut;
+                var keyInfo = Console.ReadLine();
+                if (keyInfo == "4")
                 {
-                    Console.WriteLine("You chose to exit.");
-                    MenuLogic.PopMenu(); // Correctly navigate back by popping the current menu
-                    break; // Exit the current while loop
+
+                    while (true)
+                    {
+                        Console.Write("Are you sure you want to log out? (yes/no): ");
+                        logOut = Console.ReadLine();
+
+                        if (logOut == "yes")
+                        {
+                            MenuLogic.PopMenu(); // Correctly navigate back by popping the current menu
+                            break; // Exit the current while loop
+                        }
+
+                        else if (logOut == "no")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Incorrect input, enter either 'yes' or 'no'.");
+                        }
+                    }
+
+                    if (logOut == "yes")
+                    {
+                        break;
+                    }
+                    else if (logOut == "no")
+                    {
+                        continue;
+                    }
+
+
                 }
-                else if (keyInfo.KeyChar == 'a' || keyInfo.KeyChar == 'A')
+                else if (keyInfo == "1")
                 {
                     AdminAddFlightsPresentation adminAddflight = new AdminAddFlightsPresentation();
                     FlightModel newFlight = adminAddflight.AddNewFlights();
@@ -80,7 +117,7 @@ static class AdminAccountPresentation
                     adminAddflight.Exit();
                     break;
                 }
-                else if (keyInfo.KeyChar == 'c' || keyInfo.KeyChar == 'C')
+                else if (keyInfo == "2")
                 {
                     AdminFlightManagerPresentation.LaodFlightPresentaion();
                     AdminFlightManagerPresentation.UpdateDetailsPresentation();
@@ -88,7 +125,7 @@ static class AdminAccountPresentation
                     break;
                 }
 
-                else if (keyInfo.KeyChar == 'r' || keyInfo.KeyChar == 'R')
+                else if (keyInfo == "3")
                 {
                     LayoutModel layout = LayoutModel.CreateBoeing737Layout();
                     layout.ResetAllSeats();

@@ -7,16 +7,20 @@ public static class AccountPresentation
         while (true)
         {
             Console.WriteLine("=== Log in ===\n");
-            Console.WriteLine("Are you Admin or User? A/U");
+            Console.Write("Are you an Admin or a User? (Press A/U): ");
             string input1 = Console.ReadLine().ToLower();
             if (input1 == "a")
             {
+                Console.Clear();
+                Console.WriteLine("=== Log in ===\n");
                 AdminAccountPresentation.Login();
                 break;
             }
 
             else if (input1 == "u")
             {
+                Console.Clear();
+                Console.WriteLine("=== Log in ===\n");
                 Console.Write("Email address: ");
                 string emailAddress = Console.ReadLine();
                 Console.Write("Password: ");
