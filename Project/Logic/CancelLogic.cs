@@ -1,5 +1,6 @@
 using System.Text.Json;
 using DataModels;
+using DataAccess;
 public static class CancelLogic
 {
     public static string fileName = "DataSources/flights.json";
@@ -24,6 +25,8 @@ public static class CancelLogic
 
     public static string BookedFlights(string email)
     {
+
+        AdminFlightManagerLogic.RefreshFlightData();
         if (!BookFlightPresentation.allBookedFlights.ContainsKey(email))
         {
             return $"You have no flights booked";
@@ -42,8 +45,8 @@ public static class CancelLogic
             var neededflight = BookFlightPresentation.allFlights.Find(x => x.Id == flight.FlightID);
 
             string returnFlightAvailable = neededflight.ReturnFlight != null ? "Yes" : "No";
-            double totalPetFee= 0;
-            double totalBaggageFee= 0;
+            double totalPetFee = 0;
+            double totalBaggageFee = 0;
 
             // calculate total pet fee
             if (flight.Pets != null && flight.Pets.Count > 0)
