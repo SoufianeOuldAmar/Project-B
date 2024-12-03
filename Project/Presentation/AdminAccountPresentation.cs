@@ -57,12 +57,14 @@ static class AdminAccountPresentation
 
             if (isValid)
             {
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine("Login as Admin successful. Welcome!");
-                Console.WriteLine("What do you want to do?");
-                Console.WriteLine("Enter (a) to add new flight");
-                Console.WriteLine("Enter (c) to add change flights details");
+                Console.WriteLine("A. Add new flight");
+                Console.WriteLine("B. Manage the bookings");
+                Console.WriteLine("C. Add change flights details");
                 Console.WriteLine("R. Reset all flights");
                 Console.WriteLine("Press 'Esc' to logout");
+                Console.ResetColor();
 
                 // string addflight = Console.ReadLine().ToLower();
                 var keyInfo = Console.ReadKey(intercept: true);
@@ -92,6 +94,11 @@ static class AdminAccountPresentation
                 {
                     LayoutModel layout = LayoutModel.CreateBoeing737Layout();
                     layout.ResetAllSeats();
+                }
+                else if (keyInfo.KeyChar == 'B' || keyInfo.KeyChar == 'b')
+                {
+                    AdminManageBookingPresentation.LaodBookedPresentaion();
+                    AdminManageBookingPresentation.UpdateBookedDetailsPresentation();
                 }
 
                 else
