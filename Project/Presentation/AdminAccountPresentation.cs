@@ -121,6 +121,9 @@ static class AdminAccountPresentation
                     {
                         LayoutModel layout = LayoutModel.CreateBoeing737Layout();
                         layout.ResetAllSeats();
+                        Console.WriteLine("\nPress any key to continue...");
+                        Console.ReadKey();
+                        Console.Clear();
                     }
                     else
                     {
