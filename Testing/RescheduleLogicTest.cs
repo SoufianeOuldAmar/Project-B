@@ -19,8 +19,8 @@ namespace RescheduleLogicTest
 
             var flightsToTest= new List<FlightModel>
             {
-                new FlightModel("KLM", LayoutSimple, 200, "GateA", "Airport1", "Destination1", false, "2024-12-02", "11:00 AM", 6, 0) { Id = 1},
-                new FlightModel("Ryanair", LayoutSimple, 200, "GateB", "Airport2", "Destination2", false, "2025-12-02", "12:00 AM", 5, 0) { Id = 2},
+                new FlightModel(LayoutSimple, 200, "GateA", "Airport1", "Destination1", false, "2024-12-02", "11:00 AM", 6, 0) { Id = 1},
+                new FlightModel(LayoutSimple, 200, "GateB", "Airport2", "Destination2", false, "2025-12-02", "12:00 AM", 5, 0) { Id = 2},
            
             };
 

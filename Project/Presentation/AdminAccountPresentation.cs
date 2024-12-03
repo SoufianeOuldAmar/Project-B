@@ -113,7 +113,7 @@ static class AdminAccountPresentation
                     }
                     else if (keyInfo == "2")
                     {
-                        AdminFlightManagerPresentation.LaodFlightPresentaion();
+                        // AdminFlightManagerPresentation.LaodFlightPresentaion();
                         AdminFlightManagerPresentation.UpdateDetailsPresentation();
                         AdminFlightManagerPresentation.Exit();
                     }

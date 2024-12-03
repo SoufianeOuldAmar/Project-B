@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -366,17 +366,14 @@
         "30C",
         "30E",
         "30F",
-        "30D"
-      ],
-      "bookedSeats": [
+        "30D",
         "10A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {
-        "10A": "SO "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 150,
     "gate": "A12",
@@ -393,7 +390,7 @@
   },
   {
     "id": 2,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -782,7 +779,7 @@
   },
   {
     "id": 3,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 40,
       "columns": 6,
@@ -1291,7 +1288,7 @@
   },
   {
     "id": 4,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -2281,7 +2278,7 @@
   },
   {
     "id": 5,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -2670,7 +2667,7 @@
   },
   {
     "id": 6,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -3059,7 +3056,7 @@
   },
   {
     "id": 7,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -3448,7 +3445,7 @@
   },
   {
     "id": 8,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -4437,7 +4434,7 @@
   },
   {
     "id": 9,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -4826,7 +4823,7 @@
   },
   {
     "id": 10,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -5215,7 +5212,7 @@
   },
   {
     "id": 11,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 40,
       "columns": 6,
@@ -5724,7 +5721,7 @@
   },
   {
     "id": 12,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -6113,7 +6110,7 @@
   },
   {
     "id": 13,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -6502,7 +6499,7 @@
   },
   {
     "id": 14,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -6891,7 +6888,7 @@
   },
   {
     "id": 15,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -7280,7 +7277,7 @@
   },
   {
     "id": 16,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -7669,7 +7666,7 @@
   },
   {
     "id": 17,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -8058,7 +8055,7 @@
   },
   {
     "id": 18,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -8447,7 +8444,7 @@
   },
   {
     "id": 19,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -8836,7 +8833,7 @@
   },
   {
     "id": 20,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -9225,7 +9222,7 @@
   },
   {
     "id": 21,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -9614,7 +9611,7 @@
   },
   {
     "id": 22,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -10003,7 +10000,7 @@
   },
   {
     "id": 23,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -10992,7 +10989,7 @@
   },
   {
     "id": 24,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -11381,7 +11378,7 @@
   },
   {
     "id": 25,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -11771,7 +11768,7 @@
   },
   {
     "id": 26,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -12160,7 +12157,7 @@
   },
   {
     "id": 27,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -12549,7 +12546,7 @@
   },
   {
     "id": 28,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -12938,7 +12935,7 @@
   },
   {
     "id": 29,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -13303,17 +13300,14 @@
         "30C",
         "30D",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "10A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {
-        "10A": "SO "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 275,
     "gate": "E1",
@@ -13330,7 +13324,7 @@
   },
   {
     "id": 30,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -13719,7 +13713,7 @@
   },
   {
     "id": 31,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -14684,17 +14678,14 @@
         "50G",
         "50H",
         "50J",
-        "50K"
-      ],
-      "bookedSeats": [
+        "50K",
         "29A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": true,
       "isBoeing787": false,
-      "seatInitials": {
-        "29A": "SO "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 415,
     "gate": "C8",
@@ -14711,7 +14702,7 @@
   },
   {
     "id": 32,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -15100,7 +15091,7 @@
   },
   {
     "id": 33,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -15489,7 +15480,7 @@
   },
   {
     "id": 34,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -15878,7 +15869,7 @@
   },
   {
     "id": 35,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -16267,7 +16258,7 @@
   },
   {
     "id": 36,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -16656,7 +16647,7 @@
   },
   {
     "id": 37,
-    "airline": "BOSST, airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -17043,7 +17034,7 @@
     "totalPets": 0,
     "returnFlight": {
       "id": 0,
-      "airline": "sss",
+      "airline": "BOSST AIRLINES",
       "layout": {
         "rows": 30,
         "columns": 6,

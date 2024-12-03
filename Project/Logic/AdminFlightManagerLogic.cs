@@ -21,7 +21,6 @@ namespace DataAccess
             var flightToUpdate = flights.FirstOrDefault(f => f.Id == flight.Id);
             if (flightToUpdate != null)
             {
-                flightToUpdate.Airline = flight.Airline;
                 flightToUpdate.TicketPrice = flight.TicketPrice;
                 flightToUpdate.Gate = flight.Gate;
                 flightToUpdate.DepartureAirport = flight.DepartureAirport;

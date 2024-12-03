@@ -15,6 +15,7 @@ public class AdminAddFlightsPresentation
         {
             Console.Write("Enter the Airline name: ");
             airline = Console.ReadLine();
+
             if (airline is string)
             {
                 break;
@@ -249,8 +250,6 @@ public class AdminAddFlightsPresentation
 
         int nextFlightId = BookFlightPresentation.allFlights.Count;
         FlightModel newFlight = new FlightModel(
-
-            airline,
             layout,
             ticketPrice,
             gateStr,
@@ -363,10 +362,6 @@ public class AdminAddFlightsPresentation
         Console.WriteLine("Press any key to continue...");
         Console.ReadKey();
         MenuLogic.PopMenu();
-        // Console.Clear();
-        // MenuPresentation.AuthenticateAccountMenu();
-
-
     }
 
 }

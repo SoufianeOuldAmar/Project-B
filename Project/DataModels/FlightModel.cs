@@ -5,7 +5,8 @@ namespace DataModels
     public class FlightModel
     {
         public int Id { get; set; }
-        public string Airline { get; set; }
+        public string Airline { get; } = "BOSST AIRLINES";
+
         public LayoutModel Layout { get; set; }
         public double TicketPrice { get; set; }
         public string Gate { get; set; }
@@ -23,9 +24,8 @@ namespace DataModels
         public FlightModel? ReturnFlight { get; set; }
 
 
-        public FlightModel(string airline, LayoutModel layout, double ticketPrice, string gate, string departureAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime, int availableSeats, string timeOfDay = null)
+        public FlightModel(LayoutModel layout, double ticketPrice, string gate, string departureAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime, int availableSeats, string timeOfDay = null)
         {
-            Airline = airline;
             Layout = layout;
             TicketPrice = ticketPrice;
             Gate = gate;
@@ -39,23 +39,9 @@ namespace DataModels
             FlightPoints = Convert.ToInt32(TicketPrice) / 10;
         }
 
-        // public FlightModel(
-        //     string airline,
-        //     LayoutModel layout,
-        //     double ticketPrice,
-        //     string gate,
-        //     string departureAirport,
-        //     string arrivalDestination,
-        //     bool isCancelled,
-        //     string departureDate,
-        //     string flightTime,
-        //     int availableSeats,
-        //     string? timeOfDay = null) // Standaardwaarde is null
-
         public FlightModel CreateReturnFlight(string returnDate, string returnTime, string returnGate)
         {
             return new FlightModel(
-                Airline,
                 Layout,
                 TicketPrice, // Same ticket price
                 returnGate, // New gate for the return flight
