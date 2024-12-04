@@ -4675,7 +4675,6 @@
         "09D",
         "09E",
         "09F",
-        "10A",
         "10B",
         "10C",
         "10D",
@@ -4802,11 +4801,15 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "10A"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "10A": "SO "
+      }
     },
     "ticketPrice": 275,
     "gate": "E4",

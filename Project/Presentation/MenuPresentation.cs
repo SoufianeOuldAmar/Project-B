@@ -231,7 +231,7 @@ public static class MenuPresentation
                 Console.WriteLine($"\n{i + 1}. {ArrivalDestinations[i]}");
             }
             Console.ResetColor();
-            Console.Write("Select the number of the arrival destination (or leave blank for any): ");
+            Console.Write("\nSelect the number of the arrival destination (or leave blank for any): ");
             string arrivalChoice = Console.ReadLine();
             Console.Clear();
 
@@ -303,7 +303,7 @@ public static class MenuPresentation
         string timeOfDay = string.Empty;
         while (true)
         {
-            Console.WriteLine("Enter the time of day (Morning, Midday, Evening, Night) or leave blank for any (or press Q to quit, or B to go back): ");
+            Console.Write("Enter the time of day (Morning, Midday, Evening, Night) or leave blank for any (or press Q to quit, or B to go back): ");
             timeOfDay = Console.ReadLine()?.Trim().ToLower();
             Console.Clear();
 
@@ -367,7 +367,7 @@ public static class MenuPresentation
             for (int i = 0; i < searchResults.Count; i++)
             {
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine($"{(i + 1),-3}. {searchResults[i].Airline,-20} {searchResults[i].DepartureAirport,-45} {searchResults[i].ArrivalDestination,-35} {searchResults[i].DepartureDate,-18}  {searchResults[i].FlightTime,-15} €{searchResults[i].TicketPrice},-");
+                Console.WriteLine($"{(i + 1),-3}. {searchResults[i].Airline,-20} {searchResults[i].DepartureAirport,-46} {searchResults[i].ArrivalDestination,-38} {searchResults[i].DepartureDate,-18}  {searchResults[i].FlightTime,-16} €{searchResults[i].TicketPrice},-");
             }
             Console.ResetColor();
 
@@ -384,30 +384,26 @@ public static class MenuPresentation
     {
         Console.WriteLine($"Logged in as: {accountModel.FullName}\n");
         Console.WriteLine("=== Front page ===");
-        Console.WriteLine("1. Order a ticket");
+        Console.WriteLine("1. Search for flights");
         Console.WriteLine("2. View history of tickets");
-        Console.WriteLine("3. Search for flights");
-        Console.WriteLine("4. View Flight Points");
-        Console.WriteLine("5. Log out");
+        Console.WriteLine("3. View Flight Points");
+        Console.WriteLine("4. Log out");
         Console.Write("\nChoose an option: ");
         string choice = Console.ReadLine();
 
         switch (choice)
         {
             case "1":
-                MenuLogic.PushMenu(BookFlightMenu);
+                MenuLogic.PushMenu(SearchFlightsMenu);  // Voeg de zoekfunctie toe
                 break;
             case "2":
                 MenuLogic.PushMenu(() => CancelMain(accountModel.EmailAddress));
                 break;
             case "3":
-                MenuLogic.PushMenu(SearchFlightsMenu);  // Voeg de zoekfunctie toe
-                break;
-            case "4":
                 MenuLogic.PushMenu(ViewFlightPointsMenu);
                 // Console.WriteLine("This feautre isn't implemented yet.");
                 break;
-            case "5":
+            case "4":
                 Console.WriteLine("\nLogging out...");
                 // AccountsLogic.LogOut(); (voeg logout-logica toe indien nodig)
                 MenuLogic.PopMenu();
@@ -519,7 +515,7 @@ public static class MenuPresentation
                 Console.WriteLine($"\n{i + 1}. {ArrivalDestinations[i]}");
             }
             Console.ResetColor();
-            Console.Write("Select the number of the arrival destination (or leave blank for any): ");
+            Console.Write("\nSelect the number of the arrival destination (or leave blank for any): ");
             string arrivalChoice = Console.ReadLine();
             Console.Clear();
 
@@ -590,7 +586,7 @@ public static class MenuPresentation
         string timeOfDay = string.Empty;
         while (true)
         {
-            Console.WriteLine("Enter the time of day (Morning, Midday, Evening, Night) or leave blank for any (or press Q to quit, or B to go back): ");
+            Console.Write("Enter the time of day (Morning, Midday, Evening, Night) or leave blank for any (or press Q to quit, or B to go back): ");
             timeOfDay = Console.ReadLine()?.Trim().ToLower();
             Console.Clear();
 
@@ -653,13 +649,13 @@ public static class MenuPresentation
             for (int i = 0; i < searchResults.Count; i++)
             {
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine($"{(i + 1),-3}. {searchResults[i].Airline,-20} {searchResults[i].DepartureAirport,-45} {searchResults[i].ArrivalDestination,-35} {searchResults[i].DepartureDate,-18}  {searchResults[i].FlightTime,-15} €{searchResults[i].TicketPrice},-");
+                Console.WriteLine($"{(i + 1),-3}. {searchResults[i].Airline,-20} {searchResults[i].DepartureAirport,-46} {searchResults[i].ArrivalDestination,-38} {searchResults[i].DepartureDate,-16}  {searchResults[i].FlightTime,-15} €{searchResults[i].TicketPrice},-");
             }
             Console.ResetColor();
 
             while (true)
             {
-                Console.WriteLine("\nEnter the flight number to book a seat, or 'Q' to quit:");
+                Console.Write("\nEnter the flight number to book a seat, or 'Q' to quit: ");
                 string choice = Console.ReadLine();
 
                 if (choice.Equals("Q", StringComparison.OrdinalIgnoreCase))

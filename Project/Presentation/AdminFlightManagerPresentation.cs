@@ -20,7 +20,7 @@ namespace DataAccess
                 return;
             }
 
-            const int pageSize = 5;
+            const int pageSize = 3;
             int currentPage = 0;
             int totalPages = (int)Math.Ceiling(allFlights.Count / (double)pageSize);
 
