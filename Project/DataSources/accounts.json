@@ -68,6 +68,11 @@
         "ticketsBought": "0001-01-01T00:00:00",
         "points": 0,
         "flightId": 0
+      },
+      {
+        "ticketsBought": "2024-12-04T12:53:28.164325+01:00",
+        "points": 27,
+        "flightId": 13
       }
     ],
     "fees": 0

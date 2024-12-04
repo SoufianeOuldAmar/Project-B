@@ -755,17 +755,20 @@
         "29E",
         "29F",
         "30A",
-        "30B",
         "30C",
         "30D",
         "30E",
         "30F"
       ],
       "bookedSeats": [],
-      "chosenSeats": [],
+      "chosenSeats": [
+        "30B"
+      ],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "30B": "ER "
+      }
     },
     "ticketPrice": 200,
     "gate": "B4",
@@ -6481,14 +6484,17 @@
         "30C",
         "30E",
         "30F",
-        "11A",
         "30D"
       ],
-      "bookedSeats": [],
+      "bookedSeats": [
+        "11A"
+      ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "11A": "SH "
+      }
     },
     "ticketPrice": 275,
     "gate": "C6",
@@ -6500,7 +6506,7 @@
     "flightTime": "12:45",
     "availableSeats": 180,
     "flightPoints": 27,
-    "totalPets": 0,
+    "totalPets": 1,
     "returnFlight": null
   },
   {
@@ -9903,7 +9909,6 @@
         "17A",
         "17B",
         "17C",
-        "17D",
         "17E",
         "17F",
         "18A",
@@ -9986,10 +9991,14 @@
         "30F"
       ],
       "bookedSeats": [],
-      "chosenSeats": [],
+      "chosenSeats": [
+        "17D"
+      ],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "17D": "BK "
+      }
     },
     "ticketPrice": 275,
     "gate": "E4",
@@ -10598,7 +10607,6 @@
         "13C",
         "13D",
         "13E",
-        "13F",
         "13G",
         "13H",
         "13J",
@@ -10975,10 +10983,14 @@
         "50K"
       ],
       "bookedSeats": [],
-      "chosenSeats": [],
+      "chosenSeats": [
+        "13F"
+      ],
       "isAirbusA330": true,
       "isBoeing787": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "13F": "AB "
+      }
     },
     "ticketPrice": 315,
     "gate": "G7",
@@ -10990,7 +11002,7 @@
     "flightTime": "20:30",
     "availableSeats": 180,
     "flightPoints": 31,
-    "totalPets": 1,
+    "totalPets": 3,
     "returnFlight": null
   },
   {
@@ -11236,7 +11248,6 @@
         "09D",
         "09E",
         "09F",
-        "10A",
         "10B",
         "10C",
         "10D",
@@ -11364,10 +11375,14 @@
         "30F"
       ],
       "bookedSeats": [],
-      "chosenSeats": [],
+      "chosenSeats": [
+        "10A"
+      ],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "10A": "ER "
+      }
     },
     "ticketPrice": 335.25,
     "gate": "B1",
@@ -16122,7 +16137,6 @@
         "09D",
         "09E",
         "09F",
-        "10A",
         "10B",
         "10C",
         "10D",
@@ -16250,10 +16264,14 @@
         "30F"
       ],
       "bookedSeats": [],
-      "chosenSeats": [],
+      "chosenSeats": [
+        "10A"
+      ],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {}
+      "seatInitials": {
+        "10A": "ER "
+      }
     },
     "ticketPrice": 285,
     "gate": "F6",

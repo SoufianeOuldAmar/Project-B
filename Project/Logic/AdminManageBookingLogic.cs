@@ -3,74 +3,45 @@ namespace DataAccess
 
     public static class AdminManageBookingLogic
     {
-        public static List<BookedFlightsModel> AdminSearchBooking(string email)
+        // public static void LaodBookedPresentaion()
+        // {
+        //     Console.Clear();
+        //     var flightDeatails = FlightsAccess.ReadAll();
+        //     var BookdeFlight = BookedFlightsAccess.LoadAll();
+
+        //     foreach (var emailBookingPair in BookdeFlight)
+        //     {
+        //         string email = emailBookingPair.Key;
+        //         var bookings = emailBookingPair.Value;
+
+        //         DisplayBookingDetails(bookings, flightDeatails, email);
+        //     }
+        // }
+        // public static List<BookedFlightsModel> SearchBookedPresentaion(string email)
+        // {
+        //     var flightDeatails = FlightsAccess.ReadAll();
+        //     var BookdeFlight = BookedFlightsAccess.LoadAll();
+        //     List<BookedFlightsModel> bookings = new List<BookedFlightsModel>();
+
+        //     if (BookdeFlight.ContainsKey(email))
+        //     {
+        //         bookings = BookdeFlight[email];
+        //         DisplayBookingDetails(bookings, flightDeatails, email);
+        //     }
+
+        //     return bookings;
+        // }
+
+
+        public static bool SeatLogic(string newSeat)
         {
-            var flightDeatails = FlightsAccess.ReadAll();
-            var BookdeFlight = BookedFlightsAccess.LoadAll();
-            if (BookdeFlight.ContainsKey(email))
+            if (newSeat.Length >= 2 && newSeat.Length <= 3 && "ABCDEF".Contains(char.ToUpper(newSeat[^1])) &&
+            int.TryParse(newSeat.Substring(0, newSeat.Length - 1), out int number) &&
+            number >= 1 && number <= 30)
             {
-                foreach (var books in BookdeFlight[email])
-                {
-
-
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write($"  FlightID: ");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(books.FlightID);
-
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write($"  Ticket Price: ");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(books.TicketBill);
-                    // Console.WriteLine($"Ticket Price: {books.TicketBill}");
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write($"  Booked Seats: ");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(string.Join(", ", books.BookedSeats));
-                    // Console.WriteLine($"  Booked Seats: {string.Join(", ", books.BookedSeats)}");
-
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write($"  Pets: ");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(string.Join(", ", books.Pets));
-                    // Console.WriteLine($"  Pets: {string.Join(", ", books.Pets)}");
-
-                    // Console.WriteLine($"  Baggage Info: {string.Join(", ", books.BaggageInfo)}");
-
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write($"  Baggage Info: ");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(string.Join(", ", books.BaggageInfo));
-
-                    // Console.WriteLine($"  Is Cancelled: {books.IsCancelled}");
-
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write($"  Is Cancelled: ");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(books.IsCancelled);
-
-                    var flight = flightDeatails.Find(f => f.Id == books.FlightID);
-
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write($"  Date: ");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(flight.DepartureDate);
-
-                    // Console.WriteLine($"  Date: {flight.DepartureDate}");
-
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write($"  Time: ");
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine(flight.FlightTime);
-                    // Console.WriteLine($"  Time: {flight.FlightTime}");
-                    Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine("=========================================");
-                    Console.ResetColor();
-                    Console.WriteLine();
-                }
-
+                return true;
             }
-            return null;
+            return false;
         }
     }
 }

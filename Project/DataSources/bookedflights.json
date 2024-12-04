@@ -39,6 +39,88 @@
       "BaggageInfo": [],
       "IsCancelled": false,
       "TicketBill": 215
+    },
+    {
+      "FlightID": 2,
+      "BookedSeats": [],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 200
+    },
+    {
+      "FlightID": 24,
+      "BookedSeats": [],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 335.25
+    }
+  ],
+  "t@b.c": [
+    {
+      "FlightID": 23,
+      "BookedSeats": [],
+      "Pets": [
+        {
+          "AnimalType": "dog",
+          "Fee": 50
+        },
+        {
+          "AnimalType": "bird",
+          "Fee": 50
+        }
+      ],
+      "BaggageInfo": [
+        {
+          "Initials": "AB",
+          "BaggageType": "1",
+          "BaggageWeight": 20,
+          "Fee": 50
+        }
+      ],
+      "IsCancelled": false,
+      "TicketBill": 315
+    },
+    {
+      "FlightID": 22,
+      "BookedSeats": [],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 275
+    },
+    {
+      "FlightID": 13,
+      "BookedSeats": [
+        "11A"
+      ],
+      "Pets": [
+        {
+          "AnimalType": "dog",
+          "Fee": 50
+        }
+      ],
+      "BaggageInfo": [
+        {
+          "Initials": "SH",
+          "BaggageType": "1",
+          "BaggageWeight": 10,
+          "Fee": 0
+        }
+      ],
+      "IsCancelled": false,
+      "TicketBill": 275
+    }
+  ],
+  "soufiane_ouldamar@": [
+    {
+      "FlightID": 35,
+      "BookedSeats": [],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 285
     }
   ]
 }
