@@ -107,7 +107,12 @@ static class AdminAccountPresentation
                     {
                         AdminAddFlightsPresentation adminAddflight = new AdminAddFlightsPresentation();
                         FlightModel newFlight = adminAddflight.AddNewFlights();
-                        FlightsAccess.AdminAddNewFlight(newFlight);
+
+                        if (newFlight != null)
+                        {
+                            FlightsAccess.AdminAddNewFlight(newFlight);
+                        }
+
                         adminAddflight.Exit();
                     }
                     else if (keyInfo == "2")

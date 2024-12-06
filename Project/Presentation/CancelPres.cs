@@ -15,7 +15,7 @@ public class CancelPres
             Console.WriteLine("3. View Booked Flights");
             Console.WriteLine("4. Review policy");
             Console.WriteLine("5. Quit");
-            Console.Write("\nPlease enter your choice (1, 2, 3, 4, 5 or 6): ");
+            Console.Write("\nPlease enter your choice (1, 2, 3, 4, or 5): ");
 
             string userInput = Console.ReadLine();
             switch (userInput)

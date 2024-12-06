@@ -366,8 +366,6 @@ namespace DataAccess
         public static void Exit()
         {
             Console.Clear();
-            MenuLogic.PopMenu();
-
         }
     }
 }

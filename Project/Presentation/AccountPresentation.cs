@@ -1,3 +1,5 @@
+using System.Threading;
+
 public static class AccountPresentation
 {
     public static void LogIn()
@@ -92,15 +94,133 @@ public static class AccountPresentation
         {
             Console.Clear();
             Console.WriteLine("=== Create account ===");
+            string fullName;
+            string emailAddress;
+            string password;
 
-            Console.Write("\nFull name: ");
-            string fullName = Console.ReadLine();
+            string quitConfirmation = null;
+            string quitConfirmation1 = null;
+            string quitConfirmation2 = null;
 
-            Console.Write("Email address: ");
-            string emailAddress = Console.ReadLine();
+            bool quitConf;
 
-            Console.Write("Password: ");
-            string password = Console.ReadLine();
+            while (true)
+            {
+                Console.Write("\nFull name (or enter 'Q' to quit the process): ");
+                fullName = Console.ReadLine();
+
+                if (fullName.ToUpper() == "Q")
+                {
+                    while (true)
+                    {
+                        Console.Write("Do you really want to quit this operation? (yes/no): ");
+                        quitConfirmation = Console.ReadLine();
+
+                        if (quitConfirmation == "yes")
+                        {
+                            MenuLogic.PopMenu();
+                            break;
+                        }
+                        else if (quitConfirmation == "no")
+                        {
+                            break;
+                        }
+                    }
+
+                    if (quitConfirmation == "yes")
+                    {
+                        break;
+                    }
+
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if (quitConfirmation == "yes")
+            {
+                break;
+            }
+
+            while (true)
+            {
+                Console.Write("Email address (or enter 'Q' to quit the process): ");
+                emailAddress = Console.ReadLine();
+
+                if (emailAddress.ToUpper() == "Q")
+                {
+                    while (true)
+                    {
+                        Console.Write("Do you really want to quit this operation? (yes/no): ");
+                        quitConfirmation1 = Console.ReadLine();
+
+                        if (quitConfirmation1 == "yes")
+                        {
+                            MenuLogic.PopMenu();
+                            break;
+                        }
+                        else if (quitConfirmation1 == "no")
+                        {
+                            break;
+                        }
+                    }
+
+                    if (quitConfirmation1 == "yes")
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if (quitConfirmation1 == "yes")
+            {
+                break;
+            }
+
+            while (true)
+            {
+                Console.Write("Password (or enter 'Q' to quit the process): ");
+                password = Console.ReadLine();
+
+                if (password.ToUpper() == "Q")
+                {
+                    while (true)
+                    {
+                        Console.Write("Do you really want to quit this operation? (yes/no): ");
+                        quitConfirmation2 = Console.ReadLine();
+
+                        if (quitConfirmation2 == "yes")
+                        {
+                            break;
+                        }
+                        else if (quitConfirmation2 == "no")
+                        {
+                            break;
+                        }
+                    }
+
+                    if (quitConfirmation2 == "yes")
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if (quitConfirmation2 == "yes")
+            {
+                MenuLogic.PopMenu();
+                break;
+            }
 
             // Attempt to create the account
             string resultMessage = AccountsLogic.CreateAccount(fullName, emailAddress, password);
