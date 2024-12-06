@@ -359,8 +359,7 @@ public class AdminAddFlightsPresentation
     }
     public void Exit()
     {
-        Console.WriteLine("Press any key to continue...");
-        Console.ReadKey();
+        MenuPresentation.PressAnyKey();
         MenuLogic.PopMenu();
     }
 

@@ -7,13 +7,19 @@ public static class AccountPresentation
         while (true)
         {
             Console.WriteLine("=== Log in ===\n");
-            Console.Write("Are you an Admin or a User? (Press A/U): ");
+            Console.Write("Are you an Admin or a User? (Enter A/U for admin or user or enter 'Q' to go back): ");
             string input1 = Console.ReadLine().ToLower();
             if (input1 == "a")
             {
                 Console.Clear();
                 Console.WriteLine("=== Log in ===\n");
                 AdminAccountPresentation.Login();
+                break;
+            }
+
+            else if (input1 == "q")
+            {
+                MenuLogic.PopMenu();
                 break;
             }
 
@@ -68,8 +74,7 @@ public static class AccountPresentation
                         {
                             Console.WriteLine("\nInvalid input! Please type 'yes' or 'no'.\n");
                             newLineValid = false;
-                            Console.WriteLine("Press any key to continue...");
-                            Console.ReadKey();
+                            MenuPresentation.PressAnyKey();
                             Console.Clear();
                         }
                     } while (!validInput);
@@ -130,8 +135,7 @@ public static class AccountPresentation
                 {
                     // Invalid input, prompt again
                     Console.WriteLine("Invalid input! Please type 'yes' or 'no'.");
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ReadKey();
+                    MenuPresentation.PressAnyKey();
                     Console.Clear();
                 }
             }

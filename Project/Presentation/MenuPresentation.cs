@@ -17,8 +17,7 @@ public static class MenuPresentation
             Console.Clear();
             currentMenu.Invoke();
 
-            Console.Write("\nPress any key to continue... ");
-            Console.ReadKey();
+            PressAnyKey();
         }
     }
 
@@ -93,18 +92,6 @@ public static class MenuPresentation
     {
         AccountPresentation.CreateAccount();
     }
-
-
-
-    public static void BookFlightMenu()
-    {
-        BookFlightPresentation.BookFlightMenu();
-    }
-
-    // public static void ViewTicketHistoryMenu()
-    // {
-    //     BookFlightPresentation.CancelBookedFlightMenu();
-    // }
 
     public static void CancelMain(string email)
     {
@@ -380,6 +367,7 @@ public static class MenuPresentation
         MenuLogic.PopMenu();
         Console.ReadKey();
     }
+
     public static void FrontPageUser(AccountModel accountModel)
     {
         Console.WriteLine($"Logged in as: {accountModel.FullName}\n");
@@ -689,4 +677,18 @@ public static class MenuPresentation
     {
         BookFlightPresentation.BookFlightMenu(true, selectedFlight);
     }
+
+    public static void PressAnyKey()
+    {
+        Console.Write("\nPress any key to continue... ");
+        Console.ReadKey();
+    }
+
+    public static void PrintColored(string text, ConsoleColor color)
+    {
+        Console.ForegroundColor = color;
+        Console.WriteLine(text);
+        Console.ResetColor();
+    }
+
 }

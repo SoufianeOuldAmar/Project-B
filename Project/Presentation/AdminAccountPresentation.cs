@@ -59,8 +59,7 @@ static class AdminAccountPresentation
             {
                 Console.WriteLine("\nLogin as Admin successful. Welcome!");
 
-                Console.Write("\nPress any key to continue... ");
-                Console.ReadKey();
+                MenuPresentation.PressAnyKey();
 
                 Console.Clear();
 
@@ -121,15 +120,13 @@ static class AdminAccountPresentation
                     {
                         LayoutModel layout = LayoutModel.CreateBoeing737Layout();
                         layout.ResetAllSeats();
-                        Console.WriteLine("\nPress any key to continue...");
-                        Console.ReadKey();
+                        MenuPresentation.PressAnyKey();
                         Console.Clear();
                     }
                     else
                     {
                         Console.WriteLine("Invalid option. Please try again.");
-                        Console.WriteLine("\nPress any key to continue...");
-                        Console.ReadKey();
+                        MenuPresentation.PressAnyKey();
                         Console.Clear();
 
                     }

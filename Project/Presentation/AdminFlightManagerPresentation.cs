@@ -347,15 +347,13 @@ namespace DataAccess
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Flight details updated and saved.");
                     Console.ResetColor();
-                    Console.WriteLine("\nPress any key to continue...");
-                    Console.ReadKey();
+                    MenuPresentation.PressAnyKey();
                     break;
                 }
                 else if (saveChoice.ToLower() == "no")
                 {
                     Console.WriteLine("\nChanges not saved.");
-                    Console.WriteLine("\nPress any key to continue...");
-                    Console.ReadKey();
+                    MenuPresentation.PressAnyKey();
                     break;
                 }
                 else

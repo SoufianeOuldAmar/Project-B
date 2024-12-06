@@ -20,7 +20,7 @@ public static class BookedFlightsAccess
         return JsonSerializer.Deserialize<Dictionary<string, List<BookedFlightsModel>>>(json);
     }
 
-    public static void WriteAll(string email, List<BookedFlightsModel> newBookedFlights)
+    public static void WriteAll(string email, List<BookedFlightsModel> updatedBookedFlights)
     {
         // Load the current booked flights data from the file
         Dictionary<string, List<BookedFlightsModel>> bookedFlights = LoadAll();
@@ -28,13 +28,13 @@ public static class BookedFlightsAccess
         // Check if the email (key) already exists in the dictionary
         if (bookedFlights.ContainsKey(email))
         {
-            // If it exists, add the new booked flights to the existing list
-            bookedFlights[email].AddRange(newBookedFlights);
+            // Replace the existing list of booked flights with the updated list
+            bookedFlights[email] = updatedBookedFlights;
         }
         else
         {
             // If the email doesn't exist, create a new entry
-            bookedFlights[email] = new List<BookedFlightsModel>(newBookedFlights);
+            bookedFlights[email] = new List<BookedFlightsModel>(updatedBookedFlights);
         }
 
         // Serialize and write the updated data back to the JSON file
@@ -42,5 +42,6 @@ public static class BookedFlightsAccess
         string json = JsonSerializer.Serialize(bookedFlights, options);
         File.WriteAllText(path, json);
     }
+
 
 }
