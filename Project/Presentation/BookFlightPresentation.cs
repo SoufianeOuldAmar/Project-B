@@ -30,7 +30,7 @@ public static class BookFlightPresentation
             Console.WriteLine("{0,-20} {1,-35}", "Available Seats:", flightModel.AvailableSeats);
             Console.WriteLine("{0,-20} {1,-35}", "Is Cancelled:", (flightModel.IsCancelled ? "Yes" : "No"));
 
-            Console.Write("\nAre you sure you want to book this flight? (yes/no) ");
+            Console.Write("\nAre you sure you want to book this flight? (yes/no): ");
             string confirmation = Console.ReadLine();
 
             if (confirmation.ToLower() == "yes")
@@ -40,8 +40,19 @@ public static class BookFlightPresentation
 
                 while (true)
                 {
+                    Console.Clear();
+
+                    flightModel.Layout.PrintLayout();
+
                     Console.Write("\nWhich seat do you want? (press Q to quit or Enter to confirm booking and keep choosing by seat number if you want more seats): ");
                     string seat = Console.ReadLine()?.ToUpper();
+
+                    if (flightModel.Layout.BookedSeats.Contains(seat))
+                    {
+                        Console.WriteLine($"\nSeat ({seat}) is already booked. Choose another one");
+                        MenuPresentation.PressAnyKey();
+                        continue;
+                    }
 
                     if (seat == "Q")
                     {
@@ -66,19 +77,19 @@ public static class BookFlightPresentation
                     // Book the seat with initials
                     flightModel.Layout.BookFlight(seat, initials);
 
-                    Console.WriteLine("Do you want to add baggage (yes/no):");
+                    Console.Write("Do you want to add baggage (yes/no): ");
                     string userBaggage = Console.ReadLine().ToLower();
 
                     if (userBaggage == "yes")
                     {
-                        Console.Write("Enter the number for the baggage (1) carry on, (2)checked or (3)both): ");
+                        Console.Write("Enter the number for the baggage (1) carry on, (2) checked or (3) both): ");
                         string baggageType = Console.ReadLine().ToLower();
                         double weightBaggage = 0;
                         double feeBaggage = 0;
 
                         if (baggageType == "1")
                         {
-                            Console.WriteLine("Enter weight for carry on (in kg): ");
+                            Console.Write("Enter weight for carry on (in kg): ");
                             weightBaggage = double.Parse(Console.ReadLine());
 
                             if (weightBaggage > 10)
@@ -127,7 +138,7 @@ public static class BookFlightPresentation
 
 
                     }
-                    Console.WriteLine("Do you want to add a pet? max 7 pets (yes/no):");
+                    Console.Write("Do you want to add a pet? max 7 pets (yes/no): ");
                     string userPet = Console.ReadLine()?.ToLower();
 
                     if (userPet == "yes")

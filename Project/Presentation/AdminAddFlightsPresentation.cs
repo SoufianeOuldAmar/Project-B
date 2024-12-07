@@ -20,7 +20,7 @@ public class AdminAddFlightsPresentation
             {
                 while (true)
                 {
-                    Console.Write("Do you really want to quit this operation? (yes/no): ");
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
                     string quitConfirmation = Console.ReadLine();
                     if (quitConfirmation == "yes")
                     {
@@ -57,7 +57,7 @@ public class AdminAddFlightsPresentation
             {
                 while (true)
                 {
-                    Console.Write("Do you really want to quit this operation? (yes/no): ");
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
                     string quitConfirmation = Console.ReadLine();
                     if (quitConfirmation == "yes")
                     {
@@ -98,7 +98,7 @@ public class AdminAddFlightsPresentation
             {
                 while (true)
                 {
-                    Console.Write("Do you really want to quit this operation? (yes/no): ");
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
                     string quitConfirmation = Console.ReadLine();
                     if (quitConfirmation == "yes")
                     {
@@ -152,7 +152,7 @@ public class AdminAddFlightsPresentation
             {
                 while (true)
                 {
-                    Console.Write("Do you really want to quit this operation? (yes/no): ");
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
                     string quitConfirmation = Console.ReadLine();
                     if (quitConfirmation == "yes")
                     {
@@ -193,7 +193,7 @@ public class AdminAddFlightsPresentation
             {
                 while (true)
                 {
-                    Console.Write("Do you really want to quit this operation? (yes/no): ");
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
                     string quitConfirmation = Console.ReadLine();
                     if (quitConfirmation == "yes")
                     {
@@ -234,7 +234,7 @@ public class AdminAddFlightsPresentation
             {
                 while (true)
                 {
-                    Console.Write("Do you really want to quit this operation? (yes/no): ");
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
                     string quitConfirmation = Console.ReadLine();
                     if (quitConfirmation == "yes")
                     {
@@ -274,7 +274,7 @@ public class AdminAddFlightsPresentation
             {
                 while (true)
                 {
-                    Console.Write("Do you really want to quit this operation? (yes/no): ");
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
                     string quitConfirmation = Console.ReadLine();
                     if (quitConfirmation == "yes")
                     {
@@ -329,7 +329,7 @@ public class AdminAddFlightsPresentation
             {
                 while (true)
                 {
-                    Console.Write("Do you really want to quit this operation? (yes/no): ");
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
                     string quitConfirmation = Console.ReadLine();
 
                     if (quitConfirmation == "yes")
@@ -357,7 +357,7 @@ public class AdminAddFlightsPresentation
 
                         while (true)
                         {
-                            Console.Write("Do you really want to quit this operation? (yes/no): ");
+                            Console.Write("\nDo you really want to quit this operation? (yes/no): ");
                             string quitConfirmation = Console.ReadLine();
 
                             if (quitConfirmation == "yes")
@@ -394,7 +394,7 @@ public class AdminAddFlightsPresentation
 
                         while (true)
                         {
-                            Console.Write("Do you really want to quit this operation? (yes/no): ");
+                            Console.Write("\nDo you really want to quit this operation? (yes/no): ");
                             string quitConfirmation = Console.ReadLine();
 
                             if (quitConfirmation == "yes")
@@ -431,7 +431,7 @@ public class AdminAddFlightsPresentation
 
                         while (true)
                         {
-                            Console.Write("Do you really want to quit this operation? (yes/no): ");
+                            Console.Write("\nDo you really want to quit this operation? (yes/no): ");
                             string quitConfirmation = Console.ReadLine();
 
 

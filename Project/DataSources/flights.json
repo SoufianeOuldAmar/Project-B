@@ -242,8 +242,6 @@
         "09D",
         "09E",
         "09F",
-        "10B",
-        "10C",
         "10D",
         "10E",
         "10F",
@@ -369,13 +367,17 @@
         "30D"
       ],
       "bookedSeats": [
-        "10A"
+        "10A",
+        "10B",
+        "10C"
       ],
       "chosenSeats": [],
       "isAirbusA330": false,
       "isBoeing787": false,
       "seatInitials": {
-        "10A": "SO "
+        "10A": "SO ",
+        "10B": "SO ",
+        "10C": "SO "
       }
     },
     "ticketPrice": 150,

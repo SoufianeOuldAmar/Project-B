@@ -102,8 +102,6 @@ public static class AccountPresentation
             string quitConfirmation1 = null;
             string quitConfirmation2 = null;
 
-            bool quitConf;
-
             while (true)
             {
                 Console.Write("\nFull name (or enter 'Q' to quit the process): ");
@@ -113,7 +111,7 @@ public static class AccountPresentation
                 {
                     while (true)
                     {
-                        Console.Write("Do you really want to quit this operation? (yes/no): ");
+                        Console.Write("\nDo you really want to quit this operation? (yes/no): ");
                         quitConfirmation = Console.ReadLine();
 
                         if (quitConfirmation == "yes")
@@ -153,7 +151,7 @@ public static class AccountPresentation
                 {
                     while (true)
                     {
-                        Console.Write("Do you really want to quit this operation? (yes/no): ");
+                        Console.Write("\nDo you really want to quit this operation? (yes/no): ");
                         quitConfirmation1 = Console.ReadLine();
 
                         if (quitConfirmation1 == "yes")
@@ -192,7 +190,7 @@ public static class AccountPresentation
                 {
                     while (true)
                     {
-                        Console.Write("Do you really want to quit this operation? (yes/no): ");
+                        Console.Write("\nDo you really want to quit this operation? (yes/no): ");
                         quitConfirmation2 = Console.ReadLine();
 
                         if (quitConfirmation2 == "yes")

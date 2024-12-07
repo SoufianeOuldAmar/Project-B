@@ -170,7 +170,7 @@ public static class MenuPresentation
     public static void SearchFlightsBeforeLogin()
     {
         Console.Clear();
-        Console.WriteLine("=== Search Flights ===");
+        Console.WriteLine("=== Search Flights ===\n");
 
     start:
         string departureAirport = string.Empty;
@@ -363,9 +363,7 @@ public static class MenuPresentation
             Console.ResetColor();
         }
 
-        Console.WriteLine("\nPress any key to return to the main menu...");
         MenuLogic.PopMenu();
-        Console.ReadKey();
     }
 
     public static void FrontPageUser(AccountModel accountModel)
@@ -454,7 +452,7 @@ public static class MenuPresentation
     public static void SearchFlightsMenu()
     {
         Console.Clear();
-        Console.WriteLine("=== Search Flights ===");
+        Console.WriteLine("=== Search Flights ===\n");
 
     start:
         string departureAirport = string.Empty;
@@ -667,9 +665,9 @@ public static class MenuPresentation
             }
         }
 
-        Console.WriteLine("\nPress any key to return to the main menu...");
+        // Console.WriteLine("\nPress any key to return to the main menu...");
         MenuLogic.PopMenu();
-        Console.ReadKey();
+        // Console.ReadKey();
     }
 
     // Nieuwe methode voor het tonen van de layout en het kiezen van een stoel
