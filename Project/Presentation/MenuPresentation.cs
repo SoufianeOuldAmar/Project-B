@@ -50,11 +50,11 @@ public static class MenuPresentation
         // }
         // Console.ResetColor();
 
-        Console.WriteLine("=== Main Menu ===");
-        Console.WriteLine("1. Log in");
-        Console.WriteLine("2. Create account");
-        Console.WriteLine("3. Search for a flight");
-        Console.WriteLine("4. Quit program\n");
+        Console.WriteLine("=== Main Menu ✈️  ===");
+        Console.WriteLine("1. 🔑 Log in");
+        Console.WriteLine("2. 📝 Create account");
+        Console.WriteLine("3. 🔍 Search for a flight");
+        Console.WriteLine("4. ❌ Quit program\n");
         Console.Write("Choose an option: ");
 
         string choice = Console.ReadLine();
@@ -74,7 +74,7 @@ public static class MenuPresentation
             case "4":
                 // Exit by popping the main menu
                 MenuLogic.PopMenu();
-                Console.WriteLine("Until next time!");
+                Console.WriteLine("\nUntil next time!");
                 break;
             default:
                 Console.WriteLine("Invalid choice. Please try again.");
@@ -102,7 +102,7 @@ public static class MenuPresentation
     {
         int index = 1;
 
-        Console.WriteLine("=== View Flight Points ===\n");
+        Console.WriteLine("=== 🎯 View Flight Points ===\n");
         var currentAccount = AccountsLogic.CurrentAccount;
 
 
@@ -142,7 +142,7 @@ public static class MenuPresentation
                               "",
                               "",
                               "",
-                              totalFlightPoints);
+                              "🏆 " + totalFlightPoints);
 
             Console.WriteLine(new string('-', 105) + "\n");
         }
@@ -170,7 +170,7 @@ public static class MenuPresentation
     public static void SearchFlightsBeforeLogin()
     {
         Console.Clear();
-        Console.WriteLine("=== Search Flights ===\n");
+        Console.WriteLine("=== 🔍 Search Flights ===\n");
 
     start:
         string departureAirport = string.Empty;
@@ -340,7 +340,7 @@ public static class MenuPresentation
                 flightTime.TimeOfDay >= timeRange.Start && flightTime.TimeOfDay <= timeRange.End))
         ).ToList();
 
-        Console.WriteLine("\nSearch results:");
+        Console.WriteLine("=== 🔍 Search results ===\n");
         if (searchResults.Count == 0)
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -349,7 +349,8 @@ public static class MenuPresentation
         }
         else
         {
-            Console.WriteLine($"{"#",-3} {"Airline",-20} {"From",-46} {"To",-38} {"Date",-16} {"Time",-15} {"Price"}");
+            Console.WriteLine($"{"#",-3} {"✈️  Airline",-21} {"🌍 From",-46} {"🌍 To",-39} {"📅 Date",-18} {"⏰ Time",-15} {"💶 Price"}");
+
             Console.WriteLine(new string('-', 195));
             for (int i = 0; i < searchResults.Count; i++)
             {
@@ -368,12 +369,12 @@ public static class MenuPresentation
 
     public static void FrontPageUser(AccountModel accountModel)
     {
-        Console.WriteLine($"Logged in as: {accountModel.FullName}\n");
-        Console.WriteLine("=== Front page ===");
-        Console.WriteLine("1. Search for flights");
-        Console.WriteLine("2. View history of tickets");
-        Console.WriteLine("3. View Flight Points");
-        Console.WriteLine("4. Log out");
+        Console.WriteLine($"Logged in as: 👤 {accountModel.FullName}\n");
+        Console.WriteLine("=== 🏠 Front Page ====");
+        Console.WriteLine("1. 🔍 Search for flights");
+        Console.WriteLine("2. 🧾 View history of tickets");
+        Console.WriteLine("3. 🎯 View Flight Point");
+        Console.WriteLine("4. 🔓 Log out");
         Console.Write("\nChoose an option: ");
         string choice = Console.ReadLine();
 
@@ -452,7 +453,7 @@ public static class MenuPresentation
     public static void SearchFlightsMenu()
     {
         Console.Clear();
-        Console.WriteLine("=== Search Flights ===\n");
+        Console.WriteLine("=== 🔍 Search Flights ===\n");
 
     start:
         string departureAirport = string.Empty;
@@ -621,7 +622,9 @@ public static class MenuPresentation
                 flightTime.TimeOfDay >= timeRange.Start && flightTime.TimeOfDay <= timeRange.End))
         ).ToList();
 
-        Console.WriteLine("\nSearch results:");
+        Console.Clear();
+
+        Console.WriteLine("=== 🔍 Search results ===\n");
         if (searchResults.Count == 0)
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -630,7 +633,7 @@ public static class MenuPresentation
         }
         else
         {
-            Console.WriteLine($"{"#",-3} {"Airline",-20} {"From",-46} {"To",-38} {"Date",-16} {"Time",-15} {"Price"}");
+            Console.WriteLine($"{"#",-3} {"✈️  Airline",-21} {"🌍 From",-46} {"🌍 To",-39} {"📅 Date",-16} {"⏰ Time",-15} {"💶 Price"}");
             Console.WriteLine(new string('-', 195));
             for (int i = 0; i < searchResults.Count; i++)
             {

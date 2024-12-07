@@ -9,12 +9,12 @@ public class CancelPres
         {
             Console.Clear();
 
-            Console.WriteLine("Do you want to Cancel or Reschedule your flight?");
-            Console.WriteLine("1. Cancel a flight");
-            Console.WriteLine("2. Reschedule a flight");
-            Console.WriteLine("3. View Booked Flights");
-            Console.WriteLine("4. Review policy");
-            Console.WriteLine("5. Quit");
+            Console.WriteLine("Do you want to Cancel or Reschedule your flight?\n");
+            Console.WriteLine("1. ❌ Cancel a flight");
+            Console.WriteLine("2. 🔄 Reschedule a flight");
+            Console.WriteLine("3. 📋 View Booked Flights");
+            Console.WriteLine("4. 📜 Review policy");
+            Console.WriteLine("5. 🚪 Quit");
             Console.Write("\nPlease enter your choice (1, 2, 3, 4, or 5): ");
 
             string userInput = Console.ReadLine();

@@ -8,13 +8,13 @@ public static class AccountPresentation
         int i = 0;
         while (true)
         {
-            Console.WriteLine("=== Log in ===\n");
+            Console.WriteLine("=== 🔑 Log in ===\n");
             Console.Write("Are you an Admin or a User? (Enter A/U for admin or user or enter 'Q' to go back): ");
             string input1 = Console.ReadLine().ToLower();
             if (input1 == "a")
             {
                 Console.Clear();
-                Console.WriteLine("=== Log in ===\n");
+                Console.WriteLine("=== 🔑 Log in ===\n");
                 AdminAccountPresentation.Login();
                 break;
             }
@@ -28,16 +28,16 @@ public static class AccountPresentation
             else if (input1 == "u")
             {
                 Console.Clear();
-                Console.WriteLine("=== Log in ===\n");
-                Console.Write("Email address: ");
+                Console.WriteLine("=== 🔑 Log in ===\n");
+                Console.Write("📧 Email address: ");
                 string emailAddress = Console.ReadLine();
-                Console.Write("Password: ");
+                Console.Write("🔒 Password: ");
                 string password = Console.ReadLine();
 
                 AccountModel? accountModel = AccountsLogic.CheckLogin(emailAddress, password);
                 if (accountModel != null)
                 {
-                    Console.WriteLine("\nSucces! Welcome back!");
+                    Console.WriteLine("\n✅ Success! Welcome back!");
                     MenuLogic.PushMenu(() => MenuPresentation.FrontPageUser(accountModel));
                     break;
                 }

@@ -66,12 +66,12 @@ static class AdminAccountPresentation
                 bool adminMenuRunning = true; // Flag for admin menu loop
                 while (adminMenuRunning)
                 {
-                    Console.WriteLine("=== Admin Page ===\n");
+                    Console.WriteLine("=== 🔧 Admin Page ===\n");
 
-                    Console.WriteLine("1. Add a new flight");
-                    Console.WriteLine("2. Change current flight details");
-                    Console.WriteLine("3. Reset all flights");
-                    Console.WriteLine("4. Log out");
+                    Console.WriteLine("1. ➕ Add a new flight");
+                    Console.WriteLine("2. ✏️  Change current flight details");
+                    Console.WriteLine("3. 🔄 Reset all flights");
+                    Console.WriteLine("4. 🔓 Log out");
 
                     Console.Write("\nChoose an option: ");
                     string keyInfo = Console.ReadLine();
@@ -85,7 +85,7 @@ static class AdminAccountPresentation
 
                             if (logOut == "yes")
                             {
-                                Console.WriteLine("Logging out...");
+                                Console.WriteLine("\nLogging out...");
                                 MenuLogic.PopMenu();
                                 adminMenuRunning = false;
                                 isRunning = false; // Exit the main login loop
