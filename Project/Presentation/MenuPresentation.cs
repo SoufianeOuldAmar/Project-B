@@ -448,25 +448,6 @@ public static class MenuPresentation
     public static List<FlightModel> flights = FlightsAccess.ReadAll(); // dit zorgt ervoor dat we de json file kunnen lezen
 
     //Een lijst met de destinations waar de user uit kan kiezen
-    static readonly List<string> ArrivalDestinations = new List<string>
-    {
-        "Paris, Charles de Gaulle Airport",
-        "Frankfurt, Frankfurt Airport",
-        "Brussels, Brussels Airport",
-        "Warsaw, Warsaw Chopin Airport",
-        "Budapest, Budapest Ferenc Liszt International Airport",
-        "Riga, Riga International Airport",
-        "Lisbon, Lisbon Airport",
-        "London, Heathrow Airport",
-        "Mallorca, Palma de Mallorca Airport",
-        "Istanbul, Istanbul Airport",
-        "Milan, Malpensa Airport",
-        "Oslo, Oslo Gardermoen Airport",
-        "Zurich, Zurich Airport",
-        "Vienna, International Airport",
-        "Naples, Naples Airport",
-        "Madrid, Madrid Barajas Airport"
-    };
     public static void SearchFlightsMenu()
     {
         Console.Clear();
