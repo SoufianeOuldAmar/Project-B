@@ -4,7 +4,19 @@
     "emailAddress": "n@b.c",
     "password": "xyz",
     "fullName": "Nikola Tesla",
-    "flightPointsDataList": [],
+    "flightPointsDataList": [
+      {
+        "ticketsBought": "2024-12-09T18:46:47.2224654+01:00",
+        "points": 15,
+        "flightId": 1
+      },
+      {
+        "ticketsBought": "2024-12-09T18:48:10.8617325+01:00",
+        "points": 15,
+        "flightId": 1
+      }
+    ],
+    "TotalFlightPoints": 30,
     "fees": 0
   },
   {
@@ -13,6 +25,7 @@
     "password": "xyz",
     "fullName": "Thomas Edison",
     "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
     "fees": 0
   },
   {
@@ -21,6 +34,7 @@
     "password": "password1",
     "fullName": "Soufiane Ould Amar",
     "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
     "fees": 0
   },
   {
@@ -29,6 +43,7 @@
     "password": "password",
     "fullName": "lala",
     "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
     "fees": 0
   },
   {
@@ -37,6 +52,7 @@
     "password": "passwordd",
     "fullName": "lala",
     "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
     "fees": 0
   },
   {
@@ -45,6 +61,7 @@
     "password": "xyz",
     "fullName": "Soufiane OuLD",
     "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
     "fees": 0
   },
   {
@@ -53,6 +70,7 @@
     "password": "password1",
     "fullName": "Iemand Anders",
     "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
     "fees": 0
   }
 ]
