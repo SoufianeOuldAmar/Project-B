@@ -320,14 +320,37 @@ public class LayoutModel
 
         var allAccounts = AccountsAccess.LoadAll();
 
-        foreach(var account in allAccounts)
+        foreach (var account in allAccounts)
         {
             account.FlightPointsDataList.Clear();
         }
 
-        FlightsAccess.WriteAll(allFlights);
-        AccountsAccess.WriteAll(allAccounts);
-        Console.WriteLine("Seats have been reset");
+
+        while (true)
+        {
+            Console.Clear();
+            Console.Write("Are you sure you want to reset all flights? (yes/no): ");
+            string confirmationReset = Console.ReadLine();
+
+            if (confirmationReset == "yes")
+            {
+                FlightsAccess.WriteAll(allFlights);
+                AccountsAccess.WriteAll(allAccounts);
+                Console.WriteLine("Seats have been reset");
+                break;
+            }
+            else if (confirmationReset == "no")
+            {
+                Console.WriteLine("Aborted resetting seats");
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Incorrect input, input either 'yes' or 'no'.");
+                MenuPresentation.PressAnyKey();
+            }
+        }
+
 
 
     }
