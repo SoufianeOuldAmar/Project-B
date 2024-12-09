@@ -962,7 +962,7 @@ start:
         { "night", (Start: new TimeSpan(0, 0, 0), End: new TimeSpan(5, 59, 59)) }
     };
 
-        Console.WriteLine($"Parameters: Departure Airport: {departureAirport}, Arrival Destination: {arrivalDestination}, Departure Date: {departureDateString}, Time of Day: {timeOfDay}, Seat Count: {seatCount}");
+        // Console.WriteLine($"Parameters: Departure Airport: {departureAirport}, Arrival Destination: {arrivalDestination}, Departure Date: {departureDateString}, Time of Day: {timeOfDay}, Seat Count: {seatCount}");
         var searchResults = flights.Where(flight =>
         
             (string.IsNullOrEmpty(departureAirport) || flight.DepartureAirport.Contains(departureAirport, StringComparison.OrdinalIgnoreCase)) &&
@@ -977,7 +977,7 @@ start:
         (seatCount == 0 || flight.AvailableSeats >= seatCount)
         ).ToList();
 
-        Console.WriteLine($"DEBUGG: Departure Airport: {departureAirport}, Arrival Destination: {arrivalDestination}, Departure Date: {departureDateString}, Time of Day: {timeOfDay}, Seat Count: {seatCount}");
+        // Console.WriteLine($"DEBUGG: Departure Airport: {departureAirport}, Arrival Destination: {arrivalDestination}, Departure Date: {departureDateString}, Time of Day: {timeOfDay}, Seat Count: {seatCount}");
 
         Console.WriteLine($"\nNumber of search results: {searchResults.Count}");
         if (searchResults.Count == 0)
