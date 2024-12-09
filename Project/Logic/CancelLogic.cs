@@ -102,7 +102,7 @@ public static class CancelLogic
                         carryOnCount++;
                     }
 
-                    FlightDetails += $" {baggage.BaggageType} " + $"Weight: {baggage.BaggageWeight}kg, " + $"Fee: {baggage.Fee:C}\n";
+                    FlightDetails += $" Baggage " + $"Weight: {baggage.BaggageWeight}kg, " + $"Fee: {baggage.Fee:C}\n";
                 }
             }
             else

@@ -821,13 +821,6 @@ start:
 
         }
 
-        // Console.WriteLine($"Available flights on {departureDate:dd-MM-yyyy}:");
-        // foreach (var flight in flightsForThisDate)
-        // {
-        //     Console.WriteLine($"{flight.Id}: {flight.Airline} to {flight.ArrivalDestination} at {flight.FlightTime}");
-        // }
-        // Console.WriteLine("Press any key to continue...");
-        // Console.ReadKey();
        
 
     timeOfDay:
@@ -984,12 +977,8 @@ start:
         (seatCount == 0 || flight.AvailableSeats >= seatCount)
         ).ToList();
 
-        Console.WriteLine("Debug: Starting the search results filtering...");
-        Console.WriteLine($"Parameters: Departure Airport: {departureAirport}, Arrival Destination: {arrivalDestination}, Departure Date: {departureDateString}, Time of Day: {timeOfDay}, Seat Count: {seatCount}");
+        Console.WriteLine($"DEBUGG: Departure Airport: {departureAirport}, Arrival Destination: {arrivalDestination}, Departure Date: {departureDateString}, Time of Day: {timeOfDay}, Seat Count: {seatCount}");
 
-
-
-        Console.WriteLine("Debug: Finished the search results filtering.");
         Console.WriteLine($"\nNumber of search results: {searchResults.Count}");
         if (searchResults.Count == 0)
         {
