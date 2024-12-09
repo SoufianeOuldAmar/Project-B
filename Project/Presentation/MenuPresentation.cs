@@ -55,7 +55,8 @@ public static class MenuPresentation
         Console.WriteLine("1. Log in");
         Console.WriteLine("2. Create account");
         Console.WriteLine("3. Search for a flight");
-        Console.WriteLine("4. Quit program\n");
+        Console.WriteLine("4. About Us ");
+        Console.WriteLine("5. Quit program\n");
         Console.Write("Choose an option: ");
 
         string choice = Console.ReadLine();
@@ -72,11 +73,15 @@ public static class MenuPresentation
             case "3":
                 MenuLogic.PushMenu(SearchFlightsBeforeLogin);
                 break;
-            case "4":
+            case "4": 
+                MenuLogic.PushMenu(AboutUsPres.aboutUsMenu);
+                break;
+            case "5":
                 // Exit by popping the main menu
                 MenuLogic.PopMenu();
                 Console.WriteLine("Until next time!");
                 break;
+
             default:
                 Console.WriteLine("Invalid choice. Please try again.");
                 break;
@@ -93,6 +98,7 @@ public static class MenuPresentation
     {
         AccountPresentation.CreateAccount();
     }
+
 
 
 
