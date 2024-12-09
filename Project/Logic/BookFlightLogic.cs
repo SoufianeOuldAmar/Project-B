@@ -29,14 +29,49 @@ public static class BookFlightLogic
 
     public static List<FlightModel> SearchFlights(string departureAirport, string arrivalDestination)
     {
-    
-    
         // Return all flights that match the departure and arrival airport
-        var availableFlights= BookFlightPresentation.allFlights
+        var availableFlights = BookFlightPresentation.allFlights
             .Where(flight => flight.DepartureAirport == departureAirport && flight.ArrivalDestination == arrivalDestination && !flight.IsCancelled)
             .ToList();
 
         return availableFlights;
     }
+
+    // New Method to save booking details
+    public static bool SaveBooking(FlightModel flight, List<string> selectedSeats, List<PassengerModel> passengers, List<BaggageLogic> baggageInfo, List<PetLogic> petInfo, double totalPrice)
+{
+    try
+    {
+        PassengerAccess.SavePassengers(passengers);
+
+        var currentAccount = AccountsLogic.CurrentAccount;
+
+        var bookedFlight = new BookedFlightsModel(
+            flight.Id,
+            selectedSeats,
+            baggageInfo,
+            petInfo,
+            false
+        );
+
+        if (!BookFlightPresentation.allBookedFlights.ContainsKey(currentAccount.EmailAddress))
+        {
+            BookFlightPresentation.allBookedFlights[currentAccount.EmailAddress] = new List<BookedFlightsModel>();
+        }
+        BookFlightPresentation.allBookedFlights[currentAccount.EmailAddress].Add(bookedFlight);
+
+        BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, BookFlightPresentation.allBookedFlights[currentAccount.EmailAddress]);
+
+        flight.AvailableSeats -= selectedSeats.Count;
+        FlightsAccess.WriteAll(BookFlightPresentation.allFlights);
+
+        return true;
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error saving booking: {ex.Message}");
+        return false;
+    }
+}
 
 }
