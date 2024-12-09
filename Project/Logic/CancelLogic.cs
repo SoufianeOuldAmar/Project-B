@@ -43,7 +43,7 @@ public static class CancelLogic
             // find flight by ID in Allflights list of BookFlightPresentation
             var neededflight = BookFlightPresentation.allFlights.Find(x => x.Id == flight.FlightID);
 
-            string returnFlightAvailable = neededflight.ReturnFlight != null ? "Yes" : "No";
+            // string returnFlightAvailable = neededflight.ReturnFlight != null ? "Yes" : "No";
             double totalPetFee= 0;
             double totalBaggageFee= 0;
 
@@ -63,7 +63,7 @@ public static class CancelLogic
                 }
             }
 
-            // if flight not found by id 
+            // if flight is found by id 
             if (neededflight != null)
             {
                 // FlightDetails += $"Flight ID: {neededflight.Id}, Airline: {neededflight.Airline}, Departure Airport: {BookFlightLogic.SearchFlightByID(neededflight.Id).DepartureAirport}, Arrival Destination: {BookFlightLogic.SearchFlightByID(neededflight.Id).ArrivalDestination}, Ticket Price: {neededflight.TicketPrice:C}, Return Flight: {returnFlightAvailable}, Cancelled: {flight.IsCancelled}\n"; // cancelled is directly accessed from model class
@@ -90,25 +90,19 @@ public static class CancelLogic
                 FlightDetails += $"  Baggage Details:\n";
                 foreach (var baggage in flight.BaggageInfo)
                 {
-                    string baggageTypeToPrint;
-                    if (baggage.BaggageType == "1")
+
+                    int carryOnCount = 0;
+                    int checkedCount = 0;
+                    if (baggage.BaggageType == "checked")
                     {
-                        baggageTypeToPrint = "Carry On";
+                        checkedCount++;
                     }
-                    else if (baggage.BaggageType == "2")
+                    else if (baggage.BaggageType == "carry-on")
                     {
-                        baggageTypeToPrint = "Checked";
+                        carryOnCount++;
                     }
-                    else if (baggage.BaggageType == "3")
-                    {
-                        baggageTypeToPrint = "Both Carry On and Checked";
-                        baggage.BaggageWeight += 10;
-                    }
-                    else
-                    {
-                        baggageTypeToPrint = "Unknown Baggage Type";
-                    }
-                    FlightDetails += $" Baggage : {baggageTypeToPrint}, " + $"Weight: {baggage.BaggageWeight}kg, " + $"Fee: {baggage.Fee:C}\n";
+
+                    FlightDetails += $" {baggage.BaggageType} " + $"Weight: {baggage.BaggageWeight}kg, " + $"Fee: {baggage.Fee:C}\n";
                 }
             }
             else

@@ -120,69 +120,142 @@ public static class BookFlightPresentation
                                 selectedFlight.Layout.BookFlight(seat, initials);
 
                                 // after booking seat ask user if they want baggage 
-                                Console.WriteLine("Do you want to add baggage (yes/no):");
+                                // Ask user if they want baggage
+                                Console.WriteLine("Do you want to add baggage? (yes/no):");
                                 string userBaggage = Console.ReadLine().ToLower();
+
+                                while (userBaggage != "yes" && userBaggage != "no")
+                                {
+                                    Console.WriteLine("Invalid input. Please enter 'yes' or 'no':");
+                                    userBaggage = Console.ReadLine().ToLower();
+                                }
+
+                                if (userBaggage == "no")
+                                {
+                                    return;
+                                }
 
                                 if (userBaggage == "yes")
                                 {
-                                    Console.Write("Enter the number for the baggage (1) carry on, (2)checked or (3)both): ");
-                                    string baggageType = Console.ReadLine().ToLower();
-                                    double weightBaggage = 0;
-                                    double feeBaggage = 0;
+                                    double totalWeightSeat = 0; 
+                                    double feeBaggage = 0; 
+                                    double totalCarryOnWeight = 0;
 
-                                    if (baggageType == "1")
+                                    
+                                    // Console.WriteLine("Do you want to add checked baggage? (yes/no):");
+                                    Console.WriteLine("You get 25kg of baggage per seat (this includes both checked and carry-on) (enter yes to continue).");
+                                    string addCheckedBaggage = Console.ReadLine().ToLower();
+
+                                    while (addCheckedBaggage != "yes" && addCheckedBaggage != "no")
                                     {
-                                        Console.WriteLine("Enter weight for carry on (in kg): ");
-                                        weightBaggage = double.Parse(Console.ReadLine());
-
-                                        if (weightBaggage > 10)
-                                        {
-                                            feeBaggage = 50;
-                                            Console.WriteLine($"Your carry on goes over the 10kg limit. you'll have to pay a fee of {feeBaggage} EUR.");
-                                        }
-
+                                        Console.WriteLine("Invalid input. Please enter 'yes' or 'no':");
+                                        addCheckedBaggage = Console.ReadLine().ToLower();
                                     }
-                                    else if (baggageType == "2" || baggageType == "3")
-                                    {
 
+
+
+                                    if (addCheckedBaggage == "yes")
+                                    {
                                         while (true)
                                         {
-                                            Console.WriteLine("Enter weight for checked baggage choose 20 or 25(in kg): ");
-                                            weightBaggage = double.Parse(Console.ReadLine());
+                                            Console.WriteLine("Enter weight for checked baggage (choose 20kg or 25kg): ");
+                                            double checkedWeight;
 
-                                            if (weightBaggage == 20)
+                                            // Ensure valid input for checked baggage weight
+                                            if (double.TryParse(Console.ReadLine(), out checkedWeight))
                                             {
-                                                Console.WriteLine("Your checked baggage weight is 20 kg. No additional fee  required.");
-                                                break;
-                                            }
-                                            else if (weightBaggage == 25)
-                                            {
-                                                Console.WriteLine("Your checked baggage weight is 25 kg. No additional fee is required.");
-                                                break;
-                                            }
-                                            else if (weightBaggage > 25)
-                                            {
-                                                feeBaggage = 50;
-                                                Console.WriteLine($"Your checked baggage weight exceeds the 25 kg limit. You'll have to pay a fee of {feeBaggage} EUR.");
-                                                break;
+                                                if (checkedWeight == 20)
+                                                {
+                                                    feeBaggage += 45; 
+                                                    totalWeightSeat += 20;
+                                                    Console.WriteLine("Checked baggage of 20kg added for 45 EUR.");
+                                                    break;
+                                                }
+                                                else if (checkedWeight == 25)
+                                                {
+                                                    feeBaggage += 50; 
+                                                    totalWeightSeat += 25;
+                                                    Console.WriteLine("Checked baggage of 25kg added for 50 EUR.");
+                                                    Console.WriteLine("You have reached the 25kg per seat limit. No carry-on allowed.");
+                                                    break;
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("Invalid weight. Please enter either 20kg or 25kg.");
+                                                }
                                             }
                                             else
                                             {
-                                                Console.WriteLine("Invalid weight. Please enter a valid weight for your checked baggage.");
+                                                Console.WriteLine("Invalid input. Please enter a numeric value.");
                                             }
                                         }
-
                                     }
-                                    else
+
+                                    // Add Carry-On Baggage if Space Left
+                                    if (totalWeightSeat < 25)
                                     {
-                                        Console.WriteLine("Invalid baggage type. Please choose between carry on' or checked.");
-                                        continue;
+                                        double remainingCarryOnWeight = 25 - totalWeightSeat;
+                                        Console.WriteLine($"You have {remainingCarryOnWeight}kg left for carry-on baggage. Do you want to add carry-on baggage? (yes/no):");
+                                        string addCarryOn = Console.ReadLine().ToLower();
+
+                                        while (addCarryOn == "yes" && remainingCarryOnWeight > 0)
+                                        {
+                                            Console.WriteLine($"Enter weight for carry-on bag (max {Math.Min(remainingCarryOnWeight, 5)} per bag, left weight: {remainingCarryOnWeight} kg): ");
+                                            double carryOnWeight;
+
+                                            // Ensure valid input for carry-on weight
+                                            if (double.TryParse(Console.ReadLine(), out carryOnWeight))
+                                            {
+                                                if (carryOnWeight > 5)
+                                                {
+                                                    Console.WriteLine("Carry-on weight cannot exceed 5kg per bag. Please enter a valid weight.");
+                                                    continue;
+                                                }
+
+                                                if (totalWeightSeat + carryOnWeight > 25)
+                                                {
+                                                    Console.WriteLine("Adding this carry-on bag will exceed the 25kg limit. Please adjust the weight.");
+                                                    continue;
+                                                }
+
+                                                totalWeightSeat += carryOnWeight;
+                                                totalCarryOnWeight += carryOnWeight;
+                                                remainingCarryOnWeight -= carryOnWeight;
+                                                Console.WriteLine($"Added a carry-on bag of {carryOnWeight}kg for €15.");
+
+                                                if (totalCarryOnWeight < 5)
+                                                {
+            
+                                                    Console.WriteLine("Do you want to add another carry-on bag? (yes/no):");
+                                                    addCarryOn = Console.ReadLine().ToLower();
+                                                }
+                                                else
+                                                {
+                                                    break; // No more carry-on weight available
+                                                }
+
+
+                                            }
+
+                                            else
+                                            {
+                                                Console.WriteLine("Invalid input. Please enter a numeric value.");
+                                            }
+                                        }
                                     }
 
-                                    baggageInfo.Add(new BaggageLogic(initials, baggageType, weightBaggage) { Fee = feeBaggage });
+                                    if (totalCarryOnWeight > 0)
+                                    {
+                                        feeBaggage += 15;  
+                                        Console.WriteLine($"Total carry-on baggage fee: €15.");
+                                    }
 
-
+                                   // confirmation message 
+                                    Console.WriteLine($"Baggage added successfully. Total weight: {totalWeightSeat}kg, Total fee: €{feeBaggage}.");
+                                    baggageInfo.Add(new BaggageLogic(initials, "checked + carry-on", totalWeightSeat) { Fee = feeBaggage });
                                 }
+
+
                                 Console.WriteLine("Do you want to add a pet? (yes/no):");
                                 string userPet = Console.ReadLine()?.ToLower();
 
@@ -323,67 +396,141 @@ public static class BookFlightPresentation
                         // Book the seat with initials
                         flightModel.Layout.BookFlight(seat, initials);
 
-                        Console.WriteLine("Do you want to add baggage (yes/no):");
+                        // Ask user if they want baggage
+                        Console.WriteLine("Do you want to add baggage? (yes/no):");
                         string userBaggage = Console.ReadLine().ToLower();
+
+                        while (userBaggage != "yes" && userBaggage != "no")
+                        {
+                            Console.WriteLine("Invalid input. Please enter 'yes' or 'no':");
+                            userBaggage = Console.ReadLine().ToLower();
+                        }
+
+                        if (userBaggage == "no")
+                        {
+                            return;
+                        }
 
                         if (userBaggage == "yes")
                         {
-                            Console.Write("Enter the number for the baggage (1) carry on, (2)checked or (3)both): ");
-                            string baggageType = Console.ReadLine().ToLower();
-                            double weightBaggage = 0;
+                            double totalWeightSeat = 0;
                             double feeBaggage = 0;
+                            double totalCarryOnWeight = 0;
 
-                            if (baggageType == "1")
-                            {
-                                Console.WriteLine("Enter weight for carry on (in kg): ");
-                                weightBaggage = double.Parse(Console.ReadLine());
+    
+                            Console.WriteLine("You get 25kg of baggage per seat (this includes both checked and carry-on (enter yes to continue).");
+                            string addCheckedBaggage = Console.ReadLine().ToLower();
+                        
 
-                                if (weightBaggage > 10)
-                                {
-                                    feeBaggage = 50;
-                                    Console.WriteLine($"Your carry on goes over the 10kg limit. you'll have to pay a fee of {feeBaggage} EUR.");
-                                }
+                        while (addCheckedBaggage != "yes" && addCheckedBaggage != "no")
+                        {
+                            Console.WriteLine("Invalid input. Please enter 'yes' or 'no':");
+                            addCheckedBaggage = Console.ReadLine().ToLower();
+                        }
 
-                            }
-                            else if (baggageType == "2" || baggageType == "3")
+                            if (addCheckedBaggage == "yes")
                             {
                                 while (true)
                                 {
-                                    Console.WriteLine("Enter weight for checked baggage (in kg) choose 20 or 25 : ");
-                                    weightBaggage = double.Parse(Console.ReadLine());
+                                    Console.WriteLine("Enter weight for checked baggage (choose 20kg or 25kg): ");
+                                    double checkedWeight;
 
-                                    if (weightBaggage == 20)
+                                    // Ensure valid input for checked baggage weight
+                                    if (double.TryParse(Console.ReadLine(), out checkedWeight))
                                     {
-                                        Console.WriteLine("Your checked baggage weight is 20 kg. No additional fee  required.");
-                                        break;
-                                    }
-                                    else if (weightBaggage == 25)
-                                    {
-                                        Console.WriteLine("Your checked baggage weight is 25 kg. No additional fee is required.");
-                                        break;
-                                    }
-                                    else if (weightBaggage > 25)
-                                    {
-                                        feeBaggage = 50;
-                                        Console.WriteLine($"Your checked baggage weight exceeds the 25 kg limit. You'll have to pay a fee of {feeBaggage} EUR.");
-                                        break;
+                                        if (checkedWeight == 20)
+                                        {
+                                            feeBaggage += 45;
+                                            totalWeightSeat += 20;
+                                            Console.WriteLine("Checked baggage of 20kg added for 45 EUR.");
+                                            break;
+                                        }
+                                        else if (checkedWeight == 25)
+                                        {
+                                            feeBaggage += 50;
+                                            totalWeightSeat += 25;
+
+                                            Console.WriteLine("Checked baggage of 25kg added for 50 EUR.");
+                                            Console.WriteLine("You have reached the 25kg per seat limit. No carry-on allowed.");
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Invalid weight. Please enter either 20kg or 25kg.");
+                                        }
                                     }
                                     else
                                     {
-                                        Console.WriteLine("Invalid weight. Please enter a valid weight for your checked baggage.");
+                                        Console.WriteLine("Invalid input. Please enter a numeric value.");
                                     }
                                 }
                             }
-                            else
+
+                            // Add Carry-On Baggage if Space Left
+                            if (totalWeightSeat < 25)
                             {
-                                Console.WriteLine("Invalid baggage type. Please choose between carry on' or checked.");
-                                continue;
+                                double remainingCarryOnWeight = 25 - totalWeightSeat;
+                                Console.WriteLine($"You have {remainingCarryOnWeight}kg left for carry-on baggage. Do you want to add carry-on baggage? (yes/no):");
+                                string addCarryOn = Console.ReadLine().ToLower();
+
+                                while (addCarryOn == "yes" && totalWeightSeat < 25)
+                                {
+
+                                    Console.WriteLine($"Enter weight for carry-on bag (max {Math.Min(remainingCarryOnWeight, 5)} per bag per bag, left weight: {25 - totalWeightSeat}kg): ");
+                                    double carryOnWeight;
+
+                                    // Ensure valid input for carry-on weight
+                                    if (double.TryParse(Console.ReadLine(), out carryOnWeight))
+                                    {
+                                        if (carryOnWeight > 5)
+                                        {
+                                            Console.WriteLine("Carry-on weight cannot exceed 5kg per bag. Please enter a valid weight.");
+                                            continue;
+                                        }
+
+                                        if (totalWeightSeat + carryOnWeight > 25)
+                                        {
+                                            Console.WriteLine("Adding this carry-on bag will exceed the 25kg limit. Please adjust the weight.");
+                                            continue;
+                                        }
+
+                                        totalWeightSeat += carryOnWeight;
+                                        totalCarryOnWeight += carryOnWeight;
+                                        remainingCarryOnWeight -= carryOnWeight;
+                                        Console.WriteLine($"Added a carry-on bag of {carryOnWeight}kg for €15.");
+
+                                        if (totalCarryOnWeight < 5)
+                                        {
+                                            Console.WriteLine("Do you want to add another carry-on bag? (yes/no):");
+                                            addCarryOn = Console.ReadLine().ToLower();
+                                        }
+                                        else
+                                        {
+                                            break; // No more carry-on weight available
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid input. Please enter a numeric value.");
+                                    }
+                                }
                             }
 
-                            baggageInfo.Add(new BaggageLogic(initials, baggageType, weightBaggage) { Fee = feeBaggage });
+                                if (totalCarryOnWeight > 0)
+                                {
+                                    feeBaggage += 15;  
+                                    Console.WriteLine($"Total carry-on baggage fee: €15.");
+                                }
 
-
+                            // Confirmation message
+                            Console.WriteLine($"Baggage added successfully. Total weight: {totalWeightSeat}kg, Total fee: €{feeBaggage}.");
+                            baggageInfo.Add(new BaggageLogic(initials, "checked + carry-on", totalWeightSeat) { Fee = feeBaggage });
                         }
+  
+        
+                    
+
                         Console.WriteLine("Do you want to add a pet? max 7 pets (yes/no):");
                         string userPet = Console.ReadLine()?.ToLower();
 
@@ -404,7 +551,7 @@ public static class BookFlightPresentation
 
                                     if (petType == "dog" || petType == "cat" || petType == "bunny" || petType == "bird")
                                     {
-                                        var newPet = new PetLogic(petType) { Fee = 50.0 }; // Adds a new pet object with a 50 EUR fee
+                                        var newPet = new PetLogic(petType) { Fee = 50.0 }; // Adds a new pet with a 50 EUR fee
                                         petInfo.Add(newPet);
                                         flightModel.TotalPets++; // Increment total pets for the flight
                                         Console.WriteLine($"Pet {petType} added. Fee: 50 EUR."); // Notify the user of the fee
@@ -553,4 +700,5 @@ public static class BookFlightPresentation
     //     }
     // }
 }
+
 
