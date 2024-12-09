@@ -4,53 +4,7 @@
     "emailAddress": "n@b.c",
     "password": "xyz",
     "fullName": "Nikola Tesla",
-    "flightPointsDataList": [
-      {
-        "ticketsBought": "2024-11-22T23:25:35.8367392+01:00",
-        "points": 34,
-        "flightId": 17
-      },
-      {
-        "ticketsBought": "2024-11-23T17:13:43.6824837+01:00",
-        "points": 28,
-        "flightId": 25
-      },
-      {
-        "ticketsBought": "2024-11-24T15:50:10.1832761+01:00",
-        "points": 33,
-        "flightId": 24
-      },
-      {
-        "ticketsBought": "2024-11-26T13:58:30.8858146+01:00",
-        "points": 27,
-        "flightId": 29
-      },
-      {
-        "ticketsBought": "2024-11-26T14:00:29.7878516+01:00",
-        "points": 13,
-        "flightId": 37
-      },
-      {
-        "ticketsBought": "2024-11-26T19:31:04.8795008+01:00",
-        "points": 31,
-        "flightId": 10
-      },
-      {
-        "ticketsBought": "2024-11-27T11:49:10.6231336+01:00",
-        "points": 41,
-        "flightId": 31
-      },
-      {
-        "ticketsBought": "2024-11-27T13:28:43.8549358+01:00",
-        "points": 27,
-        "flightId": 29
-      },
-      {
-        "ticketsBought": "2024-11-27T13:29:34.864796+01:00",
-        "points": 15,
-        "flightId": 1
-      }
-    ],
+    "flightPointsDataList": [],
     "fees": 0
   },
   {
@@ -58,13 +12,7 @@
     "emailAddress": "t@b.c",
     "password": "xyz",
     "fullName": "Thomas Edison",
-    "flightPointsDataList": [
-      {
-        "ticketsBought": "0001-01-01T00:00:00",
-        "points": 0,
-        "flightId": 0
-      }
-    ],
+    "flightPointsDataList": [],
     "fees": 0
   },
   {

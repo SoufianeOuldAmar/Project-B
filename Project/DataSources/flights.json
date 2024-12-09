@@ -245,7 +245,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -364,21 +363,17 @@
         "30C",
         "30E",
         "30F",
-        "30D"
-      ],
-      "bookedSeats": [
+        "30D",
         "10A",
         "10B",
-        "10C"
+        "10C",
+        "11A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {
-        "10A": "SO ",
-        "10B": "SO ",
-        "10C": "SO "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 150,
     "gate": "A12",

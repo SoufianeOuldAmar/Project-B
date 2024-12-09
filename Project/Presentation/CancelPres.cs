@@ -9,7 +9,7 @@ public class CancelPres
         {
             Console.Clear();
 
-            Console.WriteLine("Do you want to Cancel or Reschedule your flight?\n");
+            Console.WriteLine("=== 🧾 View History of Tickets ===\n");
             Console.WriteLine("1. ❌ Cancel a flight");
             Console.WriteLine("2. 🔄 Reschedule a flight");
             Console.WriteLine("3. 📋 View Booked Flights");

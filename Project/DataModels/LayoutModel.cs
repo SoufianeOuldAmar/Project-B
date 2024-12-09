@@ -318,7 +318,15 @@ public class LayoutModel
             Console.WriteLine($"An error occurred: {ex.Message}");
         }
 
+        var allAccounts = AccountsAccess.LoadAll();
+
+        foreach(var account in allAccounts)
+        {
+            account.FlightPointsDataList.Clear();
+        }
+
         FlightsAccess.WriteAll(allFlights);
+        AccountsAccess.WriteAll(allAccounts);
         Console.WriteLine("Seats have been reset");
 
 
