@@ -71,12 +71,13 @@ static class AdminAccountPresentation
                     Console.WriteLine("1. ➕ Add a new flight");
                     Console.WriteLine("2. ✏️  Change current flight details");
                     Console.WriteLine("3. 🔄 Reset all flights");
-                    Console.WriteLine("4. 🔓 Log out");
+                    Console.WriteLine("4. Manage the bookings");
+                    Console.WriteLine("5. 🔓 Log out");
 
                     Console.Write("\nChoose an option: ");
                     string keyInfo = Console.ReadLine();
 
-                    if (keyInfo == "4")
+                    if (keyInfo == "5")
                     {
                         while (true)
                         {
@@ -127,6 +128,14 @@ static class AdminAccountPresentation
                         layout.ResetAllSeats();
                         MenuPresentation.PressAnyKey();
                         Console.Clear();
+                    }
+                    else if (keyInfo.KeyChar == "4")
+                    {
+                        AdminManageBookingPresentation.LaodBookedPresentaion();
+                        AdminManageBookingPresentation.UpdateBookedDetailsPresentation();
+                        // AdminManageBookingPresentation.Another();
+                        AdminFlightManagerPresentation.Exit();
+                        break;
                     }
                     else
                     {
