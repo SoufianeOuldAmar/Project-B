@@ -1,17 +1,11 @@
 using System.Text.Json;
 using DataModels;
+using System.Text;
 using DataAccess;
+
 public static class CancelLogic
 {
     public static string fileName = "DataSources/flights.json";
-
-    public static void WriteJson(string fileName, List<FlightModel> allFlights)
-    {
-        string json = JsonSerializer.Serialize(allFlights, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText(fileName, json);
-    }
-
-
     public static List<FlightModel> LoadFlights(string fileName)
     {
         if (File.Exists(fileName))
@@ -25,8 +19,6 @@ public static class CancelLogic
 
     public static string BookedFlights(string email)
     {
-
-        AdminFlightManagerLogic.RefreshFlightData();
         if (!BookFlightPresentation.allBookedFlights.ContainsKey(email))
         {
             return $"You have no flights booked";
@@ -38,15 +30,17 @@ public static class CancelLogic
 
         Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
 
+        BookFlightPresentation.allBookedFlights = allBookedFlights;
+
         string FlightDetails = "";
-        foreach (var flight in allBookedFlights[email])
+        foreach (var flight in BookFlightPresentation.allBookedFlights[email])
         {
             // find flight by ID in Allflights list of BookFlightPresentation
             var neededflight = BookFlightPresentation.allFlights.Find(x => x.Id == flight.FlightID);
 
-            string returnFlightAvailable = neededflight.ReturnFlight != null ? "Yes" : "No";
-            double totalPetFee = 0;
-            double totalBaggageFee = 0;
+            // string returnFlightAvailable = neededflight.ReturnFlight != null ? "Yes" : "No";
+            double totalPetFee= 0;
+            double totalBaggageFee= 0;
 
             // calculate total pet fee
             if (flight.Pets != null && flight.Pets.Count > 0)
@@ -64,13 +58,13 @@ public static class CancelLogic
                 }
             }
 
-            // if flight not found by id 
+            // if flight is found by id 
             if (neededflight != null)
             {
                 // FlightDetails += $"Flight ID: {neededflight.Id}, Airline: {neededflight.Airline}, Departure Airport: {BookFlightLogic.SearchFlightByID(neededflight.Id).DepartureAirport}, Arrival Destination: {BookFlightLogic.SearchFlightByID(neededflight.Id).ArrivalDestination}, Ticket Price: {neededflight.TicketPrice:C}, Return Flight: {returnFlightAvailable}, Cancelled: {flight.IsCancelled}\n"; // cancelled is directly accessed from model class
                 double totalTicketPrice = neededflight.TicketPrice + totalPetFee + totalBaggageFee;
 
-                FlightDetails += $"Flight ID: {neededflight.Id}, Airline: {neededflight.Airline}, Date: {neededflight.DepartureDate}, Departure Airport: {BookFlightLogic.SearchFlightByID(neededflight.Id).DepartureAirport}, Arrival Destination: {BookFlightLogic.SearchFlightByID(neededflight.Id).ArrivalDestination}, Ticket Price: {totalTicketPrice:C}, Cancelled: {flight.IsCancelled}\n"; // cancelled is directly accessed from model class
+                FlightDetails += $"Flight ID: {neededflight.Id}, Airline: {neededflight.Airline}, Date: {neededflight.DepartureDate}, Time: {neededflight.FlightTime} , Departure Airport: {BookFlightLogic.SearchFlightByID(neededflight.Id).DepartureAirport}, Arrival Destination: {BookFlightLogic.SearchFlightByID(neededflight.Id).ArrivalDestination}, Ticket Price: {totalTicketPrice:C}, Cancelled: {flight.IsCancelled}\n"; // cancelled is directly accessed from model class
             }
             // pets 
             if (flight.Pets != null && flight.Pets.Count > 0)
@@ -91,25 +85,19 @@ public static class CancelLogic
                 FlightDetails += $"  Baggage Details:\n";
                 foreach (var baggage in flight.BaggageInfo)
                 {
-                    string baggageTypeToPrint;
-                    if (baggage.BaggageType == "1")
+
+                    int carryOnCount = 0;
+                    int checkedCount = 0;
+                    if (baggage.BaggageType == "checked")
                     {
-                        baggageTypeToPrint = "Carry On";
+                        checkedCount++;
                     }
-                    else if (baggage.BaggageType == "2")
+                    else if (baggage.BaggageType == "carry-on")
                     {
-                        baggageTypeToPrint = "Checked";
+                        carryOnCount++;
                     }
-                    else if (baggage.BaggageType == "3")
-                    {
-                        baggageTypeToPrint = "Both Carry On and Checked";
-                        baggage.BaggageWeight += 10;
-                    }
-                    else
-                    {
-                        baggageTypeToPrint = "Unknown Baggage Type";
-                    }
-                    FlightDetails += $" Baggage : {baggageTypeToPrint}, " + $"Weight: {baggage.BaggageWeight}kg, " + $"Fee: {baggage.Fee:C}\n";
+
+                    FlightDetails += $" Baggage " + $"Weight: {baggage.BaggageWeight}kg, " + $"Fee: {baggage.Fee:C}\n";
                 }
             }
             else
@@ -156,7 +144,7 @@ public static class CancelLogic
             allFlights.Remove(flightToCancel);
         }
         // save changes to json 
-        WriteJson(fileName, allFlights);
+        FlightsAccess.WriteAll(allFlights);
         return "Flight is cancelled";
     }
 

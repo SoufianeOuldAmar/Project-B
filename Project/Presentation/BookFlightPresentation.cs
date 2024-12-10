@@ -10,6 +10,8 @@ public static class BookFlightPresentation
     public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
     public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
 
+    public static AccountModel currentAccount = AccountsLogic.CurrentAccount;
+
     private static string GenerateInitials(PassengerModel passenger)
     {
         if (string.IsNullOrWhiteSpace(passenger.FirstName) || string.IsNullOrWhiteSpace(passenger.LastName))
@@ -38,7 +40,7 @@ public static class BookFlightPresentation
         totalPrice += seatPrice;
 
         // Baggage handling
-        Console.WriteLine("Do you want to add baggage (yes/no):");
+        Console.Write("Do you want to add baggage (yes/no): ");
         string userBaggage = Console.ReadLine().ToLower();
 
         if (userBaggage == "yes")
@@ -93,7 +95,7 @@ public static class BookFlightPresentation
         }
 
         // Pet handling
-        Console.WriteLine("Do you want to add a pet? (yes/no):");
+        Console.WriteLine("Do you want to add a pet? (yes/no): ");
         string userPet = Console.ReadLine()?.ToLower();
 
         if (userPet == "yes")
@@ -385,6 +387,53 @@ public static class BookFlightPresentation
                 if (petTotalFee > 0) Console.WriteLine($"Pet Fees: {petTotalFee:C}");
                 Console.WriteLine($"Total Price: {totalPrice:C}");
 
+                int allFlightPoints = currentAccount.TotalFlightPoints;
+                Console.Write($"\nBefore confirming your booking do you want to use your flight points for discount? You have {(allFlightPoints)} points. (yes/no): ");
+                
+                string discountYesOrNo = Console.ReadLine();
+
+
+                if (discountYesOrNo == "yes" && allFlightPoints > 0)
+                {
+                    Console.Write("How many points would you like to use? (1 point equals 1 euro, and you can use your points for up to a 20% discount on the price.): ");
+                    string amountFlightPointsStr = Console.ReadLine();
+
+                    if (int.TryParse(amountFlightPointsStr, out int amountFlightPoints))
+                    {
+                        // Calculate max discount (20% of totalPrice)
+                        double maxDiscount = totalPrice * 0.2;
+
+                        // Ensure points do not exceed max discount or available points
+                        double discountToApply = Math.Min(amountFlightPoints, Math.Min(maxDiscount, allFlightPoints));
+
+                        totalPrice -= discountToApply;
+                        currentAccount.TotalFlightPoints -= (int)discountToApply;
+
+                        Console.WriteLine($"You used {discountToApply:C} worth of flight points.");
+                        Console.WriteLine($"Updated Total Price: {totalPrice:C}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Incorrect input. Enter a valid integer.");
+                    }
+
+                }
+                else if (discountYesOrNo == "yes" && allFlightPoints == 0)
+                {
+                    Console.WriteLine("You don't have enough flight points for a discount.");
+                    // break;
+                }
+
+                else if (discountYesOrNo == "no")
+                {
+                    // break;
+                    Console.WriteLine();
+                }
+                else
+                {
+
+                }
+
                 Console.Write("\nConfirm booking? (yes/no): ");
                 string finalConfirmation = Console.ReadLine().ToLower();
                 if (finalConfirmation == "yes")
@@ -404,6 +453,7 @@ public static class BookFlightPresentation
                     };
 
                     AccountsAccess.WriteAll(AccountsLogic._accounts);
+                    AccountsAccess.UpdateCurrentAccount(currentAccount);
                     FlightsAccess.WriteAll(allFlights);
                     BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, bookedFlightModel);
                     Console.WriteLine("\nBooking confirmed successfully!");

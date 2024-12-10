@@ -1,3 +1,5 @@
+using System.Threading;
+
 public static class AccountPresentation
 {
     public static void LogIn()
@@ -6,26 +8,36 @@ public static class AccountPresentation
         int i = 0;
         while (true)
         {
-            Console.WriteLine("=== Log in ===\n");
-            Console.WriteLine("Are you Admin or User? A/U");
+            Console.WriteLine("=== 🔑 Log in ===\n");
+            Console.Write("Are you an Admin or a User? (Enter A/U for admin or user or enter 'Q' to go back): ");
             string input1 = Console.ReadLine().ToLower();
             if (input1 == "a")
             {
+                Console.Clear();
+                Console.WriteLine("=== 🔑 Log in ===\n");
                 AdminAccountPresentation.Login();
+                break;
+            }
+
+            else if (input1 == "q")
+            {
+                MenuLogic.PopMenu();
                 break;
             }
 
             else if (input1 == "u")
             {
-                Console.Write("Email address: ");
+                Console.Clear();
+                Console.WriteLine("=== 🔑 Log in ===\n");
+                Console.Write("📧 Email address: ");
                 string emailAddress = Console.ReadLine();
-                Console.Write("Password: ");
+                Console.Write("🔒 Password: ");
                 string password = Console.ReadLine();
 
                 AccountModel? accountModel = AccountsLogic.CheckLogin(emailAddress, password);
                 if (accountModel != null)
                 {
-                    Console.WriteLine("\nSucces! Welcome back!");
+                    Console.WriteLine("\n✅ Success! Welcome back!");
                     MenuLogic.PushMenu(() => MenuPresentation.FrontPageUser(accountModel));
                     break;
                 }
@@ -64,8 +76,7 @@ public static class AccountPresentation
                         {
                             Console.WriteLine("\nInvalid input! Please type 'yes' or 'no'.\n");
                             newLineValid = false;
-                            Console.WriteLine("Press any key to continue...");
-                            Console.ReadKey();
+                            MenuPresentation.PressAnyKey();
                             Console.Clear();
                         }
                     } while (!validInput);
@@ -83,15 +94,131 @@ public static class AccountPresentation
         {
             Console.Clear();
             Console.WriteLine("=== Create account ===");
+            string fullName;
+            string emailAddress;
+            string password;
 
-            Console.Write("\nFull name: ");
-            string fullName = Console.ReadLine();
+            string quitConfirmation = null;
+            string quitConfirmation1 = null;
+            string quitConfirmation2 = null;
 
-            Console.Write("Email address: ");
-            string emailAddress = Console.ReadLine();
+            while (true)
+            {
+                Console.Write("\nFull name (or enter 'Q' to quit the process): ");
+                fullName = Console.ReadLine();
 
-            Console.Write("Password: ");
-            string password = Console.ReadLine();
+                if (fullName.ToUpper() == "Q")
+                {
+                    while (true)
+                    {
+                        Console.Write("\nDo you really want to quit this operation? (yes/no): ");
+                        quitConfirmation = Console.ReadLine();
+
+                        if (quitConfirmation == "yes")
+                        {
+                            MenuLogic.PopMenu();
+                            break;
+                        }
+                        else if (quitConfirmation == "no")
+                        {
+                            break;
+                        }
+                    }
+
+                    if (quitConfirmation == "yes")
+                    {
+                        break;
+                    }
+
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if (quitConfirmation == "yes")
+            {
+                break;
+            }
+
+            while (true)
+            {
+                Console.Write("Email address (or enter 'Q' to quit the process): ");
+                emailAddress = Console.ReadLine();
+
+                if (emailAddress.ToUpper() == "Q")
+                {
+                    while (true)
+                    {
+                        Console.Write("\nDo you really want to quit this operation? (yes/no): ");
+                        quitConfirmation1 = Console.ReadLine();
+
+                        if (quitConfirmation1 == "yes")
+                        {
+                            MenuLogic.PopMenu();
+                            break;
+                        }
+                        else if (quitConfirmation1 == "no")
+                        {
+                            break;
+                        }
+                    }
+
+                    if (quitConfirmation1 == "yes")
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if (quitConfirmation1 == "yes")
+            {
+                break;
+            }
+
+            while (true)
+            {
+                Console.Write("Password (or enter 'Q' to quit the process): ");
+                password = Console.ReadLine();
+
+                if (password.ToUpper() == "Q")
+                {
+                    while (true)
+                    {
+                        Console.Write("\nDo you really want to quit this operation? (yes/no): ");
+                        quitConfirmation2 = Console.ReadLine();
+
+                        if (quitConfirmation2 == "yes")
+                        {
+                            break;
+                        }
+                        else if (quitConfirmation2 == "no")
+                        {
+                            break;
+                        }
+                    }
+
+                    if (quitConfirmation2 == "yes")
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if (quitConfirmation2 == "yes")
+            {
+                MenuLogic.PopMenu();
+                break;
+            }
 
             // Attempt to create the account
             string resultMessage = AccountsLogic.CreateAccount(fullName, emailAddress, password);
@@ -126,8 +253,7 @@ public static class AccountPresentation
                 {
                     // Invalid input, prompt again
                     Console.WriteLine("Invalid input! Please type 'yes' or 'no'.");
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ReadKey();
+                    MenuPresentation.PressAnyKey();
                     Console.Clear();
                 }
             }

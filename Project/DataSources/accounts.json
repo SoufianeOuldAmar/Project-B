@@ -6,9 +6,9 @@
     "fullName": "Nikola Tesla",
     "flightPointsDataList": [
       {
-        "ticketsBought": "2024-11-22T23:25:35.8367392+01:00",
-        "points": 34,
-        "flightId": 17
+        "ticketsBought": "2024-12-09T18:46:47.2224654+01:00",
+        "points": 15,
+        "flightId": 1
       },
       {
         "ticketsBought": "2024-11-23T17:13:43.6824837+01:00",
@@ -41,21 +41,22 @@
         "flightId": 31
       },
       {
-        "ticketsBought": "2024-11-27T13:28:43.8549358+01:00",
-        "points": 27,
-        "flightId": 29
+        "ticketsBought": "2024-11-27T14:18:43.924399+01:00",
+        "points": 21,
+        "flightId": 12
       },
       {
-        "ticketsBought": "2024-11-27T13:29:34.864796+01:00",
+        "ticketsBought": "2024-12-10T20:11:04.487953+01:00",
         "points": 15,
         "flightId": 1
       },
       {
-        "ticketsBought": "2024-12-02T14:39:06.9746847+01:00",
-        "points": 21,
-        "flightId": 12
+        "ticketsBought": "2024-12-10T20:35:55.2869333+01:00",
+        "points": 15,
+        "flightId": 1
       }
     ],
+    "TotalFlightPoints": 239,
     "fees": 0
   },
   {
@@ -63,18 +64,8 @@
     "emailAddress": "t@b.c",
     "password": "xyz",
     "fullName": "Thomas Edison",
-    "flightPointsDataList": [
-      {
-        "ticketsBought": "0001-01-01T00:00:00",
-        "points": 0,
-        "flightId": 0
-      },
-      {
-        "ticketsBought": "2024-12-04T12:53:28.164325+01:00",
-        "points": 27,
-        "flightId": 13
-      }
-    ],
+    "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
     "fees": 0
   },
   {
@@ -83,6 +74,7 @@
     "password": "password1",
     "fullName": "Soufiane Ould Amar",
     "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
     "fees": 0
   },
   {
@@ -91,6 +83,7 @@
     "password": "password",
     "fullName": "lala",
     "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
     "fees": 0
   },
   {
@@ -99,6 +92,7 @@
     "password": "passwordd",
     "fullName": "lala",
     "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
     "fees": 0
   },
   {
@@ -107,6 +101,7 @@
     "password": "xyz",
     "fullName": "Soufiane OuLD",
     "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
     "fees": 0
   },
   {
@@ -115,6 +110,7 @@
     "password": "password1",
     "fullName": "Iemand Anders",
     "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
     "fees": 0
   }
 ]

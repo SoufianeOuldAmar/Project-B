@@ -290,45 +290,76 @@ public class LayoutModel
 
     public void ResetAllSeats()
     {
-        // Move all booked seats back to available seats
-        var allFlights = FlightsAccess.ReadAll();
-        string filePath = "DataSources/bookedflights.json";
 
-        foreach (var flight in allFlights)
+        while (true)
         {
-            // Iterate over a copy of BookedSeats to avoid modifying the collection while iterating
-            foreach (var seat in flight.Layout.BookedSeats.ToList())
-            {
-                // Remove seat from BookedSeats
-                flight.Layout.BookedSeats.Remove(seat);
+            Console.Clear();
+            Console.Write("Are you sure you want to reset all flights? (yes/no): ");
+            string confirmationReset = Console.ReadLine();
 
-                // Add seat to AvailableSeats
-                flight.Layout.AvailableSeats.Add(seat);
+            if (confirmationReset == "yes")
+            {
+
+                var allFlights = FlightsAccess.ReadAll();
+                string filePath = "DataSources/bookedflights.json";
+
+                foreach (var flight in allFlights)
+                {
+                    // Iterate over a copy of BookedSeats to avoid modifying the collection while iterating
+                    foreach (var seat in flight.Layout.BookedSeats.ToList())
+                    {
+                        // Remove seat from BookedSeats
+                        flight.Layout.BookedSeats.Remove(seat);
+
+                        // Add seat to AvailableSeats
+                        flight.Layout.AvailableSeats.Add(seat);
+                    }
+
+                    flight.Layout.SeatInitials.Clear();
+                }
+
+                try
+                {
+                    // Check if the file exists before deleting
+                    if (File.Exists(filePath))
+                    {
+                        File.Delete(filePath);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"The file '{filePath}' does not exist.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // Handle exceptions such as UnauthorizedAccessException or IOException
+                    Console.WriteLine($"An error occurred: {ex.Message}");
+                }
+
+                var allAccounts = AccountsAccess.LoadAll();
+
+                foreach (var account in allAccounts)
+                {
+                    account.FlightPointsDataList.Clear();
+                }
+
+                FlightsAccess.WriteAll(allFlights);
+                AccountsAccess.WriteAll(allAccounts);
+                Console.WriteLine("Seats have been reset");
+                break;
             }
-
-            flight.Layout.SeatInitials.Clear();
-        }
-
-        try
-        {
-            // Check if the file exists before deleting
-            if (File.Exists(filePath))
+            else if (confirmationReset == "no")
             {
-                File.Delete(filePath);
+                Console.WriteLine("Aborted resetting seats");
+                break;
             }
             else
             {
-                Console.WriteLine($"The file '{filePath}' does not exist.");
+                Console.WriteLine("Incorrect input, input either 'yes' or 'no'.");
+                MenuPresentation.PressAnyKey();
             }
         }
-        catch (Exception ex)
-        {
-            // Handle exceptions such as UnauthorizedAccessException or IOException
-            Console.WriteLine($"An error occurred: {ex.Message}");
-        }
 
-        FlightsAccess.WriteAll(allFlights);
-        Console.WriteLine("Seats have been reset");
 
 
     }

@@ -21,13 +21,13 @@ namespace DataAccess
 
                     var flights = JsonSerializer.Deserialize<List<FlightModel>>(jsonString, options);
 
-                    foreach (var flight in flights ?? new List<FlightModel>())
-                    {
-                        if (flight.Layout == null)
-                        {
-                            flight.Layout = AssignDefaultLayout(flight.Airline);
-                        }
-                    }
+                    // foreach (var flight in flights ?? new List<FlightModel>())
+                    // {
+                    //     if (flight.Layout == null)
+                    //     {
+                    //         flight.Layout = AssignDefaultLayout(flight.Airline);
+                    //     }
+                    // }
 
                     return flights ?? new List<FlightModel>();
                 }
@@ -59,39 +59,39 @@ namespace DataAccess
             }
         }
 
-        private static LayoutModel AssignDefaultLayout(string airline)
-        {
-            string airlineLower = airline.ToLower();
+        // private static LayoutModel AssignDefaultLayout(string airline)
+        // {
+        //     string airlineLower = airline.ToLower();
 
-            if (airlineLower.Contains("british airways"))
-            {
-                return LayoutModel.CreateBoeing737Layout();
-            }
-            else if (airlineLower.Contains("airbus"))
-            {
-                return LayoutModel.CreateAirbusA330200Layout();
-            }
-            else if (airlineLower.Contains("emirates"))
-            {
-                return LayoutModel.CreateAirbusA330200Layout();
-            }
-            else if (airlineLower.Contains("klm"))
-            {
-                return LayoutModel.CreateBoeing737Layout();
-            }
-            else if (airlineLower.Contains("lufthansa"))
-            {
-                return LayoutModel.CreateBoeing787Layout(); // Changed from Boeing 757
-            }
-            else if (airlineLower.Contains("turkish airlines"))
-            {
-                return LayoutModel.CreateAirbusA330200Layout();
-            }
-            else
-            {
-                return LayoutModel.CreateBoeing737Layout();
-            }
-        }
+        //     if (airlineLower.Contains("british airways"))
+        //     {
+        //         return LayoutModel.CreateBoeing737Layout();
+        //     }
+        //     else if (airlineLower.Contains("airbus"))
+        //     {
+        //         return LayoutModel.CreateAirbusA330200Layout();
+        //     }
+        //     else if (airlineLower.Contains("emirates"))
+        //     {
+        //         return LayoutModel.CreateAirbusA330200Layout();
+        //     }
+        //     else if (airlineLower.Contains("klm"))
+        //     {
+        //         return LayoutModel.CreateBoeing737Layout();
+        //     }
+        //     else if (airlineLower.Contains("lufthansa"))
+        //     {
+        //         return LayoutModel.CreateBoeing787Layout(); // Changed from Boeing 757
+        //     }
+        //     else if (airlineLower.Contains("turkish airlines"))
+        //     {
+        //         return LayoutModel.CreateAirbusA330200Layout();
+        //     }
+        //     else
+        //     {
+        //         return LayoutModel.CreateBoeing737Layout();
+        //     }
+        // }
 
         public static void AdminAddNewFlight(FlightModel newFlight)
         {

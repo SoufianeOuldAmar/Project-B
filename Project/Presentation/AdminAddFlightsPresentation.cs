@@ -10,49 +10,74 @@ public class AdminAddFlightsPresentation
     {
         Console.Clear();
         LayoutModel layout = LayoutModel.CreateBoeing737Layout();
-        string airline;
-        while (true)
-        {
-            Console.WriteLine("Enter the Airline name: ");
-            airline = Console.ReadLine();
-            if (airline is string)
-            {
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please enter letters only.");
-            }
 
-        }
         double ticketPrice;
         while (true)
         {
-            Console.WriteLine("Enter Ticket Price: ");
+            Console.Write("\nEnter Ticket Price (or 'q' to go back): ");
             string input = Console.ReadLine();
-            if (double.TryParse(input, out ticketPrice) && ticketPrice > 0)
+            if (input.ToLower() == "q")
+            {
+                while (true)
+                {
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
+                    string quitConfirmation = Console.ReadLine();
+                    if (quitConfirmation == "yes")
+                    {
+                        return null;
+                    }
+                    else if (quitConfirmation == "no")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong input, input either yes or no.");
+                    }
+                }
+
+            }
+
+            else if (double.TryParse(input, out ticketPrice) && ticketPrice > 0)
             {
                 break;
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter letters only.");
+                Console.WriteLine("Invalid input. Please enter digits only.");
             }
-
         }
 
-        // Console.WriteLine("Enter Gate: ");
-        // string gate = Console.ReadLine();
         string gateStr;
         while (true)
         {
-            Console.WriteLine("Enter Gate: ");
+            Console.Write("\nEnter Gate (or 'q' to go back): ");
             string gate = Console.ReadLine();
-            if (gate.Length >= 2 && gate.Length <= 3 && "ABCDEF".Contains(char.ToUpper(gate[0])) &&
-            int.TryParse(gate.Substring(1), out int number) &&
-            number >= 1 && number <= 30)
+            if (gate.ToLower() == "q")
             {
-                // Substring(startIndex, length);
+                while (true)
+                {
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
+                    string quitConfirmation = Console.ReadLine();
+                    if (quitConfirmation == "yes")
+                    {
+                        return null;
+                    }
+                    else if (quitConfirmation == "no")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong input, input either yes or no.");
+                    }
+                }
+            }
+
+            else if (gate.Length >= 2 && gate.Length <= 3 && "ABCDEF".Contains(char.ToUpper(gate[0])) &&
+                int.TryParse(gate.Substring(1), out int number) &&
+                number >= 1 && number <= 30)
+            {
                 string letterPart = gate.Substring(0, 1).ToUpper();
                 string numberPart = gate.Substring(1);
                 gateStr = $"{letterPart}{numberPart}";
@@ -63,177 +88,224 @@ public class AdminAddFlightsPresentation
                 Console.WriteLine("Invalid format. The string must be a letter followed by digit.");
             }
         }
+
         string departureAirport;
         while (true)
         {
-            Console.WriteLine("Enter Departure Airport: ");
+            Console.Write("\nEnter Departure Airport (or 'q' to go back): ");
             departureAirport = Console.ReadLine();
-            if (departureAirport is string)
+            if (departureAirport.ToLower() == "q")
             {
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please enter letters only.");
-            }
-        }
-        var europeanCapitalsAirports = new List<string>
-            {
-            "Amsterdam-Schiphol",
-            "Athens-Eleftherios Venizelos",
-            "Belgrade-Nikola Tesla",
-            "Berlin-Brandenburg",
-            "Brussels-Zaventem",
-            "Bucharest-Henri Coandă",
-            "Budapest-Ferenc Liszt",
-            "Copenhagen-Kastrup",
-            "Dublin-Dublin Airport",
-            "Helsinki-Vantaa",
-            "Lisbon-Humberto Delgado",
-            "London-Heathrow",
-            "Madrid-Barajas",
-            "Oslo-Gardermoen",
-            "Paris-Charles de Gaulle",
-            "Prague-Václav Havel",
-            "Rome-Fiumicino",
-            "Stockholm-Arlanda",
-            "Vienna-Schwechat",
-            "Warsaw-Chopin"
-            };
-        string arrivalDestination;
-
-        foreach(var capital in europeanCapitalsAirports)
-        {
-            Console.WriteLine($"- {capital}");
-        }
-
-        while (true)
-        {
-            Console.WriteLine("Enter Arrival Destination: ");
-            arrivalDestination = Console.ReadLine();
-            if (europeanCapitalsAirports.Contains(arrivalDestination))
-            {
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please enter letters only.");
-            }
-        }
-
-        Console.WriteLine("Is the flight cancelled? (yes/no): ");
-        bool IsCancelled = Console.ReadLine().ToLower() == "yes";
-
-        string date;
-        while (true)
-        {
-            Console.WriteLine("Enter a Date (dd-mm-yyyy):");
-            string input = Console.ReadLine(); // dd-mm-yyyy
-            string[] dateParts = input.Split('-');
-
-            if (dateParts.Length == 3)
-            {
-                string yearStr = dateParts[2];
-                string monthStr = dateParts[1].PadLeft(2, '0');
-                string dayStr = dateParts[0].PadLeft(2, '0');
-                date = $"{dayStr}-{monthStr}-{yearStr}";
-
-                if (yearStr.Length == 4 && monthStr.Length == 2 && dayStr.Length == 2)
+                while (true)
                 {
-                    int year = int.Parse(yearStr);
-                    int month = int.Parse(monthStr);
-                    int day = int.Parse(dayStr);
-
-                    if ((month == 4 || month == 6 || month == 9 || month == 11) && day >= 1 && day <= 30 && year >= 2024)
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
+                    string quitConfirmation = Console.ReadLine();
+                    if (quitConfirmation == "yes")
                     {
-                        break;
+                        return null;
                     }
-                    else if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day >= 1 && day <= 31 && year >= 2024)
-                    {
-                        break;
-                    }
-                    else if (month == 2 && day >= 1 && day <= 28 && year >= 2024)
+                    else if (quitConfirmation == "no")
                     {
                         break;
                     }
                     else
                     {
-                        Console.WriteLine("Invalid date. Please enter a valid date.");
+                        Console.WriteLine("Wrong input, input either yes or no.");
                     }
                 }
-                else
-                {
-                    Console.WriteLine("Invalid date format. Please enter a valid date in yyyy-mm-dd format.");
-                }
             }
-            else
+
+            else if (!string.IsNullOrEmpty(departureAirport))
             {
-                Console.WriteLine("Invalid date format. Please enter a valid date in yyyy-mm-dd format.");
-            }
-        }
-
-
-        // Console.WriteLine("Enter Flight Time (HH:MM): ");
-        // string flightTime = Console.ReadLine();
-        string time;
-        while (true)
-        {
-            Console.WriteLine("Enter Flight Time (HH:MM): ");
-            string flightTime = Console.ReadLine();
-            if (!flightTime.Contains(":"))
-            {
-                Console.WriteLine("Invalid format. Please use ':' as a separator between hours and minutes.");
-                continue;
-            }
-            string[] flightParts = flightTime.Split(':');
-
-            string hourStr = flightParts[0];
-            string minStr = flightParts[1].PadLeft(2, '0');
-
-            if (int.TryParse(hourStr, out int hour) && hour >= 0 && hour <= 23 &&
-            int.TryParse(minStr, out int minute) && minute >= 0 && minute <= 59)
-            {
-                time = $"{hourStr}:{minStr}";
                 break;
             }
             else
             {
-                Console.WriteLine("Invalid Time, Please try again.");
+                Console.WriteLine("Invalid input. Please enter letters only.");
             }
-
         }
-        int totalPets = 0;
 
+        var europeanCapitalsAirports = new List<string>
+    {
+        "Amsterdam-Schiphol", "Athens-Eleftherios Venizelos", "Belgrade-Nikola Tesla",
+        "Berlin-Brandenburg", "Brussels-Zaventem", "Bucharest-Henri Coandă",
+        "Budapest-Ferenc Liszt", "Copenhagen-Kastrup", "Dublin-Dublin Airport",
+        "Helsinki-Vantaa", "Lisbon-Humberto Delgado", "London-Heathrow",
+        "Madrid-Barajas", "Oslo-Gardermoen", "Paris-Charles de Gaulle",
+        "Prague-Václav Havel", "Rome-Fiumicino", "Stockholm-Arlanda",
+        "Vienna-Schwechat", "Warsaw-Chopin"
+    };
+
+        int index = 1;
+        foreach (var capital in europeanCapitalsAirports)
+        {
+            Console.WriteLine($"{index}. {capital}");
+            index++;
+        }
+
+        string arrivalDestination;
         while (true)
         {
-            Console.WriteLine("Enter the current total number of pets on this flight (0-7): ");
+            Console.Write("\nEnter Arrival Destination (choose by index or 'q' to go back): ");
             string input = Console.ReadLine();
-
-            // Check if input is a valid number
-            if (int.TryParse(input, out totalPets))
+            if (input.ToLower() == "q")
             {
+                while (true)
+                {
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
+                    string quitConfirmation = Console.ReadLine();
+                    if (quitConfirmation == "yes")
+                    {
+                        return null;
+                    }
+                    else if (quitConfirmation == "no")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong input, input either yes or no.");
+                    }
+                }
 
-                if (totalPets >= 0 && totalPets <= 7)
-                {
-                    break; // Valid input exit
-                }
-                else
-                {
-                    Console.WriteLine("The number must be between 0 and 7."); 
-                }
+
+
+            }
+
+            else if (int.TryParse(input, out int arrivalDestinationIndex) &&
+                arrivalDestinationIndex >= 1 && arrivalDestinationIndex <= europeanCapitalsAirports.Count)
+            {
+                arrivalDestination = europeanCapitalsAirports[arrivalDestinationIndex - 1];
+                break;
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a number."); 
+                Console.WriteLine("Invalid input. Please enter a valid number.");
             }
         }
 
+        string date;
+        while (true)
+        {
+            Console.Write("\nEnter a Date (dd-mm-yyyy or 'q' to go back): ");
+            string input = Console.ReadLine();
+            if (input.ToLower() == "q")
+            {
+                while (true)
+                {
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
+                    string quitConfirmation = Console.ReadLine();
+                    if (quitConfirmation == "yes")
+                    {
+                        return null;
+                    }
+                    else if (quitConfirmation == "no")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong input, input either yes or no.");
+                    }
+                }
 
+
+
+            }
+
+            else if (DateTime.TryParseExact(input, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate) &&
+                parsedDate >= DateTime.Now)
+            {
+                date = parsedDate.ToString("dd-MM-yyyy");
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid date. Please enter a valid date.");
+            }
+        }
+
+        string time;
+        while (true)
+        {
+            Console.Write("\nEnter Flight Time (HH:MM or 'q' to go back): ");
+            string input = Console.ReadLine();
+            if (input.ToLower() == "q")
+            {
+                while (true)
+                {
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
+                    string quitConfirmation = Console.ReadLine();
+                    if (quitConfirmation == "yes")
+                    {
+                        return null;
+                    }
+                    else if (quitConfirmation == "no")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong input, input either yes or no.");
+                    }
+                }
+
+
+
+            }
+
+            else if (DateTime.TryParseExact(input, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedTime))
+            {
+                time = parsedTime.ToString("HH:mm");
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid time format. Please enter in HH:MM format.");
+            }
+        }
+
+        int totalPets = 0;
+        while (true)
+        {
+            Console.Write("\nEnter the current total number of pets on this flight (0-7 or 'q' to go back): ");
+            string input = Console.ReadLine();
+            if (input.ToLower() == "q")
+            {
+                while (true)
+                {
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
+                    string quitConfirmation = Console.ReadLine();
+                    if (quitConfirmation == "yes")
+                    {
+                        return null;
+                    }
+                    else if (quitConfirmation == "no")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong input, input either yes or no.");
+                    }
+                }
+
+
+
+            }
+
+            else if (int.TryParse(input, out totalPets) && totalPets >= 0 && totalPets <= 7)
+            {
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. The number must be between 0 and 7.");
+            }
+        }
 
         int nextFlightId = BookFlightPresentation.allFlights.Count;
         FlightModel newFlight = new FlightModel(
-
-            airline,
             layout,
             ticketPrice,
             gateStr,
@@ -242,114 +314,168 @@ public class AdminAddFlightsPresentation
             false,
             date,
             time,
-            0
-        );
-
-        nextFlightId++;
-        newFlight.Id = nextFlightId;
-        newFlight.TotalPets = totalPets;
+            totalPets
+        )
+        {
+            Id = ++nextFlightId
+        };
 
         FlightModel returnFlight = null;
-        string returnDate;
-        string returnTime;
-        string returnGate;
         while (true)
         {
-            Console.WriteLine("Add a return flight? (yes/no):");
-            string returnFlightYesNo = Console.ReadLine().ToLower();
-
-            if (returnFlightYesNo == "no")
+            Console.Write("\nAdd a return flight? (yes/no or 'q' to go back): ");
+            string input = Console.ReadLine().ToLower();
+            if (input == "q")
             {
-                break;
+                while (true)
+                {
+                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
+                    string quitConfirmation = Console.ReadLine();
+
+                    if (quitConfirmation == "yes")
+                    {
+                        return null;
+                    }
+                    else if (quitConfirmation == "no")
+                    {
+                        break;
+                    }
+                }
             }
-            else if (returnFlightYesNo == "yes")
+
+            else if (input == "no") break;
+
+            else if (input == "yes")
             {
+                string returnDate;
                 while (true)
                 {
-                    Console.WriteLine("Return Date (dd-mm-yyyy):");
-                    string dateString = Console.ReadLine();
-
-                    if (DateTime.TryParseExact(dateString, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate))
+                    Console.Write("\nReturn Date (dd-mm-yyyy or 'q' to go back): ");
+                    input = Console.ReadLine();
+                    if (input.ToLower() == "q")
                     {
-                        if (parsedDate <= DateTime.Now)
+
+                        while (true)
                         {
-                            Console.WriteLine("The date is before the current time. Try again.");
-                            continue;
+                            Console.Write("\nDo you really want to quit this operation? (yes/no): ");
+                            string quitConfirmation = Console.ReadLine();
+
+                            if (quitConfirmation == "yes")
+                            {
+                                return null;
+                            }
+                            else if (quitConfirmation == "no")
+                            {
+                                break;
+                            }
                         }
-                        else
-                        {
-                            returnDate = parsedDate.ToString("dd-MM-yyyy");
-                            break;
-                        }
+
+                    }
+
+                    if (DateTime.TryParseExact(input, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedReturnDate) &&
+                        parsedReturnDate > DateTime.Now)
+                    {
+                        returnDate = parsedReturnDate.ToString("dd-MM-yyyy");
+                        break;
                     }
                     else
                     {
-                        Console.WriteLine("Invalid date format. Try again.");
-                        continue;
+                        Console.WriteLine("Invalid date. Please try again.");
                     }
-
                 }
 
+                string returnTime;
                 while (true)
                 {
-                    Console.WriteLine("Return Time (HH:MM)");
-                    string timeStr = Console.ReadLine();
-
-                    if (DateTime.TryParseExact(timeStr, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedTime))
+                    Console.Write("\nReturn Time (HH:MM or 'q' to go back): ");
+                    input = Console.ReadLine();
+                    if (input.ToLower() == "q")
                     {
-                        returnTime = parsedTime.ToString("HH:mm");
-                        break; // Exit the loop if valid
+
+                        while (true)
+                        {
+                            Console.Write("\nDo you really want to quit this operation? (yes/no): ");
+                            string quitConfirmation = Console.ReadLine();
+
+                            if (quitConfirmation == "yes")
+                            {
+                                return null;
+                            }
+                            else if (quitConfirmation == "no")
+                            {
+                                break;
+                            }
+                        }
+
+
+                    }
+
+                    else if (DateTime.TryParseExact(input, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedReturnTime))
+                    {
+                        returnTime = parsedReturnTime.ToString("HH:mm");
+                        break;
                     }
                     else
                     {
-                        Console.WriteLine("Invalid time format. Please enter in HH:MM format.");
-                        continue;
+                        Console.WriteLine("Invalid time format. Please try again.");
                     }
                 }
 
+                string returnGate;
                 while (true)
                 {
-                    Console.WriteLine("Enter Gate: ");
-                    string gate = Console.ReadLine();
-                    if (gate.Length >= 2 && gate.Length <= 3 && "ABCDEF".Contains(char.ToUpper(gate[0])) &&
-                    int.TryParse(gate.Substring(1), out int number) &&
-                    number >= 1 && number <= 30)
+                    Console.Write("\nEnter Return Gate (or 'q' to go back): ");
+                    input = Console.ReadLine();
+                    if (input.ToLower() == "q")
                     {
-                        // Substring(startIndex, length);
-                        string letterPart = gate.Substring(0, 1).ToUpper();
-                        string numberPart = gate.Substring(1);
+
+                        while (true)
+                        {
+                            Console.Write("\nDo you really want to quit this operation? (yes/no): ");
+                            string quitConfirmation = Console.ReadLine();
+
+
+                            if (quitConfirmation == "yes")
+                            {
+                                return null;
+                            }
+                            else if (quitConfirmation == "no")
+                            {
+                                break;
+                            }
+                        }
+
+                    }
+
+                    else if (input.Length >= 2 && input.Length <= 3 && "ABCDEF".Contains(char.ToUpper(input[0])) &&
+                        int.TryParse(input.Substring(1), out int number) && number >= 1 && number <= 30)
+                    {
+                        string letterPart = input.Substring(0, 1).ToUpper();
+                        string numberPart = input.Substring(1);
                         returnGate = $"{letterPart}{numberPart}";
                         break;
                     }
                     else
                     {
-                        Console.WriteLine("Invalid format. The string must be a letter followed by digit.");
-                        continue;
+                        Console.WriteLine("Invalid format. Please try again.");
                     }
                 }
 
                 returnFlight = newFlight.CreateReturnFlight(returnDate, returnTime, returnGate);
                 break;
             }
-
         }
 
         newFlight.ReturnFlight = returnFlight;
 
-
-
-        Console.WriteLine("New flight added:");
+        Console.WriteLine("New flight added.");
         return newFlight;
     }
+
     public void Exit()
     {
-        Console.WriteLine("press any key...");
-        Console.ReadKey();
-        MenuLogic.PopMenu();
-        // Console.Clear();
-        // MenuPresentation.AuthenticateAccountMenu();
-
-
+        MenuPresentation.PressAnyKey();
+        Console.Clear();
     }
 
 }
