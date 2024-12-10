@@ -11,7 +11,42 @@
         "flightId": 1
       },
       {
-        "ticketsBought": "2024-12-09T18:48:10.8617325+01:00",
+        "ticketsBought": "2024-11-23T17:13:43.6824837+01:00",
+        "points": 28,
+        "flightId": 25
+      },
+      {
+        "ticketsBought": "2024-11-24T15:50:10.1832761+01:00",
+        "points": 33,
+        "flightId": 24
+      },
+      {
+        "ticketsBought": "2024-11-26T13:58:30.8858146+01:00",
+        "points": 27,
+        "flightId": 29
+      },
+      {
+        "ticketsBought": "2024-11-26T14:00:29.7878516+01:00",
+        "points": 13,
+        "flightId": 37
+      },
+      {
+        "ticketsBought": "2024-11-26T19:31:04.8795008+01:00",
+        "points": 31,
+        "flightId": 10
+      },
+      {
+        "ticketsBought": "2024-11-27T11:49:10.6231336+01:00",
+        "points": 41,
+        "flightId": 31
+      },
+      {
+        "ticketsBought": "2024-11-27T14:18:43.924399+01:00",
+        "points": 21,
+        "flightId": 12
+      },
+      {
+        "ticketsBought": "2024-12-10T20:11:04.487953+01:00",
         "points": 15,
         "flightId": 1
       }
