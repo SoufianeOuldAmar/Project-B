@@ -129,7 +129,7 @@ static class AdminAccountPresentation
                         MenuPresentation.PressAnyKey();
                         Console.Clear();
                     }
-                    else if (keyInfo.KeyChar == "4")
+                    else if (keyInfo == "4")
                     {
                         AdminManageBookingPresentation.LaodBookedPresentaion();
                         AdminManageBookingPresentation.UpdateBookedDetailsPresentation();
