@@ -54,7 +54,8 @@ public static class MenuPresentation
         Console.WriteLine("1. 🔑 Log in");
         Console.WriteLine("2. 📝 Create account");
         Console.WriteLine("3. 🔍 Search for a flight");
-        Console.WriteLine("4. ❌ Quit program\n");
+        Console.WriteLine("4. 📖 About us");
+        Console.WriteLine("5. ❌ Quit program\n");
         Console.Write("Choose an option: ");
 
         string choice = Console.ReadLine();
@@ -490,7 +491,7 @@ public static class MenuPresentation
         int seatCount = 0;
         while (true)
         {
-            Console.WriteLine("Enter the number of seats you want to book (or leave blank for any, or press Q to quit, or B to go back): ");
+            Console.Write("Enter the number of seats you want to book (or leave blank for any, or press Q to quit, or B to go back): ");
             seatInput = Console.ReadLine();
 
             if (seatInput.Equals("Q", StringComparison.OrdinalIgnoreCase))
@@ -586,7 +587,8 @@ public static class MenuPresentation
         Console.WriteLine("1. 🔍 Search for flights");
         Console.WriteLine("2. 🧾 View history of tickets");
         Console.WriteLine("3. 🎯 View Flight Point");
-        Console.WriteLine("4. 🔓 Log out");
+        Console.WriteLine("4. 📖 About us");
+        Console.WriteLine("5. 🔓 Log out");
         Console.Write("\nChoose an option: ");
         string choice = Console.ReadLine();
 
@@ -595,7 +597,6 @@ public static class MenuPresentation
             case "1":
                 // MenuLogic.PushMenu(BookFlightMenu);
                 SearchFlightsMenu();
-
                 break;
             case "2":
                 MenuLogic.PushMenu(() => CancelMain(accountModel.EmailAddress));
@@ -605,6 +606,9 @@ public static class MenuPresentation
                 // Console.WriteLine("This feautre isn't implemented yet.");
                 break;
             case "4":
+                MenuLogic.PushMenu(AboutUsPres.aboutUsMenu);
+                break;
+            case "5":
                 Console.WriteLine("\nLogging out...");
                 // AccountsLogic.LogOut(); (voeg logout-logica toe indien nodig)
                 MenuLogic.PopMenu();
@@ -910,7 +914,7 @@ public static class MenuPresentation
         int seatCount = 0;
         while (true)
         {
-            Console.WriteLine("Enter the number of seats you want to book (or leave blank for any, or press Q to quit, or B to go back): ");
+            Console.Write("Enter the number of seats you want to book (or leave blank for any, or press Q to quit, or B to go back): ");
             seatInput = Console.ReadLine();
 
             if (seatInput.Equals("Q", StringComparison.OrdinalIgnoreCase))

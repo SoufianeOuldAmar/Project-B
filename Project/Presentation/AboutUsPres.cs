@@ -10,66 +10,91 @@ public class AboutUsPres
 
         while (true)
         {
-            Console.WriteLine("Welcome :) get to know more about us");
-            Console.WriteLine("(1) Network (2) Our Fleet (3) What we stand for (4) Personal Data (5) Contact information (6) Quit program");
-            string Input = Console.ReadLine();
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("✈️  Welcome to BOSST Airlines! ✈️");
+            Console.ResetColor();
+            Console.WriteLine("Get to know more about us through the options below:");
+            Console.WriteLine("---------------------------------------------------");
+            Console.WriteLine("1. 🌍 Network");
+            Console.WriteLine("2. 🛩️  Our Fleet");
+            Console.WriteLine("3. ⭐ What We Stand For");
+            Console.WriteLine("4. 🔒 Personal Data");
+            Console.WriteLine("5. 📞 Contact Information");
+            Console.WriteLine("6. 🔙 Return to front page");
+            Console.WriteLine("---------------------------------------------------");
+            Console.Write("Enter your choice: ");
+            string input = Console.ReadLine();
 
-            if (Input == "1")
+            if (input == "1")
             {
-                allFlights = FlightsAccess.ReadAll(); 
-                Console.WriteLine("Here in  BOSST Airlines we have a large network");
-                var allDestinations = allFlights.Select(flight => flight.ArrivalDestination).Distinct().ToList(); // removes duplicates 
+                allFlights = FlightsAccess.ReadAll();
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("🌍 Our Network");
+                Console.ResetColor();
+                Console.WriteLine("Here at BOSST Airlines, we have a vast network of destinations.");
+                var allDestinations = allFlights.Select(flight => flight.ArrivalDestination).Distinct().ToList();
 
-                Console.WriteLine("Our destinations include: ");
-                foreach(var destination in allDestinations)
+                Console.WriteLine("Our destinations include:");
+                foreach (var destination in allDestinations)
                 {
-                    Console.WriteLine(destination);
+                    Console.WriteLine($"- {destination}");
                 }
             }
-            else if (Input == "2")
+            else if (input == "2")
             {
-                Console.WriteLine("Our fleet consist of AirbusA330 and Boeing787 ensuring you have a good and comfortable time traveling with us 🛫 ");
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("🛩️ Our Fleet");
+                Console.ResetColor();
+                Console.WriteLine("Our fleet consists of state-of-the-art aircraft:");
+                Console.WriteLine("Airbus A330 and Boeing 787, ensuring a comfortable and enjoyable journey. 🛫");
             }
-            else if (Input == "3")
+            else if (input == "3")
             {
-                Console.WriteLine("We are a leading airline company that puts their costumers at number one. ");
-                Console.WriteLine("Here at BOSST airlines we believe for making travel affordable for everyone and have a pleasant flying experience at the same time, that's why we made it our goal to get people to different destinations all around the world while providing amazing service.");
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("⭐ What We Stand For");
+                Console.ResetColor();
+                Console.WriteLine("At BOSST Airlines, our customers always come first!");
+                Console.WriteLine("We strive to make travel affordable and enjoyable, providing top-tier service to connect people to destinations around the globe.");
             }
-            else if (Input == "4")
+            else if (input == "4")
             {
-                Console.WriteLine("Here at BOSST Airlines we care about your privacy that's why we only share your information with trusted third-party partners when necessary to provide you with the best possible service ");
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine("🔒 Personal Data");
+                Console.ResetColor();
+                Console.WriteLine("We value your privacy and only share your data with trusted partners when necessary.");
+                Console.WriteLine("Your information is handled with the utmost care to provide the best possible service.");
             }
-            else if (Input == "5")
+            else if (input == "5")
             {
-                Console.WriteLine(" Our headquarters are located at Wijnhaven 107, Rotterdam. You may contact us by email or phone for questions and help at BOSST@gmail.com and 0612345678");
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("📞 Contact Information");
+                Console.ResetColor();
+                Console.WriteLine("📍 Headquarters: Wijnhaven 107, Rotterdam");
+                Console.WriteLine("✉️  Email: BOSST@gmail.com");
+                Console.WriteLine("📱 Phone: 0612345678");
             }
-            else if (Input == "6")
+            else if (input == "6")
             {
-                Console.WriteLine("Return to main menu...");
-                MenuLogic.PopMenu(); 
+                // MenuPresentation.PressAnyKey();
+                MenuLogic.PopMenu();
                 return;
             }
-            else 
+            else
             {
-                Console.WriteLine("Invalid input,please re-enter.");
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("⚠️ Invalid input! Please try again.");
+                Console.ResetColor();
             }
 
-        } 
-
-
-
-
+            MenuPresentation.PressAnyKey();
+        }
 
     }
-  
-
-
-
-
-
-
-
-
-
-
 }

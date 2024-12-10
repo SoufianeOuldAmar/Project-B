@@ -40,7 +40,7 @@ public static class BookFlightPresentation
         totalPrice += seatPrice;
 
         // Baggage handling
-        Console.WriteLine("Do you want to add baggage (yes/no):");
+        Console.Write("Do you want to add baggage (yes/no): ");
         string userBaggage = Console.ReadLine().ToLower();
 
         if (userBaggage == "yes")
@@ -95,7 +95,7 @@ public static class BookFlightPresentation
         }
 
         // Pet handling
-        Console.WriteLine("Do you want to add a pet? (yes/no):");
+        Console.WriteLine("Do you want to add a pet? (yes/no): ");
         string userPet = Console.ReadLine()?.ToLower();
 
         if (userPet == "yes")
@@ -388,7 +388,7 @@ public static class BookFlightPresentation
                 Console.WriteLine($"Total Price: {totalPrice:C}");
 
                 int allFlightPoints = currentAccount.TotalFlightPoints;
-                Console.Write($"Before confirming your booking do you want to use your flight points for discount? {(allFlightPoints)} (yes/no): ");
+                Console.Write($"\nBefore confirming your booking do you want to use your flight points for discount? You have {(allFlightPoints)} points. (yes/no): ");
                 
                 string discountYesOrNo = Console.ReadLine();
 

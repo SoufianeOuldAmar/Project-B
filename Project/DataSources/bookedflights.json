@@ -4,56 +4,6 @@
       "FlightID": 1,
       "BookedSeats": [
         "10A",
-        "10A",
-        "10B",
-        "10B"
-      ],
-      "Pets": [],
-      "BaggageInfo": [],
-      "IsCancelled": false
-    },
-    {
-      "FlightID": 12,
-      "BookedSeats": [
-        "30E"
-      ],
-      "Pets": [
-        {
-          "AnimalType": "cat",
-          "Fee": 50
-        },
-        {
-          "AnimalType": "cat",
-          "Fee": 50
-        },
-        {
-          "AnimalType": "cat",
-          "Fee": 50
-        },
-        {
-          "AnimalType": "cat",
-          "Fee": 50
-        },
-        {
-          "AnimalType": "cat",
-          "Fee": 50
-        },
-        {
-          "AnimalType": "cat",
-          "Fee": 50
-        },
-        {
-          "AnimalType": "cat",
-          "Fee": 50
-        }
-      ],
-      "BaggageInfo": [],
-      "IsCancelled": false
-    },
-    {
-      "FlightID": 1,
-      "BookedSeats": [
-        "10A",
         "10A"
       ],
       "Pets": [],

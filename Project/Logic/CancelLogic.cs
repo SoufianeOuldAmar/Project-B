@@ -144,7 +144,7 @@ public static class CancelLogic
             allFlights.Remove(flightToCancel);
         }
         // save changes to json 
-        WriteJson(fileName, allFlights);
+        FlightsAccess.WriteAll(allFlights);
         return "Flight is cancelled";
     }
 
