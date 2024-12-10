@@ -29,6 +29,12 @@
           "BaggageType": "1",
           "BaggageWeight": 23,
           "Fee": 50
+        },
+        {
+          "Initials": "ER",
+          "BaggageType": "1",
+          "BaggageWeight": 23,
+          "Fee": 50
         }
       ],
       "IsCancelled": false,
