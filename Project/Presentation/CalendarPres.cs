@@ -16,6 +16,17 @@ public static class CalendarPresentation
             Console.Clear();
             CalendarLogic.PrintCalendar(currentMonth, currentYear, currentDay, departureAirport, destination);
 
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("→ : Next day");
+            Console.WriteLine("← : Previous day");
+            Console.WriteLine("↑ : Jump one week earlier");
+            Console.WriteLine("↓ : Jump one week later");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("• : Flight available on this date");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Enter: Select the highlighted date\n");
+            Console.ResetColor();
+
             ConsoleKeyInfo key = Console.ReadKey(true);
             if (key.Key == ConsoleKey.RightArrow)
             {
@@ -35,7 +46,7 @@ public static class CalendarPresentation
             }
             else if (key.Key == ConsoleKey.Enter)
             {
-                return new DateTime(currentYear, currentMonth, currentDay); 
+                return new DateTime(currentYear, currentMonth, currentDay);
             }
 
             // else if (key.Key == ConsoleKey.Q)

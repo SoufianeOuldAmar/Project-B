@@ -987,7 +987,7 @@ public static class MenuPresentation
 
             while (true)
             {
-                Console.WriteLine("\nEnter the flight number to book a seat, 'B' to go back, or 'Q' to quit:");
+                Console.Write("\nEnter the flight number to book a seat, 'B' to go back, or 'Q' to quit: ");
                 string choice = Console.ReadLine();
 
                 if (choice.Equals("Q", StringComparison.OrdinalIgnoreCase))
