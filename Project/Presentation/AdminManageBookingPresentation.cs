@@ -552,7 +552,7 @@ namespace DataAccess
                 }
                 else
                 {
-                    Console.WriteLine("No booking foud. pleas try again!!!!");
+                    Console.WriteLine("No booking found. pleas try again!!!!");
                 }
                 saving(email, bookings);
                 break;
