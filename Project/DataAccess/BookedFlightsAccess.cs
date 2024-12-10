@@ -20,7 +20,7 @@ public static class BookedFlightsAccess
         return JsonSerializer.Deserialize<Dictionary<string, List<BookedFlightsModel>>>(json);
     }
 
-    public static void WriteAll(string email, List<BookedFlightsModel> updatedBookedFlights)
+    public static void WriteAll(string email, List<BookedFlightsModel> newBookedFlights)
     {
         // Load the current booked flights data from the file
         Dictionary<string, List<BookedFlightsModel>> bookedFlights = LoadAll();
@@ -28,13 +28,56 @@ public static class BookedFlightsAccess
         // Check if the email (key) already exists in the dictionary
         if (bookedFlights.ContainsKey(email))
         {
-            // Replace the existing list of booked flights with the updated list
-            bookedFlights[email] = updatedBookedFlights;
+            // If it exists, add the new booked flights to the existing list
+            bookedFlights[email].AddRange(newBookedFlights);
         }
         else
         {
             // If the email doesn't exist, create a new entry
-            bookedFlights[email] = new List<BookedFlightsModel>(updatedBookedFlights);
+            bookedFlights[email] = new List<BookedFlightsModel>(newBookedFlights);
+        }
+
+        // Serialize and write the updated data back to the JSON file
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        string json = JsonSerializer.Serialize(bookedFlights, options);
+        File.WriteAllText(path, json);
+    }
+    public static void Save(string email, List<BookedFlightsModel> newBookedFlights)
+    {
+
+        Dictionary<string, List<BookedFlightsModel>> bookedFlights = LoadAll();
+
+
+        if (bookedFlights.ContainsKey(email))
+        {
+
+            foreach (var newFlight in newBookedFlights)
+            {
+                bool flightUpdated = false;
+
+
+                for (int i = 0; i < bookedFlights[email].Count; i++)
+                {
+                    if (bookedFlights[email][i].FlightID == newFlight.FlightID)
+                    {
+
+                        bookedFlights[email][i] = newFlight;
+                        flightUpdated = true;
+                        break;
+                    }
+                }
+
+
+                if (!flightUpdated)
+                {
+                    bookedFlights[email].Add(newFlight);
+                }
+            }
+        }
+        else
+        {
+            // If the email doesn't exist, create a new entry
+            bookedFlights[email] = new List<BookedFlightsModel>(newBookedFlights);
         }
 
         // Serialize and write the updated data back to the JSON file
