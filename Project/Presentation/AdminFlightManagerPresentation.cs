@@ -362,10 +362,5 @@ namespace DataAccess
                 }
             }
         }
-
-        public static void Exit()
-        {
-            Console.Clear();
-        }
     }
 }

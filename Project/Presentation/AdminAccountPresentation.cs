@@ -71,7 +71,7 @@ static class AdminAccountPresentation
                     Console.WriteLine("1. ➕ Add a new flight");
                     Console.WriteLine("2. ✏️  Change current flight details");
                     Console.WriteLine("3. 🔄 Reset all flights");
-                    Console.WriteLine("4. Manage the bookings");
+                    Console.WriteLine("4. 📅 Manage the bookings");
                     Console.WriteLine("5. 🔓 Log out");
 
                     Console.Write("\nChoose an option: ");
@@ -114,13 +114,13 @@ static class AdminAccountPresentation
                             FlightsAccess.AdminAddNewFlight(newFlight);
                         }
 
-                        adminAddflight.Exit();
+                        Console.Clear();
                     }
                     else if (keyInfo == "2")
                     {
                         // AdminFlightManagerPresentation.LaodFlightPresentaion();
                         AdminFlightManagerPresentation.UpdateDetailsPresentation();
-                        AdminFlightManagerPresentation.Exit();
+                        Console.Clear();
                     }
                     else if (keyInfo == "3")
                     {
@@ -131,18 +131,17 @@ static class AdminAccountPresentation
                     }
                     else if (keyInfo == "4")
                     {
-                        AdminManageBookingPresentation.LaodBookedPresentaion();
+                        // AdminManageBookingPresentation.LaodBookedPresentaion();
                         AdminManageBookingPresentation.UpdateBookedDetailsPresentation();
                         // AdminManageBookingPresentation.Another();
-                        AdminFlightManagerPresentation.Exit();
-                        break;
+                        MenuPresentation.PressAnyKey();
+                        Console.Clear();
                     }
                     else
                     {
                         Console.WriteLine("Invalid option. Please try again.");
                         MenuPresentation.PressAnyKey();
                         Console.Clear();
-
                     }
                 }
             }
