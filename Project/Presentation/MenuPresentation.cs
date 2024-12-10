@@ -181,95 +181,134 @@ public static class MenuPresentation
     }
 
     public static void SearchFlightsBeforeLogin()
+{
+    Console.Clear();
+    Console.WriteLine("=== Search Flights ===");
+
+    // Lees JSON-data in
+    List<FlightModel> flights = FlightsAccess.ReadAll();
+
+start:
+    string departureAirport = string.Empty;
+    while (true)
+    {
+        // Toon een lijst van unieke vertrekpunten
+        var uniqueDepartures = flights.Select(f => f.DepartureAirport).Distinct().OrderBy(d => d).ToList();
+
+        Console.WriteLine("Available departure airports:");
+        for (int i = 0; i < uniqueDepartures.Count; i++)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"{i + 1}. {uniqueDepartures[i]}");
+        }
+        Console.ResetColor();
+        Console.WriteLine("0. Leave blank for any");
+
+        Console.Write("\nSelect the number of your departure choice (or Q to quit): ");
+        string departureChoice = Console.ReadLine();
+        Console.Clear();
+
+        if (departureChoice.Equals("Q", StringComparison.OrdinalIgnoreCase))
+        {
+            Console.WriteLine("Exiting to the main menu...");
+            MenuLogic.PopMenu();
+            return;
+        }
+
+        if (departureChoice.Equals("0"))
+        {
+            departureAirport = string.Empty;
+            break;
+        }
+
+        if (int.TryParse(departureChoice, out int departureIndex) && departureIndex >= 1 && departureIndex <= uniqueDepartures.Count)
+        {
+            departureAirport = uniqueDepartures[departureIndex - 1];
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"Selected Departure: {departureAirport}");
+            Console.ResetColor();
+            break;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Invalid choice. Please select a valid departure airport.");
+            Console.ResetColor();
+        }
+    }
+
+destination:
+    string arrivalDestination = string.Empty;
+    while (true)
     {
         Console.Clear();
-        Console.WriteLine("=== Search Flights ===");
+        // Dynamische bestemmingen op basis van vertrekpunt
+        var validDestinations = string.IsNullOrEmpty(departureAirport)
+            ? flights.Select(f => f.ArrivalDestination).Distinct().OrderBy(d => d).ToList()
+            : flights.Where(f => f.DepartureAirport.Equals(departureAirport, StringComparison.OrdinalIgnoreCase))
+                     .Select(f => f.ArrivalDestination)
+                     .Distinct()
+                     .OrderBy(d => d)
+                     .ToList();
 
-    start:
-        string departureAirport = string.Empty;
-        while (true)
+        Console.WriteLine("\nAvailable destinations:");
+        for (int i = 0; i < validDestinations.Count; i++)
         {
-            Console.Write("Enter departure airport (or leave blank for any, or press Q to quit): ");
-            departureAirport = Console.ReadLine();
-            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{i + 1}. {validDestinations[i]}");
+        }
+        Console.ResetColor();
+        Console.WriteLine("0. Leave blank for any");
 
-            if (departureAirport.Equals("Q", StringComparison.OrdinalIgnoreCase))
-            {
-                Console.WriteLine("Exiting to the main menu...");
-                MenuLogic.PopMenu();
-                return;
-            }
+        Console.Write("\nSelect the number of your destination choice (or B to go back, Q to quit): ");
+        string arrivalChoice = Console.ReadLine();
+        Console.Clear();
 
-            List<string> validDepartures = new List<string>
-            {
-                "Rotterdam",
-                "rotterdam",
-                "Rotterdam, The Hague Airport",
-                "rotterdam, the hague airport"
-            };
-
-            if (string.IsNullOrWhiteSpace(departureAirport) || validDepartures.Contains(departureAirport, StringComparer.OrdinalIgnoreCase))
-            {
-                break; // Geldige invoer of leeg
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid input. Please enter one of the following: Rotterdam, rotterdam, Rotterdam, The Hague Airport, or rotterdam, the hague airport.");
-                Console.ResetColor();
-            }
+        if (arrivalChoice.Equals("Q", StringComparison.OrdinalIgnoreCase))
+        {
+            Console.WriteLine("Exiting to the main menu...");
+            MenuLogic.PopMenu();
+            return;
         }
 
-    destination:
-        string arrivalDestination = string.Empty;
-        while (true)
+        if (arrivalChoice.Equals("B", StringComparison.OrdinalIgnoreCase))
         {
-            Console.Write("Enter arrival destination, you can choose out (or leave blank for any, or press Q to quit, or B to go back): ");
-            for (int i = 0; i < ArrivalDestinations.Count; i++)
-            {
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine($"\n{i + 1}. {ArrivalDestinations[i]}");
-            }
+            goto start;
+        }
+
+        if (arrivalChoice.Equals("0"))
+        {
+            arrivalDestination = string.Empty;
+            break;
+        }
+
+        if (int.TryParse(arrivalChoice, out int destinationIndex) && destinationIndex >= 1 && destinationIndex <= validDestinations.Count)
+        {
+            arrivalDestination = validDestinations[destinationIndex - 1];
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"Selected Destination: {arrivalDestination}");
             Console.ResetColor();
-            Console.Write("Select the number of the arrival destination (or leave blank for any): ");
-            string arrivalChoice = Console.ReadLine();
-            Console.Clear();
-
-            if (arrivalChoice.Equals("Q", StringComparison.OrdinalIgnoreCase))
-            {
-                Console.WriteLine("Exiting to the main menu...");
-                return;
-            }
-
-            if (arrivalChoice.Equals("B", StringComparison.OrdinalIgnoreCase))
-            {
-                goto start;
-            }
-
-            int choiceNumber;
-            if (string.IsNullOrWhiteSpace(arrivalChoice))
-            {
-                break; // Geen keuze betekent "alle bestemmingen"
-            }
-
-            if (int.TryParse(arrivalChoice, out choiceNumber) && choiceNumber >= 1 && choiceNumber <= ArrivalDestinations.Count)
-            {
-                arrivalDestination = ArrivalDestinations[choiceNumber - 1];
-                break;
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid input. Please enter a valid number corresponding to a destination.");
-                Console.ResetColor();
-            }
+            break;
         }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Invalid choice. Please select a valid destination.");
+            Console.ResetColor();
+        }
+    }
+
+    // Laat overige filters en zoekresultaten intact
+    Console.WriteLine($"Selected Departure: {departureAirport}");
+    Console.WriteLine($"Selected Destination: {arrivalDestination}");
+
 
     departureDate:
         string departureDate = string.Empty;
         while (true)
         {
-            Console.Write("Enter departure date (yyyy-MM-dd) (or leave blank for any, or press Q to quit, or B to go back): ");
+            Console.Clear();
+            Console.Write("Enter departure date (dd-MM-yyyy) (or leave blank for any, or press Q to quit, or B to go back): ");
             departureDate = Console.ReadLine();
             Console.Clear();
 
@@ -286,14 +325,14 @@ public static class MenuPresentation
                 goto destination;
             }
 
-            if (string.IsNullOrWhiteSpace(departureDate) || DateTime.TryParseExact(departureDate, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out _))
+            if (string.IsNullOrWhiteSpace(departureDate) || DateTime.TryParseExact(departureDate, "dd-MM-yyyy", null, System.Globalization.DateTimeStyles.None, out _))
             {
                 break; // Geldige invoer of leeg
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid date format. Please enter a date in the format yyyy-MM-dd.");
+                Console.WriteLine("Invalid date format. Please enter a date in the format dd-MM-yyyy.");
                 Console.ResetColor();
                 Console.Clear();
             }
@@ -335,6 +374,40 @@ public static class MenuPresentation
             }
         }
 
+    seatcount:
+    string seatInput = string.Empty;
+        int seatCount = 0;
+        while (true)
+        {
+            Console.WriteLine("Enter the number of seats you want to book (or leave blank for any, or press Q to quit, or B to go back): ");
+            seatInput = Console.ReadLine();
+
+            if (seatInput.Equals("Q", StringComparison.OrdinalIgnoreCase))
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Exiting to the main menu...");
+            Console.ResetColor();
+            return;
+        }
+
+        if (seatInput.Equals("B", StringComparison.OrdinalIgnoreCase))
+        {
+            goto timeOfDay;
+        }
+
+        if (string.IsNullOrWhiteSpace(seatInput) || int.TryParse(seatInput, out seatCount) && seatCount > 0)
+        {
+            break;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Invalid input. Please enter a positive number or leave blank.");
+            Console.ResetColor();
+        }
+    }
+
+
         Dictionary<string, (TimeSpan Start, TimeSpan End)> timeOfDayMapping = new Dictionary<string, (TimeSpan Start, TimeSpan End)>
         {
             { "morning", (Start: new TimeSpan(6, 0, 0), End: new TimeSpan(11, 59, 59)) },
@@ -350,7 +423,8 @@ public static class MenuPresentation
             (string.IsNullOrEmpty(timeOfDay) ||
                 (timeOfDayMapping.TryGetValue(timeOfDay, out var timeRange) &&
                 DateTime.TryParse(flight.FlightTime, out var flightTime) &&
-                flightTime.TimeOfDay >= timeRange.Start && flightTime.TimeOfDay <= timeRange.End))
+                flightTime.TimeOfDay >= timeRange.Start && flightTime.TimeOfDay <= timeRange.End)) &&
+            (seatCount == 0 || flight.AvailableSeats >= seatCount)
         ).ToList();
 
         Console.WriteLine("\nSearch results:");
@@ -362,12 +436,12 @@ public static class MenuPresentation
         }
         else
         {
-            Console.WriteLine($"{"#",-3} {"Airline",-20} {"From",-46} {"To",-38} {"Date",-16} {"Time",-15} {"Price"}");
+            Console.WriteLine($"{"#",-4} {"From",-45} {"To",-45} {"Date",-25} {"Time",-15} {"Price",-19} {"Available Seats"}");
             Console.WriteLine(new string('-', 195));
             for (int i = 0; i < searchResults.Count; i++)
             {
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine($"{(i + 1),-3}. {searchResults[i].Airline,-20} {searchResults[i].DepartureAirport,-45} {searchResults[i].ArrivalDestination,-35} {searchResults[i].DepartureDate,-18}  {searchResults[i].FlightTime,-15} €{searchResults[i].TicketPrice},-");
+                Console.WriteLine($"{(i + 1),-3}. {searchResults[i].DepartureAirport,-45} {searchResults[i].ArrivalDestination,-45} {searchResults[i].DepartureDate,-25} {searchResults[i].FlightTime,-14}  €{searchResults[i].TicketPrice,-18} {searchResults[i].AvailableSeats}");
             }
             Console.ResetColor();
 
@@ -447,117 +521,135 @@ public static class MenuPresentation
     public static List<FlightModel> bookedFlights = new List<FlightModel>(); // We maken een lijst van geboekte vluchten
     public static List<FlightModel> flights = FlightsAccess.ReadAll(); // dit zorgt ervoor dat we de json file kunnen lezen
 
-    //Een lijst met de destinations waar de user uit kan kiezen
-    static readonly List<string> ArrivalDestinations = new List<string>
-    {
-        "Paris, Charles de Gaulle Airport",
-        "Frankfurt, Frankfurt Airport",
-        "Brussels, Brussels Airport",
-        "Warsaw, Warsaw Chopin Airport",
-        "Budapest, Budapest Ferenc Liszt International Airport",
-        "Riga, Riga International Airport",
-        "Lisbon, Lisbon Airport",
-        "London, Heathrow Airport",
-        "Mallorca, Palma de Mallorca Airport",
-        "Istanbul, Istanbul Airport",
-        "Milan, Malpensa Airport",
-        "Oslo, Oslo Gardermoen Airport",
-        "Zurich, Zurich Airport",
-        "Vienna, International Airport",
-        "Naples, Naples Airport",
-        "Madrid, Madrid Barajas Airport"
-    };
     public static void SearchFlightsMenu()
+{
+    Console.Clear();
+    Console.WriteLine("=== Search Flights ===");
+
+    // Lees JSON-data in
+    List<FlightModel> flights = FlightsAccess.ReadAll();
+
+start:
+    string departureAirport = string.Empty;
+    while (true)
+    {
+        // Toon een lijst van unieke vertrekpunten
+        var uniqueDepartures = flights.Select(f => f.DepartureAirport).Distinct().OrderBy(d => d).ToList();
+
+        Console.WriteLine("Available departure airports:");
+        for (int i = 0; i < uniqueDepartures.Count; i++)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"{i + 1}. {uniqueDepartures[i]}");
+        }
+        Console.ResetColor();
+        Console.WriteLine("0. Leave blank for any");
+
+        Console.Write("\nSelect the number of your departure choice (or Q to quit): ");
+        string departureChoice = Console.ReadLine();
+        Console.Clear();
+
+        if (departureChoice.Equals("Q", StringComparison.OrdinalIgnoreCase))
+        {
+            Console.WriteLine("Exiting to the main menu...");
+            MenuLogic.PopMenu();
+            return;
+        }
+
+        if (departureChoice.Equals("0"))
+        {
+            departureAirport = string.Empty;
+            break;
+        }
+
+        if (int.TryParse(departureChoice, out int departureIndex) && departureIndex >= 1 && departureIndex <= uniqueDepartures.Count)
+        {
+            departureAirport = uniqueDepartures[departureIndex - 1];
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"Selected Departure: {departureAirport}");
+            Console.ResetColor();
+            break;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Invalid choice. Please select a valid departure airport.");
+            Console.ResetColor();
+        }
+    }
+
+destination:
+    string arrivalDestination = string.Empty;
+    while (true)
     {
         Console.Clear();
-        Console.WriteLine("=== Search Flights ===");
+        // Dynamische bestemmingen op basis van vertrekpunt
+        var validDestinations = string.IsNullOrEmpty(departureAirport)
+            ? flights.Select(f => f.ArrivalDestination).Distinct().OrderBy(d => d).ToList()
+            : flights.Where(f => f.DepartureAirport.Equals(departureAirport, StringComparison.OrdinalIgnoreCase))
+                     .Select(f => f.ArrivalDestination)
+                     .Distinct()
+                     .OrderBy(d => d)
+                     .ToList();
 
-    start:
-        string departureAirport = string.Empty;
-        while (true)
+        Console.WriteLine("\nAvailable destinations:");
+        for (int i = 0; i < validDestinations.Count; i++)
         {
-            Console.Write("Enter departure airport (or leave blank for any, or press Q to quit): ");
-            departureAirport = Console.ReadLine();
-            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{i + 1}. {validDestinations[i]}");
+        }
+        Console.ResetColor();
+        Console.WriteLine("0. Leave blank for any");
 
-            if (departureAirport.Equals("Q", StringComparison.OrdinalIgnoreCase))
-            {
-                Console.WriteLine("Exiting to the main menu...");
-                MenuLogic.PopMenu();
-                return;
-            }
+        Console.Write("\nSelect the number of your destination choice (or B to go back, Q to quit): ");
+        string arrivalChoice = Console.ReadLine();
+        Console.Clear();
 
-            List<string> validDepartures = new List<string>
+        if (arrivalChoice.Equals("Q", StringComparison.OrdinalIgnoreCase))
         {
-            "Rotterdam",
-            "rotterdam",
-            "Rotterdam, The Hague Airport",
-            "rotterdam, the hague airport"
-        };
-
-            if (string.IsNullOrWhiteSpace(departureAirport) || validDepartures.Contains(departureAirport, StringComparer.OrdinalIgnoreCase))
-            {
-                break;
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid input. Please enter one of the following: Rotterdam, rotterdam, Rotterdam, The Hague Airport, or rotterdam, the hague airport.");
-                Console.ResetColor();
-                Console.Clear();
-            }
+            Console.WriteLine("Exiting to the main menu...");
+            MenuLogic.PopMenu();
+            return;
         }
 
-    destination:
-        string arrivalDestination = string.Empty;
-        while (true)
+        if (arrivalChoice.Equals("B", StringComparison.OrdinalIgnoreCase))
         {
-            Console.Write("Enter arrival destination, you can choose out (or leave blank for any, or press Q to quit, or B to go back): ");
-            for (int i = 0; i < ArrivalDestinations.Count; i++)
-            {
-                Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine($"\n{i + 1}. {ArrivalDestinations[i]}");
-            }
+            goto start;
+        }
+
+        if (arrivalChoice.Equals("0"))
+        {
+            arrivalDestination = string.Empty;
+            break;
+        }
+
+        if (int.TryParse(arrivalChoice, out int destinationIndex) && destinationIndex >= 1 && destinationIndex <= validDestinations.Count)
+        {
+            arrivalDestination = validDestinations[destinationIndex - 1];
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"Selected Destination: {arrivalDestination}");
             Console.ResetColor();
-            Console.Write("Select the number of the arrival destination (or leave blank for any): ");
-            string arrivalChoice = Console.ReadLine();
-            Console.Clear();
-
-            if (arrivalChoice.Equals("Q", StringComparison.OrdinalIgnoreCase))
-            {
-                Console.WriteLine("Exiting to the main menu...");
-                return;
-            }
-
-            if (arrivalChoice.Equals("B", StringComparison.OrdinalIgnoreCase))
-            {
-                goto start;
-            }
-
-            int choiceNumber;
-            if (string.IsNullOrWhiteSpace(arrivalChoice))
-            {
-                break;
-            }
-
-            if (int.TryParse(arrivalChoice, out choiceNumber) && choiceNumber >= 1 && choiceNumber <= ArrivalDestinations.Count)
-            {
-                arrivalDestination = ArrivalDestinations[choiceNumber - 1];
-                break;
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid input. Please enter a valid number corresponding to a destination.");
-                Console.ResetColor();
-            }
+            break;
         }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Invalid choice. Please select a valid destination.");
+            Console.ResetColor();
+        }
+    }
+
+    // Laat overige filters en zoekresultaten intact
+    Console.WriteLine($"Selected Departure: {departureAirport}");
+    Console.WriteLine($"Selected Destination: {arrivalDestination}");
+
 
     departureDate:
         string departureDate = string.Empty;
         while (true)
         {
-            Console.Write("Enter departure date (yyyy-MM-dd) (or leave blank for any, or press Q to quit, or B to go back): ");
+            Console.Clear();
+            Console.Write("Enter departure date (dd-MM-yyyy) (or leave blank for any, or press Q to quit, or B to go back): ");
             departureDate = Console.ReadLine();
             Console.Clear();
 
@@ -574,17 +666,18 @@ public static class MenuPresentation
                 goto destination;
             }
 
-            if (string.IsNullOrWhiteSpace(departureDate) || DateTime.TryParseExact(departureDate, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out _))
+            if (string.IsNullOrWhiteSpace(departureDate) || DateTime.TryParseExact(departureDate, "dd-MM-yyyy", null, System.Globalization.DateTimeStyles.None, out _))
             {
                 break;
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid date format. Please enter a date in the format yyyy-MM-dd.");
+                Console.WriteLine("Invalid date format. Please enter a date in the format dd-MM-yyyy.");
                 Console.ResetColor();
             }
         }
+    
 
     timeOfDay:
         string timeOfDay = string.Empty;
@@ -621,6 +714,39 @@ public static class MenuPresentation
             }
         }
 
+    seatcount:
+    string seatInput = string.Empty;
+        int seatCount = 0;
+        while (true)
+        {
+            Console.WriteLine("Enter the number of seats you want to book (or leave blank for any, or press Q to quit, or B to go back): ");
+            seatInput = Console.ReadLine();
+
+            if (seatInput.Equals("Q", StringComparison.OrdinalIgnoreCase))
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Exiting to the main menu...");
+            Console.ResetColor();
+            return;
+        }
+
+        if (seatInput.Equals("B", StringComparison.OrdinalIgnoreCase))
+        {
+            goto timeOfDay;
+        }
+
+        if (string.IsNullOrWhiteSpace(seatInput) || int.TryParse(seatInput, out seatCount) && seatCount > 0)
+        {
+            break;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Invalid input. Please enter a positive number or leave blank.");
+            Console.ResetColor();
+        }
+    }
+
         Dictionary<string, (TimeSpan Start, TimeSpan End)> timeOfDayMapping = new Dictionary<string, (TimeSpan Start, TimeSpan End)>
     {
         { "morning", (Start: new TimeSpan(6, 0, 0), End: new TimeSpan(11, 59, 59)) },
@@ -636,7 +762,8 @@ public static class MenuPresentation
             (string.IsNullOrEmpty(timeOfDay) ||
                 (timeOfDayMapping.TryGetValue(timeOfDay, out var timeRange) &&
                 DateTime.TryParse(flight.FlightTime, out var flightTime) &&
-                flightTime.TimeOfDay >= timeRange.Start && flightTime.TimeOfDay <= timeRange.End))
+                flightTime.TimeOfDay >= timeRange.Start && flightTime.TimeOfDay <= timeRange.End)) &&
+        (seatCount == 0 || flight.AvailableSeats >= seatCount)
         ).ToList();
 
         Console.WriteLine("\nSearch results:");
@@ -648,45 +775,48 @@ public static class MenuPresentation
         }
         else
         {
-            Console.WriteLine($"{"#",-3} {"Airline",-20} {"From",-46} {"To",-38} {"Date",-16} {"Time",-15} {"Price"}");
+            Console.WriteLine($"{"#",-4} {"From",-45} {"To",-45} {"Date",-25} {"Time",-15} {"Price",-19} {"Available Seats"}");
             Console.WriteLine(new string('-', 195));
             for (int i = 0; i < searchResults.Count; i++)
             {
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine($"{(i + 1),-3}. {searchResults[i].Airline,-20} {searchResults[i].DepartureAirport,-45} {searchResults[i].ArrivalDestination,-35} {searchResults[i].DepartureDate,-18}  {searchResults[i].FlightTime,-15} €{searchResults[i].TicketPrice},-");
+                Console.WriteLine($"{(i + 1),-3}. {searchResults[i].DepartureAirport,-45} {searchResults[i].ArrivalDestination,-45} {searchResults[i].DepartureDate,-25} {searchResults[i].FlightTime,-14}  €{searchResults[i].TicketPrice,-18} {searchResults[i].AvailableSeats}");
             }
             Console.ResetColor();
 
             while (true)
-            {
-                Console.WriteLine("\nEnter the flight number to book a seat, or 'Q' to quit:");
-                string choice = Console.ReadLine();
+    {
+        Console.WriteLine("\nEnter the flight number to book a seat, 'B' to go back, or 'Q' to quit:");
+        string choice = Console.ReadLine();
 
-                if (choice.Equals("Q", StringComparison.OrdinalIgnoreCase))
-                {
-                    Console.WriteLine("Exiting to the main menu...");
-                    return;
-                }
-
-                if (int.TryParse(choice, out int flightIndex) && flightIndex >= 1 && flightIndex <= searchResults.Count)
-                {
-                    FlightModel selectedFlight = searchResults[flightIndex - 1];
-                    DisplayFlightLayoutAndChooseSeat(selectedFlight);
-                    break;
-                }
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Invalid choice. Please enter a valid flight number or 'Q' to quit.");
-                    Console.ResetColor();
-                }
-            }
+        if (choice.Equals("Q", StringComparison.OrdinalIgnoreCase))
+        {
+            Console.WriteLine("Exiting to the main menu...");
+            MenuLogic.PopMenu();
+            return;
         }
 
-        Console.WriteLine("\nPress any key to return to the main menu...");
-        MenuLogic.PopMenu();
-        Console.ReadKey();
+        if (choice.Equals("B", StringComparison.OrdinalIgnoreCase))
+        {
+            // Keer terug naar de tijd van de dag selectie
+            goto seatcount;
+        }
+
+        if (int.TryParse(choice, out int flightIndex) && flightIndex >= 1 && flightIndex <= searchResults.Count)
+        {
+            FlightModel selectedFlight = searchResults[flightIndex - 1];
+            DisplayFlightLayoutAndChooseSeat(selectedFlight);
+            break;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Invalid choice. Please enter a valid flight number, 'B' to go back, or 'Q' to quit.");
+            Console.ResetColor();
+        }
     }
+    }
+}
 
     // Nieuwe methode voor het tonen van de layout en het kiezen van een stoel
     public static void DisplayFlightLayoutAndChooseSeat(FlightModel selectedFlight)
