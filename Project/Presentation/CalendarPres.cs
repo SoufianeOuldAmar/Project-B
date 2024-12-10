@@ -37,6 +37,11 @@ public static class CalendarPresentation
             {
                 return new DateTime(currentYear, currentMonth, currentDay); 
             }
+
+            // else if (key.Key == ConsoleKey.Q)
+            // {
+            //     return null;
+            // }
         }
     }
 
