@@ -42,5 +42,49 @@ public static class BookedFlightsAccess
         string json = JsonSerializer.Serialize(bookedFlights, options);
         File.WriteAllText(path, json);
     }
+    public static void Save(string email, List<BookedFlightsModel> newBookedFlights)
+    {
+
+        Dictionary<string, List<BookedFlightsModel>> bookedFlights = LoadAll();
+
+
+        if (bookedFlights.ContainsKey(email))
+        {
+
+            foreach (var newFlight in newBookedFlights)
+            {
+                bool flightUpdated = false;
+
+
+                for (int i = 0; i < bookedFlights[email].Count; i++)
+                {
+                    if (bookedFlights[email][i].FlightID == newFlight.FlightID)
+                    {
+
+                        bookedFlights[email][i] = newFlight;
+                        flightUpdated = true;
+                        break;
+                    }
+                }
+
+
+                if (!flightUpdated)
+                {
+                    bookedFlights[email].Add(newFlight);
+                }
+            }
+        }
+        else
+        {
+            // If the email doesn't exist, create a new entry
+            bookedFlights[email] = new List<BookedFlightsModel>(newBookedFlights);
+        }
+
+        // Serialize and write the updated data back to the JSON file
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        string json = JsonSerializer.Serialize(bookedFlights, options);
+        File.WriteAllText(path, json);
+    }
+
 
 }

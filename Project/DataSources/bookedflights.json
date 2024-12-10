@@ -3,12 +3,82 @@
     {
       "FlightID": 31,
       "BookedSeats": [
-        "29A"
+        "2A",
+        "3D",
+        "23F"
+      ],
+      "Pets": [
+        {
+          "AnimalType": "bunny",
+          "Fee": 50
+        },
+        {
+          "AnimalType": "dog",
+          "Fee": 50
+        }
+      ],
+      "BaggageInfo": [
+        {
+          "Initials": "ER",
+          "BaggageType": "1",
+          "BaggageWeight": 20,
+          "Fee": 45
+        },
+        {
+          "Initials": "BA",
+          "BaggageType": "1",
+          "BaggageWeight": 23,
+          "Fee": 50
+        }
+      ],
+      "IsCancelled": false,
+      "TicketBill": 0
+    },
+    {
+      "FlightID": 29,
+      "BookedSeats": [
+        "10A"
       ],
       "Pets": [],
       "BaggageInfo": [],
       "IsCancelled": false,
       "TicketBill": 0
+    },
+    {
+      "FlightID": 1,
+      "BookedSeats": [
+        "10A"
+      ],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 0
+    },
+    {
+      "FlightID": 12,
+      "BookedSeats": [
+        "10A"
+      ],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 215
+    },
+    {
+      "FlightID": 2,
+      "BookedSeats": [],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 200
+    },
+    {
+      "FlightID": 24,
+      "BookedSeats": [],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 335.25
     },
     {
       "FlightID": 29,
@@ -60,10 +130,12 @@
   "t@b.c": [
     {
       "FlightID": 23,
-      "BookedSeats": [],
+      "BookedSeats": [
+        "3E"
+      ],
       "Pets": [
         {
-          "AnimalType": "dog",
+          "AnimalType": "cat",
           "Fee": 50
         },
         {

@@ -99,6 +99,9 @@ static class AdminAccountPresentation
                 {
                     AdminManageBookingPresentation.LaodBookedPresentaion();
                     AdminManageBookingPresentation.UpdateBookedDetailsPresentation();
+                    // AdminManageBookingPresentation.Another();
+                    AdminFlightManagerPresentation.Exit();
+                    break;
                 }
 
                 else
