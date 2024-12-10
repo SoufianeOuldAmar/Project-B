@@ -278,6 +278,15 @@ public class LayoutModel
         ChosenSeats.Clear();
         Console.WriteLine("Seats have been successfully booked.");
     }
+    public bool TryBookSeat(string seat)
+    {
+        if (!BookedSeats.Contains(seat))
+        {
+            BookedSeats.Add(seat);
+            return true;
+        }
+        return false;
+    }
 
     public void ResetAllSeats()
     {

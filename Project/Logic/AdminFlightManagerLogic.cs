@@ -100,6 +100,12 @@ namespace DataAccess
             return false;
         }
 
+        public static void RefreshFlightData()
+        {
+
+            List<FlightModel> flightList = FlightsAccess.ReadAll();
+        }
+
 
     }
 }

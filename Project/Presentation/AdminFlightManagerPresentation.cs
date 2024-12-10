@@ -149,28 +149,28 @@ namespace DataAccess
             // Console.WriteLine($"10. AvailableSeats: {flight.AvailableSeats}");
             Console.WriteLine();
 
-            while (true)
-            {
+            // while (true)
+            // {
 
-                Console.WriteLine("Enter new Airline (leave empty to keep current):");
-                string newAirline = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(newAirline))
-                {
-                    if (newAirline is string)
-                    {
-                        flight.Airline = newAirline;
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid input. Please enter letters only.");
-                    }
-                }
-                else
-                {
-                    break;
-                }
-            }
+            //     Console.WriteLine("Enter new Airline (leave empty to keep current):");
+            //     string newAirline = Console.ReadLine();
+            //     if (!string.IsNullOrWhiteSpace(newAirline))
+            //     {
+            //         if (newAirline is string)
+            //         {
+            //             flight.Airline = newAirline;
+            //             break;
+            //         }
+            //         else
+            //         {
+            //             Console.WriteLine("Invalid input. Please enter letters only.");
+            //         }
+            //     }
+            //     else
+            //     {
+            //         break;
+            //     }
+            // }
             double ticketPrice;
             while (true)
             {
@@ -231,73 +231,73 @@ namespace DataAccess
                 }
             }
 
-            string newdepartureAirport;
-            while (true)
-            {
-                Console.WriteLine("Enter new Departure Airport (leave empty to keep current):");
-                string newDepartureAirport = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(newDepartureAirport))
-                {
-                    if (newDepartureAirport is string)
-                    {
-                        flight.DepartureAirport = newDepartureAirport;
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid input. Please enter letters only.");
-                    }
-                }
-                else
-                {
-                    break;
-                }
-            }
-            string newArrivalDestination;
-            var europeanCapitalsAirports = new List<string>
-            {
-            "Amsterdam-Schiphol",
-            "Athens-Eleftherios Venizelos",
-            "Belgrade-Nikola Tesla",
-            "Berlin-Brandenburg",
-            "Brussels-Zaventem",
-            "Bucharest-Henri Coandă",
-            "Budapest-Ferenc Liszt",
-            "Copenhagen-Kastrup",
-            "Dublin-Dublin Airport",
-            "Helsinki-Vantaa",
-            "Lisbon-Humberto Delgado",
-            "London-Heathrow",
-            "Madrid-Barajas",
-            "Oslo-Gardermoen",
-            "Paris-Charles de Gaulle",
-            "Prague-Václav Havel",
-            "Rome-Fiumicino",
-            "Stockholm-Arlanda",
-            "Vienna-Schwechat",
-            "Warsaw-Chopin"
-            };
-            while (true)
-            {
-                Console.WriteLine("Enter new Arrival Destination (leave empty to keep current):");
-                newArrivalDestination = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(newArrivalDestination))
-                {
-                    if (europeanCapitalsAirports.Contains(newArrivalDestination))
-                    {
-                        flight.ArrivalDestination = newArrivalDestination;
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid input. Please enter letters only.");
-                    }
-                }
-                else
-                {
-                    break;
-                }
-            }
+            // string newdepartureAirport;
+            // while (true)
+            // {
+            //     Console.WriteLine("Enter new Departure Airport (leave empty to keep current):");
+            //     string newDepartureAirport = Console.ReadLine();
+            //     if (!string.IsNullOrWhiteSpace(newDepartureAirport))
+            //     {
+            //         if (newDepartureAirport is string)
+            //         {
+            //             flight.DepartureAirport = newDepartureAirport;
+            //             break;
+            //         }
+            //         else
+            //         {
+            //             Console.WriteLine("Invalid input. Please enter letters only.");
+            //         }
+            //     }
+            //     else
+            //     {
+            //         break;
+            //     }
+            // }
+            // string newArrivalDestination;
+            // var europeanCapitalsAirports = new List<string>
+            // {
+            // "Amsterdam-Schiphol",
+            // "Athens-Eleftherios Venizelos",
+            // "Belgrade-Nikola Tesla",
+            // "Berlin-Brandenburg",
+            // "Brussels-Zaventem",
+            // "Bucharest-Henri Coandă",
+            // "Budapest-Ferenc Liszt",
+            // "Copenhagen-Kastrup",
+            // "Dublin-Dublin Airport",
+            // "Helsinki-Vantaa",
+            // "Lisbon-Humberto Delgado",
+            // "London-Heathrow",
+            // "Madrid-Barajas",
+            // "Oslo-Gardermoen",
+            // "Paris-Charles de Gaulle",
+            // "Prague-Václav Havel",
+            // "Rome-Fiumicino",
+            // "Stockholm-Arlanda",
+            // "Vienna-Schwechat",
+            // "Warsaw-Chopin"
+            // };
+            // while (true)
+            // {
+            //     Console.WriteLine("Enter new Arrival Destination (leave empty to keep current):");
+            //     newArrivalDestination = Console.ReadLine();
+            //     if (!string.IsNullOrWhiteSpace(newArrivalDestination))
+            //     {
+            //         if (europeanCapitalsAirports.Contains(newArrivalDestination))
+            //         {
+            //             flight.ArrivalDestination = newArrivalDestination;
+            //             break;
+            //         }
+            //         else
+            //         {
+            //             Console.WriteLine("Invalid input. Please enter letters only.");
+            //         }
+            //     }
+            //     else
+            //     {
+            //         break;
+            //     }
+            // }
 
             bool newIsCancelled;
             while (true)
@@ -329,61 +329,7 @@ namespace DataAccess
                 }
 
             }
-            // string newDate;
-            // while (true)
-            // {
-            //     Console.WriteLine("Enter new Date (dd-mm-yyyy) (leave empty to keep current):");
-            //     string input = Console.ReadLine();
-            //     if (!string.IsNullOrWhiteSpace(input))
-            //     {
-            //         string[] NewdateParts = input.Split('-');
-            //         if (NewdateParts.Length == 3)
-            //         {
-            //             string yearStr = NewdateParts[2];
-            //             string monthStr = NewdateParts[1].PadLeft(2, '0');
-            //             string dayStr = NewdateParts[0].PadLeft(2, '0');
-            //             newDate = $"{dayStr}-{monthStr}-{yearStr}";
-            //             if (yearStr.Length == 4 && monthStr.Length == 2 && dayStr.Length == 2)
-            //             {
-            //                 int year = int.Parse(yearStr);
-            //                 int month = int.Parse(monthStr);
-            //                 int day = int.Parse(dayStr);
-            //                 if ((month == 4 || month == 6 || month == 9 || month == 11) && day >= 1 && day <= 30 && year >= 2024)
-            //                 {
-            //                     flight.DepartureDate = newDate;
-            //                     break;
-            //                 }
-            //                 else if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day >= 1 && day <= 31 && year >= 2024)
-            //                 {
-            //                     flight.DepartureDate = newDate;
-            //                     break;
-            //                 }
-            //                 else if (month == 2 && day >= 1 && day <= 28 && year >= 2024)
-            //                 {
-            //                     flight.DepartureDate = newDate;
-            //                     break;
-            //                 }
-            //                 else
-            //                 {
-            //                     Console.WriteLine("Invalid date format. Please enter a valid date in yyyy-mm-dd format.");
-            //                 }
 
-            //             }
-            //             else
-            //             {
-            //                 Console.WriteLine("Invalid date format. Please enter a valid date in yyyy-mm-dd format.");
-            //             }
-            //         }
-            //         else
-            //         {
-            //             Console.WriteLine("Invalid date format. Please enter a valid date in yyyy-mm-dd format.");
-            //         }
-            //     }
-            //     else
-            //     {
-            //         break;
-            //     }
-            // }
             string newTime;
             while (true)
             {
