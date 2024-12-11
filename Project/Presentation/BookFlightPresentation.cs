@@ -65,20 +65,22 @@ public static class BookFlightPresentation
             {
                 while (true)
                 {
-                    Console.WriteLine("Enter weight for checked baggage choose 20 or 25(in kg): ");
+                    Console.Write("Enter weight for checked baggage choose 20 or 25(in kg): ");
                     weightBaggage = double.Parse(Console.ReadLine());
 
-                    if (weightBaggage == 20 || weightBaggage == 25)
+                    if (weightBaggage == 20)
                     {
-                        Console.WriteLine($"Your checked baggage weight is {weightBaggage} kg. No additional fee required.");
+                        Console.WriteLine($"Your checked baggage weight is {weightBaggage} kg. 45 euro fee required.");
+                        feeBaggage = 45;
                         break;
                     }
-                    else if (weightBaggage > 25)
+                    else if (weightBaggage == 25)
                     {
+                        Console.WriteLine($"Your checked baggage weight is {weightBaggage} kg. 50 euro fee required.");
                         feeBaggage = 50;
-                        Console.WriteLine($"Your checked baggage weight exceeds the 25 kg limit. You'll have to pay a fee of {feeBaggage} EUR.");
                         break;
                     }
+
                     else
                     {
                         Console.WriteLine("Invalid weight. Please enter either 20 or 25 kg.");
