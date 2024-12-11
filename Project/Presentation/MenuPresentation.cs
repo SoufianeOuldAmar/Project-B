@@ -538,15 +538,18 @@ public static class MenuPresentation
 
 
         var searchResults = flights.Where(flight =>
-            (string.IsNullOrEmpty(departureAirport) || flight.DepartureAirport.Contains(departureAirport, StringComparison.OrdinalIgnoreCase)) &&
-            (string.IsNullOrEmpty(arrivalDestination) || flight.ArrivalDestination.Contains(arrivalDestination, StringComparison.OrdinalIgnoreCase)) &&
-            (string.IsNullOrEmpty(departureDateString) || flight.DepartureDate.Contains(departureDateString)) &&
-            (string.IsNullOrEmpty(timeOfDay) ||
-                (timeOfDayMapping.TryGetValue(timeOfDay, out var timeRange) &&
-                DateTime.TryParse(flight.FlightTime, out var flightTime) &&
-                flightTime.TimeOfDay >= timeRange.Start && flightTime.TimeOfDay <= timeRange.End)) &&
-            (seatCount == 0 || flight.AvailableSeats >= seatCount)
-        ).ToList();
+    !flight.HasTakenOff && // Exclude flights that have already taken off
+    (string.IsNullOrEmpty(departureAirport) || flight.DepartureAirport.Contains(departureAirport, StringComparison.OrdinalIgnoreCase)) &&
+    (string.IsNullOrEmpty(arrivalDestination) || flight.ArrivalDestination.Contains(arrivalDestination, StringComparison.OrdinalIgnoreCase)) &&
+    (string.IsNullOrEmpty(departureDateString) || flight.DepartureDate.Contains(departureDateString)) &&
+    (string.IsNullOrEmpty(timeOfDay) ||
+        (timeOfDayMapping.TryGetValue(timeOfDay, out var timeRange) &&
+        DateTime.TryParse(flight.FlightTime, out var flightTime) &&
+        flightTime.TimeOfDay >= timeRange.Start && flightTime.TimeOfDay <= timeRange.End))
+    &&
+    (seatCount == 0 || flight.AvailableSeats >= seatCount)
+).ToList();
+
 
 
 
@@ -959,18 +962,18 @@ public static class MenuPresentation
 
         // Console.WriteLine($"Parameters: Departure Airport: {departureAirport}, Arrival Destination: {arrivalDestination}, Departure Date: {departureDateString}, Time of Day: {timeOfDay}, Seat Count: {seatCount}");
         var searchResults = flights.Where(flight =>
+    !flight.HasTakenOff && // Exclude flights that have already taken off
+    (string.IsNullOrEmpty(departureAirport) || flight.DepartureAirport.Contains(departureAirport, StringComparison.OrdinalIgnoreCase)) &&
+    (string.IsNullOrEmpty(arrivalDestination) || flight.ArrivalDestination.Contains(arrivalDestination, StringComparison.OrdinalIgnoreCase)) &&
+    (string.IsNullOrEmpty(departureDateString) || flight.DepartureDate.Contains(departureDateString)) &&
+    (string.IsNullOrEmpty(timeOfDay) ||
+        (timeOfDayMapping.TryGetValue(timeOfDay, out var timeRange) &&
+        DateTime.TryParse(flight.FlightTime, out var flightTime) &&
+        flightTime.TimeOfDay >= timeRange.Start && flightTime.TimeOfDay <= timeRange.End))
+    &&
+    (seatCount == 0 || flight.AvailableSeats >= seatCount)
+).ToList();
 
-            (string.IsNullOrEmpty(departureAirport) || flight.DepartureAirport.Contains(departureAirport, StringComparison.OrdinalIgnoreCase)) &&
-            (string.IsNullOrEmpty(arrivalDestination) || flight.ArrivalDestination.Contains(arrivalDestination, StringComparison.OrdinalIgnoreCase)) &&
-            (string.IsNullOrEmpty(departureDateString) || flight.DepartureDate.Contains(departureDateString)) &&
-            (string.IsNullOrEmpty(timeOfDay) ||
-                (timeOfDayMapping.TryGetValue(timeOfDay, out var timeRange) &&
-                DateTime.TryParse(flight.FlightTime, out var flightTime) &&
-                flightTime.TimeOfDay >= timeRange.Start && flightTime.TimeOfDay <= timeRange.End))
-                 &&
-
-        (seatCount == 0 || flight.AvailableSeats >= seatCount)
-        ).ToList();
 
         Console.Clear();
 

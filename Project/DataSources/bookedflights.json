@@ -1,14 +1,14 @@
 {
   "n@b.c": [
     {
-      "FlightID": 1,
+      "FlightID": 14,
       "BookedSeats": [
         "10A"
       ],
       "Pets": [],
       "BaggageInfo": [],
       "IsCancelled": false,
-      "TicketBill": 0,
+      "TicketBill": 275,
       "FlightPoints": 0
     }
   ]

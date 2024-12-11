@@ -44,7 +44,7 @@ public static class CalendarLogic
                 if (DateTime.TryParse(flight.DepartureDate, out departureDate))
                 {
                     // Check if the flight's date matches and if it's for the selected departure airport and destination
-                    if (departureDate.Date == currentDate.Date &&
+                    if (!flight.HasTakenOff && departureDate.Date ==  currentDate.Date &&
                         (string.IsNullOrEmpty(departureAirport) || flight.DepartureAirport == departureAirport) &&
                         (string.IsNullOrEmpty(destination) || flight.ArrivalDestination == destination) &&
                         !flight.IsCancelled)

@@ -447,9 +447,12 @@ public static class BookFlightPresentation
                     existingPassengers.AddRange(passengers);
                     PassengerAccess.SavePassengers(existingPassengers);
 
+                    var bookedFlight1 = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false);
+                    bookedFlight1.TicketBill += totalPrice;
+
                     List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
                     {
-                        new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false)
+                        bookedFlight1
                     };
 
                     AccountsAccess.WriteAll(AccountsLogic._accounts);
