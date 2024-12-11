@@ -48,13 +48,18 @@ namespace DataAccess
             {
                 foreach (var book in seat.Value)
                 {
-                    if (book.BookedSeats.Contains(newSeat))
+                    if (book.BookedSeats.Any(seat => string.Equals(seat, newSeat, StringComparison.OrdinalIgnoreCase)))
                     {
+
                         return false;
+
                     }
                 }
+
             }
             return true;
+
+
         }
 
 
