@@ -986,12 +986,14 @@ public static class MenuPresentation
         }
         else
         {
-            Console.WriteLine($"{"#",-3} {"✈️  Airline",-21} {"🌍 From",-46} {"🌍 To",-39} {"📅 Date",-16} {"⏰ Time",-15} {"💶 Price"}");
-            Console.WriteLine(new string('-', 195));
+            Console.WriteLine($"{"#",-3} {"🌍 From",-30} {"🌍 To",-30} {"📅 Date",-16} {"⏰ Time",-10} {"💶 Price",-10} {"🪑 Seats"}");
+            Console.WriteLine(new string('-', 110));
             for (int i = 0; i < searchResults.Count; i++)
             {
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine($"{(i + 1),-3}. {searchResults[i].DepartureAirport,-45} {searchResults[i].ArrivalDestination,-45} {searchResults[i].DepartureDate,-25} {searchResults[i].FlightTime,-14}  €{searchResults[i].TicketPrice,-18} {searchResults[i].AvailableSeats}");
+                Console.WriteLine(
+                    $"{(i + 1),-3} {searchResults[i].DepartureAirport,-30} {searchResults[i].ArrivalDestination,-30} " +
+                    $"{searchResults[i].DepartureDate,-16} {searchResults[i].FlightTime,-10} €{searchResults[i].TicketPrice,-9} {searchResults[i].AvailableSeats}");
             }
             Console.ResetColor();
 

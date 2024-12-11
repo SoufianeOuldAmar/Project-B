@@ -3,20 +3,13 @@
     {
       "FlightID": 20,
       "BookedSeats": [
-        "30D"
+        "10A"
       ],
       "Pets": [],
-      "BaggageInfo": [
-        {
-          "Initials": "LL",
-          "BaggageType": "checked \u002B carry-on",
-          "BaggageWeight": 25,
-          "Fee": 50
-        }
-      ],
+      "BaggageInfo": [],
       "IsCancelled": false,
-      "TicketBill": 350,
-      "FlightPoints": 30
+      "TicketBill": 240,
+      "FlightPoints": 0
     }
   ]
 }
