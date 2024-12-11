@@ -143,7 +143,7 @@ public static class BookFlightPresentation
     public static void BookFlightMenu(bool searchFlightFunction = false, FlightModel flightModel = null)
     {
         var currentAccount = AccountsLogic.CurrentAccount;
-        int totalFlightpoints = 0;
+        // int totalFlightpoints = 0;
 
         List<BaggageLogic> baggageInfo = new List<BaggageLogic>();
         List<PetLogic> petInfo = new List<PetLogic>();
@@ -353,7 +353,7 @@ public static class BookFlightPresentation
 
                     Console.Clear();
                     selectedFlight.Layout.PrintLayout();
-                    totalFlightpoints += selectedFlight.FlightPoints;
+                    // totalFlightpoints += selectedFlight.FlightPoints;
                 }
 
                 // Show booking summary
@@ -389,7 +389,7 @@ public static class BookFlightPresentation
 
                 int allFlightPoints = currentAccount.TotalFlightPoints;
                 Console.Write($"\nBefore confirming your booking do you want to use your flight points for discount? You have {(allFlightPoints)} points. (yes/no): ");
-                
+
                 string discountYesOrNo = Console.ReadLine();
 
 
@@ -439,8 +439,8 @@ public static class BookFlightPresentation
                 if (finalConfirmation == "yes")
                 {
                     selectedFlight.Layout.ConfirmBooking();
-                    var FlightPointData = new FlightPoint(DateTime.Now, totalFlightpoints, selectedFlight.Id);
-                    currentAccount.FlightPointsDataList.Add(FlightPointData);
+                    // var FlightPointData = new FlightPoint(DateTime.Now, totalFlightpoints, selectedFlight.Id);
+                    // currentAccount.FlightPointsDataList.Add(FlightPointData);
 
                     // Save passenger information
                     var existingPassengers = PassengerAccess.LoadPassengers();
@@ -455,6 +455,10 @@ public static class BookFlightPresentation
                     AccountsAccess.WriteAll(AccountsLogic._accounts);
                     AccountsAccess.UpdateCurrentAccount(currentAccount);
                     FlightsAccess.WriteAll(allFlights);
+                    foreach (var bookedFlight in bookedFlightModel)
+                    {
+                        BookFlightLogic.RemoveDuplicateSeats(bookedFlight);
+                    }
                     BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, bookedFlightModel);
                     Console.WriteLine("\nBooking confirmed successfully!");
                     Console.WriteLine("All passenger information has been saved.");

@@ -8,6 +8,7 @@ public static class MenuPresentation
 
     public static void Start()
     {
+        BookFlightLogic.TakeOff();
         // Start with the main menu
         menuStack.Push(AuthenticateAccountMenu); // Voeg AuthenticateAccountMenu() toe aan de lege stack
 
@@ -105,17 +106,17 @@ public static class MenuPresentation
 
     public static void ViewFlightPointsMenu()
     {
-        int index = 1;
 
         Console.WriteLine("=== 🎯 View Flight Points ===\n");
         var currentAccount = AccountsLogic.CurrentAccount;
 
 
-        if (currentAccount.FlightPointsDataList.Count == 0)
-        {
-            Console.WriteLine("You have zero booked flights so there is no transaction history.\n");
-        }
-        else
+        string email = currentAccount.EmailAddress; // Get the email of the current account
+
+        // Load the booked flights for this specific email
+        var bookedFlights = BookedFlightsAccess.LoadByEmail(email);
+
+        if (bookedFlights.Count > 0)
         {
             Console.WriteLine(new string('-', 105));
             // Header
@@ -125,18 +126,20 @@ public static class MenuPresentation
             Console.WriteLine(new string('-', 105)); // Divider with adjusted width
 
             int totalFlightPoints = 0;
+            int index = 1;
 
             // Rows
-            foreach (var fp in currentAccount.FlightPointsDataList)
+            foreach (var bookedFlight in bookedFlights)
             {
+                totalFlightPoints += bookedFlight.FlightPoints;
+
                 Console.WriteLine("| {0,-8} | {1,-22} | {2,-17} | {3,-22}  | {4,-18}  |",
                                   index,
-                                  fp.Points,
-                                  fp.FlightId,
-                                  fp.TicketsBought,
+                                  bookedFlight.FlightPoints,
+                                  bookedFlight.FlightID,
+                                  bookedFlight.BookedSeats.Count, // Assuming TicketsBought is the number of seats
                                   ""); // Empty for total column in rows
                 index++;
-                totalFlightPoints += fp.Points;
             }
 
             Console.WriteLine(new string('-', 105));
@@ -150,6 +153,10 @@ public static class MenuPresentation
                               "🏆 " + totalFlightPoints);
 
             Console.WriteLine(new string('-', 105) + "\n");
+        }
+        else
+        {
+            Console.WriteLine("You have zero booked flights so there is no transaction history.\n");
         }
 
 
@@ -955,7 +962,7 @@ public static class MenuPresentation
 
             (string.IsNullOrEmpty(departureAirport) || flight.DepartureAirport.Contains(departureAirport, StringComparison.OrdinalIgnoreCase)) &&
             (string.IsNullOrEmpty(arrivalDestination) || flight.ArrivalDestination.Contains(arrivalDestination, StringComparison.OrdinalIgnoreCase)) &&
-            // (string.IsNullOrEmpty(departureDateString) || flight.DepartureDate.Contains(departureDateString)) &&
+            (string.IsNullOrEmpty(departureDateString) || flight.DepartureDate.Contains(departureDateString)) &&
             (string.IsNullOrEmpty(timeOfDay) ||
                 (timeOfDayMapping.TryGetValue(timeOfDay, out var timeRange) &&
                 DateTime.TryParse(flight.FlightTime, out var flightTime) &&

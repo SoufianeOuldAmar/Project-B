@@ -28,8 +28,8 @@ public static class BookedFlightsAccess
         // Check if the email (key) already exists in the dictionary
         if (bookedFlights.ContainsKey(email))
         {
-            // If it exists, add the new booked flights to the existing list
-            bookedFlights[email].AddRange(newBookedFlights);
+            // If it exists, replace the existing list with the new one
+            bookedFlights[email] = new List<BookedFlightsModel>(newBookedFlights);
         }
         else
         {
@@ -84,6 +84,21 @@ public static class BookedFlightsAccess
         var options = new JsonSerializerOptions { WriteIndented = true };
         string json = JsonSerializer.Serialize(bookedFlights, options);
         File.WriteAllText(path, json);
+    }
+
+    public static List<BookedFlightsModel> LoadByEmail(string email)
+    {
+        // Load all booked flights from the JSON file
+        var allBookedFlights = LoadAll();
+
+        // Check if the email exists and return the list of booked flights for that email
+        if (allBookedFlights.ContainsKey(email))
+        {
+            return allBookedFlights[email];
+        }
+
+        // Return an empty list if the email doesn't exist
+        return new List<BookedFlightsModel>();
     }
 
 

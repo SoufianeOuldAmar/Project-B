@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -366,17 +366,14 @@
         "30C",
         "30E",
         "30F",
-        "30D"
-      ],
-      "bookedSeats": [
+        "30D",
         "10A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {
-        "10A": "SO "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 150,
     "gate": "A12",
@@ -389,11 +386,12 @@
     "availableSeats": 178,
     "flightPoints": 15,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 2,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -766,9 +764,7 @@
       ],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {
-        "30B": "ER "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 200,
     "gate": "B4",
@@ -781,11 +777,12 @@
     "availableSeats": 178,
     "flightPoints": 20,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 3,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 40,
       "columns": 6,
@@ -1290,11 +1287,12 @@
     "availableSeats": 180,
     "flightPoints": 18,
     "totalPets": 0,
+    "hasTakenOff": true,
     "returnFlight": null
   },
   {
     "id": 4,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -2280,11 +2278,12 @@
     "availableSeats": 173,
     "flightPoints": 25,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 5,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -2669,11 +2668,12 @@
     "availableSeats": 176,
     "flightPoints": 16,
     "totalPets": 0,
+    "hasTakenOff": true,
     "returnFlight": null
   },
   {
     "id": 6,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -3038,17 +3038,14 @@
         "30B",
         "30C",
         "30D",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "30E"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {
-        "30E": "OA "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 140,
     "gate": "F3",
@@ -3061,11 +3058,12 @@
     "availableSeats": 180,
     "flightPoints": 14,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 7,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -3450,11 +3448,12 @@
     "availableSeats": 179,
     "flightPoints": 19,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 8,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -4439,11 +4438,12 @@
     "availableSeats": 179,
     "flightPoints": 23,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 9,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -4828,11 +4828,12 @@
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 10,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -5217,11 +5218,12 @@
     "availableSeats": 180,
     "flightPoints": 31,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 11,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 40,
       "columns": 6,
@@ -5726,11 +5728,12 @@
     "availableSeats": 180,
     "flightPoints": 31,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 12,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -6095,17 +6098,14 @@
         "30C",
         "30D",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "10A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {
-        "10A": "SO "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 215,
     "gate": "E4",
@@ -6118,11 +6118,12 @@
     "availableSeats": 180,
     "flightPoints": 21,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 13,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -6487,17 +6488,14 @@
         "30C",
         "30E",
         "30F",
-        "30D"
-      ],
-      "bookedSeats": [
+        "30D",
         "11A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {
-        "11A": "SH "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 275,
     "gate": "C6",
@@ -6510,11 +6508,12 @@
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 1,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 14,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -6899,11 +6898,12 @@
     "availableSeats": 179,
     "flightPoints": 27,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 15,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -7288,11 +7288,12 @@
     "availableSeats": 180,
     "flightPoints": 41,
     "totalPets": 0,
+    "hasTakenOff": true,
     "returnFlight": null
   },
   {
     "id": 16,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -7677,11 +7678,12 @@
     "availableSeats": 180,
     "flightPoints": 18,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 17,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -8066,11 +8068,12 @@
     "availableSeats": 180,
     "flightPoints": 34,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 18,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -8455,11 +8458,12 @@
     "availableSeats": 180,
     "flightPoints": 28,
     "totalPets": 0,
+    "hasTakenOff": true,
     "returnFlight": null
   },
   {
     "id": 19,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -8844,11 +8848,12 @@
     "availableSeats": 179,
     "flightPoints": 31,
     "totalPets": 0,
+    "hasTakenOff": true,
     "returnFlight": null
   },
   {
     "id": 20,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -9233,11 +9238,12 @@
     "availableSeats": 180,
     "flightPoints": 30,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 21,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -9622,11 +9628,12 @@
     "availableSeats": 180,
     "flightPoints": 21,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 22,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -9999,9 +10006,7 @@
       ],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {
-        "17D": "BK "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 275,
     "gate": "E4",
@@ -10014,11 +10019,12 @@
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 23,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -10991,9 +10997,7 @@
       ],
       "isAirbusA330": true,
       "isBoeing787": false,
-      "seatInitials": {
-        "13F": "AB "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 315,
     "gate": "G7",
@@ -11006,11 +11010,12 @@
     "availableSeats": 180,
     "flightPoints": 31,
     "totalPets": 3,
+    "hasTakenOff": true,
     "returnFlight": null
   },
   {
     "id": 24,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -11383,9 +11388,7 @@
       ],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {
-        "10A": "ER "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 335.25,
     "gate": "B1",
@@ -11398,11 +11401,12 @@
     "availableSeats": 179,
     "flightPoints": 33,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 25,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -11788,11 +11792,12 @@
     "availableSeats": 180,
     "flightPoints": 28,
     "totalPets": 0,
+    "hasTakenOff": true,
     "returnFlight": null
   },
   {
     "id": 26,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -12177,11 +12182,12 @@
     "availableSeats": 179,
     "flightPoints": 45,
     "totalPets": 0,
+    "hasTakenOff": true,
     "returnFlight": null
   },
   {
     "id": 27,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -12566,11 +12572,12 @@
     "availableSeats": 180,
     "flightPoints": 30,
     "totalPets": 0,
+    "hasTakenOff": true,
     "returnFlight": null
   },
   {
     "id": 28,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -12955,11 +12962,12 @@
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 29,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -13324,17 +13332,14 @@
         "30C",
         "30D",
         "30E",
-        "30F"
-      ],
-      "bookedSeats": [
+        "30F",
         "10A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {
-        "10A": "SO "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 275,
     "gate": "E1",
@@ -13347,11 +13352,12 @@
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 30,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -13736,11 +13742,12 @@
     "availableSeats": 180,
     "flightPoints": 30,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 31,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 50,
       "columns": 10,
@@ -14705,17 +14712,14 @@
         "50G",
         "50H",
         "50J",
-        "50K"
-      ],
-      "bookedSeats": [
+        "50K",
         "29A"
       ],
+      "bookedSeats": [],
       "chosenSeats": [],
       "isAirbusA330": true,
       "isBoeing787": false,
-      "seatInitials": {
-        "29A": "SO "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 415,
     "gate": "C8",
@@ -14728,11 +14732,12 @@
     "availableSeats": 178,
     "flightPoints": 41,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 32,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -15117,11 +15122,12 @@
     "availableSeats": 180,
     "flightPoints": 30,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 33,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -15506,11 +15512,12 @@
     "availableSeats": 180,
     "flightPoints": 20,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 34,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -15895,11 +15902,12 @@
     "availableSeats": 180,
     "flightPoints": 21,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 35,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -16272,9 +16280,7 @@
       ],
       "isAirbusA330": false,
       "isBoeing787": false,
-      "seatInitials": {
-        "10A": "ER "
-      }
+      "seatInitials": {}
     },
     "ticketPrice": 285,
     "gate": "F6",
@@ -16287,11 +16293,12 @@
     "availableSeats": 180,
     "flightPoints": 28,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 36,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -16676,11 +16683,12 @@
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 37,
-    "airline": "BOSST, airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -17065,9 +17073,10 @@
     "availableSeats": 0,
     "flightPoints": 15,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": {
       "id": 0,
-      "airline": "BOSST Airlines",
+      "airline": "BOSST AIRLINES",
       "layout": {
         "rows": 30,
         "columns": 6,
@@ -17452,12 +17461,13 @@
       "availableSeats": 0,
       "flightPoints": 15,
       "totalPets": 0,
+      "hasTakenOff": false,
       "returnFlight": null
     }
   },
   {
     "id": 38,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -17842,11 +17852,12 @@
     "availableSeats": 178,
     "flightPoints": 43,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 39,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -18231,11 +18242,12 @@
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 40,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -18620,11 +18632,12 @@
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 41,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -19009,11 +19022,12 @@
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 42,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -19398,11 +19412,12 @@
     "availableSeats": 180,
     "flightPoints": 15,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 43,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -19787,11 +19802,12 @@
     "availableSeats": 180,
     "flightPoints": 39,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 44,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -20176,11 +20192,12 @@
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 45,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -20565,11 +20582,12 @@
     "availableSeats": 180,
     "flightPoints": 55,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 46,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -20954,11 +20972,12 @@
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 47,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -21343,11 +21362,12 @@
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 48,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -21732,11 +21752,12 @@
     "availableSeats": 180,
     "flightPoints": 45,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 49,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -22121,11 +22142,12 @@
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 50,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -22510,11 +22532,12 @@
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 51,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -22899,11 +22922,12 @@
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 52,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -23288,11 +23312,12 @@
     "availableSeats": 180,
     "flightPoints": 28,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 53,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -23677,11 +23702,12 @@
     "availableSeats": 180,
     "flightPoints": 29,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 54,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -24066,11 +24092,12 @@
     "availableSeats": 180,
     "flightPoints": 32,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 55,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -24455,11 +24482,12 @@
     "availableSeats": 180,
     "flightPoints": 23,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 56,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -24844,11 +24872,12 @@
     "availableSeats": 180,
     "flightPoints": 45,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 57,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -25233,11 +25262,12 @@
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 58,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -25622,11 +25652,12 @@
     "availableSeats": 180,
     "flightPoints": 26,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 59,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -26011,11 +26042,12 @@
     "availableSeats": 180,
     "flightPoints": 55,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 60,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -26400,11 +26432,12 @@
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 61,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -26789,11 +26822,12 @@
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 62,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -27178,11 +27212,12 @@
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 63,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -27567,11 +27602,12 @@
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 64,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -27956,11 +27992,12 @@
     "availableSeats": 180,
     "flightPoints": 15,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 65,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -28345,11 +28382,12 @@
     "availableSeats": 180,
     "flightPoints": 42,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 66,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -28725,7 +28763,7 @@
     },
     "ticketPrice": 250,
     "gate": "C3",
-    "departureAirport": "Paris, Charles de Gaulle Airport", 
+    "departureAirport": "Paris, Charles de Gaulle Airport",
     "arrivalDestination": "Athens, Eleftherios Venizelos",
     "timeOfDay": null,
     "isCancelled": false,
@@ -28734,11 +28772,12 @@
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 67,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -29123,11 +29162,12 @@
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 68,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -29512,11 +29552,12 @@
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 69,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -29901,11 +29942,12 @@
     "availableSeats": 180,
     "flightPoints": 30,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 70,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -30290,11 +30332,12 @@
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 71,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -30679,11 +30722,12 @@
     "availableSeats": 180,
     "flightPoints": 19,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 72,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -31068,11 +31112,12 @@
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 73,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -31457,11 +31502,12 @@
     "availableSeats": 180,
     "flightPoints": 15,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 74,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -31846,11 +31892,12 @@
     "availableSeats": 180,
     "flightPoints": 15,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 75,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -32235,11 +32282,12 @@
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 76,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -32624,11 +32672,12 @@
     "availableSeats": 180,
     "flightPoints": 33,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 77,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -33013,11 +33062,12 @@
     "availableSeats": 180,
     "flightPoints": 45,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 78,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -33402,11 +33452,12 @@
     "availableSeats": 180,
     "flightPoints": 38,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 79,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -33791,11 +33842,12 @@
     "availableSeats": 180,
     "flightPoints": 32,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 80,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -34180,11 +34232,12 @@
     "availableSeats": 180,
     "flightPoints": 15,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 81,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -34569,11 +34622,12 @@
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
+    "hasTakenOff": true,
     "returnFlight": null
   },
   {
     "id": 82,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -34958,11 +35012,12 @@
     "availableSeats": 180,
     "flightPoints": 45,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 83,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -35347,11 +35402,12 @@
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 84,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -35725,7 +35781,7 @@
       "isBoeing787": false,
       "seatInitials": {}
     },
-    "ticketPrice":  500,
+    "ticketPrice": 500,
     "gate": "A12",
     "departureAirport": "Frankfurt, Frankfurt Airport",
     "arrivalDestination": "London, Heathrow Airport",
@@ -35736,11 +35792,12 @@
     "availableSeats": 180,
     "flightPoints": 50,
     "totalPets": 0,
+    "hasTakenOff": false,
     "returnFlight": null
   },
   {
     "id": 85,
-    "airline": "BOSST Airlines",
+    "airline": "BOSST AIRLINES",
     "layout": {
       "rows": 30,
       "columns": 6,
@@ -36125,6 +36182,397 @@
     "availableSeats": 180,
     "flightPoints": 15,
     "totalPets": 0,
+    "hasTakenOff": false,
+    "returnFlight": null
+  },
+  {
+    "id": 86,
+    "airline": "BOSST AIRLINES",
+    "layout": {
+      "rows": 30,
+      "columns": 6,
+      "seatArrangement": [
+        "01A",
+        "01B",
+        "01C",
+        "01D",
+        "01E",
+        "01F",
+        "02A",
+        "02B",
+        "02C",
+        "02D",
+        "02E",
+        "02F",
+        "03A",
+        "03B",
+        "03C",
+        "03D",
+        "03E",
+        "03F",
+        "04A",
+        "04B",
+        "04C",
+        "04D",
+        "04E",
+        "04F",
+        "05A",
+        "05B",
+        "05C",
+        "05D",
+        "05E",
+        "05F",
+        "06A",
+        "06B",
+        "06C",
+        "06D",
+        "06E",
+        "06F",
+        "07A",
+        "07B",
+        "07C",
+        "07D",
+        "07E",
+        "07F",
+        "08A",
+        "08B",
+        "08C",
+        "08D",
+        "08E",
+        "08F",
+        "09A",
+        "09B",
+        "09C",
+        "09D",
+        "09E",
+        "09F",
+        "10A",
+        "10B",
+        "10C",
+        "10D",
+        "10E",
+        "10F",
+        "11A",
+        "11B",
+        "11C",
+        "11D",
+        "11E",
+        "11F",
+        "12A",
+        "12B",
+        "12C",
+        "12D",
+        "12E",
+        "12F",
+        "13A",
+        "13B",
+        "13C",
+        "13D",
+        "13E",
+        "13F",
+        "14A",
+        "14B",
+        "14C",
+        "14D",
+        "14E",
+        "14F",
+        "15A",
+        "15B",
+        "15C",
+        "15D",
+        "15E",
+        "15F",
+        "16A",
+        "16B",
+        "16C",
+        "16D",
+        "16E",
+        "16F",
+        "17A",
+        "17B",
+        "17C",
+        "17D",
+        "17E",
+        "17F",
+        "18A",
+        "18B",
+        "18C",
+        "18D",
+        "18E",
+        "18F",
+        "19A",
+        "19B",
+        "19C",
+        "19D",
+        "19E",
+        "19F",
+        "20A",
+        "20B",
+        "20C",
+        "20D",
+        "20E",
+        "20F",
+        "21A",
+        "21B",
+        "21C",
+        "21D",
+        "21E",
+        "21F",
+        "22A",
+        "22B",
+        "22C",
+        "22D",
+        "22E",
+        "22F",
+        "23A",
+        "23B",
+        "23C",
+        "23D",
+        "23E",
+        "23F",
+        "24A",
+        "24B",
+        "24C",
+        "24D",
+        "24E",
+        "24F",
+        "25A",
+        "25B",
+        "25C",
+        "25D",
+        "25E",
+        "25F",
+        "26A",
+        "26B",
+        "26C",
+        "26D",
+        "26E",
+        "26F",
+        "27A",
+        "27B",
+        "27C",
+        "27D",
+        "27E",
+        "27F",
+        "28A",
+        "28B",
+        "28C",
+        "28D",
+        "28E",
+        "28F",
+        "29A",
+        "29B",
+        "29C",
+        "29D",
+        "29E",
+        "29F",
+        "30A",
+        "30B",
+        "30C",
+        "30D",
+        "30E",
+        "30F"
+      ],
+      "availableSeats": [
+        "01A",
+        "01B",
+        "01C",
+        "01D",
+        "01E",
+        "01F",
+        "02A",
+        "02B",
+        "02C",
+        "02D",
+        "02E",
+        "02F",
+        "03A",
+        "03B",
+        "03C",
+        "03D",
+        "03E",
+        "03F",
+        "04A",
+        "04B",
+        "04C",
+        "04D",
+        "04E",
+        "04F",
+        "05A",
+        "05B",
+        "05C",
+        "05D",
+        "05E",
+        "05F",
+        "06A",
+        "06B",
+        "06C",
+        "06D",
+        "06E",
+        "06F",
+        "07A",
+        "07B",
+        "07C",
+        "07D",
+        "07E",
+        "07F",
+        "08A",
+        "08B",
+        "08C",
+        "08D",
+        "08E",
+        "08F",
+        "09A",
+        "09B",
+        "09C",
+        "09D",
+        "09E",
+        "09F",
+        "10A",
+        "10B",
+        "10C",
+        "10D",
+        "10E",
+        "10F",
+        "11A",
+        "11B",
+        "11C",
+        "11D",
+        "11E",
+        "11F",
+        "12A",
+        "12B",
+        "12C",
+        "12D",
+        "12E",
+        "12F",
+        "13A",
+        "13B",
+        "13C",
+        "13D",
+        "13E",
+        "13F",
+        "14A",
+        "14B",
+        "14C",
+        "14D",
+        "14E",
+        "14F",
+        "15A",
+        "15B",
+        "15C",
+        "15D",
+        "15E",
+        "15F",
+        "16A",
+        "16B",
+        "16C",
+        "16D",
+        "16E",
+        "16F",
+        "17A",
+        "17B",
+        "17C",
+        "17D",
+        "17E",
+        "17F",
+        "18A",
+        "18B",
+        "18C",
+        "18D",
+        "18E",
+        "18F",
+        "19A",
+        "19B",
+        "19C",
+        "19D",
+        "19E",
+        "19F",
+        "20A",
+        "20B",
+        "20C",
+        "20D",
+        "20E",
+        "20F",
+        "21A",
+        "21B",
+        "21C",
+        "21D",
+        "21E",
+        "21F",
+        "22A",
+        "22B",
+        "22C",
+        "22D",
+        "22E",
+        "22F",
+        "23A",
+        "23B",
+        "23C",
+        "23D",
+        "23E",
+        "23F",
+        "24A",
+        "24B",
+        "24C",
+        "24D",
+        "24E",
+        "24F",
+        "25A",
+        "25B",
+        "25C",
+        "25D",
+        "25E",
+        "25F",
+        "26A",
+        "26B",
+        "26C",
+        "26D",
+        "26E",
+        "26F",
+        "27A",
+        "27B",
+        "27C",
+        "27D",
+        "27E",
+        "27F",
+        "28A",
+        "28B",
+        "28C",
+        "28D",
+        "28E",
+        "28F",
+        "29A",
+        "29B",
+        "29C",
+        "29D",
+        "29E",
+        "29F",
+        "30A",
+        "30B",
+        "30C",
+        "30D",
+        "30E",
+        "30F"
+      ],
+      "bookedSeats": [],
+      "chosenSeats": [],
+      "isAirbusA330": false,
+      "isBoeing787": false,
+      "seatInitials": {}
+    },
+    "ticketPrice": 150,
+    "gate": "A01",
+    "departureAirport": "Rotterdam, The Hague Airport",
+    "arrivalDestination": "Stockholm-Arlanda",
+    "timeOfDay": null,
+    "isCancelled": false,
+    "departureDate": "11-12-2024",
+    "flightTime": "11:30",
+    "availableSeats": 0,
+    "flightPoints": 15,
+    "totalPets": 0,
+    "hasTakenOff": true,
     "returnFlight": null
   }
 ]

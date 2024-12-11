@@ -21,6 +21,8 @@ namespace DataModels
 
         public int TotalPets { get; set; } = 0;
 
+        public bool HasTakenOff { get; set; } = false;
+
         public FlightModel? ReturnFlight { get; set; }
 
 
