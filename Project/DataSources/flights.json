@@ -6898,7 +6898,7 @@
     "availableSeats": 179,
     "flightPoints": 27,
     "totalPets": 0,
-    "hasTakenOff": false,
+    "hasTakenOff": true,
     "returnFlight": null
   },
   {
@@ -8068,7 +8068,7 @@
     "availableSeats": 180,
     "flightPoints": 34,
     "totalPets": 0,
-    "hasTakenOff": false,
+    "hasTakenOff": true,
     "returnFlight": null
   },
   {

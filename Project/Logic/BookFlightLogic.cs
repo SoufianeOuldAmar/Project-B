@@ -76,73 +76,73 @@ public static class BookFlightLogic
 
     public static void TakeOff()
     {
-        var allFlights = FlightsAccess.ReadAll();
-        var allBookedFlights = BookedFlightsAccess.LoadAll();
+        // var allFlights = FlightsAccess.ReadAll();
+        // var allBookedFlights = BookedFlightsAccess.LoadAll();
 
-        DateTime currentDateTime = DateTime.Now;
-        var flightsTakenOff = new List<int>();
+        // DateTime currentDateTime = DateTime.Now;
+        // var flightsTakenOff = new List<int>();
 
-        // Mark flights as taken off and record their IDs
-        foreach (var flight in allFlights)
-        {
-            // Combine DepartureDate and FlightTime into a DateTime
-            DateTime departureDateTime = DateTime.Parse(flight.DepartureDate + " " + flight.FlightTime);
+        // // Mark flights as taken off and record their IDs
+        // foreach (var flight in allFlights)
+        // {
+        //     // Combine DepartureDate and FlightTime into a DateTime
+        //     DateTime departureDateTime = DateTime.Parse(flight.DepartureDate + " " + flight.FlightTime);
 
-            // Check if the flight's departure is in the past
-            if (currentDateTime >= departureDateTime)
-            {
-                flight.HasTakenOff = true;
-                flightsTakenOff.Add(flight.Id);
-            }
-        }
+        //     // Check if the flight's departure is in the past
+        //     if (currentDateTime >= departureDateTime)
+        //     {
+        //         flight.HasTakenOff = true;
+        //         flightsTakenOff.Add(flight.Id);
+        //     }
+        // }
 
-        // Track updated booked flights that need to be written back
-        var updatedBookedFlights = new Dictionary<string, List<BookedFlightsModel>>();
+        // // Track updated booked flights that need to be written back
+        // var updatedBookedFlights = new Dictionary<string, List<BookedFlightsModel>>();
 
-        // Grant points for booked flights that have taken off
-        foreach (var kvp in allBookedFlights)
-        {
-            string email = kvp.Key; // Access the key (email)
-            List<BookedFlightsModel> bookedFlights = kvp.Value; // Access the value (list of booked flights)
-            bool updated = false;
+        // // Grant points for booked flights that have taken off
+        // foreach (var kvp in allBookedFlights)
+        // {
+        //     string email = kvp.Key; // Access the key (email)
+        //     List<BookedFlightsModel> bookedFlights = kvp.Value; // Access the value (list of booked flights)
+        //     bool updated = false;
 
-            // Process each booked flight for this email
-            foreach (var bookedFlight in bookedFlights)
-            {
-                // Check if the booked flight is in the list of taken-off flights
-                if (flightsTakenOff.Contains(bookedFlight.FlightID))
-                {
-                    // Find the corresponding FlightModel to get FlightPoints
-                    var flight = allFlights.FirstOrDefault(f => f.Id == bookedFlight.FlightID);
-                    if (flight != null)
-                    {
-                        // Only add points if they haven't been added before
-                        if (bookedFlight.FlightPoints == 0) // Check if no points were added yet
-                        {
-                            bookedFlight.FlightPoints += flight.FlightPoints * bookedFlight.BookedSeats.Count;
-                            updated = true;
-                        }
-                    }
-                }
-            }
+        //     // Process each booked flight for this email
+        //     foreach (var bookedFlight in bookedFlights)
+        //     {
+        //         // Check if the booked flight is in the list of taken-off flights
+        //         if (flightsTakenOff.Contains(bookedFlight.FlightID))
+        //         {
+        //             // Find the corresponding FlightModel to get FlightPoints
+        //             var flight = allFlights.FirstOrDefault(f => f.Id == bookedFlight.FlightID);
+        //             if (flight != null)
+        //             {
+        //                 // Only add points if they haven't been added before
+        //                 if (bookedFlight.FlightPoints == 0) // Check if no points were added yet
+        //                 {
+        //                     bookedFlight.FlightPoints += flight.FlightPoints * bookedFlight.BookedSeats.Count;
+        //                     updated = true;
+        //                 }
+        //             }
+        //         }
+        //     }
 
-            // If any points were updated, add the email's booked flights to the updated dictionary
-            if (updated)
-            {
-                updatedBookedFlights[email] = bookedFlights;
-            }
-        }
+        //     // If any points were updated, add the email's booked flights to the updated dictionary
+        //     if (updated)
+        //     {
+        //         updatedBookedFlights[email] = bookedFlights;
+        //     }
+        // }
 
-        // Save the updated flights and booked flights only once
-        FlightsAccess.WriteAll(allFlights);
+        // // Save the updated flights and booked flights only once
+        // FlightsAccess.WriteAll(allFlights);
 
-        // Write back only the emails that had updates
-        foreach (var kvp in updatedBookedFlights)
-        {
-            BookedFlightsAccess.WriteAll(kvp.Key, kvp.Value);
-        }
+        // // Write back only the emails that had updates
+        // foreach (var kvp in updatedBookedFlights)
+        // {
+        //     BookedFlightsAccess.WriteAll(kvp.Key, kvp.Value);
+        // }
 
-        flightsTakenOff.Clear();
+        // flightsTakenOff.Clear();
     }
 
 
