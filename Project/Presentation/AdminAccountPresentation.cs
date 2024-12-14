@@ -1,9 +1,5 @@
-using System.Collections.Concurrent;
-using System.Data.Common;
-using System.Threading;
 using DataModels;
 using DataAccess;
-using PresentationLayer;
 static class AdminAccountPresentation
 {
     static AdminAccountLogic logic = new AdminAccountLogic();
@@ -68,14 +64,12 @@ static class AdminAccountPresentation
                 while (adminMenuRunning)
                 {
                     Console.WriteLine("=== 🔧 Admin Page ===\n");
-
                     Console.WriteLine("1. ➕ Add a new flight");
                     Console.WriteLine("2. ✏️  Change current flight details");
                     Console.WriteLine("3. 🔄 Reset all flights");
                     Console.WriteLine("4. 📅 Manage the bookings");
                     Console.WriteLine("5. 👀 View Feedback");
                     Console.WriteLine("6. 🔓 Log out");
-
                     Console.Write("\nChoose an option: ");
                     string keyInfo = Console.ReadLine();
 
@@ -141,6 +135,7 @@ static class AdminAccountPresentation
                                 }
                             }
                             break;
+                    
 
                         default:
                             Console.WriteLine("Invalid option. Please try again.");

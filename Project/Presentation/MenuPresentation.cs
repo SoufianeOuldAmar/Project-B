@@ -1,7 +1,5 @@
 using DataModels;
 using DataAccess;
-using System.Runtime.CompilerServices;
-using PresentationLayer;
 
 public static class MenuPresentation
 {
@@ -598,7 +596,7 @@ public static class MenuPresentation
         Console.WriteLine("1. 🔍 Search for flights");
         Console.WriteLine("2. 🧾 View history of tickets");
         Console.WriteLine("3. 🎯 View Flight Point");
-        Console.WriteLine("4. ✏️ Submit Feedback");
+        Console.WriteLine("4. 📋 Feedback Menu");
         Console.WriteLine("5. 📖 About us");
         Console.WriteLine("6. 🔓 Log out");
         Console.Write("\nChoose an option: ");
@@ -616,7 +614,7 @@ public static class MenuPresentation
                 MenuLogic.PushMenu(ViewFlightPointsMenu);
                 break;
             case "4":
-                FeedbackPresentation.SubmitFeedbackMenu();
+                FeedbackPresentation.FeedbackMenu(accountModel);
                 break;
             case "5":
                 MenuLogic.PushMenu(AboutUsPres.aboutUsMenu);
@@ -631,6 +629,7 @@ public static class MenuPresentation
                 break;
         }
     }
+
 
     public static void FrontPageAdmin(AccountModel accountModel)
     {

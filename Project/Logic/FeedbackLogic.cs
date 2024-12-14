@@ -26,11 +26,22 @@ namespace BusinessLogic
         public static void CloseFeedback(int id)
         {
             var feedbacks = FeedbackAccess.LoadAll();
-            var feedback = feedbacks.FirstOrDefault(f => f.Id == id);
-            if (feedback != null && !feedback.IsClosed)
+            var feedbackToClose = feedbacks.FirstOrDefault(f => f.Id == id);
+            if (feedbackToClose != null)
             {
-                feedback.IsClosed = true;
-                FeedbackAccess.UpdateFeedback(feedback);
+                feedbackToClose.IsClosed = true;
+                FeedbackAccess.SaveAll(feedbacks);
+            }
+        }
+        
+        public static void DeleteFeedback(int id)
+        {
+            var feedbacks = FeedbackAccess.LoadAll();
+            var feedbackToRemove = feedbacks.FirstOrDefault(f => f.Id == id);
+            if (feedbackToRemove != null)
+            {
+                feedbacks.Remove(feedbackToRemove);
+                FeedbackAccess.SaveAll(feedbacks);
             }
         }
     }
