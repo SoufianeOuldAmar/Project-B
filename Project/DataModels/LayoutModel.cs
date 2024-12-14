@@ -50,25 +50,23 @@ public class LayoutModel
             {
                 string seat = SeatArrangement[i + j];
 
-                // Business sınıfı 1-9. satırlar
                 if (currentRow >= 1 && currentRow <= 9)
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow; // Yellow colour (Business)
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                 }
-                // Ekonomi sınıfı 10. satırdan itibaren
                 else if (currentRow >= 10)
                 {
-                    Console.ForegroundColor = ConsoleColor.Cyan; // Cyan colour (Economy)
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                 }
 
                 if (BookedSeats.Contains(seat))
                 {
-                    Console.ForegroundColor = ConsoleColor.Red; // Red colour (Booked)
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write($"{seat}  ");
                 }
                 else if (ChosenSeats.Contains(seat))
                 {
-                    Console.ForegroundColor = ConsoleColor.Magenta; // Purple colour (Selected)
+                    Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.Write($"{seat}  ");
                 }
                 else
@@ -108,21 +106,21 @@ public class LayoutModel
                 string seat = SeatArrangement[index + seatIndex];
                 if (row <= 10)
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow; // Yellow colour (Business)
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Cyan; // Cyan colour (Economy)
+                    Console.ForegroundColor = ConsoleColor.Cyan;
                 }
 
                 if (BookedSeats.Contains(seat))
                 {
-                    Console.ForegroundColor = ConsoleColor.Red; // Red colour (Booked)
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write($"{seat}  ");
                 }
                 else if (ChosenSeats.Contains(seat))
                 {
-                    Console.ForegroundColor = ConsoleColor.Magenta; // Purple colour (Selected)
+                    Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.Write($"{seat}  ");
                 }
                 else
@@ -160,7 +158,7 @@ public class LayoutModel
                 Console.WriteLine("\nEconomy Class ↓");
             }
 
-            if (row <= 6) // Business Class
+            if (row <= 6)
             {
                 for (int seatIndex = 0; seatIndex < 6; seatIndex++)
                 {
@@ -178,7 +176,7 @@ public class LayoutModel
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Yellow; // Business Class color
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.Write($"{seat}  ");
                     }
 
@@ -189,7 +187,7 @@ public class LayoutModel
                 }
                 index += 6;
             }
-            else if (row != 15 && row != 27) // Economy Class (excluding special rows)
+            else if (row != 15 && row != 27)
             {
                 for (int seatIndex = 0; seatIndex < 9; seatIndex++)
                 {
@@ -207,7 +205,7 @@ public class LayoutModel
                     }
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Cyan; // Economy Class color
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.Write($"{seat}  ");
                     }
 
@@ -308,10 +306,8 @@ public class LayoutModel
                     // Iterate over a copy of BookedSeats to avoid modifying the collection while iterating
                     foreach (var seat in flight.Layout.BookedSeats.ToList())
                     {
-                        // Remove seat from BookedSeats
                         flight.Layout.BookedSeats.Remove(seat);
 
-                        // Add seat to AvailableSeats
                         flight.Layout.AvailableSeats.Add(seat);
                     }
 
@@ -320,7 +316,6 @@ public class LayoutModel
 
                 try
                 {
-                    // Check if the file exists before deleting
                     if (File.Exists(filePath))
                     {
                         File.Delete(filePath);
@@ -332,7 +327,6 @@ public class LayoutModel
                 }
                 catch (Exception ex)
                 {
-                    // Handle exceptions such as UnauthorizedAccessException or IOException
                     Console.WriteLine($"An error occurred: {ex.Message}");
                 }
 
@@ -424,15 +418,13 @@ public class LayoutModel
 
     public static LayoutModel CreateBoeing787Layout()
     {
-        int rows = 42;  // Total rows including business and economy
-        int columns = 9; // Maximum columns in economy section
+        int rows = 42;
+        int columns = 9;
         List<string> seatArrangement = new List<string>();
 
-        // Business Class (Rows 1-6)
         for (int i = 1; i <= 6; i++)
         {
             string rowNumber = i < 10 ? $"0{i}" : $"{i}";
-            // Skip B, E, F, J seats in business class for 2-2-2 configuration
             seatArrangement.Add($"{rowNumber}A");
             seatArrangement.Add($"{rowNumber}C");
             seatArrangement.Add($"{rowNumber}D");
@@ -441,10 +433,8 @@ public class LayoutModel
             seatArrangement.Add($"{rowNumber}K");
         }
 
-        // Economy Class (Rows 7-42)
         for (int i = 7; i <= 42; i++)
         {
-            // Skip row 15 (emergency exit) and row 27 (lavatory/galley)
             if (i != 15 && i != 27)
             {
                 string rowNumber = i < 10 ? $"0{i}" : $"{i}";
