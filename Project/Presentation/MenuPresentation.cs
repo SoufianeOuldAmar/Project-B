@@ -1,6 +1,5 @@
 using DataModels;
 using DataAccess;
-using System.Runtime.CompilerServices;
 
 public static class MenuPresentation
 {
@@ -597,15 +596,15 @@ public static class MenuPresentation
         Console.WriteLine("1. 🔍 Search for flights");
         Console.WriteLine("2. 🧾 View history of tickets");
         Console.WriteLine("3. 🎯 View Flight Point");
-        Console.WriteLine("4. 📖 About us");
-        Console.WriteLine("5. 🔓 Log out");
+        Console.WriteLine("4. 📋 Feedback Menu");
+        Console.WriteLine("5. 📖 About us");
+        Console.WriteLine("6. 🔓 Log out");
         Console.Write("\nChoose an option: ");
         string choice = Console.ReadLine();
 
         switch (choice)
         {
             case "1":
-                // MenuLogic.PushMenu(BookFlightMenu);
                 SearchFlightsMenu();
                 break;
             case "2":
@@ -613,14 +612,15 @@ public static class MenuPresentation
                 break;
             case "3":
                 MenuLogic.PushMenu(ViewFlightPointsMenu);
-                // Console.WriteLine("This feautre isn't implemented yet.");
                 break;
             case "4":
-                MenuLogic.PushMenu(AboutUsPres.aboutUsMenu);
+                FeedbackPresentation.FeedbackMenu(accountModel);
                 break;
             case "5":
+                MenuLogic.PushMenu(AboutUsPres.aboutUsMenu);
+                break;
+            case "6":
                 Console.WriteLine("\nLogging out...");
-                // AccountsLogic.LogOut(); (voeg logout-logica toe indien nodig)
                 MenuLogic.PopMenu();
                 MenuLogic.PopMenu();
                 break;
@@ -629,6 +629,7 @@ public static class MenuPresentation
                 break;
         }
     }
+
 
     public static void FrontPageAdmin(AccountModel accountModel)
     {
