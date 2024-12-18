@@ -3,7 +3,7 @@ namespace DataAccess
     public static class AdminManageBookingPresentation
     {
 
-        public static void LaodBookedPresentaion()
+        public static void LoadBookedPresentation()
         {
             Console.Clear();
             var flightDeatails = FlightsAccess.ReadAll();
@@ -154,7 +154,7 @@ namespace DataAccess
             while (true)
             {   
                 Console.Clear();
-                LaodBookedPresentaion();
+                LoadBookedPresentation();
 
                 Console.Write("Choose an email: ");
                 string email = Console.ReadLine();

@@ -598,7 +598,8 @@ public static class MenuPresentation
         Console.WriteLine("2. 🧾 View history of tickets");
         Console.WriteLine("3. 🎯 View Flight Point");
         Console.WriteLine("4. 📖 About us");
-        Console.WriteLine("5. 🔓 Log out");
+        Console.WriteLine("5. 🔔 Notifications");
+        Console.WriteLine("6. 🔓 Log out");
         Console.Write("\nChoose an option: ");
         string choice = Console.ReadLine();
 
@@ -620,7 +621,9 @@ public static class MenuPresentation
                 break;
             case "5":
                 Console.WriteLine("\nLogging out...");
-                // AccountsLogic.LogOut(); (voeg logout-logica toe indien nodig)
+                break;
+            case "6":
+                Console.WriteLine("\nLogging out...");
                 MenuLogic.PopMenu();
                 MenuLogic.PopMenu();
                 break;
@@ -653,6 +656,11 @@ public static class MenuPresentation
                 Console.WriteLine("Invalid choice. Please try again.");
                 break;
         }
+    }
+
+    public static void NotificationsMenu(AccountModel accountModel)
+    {
+        
     }
 
     public static List<FlightModel> bookedFlights = new List<FlightModel>(); // We maken een lijst van geboekte vluchten
