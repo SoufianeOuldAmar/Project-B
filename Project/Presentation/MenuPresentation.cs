@@ -614,13 +614,12 @@ public static class MenuPresentation
                 break;
             case "3":
                 MenuLogic.PushMenu(ViewFlightPointsMenu);
-                // Console.WriteLine("This feautre isn't implemented yet.");
                 break;
             case "4":
                 MenuLogic.PushMenu(AboutUsPres.aboutUsMenu);
                 break;
             case "5":
-                Console.WriteLine("\nLogging out...");
+                MenuLogic.PushMenu(NotificationPage);
                 break;
             case "6":
                 Console.WriteLine("\nLogging out...");
@@ -658,10 +657,6 @@ public static class MenuPresentation
         }
     }
 
-    public static void NotificationsMenu(AccountModel accountModel)
-    {
-        
-    }
 
     public static List<FlightModel> bookedFlights = new List<FlightModel>(); // We maken een lijst van geboekte vluchten
     public static List<FlightModel> flights = FlightsAccess.ReadAll(); // dit zorgt ervoor dat we de json file kunnen lezen
@@ -697,7 +692,7 @@ public static class MenuPresentation
             if (departureChoice.Equals("Q", StringComparison.OrdinalIgnoreCase))
             {
                 Console.WriteLine("Exiting to the main menu...");
-                MenuLogic.PopMenu();
+                // MenuLogic.PopMenu();
                 return;
             }
 
@@ -1037,6 +1032,27 @@ public static class MenuPresentation
                 }
             }
         }
+    }
+
+    public static void NotificationPage()
+    {
+        var notifications = AccountsLogic.CurrentAccount.Notifications;
+        if (notifications.Count == 0)
+        {
+            Console.WriteLine("Nothing here");
+        }
+
+        else
+        {
+            foreach (var notification in notifications)
+            {
+                Console.WriteLine($"Old Details: {notification.OldDetails}");
+                Console.WriteLine($"New Details: {notification.NewDetails}");
+            }
+        }
+
+        // PressAnyKey();
+        MenuLogic.PopMenu();
     }
 
     // Nieuwe methode voor het tonen van de layout en het kiezen van een stoel

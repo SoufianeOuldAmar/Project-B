@@ -3,10 +3,27 @@
     {
       "FlightID": 20,
       "BookedSeats": [
-        "11A"
+        "13A",
+        "20A"
       ],
-      "Pets": [],
-      "BaggageInfo": [],
+      "Pets": [
+        {
+          "AnimalType": "cat",
+          "Fee": 50
+        },
+        {
+          "AnimalType": "bird",
+          "Fee": 50
+        }
+      ],
+      "BaggageInfo": [
+        {
+          "Initials": "IU",
+          "BaggageType": "1",
+          "BaggageWeight": 15,
+          "Fee": 45
+        }
+      ],
       "IsCancelled": false,
       "TicketBill": 240,
       "FlightPoints": 0

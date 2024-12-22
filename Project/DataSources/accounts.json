@@ -5,8 +5,19 @@
     "password": "xyz",
     "fullName": "Nikola Tesla",
     "flightPointsDataList": [],
-    "TotalFlightPoints": 500,
-    "fees": 0
+    "TotalFlightPoints": 0,
+    "fees": 0,
+    "Notifications": [
+      {
+        "Id": 1,
+        "FlightID": 20,
+        "NewStatus": null,
+        "ActionRequired": "",
+        "OldDetails": "12A",
+        "NewDetails": "13A",
+        "IsRead": false
+      }
+    ]
   },
   {
     "id": 2,
@@ -15,7 +26,8 @@
     "fullName": "Thomas Edison",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
-    "fees": 0
+    "fees": 0,
+    "Notifications": []
   },
   {
     "id": 3,
@@ -24,7 +36,8 @@
     "fullName": "Soufiane Ould Amar",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
-    "fees": 0
+    "fees": 0,
+    "Notifications": []
   },
   {
     "id": 4,
@@ -33,7 +46,8 @@
     "fullName": "lala",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
-    "fees": 0
+    "fees": 0,
+    "Notifications": []
   },
   {
     "id": 5,
@@ -42,7 +56,8 @@
     "fullName": "lala",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
-    "fees": 0
+    "fees": 0,
+    "Notifications": []
   },
   {
     "id": 6,
@@ -51,7 +66,8 @@
     "fullName": "Soufiane OuLD",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
-    "fees": 0
+    "fees": 0,
+    "Notifications": []
   },
   {
     "id": 7,
@@ -60,6 +76,7 @@
     "fullName": "Iemand Anders",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
-    "fees": 0
+    "fees": 0,
+    "Notifications": []
   }
 ]

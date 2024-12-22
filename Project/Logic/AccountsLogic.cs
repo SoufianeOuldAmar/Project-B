@@ -110,9 +110,9 @@
         return statusList;
     }
 
-    public static AccountModel GetById(int id)
+    public static AccountModel GetByEmail(string email)
     {
-        return _accounts.Find(i => i.Id == id);
+        return _accounts.Find(i => i.EmailAddress == email);
     }
 
     public static AccountModel CheckLogin(string email, string password)
