@@ -1,10 +1,12 @@
 using DataModels;
 using DataAccess;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 public static class MenuPresentation
 {
     public static Stack<Action> menuStack = new Stack<Action>(); // Een stack voor functies
+    public static bool GotNotificationScreen = false;
 
     public static void Start()
     {
@@ -592,13 +594,25 @@ public static class MenuPresentation
 
     public static void FrontPageUser(AccountModel accountModel)
     {
+        bool NotificationsPresent = NotificationLogic.CheckForNotifications(accountModel);
+
+        if (NotificationsPresent && !GotNotificationScreen)
+        {
+            Console.WriteLine("You have notifications to check!");
+            PressAnyKey();
+            GotNotificationScreen = true;
+            Console.Clear();
+        }
+
+        string exclamationMark = NotificationsPresent ? " ❗" : "";
+
         Console.WriteLine($"Logged in as: 👤 {accountModel.FullName}\n");
         Console.WriteLine("=== 🏠 Front Page ====");
         Console.WriteLine("1. 🔍 Search for flights");
         Console.WriteLine("2. 🧾 View history of tickets");
         Console.WriteLine("3. 🎯 View Flight Point");
         Console.WriteLine("4. 📖 About us");
-        Console.WriteLine("5. 🔔 Notifications");
+        Console.WriteLine("5. 🔔 Notifications" + exclamationMark);
         Console.WriteLine("6. 🔓 Log out");
         Console.Write("\nChoose an option: ");
         string choice = Console.ReadLine();

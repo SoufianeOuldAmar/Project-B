@@ -34,8 +34,6 @@ public static class NotificationLogic
             }
         }
 
-        // TODO: YOU PROBABLY HAVE TO ADD GENERICS BECAUSE WHEN CHANGING INFORMATION, NOT EVERY TYPE IS A STRING
-
         // Handle new pets added
         int petID = 0;
         foreach (var pet in newPets)
@@ -98,6 +96,19 @@ public static class NotificationLogic
 
         // Update the account in the database
         AccountsAccess.UpdateCurrentAccount(account);
+    }
+
+    public static bool CheckForNotifications(AccountModel accountModel)
+    {
+        foreach (Notification notification in accountModel.Notifications)
+        {
+            if (!notification.IsRead)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }
