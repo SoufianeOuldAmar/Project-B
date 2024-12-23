@@ -1036,23 +1036,7 @@ public static class MenuPresentation
 
     public static void NotificationPage()
     {
-        var notifications = AccountsLogic.CurrentAccount.Notifications;
-        if (notifications.Count == 0)
-        {
-            Console.WriteLine("Nothing here");
-        }
-
-        else
-        {
-            foreach (var notification in notifications)
-            {
-                Console.WriteLine($"Old Details: {notification.OldDetails}");
-                Console.WriteLine($"New Details: {notification.NewDetails}");
-            }
-        }
-
-        // PressAnyKey();
-        MenuLogic.PopMenu();
+        NotificationPresentation.PrintNotificationPage();
     }
 
     // Nieuwe methode voor het tonen van de layout en het kiezen van een stoel
