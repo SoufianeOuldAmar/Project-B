@@ -27,22 +27,28 @@ public static class NotificationLogic
                     notificationId++,
                     bookings[0].FlightID,
                     "Seat Change",
-                    $"Your seat has been changed from {seatChanges[i]} to {seatChanges[i + 1]}."
+                    seatChanges[i],
+                    seatChanges[i + 1]
                 );
                 newNotifications.Add(notification);
             }
         }
 
+        // TODO: YOU PROBABLY HAVE TO ADD GENERICS BECAUSE WHEN CHANGING INFORMATION, NOT EVERY TYPE IS A STRING
+
         // Handle new pets added
+        int petID = 0;
         foreach (var pet in newPets)
         {
             var notification = new Notification(
                 notificationId++,
                 bookings[0].FlightID,
                 "New Pet Added",
-                $"A new pet has been added: {pet.PetName}, {pet.PetType}."
+                null,
+                pet.AnimalType
             );
             newNotifications.Add(notification);
+            petID++;
         }
 
         // Handle new seats added
@@ -52,7 +58,8 @@ public static class NotificationLogic
                 notificationId++,
                 bookings[0].FlightID,
                 "New Seat Added",
-                $"A new seat has been added: {seat}."
+                null,
+                seat
             );
             newNotifications.Add(notification);
         }
@@ -64,7 +71,8 @@ public static class NotificationLogic
                 notificationId++,
                 bookings[0].FlightID,
                 "New Baggage Added",
-                $"A new baggage has been added: {baggage.Weight} kg, {baggage.Description}."
+                null,
+                baggage.BaggageType
             );
             newNotifications.Add(notification);
         }
@@ -72,13 +80,14 @@ public static class NotificationLogic
         // Handle pet changes (if provided)
         if (petChanges != null)
         {
-            foreach (var pet in petChanges)
+            for (int i = 0; i < petChanges.Count; i += 2) // Assuming pairs of "old seat" and "new seat"
             {
                 var notification = new Notification(
                     notificationId++,
                     bookings[0].FlightID,
                     "Pet Change",
-                    $"Pet details have been updated: {pet.PetName}, {pet.PetType}."
+                    petChanges[i].AnimalType,
+                    petChanges[i + 1].AnimalType
                 );
                 newNotifications.Add(notification);
             }

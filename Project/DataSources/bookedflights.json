@@ -4,7 +4,8 @@
       "FlightID": 20,
       "BookedSeats": [
         "13A",
-        "20A"
+        "20A",
+        "19A"
       ],
       "Pets": [
         {
@@ -14,6 +15,10 @@
         {
           "AnimalType": "bird",
           "Fee": 50
+        },
+        {
+          "AnimalType": "dog",
+          "Fee": 50
         }
       ],
       "BaggageInfo": [
@@ -21,6 +26,12 @@
           "Initials": "IU",
           "BaggageType": "1",
           "BaggageWeight": 15,
+          "Fee": 45
+        },
+        {
+          "Initials": "SI",
+          "BaggageType": "1",
+          "BaggageWeight": 13,
           "Fee": 45
         }
       ],

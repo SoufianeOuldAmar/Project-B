@@ -16,6 +16,33 @@
         "OldDetails": "12A",
         "NewDetails": "13A",
         "IsRead": false
+      },
+      {
+        "Id": 2,
+        "FlightID": 20,
+        "NewStatus": null,
+        "ActionRequired": "New Pet Added",
+        "OldDetails": null,
+        "NewDetails": "dog",
+        "IsRead": false
+      },
+      {
+        "Id": 3,
+        "FlightID": 20,
+        "NewStatus": null,
+        "ActionRequired": "New Seat Added",
+        "OldDetails": null,
+        "NewDetails": "19A",
+        "IsRead": false
+      },
+      {
+        "Id": 4,
+        "FlightID": 20,
+        "NewStatus": null,
+        "ActionRequired": "New Baggage Added",
+        "OldDetails": null,
+        "NewDetails": "1",
+        "IsRead": false
       }
     ]
   },
