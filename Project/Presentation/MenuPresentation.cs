@@ -6,7 +6,9 @@ using System.Runtime.InteropServices;
 public static class MenuPresentation
 {
     public static Stack<Action> menuStack = new Stack<Action>(); // Een stack voor functies
-    public static bool GotNotificationScreen = false;
+
+    public static AccountModel currentAccount { get; set; }
+    public static List<AccountModel> GotNotificationScreen = new List<AccountModel>();
 
     public static void Start()
     {
@@ -110,7 +112,7 @@ public static class MenuPresentation
     {
 
         Console.WriteLine("=== 🎯 View Flight Points ===\n");
-        var currentAccount = AccountsLogic.CurrentAccount;
+        // var currentAccount = AccountsLogic.CurrentAccount;
 
 
         string email = currentAccount.EmailAddress; // Get the email of the current account
@@ -595,12 +597,13 @@ public static class MenuPresentation
     public static void FrontPageUser(AccountModel accountModel)
     {
         bool NotificationsPresent = NotificationLogic.CheckForNotifications(accountModel);
+        currentAccount = accountModel;
 
-        if (NotificationsPresent && !GotNotificationScreen)
+        if (NotificationsPresent && !GotNotificationScreen.Contains(accountModel))
         {
             Console.WriteLine("You have notifications to check!");
             PressAnyKey();
-            GotNotificationScreen = true;
+            GotNotificationScreen.Add(accountModel);
             Console.Clear();
         }
 
@@ -1050,7 +1053,7 @@ public static class MenuPresentation
 
     public static void NotificationPage()
     {
-        NotificationPresentation.PrintNotificationPage();
+        NotificationPresentation.PrintNotificationPage(currentAccount);
     }
 
     // Nieuwe methode voor het tonen van de layout en het kiezen van een stoel

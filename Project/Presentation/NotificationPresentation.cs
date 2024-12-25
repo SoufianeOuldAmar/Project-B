@@ -2,11 +2,10 @@ using System.Collections.Generic;
 
 public static class NotificationPresentation
 {
-    public static AccountModel currentAccount = AccountsLogic.CurrentAccount;
-    public static List<Notification> notifications = currentAccount.Notifications;
-    public static void PrintNotificationPage()
-    {
 
+    public static void PrintNotificationPage(AccountModel currentAccount)
+    {
+        List<Notification> notifications = currentAccount.Notifications;
 
         if (notifications == null || !notifications.Any())
         {
@@ -22,6 +21,7 @@ public static class NotificationPresentation
         {
             Console.Clear();
             Console.WriteLine("========== Notifications ==========\n");
+            Console.WriteLine(currentAccount.EmailAddress);
             for (int i = 0; i < notifications.Count; i++)
             {
                 var notification = notifications[i];
@@ -46,11 +46,11 @@ public static class NotificationPresentation
             }
 
             var selectedNotification = notifications[choice - 1];
-            ShowNotificationDetails(selectedNotification);
+            ShowNotificationDetails(selectedNotification, currentAccount);
         }
     }
 
-    private static void ShowNotificationDetails(Notification notification)
+    private static void ShowNotificationDetails(Notification notification, AccountModel currentAccount)
     {
         Console.Clear();
         Console.WriteLine("========== Notification Details ==========\n");
