@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 public static class NotificationLogic
 {
-    public static void GetNotification(
+    public static void NotifyBookingModification(
     string email,
     List<BookedFlightsModel> bookings,
     List<PetLogic> newPets,
@@ -96,6 +96,67 @@ public static class NotificationLogic
 
         // Update the account in the database
         AccountsAccess.UpdateCurrentAccount(account);
+    }
+
+    // TODO: Verander ticketprice, gate en newtime, met olddetails en iscancelled is voor de andere constructor
+
+    public static void NotifyFlightModification(int flightID, List<double> ticketPriceChange, List<string> gateChange, bool isCancelled, List<string> newTimeChange)
+    {
+        var newNotifications = new List<Notification>();
+        var allBookedFlights = BookedFlightsAccess.LoadAll();
+        var allEmails = AccountsLogic.GetAllEmails();
+
+        if (ticketPriceChange.Count > 1)
+        {
+            Notification notification = new Notification(1, flightID, "Ticket price changed", ticketPriceChange[0].ToString(), ticketPriceChange[1].ToString());
+            newNotifications.Add(notification);
+        }
+
+        if (gateChange.Count > 1)
+        {
+            Notification notification = new Notification(1, flightID, "Gate changed", gateChange[0].ToString(), gateChange[1].ToString());
+            newNotifications.Add(notification);
+        }
+
+        if (isCancelled)
+        {
+            Notification notification = new Notification(
+                id: 1,
+                flightID: flightID,
+                description: "Flight got cancelled",
+                oldDetails: string.Empty,
+                newDetails: string.Empty
+            );
+
+            newNotifications.Add(notification);
+        }
+
+
+        if (newTimeChange.Count > 1)
+        {
+            Notification notification = new Notification(1, flightID, "Flight time changed", newTimeChange[0].ToString(), newTimeChange[1].ToString());
+            newNotifications.Add(notification);
+        }
+
+        foreach (string email in allEmails)
+        {
+            foreach (var kvp in allBookedFlights)
+            {
+                if (kvp.Key == email)
+                {
+                    foreach (var bookedFlight in kvp.Value)
+                    {
+                        if (bookedFlight.FlightID == flightID)
+                        {
+                            var account = AccountsLogic.GetByEmail(email);
+                            account.Notifications.AddRange(newNotifications);
+                            AccountsAccess.UpdateCurrentAccount(account);
+                        }
+                    }
+                }
+            }
+        }
+
     }
 
     public static bool CheckForNotifications(AccountModel accountModel)

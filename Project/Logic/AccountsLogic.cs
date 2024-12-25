@@ -1,4 +1,6 @@
-﻿public static class AccountsLogic
+﻿using System.Collections.Generic;
+
+public static class AccountsLogic
 {
     public enum CreateAccountStatus
     {
@@ -113,6 +115,18 @@
     public static AccountModel GetByEmail(string email)
     {
         return _accounts.Find(i => i.EmailAddress == email);
+    }
+
+    public static List<string> GetAllEmails()
+    {
+        List<string> allEmails = new List<string>();
+
+        foreach (var item in _accounts)
+        {
+            allEmails.Add(item.EmailAddress);
+        }
+
+        return allEmails;
     }
 
     public static AccountModel CheckLogin(string email, string password)

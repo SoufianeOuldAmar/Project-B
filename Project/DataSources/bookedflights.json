@@ -1,42 +1,27 @@
 {
   "n@b.c": [
     {
-      "FlightID": 20,
+      "FlightID": 16,
       "BookedSeats": [
-        "13A",
-        "20A",
-        "19A"
+        "11A"
       ],
-      "Pets": [
-        {
-          "AnimalType": "cat",
-          "Fee": 50
-        },
-        {
-          "AnimalType": "bird",
-          "Fee": 50
-        },
-        {
-          "AnimalType": "dog",
-          "Fee": 50
-        }
-      ],
-      "BaggageInfo": [
-        {
-          "Initials": "IU",
-          "BaggageType": "1",
-          "BaggageWeight": 15,
-          "Fee": 45
-        },
-        {
-          "Initials": "SI",
-          "BaggageType": "1",
-          "BaggageWeight": 13,
-          "Fee": 45
-        }
-      ],
+      "Pets": [],
+      "BaggageInfo": [],
       "IsCancelled": false,
-      "TicketBill": 240,
+      "TicketBill": 185,
+      "FlightPoints": 0
+    }
+  ],
+  "t@b.c": [
+    {
+      "FlightID": 16,
+      "BookedSeats": [
+        "10A"
+      ],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 185,
       "FlightPoints": 0
     }
   ]

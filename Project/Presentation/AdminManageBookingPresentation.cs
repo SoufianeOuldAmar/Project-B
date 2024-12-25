@@ -593,7 +593,7 @@ namespace DataAccess
 
 
                 saving(email, bookings);
-                NotificationLogic.GetNotification(email, bookings, newPets, newSeats, newBaggageAdded, seatChanges, petChanges);
+                NotificationLogic.NotifyBookingModification(email, bookings, newPets, newSeats, newBaggageAdded, seatChanges, petChanges);
 
                 break;
 

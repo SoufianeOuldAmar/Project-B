@@ -10,39 +10,23 @@
     "Notifications": [
       {
         "Id": 1,
-        "FlightID": 20,
+        "FlightID": 16,
         "NewStatus": null,
-        "Description": "",
-        "OldDetails": "12A",
-        "NewDetails": "13A",
-        "IsRead": true
+        "Description": "Ticket price changed",
+        "OldDetails": "2",
+        "NewDetails": "2",
+        "IsRead": false,
+        "ActionRequired": false
       },
       {
-        "Id": 2,
-        "FlightID": 20,
+        "Id": 1,
+        "FlightID": 16,
         "NewStatus": null,
-        "Description": "New Pet Added",
-        "OldDetails": null,
-        "NewDetails": "dog",
-        "IsRead": true
-      },
-      {
-        "Id": 3,
-        "FlightID": 20,
-        "NewStatus": null,
-        "Description": "New Seat Added",
-        "OldDetails": null,
-        "NewDetails": "19A",
-        "IsRead": true
-      },
-      {
-        "Id": 4,
-        "FlightID": 20,
-        "NewStatus": null,
-        "Description": "New Baggage Added",
-        "OldDetails": null,
-        "NewDetails": "1",
-        "IsRead": true
+        "Description": "Gate changed",
+        "OldDetails": "E5",
+        "NewDetails": "E8",
+        "IsRead": false,
+        "ActionRequired": false
       }
     ]
   },
@@ -54,7 +38,28 @@
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,
-    "Notifications": []
+    "Notifications": [
+      {
+        "Id": 1,
+        "FlightID": 16,
+        "NewStatus": null,
+        "Description": "Ticket price changed",
+        "OldDetails": "2",
+        "NewDetails": "2",
+        "IsRead": false,
+        "ActionRequired": false
+      },
+      {
+        "Id": 1,
+        "FlightID": 16,
+        "NewStatus": null,
+        "Description": "Gate changed",
+        "OldDetails": "E5",
+        "NewDetails": "E8",
+        "IsRead": false,
+        "ActionRequired": false
+      }
+    ]
   },
   {
     "id": 3,

@@ -7667,8 +7667,8 @@
       "isBoeing787": false,
       "seatInitials": {}
     },
-    "ticketPrice": 185,
-    "gate": "E4",
+    "ticketPrice": 2,
+    "gate": "E8",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Milan, Malpensa Airport",
     "timeOfDay": null,

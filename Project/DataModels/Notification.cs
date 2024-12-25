@@ -7,6 +7,7 @@ public class Notification
     public string OldDetails { get; set; }
     public string NewDetails { get; set; }
     public bool IsRead { get; set; }
+    public bool ActionRequired { get; set; }
 
     public Notification(int id, int flightID, string description, string oldDetails, string newDetails)
     {
@@ -16,5 +17,15 @@ public class Notification
         OldDetails = oldDetails;
         NewDetails = newDetails;
         IsRead = false;
+        ActionRequired = false;
     }
+
+    // public Notification(int id, int flightID, string description)
+    // {
+    //     Id = id;
+    //     FlightID = flightID;
+    //     Description = description;
+    //     IsRead = false;
+    //     ActionRequired = true;
+    // }
 }
