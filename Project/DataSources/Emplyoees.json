@@ -1,0 +1,9 @@
+[
+  {
+    "Id": 1,
+    "Name": "Basel",
+    "Age": 20,
+    "Accepted": false,
+    "CvFileName": "Sollicitatie-brief.pdf"
+  }
+]

@@ -148,7 +148,7 @@ namespace DataAccess
                     }
                 }
                 else if (input == "Q")
-                {   
+                {
                     break;
                 }
                 else
@@ -163,43 +163,7 @@ namespace DataAccess
 
         public static void EditFlightDetails(FlightModel flight)
         {
-            Console.Clear();
-            
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write($"1. Current Details of Flight ID: ");
-
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"{flight.Id}");
-
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write($"2. TicketPrice: ");
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"{flight.TicketPrice}");
-
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write($"3. Gate: ");
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"{flight.Gate}");
-
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write($"4. IsCancelled: ");
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"{flight.IsCancelled}");
-
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write($"5. DepartureDate: ");
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"{flight.DepartureDate}");
-
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.Write($"6. FlightTime: ");
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"{flight.FlightTime}");
+            PrintOutForm(flight);
 
             Console.ResetColor();
 
@@ -332,6 +296,47 @@ namespace DataAccess
                 }
             }
             SaveChanges(flight);
+        }
+
+        private static void PrintOutForm(FlightModel flight)
+        {
+            Console.Clear();
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write($"1. Current Details of Flight ID: ");
+
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"{flight.Id}");
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write($"2. TicketPrice: ");
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{flight.TicketPrice}");
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write($"3. Gate: ");
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{flight.Gate}");
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write($"4. IsCancelled: ");
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{flight.IsCancelled}");
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write($"5. DepartureDate: ");
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{flight.DepartureDate}");
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.Write($"6. FlightTime: ");
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"{flight.FlightTime}");
         }
 
         public static void SaveChanges(FlightModel flight)
