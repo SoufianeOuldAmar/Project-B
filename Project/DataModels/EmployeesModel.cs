@@ -9,16 +9,18 @@ public class EmployeesModel
     [JsonPropertyName("Age")]
     public int Age { get; set; }
     [JsonPropertyName("Accepted")]
-    public bool Accepted { get; set; }
+    // private string _accepted = "Not reviewed yet";
+    public string Accepted { get; set; } = "Not reviewed yet";
     [JsonPropertyName("CvFileName")]
     public string CvFileName { get; set; }
-    public EmployeesModel(string name, int age, bool accepted, string cvFileName)
+    public EmployeesModel(string name, int age, string cvFileName)
     {
         // int id, 
         // Id = id;
         Name = name;
         Age = age;
-        Accepted = accepted;
+        //  string accepted,
+        // Accepted = accepted;
         CvFileName = cvFileName;
     }
 

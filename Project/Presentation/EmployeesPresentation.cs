@@ -74,7 +74,7 @@ public static class EmployeesPresentation
         EmployeesModel newEmployee = new EmployeesModel(
             name,
             age,
-            false,
+            // false,
             cvFileName
         )
         {
