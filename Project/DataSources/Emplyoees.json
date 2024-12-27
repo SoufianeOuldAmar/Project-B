@@ -5,5 +5,19 @@
     "Age": 23,
     "Accepted": "Not reviewed yet",
     "CvFileName": "Sollicitatie-brief.pdf"
+  },
+  {
+    "Id": 2,
+    "Name": "Ahmad",
+    "Age": 23,
+    "Accepted": "Not reviewed yet",
+    "CvFileName": "StrengthsProfile-Basel-Kharbeet.pdf"
+  },
+  {
+    "Id": 3,
+    "Name": "Bedr",
+    "Age": 44,
+    "Accepted": "Not reviewed yet",
+    "CvFileName": "Baselcv.docx new.docx"
   }
 ]

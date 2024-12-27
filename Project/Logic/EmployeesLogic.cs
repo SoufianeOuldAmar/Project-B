@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 
+
 public static class EmployeesLogic
 {
     public static bool EmpCopyToDestinationLogic(string filePath)
@@ -41,7 +42,42 @@ public static class EmployeesLogic
     public static EmployeesModel SelectEmployeeId(int id)
     {
         var employee = EmployeesAccess.LoadAll();
+
         return employee.FirstOrDefault(empl => empl.Id == id);
+    }
+
+    // public static void OpenFile(string filePath)
+    // {
+    //     string command = Environment.OSVersion.Platform == PlatformID.Win32NT ? "explorer" :
+    //                      Environment.OSVersion.Platform == PlatformID.Unix ? "open" : "";
+
+    //     if (!string.IsNullOrEmpty(command))
+    //     {
+    //         System.Diagnostics.Process.Start(command, filePath);
+    //     }
+    //     else
+    //     {
+    //         Console.WriteLine("Unsupported operating system for opening files.");
+    //     }
+    // }
+    public static void OpenFile(string filePath)
+    {
+        // Determine the operating system
+        if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+        {
+            // If Windows, use 'explorer' to open the file
+            System.Diagnostics.Process.Start("explorer", filePath);
+        }
+        else if (Environment.OSVersion.Platform == PlatformID.Unix)
+        {
+            // If macOS or Unix-based, use 'open' to open the file
+            System.Diagnostics.Process.Start("open", filePath);
+        }
+        else
+        {
+            // If the operating system is unsupported, show an error message
+            Console.WriteLine("Unsupported operating system for opening files.");
+        }
     }
 
 }
