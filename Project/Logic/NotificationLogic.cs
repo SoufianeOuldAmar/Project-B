@@ -123,11 +123,11 @@ public static class NotificationLogic
             Notification notification = new Notification(
                 id: 1,
                 flightID: flightID,
-                description: "Flight got cancelled",
+                description: "Flight got cancelled. Make sure to book a new flight!",
                 oldDetails: string.Empty,
                 newDetails: string.Empty
             );
-
+            notification.ActionRequired = true;
             newNotifications.Add(notification);
         }
 

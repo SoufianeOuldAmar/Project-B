@@ -27,6 +27,26 @@
         "NewDetails": "E8",
         "IsRead": true,
         "ActionRequired": false
+      },
+      {
+        "Id": 1,
+        "FlightID": 16,
+        "NewStatus": null,
+        "Description": "Ticket price changed",
+        "OldDetails": "2",
+        "NewDetails": "4",
+        "IsRead": true,
+        "ActionRequired": false
+      },
+      {
+        "Id": 1,
+        "FlightID": 16,
+        "NewStatus": null,
+        "Description": "Flight got cancelled. Make sure to book a new flight!",
+        "OldDetails": "",
+        "NewDetails": "",
+        "IsRead": true,
+        "ActionRequired": true
       }
     ]
   },
@@ -58,6 +78,26 @@
         "NewDetails": "E8",
         "IsRead": false,
         "ActionRequired": false
+      },
+      {
+        "Id": 1,
+        "FlightID": 16,
+        "NewStatus": null,
+        "Description": "Ticket price changed",
+        "OldDetails": "2",
+        "NewDetails": "4",
+        "IsRead": false,
+        "ActionRequired": false
+      },
+      {
+        "Id": 1,
+        "FlightID": 16,
+        "NewStatus": null,
+        "Description": "Flight got cancelled. Make sure to book a new flight!",
+        "OldDetails": "",
+        "NewDetails": "",
+        "IsRead": false,
+        "ActionRequired": true
       }
     ]
   },

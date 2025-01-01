@@ -82,6 +82,15 @@ public static class NotificationPresentation
         Console.WriteLine($"Is Read: {(notification.IsRead ? "Yes" : "No")}");
         Console.WriteLine();
 
+        // Notify the user if action is required
+        if (notification.ActionRequired)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("!!! Action Required: Please address this notification immediately. !!!");
+            Console.ResetColor();
+        }
+
+        Console.WriteLine();
         Console.WriteLine("Options:");
         Console.WriteLine("1. Mark as Read");
         Console.WriteLine("2. Go Back");
@@ -93,7 +102,6 @@ public static class NotificationPresentation
             notification.IsRead = true;
             AccountsAccess.UpdateCurrentAccount(currentAccount);
             Console.WriteLine("\nNotification marked as read.");
-
         }
         else if (choice == "2")
         {
@@ -106,4 +114,5 @@ public static class NotificationPresentation
 
         MenuPresentation.PressAnyKey();
     }
+
 }
