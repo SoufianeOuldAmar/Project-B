@@ -60,6 +60,18 @@ public static class EmployeesLogic
     //         Console.WriteLine("Unsupported operating system for opening files.");
     //     }
     // }
+    public static bool SaveChangesLogic(EmployeesModel employee)
+    {
+        var employees = EmployeesAccess.LoadAll();
+        var emloyeeToUpdate = employees.FirstOrDefault(f => f.Id == employee.Id);
+        if (emloyeeToUpdate != null)
+        {
+            emloyeeToUpdate.Accepted = employee.Accepted;
+            EmployeesAccess.WriteAll(employees);
+            return true;
+        }
+        return false;
+    }
     public static void OpenFile(string filePath)
     {
         // Determine the operating system

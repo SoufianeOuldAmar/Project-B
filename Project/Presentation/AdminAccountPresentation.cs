@@ -69,7 +69,8 @@ static class AdminAccountPresentation
                     Console.WriteLine("3. 🔄 Reset all flights");
                     Console.WriteLine("4. 📅 Manage the bookings");
                     Console.WriteLine("5. 👀 View Feedback");
-                    Console.WriteLine("6. 🔓 Log out");
+                    Console.WriteLine("6. 👀 Review employee");
+                    Console.WriteLine("7. 🔓 Log out");
                     Console.Write("\nChoose an option: ");
                     string keyInfo = Console.ReadLine();
 
@@ -109,8 +110,12 @@ static class AdminAccountPresentation
                             FeedbackPresentation.ViewFeedbackMenu();
                             Console.Clear();
                             break;
-
                         case "6":
+                            AdminMangeEmployeesPressentation.DisplayEmployeesInfo();
+                            MenuPresentation.PressAnyKey();
+                            Console.Clear();
+                            break;
+                        case "7":
                             while (true)
                             {
                                 Console.Write("\nAre you sure you want to log out? (yes/no): ");
@@ -135,7 +140,7 @@ static class AdminAccountPresentation
                                 }
                             }
                             break;
-                    
+
 
                         default:
                             Console.WriteLine("Invalid option. Please try again.");

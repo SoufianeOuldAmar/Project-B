@@ -5,6 +5,7 @@ public static class EmployeesPresentation
 {
     public static void InfoEmployeesPresentation()
     {
+        Console.Clear();
         string name;
         while (true)
         {

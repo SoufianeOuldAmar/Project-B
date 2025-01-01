@@ -55,7 +55,8 @@ public static class MenuPresentation
         Console.WriteLine("2. 📝 Create account");
         Console.WriteLine("3. 🔍 Search for a flight");
         Console.WriteLine("4. 📖 About us");
-        Console.WriteLine("5. ❌ Quit program\n");
+        Console.WriteLine("5. 👥 Join Our Team");
+        Console.WriteLine("6. ❌ Quit program\n");
         Console.Write("Choose an option: ");
 
         string choice = Console.ReadLine();
@@ -76,6 +77,9 @@ public static class MenuPresentation
                 MenuLogic.PushMenu(AboutUsPres.aboutUsMenu);
                 break;
             case "5":
+                EmployeesPresentation.InfoEmployeesPresentation();
+                break;
+            case "6":
                 // Exit by popping the main menu
                 MenuLogic.PopMenu();
                 Console.WriteLine("\nUntil next time!");
