@@ -21,7 +21,6 @@ public static class NotificationPresentation
         {
             Console.Clear();
             Console.WriteLine("========== Notifications ==========\n");
-            Console.WriteLine(currentAccount.EmailAddress);
             for (int i = 0; i < notifications.Count; i++)
             {
                 var notification = notifications[i];
