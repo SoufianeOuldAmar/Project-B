@@ -51,7 +51,8 @@ public static class BookFlightLogic
                 selectedSeats,
                 baggageInfo,
                 petInfo,
-                false
+                false,
+                currentAccount.EmailAddress
             );
 
             if (!BookFlightPresentation.allBookedFlights.ContainsKey(currentAccount.EmailAddress))

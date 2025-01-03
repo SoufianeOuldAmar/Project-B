@@ -13,11 +13,13 @@ public class BookedFlightsModel
 
     public double TicketBill { get; set; }
     public int FlightPoints { get; set; }
+    public string Email { get; set; }
 
+    // Nieuwe eigenschap voor eten en drinken
+    public List<FoodAndDrinkItem> FoodAndDrinkItems { get; set; } = new List<FoodAndDrinkItem>();
 
-    public BookedFlightsModel(int flightID, List<string> bookedSeats, List<BaggageLogic> baggageInfo, List<PetLogic> pets, bool isCancelled)
+    public BookedFlightsModel(int flightID, List<string> bookedSeats, List<BaggageLogic> baggageInfo, List<PetLogic> pets, bool isCancelled, string email)
     {
-
         FlightID = flightID;
         BookedSeats = bookedSeats;
         Pets = pets;
@@ -25,8 +27,8 @@ public class BookedFlightsModel
         IsCancelled = isCancelled;
         TicketBill = 0;
         FlightPoints = 0;
+        Email = email;
     }
-
 
     // Total fee 
     public double FeeTotal()
@@ -38,6 +40,4 @@ public class BookedFlightsModel
         }
         return fee;
     }
-
-
 }
