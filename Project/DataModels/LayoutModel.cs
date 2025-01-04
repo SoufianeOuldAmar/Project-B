@@ -62,23 +62,25 @@ public class LayoutModel
                 if (BookedSeats.Contains(seat))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write($"{seat}  ");
+                    string display = SeatInitials.ContainsKey(seat) ? SeatInitials[seat] : seat;
+                    Console.Write($"{display,-4}");
                 }
                 else if (ChosenSeats.Contains(seat))
                 {
                     Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.Write($"{seat}  ");
+                    string display = SeatInitials.ContainsKey(seat) ? SeatInitials[seat] : seat;
+                    Console.Write($"{display,-4}");
                 }
                 else
                 {
-                    Console.Write($"{seat}  ");
+                    Console.Write($"{seat,-4}");
                 }
 
                 Console.ResetColor();
 
                 if (j == 2)
                 {
-                    Console.Write("       ");
+                    Console.Write("   ");
                 }
             }
             Console.WriteLine();
@@ -254,12 +256,13 @@ public class LayoutModel
         {
             AvailableSeats.Remove(seat);
             ChosenSeats.Add(seat);
-            SeatInitials[seat] = initials + " ";
+            SeatInitials[seat] = initials;
             Console.WriteLine($"Seat {seat} is temporarily chosen by {initials}.");
         }
         else if (BookedSeats.Contains(seat))
         {
-            Console.WriteLine($"Seat {seat} is already booked by {(SeatInitials.ContainsKey(seat) ? SeatInitials[seat] : "someone")}.");
+            string bookedBy = SeatInitials.ContainsKey(seat) ? SeatInitials[seat] : "someone";
+            Console.WriteLine($"Seat {seat} is already booked by {bookedBy}.");
         }
         else
         {
@@ -272,6 +275,10 @@ public class LayoutModel
         foreach (var seat in ChosenSeats)
         {
             BookedSeats.Add(seat);
+            if (!SeatInitials.ContainsKey(seat))
+            {
+                SeatInitials[seat] = seat;
+            }
         }
         ChosenSeats.Clear();
         Console.WriteLine("Seats have been successfully booked.");

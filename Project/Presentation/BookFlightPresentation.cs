@@ -9,7 +9,6 @@ public static class BookFlightPresentation
 {
     public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
     public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
-
     public static AccountModel currentAccount = AccountsLogic.CurrentAccount;
 
     private static string GenerateInitials(PassengerModel passenger)
@@ -60,10 +59,8 @@ public static class BookFlightPresentation
             double feeBaggage = 0;
             double totalCarryOnWeight = 0;
 
-
             Console.WriteLine("You get 25kg of baggage per seat (this includes both checked and carry-on (enter yes to continue).");
             string addCheckedBaggage = Console.ReadLine().ToLower();
-
 
             while (addCheckedBaggage != "yes" && addCheckedBaggage != "no")
             {
@@ -78,7 +75,6 @@ public static class BookFlightPresentation
                     Console.WriteLine("Enter weight for checked baggage (choose 20kg or 25kg): ");
                     double checkedWeight;
 
-                    // Ensure valid input for checked baggage weight
                     if (double.TryParse(Console.ReadLine(), out checkedWeight))
                     {
                         if (checkedWeight == 20)
@@ -92,7 +88,6 @@ public static class BookFlightPresentation
                         {
                             feeBaggage += 50;
                             totalWeightSeat += 25;
-
                             Console.WriteLine("Checked baggage of 25kg added for 50 EUR.");
                             Console.WriteLine("You have reached the 25kg per seat limit. No carry-on allowed.");
                             break;
@@ -118,11 +113,9 @@ public static class BookFlightPresentation
 
                 while (addCarryOn == "yes" && totalWeightSeat < 25)
                 {
-
                     Console.WriteLine($"Enter weight for carry-on bag (max {Math.Min(remainingCarryOnWeight, 5)} per bag per bag, left weight: {25 - totalWeightSeat}kg): ");
                     double carryOnWeight;
 
-                    // Ensure valid input for carry-on weight
                     if (double.TryParse(Console.ReadLine(), out carryOnWeight))
                     {
                         if (carryOnWeight > 5)
@@ -151,7 +144,6 @@ public static class BookFlightPresentation
                         {
                             break; // No more carry-on weight available
                         }
-
                     }
                     else
                     {
@@ -166,7 +158,6 @@ public static class BookFlightPresentation
                 Console.WriteLine($"Total carry-on baggage fee: €15.");
             }
 
-            // Confirmation message
             Console.WriteLine($"Baggage added successfully. Total weight: {totalWeightSeat}kg, Total fee: €{feeBaggage}.");
             baggageInfo.Add(new BaggageLogic(initials, "checked + carry-on", totalWeightSeat) { Fee = feeBaggage });
         }
@@ -216,12 +207,9 @@ public static class BookFlightPresentation
             }
         }
     }
-
     public static void BookFlightMenu(bool searchFlightFunction = false, FlightModel flightModel = null)
     {
         var currentAccount = AccountsLogic.CurrentAccount;
-        // int totalFlightpoints = 0;
-
         List<BaggageLogic> baggageInfo = new List<BaggageLogic>();
         List<PetLogic> petInfo = new List<PetLogic>();
         List<PassengerModel> passengers = new List<PassengerModel>();
@@ -275,7 +263,8 @@ public static class BookFlightPresentation
                     selectedFlight = BookFlightLogic.SearchFlightByID(selectedId);
                     if (selectedFlight != null)
                     {
-                        break;  // Exit the while loop if we found a valid flight
+                        BookFlightLogic.LoadExistingBookings(selectedFlight, currentAccount.EmailAddress);
+                        break;
                     }
                     else
                     {
@@ -318,6 +307,11 @@ public static class BookFlightPresentation
             if (confirmation.ToLower() == "yes")
             {
                 List<string> chosenSeats = new List<string>();
+
+                if (searchFlightFunction)
+                {
+                    BookFlightLogic.LoadExistingBookings(selectedFlight, currentAccount.EmailAddress);
+                }
                 selectedFlight.Layout.PrintLayout();
 
                 while (true)
@@ -340,40 +334,38 @@ public static class BookFlightPresentation
                         break;
                     }
 
-                    // Check if seat is already booked
                     if (!selectedFlight.Layout.TryBookSeat(seat))
                     {
                         Console.WriteLine("This seat is already booked or invalid. Please choose another seat.");
                         continue;
                     }
 
-                    // If we get here, the seat is available, so we can collect passenger information
                     PassengerModel passenger = new PassengerModel();
                     Console.WriteLine($"\nEnter Passenger Information for seat {seat}:");
-
 
                     while (true)
                     {
                         Console.Write("First Name: ");
                         string firstName = Console.ReadLine();
-                        if (!string.IsNullOrWhiteSpace(firstName) && firstName.All(char.IsLetter))
+                        // Allow letters and spaces, but ensure it's not just spaces
+                        if (!string.IsNullOrWhiteSpace(firstName) && firstName.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)) && firstName.Trim().Length > 0)
                         {
                             passenger.FirstName = firstName;
                             break;
                         }
-                        Console.WriteLine("Invalid First Name. Please enter alphabets only.");
+                        Console.WriteLine("Invalid First Name. Please enter letters only (spaces are allowed).");
                     }
 
                     while (true)
                     {
                         Console.Write("Last Name: ");
                         string lastName = Console.ReadLine();
-                        if (!string.IsNullOrWhiteSpace(lastName) && lastName.All(char.IsLetter))
+                        if (!string.IsNullOrWhiteSpace(lastName) && lastName.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)) && lastName.Trim().Length > 0)
                         {
                             passenger.LastName = lastName;
                             break;
                         }
-                        Console.WriteLine("Invalid Last Name. Please enter alphabets only.");
+                        Console.WriteLine("Invalid Last Name. Please enter letters only (spaces are allowed).");
                     }
 
                     while (true)
@@ -430,7 +422,6 @@ public static class BookFlightPresentation
 
                     Console.Clear();
                     selectedFlight.Layout.PrintLayout();
-                    // totalFlightpoints += selectedFlight.FlightPoints;
                 }
 
                 // Show booking summary
@@ -453,7 +444,6 @@ public static class BookFlightPresentation
                     }
                 }
 
-                // Calculate final price including fees
                 double baggageTotalFee = baggageInfo.Sum(b => b.Fee);
                 double petTotalFee = petInfo.Sum(p => p.Fee);
                 totalPrice += baggageTotalFee + petTotalFee;
@@ -469,7 +459,6 @@ public static class BookFlightPresentation
 
                 string discountYesOrNo = Console.ReadLine();
 
-
                 if (discountYesOrNo == "yes" && allFlightPoints > 0)
                 {
                     Console.Write("How many points would you like to use? (1 point equals 1 euro, and you can use your points for up to a 20% discount on the price.): ");
@@ -477,10 +466,7 @@ public static class BookFlightPresentation
 
                     if (int.TryParse(amountFlightPointsStr, out int amountFlightPoints))
                     {
-                        // Calculate max discount (20% of totalPrice)
                         double maxDiscount = totalPrice * 0.2;
-
-                        // Ensure points do not exceed max discount or available points
                         double discountToApply = Math.Min(amountFlightPoints, Math.Min(maxDiscount, allFlightPoints));
 
                         totalPrice -= discountToApply;
@@ -493,22 +479,14 @@ public static class BookFlightPresentation
                     {
                         Console.WriteLine("Incorrect input. Enter a valid integer.");
                     }
-
                 }
                 else if (discountYesOrNo == "yes" && allFlightPoints == 0)
                 {
                     Console.WriteLine("You don't have enough flight points for a discount.");
-                    // break;
                 }
-
                 else if (discountYesOrNo == "no")
                 {
-                    // break;
                     Console.WriteLine();
-                }
-                else
-                {
-
                 }
 
                 Console.Write("\nConfirm booking? (yes/no): ");
@@ -516,16 +494,15 @@ public static class BookFlightPresentation
                 if (finalConfirmation == "yes")
                 {
                     selectedFlight.Layout.ConfirmBooking();
-                    // var FlightPointData = new FlightPoint(DateTime.Now, totalFlightpoints, selectedFlight.Id);
-                    // currentAccount.FlightPointsDataList.Add(FlightPointData);
 
-                    // Save passenger information
                     var existingPassengers = PassengerAccess.LoadPassengers();
                     existingPassengers.AddRange(passengers);
                     PassengerAccess.SavePassengers(existingPassengers);
 
                     var bookedFlight1 = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false);
                     bookedFlight1.TicketBill += totalPrice;
+
+                    bookedFlight1.UpdateSeatInitials(selectedFlight.Layout.SeatInitials);
 
                     List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
                     {
@@ -534,12 +511,16 @@ public static class BookFlightPresentation
 
                     AccountsAccess.WriteAll(AccountsLogic._accounts);
                     AccountsAccess.UpdateCurrentAccount(currentAccount);
-                    FlightsAccess.WriteAll(allFlights);
+
                     foreach (var bookedFlight in bookedFlightModel)
                     {
                         BookFlightLogic.RemoveDuplicateSeats(bookedFlight);
                     }
+
                     BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, bookedFlightModel);
+
+                    FlightsAccess.WriteAll(allFlights);
+
                     Console.WriteLine("\nBooking confirmed successfully!");
                     Console.WriteLine("All passenger information has been saved.");
                 }
