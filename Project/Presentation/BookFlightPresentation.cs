@@ -4,6 +4,7 @@ using System.Linq;
 using DataModels;
 using DataAccess;
 using System.Threading;
+using PresentationLayer;
 
 public static class BookFlightPresentation
 {
@@ -312,8 +313,7 @@ public static class BookFlightPresentation
                 {
                     BookFlightLogic.LoadExistingBookings(selectedFlight, currentAccount.EmailAddress);
                 }
-                selectedFlight.Layout.PrintLayout();
-
+                LayoutPresentation.PrintLayout(selectedFlight.Layout);
                 while (true)
                 {
                     Console.Write("\nWhich seat do you want? (press Q to quit or Enter to confirm booking and keep choosing by seat number if you want more seats): ");
@@ -421,7 +421,7 @@ public static class BookFlightPresentation
                     }
 
                     Console.Clear();
-                    selectedFlight.Layout.PrintLayout();
+                    LayoutPresentation.PrintLayout(selectedFlight.Layout);
                 }
 
                 // Show booking summary
