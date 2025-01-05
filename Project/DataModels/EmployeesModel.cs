@@ -13,7 +13,8 @@ public class EmployeesModel
     public string Accepted { get; set; } = "Not reviewed yet";
     [JsonPropertyName("CvFileName")]
     public string CvFileName { get; set; }
-    public EmployeesModel(string name, int age, string cvFileName)
+    public int RegistrationID { get; set; }
+    public EmployeesModel(string name, int age, string cvFileName, int registrationID)
     {
         // int id, 
         // Id = id;
@@ -22,6 +23,7 @@ public class EmployeesModel
         //  string accepted,
         // Accepted = accepted;
         CvFileName = cvFileName;
+        RegistrationID = registrationID;
     }
 
 }

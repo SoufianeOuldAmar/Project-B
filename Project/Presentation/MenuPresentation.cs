@@ -77,7 +77,7 @@ public static class MenuPresentation
                 MenuLogic.PushMenu(AboutUsPres.aboutUsMenu);
                 break;
             case "5":
-                EmployeesPresentation.InfoEmployeesPresentation();
+                EmployeesPresentation.EmployeeRegistrationpresentation();
                 break;
             case "6":
                 // Exit by popping the main menu

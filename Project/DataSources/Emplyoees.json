@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "Id": 1,
+    "Name": "Basel",
+    "Age": 23,
+    "Accepted": "Not reviewed yet",
+    "CvFileName": "Bon.pdf",
+    "RegistrationID": 98233
+  },
+  {
+    "Id": 2,
+    "Name": "Ahmad",
+    "Age": 23,
+    "Accepted": "Not reviewed yet",
+    "CvFileName": "cv template CREATIEF  pagina.docx",
+    "RegistrationID": 39383
+  }
+]
