@@ -12,6 +12,8 @@ public static class BookFlightPresentation
 
     public static AccountModel currentAccount = AccountsLogic.CurrentAccount;
 
+    private static readonly FinancialReport generator = new FinancialReport();
+
     private static string GenerateInitials(PassengerModel passenger)
     {
         if (string.IsNullOrWhiteSpace(passenger.FirstName) || string.IsNullOrWhiteSpace(passenger.LastName))
@@ -24,6 +26,8 @@ public static class BookFlightPresentation
 
     private static void ProcessPassengerDetails(PassengerModel passenger, string seat, ref double totalPrice, double baseTicketPrice, string initials, List<PassengerModel> passengers, List<string> chosenSeats, List<BaggageLogic> baggageInfo, List<PetLogic> petInfo, FlightModel flight)
     {
+
+
         // Add passenger and calculate price
         passengers.Add(passenger);
         chosenSeats.Add(seat);
@@ -219,6 +223,7 @@ public static class BookFlightPresentation
 
     public static void BookFlightMenu(bool searchFlightFunction = false, FlightModel flightModel = null)
     {
+
         var currentAccount = AccountsLogic.CurrentAccount;
         // int totalFlightpoints = 0;
 
@@ -228,6 +233,8 @@ public static class BookFlightPresentation
         double totalPrice = 0;
 
         FlightModel selectedFlight = flightModel;
+
+        FinancialReport financialReport = new FinancialReport();
 
         if (!searchFlightFunction)
         {
@@ -421,6 +428,34 @@ public static class BookFlightPresentation
                         string initials = GenerateInitials(passenger);
                         selectedFlight.Layout.BookFlight(seat, initials);
                         ProcessPassengerDetails(passenger, seat, ref totalPrice, selectedFlight.TicketPrice, initials, passengers, chosenSeats, baggageInfo, petInfo, selectedFlight);
+
+                        // list of all payments to save
+                        List<Payement> allPayments = new List<Payement>();
+
+                        // Add the ticket payment
+                        Payement ticketPayment = new Payement("Ticket", selectedFlight.TicketPrice, DateTime.Now);
+                        allPayments.Add(ticketPayment);
+
+                        // Add the baggage payments
+                        foreach (var baggage in baggageInfo)
+                        {
+                            Payement baggagePayment = new Payement("Baggage", baggage.Fee, DateTime.Now);
+                            allPayments.Add(baggagePayment);
+                        }
+
+                        // Add the pet payments
+                        foreach (var pet in petInfo)
+                        {
+                            Payement petPayment = new Payement("Pet", pet.Fee, DateTime.Now);
+                            allPayments.Add(petPayment);
+                        }
+
+                        // Save all payments at once
+                        financialReport.SavePayements(allPayments);
+
+
+
+
                     }
                     catch (ArgumentException ex)
                     {
