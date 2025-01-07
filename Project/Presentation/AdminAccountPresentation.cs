@@ -71,82 +71,185 @@ static class AdminAccountPresentation
                     Console.WriteLine("5. 👀 View Feedback");
                     Console.WriteLine("6. 👤 Review employee");
                     Console.WriteLine("7. 🔓 Log out");
+                    // Console.Write("\nChoose an option: ");
+                    // string keyInfo = Console.ReadLine();
+
+
+
+
+                    //             switch (keyInfo)
+                    //             {
+                    //                 case "1":
+                    //                     AdminAddFlightsPresentation adminAddflight = new AdminAddFlightsPresentation();
+                    //                     FlightModel newFlight = adminAddflight.AddNewFlights();
+
+                    //                     if (newFlight != null)
+                    //                     {
+                    //                         FlightsAccess.AdminAddNewFlight(newFlight);
+                    //                     }
+
+                    //                     Console.Clear();
+                    //                     break;
+
+                    //                 case "2":
+                    //                     AdminFlightManagerPresentation.UpdateDetailsPresentation();
+                    //                     Console.Clear();
+                    //                     break;
+
+                    //                 case "3":
+                    //                     LayoutModel layout = LayoutModel.CreateBoeing737Layout();
+                    //                     layout.ResetAllSeats();
+                    //                     MenuPresentation.PressAnyKey();
+                    //                     Console.Clear();
+                    //                     break;
+
+                    //                 case "4":
+                    //                     AdminManageBookingPresentation.UpdateBookedDetailsPresentation();
+                    //                     MenuPresentation.PressAnyKey();
+                    //                     Console.Clear();
+                    //                     break;
+
+                    //                 case "5":
+                    //                     FeedbackPresentation.ViewFeedbackMenu();
+                    //                     Console.Clear();
+                    //                     break;
+                    //                 case "6":
+                    //                     AdminMangeEmployeesPressentation.DisplayEmployeesInfo();
+                    //                     MenuPresentation.PressAnyKey();
+                    //                     Console.Clear();
+                    //                     break;
+
+                    //                 case "7":
+                    //                     while (true)
+                    //                     {
+                    //                         Console.Write("\nAre you sure you want to log out? (yes/no): ");
+                    //                         string logOut = Console.ReadLine()?.ToLower();
+
+                    //                         if (logOut == "yes")
+                    //                         {
+                    //                             Console.WriteLine("\nLogging out...");
+                    //                             MenuLogic.PopMenu();
+                    //                             adminMenuRunning = false;
+                    //                             break;
+                    //                         }
+                    //                         else if (logOut == "no")
+                    //                         {
+                    //                             Console.Clear();
+                    //                             break;
+                    //                         }
+                    //                         else
+                    //                         {
+                    //                             Console.Clear();
+                    //                             Console.WriteLine("Incorrect input, enter either 'yes' or 'no'.");
+                    //                         }
+                    //                     }
+                    //                     break;
+
+
+                    //                 default:
+                    //                     Console.WriteLine("Invalid option. Please try again.");
+                    //                     MenuPresentation.PressAnyKey();
+                    //                     Console.Clear();
+                    //                     break;
+                    //             }
+                    //         }
+                    //     }
+                    //     else
+                    //     {
+                    //         i++;
+                    //         Console.WriteLine("Invalid email or password. Please try again.");
+                    //         if (i >= 3)
+                    //         {
+                    //             Console.WriteLine("You will be locked out for 30 seconds due to multiple failed attempts.");
+                    //             Thread.Sleep(30000);
+                    //             i = 0;
+                    //         }
+                    //     }
+
+
+                    // }
                     Console.Write("\nChoose an option: ");
                     string keyInfo = Console.ReadLine();
 
-                    switch (keyInfo)
+                    if (keyInfo == "7")
                     {
-                        case "1":
-                            AdminAddFlightsPresentation adminAddflight = new AdminAddFlightsPresentation();
-                            FlightModel newFlight = adminAddflight.AddNewFlights();
+                        while (true)
+                        {
+                            Console.Write("\nAre you sure you want to log out? (yes/no): ");
+                            string logOut = Console.ReadLine()?.ToLower();
 
-                            if (newFlight != null)
+                            if (logOut == "yes")
                             {
-                                FlightsAccess.AdminAddNewFlight(newFlight);
+                                Console.WriteLine("\nLogging out...");
+                                MenuLogic.PopMenu();
+                                adminMenuRunning = false;
+                                isRunning = false; // Exit the main login loop
+                                break;
                             }
-
-                            Console.Clear();
-                            break;
-
-                        case "2":
-                            AdminFlightManagerPresentation.UpdateDetailsPresentation();
-                            Console.Clear();
-                            break;
-
-                        case "3":
-                            LayoutModel layout = LayoutModel.CreateBoeing737Layout();
-                            layout.ResetAllSeats();
-                            MenuPresentation.PressAnyKey();
-                            Console.Clear();
-                            break;
-
-                        case "4":
-                            AdminManageBookingPresentation.UpdateBookedDetailsPresentation();
-                            MenuPresentation.PressAnyKey();
-                            Console.Clear();
-                            break;
-
-                        case "5":
-                            FeedbackPresentation.ViewFeedbackMenu();
-                            Console.Clear();
-                            break;
-                        case "6":
-                            AdminMangeEmployeesPressentation.DisplayEmployeesInfo();
-                            MenuPresentation.PressAnyKey();
-                            Console.Clear();
-                            break;
-                        case "7":
-                            while (true)
+                            else if (logOut == "no")
                             {
-                                Console.Write("\nAre you sure you want to log out? (yes/no): ");
-                                string logOut = Console.ReadLine()?.ToLower();
-
-                                if (logOut == "yes")
-                                {
-                                    Console.WriteLine("\nLogging out...");
-                                    MenuLogic.PopMenu();
-                                    adminMenuRunning = false;
-                                    break;
-                                }
-                                else if (logOut == "no")
-                                {
-                                    Console.Clear();
-                                    break;
-                                }
-                                else
-                                {
-                                    Console.Clear();
-                                    Console.WriteLine("Incorrect input, enter either 'yes' or 'no'.");
-                                }
+                                Console.Clear();
+                                break;
                             }
-                            break;
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Incorrect input, enter either 'yes' or 'no'.");
+                            }
+                        }
+                    }
+                    else if (keyInfo == "1")
+                    {
+                        AdminAddFlightsPresentation adminAddflight = new AdminAddFlightsPresentation();
+                        FlightModel newFlight = adminAddflight.AddNewFlights();
 
+                        if (newFlight != null)
+                        {
+                            FlightsAccess.AdminAddNewFlight(newFlight);
+                        }
 
-                        default:
-                            Console.WriteLine("Invalid option. Please try again.");
-                            MenuPresentation.PressAnyKey();
-                            Console.Clear();
-                            break;
+                        Console.Clear();
+                    }
+                    else if (keyInfo == "2")
+                    {
+                        // AdminFlightManagerPresentation.LaodFlightPresentaion();
+                        AdminFlightManagerPresentation.UpdateDetailsPresentation();
+                        Console.Clear();
+                    }
+                    else if (keyInfo == "3")
+                    {
+                        LayoutModel layout = LayoutModel.CreateBoeing737Layout();
+                        layout.ResetAllSeats();
+                        MenuPresentation.PressAnyKey();
+                        Console.Clear();
+                    }
+                    else if (keyInfo == "4")
+                    {
+                        // AdminManageBookingPresentation.LaodBookedPresentaion();
+                        AdminManageBookingPresentation.UpdateBookedDetailsPresentation();
+                        // AdminManageBookingPresentation.Another();
+                        MenuPresentation.PressAnyKey();
+                        Console.Clear();
+                    }
+                    else if (keyInfo == "5")
+                    {
+                        FeedbackPresentation.ViewFeedbackMenu();
+                        Console.Clear();
+                        break;
+                    }
+                    else if (keyInfo == "6")
+                    {
+                        AdminMangeEmployeesPressentation.DisplayEmployeesInfo();
+                        MenuPresentation.PressAnyKey();
+                        Console.Clear();
+                        break;
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid option. Please try again.");
+                        MenuPresentation.PressAnyKey();
+                        Console.Clear();
                     }
                 }
             }
@@ -163,6 +266,4 @@ static class AdminAccountPresentation
             }
         }
     }
-
-
 }
