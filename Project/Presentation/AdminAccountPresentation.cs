@@ -69,7 +69,7 @@ static class AdminAccountPresentation
                     Console.WriteLine("3. 🔄 Reset all flights");
                     Console.WriteLine("4. 📅 Manage the bookings");
                     Console.WriteLine("5. 👀 View Feedback");
-                    Console.WriteLine("6. 👀 Review employee");
+                    Console.WriteLine("6. 👤 Review employee");
                     Console.WriteLine("7. 🔓 Log out");
                     Console.Write("\nChoose an option: ");
                     string keyInfo = Console.ReadLine();

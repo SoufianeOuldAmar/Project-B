@@ -26,7 +26,7 @@ public static class EmployeesPresentation
         {
             Console.WriteLine("Please enter your age");
             string input = Console.ReadLine();
-            if (int.TryParse(input, out age) && age > 16)
+            if (int.TryParse(input, out age) && age > 18 && age < 60)
             {
                 break;
             }
