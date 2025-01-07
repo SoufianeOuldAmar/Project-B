@@ -311,7 +311,7 @@ public static class BookFlightPresentation
             {
                 List<string> chosenSeats = new List<string>();
                 List<double> foodAndDrinkCosts = new List<double>(); // Houd kosten per passagier bij
-                selectedFlight.Layout.PrintLayout();
+                LayoutPresentation.PrintLayout(selectedFlight.Layout);
 
                 if (searchFlightFunction)
                 {
@@ -446,7 +446,7 @@ public static class BookFlightPresentation
                     }
 
                     Console.Clear();
-                    selectedFlight.Layout.PrintLayout();
+                    LayoutPresentation.PrintLayout(selectedFlight.Layout);
                 }
 
                 // Show booking summary
