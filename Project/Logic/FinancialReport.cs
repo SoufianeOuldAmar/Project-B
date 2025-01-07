@@ -25,9 +25,8 @@ public class FinancialReport
         var existingPayments = LoadPayements();
         existingPayments.AddRange(payements);
         var jsonData = JsonSerializer.Serialize(existingPayments, new JsonSerializerOptions { WriteIndented = true });
-        Console.WriteLine($"Serialized data: {jsonData}");
         File.WriteAllText(Path, jsonData);
-        Console.WriteLine("File written successfully.");
+
     }
 
 
