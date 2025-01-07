@@ -397,18 +397,18 @@ namespace DataAccess
                                                 string newPetType = Console.ReadLine().ToLower();
                                                 if (newPetType == "dog" || newPetType == "cat" || newPetType == "bunny" || newPetType == "bird")
                                                 {
-                                                    PetLogic oldPet = selectedBooking.Pets[PetIndex - 1];
-                                                    Console.WriteLine();
-                                                    PetLogic newPet = new PetLogic(newPetType) { Fee = 50.0 };
-                                                    selectedBooking.Pets[PetIndex - 1] = newPet;
-                                                    Console.WriteLine("What is the name of the new pet?");
-                                                    string petName = Console.ReadLine();
+                                                    // PetLogic oldPet = selectedBooking.Pets[PetIndex - 1];
+                                                    // Console.WriteLine();
+                                                    // PetLogic newPet = new PetLogic(newPetType) { Fee = 50.0 };
+                                                    // selectedBooking.Pets[PetIndex - 1] = newPet;
+                                                    // Console.WriteLine("What is the name of the new pet?");
+                                                    // string petName = Console.ReadLine();
 
-                                                    selectedBooking.Pets[PetIndex - 1] = new PetLogic(newPetType, petName) { Fee = 50.0 };
-                                                    Console.WriteLine("Pet updated successfully!");
-                                                    petChanges.Add(oldPet);
-                                                    petChanges.Add(newPet);
-                                                    break;
+                                                    // selectedBooking.Pets[PetIndex - 1] = new PetLogic(newPetType, petName) { Fee = 50.0 };
+                                                    // Console.WriteLine("Pet updated successfully!");
+                                                    // petChanges.Add(oldPet);
+                                                    // petChanges.Add(newPet);
+                                                    // break;
                                                 }
                                                 else
                                                 {
