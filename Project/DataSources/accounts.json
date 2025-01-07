@@ -6,49 +6,7 @@
     "fullName": "Nikola Tesla",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
-    "fees": 0,
-    "Notifications": [
-      {
-        "Id": 1,
-        "FlightID": 16,
-        "NewStatus": null,
-        "Description": "Ticket price changed",
-        "OldDetails": "2",
-        "NewDetails": "2",
-        "IsRead": true,
-        "ActionRequired": false
-      },
-      {
-        "Id": 1,
-        "FlightID": 16,
-        "NewStatus": null,
-        "Description": "Gate changed",
-        "OldDetails": "E5",
-        "NewDetails": "E8",
-        "IsRead": true,
-        "ActionRequired": false
-      },
-      {
-        "Id": 1,
-        "FlightID": 16,
-        "NewStatus": null,
-        "Description": "Ticket price changed",
-        "OldDetails": "2",
-        "NewDetails": "4",
-        "IsRead": true,
-        "ActionRequired": false
-      },
-      {
-        "Id": 1,
-        "FlightID": 16,
-        "NewStatus": null,
-        "Description": "Flight got cancelled. Make sure to book a new flight!",
-        "OldDetails": "",
-        "NewDetails": "",
-        "IsRead": true,
-        "ActionRequired": true
-      }
-    ]
+    "fees": 0
   },
   {
     "id": 2,

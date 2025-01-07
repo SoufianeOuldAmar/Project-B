@@ -351,9 +351,12 @@ namespace DataAccess
                                         Console.WriteLine("What type of pet do you have? (dog, cat, bunny, bird): ");
                                         string petType = Console.ReadLine()?.ToLower();
 
+                                        Console.WriteLine("Enter your animal's name: ");
+                                        string petName = Console.ReadLine();
+
                                         if (petType == "dog" || petType == "cat" || petType == "bunny" || petType == "bird")
                                         {
-                                            var newPet = new PetLogic(petType) { Fee = 50.0 };
+                                            var newPet = new PetLogic(petType, petName) { Fee = 50.0 };
                                             selectedBooking.Pets.Add(newPet);
                                             newPets.Add(newPet);
                                             flight.TotalPets++;
@@ -398,6 +401,10 @@ namespace DataAccess
                                                     Console.WriteLine();
                                                     PetLogic newPet = new PetLogic(newPetType) { Fee = 50.0 };
                                                     selectedBooking.Pets[PetIndex - 1] = newPet;
+                                                    Console.WriteLine("What is the name of the new pet?");
+                                                    string petName = Console.ReadLine();
+
+                                                    selectedBooking.Pets[PetIndex - 1] = new PetLogic(newPetType, petName) { Fee = 50.0 };
                                                     Console.WriteLine("Pet updated successfully!");
                                                     petChanges.Add(oldPet);
                                                     petChanges.Add(newPet);

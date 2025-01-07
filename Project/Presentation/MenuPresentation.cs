@@ -2,6 +2,7 @@ using DataModels;
 using DataAccess;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Net;
 
 public static class MenuPresentation
 {
@@ -614,16 +615,16 @@ public static class MenuPresentation
         Console.WriteLine("1. 🔍 Search for flights");
         Console.WriteLine("2. 🧾 View history of tickets");
         Console.WriteLine("3. 🎯 View Flight Point");
-        Console.WriteLine("4. 📖 About us");
-        Console.WriteLine("5. 🔔 Notifications" + exclamationMark);
-        Console.WriteLine("6. 🔓 Log out");
+        Console.WriteLine("4. 🔔 Notifications" + exclamationMark);
+        Console.WriteLine("5. 📖 About us");
+        Console.WriteLine("6. 📋 Feedback Menu");
+        Console.WriteLine("7. 🔓 Log out");
         Console.Write("\nChoose an option: ");
         string choice = Console.ReadLine();
 
         switch (choice)
         {
             case "1":
-                // MenuLogic.PushMenu(BookFlightMenu);
                 SearchFlightsMenu();
                 break;
             case "2":
@@ -633,12 +634,15 @@ public static class MenuPresentation
                 MenuLogic.PushMenu(ViewFlightPointsMenu);
                 break;
             case "4":
-                MenuLogic.PushMenu(AboutUsPres.aboutUsMenu);
-                break;
-            case "5":
                 MenuLogic.PushMenu(NotificationPage);
                 break;
+            case "5":
+                MenuLogic.PushMenu(AboutUsPres.aboutUsMenu);
+                break;
             case "6":
+                FeedbackPresentation.FeedbackMenu(accountModel);
+                break;
+            case "7":
                 Console.WriteLine("\nLogging out...");
                 MenuLogic.PopMenu();
                 MenuLogic.PopMenu();
@@ -648,6 +652,7 @@ public static class MenuPresentation
                 break;
         }
     }
+
 
     public static void FrontPageAdmin(AccountModel accountModel)
     {
@@ -673,7 +678,6 @@ public static class MenuPresentation
                 break;
         }
     }
-
 
     public static List<FlightModel> bookedFlights = new List<FlightModel>(); // We maken een lijst van geboekte vluchten
     public static List<FlightModel> flights = FlightsAccess.ReadAll(); // dit zorgt ervoor dat we de json file kunnen lezen
