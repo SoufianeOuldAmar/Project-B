@@ -1,0 +1,22 @@
+[
+  {
+    "ItemType": "Ticket",
+    "Amount": 215,
+    "DatePayement": "2025-01-06T13:37:47.015034+01:00"
+  },
+  {
+    "ItemType": "Baggage",
+    "Amount": 50,
+    "DatePayement": "2025-01-06T13:37:47.016003+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 150,
+    "DatePayement": "2025-01-06T13:41:09.165784+01:00"
+  },
+  {
+    "ItemType": "Baggage",
+    "Amount": 50,
+    "DatePayement": "2025-01-06T13:41:09.1658+01:00"
+  }
+]

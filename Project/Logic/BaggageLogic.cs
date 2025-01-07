@@ -32,22 +32,16 @@ public class BaggageLogic
         if (BaggageType == "Carry-On")
         {
             maxWeight = 10; 
+            return 15;
         }
 
         else if (BaggageType == "Checked")
         {
-
-            maxWeight = 25; 
-
+            return BaggageWeight; // fee == baggage weight (20 / 25)
         }
 
-        if (BaggageWeight > maxWeight)
-        {
-            // difference * 20 
-            return (BaggageWeight - maxWeight) * 20; // Fee of 20 EUR/kg over the limit
-        }
 
-        return 0; // No fee if weight is within the limit
+        return 0; // No fee 
     }
 }
 

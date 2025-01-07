@@ -9,6 +9,9 @@ public static class CalendarLogic
     // Read all flight data
     public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
 
+    private const string GREEN = "\u001b[32m"; 
+    private const string RESET = "\u001b[0m";
+
     public static string Calendar(int month, int year, string departureAirport, string destination)
     {
         // Get the first day and the total number of days in the month
@@ -56,16 +59,19 @@ public static class CalendarLogic
             }
 
             // Add the day number (adding a zero if its one number) 
-            daysLine += day.ToString("D2") + "  ";
+            // daysLine += day.ToString("D2") + "  ";
 
             // Add a dot if there's a flight 
             if (hasFlight)
             {
                 dotsLine += " .  ";
+                daysLine += "\x1b[32m" + day.ToString("D2") + "\x1b[0m" + "  ";
+
             }
             else
             {
                 dotsLine += "    ";
+                daysLine += day.ToString("D2") + "  "; // Normal day
             }
 
             // Check if week is done or its the last day 
@@ -86,6 +92,7 @@ public static class CalendarLogic
         // Join the lines into a single string with newlines in between
         string calendarOutput = string.Join("\n", calendarLines);
         return calendarOutput;
+
     }
 
 
