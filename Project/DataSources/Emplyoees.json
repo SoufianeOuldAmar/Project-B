@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "Id": 1,
+    "Name": "Basel",
+    "Age": 44,
+    "Accepted": "Not reviewed yet",
+    "CvFileName": "Sollicitatiebrief.docx",
+    "RegistrationID": 35077
+  }
+]
