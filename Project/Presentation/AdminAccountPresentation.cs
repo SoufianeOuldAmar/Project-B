@@ -1,6 +1,3 @@
-using System.Collections.Concurrent;
-using System.Data.Common;
-using System.Threading;
 using DataModels;
 using DataAccess;
 static class AdminAccountPresentation
@@ -67,81 +64,84 @@ static class AdminAccountPresentation
                 while (adminMenuRunning)
                 {
                     Console.WriteLine("=== 🔧 Admin Page ===\n");
-
                     Console.WriteLine("1. ➕ Add a new flight");
                     Console.WriteLine("2. ✏️  Change current flight details");
                     Console.WriteLine("3. 🔄 Reset all flights");
                     Console.WriteLine("4. 📅 Manage the bookings");
-                    Console.WriteLine("5. 🔓 Log out");
-
+                    Console.WriteLine("5. 👀 View Feedback");
+                    Console.WriteLine("6. 🔓 Log out");
                     Console.Write("\nChoose an option: ");
                     string keyInfo = Console.ReadLine();
 
-                    if (keyInfo == "5")
+                    switch (keyInfo)
                     {
-                        while (true)
-                        {
-                            Console.Write("\nAre you sure you want to log out? (yes/no): ");
-                            string logOut = Console.ReadLine()?.ToLower();
+                        case "1":
+                            AdminAddFlightsPresentation adminAddflight = new AdminAddFlightsPresentation();
+                            FlightModel newFlight = adminAddflight.AddNewFlights();
 
-                            if (logOut == "yes")
+                            if (newFlight != null)
                             {
-                                Console.WriteLine("\nLogging out...");
-                                MenuLogic.PopMenu();
-                                adminMenuRunning = false;
-                                isRunning = false; // Exit the main login loop
-                                break;
+                                FlightsAccess.AdminAddNewFlight(newFlight);
                             }
-                            else if (logOut == "no")
-                            {
-                                Console.Clear();
-                                break;
-                            }
-                            else
-                            {
-                                Console.Clear();
-                                Console.WriteLine("Incorrect input, enter either 'yes' or 'no'.");
-                            }
-                        }
-                    }
-                    else if (keyInfo == "1")
-                    {
-                        AdminAddFlightsPresentation adminAddflight = new AdminAddFlightsPresentation();
-                        FlightModel newFlight = adminAddflight.AddNewFlights();
 
-                        if (newFlight != null)
-                        {
-                            FlightsAccess.AdminAddNewFlight(newFlight);
-                        }
+                            Console.Clear();
+                            break;
 
-                        Console.Clear();
-                    }
-                    else if (keyInfo == "2")
-                    {
-                        // AdminFlightManagerPresentation.LaodFlightPresentaion();
-                        AdminFlightManagerPresentation.UpdateDetailsPresentation();
-                        Console.Clear();
-                    }
-                    else if (keyInfo == "3")
-                    {
-                        LayoutModel layout = LayoutModel.CreateBoeing737Layout();
-                        layout.ResetAllSeats();
-                        MenuPresentation.PressAnyKey();
-                        Console.Clear();
-                    }
-                    else if (keyInfo == "4")
-                    {
-                        // AdminManageBookingPresentation.LaodBookedPresentaion();
-                        AdminManageBookingPresentation.UpdateBookedDetailsPresentation();
-                        // AdminManageBookingPresentation.Another();
-                        MenuPresentation.PressAnyKey();
-                        Console.Clear();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid option. Please try again.");
-                        MenuPresentation.PressAnyKey();
-                        Console.Clear();
+                        case "2":
+                            AdminFlightManagerPresentation.UpdateDetailsPresentation();
+                            Console.Clear();
+                            break;
+
+                        case "3":
+                            LayoutModel layout = LayoutModel.CreateBoeing737Layout();
+                            layout.ResetAllSeats();
+                            MenuPresentation.PressAnyKey();
+                            Console.Clear();
+                            break;
+
+                        case "4":
+                            AdminManageBookingPresentation.UpdateBookedDetailsPresentation();
+                            MenuPresentation.PressAnyKey();
+                            Console.Clear();
+                            break;
+
+                        case "5":
+                            FeedbackPresentation.ViewFeedbackMenu();
+                            Console.Clear();
+                            break;
+
+                        case "6":
+                            while (true)
+                            {
+                                Console.Write("\nAre you sure you want to log out? (yes/no): ");
+                                string logOut = Console.ReadLine()?.ToLower();
+
+                                if (logOut == "yes")
+                                {
+                                    Console.WriteLine("\nLogging out...");
+                                    MenuLogic.PopMenu();
+                                    adminMenuRunning = false;
+                                    break;
+                                }
+                                else if (logOut == "no")
+                                {
+                                    Console.Clear();
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Incorrect input, enter either 'yes' or 'no'.");
+                                }
+                            }
+                            break;
+                    
+
+                        default:
+                            Console.WriteLine("Invalid option. Please try again.");
+                            MenuPresentation.PressAnyKey();
+                            Console.Clear();
+                            break;
                     }
                 }
             }

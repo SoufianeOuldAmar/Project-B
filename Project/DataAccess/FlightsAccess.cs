@@ -1,5 +1,6 @@
 using System.Text.Json;
 using DataModels;
+using System.Text.Json.Serialization;
 
 namespace DataAccess
 {
@@ -16,18 +17,24 @@ namespace DataAccess
                     string jsonString = File.ReadAllText(filePath);
                     var options = new JsonSerializerOptions
                     {
-                        PropertyNameCaseInsensitive = true
+                        PropertyNameCaseInsensitive = true,
+                        WriteIndented = true,
+                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
                     };
 
                     var flights = JsonSerializer.Deserialize<List<FlightModel>>(jsonString, options);
 
-                    // foreach (var flight in flights ?? new List<FlightModel>())
-                    // {
-                    //     if (flight.Layout == null)
-                    //     {
-                    //         flight.Layout = AssignDefaultLayout(flight.Airline);
-                    //     }
-                    // }
+                    if (flights != null)
+                    {
+                        foreach (var flight in flights)
+                        {
+                            if (flight.Layout != null && flight.Layout.SeatInitials == null)
+                            {
+                                flight.Layout.SeatInitials = new Dictionary<string, string>();
+                            }
+                        }
+                    }
 
                     return flights ?? new List<FlightModel>();
                 }
@@ -47,7 +54,8 @@ namespace DataAccess
                 var options = new JsonSerializerOptions
                 {
                     WriteIndented = true,
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
                 };
 
                 string jsonString = JsonSerializer.Serialize(flights, options);
@@ -100,7 +108,6 @@ namespace DataAccess
             WriteAll(flights);
         }
 
-        // Search flight method
         public static List<FlightModel> SearchFlights(
             string departureAirport = null,
             string arrivalDestination = null,

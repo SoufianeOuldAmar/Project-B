@@ -10,14 +10,16 @@ public class BookedFlightsModel
     public List<PetLogic> Pets { get; set; }
     public List<BaggageLogic> BaggageInfo { get; set; }
     public bool IsCancelled { get; set; }
-
     public double TicketBill { get; set; }
     public int FlightPoints { get; set; }
+    public Dictionary<string, string> SeatInitials { get; set; }
+    public string Email { get; set; }
 
+    // Nieuwe eigenschap voor eten en drinken
+    public List<FoodAndDrinkItem> FoodAndDrinkItems { get; set; } = new List<FoodAndDrinkItem>();
 
-    public BookedFlightsModel(int flightID, List<string> bookedSeats, List<BaggageLogic> baggageInfo, List<PetLogic> pets, bool isCancelled)
+    public BookedFlightsModel(int flightID, List<string> bookedSeats, List<BaggageLogic> baggageInfo, List<PetLogic> pets, bool isCancelled, string email)
     {
-
         FlightID = flightID;
         BookedSeats = bookedSeats;
         Pets = pets;
@@ -25,8 +27,9 @@ public class BookedFlightsModel
         IsCancelled = isCancelled;
         TicketBill = 0;
         FlightPoints = 0;
+        Email = email;
+        SeatInitials = new Dictionary<string, string>();
     }
-
 
     // Total fee 
     public double FeeTotal()
@@ -39,5 +42,16 @@ public class BookedFlightsModel
         return fee;
     }
 
+    public void UpdateSeatInitials(Dictionary<string, string> layoutSeatInitials)
+    {
+        if (layoutSeatInitials != null)
+        {
+            SeatInitials = new Dictionary<string, string>(layoutSeatInitials);
+        }
+    }
 
+    public string GetSeatInitials(string seatNumber)
+    {
+        return SeatInitials.ContainsKey(seatNumber) ? SeatInitials[seatNumber] : seatNumber;
+    }
 }
