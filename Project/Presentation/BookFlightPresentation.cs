@@ -4,12 +4,12 @@ using System.Linq;
 using DataModels;
 using DataAccess;
 using System.Threading;
+using PresentationLayer;
 
 public static class BookFlightPresentation
 {
     public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
     public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
-
     public static AccountModel currentAccount = AccountsLogic.CurrentAccount;
 
     private static readonly FinancialReport generator = new FinancialReport();
@@ -283,7 +283,8 @@ public static class BookFlightPresentation
 
             }
 
-
+            Console.WriteLine($"Baggage added successfully. Total weight: {totalWeightSeat}kg, Total fee: €{feeBaggage}.");
+            baggageInfo.Add(new BaggageLogic(initials, "checked + carry-on", totalWeightSeat) { Fee = feeBaggage });
         }
 
 
@@ -336,15 +337,14 @@ public static class BookFlightPresentation
         }
     }
 
-    public static void BookFlightMenu(bool searchFlightFunction = false, FlightModel flightModel = null)
+    public static void BookFlightMenu(bool searchFlightFunction = false, FlightModel flightModel = null, bool showFoodAndDrinks = true)
     {
 
         var currentAccount = AccountsLogic.CurrentAccount;
-        // int totalFlightpoints = 0;
-
         List<BaggageLogic> baggageInfo = new List<BaggageLogic>();
         List<PetLogic> petInfo = new List<PetLogic>();
         List<PassengerModel> passengers = new List<PassengerModel>();
+        List<FoodAndDrinkItem> selectedItems = new List<FoodAndDrinkItem>();
         double totalPrice = 0;
 
         FlightModel selectedFlight = flightModel;
@@ -397,7 +397,8 @@ public static class BookFlightPresentation
                     selectedFlight = BookFlightLogic.SearchFlightByID(selectedId);
                     if (selectedFlight != null)
                     {
-                        break;  // Exit the while loop if we found a valid flight
+                        BookFlightLogic.LoadExistingBookings(selectedFlight, currentAccount.EmailAddress);
+                        break;
                     }
                     else
                     {
@@ -440,8 +441,14 @@ public static class BookFlightPresentation
             if (confirmation.ToLower() == "yes")
             {
                 List<string> chosenSeats = new List<string>();
-                selectedFlight.Layout.PrintLayout();
+                List<double> foodAndDrinkCosts = new List<double>(); // Houd kosten per passagier bij
+                LayoutPresentation.PrintLayout(selectedFlight.Layout);
 
+                if (searchFlightFunction)
+                {
+                    BookFlightLogic.LoadExistingBookings(selectedFlight, currentAccount.EmailAddress);
+                }
+                LayoutPresentation.PrintLayout(selectedFlight.Layout);
                 while (true)
                 {
                     Console.Write("\nWhich seat do you want? (press Q to quit or Enter to confirm booking and keep choosing by seat number if you want more seats): ");
@@ -462,40 +469,38 @@ public static class BookFlightPresentation
                         break;
                     }
 
-                    // Check if seat is already booked
                     if (!selectedFlight.Layout.TryBookSeat(seat))
                     {
                         Console.WriteLine("This seat is already booked or invalid. Please choose another seat.");
                         continue;
                     }
 
-                    // If we get here, the seat is available, so we can collect passenger information
                     PassengerModel passenger = new PassengerModel();
                     Console.WriteLine($"\nEnter Passenger Information for seat {seat}:");
-
 
                     while (true)
                     {
                         Console.Write("First Name: ");
                         string firstName = Console.ReadLine();
-                        if (!string.IsNullOrWhiteSpace(firstName) && firstName.All(char.IsLetter))
+                        // Allow letters and spaces, but ensure it's not just spaces
+                        if (!string.IsNullOrWhiteSpace(firstName) && firstName.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)) && firstName.Trim().Length > 0)
                         {
                             passenger.FirstName = firstName;
                             break;
                         }
-                        Console.WriteLine("Invalid First Name. Please enter alphabets only.");
+                        Console.WriteLine("Invalid First Name. Please enter letters only (spaces are allowed).");
                     }
 
                     while (true)
                     {
                         Console.Write("Last Name: ");
                         string lastName = Console.ReadLine();
-                        if (!string.IsNullOrWhiteSpace(lastName) && lastName.All(char.IsLetter))
+                        if (!string.IsNullOrWhiteSpace(lastName) && lastName.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)) && lastName.Trim().Length > 0)
                         {
                             passenger.LastName = lastName;
                             break;
                         }
-                        Console.WriteLine("Invalid Last Name. Please enter alphabets only.");
+                        Console.WriteLine("Invalid Last Name. Please enter letters only (spaces are allowed).");
                     }
 
                     while (true)
@@ -556,6 +561,30 @@ public static class BookFlightPresentation
                     {
                         Payement baggagePayment = new Payement("Baggage", baggage.Fee, DateTime.Now);
                         allPayments.Add(baggagePayment);
+                        string initials = GenerateInitials(passenger);
+                        selectedFlight.Layout.BookFlight(seat, initials);
+                        ProcessPassengerDetails(passenger, seat, ref totalPrice, selectedFlight.TicketPrice, initials, passengers, chosenSeats, baggageInfo, petInfo, selectedFlight);
+
+                        Console.WriteLine("Would you like to add food and drinks for this passenger? (yes/no): ");
+                        string addFoodOption = Console.ReadLine()?.ToLower();
+
+                        while (addFoodOption != "yes" && addFoodOption != "no")
+                        {
+                            Console.WriteLine("Invalid input. Please enter 'yes' or 'no': ");
+                            addFoodOption = Console.ReadLine()?.ToLower();
+                        }
+
+                        if (addFoodOption == "yes")
+                        {
+                            double foodCost = FoodAndDrinkPresentation.AddFoodAndDrinksToBooking(selectedFlight);
+                            foodAndDrinkCosts.Add(foodCost); // Voeg toe aan lijst met food and drink kosten
+                            totalPrice += foodCost;
+                            Console.WriteLine($"Food and drinks have been added. Updated total price: €{totalPrice:F2}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("No food and drinks were added for this passenger.");
+                        }
                     }
 
                     // Add the pet payments
@@ -580,8 +609,7 @@ public static class BookFlightPresentation
                     // }
 
                     Console.Clear();
-                    selectedFlight.Layout.PrintLayout();
-                    // totalFlightpoints += selectedFlight.FlightPoints;
+                    LayoutPresentation.PrintLayout(selectedFlight.Layout);
                 }
 
                 // Show booking summary
@@ -605,21 +633,22 @@ public static class BookFlightPresentation
                 }
 
                 // Calculate final price including fees
+                double foodAndDrinkCost = foodAndDrinkCosts.Sum();
                 double baggageTotalFee = baggageInfo.Sum(b => b.Fee);
                 double petTotalFee = petInfo.Sum(p => p.Fee);
                 totalPrice += baggageTotalFee + petTotalFee;
 
                 Console.WriteLine($"\nPrice Breakdown:");
-                Console.WriteLine($"Ticket(s): {totalPrice - baggageTotalFee - petTotalFee:C}");
+                Console.WriteLine($"Ticket(s): {totalPrice - baggageTotalFee - petTotalFee - foodAndDrinkCost:C}");
                 if (baggageTotalFee > 0) Console.WriteLine($"Baggage Fees: {baggageTotalFee:C}");
                 if (petTotalFee > 0) Console.WriteLine($"Pet Fees: {petTotalFee:C}");
+                if (foodAndDrinkCost > 0) Console.WriteLine($"Food and Drinks: {foodAndDrinkCost:C}");
                 Console.WriteLine($"Total Price: {totalPrice:C}");
-
+                
                 int allFlightPoints = currentAccount.TotalFlightPoints;
                 Console.Write($"\nBefore confirming your booking do you want to use your flight points for discount? You have {(allFlightPoints)} points. (yes/no): ");
 
                 string discountYesOrNo = Console.ReadLine();
-
 
                 if (discountYesOrNo == "yes" && allFlightPoints > 0)
                 {
@@ -628,10 +657,7 @@ public static class BookFlightPresentation
 
                     if (int.TryParse(amountFlightPointsStr, out int amountFlightPoints))
                     {
-                        // Calculate max discount (20% of totalPrice)
                         double maxDiscount = totalPrice * 0.2;
-
-                        // Ensure points do not exceed max discount or available points
                         double discountToApply = Math.Min(amountFlightPoints, Math.Min(maxDiscount, allFlightPoints));
 
                         totalPrice -= discountToApply;
@@ -644,22 +670,14 @@ public static class BookFlightPresentation
                     {
                         Console.WriteLine("Incorrect input. Enter a valid integer.");
                     }
-
                 }
                 else if (discountYesOrNo == "yes" && allFlightPoints == 0)
                 {
                     Console.WriteLine("You don't have enough flight points for a discount.");
-                    // break;
                 }
-
                 else if (discountYesOrNo == "no")
                 {
-                    // break;
                     Console.WriteLine();
-                }
-                else
-                {
-
                 }
 
                 Console.Write("\nConfirm booking? (yes/no): ");
@@ -667,16 +685,15 @@ public static class BookFlightPresentation
                 if (finalConfirmation == "yes")
                 {
                     selectedFlight.Layout.ConfirmBooking();
-                    // var FlightPointData = new FlightPoint(DateTime.Now, totalFlightpoints, selectedFlight.Id);
-                    // currentAccount.FlightPointsDataList.Add(FlightPointData);
 
-                    // Save passenger information
                     var existingPassengers = PassengerAccess.LoadPassengers();
                     existingPassengers.AddRange(passengers);
                     PassengerAccess.SavePassengers(existingPassengers);
 
-                    var bookedFlight1 = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false);
+                    var bookedFlight1 = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false, currentAccount.EmailAddress);
                     bookedFlight1.TicketBill += totalPrice;
+
+                    bookedFlight1.UpdateSeatInitials(selectedFlight.Layout.SeatInitials);
 
                     List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
                     {
@@ -685,12 +702,16 @@ public static class BookFlightPresentation
 
                     AccountsAccess.WriteAll(AccountsLogic._accounts);
                     AccountsAccess.UpdateCurrentAccount(currentAccount);
-                    FlightsAccess.WriteAll(allFlights);
+
                     foreach (var bookedFlight in bookedFlightModel)
                     {
                         BookFlightLogic.RemoveDuplicateSeats(bookedFlight);
                     }
+
                     BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, bookedFlightModel);
+
+                    FlightsAccess.WriteAll(allFlights);
+
                     Console.WriteLine("\nBooking confirmed successfully!");
                     Console.WriteLine("All passenger information has been saved.");
                 }
