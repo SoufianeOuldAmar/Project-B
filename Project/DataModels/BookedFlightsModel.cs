@@ -29,6 +29,7 @@ public class BookedFlightsModel
         FlightPoints = 0;
         Email = email;
         SeatInitials = new Dictionary<string, string>();
+        FoodAndDrinkItems = new List<FoodAndDrinkItem>();
     }
 
     // Total fee 
