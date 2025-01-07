@@ -134,7 +134,7 @@ public class FoodAndDrinkPresentation
 
             if (choice == "0")
             {
-                break;
+                return;
             }
 
             if (int.TryParse(choice, out int index) && index >= 1 && index <= FoodAndDrinkLogic.FoodAndDrinksMenu.Count)
