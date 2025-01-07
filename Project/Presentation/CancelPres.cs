@@ -14,8 +14,9 @@ public class CancelPres
             Console.WriteLine("2. 🔄 Reschedule a flight");
             Console.WriteLine("3. 📋 View Booked Flights");
             Console.WriteLine("4. 📜 Review policy");
-            Console.WriteLine("5. 🚪 Quit");
-            Console.Write("\nPlease enter your choice (1, 2, 3, 4, or 5): ");
+            Console.WriteLine("5. 🍴 Add food and drinks to a booked flight");
+            Console.WriteLine("6. 🚪 Quit");
+            Console.Write("\nPlease enter your choice (1, 2, 3, 4, 5 or 6): ");
 
             string userInput = Console.ReadLine();
             switch (userInput)
@@ -106,6 +107,49 @@ public class CancelPres
                     break;
 
                 case "5":
+                    Console.Clear();
+                    Console.WriteLine("\nYour Booked Flights:\n");
+                    BookedFlights(email);
+
+                    Console.Write("\nPlease enter the Flight ID of the flight to which you want to add food and drinks (or enter 'Q' to quit): ");
+                    string flightIdInput = Console.ReadLine();
+
+                    if (flightIdInput.Trim().ToUpper() == "Q")
+                    {
+                        Console.WriteLine("Returning to the main menu...");
+                        break;
+                    }
+
+                    if (int.TryParse(flightIdInput, out int flightId))
+                    {
+                        // Zoek de geboekte vlucht met het opgegeven Flight ID
+                        if (BookFlightPresentation.allBookedFlights.TryGetValue(email, out var bookedFlights))
+                        {
+                            var selectedFlight = bookedFlights.FirstOrDefault(f => f.FlightID == flightId);
+                            if (selectedFlight != null)
+                            {
+                                // Voeg eten en drinken toe aan de geselecteerde vlucht
+                                FoodAndDrinkPresentation.AddFoodAndDrinksToExistingBooking(selectedFlight);
+                            }
+                            else
+                            {
+                                Console.WriteLine("No booked flight found with the given Flight ID.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("You have no booked flights.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid Flight ID. Please enter a valid number.");
+                    }
+
+                    MenuPresentation.PressAnyKey();
+                    break;
+
+                case "6":
                     // Quit the program
                     MenuLogic.PopMenu();
                     return;
@@ -241,6 +285,19 @@ public class CancelPres
             else
             {
                 Console.WriteLine($"  No pets booked for this flight.");
+            }
+
+            if (flight.FoodAndDrinkItems?.Count > 0)
+                {
+                    Console.WriteLine($"  Food and Drinks on this flight:");
+                    foreach (var item in flight.FoodAndDrinkItems)
+                    {
+                        Console.WriteLine($"    Item: {item.Name}, Price: €{item.Price:F2}");
+                    }
+                }
+            else
+            {
+                Console.WriteLine($"  No food and drinks added for this flight.");
             }
 
             // Baggage Details

@@ -78,7 +78,8 @@ public static class BookFlightLogic
                 selectedSeats,
                 baggageInfo,
                 petInfo,
-                false
+                false,
+                currentAccount.EmailAddress
             );
 
             bookedFlight.UpdateSeatInitials(flight.Layout.SeatInitials);
