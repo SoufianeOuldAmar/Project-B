@@ -4,7 +4,7 @@ using System.Text.Json;
 
 public class FinancialReport
 {
-    public string Path = "FinancialReport.json";
+    public string Path = "DataSources/FinancialReport.json";
 
 
     public List<Payement> LoadPayements()
