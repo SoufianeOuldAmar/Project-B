@@ -283,8 +283,8 @@ public static class BookFlightPresentation
 
             }
 
-            Console.WriteLine($"Baggage added successfully. Total weight: {totalWeightSeat}kg, Total fee: €{feeBaggage}.");
-            baggageInfo.Add(new BaggageLogic(initials, "checked + carry-on", totalWeightSeat) { Fee = feeBaggage });
+            // Console.WriteLine($"Baggage added successfully. Total weight: {totalWeightSeat}kg, Total fee: €{feeBaggage}.");
+            // baggageInfo.Add(new BaggageLogic(initials, "checked + carry-on", totalWeightSeat) { Fee = feeBaggage });
         }
 
 
@@ -561,7 +561,6 @@ public static class BookFlightPresentation
                     {
                         Payement baggagePayment = new Payement("Baggage", baggage.Fee, DateTime.Now);
                         allPayments.Add(baggagePayment);
-                        string initials = GenerateInitials(passenger);
                         selectedFlight.Layout.BookFlight(seat, initials);
                         ProcessPassengerDetails(passenger, seat, ref totalPrice, selectedFlight.TicketPrice, initials, passengers, chosenSeats, baggageInfo, petInfo, selectedFlight);
 
