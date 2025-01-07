@@ -15,8 +15,10 @@
 
   <ItemGroup>
     <PackageReference Include="Figgle" Version="0.5.1" />
+    <PackageReference Include="iText7" Version="9.0.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.6.3" />
     <PackageReference Include="MSTest.TestFramework" Version="3.6.3" />
+    <PackageReference Include="PdfiumViewer" Version="2.13.0" />
   </ItemGroup>
 
 </Project>
