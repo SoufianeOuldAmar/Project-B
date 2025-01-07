@@ -9,13 +9,22 @@ public static class AccountPresentation
         while (true)
         {
             Console.WriteLine("=== 🔑 Log in ===\n");
-            Console.Write("Are you an Admin or a User? (Enter A/U for admin or user or enter 'Q' to go back): ");
+            Console.Write("Are you an Admin, an User or a Financial Advisor? (Enter A/U/F for admin, user or financial advisor or enter 'Q' to go back): ");
             string input1 = Console.ReadLine().ToLower();
             if (input1 == "a")
             {
                 Console.Clear();
                 Console.WriteLine("=== 🔑 Log in ===\n");
                 AdminAccountPresentation.Login();
+                break;
+            }
+
+            else if (input1 == "f")
+            {
+                Console.Clear();
+                Console.WriteLine("=== 🔑 Log in ===\n");
+                FinancialAdvisorPres.LogInFinancialAdvisor();
+
                 break;
             }
 

@@ -1,18 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using DataModels; // FlightModel, LayoutModel
-using DataAccess; // FlightsAccess
+using DataModels;
+using DataAccess;
 
 public static class BookFlightLogic
 {
     // Method to search for a flight by its ID
     public static FlightModel SearchFlightByID(int id)
     {
-        // Retrieve all flights
         var allFlights = BookFlightPresentation.allFlights;
-
-        // Return the flight that matches the given ID, or null if not found
         return allFlights.FirstOrDefault(flight => flight.Id == id);
     }
 
@@ -21,7 +18,6 @@ public static class BookFlightLogic
         return flight.Layout.BookedSeats.Contains(seat);
     }
 
-    // Method om te berekenen hoeveel beschikbare seats er nog zijn
     public static int GetAvailableSeatsCount(FlightModel flight)
     {
         return (flight.Layout.Rows * flight.Layout.Columns) - flight.Layout.BookedSeats.Count;
@@ -29,7 +25,6 @@ public static class BookFlightLogic
 
     public static List<FlightModel> SearchFlights(string departureAirport, string arrivalDestination)
     {
-        // Return all flights that match the departure and arrival airport
         var availableFlights = BookFlightPresentation.allFlights
             .Where(flight => flight.DepartureAirport == departureAirport && flight.ArrivalDestination == arrivalDestination && !flight.IsCancelled)
             .ToList();
@@ -37,7 +32,39 @@ public static class BookFlightLogic
         return availableFlights;
     }
 
-    // New Method to save booking details
+    // New method to load existing bookings including seat initials
+    public static void LoadExistingBookings(FlightModel flight, string email)
+    {
+        var bookedFlights = BookedFlightsAccess.LoadByEmail(email);
+        var existingBooking = bookedFlights.FirstOrDefault(b => b.FlightID == flight.Id);
+
+        if (existingBooking != null)
+        {
+            // Restore booked seats
+            foreach (var seat in existingBooking.BookedSeats)
+            {
+                if (!flight.Layout.BookedSeats.Contains(seat))
+                {
+                    flight.Layout.BookedSeats.Add(seat);
+                }
+            }
+
+            // Restore seat initials
+            if (existingBooking.SeatInitials != null)
+            {
+                foreach (var kvp in existingBooking.SeatInitials)
+                {
+                    flight.Layout.SeatInitials[kvp.Key] = kvp.Value;
+                }
+            }
+
+            // Update available seats
+            flight.Layout.AvailableSeats = flight.Layout.SeatArrangement
+                .Where(s => !flight.Layout.BookedSeats.Contains(s))
+                .ToList();
+        }
+    }
+
     public static bool SaveBooking(FlightModel flight, List<string> selectedSeats, List<PassengerModel> passengers, List<BaggageLogic> baggageInfo, List<PetLogic> petInfo, double totalPrice)
     {
         try
@@ -51,8 +78,12 @@ public static class BookFlightLogic
                 selectedSeats,
                 baggageInfo,
                 petInfo,
-                false
+                false,
+                currentAccount.EmailAddress
             );
+
+            bookedFlight.UpdateSeatInitials(flight.Layout.SeatInitials);
+            bookedFlight.TicketBill = totalPrice;
 
             if (!BookFlightPresentation.allBookedFlights.ContainsKey(currentAccount.EmailAddress))
             {
@@ -145,7 +176,6 @@ public static class BookFlightLogic
         // flightsTakenOff.Clear();
     }
 
-
     public static void RemoveDuplicateSeats(BookedFlightsModel bookedFlight)
     {
         // Using LINQ to remove duplicates
@@ -163,7 +193,14 @@ public static class BookFlightLogic
                 }
             }
         }
-
     }
 
+    public static string GenerateSeatInitials(PassengerModel passenger)
+    {
+        if (string.IsNullOrWhiteSpace(passenger.FirstName) || string.IsNullOrWhiteSpace(passenger.LastName))
+        {
+            return null;
+        }
+        return $"{passenger.FirstName[0]}{passenger.LastName[0]}".ToUpper();
+    }
 }

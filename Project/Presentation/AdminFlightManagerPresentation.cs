@@ -11,6 +11,7 @@ namespace DataAccess
     {
         public static void UpdateDetailsPresentation()
         {
+
             var allFlights = AdminFlightManagerLogic.GetAllFlights();
             if (allFlights == null || allFlights.Count == 0)
             {
@@ -163,143 +164,6 @@ namespace DataAccess
 
         public static void EditFlightDetails(FlightModel flight)
         {
-            PrintOutForm(flight);
-
-            Console.ResetColor();
-
-            // Console.WriteLine($"10. AvailableSeats: {flight.AvailableSeats}");
-            Console.WriteLine();
-
-            double ticketPrice;
-            while (true)
-            {
-                Console.Write("Enter new Ticket Price (leave empty to keep current): ");
-                string newTicketPrice = Console.ReadLine();
-
-                if (!string.IsNullOrWhiteSpace(newTicketPrice))
-                {
-
-                    if (double.TryParse(newTicketPrice, out ticketPrice))
-                    {
-                        if (AdminFlightManagerLogic.TicketPriceLogic(ticketPrice))
-                        {
-                            flight.TicketPrice = ticketPrice;
-                            break;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Invalid input. Please Try Again.");
-                        }
-
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid input. Please Try Again.");
-                    }
-                }
-                else
-                {
-                    break;
-                }
-            }
-            string newgateStr;
-            while (true)
-            {
-                Console.Write("Enter new Gate (leave empty to keep current): ");
-                string newGate = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(newGate))
-                {
-                    if (AdminFlightManagerLogic.GateLogic(newGate))
-                    {
-                        // Substring(startIndex, length);
-                        string letterPart = newGate.Substring(0, 1).ToUpper();
-                        string numberPart = newGate.Substring(1);
-                        newgateStr = $"{letterPart}{numberPart}";
-                        flight.Gate = newgateStr;
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid format. The string must be a letter followed by digit.");
-                    }
-                }
-
-                else
-                {
-                    break;
-                }
-            }
-
-            bool newIsCancelled;
-            while (true)
-            {
-                Console.Write("Is the flight cancelled? (yes/no): ");
-                newIsCancelled = Console.ReadLine().ToLower() == "yes";
-                flight.IsCancelled = newIsCancelled;
-                break;
-            }
-            while (true)
-            {
-                Console.Write("Enter new Date (dd-mm-yyyy) (leave empty to keep current): ");
-                string input = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(input))
-                {
-                    if (AdminFlightManagerLogic.Date(input) == true)
-                    {
-                        flight.DepartureDate = input;
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid date format. Please enter a valid date in yyyy-mm-dd format.");
-                    }
-                }
-                else
-                {
-                    break;
-                }
-
-            }
-
-            string newTime;
-            while (true)
-            {
-                Console.Write("Enter new Flight Time (leave empty to keep current): ");
-                string newFlightTime = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(newFlightTime))
-                {
-                    if (!newFlightTime.Contains(":"))
-                    {
-                        Console.WriteLine("Invalid format. Please use ':' as a separator between hours and minutes.");
-                        continue;
-                    }
-                    string[] flightParts = newFlightTime.Split(':');
-
-                    string hourStr = flightParts[0];
-                    string minStr = flightParts[1].PadLeft(2, '0');
-
-                    if (int.TryParse(hourStr, out int hour) && hour >= 0 && hour <= 23 &&
-                    int.TryParse(minStr, out int minute) && minute >= 0 && minute <= 59)
-                    {
-                        newTime = $"{hourStr}:{minStr}";
-                        flight.FlightTime = newTime;
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid Time, Please try again.");
-                    }
-                }
-                else
-                {
-                    break;
-                }
-            }
-            SaveChanges(flight);
-        }
-
-        private static void PrintOutForm(FlightModel flight)
-        {
             Console.Clear();
 
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -337,9 +201,150 @@ namespace DataAccess
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"{flight.FlightTime}");
+
+            Console.ResetColor();
+
+            // Console.WriteLine($"10. AvailableSeats: {flight.AvailableSeats}");
+            Console.WriteLine();
+
+            List<double> ticketPriceChange = new List<double> { flight.TicketPrice };
+            List<string> gateChange = new List<string> { flight.Gate };
+            List<string> newTimeChange = new List<string> { flight.FlightTime };
+
+
+            double ticketPrice = 0;
+            while (true)
+            {
+                Console.Write("Enter new Ticket Price (leave empty to keep current): ");
+                string newTicketPrice = Console.ReadLine();
+
+                if (!string.IsNullOrWhiteSpace(newTicketPrice))
+                {
+
+                    if (double.TryParse(newTicketPrice, out ticketPrice))
+                    {
+                        if (AdminFlightManagerLogic.TicketPriceLogic(ticketPrice))
+                        {
+                            flight.TicketPrice = ticketPrice;
+                            ticketPriceChange.Add(ticketPrice);
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input. Please Try Again.");
+                        }
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please Try Again.");
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            string newgateStr = "";
+            while (true)
+            {
+                Console.Write("Enter new Gate (leave empty to keep current): ");
+                string newGate = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(newGate))
+                {
+                    if (AdminFlightManagerLogic.GateLogic(newGate))
+                    {
+                        // Substring(startIndex, length);
+                        string letterPart = newGate.Substring(0, 1).ToUpper();
+                        string numberPart = newGate.Substring(1);
+                        newgateStr = $"{letterPart}{numberPart}";
+                        flight.Gate = newgateStr;
+                        gateChange.Add(newgateStr);
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid format. The string must be a letter followed by digit.");
+                    }
+                }
+
+                else
+                {
+                    break;
+                }
+            }
+
+            bool newIsCancelled = false;
+            while (true)
+            {
+                Console.Write("Is the flight cancelled? (yes/no): ");
+                newIsCancelled = Console.ReadLine().ToLower() == "yes";
+                flight.IsCancelled = newIsCancelled;
+                break;
+            }
+            while (true)
+            {
+                Console.Write("Enter new Date (dd-mm-yyyy) (leave empty to keep current): ");
+                string input = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(input))
+                {
+                    if (AdminFlightManagerLogic.Date(input) == true)
+                    {
+                        flight.DepartureDate = input;
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid date format. Please enter a valid date in yyyy-mm-dd format.");
+                    }
+                }
+                else
+                {
+                    break;
+                }
+
+            }
+
+            string newTime = "";
+            while (true)
+            {
+                Console.Write("Enter new Flight Time (leave empty to keep current): ");
+                string newFlightTime = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(newFlightTime))
+                {
+                    if (!newFlightTime.Contains(":"))
+                    {
+                        Console.WriteLine("Invalid format. Please use ':' as a separator between hours and minutes.");
+                        continue;
+                    }
+                    string[] flightParts = newFlightTime.Split(':');
+
+                    string hourStr = flightParts[0];
+                    string minStr = flightParts[1].PadLeft(2, '0');
+
+                    if (int.TryParse(hourStr, out int hour) && hour >= 0 && hour <= 23 &&
+                    int.TryParse(minStr, out int minute) && minute >= 0 && minute <= 59)
+                    {
+                        newTime = $"{hourStr}:{minStr}";
+                        flight.FlightTime = newTime;
+                        newTimeChange.Add(newTime);
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid Time, Please try again.");
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+            SaveChanges(flight, ticketPriceChange, gateChange, newIsCancelled, newTimeChange);
         }
 
-        public static void SaveChanges(FlightModel flight)
+        public static void SaveChanges(FlightModel flight, List<double> ticketPriceChange, List<string> gateChange, bool isCancelled, List<string> newTimeChange)
         {
             while (true)
             {
@@ -350,6 +355,7 @@ namespace DataAccess
                     AdminFlightManagerLogic.SaveChangesLogic(flight);
                     Console.WriteLine();
                     Console.ForegroundColor = ConsoleColor.Red;
+                    NotificationLogic.NotifyFlightModification(flight.Id, ticketPriceChange, gateChange, isCancelled, newTimeChange);
                     Console.WriteLine("Flight details updated and saved.");
                     Console.ResetColor();
                     MenuPresentation.PressAnyKey();

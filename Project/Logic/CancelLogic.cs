@@ -72,7 +72,7 @@ public static class CancelLogic
                 FlightDetails += $"  Pets on this flight:\n";
                 foreach (var pet in flight.Pets)
                 {
-                    FlightDetails += $" Animal: {pet.AnimalType}, Fee: {pet.Fee:C}\n";
+                    FlightDetails += $" Animal:{pet.PetName} {pet.AnimalType}, Fee: {pet.Fee:C}\n";
                 }
             }
             else
