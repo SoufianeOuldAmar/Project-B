@@ -19,13 +19,4 @@ public class Notification
         IsRead = false;
         ActionRequired = false;
     }
-
-    // public Notification(int id, int flightID, string description)
-    // {
-    //     Id = id;
-    //     FlightID = flightID;
-    //     Description = description;
-    //     IsRead = false;
-    //     ActionRequired = true;
-    // }
 }
