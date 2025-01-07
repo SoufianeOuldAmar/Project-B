@@ -11,6 +11,7 @@ namespace DataAccess
     {
         public static void UpdateDetailsPresentation()
         {
+
             var allFlights = AdminFlightManagerLogic.GetAllFlights();
             if (allFlights == null || allFlights.Count == 0)
             {
@@ -148,7 +149,7 @@ namespace DataAccess
                     }
                 }
                 else if (input == "Q")
-                {   
+                {
                     break;
                 }
                 else
@@ -164,7 +165,7 @@ namespace DataAccess
         public static void EditFlightDetails(FlightModel flight)
         {
             Console.Clear();
-            
+
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.Write($"1. Current Details of Flight ID: ");
 
@@ -206,7 +207,12 @@ namespace DataAccess
             // Console.WriteLine($"10. AvailableSeats: {flight.AvailableSeats}");
             Console.WriteLine();
 
-            double ticketPrice;
+            List<double> ticketPriceChange = new List<double> { flight.TicketPrice };
+            List<string> gateChange = new List<string> { flight.Gate };
+            List<string> newTimeChange = new List<string> { flight.FlightTime };
+
+
+            double ticketPrice = 0;
             while (true)
             {
                 Console.Write("Enter new Ticket Price (leave empty to keep current): ");
@@ -220,6 +226,7 @@ namespace DataAccess
                         if (AdminFlightManagerLogic.TicketPriceLogic(ticketPrice))
                         {
                             flight.TicketPrice = ticketPrice;
+                            ticketPriceChange.Add(ticketPrice);
                             break;
                         }
                         else
@@ -238,7 +245,8 @@ namespace DataAccess
                     break;
                 }
             }
-            string newgateStr;
+
+            string newgateStr = "";
             while (true)
             {
                 Console.Write("Enter new Gate (leave empty to keep current): ");
@@ -252,6 +260,7 @@ namespace DataAccess
                         string numberPart = newGate.Substring(1);
                         newgateStr = $"{letterPart}{numberPart}";
                         flight.Gate = newgateStr;
+                        gateChange.Add(newgateStr);
                         break;
                     }
                     else
@@ -266,7 +275,7 @@ namespace DataAccess
                 }
             }
 
-            bool newIsCancelled;
+            bool newIsCancelled = false;
             while (true)
             {
                 Console.Write("Is the flight cancelled? (yes/no): ");
@@ -297,7 +306,7 @@ namespace DataAccess
 
             }
 
-            string newTime;
+            string newTime = "";
             while (true)
             {
                 Console.Write("Enter new Flight Time (leave empty to keep current): ");
@@ -319,6 +328,7 @@ namespace DataAccess
                     {
                         newTime = $"{hourStr}:{minStr}";
                         flight.FlightTime = newTime;
+                        newTimeChange.Add(newTime);
                         break;
                     }
                     else
@@ -331,10 +341,10 @@ namespace DataAccess
                     break;
                 }
             }
-            SaveChanges(flight);
+            SaveChanges(flight, ticketPriceChange, gateChange, newIsCancelled, newTimeChange);
         }
 
-        public static void SaveChanges(FlightModel flight)
+        public static void SaveChanges(FlightModel flight, List<double> ticketPriceChange, List<string> gateChange, bool isCancelled, List<string> newTimeChange)
         {
             while (true)
             {
@@ -345,6 +355,7 @@ namespace DataAccess
                     AdminFlightManagerLogic.SaveChangesLogic(flight);
                     Console.WriteLine();
                     Console.ForegroundColor = ConsoleColor.Red;
+                    NotificationLogic.NotifyFlightModification(flight.Id, ticketPriceChange, gateChange, isCancelled, newTimeChange);
                     Console.WriteLine("Flight details updated and saved.");
                     Console.ResetColor();
                     MenuPresentation.PressAnyKey();
