@@ -6,7 +6,8 @@
     "fullName": "Nikola Tesla",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
-    "fees": 0
+    "fees": 0,
+    "Notifications": []
   },
   {
     "id": 2,

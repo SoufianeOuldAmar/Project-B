@@ -1,22 +1,31 @@
 {
   "n@b.c": [
     {
-      "FlightID": 37,
+      "FlightID": 36,
       "BookedSeats": [
-        "22E"
+        "10A",
+        "10B"
       ],
       "Pets": [],
-      "BaggageInfo": [
-        {
-          "Initials": "AA",
-          "BaggageType": "checked \u002B carry-on",
-          "BaggageWeight": 25,
-          "Fee": 50
-        }
-      ],
+      "BaggageInfo": [],
       "IsCancelled": false,
-      "TicketBill": 200,
-      "FlightPoints": 0
+      "TicketBill": 308.20000000000005,
+      "FlightPoints": 0,
+      "SeatInitials": {
+        "10A": "SI",
+        "10B": "SO"
+      },
+      "Email": "n@b.c",
+      "FoodAndDrinkItems": [
+        {
+          "Name": "Rice With Chicken",
+          "Price": 14.5
+        },
+        {
+          "Name": "Water Bottle",
+          "Price": 2.1
+        }
+      ]
     }
   ]
 }

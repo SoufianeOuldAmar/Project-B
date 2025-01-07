@@ -379,15 +379,13 @@
     "gate": "A12",
     "departureAirport": "Istanbul, Istanbul Airport",
     "arrivalDestination": "Paris, Charles de Gaulle Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "20-01-2025",
     "flightTime": "14:30",
     "availableSeats": 178,
     "flightPoints": 15,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 2,
@@ -770,15 +768,13 @@
     "gate": "B4",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "London, Heathrow Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "23-01-2025",
     "flightTime": "09:45",
     "availableSeats": 178,
     "flightPoints": 20,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 3,
@@ -1280,15 +1276,13 @@
     "gate": "C7",
     "departureAirport": "Athens, Eleftherios Venizelos",
     "arrivalDestination": "Brussels, Brussels Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "09-01-2025",
     "flightTime": "11:00",
     "availableSeats": 180,
     "flightPoints": 18,
     "totalPets": 0,
-    "hasTakenOff": true,
-    "returnFlight": null
+    "hasTakenOff": true
   },
   {
     "id": 4,
@@ -2271,15 +2265,13 @@
     "gate": "D9",
     "departureAirport": "Amsterdam, Schiphol Airport",
     "arrivalDestination": "Warsaw, Warsaw Chopin Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "25-01-2025",
     "flightTime": "13:20",
     "availableSeats": 173,
     "flightPoints": 25,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 5,
@@ -2661,15 +2653,13 @@
     "gate": "E11",
     "departureAirport": "Brussels, Brussels Airport",
     "arrivalDestination": "Budapest, International Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "10-01-2025",
     "flightTime": "16:10",
     "availableSeats": 176,
     "flightPoints": 16,
     "totalPets": 0,
-    "hasTakenOff": true,
-    "returnFlight": null
+    "hasTakenOff": true
   },
   {
     "id": 6,
@@ -3051,15 +3041,13 @@
     "gate": "F3",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Riga, Riga International Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "27-01-2025",
     "flightTime": "18:25",
     "availableSeats": 180,
     "flightPoints": 14,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 7,
@@ -3441,15 +3429,13 @@
     "gate": "G5",
     "departureAirport": "Frankfurt, Frankfurt Airport",
     "arrivalDestination": "Lisbon, Lisbon Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "28-01-2025",
     "flightTime": "21:15",
     "availableSeats": 179,
     "flightPoints": 19,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 8,
@@ -4431,15 +4417,13 @@
     "gate": "G7",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Lisbon, Lisbon Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "19-01-2025",
     "flightTime": "21:30",
     "availableSeats": 179,
     "flightPoints": 23,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 9,
@@ -4821,15 +4805,13 @@
     "gate": "E4",
     "departureAirport": "Madrid, Madrid Barajas Airport",
     "arrivalDestination": "London, Heathrow Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "12-01-2025",
     "flightTime": "21:30",
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 10,
@@ -5211,15 +5193,13 @@
     "gate": "F4",
     "departureAirport": "Frankfurt, Frankfurt Airport",
     "arrivalDestination": "Naples, Naples Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "14-01-2025",
     "flightTime": "21:30",
     "availableSeats": 180,
     "flightPoints": 31,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 11,
@@ -5721,15 +5701,13 @@
     "gate": "B6",
     "departureAirport": "Athens, Eleftherios Venizelos",
     "arrivalDestination": "London, Heathrow Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "16-01-2025",
     "flightTime": "16:30",
     "availableSeats": 180,
     "flightPoints": 31,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 12,
@@ -6111,15 +6089,13 @@
     "gate": "E4",
     "departureAirport": "Brussels, Brussels Airport",
     "arrivalDestination": "Lisbon, Lisbon Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "20-01-2025",
     "flightTime": "15:30",
     "availableSeats": 180,
     "flightPoints": 21,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 13,
@@ -6501,15 +6477,13 @@
     "gate": "C6",
     "departureAirport": "Amsterdam, Schiphol Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "03-02-2025",
     "flightTime": "12:45",
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 1,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 14,
@@ -6891,15 +6865,13 @@
     "gate": "B6",
     "departureAirport": "Milan, Malpensa Airport",
     "arrivalDestination": "London, Heathrow Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "12-01-2025",
     "flightTime": "14:15",
     "availableSeats": 179,
     "flightPoints": 27,
     "totalPets": 0,
-    "hasTakenOff": true,
-    "returnFlight": null
+    "hasTakenOff": true
   },
   {
     "id": 15,
@@ -7281,15 +7253,13 @@
     "gate": "E4",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Istanbul, Istanbul Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "11-02-2025",
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 41,
     "totalPets": 0,
-    "hasTakenOff": true,
-    "returnFlight": null
+    "hasTakenOff": true
   },
   {
     "id": 16,
@@ -7671,15 +7641,13 @@
     "gate": "E8",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Milan, Malpensa Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "14-02-2025",
     "flightTime": "09:50",
     "availableSeats": 180,
     "flightPoints": 18,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 17,
@@ -8061,15 +8029,13 @@
     "gate": "C8",
     "departureAirport": "Istanbul, Istanbul Airport",
     "arrivalDestination": "London, Heathrow Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "13-01-2025",
     "flightTime": "07:30",
     "availableSeats": 180,
     "flightPoints": 34,
     "totalPets": 0,
-    "hasTakenOff": true,
-    "returnFlight": null
+    "hasTakenOff": true
   },
   {
     "id": 18,
@@ -8451,15 +8417,13 @@
     "gate": "B4",
     "departureAirport": "Milan, Malpensa Airport",
     "arrivalDestination": "London, Heathrow Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "09-01-2025",
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 28,
     "totalPets": 0,
-    "hasTakenOff": true,
-    "returnFlight": null
+    "hasTakenOff": true
   },
   {
     "id": 19,
@@ -8841,15 +8805,13 @@
     "gate": "C4",
     "departureAirport": "Amsterdam, Schiphol Airport",
     "arrivalDestination": "Oslo, Oslo Gardermoen Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "11-01-2025",
     "flightTime": "15:30",
     "availableSeats": 179,
     "flightPoints": 31,
     "totalPets": 0,
-    "hasTakenOff": true,
-    "returnFlight": null
+    "hasTakenOff": true
   },
   {
     "id": 20,
@@ -9231,15 +9193,13 @@
     "gate": "B2",
     "departureAirport": "Madrid, Madrid Barajas Airport",
     "arrivalDestination": "Zurich, Zurich Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "15-01-2025",
     "flightTime": "13:30",
     "availableSeats": 180,
     "flightPoints": 30,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 21,
@@ -9621,15 +9581,13 @@
     "gate": "E4",
     "departureAirport": "Istanbul, Istanbul Airport",
     "arrivalDestination": "Vienna, International Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "01-02-2025",
     "flightTime": "11:20",
     "availableSeats": 180,
     "flightPoints": 21,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 22,
@@ -10012,15 +9970,13 @@
     "gate": "E4",
     "departureAirport": "Lisbon, Lisbon Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "17-01-2025",
     "flightTime": "10:10",
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 23,
@@ -11003,15 +10959,13 @@
     "gate": "G7",
     "departureAirport": "Amsterdam, Schiphol Airport",
     "arrivalDestination": "Vienna, International Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "10-01-2025",
     "flightTime": "20:30",
     "availableSeats": 180,
     "flightPoints": 31,
     "totalPets": 3,
-    "hasTakenOff": true,
-    "returnFlight": null
+    "hasTakenOff": true
   },
   {
     "id": 24,
@@ -11394,15 +11348,13 @@
     "gate": "B1",
     "departureAirport": "Paris, Charles de Gaulle Airport",
     "arrivalDestination": "London, Heathrow Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "28-01-2025",
     "flightTime": "14:45",
     "availableSeats": 179,
     "flightPoints": 33,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 25,
@@ -11785,15 +11737,13 @@
     "gate": "F6",
     "departureAirport": "Amsterdam, Schiphol Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "04-02-2025",
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 28,
     "totalPets": 0,
-    "hasTakenOff": true,
-    "returnFlight": null
+    "hasTakenOff": true
   },
   {
     "id": 26,
@@ -12175,15 +12125,13 @@
     "gate": "E5",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Naples, Naples Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "10-02-2025",
     "flightTime": "10:45",
     "availableSeats": 179,
     "flightPoints": 45,
     "totalPets": 0,
-    "hasTakenOff": true,
-    "returnFlight": null
+    "hasTakenOff": true
   },
   {
     "id": 27,
@@ -12565,15 +12513,13 @@
     "gate": "B3",
     "departureAirport": "Athens, Eleftherios Venizelos",
     "arrivalDestination": "Milan, Malpensa Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "08-02-2025",
     "flightTime": "11:50",
     "availableSeats": 180,
     "flightPoints": 30,
     "totalPets": 0,
-    "hasTakenOff": true,
-    "returnFlight": null
+    "hasTakenOff": true
   },
   {
     "id": 28,
@@ -12955,15 +12901,13 @@
     "gate": "E5",
     "departureAirport": "Brussels, Brussels Airport",
     "arrivalDestination": "Istanbul, Istanbul Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "22-01-2025",
     "flightTime": "21:30",
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 29,
@@ -13345,15 +13289,13 @@
     "gate": "E1",
     "departureAirport": "Brussels, Brussels Airport",
     "arrivalDestination": "Budapest, International Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "15-01-2025",
     "flightTime": "19:45",
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 30,
@@ -13735,15 +13677,13 @@
     "gate": "B6",
     "departureAirport": "Lisbon, Lisbon Airport",
     "arrivalDestination": "Warsaw, Warsaw Chopin Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "27-01-2025",
     "flightTime": "15:00",
     "availableSeats": 180,
     "flightPoints": 30,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 31,
@@ -14725,15 +14665,13 @@
     "gate": "C8",
     "departureAirport": "Milan, Malpensa Airport",
     "arrivalDestination": "Istanbul, Istanbul Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "24-01-2025",
     "flightTime": "12:30",
     "availableSeats": 178,
     "flightPoints": 41,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 32,
@@ -15115,15 +15053,13 @@
     "gate": "E4",
     "departureAirport": "Frankfurt, Frankfurt Airport",
     "arrivalDestination": "Madrid, Madrid Barajas Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "02-02-2025",
     "flightTime": "14:15",
     "availableSeats": 180,
     "flightPoints": 30,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 33,
@@ -15505,15 +15441,13 @@
     "gate": "A6",
     "departureAirport": "Athens, Eleftherios Venizelos",
     "arrivalDestination": "Brussels, Brussels Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "25-01-2025",
     "flightTime": "06:55",
     "availableSeats": 180,
     "flightPoints": 20,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 34,
@@ -15895,15 +15829,13 @@
     "gate": "E4",
     "departureAirport": "Amsterdam, Schiphol Airport",
     "arrivalDestination": "Vienna, International Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "02-02-2025",
     "flightTime": "21:20",
     "availableSeats": 180,
     "flightPoints": 21,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 35,
@@ -16286,15 +16218,13 @@
     "gate": "F6",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Warsaw, Warsaw Chopin Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "28-01-2025",
     "flightTime": "21:30",
     "availableSeats": 180,
     "flightPoints": 28,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 36,
@@ -16676,15 +16606,13 @@
     "gate": "C6",
     "departureAirport": "London, Heathrow Airport",
     "arrivalDestination": "Milan, Malpensa Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "09-01-2025",
     "flightTime": "12:00",
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 37,
@@ -17066,7 +16994,6 @@
     "gate": "A10",
     "departureAirport": "Frankfurt, Frankfurt Airport",
     "arrivalDestination": "Istanbul, Istanbul Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "01-02-2025",
     "flightTime": "12:00",
@@ -17454,15 +17381,13 @@
       "gate": "B09",
       "departureAirport": "Athens, Eleftherios Venizelos",
       "arrivalDestination": "Rotterdam, The Hague Airport",
-      "timeOfDay": null,
       "isCancelled": false,
       "departureDate": "24-01-2025",
       "flightTime": "12:00",
       "availableSeats": 0,
       "flightPoints": 15,
       "totalPets": 0,
-      "hasTakenOff": false,
-      "returnFlight": null
+      "hasTakenOff": false
     }
   },
   {
@@ -17845,15 +17770,13 @@
     "gate": "B1",
     "departureAirport": "Amsterdam, Schiphol Airport",
     "arrivalDestination": "Istanbul, Istanbul Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "22-01-2025",
     "flightTime": "17:30",
     "availableSeats": 178,
     "flightPoints": 43,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 39,
@@ -18235,15 +18158,13 @@
     "gate": "A2",
     "departureAirport": "Milan, Malpensa Airport",
     "arrivalDestination": "Lisbon, Lisbon Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "27-01-2025",
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 40,
@@ -18625,15 +18546,13 @@
     "gate": "C3",
     "departureAirport": "Madrid, Madrid Barajas Airport",
     "arrivalDestination": "Amsterdam, Schiphol Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "21-01-2025",
     "flightTime": "05:30",
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 41,
@@ -19015,15 +18934,13 @@
     "gate": "A5",
     "departureAirport": "Istanbul, Istanbul Airport",
     "arrivalDestination": "Paris, Charles de Gaulle Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "14-03-2025",
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 42,
@@ -19405,15 +19322,13 @@
     "gate": "A3",
     "departureAirport": "Brussels, Brussels Airport",
     "arrivalDestination": "Zurich, Zurich Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "30-01-2025",
     "flightTime": "12:30",
     "availableSeats": 180,
     "flightPoints": 15,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 43,
@@ -19795,15 +19710,13 @@
     "gate": "D3",
     "departureAirport": "Istanbul, Istanbul Airport",
     "arrivalDestination": "Frankfurt, Frankfurt Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "28-01-2025",
     "flightTime": "15:30",
     "availableSeats": 180,
     "flightPoints": 39,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 44,
@@ -20185,15 +20098,13 @@
     "gate": "B1",
     "departureAirport": "Istanbul, Istanbul Airport",
     "arrivalDestination": "Paris, Charles de Gaulle Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "16-01-2025",
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 45,
@@ -20575,15 +20486,13 @@
     "gate": "B6",
     "departureAirport": "Amsterdam, Schiphol Airport",
     "arrivalDestination": "London, Heathrow Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "14-02-2025",
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 55,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 46,
@@ -20965,15 +20874,13 @@
     "gate": "C7",
     "departureAirport": "Istanbul, Istanbul Airport",
     "arrivalDestination": "Amsterdam, Schiphol Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "18-02-2025",
     "flightTime": "09:30",
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 47,
@@ -21355,15 +21262,13 @@
     "gate": "E2",
     "departureAirport": "Frankfurt, Frankfurt Airport",
     "arrivalDestination": "Rotterdam, The Hague Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "22-02-2025",
     "flightTime": "18:30",
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 48,
@@ -21745,15 +21650,13 @@
     "gate": "C1",
     "departureAirport": "Madrid, Madrid Barajas Airport",
     "arrivalDestination": "Istanbul, Istanbul Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "11-02-2025",
     "flightTime": "12:10",
     "availableSeats": 180,
     "flightPoints": 45,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 49,
@@ -22135,15 +22038,13 @@
     "gate": "D9",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Naples, Naples Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "18-01-2025",
     "flightTime": "10:30",
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 50,
@@ -22525,15 +22426,13 @@
     "gate": "B3",
     "departureAirport": "Madrid, Madrid Barajas Airport",
     "arrivalDestination": "Vienna, International Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "23-01-2025",
     "flightTime": "19:30",
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 51,
@@ -22915,15 +22814,13 @@
     "gate": "C2",
     "departureAirport": "Istanbul, Istanbul Airport",
     "arrivalDestination": "Rotterdam, The Hague Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "04-02-2025",
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 52,
@@ -23305,15 +23202,13 @@
     "gate": "B4",
     "departureAirport": "Paris, Charles de Gaulle Airport",
     "arrivalDestination": "Milan, Malpensa Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "20-02-2025",
     "flightTime": "17:30",
     "availableSeats": 180,
     "flightPoints": 28,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 53,
@@ -23695,15 +23590,13 @@
     "gate": "C5",
     "departureAirport": "Paris, Charles de Gaulle Airport",
     "arrivalDestination": "Milan, Malpensa Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "23-02-2025",
     "flightTime": "03:30",
     "availableSeats": 180,
     "flightPoints": 29,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 54,
@@ -24085,15 +23978,13 @@
     "gate": "A2",
     "departureAirport": "Brussels, Brussels Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "12-03-2025",
     "flightTime": "07:30",
     "availableSeats": 180,
     "flightPoints": 32,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 55,
@@ -24475,15 +24366,13 @@
     "gate": "A5",
     "departureAirport": "Athens, Eleftherios Venizelos",
     "arrivalDestination": "Paris, Charles de Gaulle Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "21-02-2025",
     "flightTime": "16:30",
     "availableSeats": 180,
     "flightPoints": 23,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 56,
@@ -24865,15 +24754,13 @@
     "gate": "D3",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "London, Heathrow Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "25-01-2025",
     "flightTime": "21:30",
     "availableSeats": 180,
     "flightPoints": 45,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 57,
@@ -25255,15 +25142,13 @@
     "gate": "A2",
     "departureAirport": "Lisbon, Lisbon Airport",
     "arrivalDestination": "Paris, Charles de Gaulle Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "23-01-2025",
     "flightTime": "11:30",
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 58,
@@ -25645,15 +25530,13 @@
     "gate": "A5",
     "departureAirport": "Frankfurt, Frankfurt Airport",
     "arrivalDestination": "Budapest, International Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "07-02-2025",
     "flightTime": "09:30",
     "availableSeats": 180,
     "flightPoints": 26,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 59,
@@ -26035,15 +25918,13 @@
     "gate": "C7",
     "departureAirport": "Lisbon, Lisbon Airport",
     "arrivalDestination": "Amsterdam, Schiphol Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "13-02-2025",
     "flightTime": "12:30",
     "availableSeats": 180,
     "flightPoints": 55,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 60,
@@ -26425,15 +26306,13 @@
     "gate": "C6",
     "departureAirport": "Milan, Malpensa Airport",
     "arrivalDestination": "Madrid, Madrid Barajas Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "02-02-2025",
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 61,
@@ -26815,15 +26694,13 @@
     "gate": "B3",
     "departureAirport": "Istanbul, Istanbul Airport",
     "arrivalDestination": "Rotterdam, The Hague Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "22-02-2025",
     "flightTime": "11:30",
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 62,
@@ -27205,15 +27082,13 @@
     "gate": "D2",
     "departureAirport": "Paris, Charles de Gaulle Airport",
     "arrivalDestination": "Istanbul, Istanbul Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "28-01-2025",
     "flightTime": "15:30",
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 63,
@@ -27595,15 +27470,13 @@
     "gate": "E2",
     "departureAirport": "Madrid, Madrid Barajas Airport",
     "arrivalDestination": "Amsterdam, Schiphol Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "19-02-2025",
     "flightTime": "19:15",
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 64,
@@ -27985,15 +27858,13 @@
     "gate": "A12",
     "departureAirport": "Milan, Malpensa Airport",
     "arrivalDestination": "Vienna, International Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "19-01-2025",
     "flightTime": "12:30",
     "availableSeats": 180,
     "flightPoints": 15,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 65,
@@ -28375,15 +28246,13 @@
     "gate": "B3",
     "departureAirport": "London, Heathrow Airport",
     "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "20-03-2025",
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 42,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 66,
@@ -28765,15 +28634,13 @@
     "gate": "C3",
     "departureAirport": "Paris, Charles de Gaulle Airport",
     "arrivalDestination": "Athens, Eleftherios Venizelos",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "12-01-2025",
     "flightTime": "10:30",
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 67,
@@ -29155,15 +29022,13 @@
     "gate": "A1",
     "departureAirport": "Lisbon, Lisbon Airport",
     "arrivalDestination": "London, Heathrow Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "10-01-2025",
     "flightTime": "13:30",
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 68,
@@ -29545,15 +29410,13 @@
     "gate": "A2",
     "departureAirport": "London, Heathrow Airport",
     "arrivalDestination": "Paris, Charles de Gaulle Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "22-01-2025",
     "flightTime": "06:30",
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 69,
@@ -29935,15 +29798,13 @@
     "gate": "B5",
     "departureAirport": "Istanbul, Istanbul Airport",
     "arrivalDestination": "Zurich, Zurich Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "03-02-2025",
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 30,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 70,
@@ -30325,15 +30186,13 @@
     "gate": "B4",
     "departureAirport": "Milan, Malpensa Airport",
     "arrivalDestination": "Amsterdam, Schiphol Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "19-01-2025",
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 71,
@@ -30715,15 +30574,13 @@
     "gate": "D2",
     "departureAirport": "Frankfurt, Frankfurt Airport",
     "arrivalDestination": "Rotterdam, The Hague Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "24-01-2025",
     "flightTime": "04:30",
     "availableSeats": 180,
     "flightPoints": 19,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 72,
@@ -31105,15 +30962,13 @@
     "gate": "A12",
     "departureAirport": "London, Heathrow Airport",
     "arrivalDestination": "Amsterdam, Schiphol Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "30-01-2025",
     "flightTime": "04:20",
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 73,
@@ -31495,15 +31350,13 @@
     "gate": "F3",
     "departureAirport": "Paris, Charles de Gaulle Airport",
     "arrivalDestination": "Istanbul, Istanbul Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "23-02-2025",
     "flightTime": "14:30",
     "availableSeats": 180,
     "flightPoints": 15,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 74,
@@ -31885,15 +31738,13 @@
     "gate": "D9",
     "departureAirport": "Milan, Malpensa Airport",
     "arrivalDestination": "Riga, Riga International Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "25-01-2025",
     "flightTime": "04:30",
     "availableSeats": 180,
     "flightPoints": 15,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 75,
@@ -32275,15 +32126,13 @@
     "gate": "E11",
     "departureAirport": "Milan, Malpensa Airport",
     "arrivalDestination": "Vienna, International Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "25-01-2025",
     "flightTime": "17:30",
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 76,
@@ -32665,15 +32514,13 @@
     "gate": "F4",
     "departureAirport": "Amsterdam, Schiphol Airport",
     "arrivalDestination": "London, Heathrow Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "22-01-2025",
     "flightTime": "10:30",
     "availableSeats": 180,
     "flightPoints": 33,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 77,
@@ -33055,15 +32902,13 @@
     "gate": "C4",
     "departureAirport": "Istanbul, Istanbul Airport",
     "arrivalDestination": "Milan, Malpensa Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "28-01-2025",
     "flightTime": "22:15",
     "availableSeats": 180,
     "flightPoints": 45,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 78,
@@ -33445,15 +33290,13 @@
     "gate": "F3",
     "departureAirport": "Istanbul, Istanbul Airport",
     "arrivalDestination": "Milan, Malpensa Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "20-01-2025",
     "flightTime": "11:30",
     "availableSeats": 180,
     "flightPoints": 38,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 79,
@@ -33835,15 +33678,13 @@
     "gate": "C4",
     "departureAirport": "Lisbon, Lisbon Airport",
     "arrivalDestination": "Paris, Charles de Gaulle Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "15-01-2025",
     "flightTime": "04:30",
     "availableSeats": 180,
     "flightPoints": 32,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 80,
@@ -34225,15 +34066,13 @@
     "gate": "C8",
     "departureAirport": "Frankfurt, Frankfurt Airport",
     "arrivalDestination": "Madrid, Madrid Barajas Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "16-01-2025",
     "flightTime": "12:30",
     "availableSeats": 180,
     "flightPoints": 15,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 81,
@@ -34615,15 +34454,13 @@
     "gate": "D5",
     "departureAirport": "Amsterdam, Schiphol Airport",
     "arrivalDestination": "Milan, Malpensa Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "10-02-2025",
     "flightTime": "11:30",
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
-    "hasTakenOff": true,
-    "returnFlight": null
+    "hasTakenOff": true
   },
   {
     "id": 82,
@@ -35005,15 +34842,13 @@
     "gate": "A12",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Istanbul, Istanbul Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "25-02-2025",
     "flightTime": "02:10",
     "availableSeats": 180,
     "flightPoints": 45,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 83,
@@ -35395,15 +35230,13 @@
     "gate": "C2",
     "departureAirport": "Istanbul, Istanbul Airport",
     "arrivalDestination": "Lisbon, Lisbon Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "24-02-2025",
     "flightTime": "03:30",
     "availableSeats": 180,
     "flightPoints": 35,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 84,
@@ -35785,15 +35618,13 @@
     "gate": "A12",
     "departureAirport": "Frankfurt, Frankfurt Airport",
     "arrivalDestination": "London, Heathrow Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "14-01-2025",
     "flightTime": "10:15",
     "availableSeats": 180,
     "flightPoints": 50,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 85,
@@ -36175,15 +36006,13 @@
     "gate": "B12",
     "departureAirport": "Paris, Charles de Gaulle Airport",
     "arrivalDestination": "London, Heathrow Airport",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "27-01-2025",
     "flightTime": "11:30",
     "availableSeats": 180,
     "flightPoints": 15,
     "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": null
+    "hasTakenOff": false
   },
   {
     "id": 86,
@@ -36565,14 +36394,12 @@
     "gate": "A01",
     "departureAirport": "Rotterdam, The Hague Airport",
     "arrivalDestination": "Stockholm-Arlanda",
-    "timeOfDay": null,
     "isCancelled": false,
     "departureDate": "11-01-2025",
     "flightTime": "11:30",
     "availableSeats": 0,
     "flightPoints": 15,
     "totalPets": 0,
-    "hasTakenOff": true,
-    "returnFlight": null
+    "hasTakenOff": true
   }
 ]

@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using DataModels;
 
 public class FoodAndDrinkPresentation
 {
-    public static double AddFoodAndDrinksToBooking(FlightModel flightModel)
+    public static (double, List<FoodAndDrinkItem>) AddFoodAndDrinksToBooking(FlightModel flightModel)
     {
         Console.Clear();
         Console.WriteLine("=== 🥪 Food And Drinks 🍵 ===\n");
@@ -55,9 +56,9 @@ public class FoodAndDrinkPresentation
         else
         {
             Console.WriteLine("No food or drinks added to your booking.");
-        }
+        }`
 
-        return totalCost;
+        return (totalCost, selectedItems);
     }
 
     public static double ConfirmFoodAndDrinksOrder(List<FoodAndDrinkItem> selectedItems, FlightModel flightModel)
@@ -169,7 +170,7 @@ public class FoodAndDrinkPresentation
             Console.ResetColor();
 
             // Save the updated flight details
-            BookedFlightsAccess.WriteAll(bookedFlight.Email, BookFlightPresentation.allBookedFlights[bookedFlight.Email]);
+            BookedFlightsAccess.Save(bookedFlight.Email, BookFlightPresentation.allBookedFlights[bookedFlight.Email]);
         }
         else
         {

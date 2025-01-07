@@ -18,5 +18,25 @@
     "ItemType": "Baggage",
     "Amount": 50,
     "DatePayement": "2025-01-06T13:41:09.1658+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 275,
+    "DatePayement": "2025-01-07T19:17:32.6356175+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 299.25,
+    "DatePayement": "2025-01-07T19:39:23.5920234+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 292.75,
+    "DatePayement": "2025-01-07T19:42:09.7444263+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 291.6,
+    "DatePayement": "2025-01-07T20:02:32.6418143+01:00"
   }
 ]

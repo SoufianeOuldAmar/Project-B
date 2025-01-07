@@ -11,6 +11,8 @@ public static class BookFlightPresentation
     public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
     public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
     public static AccountModel currentAccount = AccountsLogic.CurrentAccount;
+    public static List<FoodAndDrinkItem> selectedItems = new List<FoodAndDrinkItem>();
+
 
     private static readonly FinancialReport generator = new FinancialReport();
 
@@ -188,24 +190,24 @@ public static class BookFlightPresentation
         Console.WriteLine("Do you want to add baggage? (yes/no): ");
         string choice = Console.ReadLine().ToLower();
 
-        while(choice != "yes" && choice != "no")
+        while (choice != "yes" && choice != "no")
         {
             Console.WriteLine("Invalid input. Please enter 'yes' or 'no':");
             choice = Console.ReadLine().ToLower();
 
         }
 
-        if(choice == "no")
+        if (choice == "no")
         {
             return;
         }
 
-        if(choice == "yes")
+        if (choice == "yes")
         {
             Console.WriteLine("Do you want to add a carry on bag (15EU fee) ? yes/no");
             string carryOnChoice = Console.ReadLine().ToLower();
 
-            while(carryOnChoice != "yes" && carryOnChoice != "no")
+            while (carryOnChoice != "yes" && carryOnChoice != "no")
             {
                 Console.WriteLine("Invalid input. Please choose between yes or no");
                 carryOnChoice = Console.ReadLine().ToLower();
@@ -230,7 +232,7 @@ public static class BookFlightPresentation
                     checkChecked = Console.ReadLine().ToLower();
                 }
 
-                if(checkChecked == "no")
+                if (checkChecked == "no")
                 {
                     break;
                 }
@@ -344,7 +346,6 @@ public static class BookFlightPresentation
         List<BaggageLogic> baggageInfo = new List<BaggageLogic>();
         List<PetLogic> petInfo = new List<PetLogic>();
         List<PassengerModel> passengers = new List<PassengerModel>();
-        List<FoodAndDrinkItem> selectedItems = new List<FoodAndDrinkItem>();
         double totalPrice = 0;
 
         FlightModel selectedFlight = flightModel;
@@ -542,47 +543,50 @@ public static class BookFlightPresentation
                         Console.WriteLine("Invalid Age Group. Please enter 'adult', 'child', or 'infant'.");
                     }
 
+                    Console.WriteLine("Would you like to add food and drinks for this passenger? (yes/no): ");
+                    string addFoodOption = Console.ReadLine()?.ToLower();
+
+                    while (addFoodOption != "yes" && addFoodOption != "no")
+                    {
+                        Console.WriteLine("Invalid input. Please enter 'yes' or 'no': ");
+                        addFoodOption = Console.ReadLine()?.ToLower();
+                    }
+
+                    if (addFoodOption == "yes")
+                    {   
+                        var allItems = FoodAndDrinkPresentation.AddFoodAndDrinksToBooking(selectedFlight);
+                        double foodCost = allItems.Item1;
+                        selectedItems = allItems.Item2;
+
+                        foodAndDrinkCosts.Add(foodCost); // Voeg toe aan lijst met food and drink kosten
+                        totalPrice += foodCost;
+                        Console.WriteLine($"Food and drinks have been added. Updated total price: €{totalPrice:F2}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No food and drinks were added for this passenger.");
+                    }
+
                     // try
                     // {
                     string initials = GenerateInitials(passenger);
                     selectedFlight.Layout.BookFlight(seat, initials);
                     ProcessPassengerDetails(passenger, seat, ref totalPrice, selectedFlight.TicketPrice, initials, passengers, chosenSeats, baggageInfo, petInfo, selectedFlight);
 
-                        // list of all payments to save
+                    // list of all payments to save
                     List<Payement> allPayments = new List<Payement>();
 
-                        // Add the ticket payment
+                    // Add the ticket payment
                     Payement ticketPayment = new Payement("Ticket", selectedFlight.TicketPrice, DateTime.Now);
                     allPayments.Add(ticketPayment);
 
-                        // Add the baggage payments
+                    // Add the baggage payments
                     foreach (var baggage in baggageInfo)
                     {
                         Payement baggagePayment = new Payement("Baggage", baggage.Fee, DateTime.Now);
                         allPayments.Add(baggagePayment);
                         selectedFlight.Layout.BookFlight(seat, initials);
                         ProcessPassengerDetails(passenger, seat, ref totalPrice, selectedFlight.TicketPrice, initials, passengers, chosenSeats, baggageInfo, petInfo, selectedFlight);
-
-                        Console.WriteLine("Would you like to add food and drinks for this passenger? (yes/no): ");
-                        string addFoodOption = Console.ReadLine()?.ToLower();
-
-                        while (addFoodOption != "yes" && addFoodOption != "no")
-                        {
-                            Console.WriteLine("Invalid input. Please enter 'yes' or 'no': ");
-                            addFoodOption = Console.ReadLine()?.ToLower();
-                        }
-
-                        if (addFoodOption == "yes")
-                        {
-                            double foodCost = FoodAndDrinkPresentation.AddFoodAndDrinksToBooking(selectedFlight);
-                            foodAndDrinkCosts.Add(foodCost); // Voeg toe aan lijst met food and drink kosten
-                            totalPrice += foodCost;
-                            Console.WriteLine($"Food and drinks have been added. Updated total price: €{totalPrice:F2}");
-                        }
-                        else
-                        {
-                            Console.WriteLine("No food and drinks were added for this passenger.");
-                        }
                     }
 
                     // Add the pet payments
@@ -594,7 +598,7 @@ public static class BookFlightPresentation
 
                     // Save all payments at once
                     financialReport.SavePayements(allPayments);
-                        
+
 
 
 
@@ -642,7 +646,7 @@ public static class BookFlightPresentation
                 if (petTotalFee > 0) Console.WriteLine($"Pet Fees: {petTotalFee:C}");
                 if (foodAndDrinkCost > 0) Console.WriteLine($"Food and Drinks: {foodAndDrinkCost:C}");
                 Console.WriteLine($"Total Price: {totalPrice:C}");
-                
+
                 int allFlightPoints = currentAccount.TotalFlightPoints;
                 Console.Write($"\nBefore confirming your booking do you want to use your flight points for discount? You have {(allFlightPoints)} points. (yes/no): ");
 
@@ -690,6 +694,7 @@ public static class BookFlightPresentation
 
                     var bookedFlight1 = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false, currentAccount.EmailAddress);
                     bookedFlight1.TicketBill += totalPrice;
+                    bookedFlight1.FoodAndDrinkItems = selectedItems;
 
                     bookedFlight1.UpdateSeatInitials(selectedFlight.Layout.SeatInitials);
 
