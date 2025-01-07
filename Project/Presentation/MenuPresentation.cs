@@ -1,9 +1,15 @@
 using DataModels;
 using DataAccess;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Net;
 
 public static class MenuPresentation
 {
     public static Stack<Action> menuStack = new Stack<Action>(); // Een stack voor functies
+
+    public static AccountModel currentAccount { get; set; }
+    public static List<AccountModel> GotNotificationScreen = new List<AccountModel>();
 
     public static void Start()
     {
@@ -55,7 +61,8 @@ public static class MenuPresentation
         Console.WriteLine("2. 📝 Create account");
         Console.WriteLine("3. 🔍 Search for a flight");
         Console.WriteLine("4. 📖 About us");
-        Console.WriteLine("5. ❌ Quit program\n");
+        Console.WriteLine("5. 👥 Join Our Team");
+        Console.WriteLine("6. ❌ Quit program\n");
         Console.Write("Choose an option: ");
 
         string choice = Console.ReadLine();
@@ -76,6 +83,9 @@ public static class MenuPresentation
                 MenuLogic.PushMenu(AboutUsPres.aboutUsMenu);
                 break;
             case "5":
+                EmployeesPresentation.EmployeeRegistrationpresentation();
+                break;
+            case "6":
                 // Exit by popping the main menu
                 MenuLogic.PopMenu();
                 Console.WriteLine("\nUntil next time!");
@@ -107,7 +117,7 @@ public static class MenuPresentation
     {
 
         Console.WriteLine("=== 🎯 View Flight Points ===\n");
-        var currentAccount = AccountsLogic.CurrentAccount;
+        // var currentAccount = AccountsLogic.CurrentAccount;
 
 
         string email = currentAccount.EmailAddress; // Get the email of the current account
@@ -591,14 +601,28 @@ public static class MenuPresentation
 
     public static void FrontPageUser(AccountModel accountModel)
     {
+        bool NotificationsPresent = NotificationLogic.CheckForNotifications(accountModel);
+        currentAccount = accountModel;
+
+        if (NotificationsPresent && !GotNotificationScreen.Contains(accountModel))
+        {
+            Console.WriteLine("You have notifications to check!");
+            PressAnyKey();
+            GotNotificationScreen.Add(accountModel);
+            Console.Clear();
+        }
+
+        string exclamationMark = NotificationsPresent ? " ❗" : "";
+
         Console.WriteLine($"Logged in as: 👤 {accountModel.FullName}\n");
         Console.WriteLine("=== 🏠 Front Page ====");
         Console.WriteLine("1. 🔍 Search for flights");
         Console.WriteLine("2. 🧾 View history of tickets");
         Console.WriteLine("3. 🎯 View Flight Point");
-        Console.WriteLine("4. 📋 Feedback Menu");
+        Console.WriteLine("4. 🔔 Notifications" + exclamationMark);
         Console.WriteLine("5. 📖 About us");
-        Console.WriteLine("6. 🔓 Log out");
+        Console.WriteLine("6. 📋 Feedback Menu");
+        Console.WriteLine("7. 🔓 Log out");
         Console.Write("\nChoose an option: ");
         string choice = Console.ReadLine();
 
@@ -614,12 +638,15 @@ public static class MenuPresentation
                 MenuLogic.PushMenu(ViewFlightPointsMenu);
                 break;
             case "4":
-                FeedbackPresentation.FeedbackMenu(accountModel);
+                MenuLogic.PushMenu(NotificationPage);
                 break;
             case "5":
                 MenuLogic.PushMenu(AboutUsPres.aboutUsMenu);
                 break;
             case "6":
+                FeedbackPresentation.FeedbackMenu(accountModel);
+                break;
+            case "7":
                 Console.WriteLine("\nLogging out...");
                 MenuLogic.PopMenu();
                 MenuLogic.PopMenu();
@@ -690,7 +717,7 @@ public static class MenuPresentation
             if (departureChoice.Equals("Q", StringComparison.OrdinalIgnoreCase))
             {
                 Console.WriteLine("Exiting to the main menu...");
-                MenuLogic.PopMenu();
+                // MenuLogic.PopMenu();
                 return;
             }
 
@@ -1030,6 +1057,11 @@ public static class MenuPresentation
                 }
             }
         }
+    }
+
+    public static void NotificationPage()
+    {
+        NotificationPresentation.PrintNotificationPage(currentAccount);
     }
 
     // Nieuwe methode voor het tonen van de layout en het kiezen van een stoel

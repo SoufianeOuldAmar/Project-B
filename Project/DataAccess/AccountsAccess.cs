@@ -37,7 +37,7 @@ public static class AccountsAccess
 
             // Write the updated list back to the JSON file
             AccountsAccess.WriteAll(accounts);
-            Console.WriteLine("Account successfully updated in the JSON file.");
+            // Console.WriteLine("Account successfully updated in the JSON file.");
         }
         else
         {

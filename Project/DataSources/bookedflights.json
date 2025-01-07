@@ -1,14 +1,21 @@
 {
   "n@b.c": [
     {
-      "FlightID": 20,
+      "FlightID": 37,
       "BookedSeats": [
-        "10A"
+        "22E"
       ],
       "Pets": [],
-      "BaggageInfo": [],
+      "BaggageInfo": [
+        {
+          "Initials": "AA",
+          "BaggageType": "checked \u002B carry-on",
+          "BaggageWeight": 25,
+          "Fee": 50
+        }
+      ],
       "IsCancelled": false,
-      "TicketBill": 240,
+      "TicketBill": 200,
       "FlightPoints": 0
     }
   ]

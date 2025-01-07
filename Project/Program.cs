@@ -1,2 +1,1 @@
-﻿// Welcome.Message();
-MenuPresentation.Start();
+﻿MenuPresentation.Start();
