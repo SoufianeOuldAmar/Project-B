@@ -9,7 +9,7 @@ public static class CalendarLogic
     // Read all flight data
     public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
 
-    private const string GREEN = "\u001b[32m"; 
+    private const string GREEN = "\u001b[32m";
     private const string RESET = "\u001b[0m";
 
     public static string Calendar(int month, int year, string departureAirport, string destination)
@@ -17,20 +17,20 @@ public static class CalendarLogic
         // Get the first day and the total number of days in the month
         DateTime firstDayOfMonth = new DateTime(year, month, 1);
         int daysInMonth = DateTime.DaysInMonth(year, month);
-        
+
         // Determine the day of the week the month starts on (e.g., Sunday = 0, Monday = 1)
         int startingDayOfWeek = (int)firstDayOfMonth.DayOfWeek;
 
         // Prepare lines for the calendar display
         List<string> calendarLines = new List<string>();
-        string daysLine = ""; 
-        string dotsLine = ""; 
+        string daysLine = "";
+        string dotsLine = "";
 
         // Add leading spaces for the first week to align with the starting day
         for (int i = 0; i < startingDayOfWeek; i++)
         {
-            daysLine += "    "; 
-            dotsLine += "    "; 
+            daysLine += "    ";
+            dotsLine += "    ";
         }
 
 
@@ -47,7 +47,7 @@ public static class CalendarLogic
                 if (DateTime.TryParse(flight.DepartureDate, out departureDate))
                 {
                     // Check if the flight's date matches and if it's for the selected departure airport and destination
-                    if (!flight.HasTakenOff && departureDate.Date ==  currentDate.Date &&
+                    if (!flight.HasTakenOff && departureDate.Date == currentDate.Date &&
                         (string.IsNullOrEmpty(departureAirport) || flight.DepartureAirport == departureAirport) &&
                         (string.IsNullOrEmpty(destination) || flight.ArrivalDestination == destination) &&
                         !flight.IsCancelled)
@@ -64,7 +64,7 @@ public static class CalendarLogic
             // Add a dot if there's a flight 
             if (hasFlight)
             {
-                dotsLine += " .  ";
+                dotsLine += "   ";
                 daysLine += "\x1b[32m" + day.ToString("D2") + "\x1b[0m" + "  ";
 
             }
@@ -107,14 +107,25 @@ public static class CalendarLogic
         {
             string line = calendarLines[i];
             string dotLine = calendarLines[i + 1];
-            if (line.Contains($"{currentDay:D2} "))
+
+            // Replace current day while ignoring color escape codes
+            string plainCurrentDay = $"{currentDay:D2}";
+            string coloredCurrentDay = $"\x1b[32m{plainCurrentDay}\x1b[0m";
+
+            if (line.Contains(coloredCurrentDay))
             {
-                line = line.Replace($"{currentDay:D2} ", $"[{currentDay:D2}] "); // Highlight current day
+                line = line.Replace(coloredCurrentDay, $"[{plainCurrentDay}]");
             }
+            else if (line.Contains(plainCurrentDay))
+            {
+                line = line.Replace(plainCurrentDay, $"[{plainCurrentDay}]");
+            }
+
             Console.WriteLine(line);
             Console.WriteLine(dotLine);
         }
     }
+
 
     public static (int, int, int) NavigateDate(int currentDay, int currentMonth, int currentYear, string direction, int minYear, int maxYear)
     {
@@ -192,9 +203,9 @@ public static class CalendarLogic
             .Where(flight =>
                 (string.IsNullOrEmpty(departureAirport) || flight.DepartureAirport == departureAirport) &&  // Check if departure is given, or ignore 
                 (string.IsNullOrEmpty(destination) || flight.ArrivalDestination == destination) &&  // Check if destination is given, or ignore 
-                DateTime.TryParse(flight.DepartureDate, out DateTime departureDate) && 
+                DateTime.TryParse(flight.DepartureDate, out DateTime departureDate) &&
                 departureDate.Date == date.Date && // Check if flight's departure date matches the selected date
-                !flight.IsCancelled) 
+                !flight.IsCancelled)
             .ToList();
     }
 

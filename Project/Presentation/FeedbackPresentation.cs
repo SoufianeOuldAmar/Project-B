@@ -43,7 +43,7 @@ public static class FeedbackPresentation
             Console.WriteLine($"Error: {ex.Message}");
         }
 
-        MenuPresentation.PressAnyKey();
+        // MenuPresentation.PressAnyKey();
     }
 
     public static void ManageUserFeedbacks(AccountModel accountModel)
@@ -54,7 +54,7 @@ public static class FeedbackPresentation
         if (feedbacks.Count == 0)
         {
             Console.WriteLine("You have no feedback to manage.");
-            MenuPresentation.PressAnyKey();
+            // MenuPresentation.PressAnyKey();
             return;
         }
 
@@ -84,7 +84,7 @@ public static class FeedbackPresentation
             }
         }
 
-        MenuPresentation.PressAnyKey();
+        // MenuPresentation.PressAnyKey();
     }
     public static void ViewFeedbackMenu()
     {
@@ -145,6 +145,6 @@ public static class FeedbackPresentation
             }
         }
         
-        MenuPresentation.PressAnyKey();
+        // MenuPresentation.PressAnyKey();
     }
 }

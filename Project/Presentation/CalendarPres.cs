@@ -22,7 +22,7 @@ public static class CalendarPresentation
             Console.WriteLine("↑ : Jump one week earlier");
             Console.WriteLine("↓ : Jump one week later");
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("• : Flight available on this date");
+            Console.WriteLine("Green colour : Flight available on this date");
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("Enter: Select the highlighted date\n");
             Console.ResetColor();

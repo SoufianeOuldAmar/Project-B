@@ -4,16 +4,18 @@
       "FlightID": 36,
       "BookedSeats": [
         "10A",
-        "10B"
+        "10B",
+        "03A"
       ],
       "Pets": [],
       "BaggageInfo": [],
       "IsCancelled": false,
-      "TicketBill": 308.20000000000005,
+      "TicketBill": 299.25,
       "FlightPoints": 0,
       "SeatInitials": {
         "10A": "SI",
-        "10B": "SO"
+        "10B": "SO",
+        "03A": "SO"
       },
       "Email": "n@b.c",
       "FoodAndDrinkItems": [
@@ -22,8 +24,8 @@
           "Price": 14.5
         },
         {
-          "Name": "Water Bottle",
-          "Price": 2.1
+          "Name": "Sandwhich Chicken Teryaki",
+          "Price": 9.75
         }
       ]
     }

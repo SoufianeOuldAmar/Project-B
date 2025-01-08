@@ -148,7 +148,7 @@ public class FoodAndDrinkPresentation
 
             if (choice == "0")
             {
-                return;
+                break;
             }
 
             if (int.TryParse(choice, out int index) && index >= 1 && index <= FoodAndDrinkLogic.FoodAndDrinksMenu.Count)
@@ -183,7 +183,7 @@ public class FoodAndDrinkPresentation
             Console.ResetColor();
 
             // Save the updated flight details
-            BookedFlightsAccess.Save(bookedFlight.Email, BookFlightPresentation.allBookedFlights[bookedFlight.Email]);
+            BookedFlightsAccess.WriteSingle(bookedFlight.Email, bookedFlight);
         }
         else
         {

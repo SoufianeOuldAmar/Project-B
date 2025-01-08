@@ -773,7 +773,7 @@ public static class MenuPresentation
             if (arrivalChoice.Equals("Q", StringComparison.OrdinalIgnoreCase))
             {
                 Console.WriteLine("Exiting to the main menu...");
-                MenuLogic.PopMenu();
+                // MenuLogic.PopMenu();
                 return;
             }
 
@@ -1033,7 +1033,7 @@ public static class MenuPresentation
                 if (choice.Equals("Q", StringComparison.OrdinalIgnoreCase))
                 {
                     Console.WriteLine("Exiting to the main menu...");
-                    MenuLogic.PopMenu();
+                    // MenuLogic.PopMenu();
                     return;
                 }
 

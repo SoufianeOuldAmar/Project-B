@@ -87,9 +87,9 @@ public class AboutUsPres
             }
             else
             {
-                Console.Clear();
+                // Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("⚠️ Invalid input! Please try again.");
+                Console.WriteLine("\n⚠️  Invalid input! Please try again.");
                 Console.ResetColor();
             }
 

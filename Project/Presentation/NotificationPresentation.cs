@@ -12,8 +12,7 @@ public static class NotificationPresentation
             Console.Clear();
             Console.WriteLine("========== Notifications ==========\n");
             Console.WriteLine("No notifications available.");
-            Console.WriteLine("Press any key to return to the previous menu...");
-            Console.ReadKey();
+            MenuLogic.PopMenu();
             return;
         }
 
