@@ -170,7 +170,7 @@ public static class EmployeesPresentation
             Console.WriteLine("Would you like to:");
             Console.WriteLine("1. Register as a new employee");
             Console.WriteLine("2. View the status of your registration");
-            Console.WriteLine("q. to quite");
+            Console.WriteLine("q. to quit");
             Console.Write("Please enter the number of your choice: ");
 
             string input = Console.ReadLine().ToLower();

@@ -137,6 +137,7 @@ public static class BookFlightLogic
             string email = kvp.Key; // Access the key (email)
             List<BookedFlightsModel> bookedFlights = kvp.Value; // Access the value (list of booked flights)
             bool updated = false;
+            var account = AccountsLogic.GetByEmail(email);
 
             // Process each booked flight for this email
             foreach (var bookedFlight in bookedFlights)
@@ -154,14 +155,18 @@ public static class BookFlightLogic
                             Console.WriteLine("OEEEEEEEEEEEEEEEEEEH");
                             Thread.Sleep(5000);
                             bookedFlight.FlightPoints += flight.FlightPoints * bookedFlight.BookedSeats.Count;
+                            account.TotalFlightPoints += flight.FlightPoints * bookedFlight.BookedSeats.Count;
+
+                            AccountsAccess.UpdateCurrentAccount(account);
+
                             updated = true;
                         }
                     }
                 }
                 else
                 {   
-                    Console.WriteLine("WAAAAAAAAAAAAAAAAAAAAAH");
-                    Thread.Sleep(5000);
+                    // Console.WriteLine("WAAAAAAAAAAAAAAAAAAAAAH");
+                    // Thread.Sleep(5000);
                 }
             }
 

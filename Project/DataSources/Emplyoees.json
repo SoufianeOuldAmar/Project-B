@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "Id": 1,
+    "Name": "Ikka",
+    "Age": 20,
+    "Accepted": "good job you\u0027re hired",
+    "CvFileName": "galgje python code.txt",
+    "RegistrationID": 45284
+  }
+]

@@ -163,5 +163,160 @@
     "ItemType": "Ticket",
     "Amount": 250,
     "DatePayement": "2025-01-08T09:12:02.575032+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 250,
+    "DatePayement": "2025-01-08T09:40:21.766912+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 275,
+    "DatePayement": "2025-01-08T09:47:18.1669709+01:00"
+  },
+  {
+    "ItemType": "FoodAndDrink",
+    "Amount": 14.5,
+    "DatePayement": "2025-01-08T13:02:24.7534872+01:00"
+  },
+  {
+    "ItemType": "FoodAndDrink",
+    "Amount": 9.75,
+    "DatePayement": "2025-01-08T13:02:24.7537302+01:00"
+  },
+  {
+    "ItemType": "FoodAndDrink",
+    "Amount": 7.5,
+    "DatePayement": "2025-01-08T13:02:24.7537406+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 331.75,
+    "DatePayement": "2025-01-08T13:02:36.0751196+01:00"
+  },
+  {
+    "ItemType": "FoodAndDrink",
+    "Amount": 2.85,
+    "DatePayement": "2025-01-08T13:03:01.069342+01:00"
+  },
+  {
+    "ItemType": "FoodAndDrink",
+    "Amount": 3.1,
+    "DatePayement": "2025-01-08T13:03:01.0693498+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 337.7,
+    "DatePayement": "2025-01-08T13:04:13.7734838+01:00"
+  },
+  {
+    "ItemType": "Baggage",
+    "Amount": 90,
+    "DatePayement": "2025-01-08T13:04:13.7734891+01:00"
+  },
+  {
+    "ItemType": "Baggage",
+    "Amount": 130,
+    "DatePayement": "2025-01-08T13:04:21.4665318+01:00"
+  },
+  {
+    "ItemType": "Pet",
+    "Amount": 50,
+    "DatePayement": "2025-01-08T13:04:23.6631302+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 275,
+    "DatePayement": "2025-01-08T13:06:41.43717+01:00"
+  },
+  {
+    "ItemType": "FoodAndDrink",
+    "Amount": 14.5,
+    "DatePayement": "2025-01-08T13:10:31.2561171+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 289.5,
+    "DatePayement": "2025-01-08T13:10:51.3970261+01:00"
+  },
+  {
+    "ItemType": "Baggage",
+    "Amount": 35,
+    "DatePayement": "2025-01-08T13:10:51.3970322+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 275,
+    "DatePayement": "2025-01-08T13:13:56.7973276+01:00"
+  },
+  {
+    "ItemType": "Pet",
+    "Amount": 50,
+    "DatePayement": "2025-01-08T13:13:56.7975822+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 275,
+    "DatePayement": "2025-01-08T13:27:40.4733811+01:00"
+  },
+  {
+    "ItemType": "Baggage",
+    "Amount": 35,
+    "DatePayement": "2025-01-08T13:27:40.4737688+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 275,
+    "DatePayement": "2025-01-08T13:30:42.3354152+01:00"
+  },
+  {
+    "ItemType": "Baggage",
+    "Amount": 35,
+    "DatePayement": "2025-01-08T13:30:42.3356058+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 275,
+    "DatePayement": "2025-01-08T13:38:36.0074684+01:00"
+  },
+  {
+    "ItemType": "Baggage",
+    "Amount": 15,
+    "DatePayement": "2025-01-08T13:38:36.007708+01:00"
+  },
+  {
+    "ItemType": "Baggage",
+    "Amount": 20,
+    "DatePayement": "2025-01-08T13:38:40.17717+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 275,
+    "DatePayement": "2025-01-08T13:46:21.3566806+01:00"
+  },
+  {
+    "ItemType": "Baggage",
+    "Amount": 35,
+    "DatePayement": "2025-01-08T13:46:21.3568187+01:00"
+  },
+  {
+    "ItemType": "Pet",
+    "Amount": 50,
+    "DatePayement": "2025-01-08T13:47:20.6727363+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 275,
+    "DatePayement": "2025-01-08T13:58:28.066756+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 275,
+    "DatePayement": "2025-01-08T14:18:07.1234812+01:00"
+  },
+  {
+    "ItemType": "Baggage",
+    "Amount": 35,
+    "DatePayement": "2025-01-08T14:18:07.1238373+01:00"
   }
 ]

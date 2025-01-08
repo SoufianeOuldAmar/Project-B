@@ -192,9 +192,8 @@ public static class BookFlightPresentation
 
         while (choice != "yes" && choice != "no")
         {
-            Console.WriteLine("Invalid input. Please enter 'yes' or 'no':");
-            choice = Console.ReadLine().ToLower();
 
+            continue;
         }
 
         if (choice == "no")
@@ -204,7 +203,7 @@ public static class BookFlightPresentation
 
         if (choice == "yes")
         {
-            Console.Write("Do you want to add a carry on bag (15EU fee) ? (yes/no): ");
+            Console.Write("Do you want to add a carry-on bag (15 EUR fee)? (yes/no): ");
             string carryOnChoice = Console.ReadLine().ToLower();
 
             while (carryOnChoice != "yes" && carryOnChoice != "no")
@@ -220,31 +219,26 @@ public static class BookFlightPresentation
                 Console.WriteLine("Carry-on bag added with a weight of 10kg and a fee of 15 EUR.");
             }
 
-            // checked baggage
-            while (currentTotalWeight < maxBaggageCapacity)
+            // Ask about checked baggage only once
+            Console.Write("Do you want to add checked baggage? (yes/no): ");
+            string checkChecked = Console.ReadLine().ToLower();
+
+            while (checkChecked != "yes" && checkChecked != "no")
             {
-                Console.Write("Do you want to add checked baggage? (yes/no): ");
-                string checkChecked = Console.ReadLine().ToLower();
+                Console.WriteLine("Invalid input. Please enter 'yes' or 'no':");
+                checkChecked = Console.ReadLine().ToLower();
+            }
 
-                while (checkChecked != "yes" && checkChecked != "no")
-                {
-                    Console.WriteLine("Invalid input. Please enter 'yes' or 'no':");
-                    checkChecked = Console.ReadLine().ToLower();
-                }
-
-                if (checkChecked == "no")
-                {
-                    break;
-                }
-
+            if (checkChecked == "yes")
+            {
                 Console.Write("Do you want a 20kg or 25kg checked bag? Enter 20 or 25: ");
                 string checkedWeightInput = Console.ReadLine();
 
                 double bagWeight;
                 if (!double.TryParse(checkedWeightInput, out bagWeight) || (bagWeight != 20 && bagWeight != 25))
                 {
-                    Console.WriteLine("Invalid input.You can only choose between 20 oe 25 kg.");
-                    continue;
+                    Console.WriteLine("Invalid input. You can only choose between 20 or 25 kg.");
+                    return; // Exit if input is invalid
                 }
 
                 Console.Write("How many of these bags do you want?: ");
@@ -254,7 +248,7 @@ public static class BookFlightPresentation
                 if (!int.TryParse(bagCountInput, out bagCount) || bagCount <= 0)
                 {
                     Console.WriteLine("Invalid input. Please enter a positive number.");
-                    continue;
+                    return; // Exit if input is invalid
                 }
 
                 double totalBagWeight = bagWeight * bagCount;
@@ -262,7 +256,7 @@ public static class BookFlightPresentation
                 if (currentTotalWeight + totalBagWeight > maxBaggageCapacity)
                 {
                     Console.WriteLine("Can't add bag(s). It exceeds the flight's baggage capacity.");
-                    break;
+                    return; // Exit if capacity is exceeded
                 }
 
                 currentTotalWeight += totalBagWeight;
@@ -280,14 +274,9 @@ public static class BookFlightPresentation
 
                 Console.WriteLine("Total weight of all baggage: " + currentTotalWeight + "kg");
                 Console.WriteLine("Total fee for all baggage: " + totalFee + " EUR");
-
-
-
             }
-
-            // Console.WriteLine($"Baggage added successfully. Total weight: {totalWeightSeat}kg, Total fee: €{feeBaggage}.");
-            // baggageInfo.Add(new BaggageLogic(initials, "checked + carry-on", totalWeightSeat) { Fee = feeBaggage });
         }
+
 
 
         // Pet handling
@@ -586,7 +575,7 @@ public static class BookFlightPresentation
                         Payement baggagePayment = new Payement("Baggage", baggage.Fee, DateTime.Now);
                         allPayments.Add(baggagePayment);
                         selectedFlight.Layout.BookFlight(seat, initials);
-                        ProcessPassengerDetails(passenger, seat, ref totalPrice, selectedFlight.TicketPrice, initials, passengers, chosenSeats, baggageInfo, petInfo, selectedFlight);
+                        // ProcessPassengerDetails(passenger, seat, ref totalPrice, selectedFlight.TicketPrice, initials, passengers, chosenSeats, baggageInfo, petInfo, selectedFlight);
                     }
 
                     // Add the pet payments
@@ -648,20 +637,18 @@ public static class BookFlightPresentation
                 Console.WriteLine($"Total Price: {totalPrice:C}");
 
                 var sss = BookedFlightsAccess.LoadAll();
-                int allFlightPoints = 0;
+                int allFlightPoints = currentAccount.TotalFlightPoints;
 
-                Console.WriteLine(currentAccount.EmailAddress + "AAAAAAAAAAAAAAAAAAH");
-
-                foreach (var item in sss)
-                {
-                    if (item.Key == currentAccount.EmailAddress)
-                    {
-                        foreach (var item1 in item.Value)
-                        {
-                            allFlightPoints += item1.FlightPoints;
-                        }
-                    }
-                }
+                // foreach (var item in sss)
+                // {
+                //     if (item.Key == currentAccount.EmailAddress)
+                //     {
+                //         foreach (var item1 in item.Value)
+                //         {
+                //             allFlightPoints += item1.FlightPoints;
+                //         }
+                //     }
+                // }
 
                 Console.Write($"\nBefore confirming your booking do you want to use your flight points for discount? You have {(allFlightPoints)} points. (yes/no): ");
 

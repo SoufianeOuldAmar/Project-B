@@ -88,7 +88,7 @@ public class FoodAndDrinkPresentation
         }
 
         Console.WriteLine($"\nTotal cost: €{totalCost:F2}");
-        Console.WriteLine("\nAre you sure you want to confirm this order? This cannot be canceled. (yes/no)");
+        Console.Write("\nAre you sure you want to confirm this order? This cannot be canceled. (yes/no): ");
 
         string confirmation = Console.ReadLine()?.ToLower();
         if (confirmation == "yes")

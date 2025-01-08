@@ -3,15 +3,17 @@
     {
       "FlightID": 36,
       "BookedSeats": [
-        "10A"
+        "10A",
+        "11A"
       ],
       "Pets": [],
       "BaggageInfo": [],
-      "IsCancelled": false,
+      "IsCancelled": true,
       "TicketBill": 275,
-      "FlightPoints": 27,
+      "FlightPoints": 0,
       "SeatInitials": {
-        "10A": "SO"
+        "10A": "SA",
+        "11A": "SO"
       },
       "Email": "n@b.c",
       "FoodAndDrinkItems": []
