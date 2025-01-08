@@ -553,7 +553,7 @@ public static class BookFlightPresentation
                     }
 
                     if (addFoodOption == "yes")
-                    {   
+                    {
                         var allItems = FoodAndDrinkPresentation.AddFoodAndDrinksToBooking(selectedFlight);
                         double foodCost = allItems.Item1;
                         selectedItems = allItems.Item2;
@@ -647,7 +647,22 @@ public static class BookFlightPresentation
                 if (foodAndDrinkCost > 0) Console.WriteLine($"Food and Drinks: {foodAndDrinkCost:C}");
                 Console.WriteLine($"Total Price: {totalPrice:C}");
 
-                int allFlightPoints = currentAccount.TotalFlightPoints;
+                var sss = BookedFlightsAccess.LoadAll();
+                int allFlightPoints = 0;
+
+                Console.WriteLine(currentAccount.EmailAddress + "AAAAAAAAAAAAAAAAAAH");
+
+                foreach (var item in sss)
+                {
+                    if (item.Key == currentAccount.EmailAddress)
+                    {
+                        foreach (var item1 in item.Value)
+                        {
+                            allFlightPoints += item1.FlightPoints;
+                        }
+                    }
+                }
+
                 Console.Write($"\nBefore confirming your booking do you want to use your flight points for discount? You have {(allFlightPoints)} points. (yes/no): ");
 
                 string discountYesOrNo = Console.ReadLine();

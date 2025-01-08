@@ -25,6 +25,8 @@ public static class BookedFlightsAccess
         // Load the current booked flights data from the file
         Dictionary<string, List<BookedFlightsModel>> bookedFlights = LoadAll();
 
+        int flightPoints = 0;
+
         // Check if the email (key) already exists in the dictionary
         if (bookedFlights.ContainsKey(email))
         {

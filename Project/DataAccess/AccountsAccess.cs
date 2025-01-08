@@ -28,7 +28,7 @@ public static class AccountsAccess
         // Find the current account in the list by its ID
         var accountIndex = accounts.FindIndex(acc => acc.Id == currentAccount.Id);
 
-        currentAccount.TotalFlightPoints = currentAccount.FlightPointsDataList.Sum(flightPointModel => flightPointModel.Points);
+        // currentAccount.TotalFlightPoints = currentAccount.FlightPointsDataList.Sum(flightPointModel => flightPointModel.Points);
 
         if (accountIndex != -1)
         {
