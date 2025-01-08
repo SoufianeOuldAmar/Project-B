@@ -4,26 +4,41 @@ public static class FeedbackPresentation
 {
     public static void FeedbackMenu(AccountModel accountModel)
     {
-        Console.Clear();
-        Console.WriteLine("=== Feedback Menu ===");
-        Console.WriteLine("1. Submit Feedback");
-        Console.WriteLine("2. Manage Feedbacks");
-        Console.Write("\nChoose an option: ");
-        string choice = Console.ReadLine();
+        bool isValidChoice = false;
 
-        switch (choice)
+        while (!isValidChoice)
         {
-            case "1":
+            Console.Clear();
+            Console.WriteLine("=== 📋 Feedback Menu ===");
+            Console.WriteLine("1. Submit Feedback");
+            Console.WriteLine("2. Manage Feedbacks");
+            Console.WriteLine("3. Quit");
+            Console.Write("\nChoose an option: ");
+
+            string choice = Console.ReadLine();
+
+            if (choice == "1")
+            {
                 SubmitFeedbackMenu(accountModel);
-                break;
-            case "2":
+                isValidChoice = true;
+            }
+            else if (choice == "2")
+            {
                 ManageUserFeedbacks(accountModel);
-                break;
-            default:
-                Console.WriteLine("Invalid choice. Returning to main menu.");
+                isValidChoice = true;
+            }
+            else if (choice == "3")
+            {   
                 MenuPresentation.PressAnyKey();
-                break;
+                isValidChoice = true;
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. Please enter either 1, 2, or 3.");
+                MenuPresentation.PressAnyKey();
+            }
         }
+
     }
 
     public static void SubmitFeedbackMenu(AccountModel accountModel)
@@ -144,7 +159,7 @@ public static class FeedbackPresentation
                 Console.WriteLine("Invalid ID. Returning to the feedback menu.");
             }
         }
-        
+
         // MenuPresentation.PressAnyKey();
     }
 }

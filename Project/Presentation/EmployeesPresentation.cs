@@ -9,7 +9,7 @@ public static class EmployeesPresentation
         string name;
         while (true)
         {
-            Console.WriteLine("Please enter your name: ");
+            Console.Write("Please enter your name: ");
             name = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(name) || EmployeesLogic.NameLogic(name))
             {
@@ -24,7 +24,7 @@ public static class EmployeesPresentation
         int age;
         while (true)
         {
-            Console.WriteLine("Please enter your age");
+            Console.Write("Please enter your age: ");
             string input = Console.ReadLine();
             if (int.TryParse(input, out age) && age > 18 && age < 60)
             {
@@ -39,7 +39,7 @@ public static class EmployeesPresentation
         string filePath;
         while (true)
         {
-            Console.WriteLine("Please enter the full path of the CV file: ");
+            Console.Write("Please enter the full path of the CV file: ");
             filePath = Console.ReadLine();
 
 

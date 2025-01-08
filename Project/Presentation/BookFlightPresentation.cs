@@ -187,7 +187,7 @@ public static class BookFlightPresentation
         double totalFee = 0;
 
 
-        Console.WriteLine("Do you want to add baggage? (yes/no): ");
+        Console.Write("Do you want to add baggage? (yes/no): ");
         string choice = Console.ReadLine().ToLower();
 
         while (choice != "yes" && choice != "no")
@@ -204,7 +204,7 @@ public static class BookFlightPresentation
 
         if (choice == "yes")
         {
-            Console.WriteLine("Do you want to add a carry on bag (15EU fee) ? yes/no");
+            Console.Write("Do you want to add a carry on bag (15EU fee) ? (yes/no): ");
             string carryOnChoice = Console.ReadLine().ToLower();
 
             while (carryOnChoice != "yes" && carryOnChoice != "no")
@@ -223,7 +223,7 @@ public static class BookFlightPresentation
             // checked baggage
             while (currentTotalWeight < maxBaggageCapacity)
             {
-                Console.WriteLine("Do you want to add checked baggage? (yes/no): ");
+                Console.Write("Do you want to add checked baggage? (yes/no): ");
                 string checkChecked = Console.ReadLine().ToLower();
 
                 while (checkChecked != "yes" && checkChecked != "no")
@@ -237,7 +237,7 @@ public static class BookFlightPresentation
                     break;
                 }
 
-                Console.WriteLine("Do you want a 20kg or 25kg checked bag? Enter 20 or 25:");
+                Console.Write("Do you want a 20kg or 25kg checked bag? Enter 20 or 25: ");
                 string checkedWeightInput = Console.ReadLine();
 
                 double bagWeight;
@@ -247,7 +247,7 @@ public static class BookFlightPresentation
                     continue;
                 }
 
-                Console.WriteLine("How many of these bags do you want?");
+                Console.Write("How many of these bags do you want?: ");
                 string bagCountInput = Console.ReadLine();
 
                 int bagCount;
@@ -291,7 +291,7 @@ public static class BookFlightPresentation
 
 
         // Pet handling
-        Console.WriteLine("Do you want to add a pet? (yes/no): ");
+        Console.Write("Do you want to add a pet? (yes/no): ");
         string userPet = Console.ReadLine()?.ToLower();
 
         if (userPet == "yes")
@@ -304,10 +304,10 @@ public static class BookFlightPresentation
             {
                 while (true)
                 {
-                    Console.WriteLine("What type of pet do you have? (dog, cat, bunny, bird): ");
+                    Console.Write("What type of pet do you have? (dog, cat, bunny, bird): ");
                     string petType = Console.ReadLine()?.ToLower();
 
-                    Console.WriteLine("Enter your animal's name: ");
+                    Console.Write("Enter your animal's name: ");
                     string petName = Console.ReadLine();
 
                     if (petType == "dog" || petType == "cat" || petType == "bunny" || petType == "bird")
@@ -323,7 +323,7 @@ public static class BookFlightPresentation
                             break;
                         }
 
-                        Console.WriteLine("Do you want to add another pet? (yes/no):");
+                        Console.Write("Do you want to add another pet? (yes/no): ");
                         string addAnother = Console.ReadLine()?.ToLower();
                         if (addAnother != "yes")
                         {
@@ -435,7 +435,7 @@ public static class BookFlightPresentation
             Console.WriteLine("{0,-20} {1,-35}", "Is Cancelled:", (selectedFlight.IsCancelled ? "Yes" : "No"));
             Console.ResetColor();
 
-            Console.Write("\nAre you sure you want to book this flight? (yes/no) ");
+            Console.Write("\nAre you sure you want to book this flight? (yes/no): ");
             string confirmation = Console.ReadLine();
             Console.Clear();
 
@@ -543,7 +543,7 @@ public static class BookFlightPresentation
                         Console.WriteLine("Invalid Age Group. Please enter 'adult', 'child', or 'infant'.");
                     }
 
-                    Console.WriteLine("Would you like to add food and drinks for this passenger? (yes/no): ");
+                    Console.Write("Would you like to add food and drinks for this passenger? (yes/no): ");
                     string addFoodOption = Console.ReadLine()?.ToLower();
 
                     while (addFoodOption != "yes" && addFoodOption != "no")

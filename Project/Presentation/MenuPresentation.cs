@@ -393,6 +393,8 @@ public static class MenuPresentation
         string timeOfDay = string.Empty;
         while (true)
         {
+            Console.Clear();
+
             Console.Write("Enter the time of day (Morning, Midday, Evening, Night) or leave blank for any (or press Q to quit, or B to go back): ");
             timeOfDay = Console.ReadLine()?.Trim().ToLower();
             Console.Clear();
@@ -853,6 +855,8 @@ public static class MenuPresentation
         string timeOfDay = string.Empty;
         while (true)
         {
+            Console.Clear();
+
             Console.Write("Enter the time of day (Morning, Midday, Evening, Night) or leave blank for any (or press Q to quit, or B to go back): ");
             timeOfDay = Console.ReadLine()?.Trim().ToLower();
             Console.Clear();

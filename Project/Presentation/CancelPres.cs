@@ -167,6 +167,7 @@ public class CancelPres
         if (!BookFlightPresentation.allBookedFlights.ContainsKey(email) || BookFlightPresentation.allBookedFlights[email].Count == 0)
         {
             Console.WriteLine("You have no flights booked.");
+            return;
         }
 
         Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();

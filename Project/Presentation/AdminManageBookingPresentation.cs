@@ -613,7 +613,7 @@ namespace DataAccess
         {
             while (true)
             {
-                Console.WriteLine("Do you want to save the changes?");
+                Console.Write("Do you want to save the changes? (yes/no): ");
                 string answer = Console.ReadLine().ToLower();
                 if (answer == "yes")
                 {

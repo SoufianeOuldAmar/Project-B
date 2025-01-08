@@ -7,7 +7,18 @@
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,
-    "Notifications": []
+    "Notifications": [
+      {
+        "Id": 1,
+        "FlightID": 36,
+        "NewStatus": null,
+        "Description": "New Seat Added",
+        "OldDetails": null,
+        "NewDetails": "20A",
+        "IsRead": true,
+        "ActionRequired": false
+      }
+    ]
   },
   {
     "id": 2,
