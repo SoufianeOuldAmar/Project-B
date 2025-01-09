@@ -13,9 +13,6 @@ public static class BookFlightPresentation
     public static AccountModel currentAccount = AccountsLogic.CurrentAccount;
     public static List<FoodAndDrinkItem> selectedItems = new List<FoodAndDrinkItem>();
 
-
-    private static readonly FinancialReport generator = new FinancialReport();
-
     public static List<BaggageLogic> baggageInfo = new List<BaggageLogic>();
 
     private static string GenerateInitials(PassengerModel passenger)
@@ -339,8 +336,6 @@ public static class BookFlightPresentation
 
         FlightModel selectedFlight = flightModel;
 
-        FinancialReport financialReport = new FinancialReport();
-
         if (!searchFlightFunction)
         {
             while (true)
@@ -586,7 +581,7 @@ public static class BookFlightPresentation
                     }
 
                     // Save all payments at once
-                    financialReport.SavePayements(allPayments);
+                    FinancialReportAccess.SavePayements(allPayments);
 
 
 

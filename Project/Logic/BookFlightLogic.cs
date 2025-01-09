@@ -152,8 +152,6 @@ public static class BookFlightLogic
                         // Only add points if they haven't been added before
                         if (bookedFlight.FlightPoints == 0) // Check if no points were added yet
                         {   
-                            Console.WriteLine("OEEEEEEEEEEEEEEEEEEH");
-                            Thread.Sleep(5000);
                             bookedFlight.FlightPoints += flight.FlightPoints * bookedFlight.BookedSeats.Count;
                             account.TotalFlightPoints += flight.FlightPoints * bookedFlight.BookedSeats.Count;
 

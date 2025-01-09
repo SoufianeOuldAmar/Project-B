@@ -5,7 +5,6 @@ using DataModels;
 
 public class FoodAndDrinkPresentation
 {
-    private static readonly FinancialReport generator = new FinancialReport();
     public static (double, List<FoodAndDrinkItem>) AddFoodAndDrinksToBooking(FlightModel flightModel)
     {
         Console.Clear();
@@ -22,7 +21,6 @@ public class FoodAndDrinkPresentation
         Console.WriteLine("0. If you want to continue");
 
         List<FoodAndDrinkItem> selectedItems = new List<FoodAndDrinkItem>();
-        FinancialReport financialReport = new FinancialReport();
         double totalCost = 0;
 
         while (true)
@@ -68,7 +66,7 @@ public class FoodAndDrinkPresentation
             allPayments.Add(foodAndDrinkPayment);
         }
 
-        financialReport.SavePayements(allPayments);
+        FinancialReportAccess.SavePayements(allPayments);
 
 
         return (totalCost, selectedItems);
