@@ -7,7 +7,9 @@ public static class FinancialReportLogic
 
     public static List<Payement> GetPaymentsByYear(int year)
     {
-        var payements = FinancialReportAccess.LoadPayements();
+        // var payements = FinancialReportAccess.LoadPayements();
+        var payements = DataAccessClass.ReadList<Payement>("DataSources/FinancialReport.json");
+
         var currentDate = DateTime.Now;
 
         return payements

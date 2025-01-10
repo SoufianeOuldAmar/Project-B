@@ -581,7 +581,9 @@ public static class BookFlightPresentation
                     }
 
                     // Save all payments at once
-                    FinancialReportAccess.SavePayements(allPayments);
+                    // FinancialReportAccess.SavePayements(allPayments);
+                    DataAccessClass.WriteList<Payement>("DataSources/FinancialReport.json", allPayments);
+
 
 
 
@@ -685,9 +687,12 @@ public static class BookFlightPresentation
                 {
                     selectedFlight.Layout.ConfirmBooking();
 
-                    var existingPassengers = PassengerAccess.LoadPassengers();
+                    // var existingPassengers = PassengerAccess.LoadPassengers();
+                    var existingPassengers = DataAccessClass.ReadList<PassengerModel>("DataSources/passengers.json");
+
                     existingPassengers.AddRange(passengers);
-                    PassengerAccess.SavePassengers(existingPassengers);
+                    // PassengerAccess.SavePassengers(existingPassengers);
+                    DataAccessClass.WriteList<PassengerModel>("DataSources/passengers.json", existingPassengers);
 
                     var bookedFlight1 = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false, currentAccount.EmailAddress);
                     bookedFlight1.TicketBill += totalPrice;

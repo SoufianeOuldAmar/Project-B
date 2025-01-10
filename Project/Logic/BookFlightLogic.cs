@@ -70,7 +70,8 @@ public static class BookFlightLogic
     {
         try
         {
-            PassengerAccess.SavePassengers(passengers);
+            // PassengerAccess.SavePassengers(passengers);
+            DataAccessClass.WriteList<PassengerModel>("DataSources/passengers.json", passengers);
 
             var currentAccount = AccountsLogic.CurrentAccount;
 
@@ -151,7 +152,7 @@ public static class BookFlightLogic
                     {
                         // Only add points if they haven't been added before
                         if (bookedFlight.FlightPoints == 0) // Check if no points were added yet
-                        {   
+                        {
                             bookedFlight.FlightPoints += flight.FlightPoints * bookedFlight.BookedSeats.Count;
                             account.TotalFlightPoints += flight.FlightPoints * bookedFlight.BookedSeats.Count;
 
@@ -161,7 +162,7 @@ public static class BookFlightLogic
                         }
                     }
                 }
-        
+
             }
 
             // If any points were updated, add the email's booked flights to the updated dictionary

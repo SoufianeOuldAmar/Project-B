@@ -37,7 +37,7 @@ public static class EmployeesLogic
 
     public static List<EmployeesModel> GetAllEmployees()
     {
-        return EmployeesAccess.LoadAll();
+        return DataAccessClass.ReadList<EmployeesModel>("DataSources/Emplyoees.json");
     }
     public static EmployeesModel SelectEmployeeId(int id)
     {
@@ -48,12 +48,13 @@ public static class EmployeesLogic
 
     public static bool SaveChangesLogic(EmployeesModel employee)
     {
-        var employees = EmployeesAccess.LoadAll();
+        var employees = DataAccessClass.ReadList<EmployeesModel>("DataSources/Emplyoees.json");
         var emloyeeToUpdate = employees.FirstOrDefault(f => f.Id == employee.Id);
         if (emloyeeToUpdate != null)
         {
             emloyeeToUpdate.Accepted = employee.Accepted;
-            EmployeesAccess.WriteAll(employees);
+            // EmployeesAccess.WriteAll(employees);
+            DataAccessClass.WriteList<EmployeesModel>("DataSources/Emplyoees.json", employees);
             return true;
         }
         return false;

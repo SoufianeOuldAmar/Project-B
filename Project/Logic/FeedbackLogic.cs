@@ -12,7 +12,7 @@ namespace BusinessLogic
                 throw new ArgumentException("Feedback cannot be empty.");
             }
 
-            var feedbacks = FeedbackAccess.LoadAll();
+            var feedbacks = DataAccessClass.ReadList<FeedbackModel>("DataSources/feedback.json");
             int newId = feedbacks.Count > 0 ? feedbacks.Max(f => f.Id) + 1 : 1;
             var feedback = new FeedbackModel(newId, userEmail, content);
             FeedbackAccess.AddFeedback(feedback);
