@@ -183,7 +183,23 @@ public class FoodAndDrinkPresentation
             Console.ResetColor();
 
             // Save the updated flight details
-            BookedFlightsAccess.WriteSingle(bookedFlight.Email, bookedFlight);
+            if (BookFlightPresentation.allBookedFlights.ContainsKey(bookedFlight.Email))
+            {
+                var userFlights = BookFlightPresentation.allBookedFlights[bookedFlight.Email];
+
+                var existingFlight = userFlights.FirstOrDefault(f => f.FlightID == bookedFlight.FlightID);
+                if (existingFlight != null)
+                {
+                    userFlights.Remove(existingFlight);
+                }
+                userFlights.Add(bookedFlight);
+            }
+            else
+            {
+                BookFlightPresentation.allBookedFlights[bookedFlight.Email] = new List<BookedFlightsModel> { bookedFlight };
+            }
+
+            BookedFlightsAccess.WriteAll(bookedFlight.Email, BookFlightPresentation.allBookedFlights[bookedFlight.Email]);
         }
         else
         {

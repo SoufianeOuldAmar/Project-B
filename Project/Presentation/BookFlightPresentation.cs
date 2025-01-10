@@ -715,6 +715,8 @@ public static class BookFlightPresentation
 
                     BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, bookedFlightModel);
 
+                    BookFlightPresentation.allBookedFlights = BookedFlightsAccess.LoadAll();
+
                     FlightsAccess.WriteAll(allFlights);
 
                     Console.WriteLine("\nBooking confirmed successfully!");
