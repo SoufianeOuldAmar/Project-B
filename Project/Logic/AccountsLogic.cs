@@ -11,7 +11,7 @@ public static class AccountsLogic
         CorrectCredentials
     }
 
-    public static List<AccountModel> _accounts = AccountsAccess.LoadAll();
+    public static List<AccountModel> _accounts = DataAccessClass.ReadList<AccountModel>("DataSources/accounts.json");
     static public AccountModel? CurrentAccount { get; private set; }
 
     public static void UpdateList(AccountModel acc)

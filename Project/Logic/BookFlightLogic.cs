@@ -161,11 +161,7 @@ public static class BookFlightLogic
                         }
                     }
                 }
-                else
-                {   
-                    // Console.WriteLine("WAAAAAAAAAAAAAAAAAAAAAH");
-                    // Thread.Sleep(5000);
-                }
+        
             }
 
             // If any points were updated, add the email's booked flights to the updated dictionary

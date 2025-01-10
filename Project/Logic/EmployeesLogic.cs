@@ -46,20 +46,6 @@ public static class EmployeesLogic
         return employee.FirstOrDefault(empl => empl.Id == id);
     }
 
-    // public static void OpenFile(string filePath)
-    // {
-    //     string command = Environment.OSVersion.Platform == PlatformID.Win32NT ? "explorer" :
-    //                      Environment.OSVersion.Platform == PlatformID.Unix ? "open" : "";
-
-    //     if (!string.IsNullOrEmpty(command))
-    //     {
-    //         System.Diagnostics.Process.Start(command, filePath);
-    //     }
-    //     else
-    //     {
-    //         Console.WriteLine("Unsupported operating system for opening files.");
-    //     }
-    // }
     public static bool SaveChangesLogic(EmployeesModel employee)
     {
         var employees = EmployeesAccess.LoadAll();

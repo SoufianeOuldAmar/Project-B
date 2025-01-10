@@ -139,5 +139,4 @@ public static class BookedFlightsAccess
         return new List<BookedFlightsModel>();
     }
 
-
 }

@@ -142,11 +142,11 @@ public static class RescheduleLogic
         totalFee = Math.Round(totalFee, 2);
 
         // update the fee to users account
-        List<AccountModel> accounts = AccountsAccess.LoadAll();
+        List<AccountModel> accounts = DataAccessClass.ReadList<AccountModel>("DataSources/accounts.json");
         AccountModel account = accounts.FirstOrDefault(x => x.EmailAddress == email);
         if (account != null)
         {
-            account.Fee = totalFee; AccountsAccess.WriteAll(accounts);
+            account.Fee = totalFee; DataAccessClass.WriteList<AccountModel>("DataSources/accounts.json", accounts);
 
         }
         else

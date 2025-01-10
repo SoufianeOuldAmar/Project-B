@@ -17,6 +17,16 @@
         "NewDetails": "20A",
         "IsRead": true,
         "ActionRequired": false
+      },
+      {
+        "Id": 2,
+        "FlightID": 9,
+        "NewStatus": null,
+        "Description": "New Seat Added",
+        "OldDetails": null,
+        "NewDetails": "20A",
+        "IsRead": false,
+        "ActionRequired": false
       }
     ]
   },

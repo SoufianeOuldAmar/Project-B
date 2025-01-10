@@ -700,7 +700,7 @@ public static class BookFlightPresentation
                         bookedFlight1
                     };
 
-                    AccountsAccess.WriteAll(AccountsLogic._accounts);
+                    DataAccessClass.WriteList<AccountModel>("DataSources/accounts.json", AccountsLogic._accounts);
                     AccountsAccess.UpdateCurrentAccount(currentAccount);
 
                     foreach (var bookedFlight in bookedFlightModel)
