@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DataModels;
 
 namespace DataAccess
 {
@@ -8,7 +9,7 @@ namespace DataAccess
         public static void LoadBookedPresentation()
         {
             Console.Clear();
-            var flightDeatails = FlightsAccess.ReadAll();
+            var flightDetails = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
             var BookdeFlight = BookedFlightsAccess.LoadAll();
 
             foreach (var emailBookingPair in BookdeFlight)
@@ -57,7 +58,7 @@ namespace DataAccess
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(books.IsCancelled);
 
-                    var flight = flightDeatails.Find(f => f.Id == books.FlightID);
+                    var flight = flightDetails.Find(f => f.Id == books.FlightID);
 
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write($"  Date: ");
@@ -81,7 +82,7 @@ namespace DataAccess
 
         public static List<BookedFlightsModel> SearchBookedPresentaion(string email) // List<BookedFlightsModel> 
         {
-            var flightDeatails = FlightsAccess.ReadAll();
+            var flightDetails = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
             var BookedFlight = BookedFlightsAccess.LoadAll();
             List<BookedFlightsModel> bookings = new List<BookedFlightsModel>();
 
@@ -126,7 +127,7 @@ namespace DataAccess
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(books.IsCancelled);
 
-                    var flight = flightDeatails.Find(f => f.Id == books.FlightID);
+                    var flight = flightDetails.Find(f => f.Id == books.FlightID);
 
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write($"  Date: ");
@@ -152,7 +153,7 @@ namespace DataAccess
         {
 
             var BookdeFlight = BookedFlightsAccess.LoadAll();
-            var flightDeatails = FlightsAccess.ReadAll();
+            var flightDetails = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
 
             List<string> seatChanges = new List<string>();
             List<string> newSeats = new List<string>();
@@ -230,7 +231,7 @@ namespace DataAccess
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine(selectedBooking.IsCancelled);
 
-                            var flight = flightDeatails.Find(f => f.Id == selectedBooking.FlightID);
+                            var flight = flightDetails.Find(f => f.Id == selectedBooking.FlightID);
 
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.Write($"  Date: ");

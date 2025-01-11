@@ -7,7 +7,7 @@ using System.Linq;
 public static class CalendarLogic
 {
     // Read all flight data
-    public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
+    public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
 
     public static string GetCalendarHeader(int month, int year)
     {

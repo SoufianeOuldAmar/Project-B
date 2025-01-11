@@ -95,7 +95,7 @@ public static class NotificationLogic
         account.Notifications.AddRange(newNotifications);
 
         // Update the account in the database
-        AccountsAccess.UpdateCurrentAccount(account);
+        DataAccessClass.UpdateCurrentAccount(account);
     }
 
     // TODO: Verander ticketprice, gate en newtime, met olddetails en iscancelled is voor de andere constructor
@@ -150,7 +150,7 @@ public static class NotificationLogic
                         {
                             var account = AccountsLogic.GetByEmail(email);
                             account.Notifications.AddRange(newNotifications);
-                            AccountsAccess.UpdateCurrentAccount(account);
+                            DataAccessClass.UpdateCurrentAccount(account);
                         }
                     }
                 }

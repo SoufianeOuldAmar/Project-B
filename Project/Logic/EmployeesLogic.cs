@@ -41,7 +41,8 @@ public static class EmployeesLogic
     }
     public static EmployeesModel SelectEmployeeId(int id)
     {
-        var employee = EmployeesAccess.LoadAll();
+        var employee = DataAccessClass.ReadList<EmployeesModel>("DataSources/Emplyoees.json");
+
 
         return employee.FirstOrDefault(empl => empl.Id == id);
     }

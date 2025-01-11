@@ -194,7 +194,7 @@ public static class MenuPresentation
         Console.WriteLine("=== 🔍 Search Flights ===\n");
 
         // Lees JSON-data in
-        List<FlightModel> flights = FlightsAccess.ReadAll();
+        List<FlightModel> flights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
 
     start:
         string departureAirport = string.Empty;
@@ -686,7 +686,7 @@ public static class MenuPresentation
     }
 
     public static List<FlightModel> bookedFlights = new List<FlightModel>(); // We maken een lijst van geboekte vluchten
-    public static List<FlightModel> flights = FlightsAccess.ReadAll(); // dit zorgt ervoor dat we de json file kunnen lezen
+    public static List<FlightModel> flights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json"); // dit zorgt ervoor dat we de json file kunnen lezen
 
     public static void SearchFlightsMenu()
     {
@@ -694,7 +694,7 @@ public static class MenuPresentation
         Console.WriteLine("=== 🔍 Search Flights ===\n");
 
         // Lees JSON-data in
-        List<FlightModel> flights = FlightsAccess.ReadAll();
+        List<FlightModel> flights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
 
     start:
         string departureAirport = string.Empty;

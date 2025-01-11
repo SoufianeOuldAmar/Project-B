@@ -182,7 +182,7 @@ public class FoodAndDrinkPresentation
             Console.ResetColor();
 
             // Save the updated flight details
-            BookedFlightsAccess.WriteSingle(bookedFlight.Email, bookedFlight);
+            BookedFlightsAccess.SaveSingle(bookedFlight.Email, bookedFlight);
         }
         else
         {

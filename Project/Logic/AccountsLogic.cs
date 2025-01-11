@@ -29,7 +29,8 @@ public static class AccountsLogic
             _accounts.Add(acc);
         }
 
-        AccountsAccess.WriteAll(_accounts);
+        DataAccessClass.WriteList<AccountModel>("DataSources/accounts.json", _accounts);
+
     }
 
     public static string CreateAccount(string fullName, string email, string password)

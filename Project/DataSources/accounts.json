@@ -25,7 +25,7 @@
         "Description": "New Seat Added",
         "OldDetails": null,
         "NewDetails": "20A",
-        "IsRead": false,
+        "IsRead": true,
         "ActionRequired": false
       }
     ]
@@ -126,6 +126,16 @@
     "emailAddress": "niemand@",
     "password": "password1",
     "fullName": "Iemand Anders",
+    "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
+    "fees": 0,
+    "Notifications": []
+  },
+  {
+    "id": 8,
+    "emailAddress": "new@",
+    "password": "W8woordA!",
+    "fullName": "New",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,

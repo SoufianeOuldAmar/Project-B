@@ -5,7 +5,7 @@ namespace DataAccess
 
     public static class AdminManageBookingLogic
     {
-        public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
+        public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
         public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
 
         public static bool SeatLogic(string newSeat)

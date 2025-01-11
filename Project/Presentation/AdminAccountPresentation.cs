@@ -109,7 +109,7 @@ static class AdminAccountPresentation
 
                         if (newFlight != null)
                         {
-                            FlightsAccess.AdminAddNewFlight(newFlight);
+                            DataAccessClass.AdminAddNewFlight(newFlight);
                         }
 
                         Console.Clear();

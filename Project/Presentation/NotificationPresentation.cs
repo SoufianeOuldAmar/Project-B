@@ -99,7 +99,7 @@ public static class NotificationPresentation
         if (choice == "1")
         {
             notification.IsRead = true;
-            AccountsAccess.UpdateCurrentAccount(currentAccount);
+            DataAccessClass.UpdateCurrentAccount(currentAccount);
             Console.WriteLine("\nNotification marked as read.");
         }
         else if (choice == "2")

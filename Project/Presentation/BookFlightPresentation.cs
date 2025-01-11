@@ -8,7 +8,7 @@ using PresentationLayer;
 
 public static class BookFlightPresentation
 {
-    public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
+    public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
     public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
     public static AccountModel currentAccount = AccountsLogic.CurrentAccount;
     public static List<FoodAndDrinkItem> selectedItems = new List<FoodAndDrinkItem>();
@@ -706,7 +706,7 @@ public static class BookFlightPresentation
                     };
 
                     DataAccessClass.WriteList<AccountModel>("DataSources/accounts.json", AccountsLogic._accounts);
-                    AccountsAccess.UpdateCurrentAccount(currentAccount);
+                    DataAccessClass.UpdateCurrentAccount(currentAccount);
 
                     foreach (var bookedFlight in bookedFlightModel)
                     {
@@ -715,7 +715,8 @@ public static class BookFlightPresentation
 
                     BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, bookedFlightModel);
 
-                    FlightsAccess.WriteAll(allFlights);
+                    DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", allFlights);
+
 
                     Console.WriteLine("\nBooking confirmed successfully!");
                     Console.WriteLine("All passenger information has been saved.");

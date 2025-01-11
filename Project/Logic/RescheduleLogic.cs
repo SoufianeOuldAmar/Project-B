@@ -137,7 +137,8 @@ public static class RescheduleLogic
         // update 
         specificFlight.FlightID = newFlightIdGiven.Id;
         BookFlightPresentation.allBookedFlights[email] = retrieveBookFlights;
-        FlightsAccess.WriteAll(BookFlightPresentation.allFlights);
+        DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", BookFlightPresentation.allFlights);
+
 
         totalFee = Math.Round(totalFee, 2);
 

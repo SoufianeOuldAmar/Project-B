@@ -15,33 +15,33 @@ namespace BusinessLogic
             var feedbacks = DataAccessClass.ReadList<FeedbackModel>("DataSources/feedback.json");
             int newId = feedbacks.Count > 0 ? feedbacks.Max(f => f.Id) + 1 : 1;
             var feedback = new FeedbackModel(newId, userEmail, content);
-            FeedbackAccess.AddFeedback(feedback);
+            DataAccessClass.AddFeedback(feedback);
         }
 
         public static List<FeedbackModel> GetAllFeedbacks()
         {
-            return FeedbackAccess.LoadAll();
+            return DataAccessClass.ReadList<FeedbackModel>("DataSources/feedback.json");
         }
 
         public static void CloseFeedback(int id)
         {
-            var feedbacks = FeedbackAccess.LoadAll();
+            var feedbacks = DataAccessClass.ReadList<FeedbackModel>("DataSources/feedback.json");
             var feedbackToClose = feedbacks.FirstOrDefault(f => f.Id == id);
             if (feedbackToClose != null)
             {
                 feedbackToClose.IsClosed = true;
-                FeedbackAccess.SaveAll(feedbacks);
+                DataAccessClass.WriteList<FeedbackModel>("DataSources/feedback.json", feedbacks);
             }
         }
-        
+
         public static void DeleteFeedback(int id)
         {
-            var feedbacks = FeedbackAccess.LoadAll();
+            var feedbacks = DataAccessClass.ReadList<FeedbackModel>("DataSources/feedback.json");
             var feedbackToRemove = feedbacks.FirstOrDefault(f => f.Id == id);
             if (feedbackToRemove != null)
             {
                 feedbacks.Remove(feedbackToRemove);
-                FeedbackAccess.SaveAll(feedbacks);
+                DataAccessClass.WriteList<FeedbackModel>("DataSources/feedback.json", feedbacks);
             }
         }
     }
