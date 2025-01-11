@@ -4,6 +4,7 @@ using System.Linq;
 using DataModels;
 using DataAccess;
 using System.Threading;
+using System.Globalization;
 
 public static class BookFlightLogic
 {
@@ -118,13 +119,27 @@ public static class BookFlightLogic
         foreach (var flight in allFlights)
         {
             // Combine DepartureDate and FlightTime into a DateTime
-            DateTime departureDateTime = DateTime.Parse(flight.DepartureDate + " " + flight.FlightTime);
+            string departureDateTimeString = flight.DepartureDate + " " + flight.FlightTime;
 
-            // Check if the flight's departure is in the past
-            if (currentDateTime >= departureDateTime)
+            try
             {
-                flight.HasTakenOff = true;
-                flightsTakenOff.Add(flight.Id);
+                DateTime departureDateTime = DateTime.ParseExact(
+                    departureDateTimeString,
+                    "dd-MM-yyyy HH:mm",
+                    CultureInfo.InvariantCulture // Ensures culture-independent parsing
+                );
+
+                // Check if the flight's departure is in the past
+                if (currentDateTime >= departureDateTime)
+                {
+                    flight.HasTakenOff = true;
+                    flightsTakenOff.Add(flight.Id);
+                }
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine($"Error parsing date: {departureDateTimeString}");
+                Console.WriteLine($"Exception: {ex.Message}");
             }
         }
 
@@ -151,9 +166,9 @@ public static class BookFlightLogic
                     {
                         // Only add points if they haven't been added before
                         if (bookedFlight.FlightPoints == 0) // Check if no points were added yet
-                        {   
-                            Console.WriteLine("OEEEEEEEEEEEEEEEEEEH");
-                            Thread.Sleep(5000);
+                        {
+                            // Console.WriteLine("OEEEEEEEEEEEEEEEEEEH");
+                            // Thread.Sleep(5000);
                             bookedFlight.FlightPoints += flight.FlightPoints * bookedFlight.BookedSeats.Count;
                             account.TotalFlightPoints += flight.FlightPoints * bookedFlight.BookedSeats.Count;
 
@@ -164,7 +179,7 @@ public static class BookFlightLogic
                     }
                 }
                 else
-                {   
+                {
                     // Console.WriteLine("WAAAAAAAAAAAAAAAAAAAAAH");
                     // Thread.Sleep(5000);
                 }

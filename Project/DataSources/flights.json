@@ -16612,7 +16612,7 @@
     "availableSeats": 180,
     "flightPoints": 27,
     "totalPets": 0,
-    "hasTakenOff": false
+    "hasTakenOff": true
   },
   {
     "id": 37,
@@ -29028,7 +29028,7 @@
     "availableSeats": 180,
     "flightPoints": 25,
     "totalPets": 0,
-    "hasTakenOff": false
+    "hasTakenOff": true
   },
   {
     "id": 68,
