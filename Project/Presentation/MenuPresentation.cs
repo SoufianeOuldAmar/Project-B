@@ -74,8 +74,7 @@ public static class MenuPresentation
     {
         AccountPresentation.LogIn();
     }
-
-
+    
     public static void CreateAccountMenu()
     {
         AccountPresentation.CreateAccount();
@@ -88,82 +87,12 @@ public static class MenuPresentation
 
     public static void ViewFlightPointsMenu()
     {
-
-        Console.WriteLine("=== 🎯 View Flight Points ===\n");
-        // var currentAccount = AccountsLogic.CurrentAccount;
-
-
-        string email = currentAccount.EmailAddress; // Get the email of the current account
-
-        // Load the booked flights for this specific email
-        var bookedFlights = BookedFlightsAccess.LoadByEmail(email);
-
-        if (bookedFlights.Count > 0)
-        {
-            Console.WriteLine(new string('-', 105));
-            // Header
-            Console.WriteLine("| {0,-8} | {1,-22} | {2,-17} | {3,-22}  | {4,-18} |",
-                              "Index", "Flight Points Earned",
-                              "Flight ID", "Tickets Bought", "Total Flight Points");
-            Console.WriteLine(new string('-', 105)); // Divider with adjusted width
-
-            int totalFlightPoints = 0;
-            int index = 1;
-
-            // Rows
-            foreach (var bookedFlight in bookedFlights)
-            {
-                totalFlightPoints += bookedFlight.FlightPoints;
-
-                Console.WriteLine("| {0,-8} | {1,-22} | {2,-17} | {3,-22}  | {4,-18}  |",
-                                  index,
-                                  bookedFlight.FlightPoints,
-                                  bookedFlight.FlightID,
-                                  bookedFlight.BookedSeats.Count, // Assuming TicketsBought is the number of seats
-                                  ""); // Empty for total column in rows
-                index++;
-            }
-
-            Console.WriteLine(new string('-', 105));
-
-            // Total Row
-            Console.WriteLine("| {0,-8} | {1,-22} | {2,-17} | {3,-22}  | {4,-18}  |",
-                              "", // Empty for other columns
-                              "",
-                              "",
-                              "",
-                              "🏆 " + totalFlightPoints);
-
-            Console.WriteLine(new string('-', 105) + "\n");
-        }
-        else
-        {
-            Console.WriteLine("You have zero booked flights so there is no transaction history.\n");
-        }
-
-
-        // Prompt to go back
-        while (true)
-        {
-            Console.Write("Press 'Q' to go back: ");
-            string input = Console.ReadLine().ToUpper();
-
-            if (input != "Q")
-            {
-                Console.WriteLine("Wrong input try again, press 'Q' to go back");
-                continue;
-            }
-            else
-            {
-                MenuLogic.PopMenu();
-                break;
-            }
-        }
+        FlightPointPresentation.ViewFlightPointsMenu();
     }
 
     public static void SearchFlightsBeforeLogin()
     {
-        SearchFlightPresentation.SearchFlightsMenuBeforeLogIn();
+        SearchFlightPresentation.SearchFlightMenu(true);
     }
 
     public static void FrontPageUser(AccountModel accountModel)
@@ -217,32 +146,7 @@ public static class MenuPresentation
                 Console.WriteLine("\nLogging out...");
                 MenuLogic.PopMenu();
                 MenuLogic.PopMenu();
-                break;
-            default:
-                Console.WriteLine("Invalid choice. Please try again.");
-                break;
-        }
-    }
-
-
-    public static void FrontPageAdmin(AccountModel accountModel)
-    {
-        Console.WriteLine($"Logged in as admin: {accountModel.FullName}\n");
-        Console.WriteLine("=== Front page ===");
-        Console.WriteLine("1. Modify flights");
-        Console.WriteLine("2. Log out");
-        Console.Write("\nChoose an option: ");
-        string choice = Console.ReadLine();
-
-        switch (choice)
-        {
-            case "1":
-                // MenuLogic.PushMenu(OrderTicketMenu);
-                Console.WriteLine("\nThis feature isn't available yet.");
-                break;
-            case "2":
-                MenuLogic.PopMenu();
-                MenuLogic.PopMenu();
+                currentAccount = null;
                 break;
             default:
                 Console.WriteLine("Invalid choice. Please try again.");
@@ -255,7 +159,7 @@ public static class MenuPresentation
 
     public static void SearchFlightsMenu()
     {
-        SearchFlightPresentation.SearchFlightMenu();
+        SearchFlightPresentation.SearchFlightMenu(false);
     }
 
     public static void NotificationPage()

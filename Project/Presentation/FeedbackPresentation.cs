@@ -9,10 +9,11 @@ public static class FeedbackPresentation
         while (!isValidChoice)
         {
             Console.Clear();
-            Console.WriteLine("=== 📋 Feedback Menu ===");
-            Console.WriteLine("1. Submit Feedback");
-            Console.WriteLine("2. Manage Feedbacks");
-            Console.WriteLine("3. Quit");
+            Console.WriteLine("=== 📋 Feedback Menu ===\n");
+            Console.WriteLine("1. 📝 Submit Feedback");
+            Console.WriteLine("2. 📂 Manage Feedbacks");
+            Console.WriteLine("3. ❌ Quit");
+
             Console.Write("\nChoose an option: ");
 
             string choice = Console.ReadLine();
@@ -28,7 +29,7 @@ public static class FeedbackPresentation
                 isValidChoice = true;
             }
             else if (choice == "3")
-            {   
+            {
                 MenuPresentation.PressAnyKey();
                 isValidChoice = true;
             }
@@ -44,7 +45,7 @@ public static class FeedbackPresentation
     public static void SubmitFeedbackMenu(AccountModel accountModel)
     {
         Console.Clear();
-        Console.WriteLine("=== Submit Feedback ===");
+        Console.WriteLine("=== 📝 Submit Feedback ===\n");
         Console.Write("Enter your feedback: ");
         string content = Console.ReadLine();
 
@@ -73,7 +74,7 @@ public static class FeedbackPresentation
             return;
         }
 
-        Console.WriteLine("=== Manage Feedbacks ===");
+        Console.WriteLine("=== 📂 Manage Feedbacks ===\n");
         foreach (var feedback in feedbacks)
         {
             Console.WriteLine($"ID: {feedback.Id}");
@@ -82,7 +83,7 @@ public static class FeedbackPresentation
             Console.WriteLine(new string('-', 30));
         }
 
-        Console.Write("Enter the ID of the feedback to delete or press Enter to go back: ");
+        Console.Write("\nEnter the ID of the feedback to delete or press Enter to go back: ");
         string input = Console.ReadLine();
 
         if (int.TryParse(input, out int id))
@@ -113,7 +114,7 @@ public static class FeedbackPresentation
             return;
         }
 
-        Console.WriteLine("=== Manage Feedback ===");
+        Console.WriteLine("=== 👀 View Feedback ===\n");
         foreach (var feedback in feedbacks)
         {
             Console.WriteLine($"ID: {feedback.Id}");
@@ -123,7 +124,7 @@ public static class FeedbackPresentation
             Console.WriteLine(new string('-', 30));
         }
 
-        Console.Write("Enter the ID of the feedback to manage or press Enter to go back: ");
+        Console.Write("\nEnter the ID of the feedback to manage or press Enter to go back: ");
         string input = Console.ReadLine();
 
         if (int.TryParse(input, out int id))

@@ -26,8 +26,11 @@ namespace DataAccess
             int totalPages = (int)Math.Ceiling(allFlights.Count / (double)pageSize);
 
             while (true)
-            {
+            {   
                 Console.Clear();
+
+                Console.WriteLine("=== ✏️  Change current flight details ===\n");
+
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"Displaying page {currentPage + 1}/{totalPages}");
                 Console.WriteLine("=====================================");

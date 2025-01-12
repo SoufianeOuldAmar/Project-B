@@ -69,40 +69,13 @@ static class AdminAccountPresentation
                     Console.WriteLine("3. 🔄 Reset all flights");
                     Console.WriteLine("4. 📅 Manage the bookings");
                     Console.WriteLine("5. 👀 View Feedback");
-                    Console.WriteLine("6. 👤 Review employee");
+                    Console.WriteLine("6. 👤 Review employee(s)");
                     Console.WriteLine("7. 🔓 Log out");
-                
+
                     Console.Write("\nChoose an option: ");
                     string keyInfo = Console.ReadLine();
 
-                    if (keyInfo == "7")
-                    {
-                        while (true)
-                        {
-                            Console.Write("\nAre you sure you want to log out? (yes/no): ");
-                            string logOut = Console.ReadLine()?.ToLower();
-
-                            if (logOut == "yes")
-                            {
-                                Console.WriteLine("\nLogging out...");
-                                MenuLogic.PopMenu();
-                                adminMenuRunning = false;
-                                isRunning = false; // Exit the main login loop
-                                break;
-                            }
-                            else if (logOut == "no")
-                            {
-                                Console.Clear();
-                                break;
-                            }
-                            else
-                            {
-                                Console.Clear();
-                                Console.WriteLine("Incorrect input, enter either 'yes' or 'no'.");
-                            }
-                        }
-                    }
-                    else if (keyInfo == "1")
+                    if (keyInfo == "1")
                     {
                         AdminAddFlightsPresentation adminAddflight = new AdminAddFlightsPresentation();
                         FlightModel newFlight = adminAddflight.AddNewFlights();
@@ -148,6 +121,33 @@ static class AdminAccountPresentation
                         Console.Clear();
                         // break;
 
+                    }
+                    else if (keyInfo == "7")
+                    {
+                        while (true)
+                        {
+                            Console.Write("\nAre you sure you want to log out? (yes/no): ");
+                            string logOut = Console.ReadLine()?.ToLower();
+
+                            if (logOut == "yes")
+                            {
+                                Console.WriteLine("\nLogging out...");
+                                MenuLogic.PopMenu();
+                                adminMenuRunning = false;
+                                isRunning = false; // Exit the main login loop
+                                break;
+                            }
+                            else if (logOut == "no")
+                            {
+                                Console.Clear();
+                                break;
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Incorrect input, enter either 'yes' or 'no'.");
+                            }
+                        }
                     }
                     else
                     {

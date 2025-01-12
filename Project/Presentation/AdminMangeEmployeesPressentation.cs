@@ -14,17 +14,21 @@ namespace DataAccess
             int currentPage = 0;
             int totalPages = (int)Math.Ceiling(AllEmployees.Count / (double)pageSize);
 
+            
 
             if (AllEmployees == null || AllEmployees.Count == 0)
-            {
+            {   
+                Console.WriteLine("=== 👤 Review employee(s) ===\n");
+
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("No Employees found.");
                 Console.ResetColor();
                 return;
             }
             while (true)
-            {
+            {   
                 Console.Clear();
+                Console.WriteLine("=== 👤 Review employee(s) ===\n");
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"Displaying page {currentPage + 1}/{totalPages}");
                 Console.WriteLine("=====================================");

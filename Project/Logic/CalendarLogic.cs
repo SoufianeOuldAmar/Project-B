@@ -38,7 +38,9 @@ public static class CalendarLogic
                 departureDate.Date == currentDate.Date &&
                 (string.IsNullOrEmpty(departureAirport) || flight.DepartureAirport == departureAirport) &&
                 (string.IsNullOrEmpty(destination) || flight.ArrivalDestination == destination) &&
-                !flight.IsCancelled);
+                !flight.IsCancelled &&        // Ensure the flight is not cancelled
+                !flight.HasTakenOff);         // Ensure the flight has not taken off
+
 
             if (hasFlight)
             {
@@ -138,6 +140,7 @@ public static class CalendarLogic
     // }
     public static List<FlightModel> GetFlightsByDate(DateTime date, string departureAirport, string destination)
     {
+
         return allFlights
             .Where(flight =>
                 (string.IsNullOrEmpty(departureAirport) || flight.DepartureAirport == departureAirport) &&  // Check if departure is given, or ignore 

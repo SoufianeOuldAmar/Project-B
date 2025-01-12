@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Globalization;
+using System.Threading;
 using DataModels;
 
 namespace DataAccess
@@ -6,13 +8,28 @@ namespace DataAccess
     public static class AdminManageBookingPresentation
     {
 
+        public static bool IsEmpty { get; set; } = false;
+
         public static void LoadBookedPresentation()
         {
-            Console.Clear();
-            var flightDetails = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
-            var BookdeFlight = BookedFlightsAccess.LoadAll();
 
-            foreach (var emailBookingPair in BookdeFlight)
+            Console.Clear();
+
+            Console.WriteLine("=== 📅 Manage the bookings ===\n");
+
+            var flightDetails = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
+            var BookedFlight = BookedFlightsAccess.LoadAll();
+
+
+            if (BookedFlight.Count == 0)
+            {
+                Console.WriteLine("No booked flights available");
+                IsEmpty = true;
+                return;
+            }
+
+
+            foreach (var emailBookingPair in BookedFlight)
             {
                 string email = emailBookingPair.Key;
                 var bookings = emailBookingPair.Value;
@@ -166,8 +183,10 @@ namespace DataAccess
 
             while (true)
             {
-                Console.Clear();
+                // Console.Clear();
                 LoadBookedPresentation();
+
+                if (IsEmpty) return;
 
                 Console.Write("Choose an email: ");
                 string email = Console.ReadLine();
