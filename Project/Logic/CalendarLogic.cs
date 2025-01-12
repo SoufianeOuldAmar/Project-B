@@ -12,7 +12,7 @@ public static class CalendarLogic
     private const string GREEN = "\u001b[32m";
     private const string RESET = "\u001b[0m";
 
-    public static string Calendar(int month, int year, string departureAirport, string destination)
+    public static List<string> Calendar(int month, int year, string departureAirport, string destination)
     {
         // Get the first day and the total number of days in the month
         DateTime firstDayOfMonth = new DateTime(year, month, 1);
@@ -90,41 +90,12 @@ public static class CalendarLogic
         }
 
         // Join the lines into a single string with newlines in between
-        string calendarOutput = string.Join("\n", calendarLines);
-        return calendarOutput;
+        // string calendarOutput = string.Join("\n", calendarLines);
+        // return calendarOutput;
+        return calendarLines;
 
     }
 
-
-    public static void PrintCalendar(int month, int year, int currentDay, string departureAirport, string destination)
-    {
-        var calendarData = Calendar(month, year, departureAirport, destination);
-        Console.WriteLine($"{year}               {new DateTime(year, month, 1).ToString("MMMM")}");
-        Console.WriteLine("Sun Mon Tue Wed Thu Fri Sat");
-
-        string[] calendarLines = calendarData.Split('\n');
-        for (int i = 0; i < calendarLines.Length; i += 2)
-        {
-            string line = calendarLines[i];
-            string dotLine = calendarLines[i + 1];
-
-            // Replace current day while ignoring color escape codes
-            string plainCurrentDay = $"{currentDay:D2}";
-            string coloredCurrentDay = $"\x1b[32m{plainCurrentDay}\x1b[0m";
-
-            if (line.Contains(coloredCurrentDay))
-            {
-                line = line.Replace(coloredCurrentDay, $"[{plainCurrentDay}]");
-            }
-            else if (line.Contains(plainCurrentDay))
-            {
-                line = line.Replace(plainCurrentDay, $"[{plainCurrentDay}]");
-            }
-
-            Console.WriteLine(line);
-            Console.WriteLine(dotLine);
-        }
-    }
 
 
     public static (int, int, int) NavigateDate(int currentDay, int currentMonth, int currentYear, string direction, int minYear, int maxYear)

@@ -64,20 +64,10 @@ public class FinancialReport
         Console.WriteLine("---------------------------------------------------------------");
 
 
-    
-
-
-
 
 
 
     }
-
-
-
-
-
-
 
 
 

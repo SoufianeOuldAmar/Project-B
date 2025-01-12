@@ -1,5 +1,6 @@
 public class FinancialAdvisorPres 
 {
+    private static int failedAttempts = 0;
     public static void LogInFinancialAdvisor()
     {
         FinancialAdvisorLogic financial = new FinancialAdvisorLogic();
@@ -33,12 +34,23 @@ public class FinancialAdvisorPres
         }
         else
         {
+            failedAttempts++;
             Console.WriteLine("Invalid username or password. Please try again.");
-            Console.WriteLine("You will need to wait for 30 seconds before trying again...");
-            Thread.Sleep(30000); 
-            LogInFinancialAdvisor();
-        }
 
+            if (failedAttempts >= 3)
+            {
+
+                Console.WriteLine("You have exceeded the maximum number of login attempts.");
+                Console.WriteLine("You will need to wait for 30 seconds before trying again...");
+                Thread.Sleep(30000); 
+                // LogInFinancialAdvisor();
+
+                failedAttempts = 0;
+                Console.Clear();
+
+            }
+
+        }
 
 
 
