@@ -12,6 +12,8 @@ public class AdminAddFlightsPresentation
         Console.Clear();
         LayoutModel layout = LayoutModel.CreateBoeing737Layout();
 
+        Console.WriteLine("=== ➕ Add a new flight ===");
+
         double ticketPrice;
         while (true)
         {

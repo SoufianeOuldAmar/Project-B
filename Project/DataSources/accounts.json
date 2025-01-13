@@ -5,12 +5,22 @@
     "password": "xyz",
     "fullName": "Nikola Tesla",
     "flightPointsDataList": [],
-    "TotalFlightPoints": 81,
+    "TotalFlightPoints": 69,
     "fees": 0,
     "Notifications": [
       {
         "Id": 1,
         "FlightID": 36,
+        "NewStatus": null,
+        "Description": "New Seat Added",
+        "OldDetails": null,
+        "NewDetails": "20A",
+        "IsRead": true,
+        "ActionRequired": false
+      },
+      {
+        "Id": 2,
+        "FlightID": 9,
         "NewStatus": null,
         "Description": "New Seat Added",
         "OldDetails": null,
@@ -116,6 +126,16 @@
     "emailAddress": "niemand@",
     "password": "password1",
     "fullName": "Iemand Anders",
+    "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
+    "fees": 0,
+    "Notifications": []
+  },
+  {
+    "id": 8,
+    "emailAddress": "new@",
+    "password": "W8woordA!",
+    "fullName": "New",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,

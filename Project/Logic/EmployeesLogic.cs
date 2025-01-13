@@ -37,37 +37,25 @@ public static class EmployeesLogic
 
     public static List<EmployeesModel> GetAllEmployees()
     {
-        return EmployeesAccess.LoadAll();
+        return DataAccessClass.ReadList<EmployeesModel>("DataSources/Emplyoees.json");
     }
     public static EmployeesModel SelectEmployeeId(int id)
     {
-        var employee = EmployeesAccess.LoadAll();
+        var employee = DataAccessClass.ReadList<EmployeesModel>("DataSources/Emplyoees.json");
+
 
         return employee.FirstOrDefault(empl => empl.Id == id);
     }
 
-    // public static void OpenFile(string filePath)
-    // {
-    //     string command = Environment.OSVersion.Platform == PlatformID.Win32NT ? "explorer" :
-    //                      Environment.OSVersion.Platform == PlatformID.Unix ? "open" : "";
-
-    //     if (!string.IsNullOrEmpty(command))
-    //     {
-    //         System.Diagnostics.Process.Start(command, filePath);
-    //     }
-    //     else
-    //     {
-    //         Console.WriteLine("Unsupported operating system for opening files.");
-    //     }
-    // }
     public static bool SaveChangesLogic(EmployeesModel employee)
     {
-        var employees = EmployeesAccess.LoadAll();
+        var employees = DataAccessClass.ReadList<EmployeesModel>("DataSources/Emplyoees.json");
         var emloyeeToUpdate = employees.FirstOrDefault(f => f.Id == employee.Id);
         if (emloyeeToUpdate != null)
         {
             emloyeeToUpdate.Accepted = employee.Accepted;
-            EmployeesAccess.WriteAll(employees);
+            // EmployeesAccess.WriteAll(employees);
+            DataAccessClass.WriteList<EmployeesModel>("DataSources/Emplyoees.json", employees);
             return true;
         }
         return false;

@@ -5,15 +5,19 @@ public static class EmployeesPresentation
 {
     public static void InfoEmployeesPresentation()
     {
-        Console.Clear();
         string name;
         while (true)
         {
+            Console.Clear();
+
+            Console.WriteLine("=== 📝 Register ===\n");
+
             Console.Write("Please enter your name: ");
             name = Console.ReadLine();
             if (string.IsNullOrWhiteSpace(name) || EmployeesLogic.NameLogic(name))
             {
                 Console.WriteLine("Invalid input. Name cannot be empty, contain only spaces, or have numbers. Please try again.");
+                MenuPresentation.PressAnyKey();
             }
             else
             {
@@ -26,14 +30,22 @@ public static class EmployeesPresentation
         {
             Console.Write("Please enter your age: ");
             string input = Console.ReadLine();
-            if (int.TryParse(input, out age) && age > 18 && age < 60)
+
+            if (!int.TryParse(input, out age))
+            {
+                Console.WriteLine("Please input a valid number.");
+            }
+            else if (age > 18 && age < 60)
             {
                 break;
             }
             else
             {
                 Console.WriteLine("We only accept employees who are 19 years old or older.");
+
+                return;
             }
+
         }
 
         string filePath;
@@ -93,7 +105,7 @@ public static class EmployeesPresentation
 
         string cvFileName = Path.GetFileName(filePath);
 
-        List<EmployeesModel> employees = EmployeesAccess.LoadAll();
+        List<EmployeesModel> employees = DataAccessClass.ReadList<EmployeesModel>("DataSources/Emplyoees.json");
         EmployeesModel newEmployee = new EmployeesModel(
             name,
             age,
@@ -105,8 +117,8 @@ public static class EmployeesPresentation
             Id = employees.Count() + 1
         };
 
-        employees.Add(newEmployee);
-        EmployeesAccess.WriteAll(employees);
+        // employees.Add(newEmployee);
+        DataAccessClass.WriteList<EmployeesModel>("DataSources/Emplyoees.json", employees);
         Console.WriteLine("Your application has been received successfully. It will be processed shortly.");
 
     }
@@ -143,9 +155,8 @@ public static class EmployeesPresentation
             }
             else
             {
-                Console.WriteLine("No employee found with this Registration ID. Please try again.");
-                Console.WriteLine("Press any key to go back to the main menu.");
-                Console.ReadKey();
+                Console.WriteLine("\nNo employee found with this Registration ID. Please try again.");
+                MenuPresentation.PressAnyKey();
                 Console.Clear();
                 return;
 
@@ -163,15 +174,15 @@ public static class EmployeesPresentation
         Console.Clear();
         while (true)
         {
+            Console.WriteLine("=== 👥 Join Our Team ===\n");
 
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Welcome to the employee registration system.");
+            Console.WriteLine("Welcome to the employee registration system.\n");
             Console.ResetColor();
-            Console.WriteLine("Would you like to:");
-            Console.WriteLine("1. Register as a new employee");
-            Console.WriteLine("2. View the status of your registration");
-            Console.WriteLine("q. to quit");
-            Console.Write("Please enter the number of your choice: ");
+            Console.WriteLine("1. 📝 Register as a new employee");
+            Console.WriteLine("2. 🕒 View the status of your registration");
+            Console.WriteLine("Q. ❌ To quit");
+            Console.Write("\nPlease enter the number of your choice: ");
 
             string input = Console.ReadLine().ToLower();
             if (input == "1")
@@ -182,14 +193,16 @@ public static class EmployeesPresentation
             }
             else if (input == "2")
             {
-                while (true)
-                {
+                Console.Clear();
 
-                    Console.WriteLine("Enter your Registration ID to view the status.");
+                while (true)
+                {   
+                    Console.WriteLine("=== 🕒 Status of your registration ===\n");
+
+                    Console.Write("Enter your Registration ID to view the status: ");
                     string registrationIDinput = Console.ReadLine();
                     if (int.TryParse(registrationIDinput, out int registrationID))
                     {
-
                         ViewRegistrationStatus(registrationID);
                         break;
                     }
@@ -199,7 +212,6 @@ public static class EmployeesPresentation
                         string input1 = Console.ReadLine().ToLower();
                         if (input1 == "q")
                         {
-                            Console.WriteLine("Exiting to the main menu.");
                             return;
                         }
                         else
@@ -211,7 +223,6 @@ public static class EmployeesPresentation
             }
             else if (input == "q")
             {
-                Console.WriteLine("Exiting to the main menu.");
                 return;
             }
             else

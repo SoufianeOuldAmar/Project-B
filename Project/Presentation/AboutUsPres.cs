@@ -28,7 +28,7 @@ public class AboutUsPres
 
             if (input == "1")
             {
-                allFlights = FlightsAccess.ReadAll();
+                allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("🌍 Our Network");

@@ -11,7 +11,7 @@ public static class AccountsLogic
         CorrectCredentials
     }
 
-    public static List<AccountModel> _accounts = AccountsAccess.LoadAll();
+    public static List<AccountModel> _accounts = DataAccessClass.ReadList<AccountModel>("DataSources/accounts.json");
     static public AccountModel? CurrentAccount { get; private set; }
 
     public static void UpdateList(AccountModel acc)
@@ -29,7 +29,8 @@ public static class AccountsLogic
             _accounts.Add(acc);
         }
 
-        AccountsAccess.WriteAll(_accounts);
+        DataAccessClass.WriteList<AccountModel>("DataSources/accounts.json", _accounts);
+
     }
 
     public static string CreateAccount(string fullName, string email, string password)

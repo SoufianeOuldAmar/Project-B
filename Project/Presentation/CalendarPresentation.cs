@@ -1,7 +1,34 @@
-using System;
-
 public static class CalendarPresentation
 {
+    public static void PrintCalendar(int month, int year, int currentDay, string departureAirport, string destination)
+    {
+        string header = CalendarLogic.GetCalendarHeader(month, year);
+        (List<string> calendarLines, _) = CalendarLogic.GenerateCalendarLines(month, year, departureAirport, destination);
+
+        Console.WriteLine(header);
+
+        for (int i = 0; i < calendarLines.Count; i += 2)
+        {
+            string line = calendarLines[i];
+            string dotLine = calendarLines[i + 1];
+
+            string plainCurrentDay = $"{currentDay:D2}";
+            string coloredCurrentDay = $"\x1b[32m{plainCurrentDay}\x1b[0m";
+
+            if (line.Contains(coloredCurrentDay))
+            {
+                line = line.Replace(coloredCurrentDay, $"[{plainCurrentDay}]");
+            }
+            else if (line.Contains(plainCurrentDay))
+            {
+                line = line.Replace(plainCurrentDay, $"[{plainCurrentDay}]");
+            }
+
+            Console.WriteLine(line);
+            Console.WriteLine(dotLine);
+        }
+    }
+
     public static DateTime RunCalendar(string departureAirport, string destination)
     {
         int currentMonth = DateTime.Now.Month;
@@ -14,7 +41,7 @@ public static class CalendarPresentation
         while (true)
         {
             Console.Clear();
-            CalendarLogic.PrintCalendar(currentMonth, currentYear, currentDay, departureAirport, destination);
+            PrintCalendar(currentMonth, currentYear, currentDay, departureAirport, destination);
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("→ : Next day");
@@ -48,17 +75,6 @@ public static class CalendarPresentation
             {
                 return new DateTime(currentYear, currentMonth, currentDay);
             }
-
-            // else if (key.Key == ConsoleKey.Q)
-            // {
-            //     return null;
-            // }
         }
     }
-
-
 }
-
-
-
-

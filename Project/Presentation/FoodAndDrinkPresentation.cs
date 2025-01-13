@@ -5,7 +5,6 @@ using DataModels;
 
 public class FoodAndDrinkPresentation
 {
-    private static readonly FinancialReport generator = new FinancialReport();
     public static (double, List<FoodAndDrinkItem>) AddFoodAndDrinksToBooking(FlightModel flightModel)
     {
         Console.Clear();
@@ -22,7 +21,6 @@ public class FoodAndDrinkPresentation
         Console.WriteLine("0. If you want to continue");
 
         List<FoodAndDrinkItem> selectedItems = new List<FoodAndDrinkItem>();
-        FinancialReport financialReport = new FinancialReport();
         double totalCost = 0;
 
         while (true)
@@ -60,15 +58,16 @@ public class FoodAndDrinkPresentation
         {
             Console.WriteLine("No food or drinks added to your booking.");
         }
-        
-        List<Payement> allPayments = new List<Payement>();                  
-        foreach (var item in selectedItems) 
+
+        List<Payement> allPayments = new List<Payement>();
+        foreach (var item in selectedItems)
         {
             Payement foodAndDrinkPayment = new Payement("FoodAndDrink", item.Price, DateTime.Now);
             allPayments.Add(foodAndDrinkPayment);
         }
 
-        financialReport.SavePayements(allPayments);
+        // FinancialReportAccess.SavePayements(allPayments);
+        DataAccessClass.WriteList<Payement>("DataSources/FinancialReport.json", allPayments);
 
 
         return (totalCost, selectedItems);
@@ -183,23 +182,7 @@ public class FoodAndDrinkPresentation
             Console.ResetColor();
 
             // Save the updated flight details
-            if (BookFlightPresentation.allBookedFlights.ContainsKey(bookedFlight.Email))
-            {
-                var userFlights = BookFlightPresentation.allBookedFlights[bookedFlight.Email];
-
-                var existingFlight = userFlights.FirstOrDefault(f => f.FlightID == bookedFlight.FlightID);
-                if (existingFlight != null)
-                {
-                    userFlights.Remove(existingFlight);
-                }
-                userFlights.Add(bookedFlight);
-            }
-            else
-            {
-                BookFlightPresentation.allBookedFlights[bookedFlight.Email] = new List<BookedFlightsModel> { bookedFlight };
-            }
-
-            BookedFlightsAccess.WriteAll(bookedFlight.Email, BookFlightPresentation.allBookedFlights[bookedFlight.Email]);
+            BookedFlightsAccess.SaveSingle(bookedFlight.Email, bookedFlight);
         }
         else
         {

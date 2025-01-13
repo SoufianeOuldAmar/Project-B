@@ -39,8 +39,8 @@ public static class CancelLogic
             var neededflight = BookFlightPresentation.allFlights.Find(x => x.Id == flight.FlightID);
 
             // string returnFlightAvailable = neededflight.ReturnFlight != null ? "Yes" : "No";
-            double totalPetFee= 0;
-            double totalBaggageFee= 0;
+            double totalPetFee = 0;
+            double totalBaggageFee = 0;
 
             // calculate total pet fee
             if (flight.Pets != null && flight.Pets.Count > 0)
@@ -144,7 +144,8 @@ public static class CancelLogic
             allFlights.Remove(flightToCancel);
         }
         // save changes to json 
-        FlightsAccess.WriteAll(allFlights);
+        DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", allFlights);
+
         return "Flight is cancelled";
     }
 

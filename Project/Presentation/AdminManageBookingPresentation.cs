@@ -1,17 +1,35 @@
 using System.Collections.Generic;
+using System.Globalization;
+using System.Threading;
+using DataModels;
 
 namespace DataAccess
 {
     public static class AdminManageBookingPresentation
     {
 
+        public static bool IsEmpty { get; set; } = false;
+
         public static void LoadBookedPresentation()
         {
-            Console.Clear();
-            var flightDeatails = FlightsAccess.ReadAll();
-            var BookdeFlight = BookedFlightsAccess.LoadAll();
 
-            foreach (var emailBookingPair in BookdeFlight)
+            Console.Clear();
+
+            Console.WriteLine("=== 📅 Manage the bookings ===\n");
+
+            var flightDetails = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
+            var BookedFlight = BookedFlightsAccess.LoadAll();
+
+
+            if (BookedFlight.Count == 0)
+            {
+                Console.WriteLine("No booked flights available");
+                IsEmpty = true;
+                return;
+            }
+
+
+            foreach (var emailBookingPair in BookedFlight)
             {
                 string email = emailBookingPair.Key;
                 var bookings = emailBookingPair.Value;
@@ -57,7 +75,7 @@ namespace DataAccess
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(books.IsCancelled);
 
-                    var flight = flightDeatails.Find(f => f.Id == books.FlightID);
+                    var flight = flightDetails.Find(f => f.Id == books.FlightID);
 
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write($"  Date: ");
@@ -81,7 +99,7 @@ namespace DataAccess
 
         public static List<BookedFlightsModel> SearchBookedPresentaion(string email) // List<BookedFlightsModel> 
         {
-            var flightDeatails = FlightsAccess.ReadAll();
+            var flightDetails = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
             var BookedFlight = BookedFlightsAccess.LoadAll();
             List<BookedFlightsModel> bookings = new List<BookedFlightsModel>();
 
@@ -126,7 +144,7 @@ namespace DataAccess
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(books.IsCancelled);
 
-                    var flight = flightDeatails.Find(f => f.Id == books.FlightID);
+                    var flight = flightDetails.Find(f => f.Id == books.FlightID);
 
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write($"  Date: ");
@@ -152,7 +170,7 @@ namespace DataAccess
         {
 
             var BookdeFlight = BookedFlightsAccess.LoadAll();
-            var flightDeatails = FlightsAccess.ReadAll();
+            var flightDetails = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
 
             List<string> seatChanges = new List<string>();
             List<string> newSeats = new List<string>();
@@ -165,8 +183,10 @@ namespace DataAccess
 
             while (true)
             {
-                Console.Clear();
+                // Console.Clear();
                 LoadBookedPresentation();
+
+                if (IsEmpty) return;
 
                 Console.Write("Choose an email: ");
                 string email = Console.ReadLine();
@@ -230,7 +250,7 @@ namespace DataAccess
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine(selectedBooking.IsCancelled);
 
-                            var flight = flightDeatails.Find(f => f.Id == selectedBooking.FlightID);
+                            var flight = flightDetails.Find(f => f.Id == selectedBooking.FlightID);
 
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.Write($"  Date: ");
@@ -333,9 +353,10 @@ namespace DataAccess
 
 
                             while (true)
-                            {
+                            {   
+                                Console.WriteLine();
                                 Console.WriteLine("A. Add a new pet\nC. Change an existing pet\n");
-                                Console.Write("Choose an option (leave empty to keep current seat): ");
+                                Console.Write("Choose an option (leave empty to keep current pet): ");
                                 string choice = Console.ReadLine().ToLower();
 
                                 if (!string.IsNullOrWhiteSpace(choice))
@@ -441,9 +462,10 @@ namespace DataAccess
 
 
                             while (true)
-                            {
+                            {   
+                                Console.WriteLine();
                                 Console.WriteLine("A. Add new baggage\n");
-                                Console.Write("Choose an option (leave empty to keep current seat): ");
+                                Console.Write("Choose an option (leave empty to keep current baggage): ");
                                 string choice = Console.ReadLine().ToLower();
 
                                 if (!string.IsNullOrWhiteSpace(choice))

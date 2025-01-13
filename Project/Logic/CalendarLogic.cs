@@ -7,123 +7,64 @@ using System.Linq;
 public static class CalendarLogic
 {
     // Read all flight data
-    public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
+    public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
 
-    private const string GREEN = "\u001b[32m";
-    private const string RESET = "\u001b[0m";
-
-    public static string Calendar(int month, int year, string departureAirport, string destination)
+    public static string GetCalendarHeader(int month, int year)
     {
-        // Get the first day and the total number of days in the month
+        return $"{year}               {new DateTime(year, month, 1).ToString("MMMM")}\nSun Mon Tue Wed Thu Fri Sat";
+    }
+
+    public static (List<string> calendarLines, int startingDayOfWeek) GenerateCalendarLines(int month, int year, string departureAirport, string destination)
+    {
         DateTime firstDayOfMonth = new DateTime(year, month, 1);
         int daysInMonth = DateTime.DaysInMonth(year, month);
-
-        // Determine the day of the week the month starts on (e.g., Sunday = 0, Monday = 1)
         int startingDayOfWeek = (int)firstDayOfMonth.DayOfWeek;
 
-        // Prepare lines for the calendar display
         List<string> calendarLines = new List<string>();
         string daysLine = "";
         string dotsLine = "";
 
-        // Add leading spaces for the first week to align with the starting day
         for (int i = 0; i < startingDayOfWeek; i++)
         {
             daysLine += "    ";
             dotsLine += "    ";
         }
 
-
         for (int day = 1; day <= daysInMonth; day++)
         {
-            // Create the current date for comparison with flight dates 
             DateTime currentDate = new DateTime(year, month, day);
+            bool hasFlight = allFlights.Any(flight =>
+                DateTime.TryParse(flight.DepartureDate, out DateTime departureDate) &&
+                departureDate.Date == currentDate.Date &&
+                (string.IsNullOrEmpty(departureAirport) || flight.DepartureAirport == departureAirport) &&
+                (string.IsNullOrEmpty(destination) || flight.ArrivalDestination == destination) &&
+                !flight.IsCancelled &&        // Ensure the flight is not cancelled
+                !flight.HasTakenOff);         // Ensure the flight has not taken off
 
-            // Checks if there is a flight on this date
-            bool hasFlight = false;
-            foreach (var flight in allFlights)
-            {
-                DateTime departureDate;
-                if (DateTime.TryParse(flight.DepartureDate, out departureDate))
-                {
-                    // Check if the flight's date matches and if it's for the selected departure airport and destination
-                    if (!flight.HasTakenOff && departureDate.Date == currentDate.Date &&
-                        (string.IsNullOrEmpty(departureAirport) || flight.DepartureAirport == departureAirport) &&
-                        (string.IsNullOrEmpty(destination) || flight.ArrivalDestination == destination) &&
-                        !flight.IsCancelled)
-                    {
-                        hasFlight = true;
-                        break;
-                    }
-                }
-            }
 
-            // Add the day number (adding a zero if its one number) 
-            // daysLine += day.ToString("D2") + "  ";
-
-            // Add a dot if there's a flight 
             if (hasFlight)
             {
+                daysLine += $"\x1b[32m{day:D2}\x1b[0m  ";
                 dotsLine += "   ";
-                daysLine += "\x1b[32m" + day.ToString("D2") + "\x1b[0m" + "  ";
-
             }
             else
             {
+                daysLine += $"{day:D2}  ";
                 dotsLine += "    ";
-                daysLine += day.ToString("D2") + "  "; // Normal day
             }
 
-            // Check if week is done or its the last day 
             startingDayOfWeek++;
             if (startingDayOfWeek == 7 || day == daysInMonth)
             {
-
-                calendarLines.Add(daysLine.TrimEnd()); // Add the day numbers line
-                calendarLines.Add(dotsLine.TrimEnd()); // Add the dots line
-
-                // Reset the lines for the next week
+                calendarLines.Add(daysLine.TrimEnd());
+                calendarLines.Add(dotsLine.TrimEnd());
                 daysLine = "";
                 dotsLine = "";
-                startingDayOfWeek = 0; // Reset to the first day of the week
+                startingDayOfWeek = 0;
             }
         }
 
-        // Join the lines into a single string with newlines in between
-        string calendarOutput = string.Join("\n", calendarLines);
-        return calendarOutput;
-
-    }
-
-
-    public static void PrintCalendar(int month, int year, int currentDay, string departureAirport, string destination)
-    {
-        var calendarData = Calendar(month, year, departureAirport, destination);
-        Console.WriteLine($"{year}               {new DateTime(year, month, 1).ToString("MMMM")}");
-        Console.WriteLine("Sun Mon Tue Wed Thu Fri Sat");
-
-        string[] calendarLines = calendarData.Split('\n');
-        for (int i = 0; i < calendarLines.Length; i += 2)
-        {
-            string line = calendarLines[i];
-            string dotLine = calendarLines[i + 1];
-
-            // Replace current day while ignoring color escape codes
-            string plainCurrentDay = $"{currentDay:D2}";
-            string coloredCurrentDay = $"\x1b[32m{plainCurrentDay}\x1b[0m";
-
-            if (line.Contains(coloredCurrentDay))
-            {
-                line = line.Replace(coloredCurrentDay, $"[{plainCurrentDay}]");
-            }
-            else if (line.Contains(plainCurrentDay))
-            {
-                line = line.Replace(plainCurrentDay, $"[{plainCurrentDay}]");
-            }
-
-            Console.WriteLine(line);
-            Console.WriteLine(dotLine);
-        }
+        return (calendarLines, startingDayOfWeek);
     }
 
 
@@ -199,6 +140,7 @@ public static class CalendarLogic
     // }
     public static List<FlightModel> GetFlightsByDate(DateTime date, string departureAirport, string destination)
     {
+
         return allFlights
             .Where(flight =>
                 (string.IsNullOrEmpty(departureAirport) || flight.DepartureAirport == departureAirport) &&  // Check if departure is given, or ignore 

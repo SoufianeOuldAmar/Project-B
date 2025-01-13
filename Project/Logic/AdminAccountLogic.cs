@@ -7,7 +7,7 @@ public class AdminAccountLogic
     private List<AdminAccountModel> _accounts1 = new List<AdminAccountModel>();
     public AdminAccountLogic()
     {
-        _accounts1 = AdminAccountAccess.LoadAll();
+        _accounts1 = DataAccessClass.ReadList<AdminAccountModel>("DataSources/AdminAccount.json");
     }
 
     public void GetList(AdminAccountModel acc)

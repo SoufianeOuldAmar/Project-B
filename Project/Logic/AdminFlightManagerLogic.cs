@@ -13,11 +13,11 @@ namespace DataAccess
 
         public static List<FlightModel> GetAllFlights()
         {
-            return FlightsAccess.ReadAll();
+            return DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
         }
         public static bool SaveChangesLogic(FlightModel flight)
         {
-            var flights = FlightsAccess.ReadAll();
+            var flights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
             var flightToUpdate = flights.FirstOrDefault(f => f.Id == flight.Id);
             if (flightToUpdate != null)
             {
@@ -28,7 +28,8 @@ namespace DataAccess
                 flightToUpdate.IsCancelled = flight.IsCancelled;
                 flightToUpdate.DepartureDate = flight.DepartureDate;
                 flightToUpdate.FlightTime = flight.FlightTime;
-                FlightsAccess.WriteAll(flights);
+                
+                DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", flights);
                 return true;
             }
             return false;
@@ -37,7 +38,7 @@ namespace DataAccess
 
         public static FlightModel SearchFlightLogic(int id)
         {
-            var Flight = FlightsAccess.ReadAll();
+            var Flight = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
             return Flight.FirstOrDefault(flight => flight.Id == id);
         }
 

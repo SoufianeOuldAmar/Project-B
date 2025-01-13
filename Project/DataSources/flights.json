@@ -1,11 +1,11 @@
 [
   {
-    "id": 1,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 1,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -187,7 +187,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -369,31 +369,33 @@
         "30D",
         "10A"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 150,
-    "gate": "A12",
-    "departureAirport": "Istanbul, Istanbul Airport",
-    "arrivalDestination": "Paris, Charles de Gaulle Airport",
-    "isCancelled": false,
-    "departureDate": "20-01-2025",
-    "flightTime": "14:30",
-    "availableSeats": 178,
-    "flightPoints": 15,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 150,
+    "Gate": "A12",
+    "DepartureAirport": "Istanbul, Istanbul Airport",
+    "ArrivalDestination": "Paris, Charles de Gaulle Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "20-01-2025",
+    "FlightTime": "14:30",
+    "AvailableSeats": 178,
+    "FlightPoints": 15,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 2,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 2,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -575,7 +577,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -756,33 +758,35 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [
+      "BookedSeats": [],
+      "ChosenSeats": [
         "30B"
       ],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 200,
-    "gate": "B4",
-    "departureAirport": "Rotterdam, The Hague Airport",
-    "arrivalDestination": "London, Heathrow Airport",
-    "isCancelled": false,
-    "departureDate": "23-01-2025",
-    "flightTime": "09:45",
-    "availableSeats": 178,
-    "flightPoints": 20,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 200,
+    "Gate": "B4",
+    "DepartureAirport": "Rotterdam, The Hague Airport",
+    "ArrivalDestination": "London, Heathrow Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "23-01-2025",
+    "FlightTime": "09:45",
+    "AvailableSeats": 178,
+    "FlightPoints": 20,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 3,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 40,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 3,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 40,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -1024,7 +1028,7 @@
         "40E",
         "40F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -1266,31 +1270,33 @@
         "40E",
         "40F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 180,
-    "gate": "C7",
-    "departureAirport": "Athens, Eleftherios Venizelos",
-    "arrivalDestination": "Brussels, Brussels Airport",
-    "isCancelled": false,
-    "departureDate": "09-01-2025",
-    "flightTime": "11:00",
-    "availableSeats": 180,
-    "flightPoints": 18,
-    "totalPets": 0,
-    "hasTakenOff": true
+    "TicketPrice": 180,
+    "Gate": "C7",
+    "DepartureAirport": "Athens, Eleftherios Venizelos",
+    "ArrivalDestination": "Brussels, Brussels Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "09-01-2025",
+    "FlightTime": "11:00",
+    "AvailableSeats": 180,
+    "FlightPoints": 18,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 4,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 50,
-      "columns": 10,
-      "seatArrangement": [
+    "Id": 4,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 50,
+      "Columns": 10,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01D",
@@ -1772,7 +1778,7 @@
         "50J",
         "50K"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01D",
@@ -2253,33 +2259,35 @@
         "50J",
         "50K"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [
+      "BookedSeats": [],
+      "ChosenSeats": [
         "50A"
       ],
-      "isAirbusA330": true,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "IsAirbusA330": true,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 250,
-    "gate": "D9",
-    "departureAirport": "Amsterdam, Schiphol Airport",
-    "arrivalDestination": "Warsaw, Warsaw Chopin Airport",
-    "isCancelled": false,
-    "departureDate": "25-01-2025",
-    "flightTime": "13:20",
-    "availableSeats": 173,
-    "flightPoints": 25,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 250,
+    "Gate": "D9",
+    "DepartureAirport": "Amsterdam, Schiphol Airport",
+    "ArrivalDestination": "Warsaw, Warsaw Chopin Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "25-01-2025",
+    "FlightTime": "13:20",
+    "AvailableSeats": 173,
+    "FlightPoints": 25,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 5,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 5,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -2461,7 +2469,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -2643,31 +2651,33 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 160,
-    "gate": "E11",
-    "departureAirport": "Brussels, Brussels Airport",
-    "arrivalDestination": "Budapest, International Airport",
-    "isCancelled": false,
-    "departureDate": "10-01-2025",
-    "flightTime": "16:10",
-    "availableSeats": 176,
-    "flightPoints": 16,
-    "totalPets": 0,
-    "hasTakenOff": true
+    "TicketPrice": 160,
+    "Gate": "E11",
+    "DepartureAirport": "Brussels, Brussels Airport",
+    "ArrivalDestination": "Budapest, International Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "10-01-2025",
+    "FlightTime": "16:10",
+    "AvailableSeats": 176,
+    "FlightPoints": 16,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 6,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 6,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -2849,7 +2859,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -3031,31 +3041,33 @@
         "30F",
         "30E"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 140,
-    "gate": "F3",
-    "departureAirport": "Rotterdam, The Hague Airport",
-    "arrivalDestination": "Riga, Riga International Airport",
-    "isCancelled": false,
-    "departureDate": "27-01-2025",
-    "flightTime": "18:25",
-    "availableSeats": 180,
-    "flightPoints": 14,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 140,
+    "Gate": "F3",
+    "DepartureAirport": "Rotterdam, The Hague Airport",
+    "ArrivalDestination": "Riga, Riga International Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "27-01-2025",
+    "FlightTime": "18:25",
+    "AvailableSeats": 180,
+    "FlightPoints": 14,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 7,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 7,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -3237,7 +3249,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -3419,31 +3431,33 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 190,
-    "gate": "G5",
-    "departureAirport": "Frankfurt, Frankfurt Airport",
-    "arrivalDestination": "Lisbon, Lisbon Airport",
-    "isCancelled": false,
-    "departureDate": "28-01-2025",
-    "flightTime": "21:15",
-    "availableSeats": 179,
-    "flightPoints": 19,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 190,
+    "Gate": "G5",
+    "DepartureAirport": "Frankfurt, Frankfurt Airport",
+    "ArrivalDestination": "Lisbon, Lisbon Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "28-01-2025",
+    "FlightTime": "21:15",
+    "AvailableSeats": 179,
+    "FlightPoints": 19,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 8,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 50,
-      "columns": 10,
-      "seatArrangement": [
+    "Id": 8,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 50,
+      "Columns": 10,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01D",
@@ -3925,7 +3939,7 @@
         "50J",
         "50K"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01D",
@@ -4407,31 +4421,33 @@
         "50J",
         "50K"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": true,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": true,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 230,
-    "gate": "G7",
-    "departureAirport": "Rotterdam, The Hague Airport",
-    "arrivalDestination": "Lisbon, Lisbon Airport",
-    "isCancelled": false,
-    "departureDate": "19-01-2025",
-    "flightTime": "21:30",
-    "availableSeats": 179,
-    "flightPoints": 23,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 230,
+    "Gate": "G7",
+    "DepartureAirport": "Rotterdam, The Hague Airport",
+    "ArrivalDestination": "Lisbon, Lisbon Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "19-01-2025",
+    "FlightTime": "21:30",
+    "AvailableSeats": 179,
+    "FlightPoints": 23,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 9,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 9,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -4613,7 +4629,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -4795,31 +4811,33 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 275,
-    "gate": "E4",
-    "departureAirport": "Madrid, Madrid Barajas Airport",
-    "arrivalDestination": "London, Heathrow Airport",
-    "isCancelled": false,
-    "departureDate": "12-01-2025",
-    "flightTime": "21:30",
-    "availableSeats": 180,
-    "flightPoints": 27,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 275,
+    "Gate": "E4",
+    "DepartureAirport": "Madrid, Madrid Barajas Airport",
+    "ArrivalDestination": "London, Heathrow Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "12-01-2025",
+    "FlightTime": "21:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 27,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 10,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 10,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -5001,7 +5019,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -5183,31 +5201,33 @@
         "30F",
         "10A"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 310,
-    "gate": "F4",
-    "departureAirport": "Frankfurt, Frankfurt Airport",
-    "arrivalDestination": "Naples, Naples Airport",
-    "isCancelled": false,
-    "departureDate": "14-01-2025",
-    "flightTime": "21:30",
-    "availableSeats": 180,
-    "flightPoints": 31,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 310,
+    "Gate": "F4",
+    "DepartureAirport": "Frankfurt, Frankfurt Airport",
+    "ArrivalDestination": "Naples, Naples Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "14-01-2025",
+    "FlightTime": "21:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 31,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 11,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 40,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 11,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 40,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -5449,7 +5469,7 @@
         "40E",
         "40F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -5691,31 +5711,33 @@
         "40F",
         "10B"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 315,
-    "gate": "B6",
-    "departureAirport": "Athens, Eleftherios Venizelos",
-    "arrivalDestination": "London, Heathrow Airport",
-    "isCancelled": false,
-    "departureDate": "16-01-2025",
-    "flightTime": "16:30",
-    "availableSeats": 180,
-    "flightPoints": 31,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 315,
+    "Gate": "B6",
+    "DepartureAirport": "Athens, Eleftherios Venizelos",
+    "ArrivalDestination": "London, Heathrow Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "16-01-2025",
+    "FlightTime": "16:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 31,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 12,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 12,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -5897,7 +5919,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -6079,31 +6101,33 @@
         "30F",
         "10A"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 215,
-    "gate": "E4",
-    "departureAirport": "Brussels, Brussels Airport",
-    "arrivalDestination": "Lisbon, Lisbon Airport",
-    "isCancelled": false,
-    "departureDate": "20-01-2025",
-    "flightTime": "15:30",
-    "availableSeats": 180,
-    "flightPoints": 21,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 215,
+    "Gate": "E4",
+    "DepartureAirport": "Brussels, Brussels Airport",
+    "ArrivalDestination": "Lisbon, Lisbon Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "20-01-2025",
+    "FlightTime": "15:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 21,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 13,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 13,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -6285,7 +6309,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -6467,31 +6491,33 @@
         "30D",
         "11A"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 275,
-    "gate": "C6",
-    "departureAirport": "Amsterdam, Schiphol Airport",
-    "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
-    "isCancelled": false,
-    "departureDate": "03-02-2025",
-    "flightTime": "12:45",
-    "availableSeats": 180,
-    "flightPoints": 27,
-    "totalPets": 1,
-    "hasTakenOff": false
+    "TicketPrice": 275,
+    "Gate": "C6",
+    "DepartureAirport": "Amsterdam, Schiphol Airport",
+    "ArrivalDestination": "Mallorca, Palma de Mallorca Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "03-02-2025",
+    "FlightTime": "12:45",
+    "AvailableSeats": 180,
+    "FlightPoints": 27,
+    "TotalPets": 1,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 14,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 14,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -6673,7 +6699,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -6855,31 +6881,33 @@
         "30F",
         "10A"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 275,
-    "gate": "B6",
-    "departureAirport": "Milan, Malpensa Airport",
-    "arrivalDestination": "London, Heathrow Airport",
-    "isCancelled": false,
-    "departureDate": "12-01-2025",
-    "flightTime": "14:15",
-    "availableSeats": 179,
-    "flightPoints": 27,
-    "totalPets": 0,
-    "hasTakenOff": true
+    "TicketPrice": 275,
+    "Gate": "B6",
+    "DepartureAirport": "Milan, Malpensa Airport",
+    "ArrivalDestination": "London, Heathrow Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "12-01-2025",
+    "FlightTime": "14:15",
+    "AvailableSeats": 179,
+    "FlightPoints": 27,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 15,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 15,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -7061,7 +7089,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -7243,31 +7271,33 @@
         "10C",
         "01E"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 410,
-    "gate": "E4",
-    "departureAirport": "Rotterdam, The Hague Airport",
-    "arrivalDestination": "Istanbul, Istanbul Airport",
-    "isCancelled": false,
-    "departureDate": "11-02-2025",
-    "flightTime": "14:30",
-    "availableSeats": 180,
-    "flightPoints": 41,
-    "totalPets": 0,
-    "hasTakenOff": true
+    "TicketPrice": 410,
+    "Gate": "E4",
+    "DepartureAirport": "Rotterdam, The Hague Airport",
+    "ArrivalDestination": "Istanbul, Istanbul Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "11-02-2025",
+    "FlightTime": "14:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 41,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 16,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 16,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -7449,7 +7479,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -7631,31 +7661,33 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 400,
-    "gate": "E8",
-    "departureAirport": "Rotterdam, The Hague Airport",
-    "arrivalDestination": "Milan, Malpensa Airport",
-    "isCancelled": false,
-    "departureDate": "14-02-2025",
-    "flightTime": "09:50",
-    "availableSeats": 180,
-    "flightPoints": 18,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 400,
+    "Gate": "E8",
+    "DepartureAirport": "Rotterdam, The Hague Airport",
+    "ArrivalDestination": "Milan, Malpensa Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "14-02-2025",
+    "FlightTime": "09:50",
+    "AvailableSeats": 180,
+    "FlightPoints": 18,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 17,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 17,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -7837,7 +7869,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -8019,31 +8051,33 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 345.5,
-    "gate": "C8",
-    "departureAirport": "Istanbul, Istanbul Airport",
-    "arrivalDestination": "London, Heathrow Airport",
-    "isCancelled": false,
-    "departureDate": "13-01-2025",
-    "flightTime": "07:30",
-    "availableSeats": 180,
-    "flightPoints": 34,
-    "totalPets": 0,
-    "hasTakenOff": true
+    "TicketPrice": 345.5,
+    "Gate": "C8",
+    "DepartureAirport": "Istanbul, Istanbul Airport",
+    "ArrivalDestination": "London, Heathrow Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "13-01-2025",
+    "FlightTime": "07:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 34,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 18,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 18,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -8225,7 +8259,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -8407,31 +8441,33 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 285,
-    "gate": "B4",
-    "departureAirport": "Milan, Malpensa Airport",
-    "arrivalDestination": "London, Heathrow Airport",
-    "isCancelled": false,
-    "departureDate": "09-01-2025",
-    "flightTime": "14:30",
-    "availableSeats": 180,
-    "flightPoints": 28,
-    "totalPets": 0,
-    "hasTakenOff": true
+    "TicketPrice": 285,
+    "Gate": "B4",
+    "DepartureAirport": "Milan, Malpensa Airport",
+    "ArrivalDestination": "London, Heathrow Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "09-01-2025",
+    "FlightTime": "14:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 28,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 19,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 19,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -8613,7 +8649,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -8795,31 +8831,33 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 315,
-    "gate": "C4",
-    "departureAirport": "Amsterdam, Schiphol Airport",
-    "arrivalDestination": "Oslo, Oslo Gardermoen Airport",
-    "isCancelled": false,
-    "departureDate": "11-01-2025",
-    "flightTime": "15:30",
-    "availableSeats": 179,
-    "flightPoints": 31,
-    "totalPets": 0,
-    "hasTakenOff": true
+    "TicketPrice": 315,
+    "Gate": "C4",
+    "DepartureAirport": "Amsterdam, Schiphol Airport",
+    "ArrivalDestination": "Oslo, Oslo Gardermoen Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "11-01-2025",
+    "FlightTime": "15:30",
+    "AvailableSeats": 179,
+    "FlightPoints": 31,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 20,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 20,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -9001,7 +9039,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -9183,31 +9221,33 @@
         "30F",
         "22B"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 300,
-    "gate": "B2",
-    "departureAirport": "Madrid, Madrid Barajas Airport",
-    "arrivalDestination": "Zurich, Zurich Airport",
-    "isCancelled": false,
-    "departureDate": "15-01-2025",
-    "flightTime": "13:30",
-    "availableSeats": 180,
-    "flightPoints": 30,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 300,
+    "Gate": "B2",
+    "DepartureAirport": "Madrid, Madrid Barajas Airport",
+    "ArrivalDestination": "Zurich, Zurich Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "15-01-2025",
+    "FlightTime": "13:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 30,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 21,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 21,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -9389,7 +9429,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -9571,31 +9611,33 @@
         "30F",
         "09A"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 215,
-    "gate": "E4",
-    "departureAirport": "Istanbul, Istanbul Airport",
-    "arrivalDestination": "Vienna, International Airport",
-    "isCancelled": false,
-    "departureDate": "01-02-2025",
-    "flightTime": "11:20",
-    "availableSeats": 180,
-    "flightPoints": 21,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 215,
+    "Gate": "E4",
+    "DepartureAirport": "Istanbul, Istanbul Airport",
+    "ArrivalDestination": "Vienna, International Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "01-02-2025",
+    "FlightTime": "11:20",
+    "AvailableSeats": 180,
+    "FlightPoints": 21,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 22,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 22,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -9777,7 +9819,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -9958,33 +10000,35 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [
+      "BookedSeats": [],
+      "ChosenSeats": [
         "17D"
       ],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 275,
-    "gate": "E4",
-    "departureAirport": "Lisbon, Lisbon Airport",
-    "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
-    "isCancelled": false,
-    "departureDate": "17-01-2025",
-    "flightTime": "10:10",
-    "availableSeats": 180,
-    "flightPoints": 27,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 275,
+    "Gate": "E4",
+    "DepartureAirport": "Lisbon, Lisbon Airport",
+    "ArrivalDestination": "Mallorca, Palma de Mallorca Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "17-01-2025",
+    "FlightTime": "10:10",
+    "AvailableSeats": 180,
+    "FlightPoints": 27,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 23,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 50,
-      "columns": 10,
-      "seatArrangement": [
+    "Id": 23,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 50,
+      "Columns": 10,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01D",
@@ -10466,7 +10510,7 @@
         "50J",
         "50K"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01D",
@@ -10947,33 +10991,35 @@
         "50J",
         "50K"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [
+      "BookedSeats": [],
+      "ChosenSeats": [
         "13F"
       ],
-      "isAirbusA330": true,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "IsAirbusA330": true,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 315,
-    "gate": "G7",
-    "departureAirport": "Amsterdam, Schiphol Airport",
-    "arrivalDestination": "Vienna, International Airport",
-    "isCancelled": false,
-    "departureDate": "10-01-2025",
-    "flightTime": "20:30",
-    "availableSeats": 180,
-    "flightPoints": 31,
-    "totalPets": 3,
-    "hasTakenOff": true
+    "TicketPrice": 315,
+    "Gate": "G7",
+    "DepartureAirport": "Amsterdam, Schiphol Airport",
+    "ArrivalDestination": "Vienna, International Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "10-01-2025",
+    "FlightTime": "20:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 31,
+    "TotalPets": 3,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 24,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 24,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -11155,7 +11201,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -11336,33 +11382,35 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [
+      "BookedSeats": [],
+      "ChosenSeats": [
         "10A"
       ],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 335.25,
-    "gate": "B1",
-    "departureAirport": "Paris, Charles de Gaulle Airport",
-    "arrivalDestination": "London, Heathrow Airport",
-    "isCancelled": false,
-    "departureDate": "28-01-2025",
-    "flightTime": "14:45",
-    "availableSeats": 179,
-    "flightPoints": 33,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 335.25,
+    "Gate": "B1",
+    "DepartureAirport": "Paris, Charles de Gaulle Airport",
+    "ArrivalDestination": "London, Heathrow Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "28-01-2025",
+    "FlightTime": "14:45",
+    "AvailableSeats": 179,
+    "FlightPoints": 33,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 25,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 25,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -11544,7 +11592,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -11725,33 +11773,35 @@
         "30D",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [
+      "BookedSeats": [],
+      "ChosenSeats": [
         "30E"
       ],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 285,
-    "gate": "F6",
-    "departureAirport": "Amsterdam, Schiphol Airport",
-    "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
-    "isCancelled": false,
-    "departureDate": "04-02-2025",
-    "flightTime": "14:30",
-    "availableSeats": 180,
-    "flightPoints": 28,
-    "totalPets": 0,
-    "hasTakenOff": true
+    "TicketPrice": 285,
+    "Gate": "F6",
+    "DepartureAirport": "Amsterdam, Schiphol Airport",
+    "ArrivalDestination": "Mallorca, Palma de Mallorca Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "04-02-2025",
+    "FlightTime": "14:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 28,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 26,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 26,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -11933,7 +11983,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -12115,31 +12165,33 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 450,
-    "gate": "E5",
-    "departureAirport": "Rotterdam, The Hague Airport",
-    "arrivalDestination": "Naples, Naples Airport",
-    "isCancelled": false,
-    "departureDate": "10-02-2025",
-    "flightTime": "10:45",
-    "availableSeats": 179,
-    "flightPoints": 45,
-    "totalPets": 0,
-    "hasTakenOff": true
+    "TicketPrice": 450,
+    "Gate": "E5",
+    "DepartureAirport": "Rotterdam, The Hague Airport",
+    "ArrivalDestination": "Naples, Naples Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "10-02-2025",
+    "FlightTime": "10:45",
+    "AvailableSeats": 179,
+    "FlightPoints": 45,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 27,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 27,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -12321,7 +12373,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -12503,31 +12555,33 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 300.15,
-    "gate": "B3",
-    "departureAirport": "Athens, Eleftherios Venizelos",
-    "arrivalDestination": "Milan, Malpensa Airport",
-    "isCancelled": false,
-    "departureDate": "08-02-2025",
-    "flightTime": "11:50",
-    "availableSeats": 180,
-    "flightPoints": 30,
-    "totalPets": 0,
-    "hasTakenOff": true
+    "TicketPrice": 300.15,
+    "Gate": "B3",
+    "DepartureAirport": "Athens, Eleftherios Venizelos",
+    "ArrivalDestination": "Milan, Malpensa Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "08-02-2025",
+    "FlightTime": "11:50",
+    "AvailableSeats": 180,
+    "FlightPoints": 30,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 28,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 28,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -12709,7 +12763,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -12891,31 +12945,33 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 275,
-    "gate": "E5",
-    "departureAirport": "Brussels, Brussels Airport",
-    "arrivalDestination": "Istanbul, Istanbul Airport",
-    "isCancelled": false,
-    "departureDate": "22-01-2025",
-    "flightTime": "21:30",
-    "availableSeats": 180,
-    "flightPoints": 27,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 275,
+    "Gate": "E5",
+    "DepartureAirport": "Brussels, Brussels Airport",
+    "ArrivalDestination": "Istanbul, Istanbul Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "22-01-2025",
+    "FlightTime": "21:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 27,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 29,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 29,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -13097,7 +13153,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -13279,31 +13335,33 @@
         "30F",
         "10A"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 275,
-    "gate": "E1",
-    "departureAirport": "Brussels, Brussels Airport",
-    "arrivalDestination": "Budapest, International Airport",
-    "isCancelled": false,
-    "departureDate": "15-01-2025",
-    "flightTime": "19:45",
-    "availableSeats": 180,
-    "flightPoints": 27,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 275,
+    "Gate": "E1",
+    "DepartureAirport": "Brussels, Brussels Airport",
+    "ArrivalDestination": "Budapest, International Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "15-01-2025",
+    "FlightTime": "19:45",
+    "AvailableSeats": 180,
+    "FlightPoints": 27,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 30,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 30,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -13485,7 +13543,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -13667,31 +13725,33 @@
         "30F",
         "10A"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 305.25,
-    "gate": "B6",
-    "departureAirport": "Lisbon, Lisbon Airport",
-    "arrivalDestination": "Warsaw, Warsaw Chopin Airport",
-    "isCancelled": false,
-    "departureDate": "27-01-2025",
-    "flightTime": "15:00",
-    "availableSeats": 180,
-    "flightPoints": 30,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 305.25,
+    "Gate": "B6",
+    "DepartureAirport": "Lisbon, Lisbon Airport",
+    "ArrivalDestination": "Warsaw, Warsaw Chopin Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "27-01-2025",
+    "FlightTime": "15:00",
+    "AvailableSeats": 180,
+    "FlightPoints": 30,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 31,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 50,
-      "columns": 10,
-      "seatArrangement": [
+    "Id": 31,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 50,
+      "Columns": 10,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01D",
@@ -14173,7 +14233,7 @@
         "50J",
         "50K"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01D",
@@ -14655,31 +14715,33 @@
         "50K",
         "29A"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": true,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": true,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 415,
-    "gate": "C8",
-    "departureAirport": "Milan, Malpensa Airport",
-    "arrivalDestination": "Istanbul, Istanbul Airport",
-    "isCancelled": false,
-    "departureDate": "24-01-2025",
-    "flightTime": "12:30",
-    "availableSeats": 178,
-    "flightPoints": 41,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 415,
+    "Gate": "C8",
+    "DepartureAirport": "Milan, Malpensa Airport",
+    "ArrivalDestination": "Istanbul, Istanbul Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "24-01-2025",
+    "FlightTime": "12:30",
+    "AvailableSeats": 178,
+    "FlightPoints": 41,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 32,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 32,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -14861,7 +14923,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -15043,31 +15105,33 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 305,
-    "gate": "E4",
-    "departureAirport": "Frankfurt, Frankfurt Airport",
-    "arrivalDestination": "Madrid, Madrid Barajas Airport",
-    "isCancelled": false,
-    "departureDate": "02-02-2025",
-    "flightTime": "14:15",
-    "availableSeats": 180,
-    "flightPoints": 30,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 305,
+    "Gate": "E4",
+    "DepartureAirport": "Frankfurt, Frankfurt Airport",
+    "ArrivalDestination": "Madrid, Madrid Barajas Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "02-02-2025",
+    "FlightTime": "14:15",
+    "AvailableSeats": 180,
+    "FlightPoints": 30,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 33,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 33,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -15249,7 +15313,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -15431,31 +15495,33 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 205,
-    "gate": "A6",
-    "departureAirport": "Athens, Eleftherios Venizelos",
-    "arrivalDestination": "Brussels, Brussels Airport",
-    "isCancelled": false,
-    "departureDate": "25-01-2025",
-    "flightTime": "06:55",
-    "availableSeats": 180,
-    "flightPoints": 20,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 205,
+    "Gate": "A6",
+    "DepartureAirport": "Athens, Eleftherios Venizelos",
+    "ArrivalDestination": "Brussels, Brussels Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "25-01-2025",
+    "FlightTime": "06:55",
+    "AvailableSeats": 180,
+    "FlightPoints": 20,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 34,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 34,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -15637,7 +15703,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -15819,31 +15885,33 @@
         "30F",
         "09A"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 215,
-    "gate": "E4",
-    "departureAirport": "Amsterdam, Schiphol Airport",
-    "arrivalDestination": "Vienna, International Airport",
-    "isCancelled": false,
-    "departureDate": "02-02-2025",
-    "flightTime": "21:20",
-    "availableSeats": 180,
-    "flightPoints": 21,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 215,
+    "Gate": "E4",
+    "DepartureAirport": "Amsterdam, Schiphol Airport",
+    "ArrivalDestination": "Vienna, International Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "02-02-2025",
+    "FlightTime": "21:20",
+    "AvailableSeats": 180,
+    "FlightPoints": 21,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 35,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 35,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -16025,7 +16093,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -16206,33 +16274,35 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [
+      "BookedSeats": [],
+      "ChosenSeats": [
         "10A"
       ],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 285,
-    "gate": "F6",
-    "departureAirport": "Rotterdam, The Hague Airport",
-    "arrivalDestination": "Warsaw, Warsaw Chopin Airport",
-    "isCancelled": false,
-    "departureDate": "28-01-2025",
-    "flightTime": "21:30",
-    "availableSeats": 180,
-    "flightPoints": 28,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 285,
+    "Gate": "F6",
+    "DepartureAirport": "Rotterdam, The Hague Airport",
+    "ArrivalDestination": "Warsaw, Warsaw Chopin Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "28-01-2025",
+    "FlightTime": "21:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 28,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 36,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 36,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -16414,7 +16484,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -16596,31 +16666,33 @@
         "11A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 275,
-    "gate": "C6",
-    "departureAirport": "London, Heathrow Airport",
-    "arrivalDestination": "Milan, Malpensa Airport",
-    "isCancelled": false,
-    "departureDate": "09-01-2025",
-    "flightTime": "12:00",
-    "availableSeats": 180,
-    "flightPoints": 27,
-    "totalPets": 0,
-    "hasTakenOff": true
+    "TicketPrice": 275,
+    "Gate": "C6",
+    "DepartureAirport": "London, Heathrow Airport",
+    "ArrivalDestination": "Milan, Malpensa Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "09-01-2025",
+    "FlightTime": "12:00",
+    "AvailableSeats": 180,
+    "FlightPoints": 27,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 37,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 37,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -16802,7 +16874,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -16984,30 +17056,31 @@
         "30E",
         "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 150,
-    "gate": "A10",
-    "departureAirport": "Frankfurt, Frankfurt Airport",
-    "arrivalDestination": "Istanbul, Istanbul Airport",
-    "isCancelled": false,
-    "departureDate": "01-02-2025",
-    "flightTime": "12:00",
-    "availableSeats": 0,
-    "flightPoints": 15,
-    "totalPets": 0,
-    "hasTakenOff": false,
-    "returnFlight": {
-      "id": 0,
-      "airline": "BOSST AIRLINES",
-      "layout": {
-        "rows": 30,
-        "columns": 6,
-        "seatArrangement": [
+    "TicketPrice": 150,
+    "Gate": "A10",
+    "DepartureAirport": "Frankfurt, Frankfurt Airport",
+    "ArrivalDestination": "Istanbul, Istanbul Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "01-02-2025",
+    "FlightTime": "12:00",
+    "AvailableSeats": 0,
+    "FlightPoints": 15,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": {
+      "Id": 0,
+      "Airline": "BOSST AIRLINES",
+      "Layout": {
+        "Rows": 30,
+        "Columns": 6,
+        "SeatArrangement": [
           "01A",
           "01B",
           "01C",
@@ -17189,7 +17262,7 @@
           "30E",
           "30F"
         ],
-        "availableSeats": [
+        "AvailableSeats": [
           "01A",
           "01B",
           "01C",
@@ -17371,32 +17444,34 @@
           "30E",
           "30F"
         ],
-        "bookedSeats": [],
-        "chosenSeats": [],
-        "isAirbusA330": false,
-        "isBoeing787": true,
-        "seatInitials": {}
+        "BookedSeats": [],
+        "ChosenSeats": [],
+        "IsAirbusA330": false,
+        "IsBoeing787": true,
+        "SeatInitials": {}
       },
-      "ticketPrice": 150,
-      "gate": "B09",
-      "departureAirport": "Athens, Eleftherios Venizelos",
-      "arrivalDestination": "Rotterdam, The Hague Airport",
-      "isCancelled": false,
-      "departureDate": "24-01-2025",
-      "flightTime": "12:00",
-      "availableSeats": 0,
-      "flightPoints": 15,
-      "totalPets": 0,
-      "hasTakenOff": false
+      "TicketPrice": 150,
+      "Gate": "B09",
+      "DepartureAirport": "Athens, Eleftherios Venizelos",
+      "ArrivalDestination": "Rotterdam, The Hague Airport",
+      "TimeOfDay": null,
+      "IsCancelled": false,
+      "DepartureDate": "24-01-2025",
+      "FlightTime": "12:00",
+      "AvailableSeats": 0,
+      "FlightPoints": 15,
+      "TotalPets": 0,
+      "HasTakenOff": false,
+      "ReturnFlight": null
     }
   },
   {
-    "id": 38,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 38,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -17578,7 +17653,402 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
+        "01A",
+        "01B",
+        "01C",
+        "01D",
+        "01E",
+        "01F",
+        "02A",
+        "02B",
+        "02C",
+        "02D",
+        "02E",
+        "02F",
+        "03A",
+        "03B",
+        "03C",
+        "03D",
+        "03E",
+        "03F",
+        "04A",
+        "04B",
+        "04C",
+        "04D",
+        "04E",
+        "04F",
+        "05A",
+        "05B",
+        "05C",
+        "05D",
+        "05E",
+        "05F",
+        "06A",
+        "06B",
+        "06C",
+        "06D",
+        "06E",
+        "06F",
+        "07A",
+        "07B",
+        "07C",
+        "07D",
+        "07E",
+        "07F",
+        "08A",
+        "08B",
+        "08C",
+        "08D",
+        "08E",
+        "08F",
+        "09A",
+        "09B",
+        "09C",
+        "09D",
+        "09E",
+        "09F",
+        "10B",
+        "10C",
+        "10D",
+        "10E",
+        "10F",
+        "11C",
+        "11D",
+        "11E",
+        "11F",
+        "12A",
+        "12B",
+        "12C",
+        "12D",
+        "12E",
+        "12F",
+        "13A",
+        "13B",
+        "13C",
+        "13D",
+        "13E",
+        "13F",
+        "14A",
+        "14B",
+        "14C",
+        "14D",
+        "14E",
+        "14F",
+        "15A",
+        "15B",
+        "15C",
+        "15D",
+        "15E",
+        "15F",
+        "16A",
+        "16B",
+        "16C",
+        "16D",
+        "16E",
+        "16F",
+        "17A",
+        "17B",
+        "17C",
+        "17D",
+        "17E",
+        "17F",
+        "18A",
+        "18B",
+        "18C",
+        "18D",
+        "18E",
+        "18F",
+        "19A",
+        "19B",
+        "19C",
+        "19D",
+        "19E",
+        "19F",
+        "20A",
+        "20B",
+        "20C",
+        "20D",
+        "20E",
+        "20F",
+        "21A",
+        "21B",
+        "21C",
+        "21D",
+        "21E",
+        "21F",
+        "22A",
+        "22B",
+        "22C",
+        "22D",
+        "22E",
+        "22F",
+        "23A",
+        "23B",
+        "23C",
+        "23D",
+        "23E",
+        "23F",
+        "24A",
+        "24B",
+        "24C",
+        "24D",
+        "24E",
+        "24F",
+        "25A",
+        "25B",
+        "25C",
+        "25D",
+        "25E",
+        "25F",
+        "26A",
+        "26B",
+        "26C",
+        "26D",
+        "26E",
+        "26F",
+        "27A",
+        "27B",
+        "27C",
+        "27D",
+        "27E",
+        "27F",
+        "28A",
+        "28B",
+        "28C",
+        "28D",
+        "28E",
+        "28F",
+        "29A",
+        "29B",
+        "29C",
+        "29D",
+        "29E",
+        "29F",
+        "30A",
+        "30B",
+        "30C",
+        "30E",
+        "30F",
+        "10A",
+        "30D",
+        "11A",
+        "11B",
+        "11B"
+      ],
+      "BookedSeats": [
+        "11A"
+      ],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {
+        "11A": "SO"
+      }
+    },
+    "TicketPrice": 425,
+    "Gate": "B1",
+    "DepartureAirport": "Amsterdam, Schiphol Airport",
+    "ArrivalDestination": "Istanbul, Istanbul Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "22-01-2025",
+    "FlightTime": "17:30",
+    "AvailableSeats": 178,
+    "FlightPoints": 43,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
+  },
+  {
+    "Id": 39,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
+        "01A",
+        "01B",
+        "01C",
+        "01D",
+        "01E",
+        "01F",
+        "02A",
+        "02B",
+        "02C",
+        "02D",
+        "02E",
+        "02F",
+        "03A",
+        "03B",
+        "03C",
+        "03D",
+        "03E",
+        "03F",
+        "04A",
+        "04B",
+        "04C",
+        "04D",
+        "04E",
+        "04F",
+        "05A",
+        "05B",
+        "05C",
+        "05D",
+        "05E",
+        "05F",
+        "06A",
+        "06B",
+        "06C",
+        "06D",
+        "06E",
+        "06F",
+        "07A",
+        "07B",
+        "07C",
+        "07D",
+        "07E",
+        "07F",
+        "08A",
+        "08B",
+        "08C",
+        "08D",
+        "08E",
+        "08F",
+        "09A",
+        "09B",
+        "09C",
+        "09D",
+        "09E",
+        "09F",
+        "10A",
+        "10B",
+        "10C",
+        "10D",
+        "10E",
+        "10F",
+        "11A",
+        "11B",
+        "11C",
+        "11D",
+        "11E",
+        "11F",
+        "12A",
+        "12B",
+        "12C",
+        "12D",
+        "12E",
+        "12F",
+        "13A",
+        "13B",
+        "13C",
+        "13D",
+        "13E",
+        "13F",
+        "14A",
+        "14B",
+        "14C",
+        "14D",
+        "14E",
+        "14F",
+        "15A",
+        "15B",
+        "15C",
+        "15D",
+        "15E",
+        "15F",
+        "16A",
+        "16B",
+        "16C",
+        "16D",
+        "16E",
+        "16F",
+        "17A",
+        "17B",
+        "17C",
+        "17D",
+        "17E",
+        "17F",
+        "18A",
+        "18B",
+        "18C",
+        "18D",
+        "18E",
+        "18F",
+        "19A",
+        "19B",
+        "19C",
+        "19D",
+        "19E",
+        "19F",
+        "20A",
+        "20B",
+        "20C",
+        "20D",
+        "20E",
+        "20F",
+        "21A",
+        "21B",
+        "21C",
+        "21D",
+        "21E",
+        "21F",
+        "22A",
+        "22B",
+        "22C",
+        "22D",
+        "22E",
+        "22F",
+        "23A",
+        "23B",
+        "23C",
+        "23D",
+        "23E",
+        "23F",
+        "24A",
+        "24B",
+        "24C",
+        "24D",
+        "24E",
+        "24F",
+        "25A",
+        "25B",
+        "25C",
+        "25D",
+        "25E",
+        "25F",
+        "26A",
+        "26B",
+        "26C",
+        "26D",
+        "26E",
+        "26F",
+        "27A",
+        "27B",
+        "27C",
+        "27D",
+        "27E",
+        "27F",
+        "28A",
+        "28B",
+        "28C",
+        "28D",
+        "28E",
+        "28F",
+        "29A",
+        "29B",
+        "29C",
+        "29D",
+        "29E",
+        "29F",
+        "30A",
+        "30B",
+        "30C",
+        "30D",
+        "30E",
+        "30F"
+      ],
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -17760,31 +18230,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 425,
-    "gate": "B1",
-    "departureAirport": "Amsterdam, Schiphol Airport",
-    "arrivalDestination": "Istanbul, Istanbul Airport",
-    "isCancelled": false,
-    "departureDate": "22-01-2025",
-    "flightTime": "17:30",
-    "availableSeats": 178,
-    "flightPoints": 43,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 250,
+    "Gate": "A2",
+    "DepartureAirport": "Milan, Malpensa Airport",
+    "ArrivalDestination": "Lisbon, Lisbon Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "27-01-2025",
+    "FlightTime": "14:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 25,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 39,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 40,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -17966,7 +18438,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -18148,31 +18620,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 250,
-    "gate": "A2",
-    "departureAirport": "Milan, Malpensa Airport",
-    "arrivalDestination": "Lisbon, Lisbon Airport",
-    "isCancelled": false,
-    "departureDate": "27-01-2025",
-    "flightTime": "14:30",
-    "availableSeats": 180,
-    "flightPoints": 25,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 245,
+    "Gate": "C3",
+    "DepartureAirport": "Madrid, Madrid Barajas Airport",
+    "ArrivalDestination": "Amsterdam, Schiphol Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "21-01-2025",
+    "FlightTime": "05:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 25,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 40,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 41,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -18354,7 +18828,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -18536,31 +19010,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 245,
-    "gate": "C3",
-    "departureAirport": "Madrid, Madrid Barajas Airport",
-    "arrivalDestination": "Amsterdam, Schiphol Airport",
-    "isCancelled": false,
-    "departureDate": "21-01-2025",
-    "flightTime": "05:30",
-    "availableSeats": 180,
-    "flightPoints": 25,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 350,
+    "Gate": "A5",
+    "DepartureAirport": "Istanbul, Istanbul Airport",
+    "ArrivalDestination": "Paris, Charles de Gaulle Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "14-03-2025",
+    "FlightTime": "14:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 35,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 41,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 42,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -18742,7 +19218,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -18924,31 +19400,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 350,
-    "gate": "A5",
-    "departureAirport": "Istanbul, Istanbul Airport",
-    "arrivalDestination": "Paris, Charles de Gaulle Airport",
-    "isCancelled": false,
-    "departureDate": "14-03-2025",
-    "flightTime": "14:30",
-    "availableSeats": 180,
-    "flightPoints": 35,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 150,
+    "Gate": "A3",
+    "DepartureAirport": "Brussels, Brussels Airport",
+    "ArrivalDestination": "Zurich, Zurich Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "30-01-2025",
+    "FlightTime": "12:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 15,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 42,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 43,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -19130,7 +19608,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -19312,31 +19790,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 150,
-    "gate": "A3",
-    "departureAirport": "Brussels, Brussels Airport",
-    "arrivalDestination": "Zurich, Zurich Airport",
-    "isCancelled": false,
-    "departureDate": "30-01-2025",
-    "flightTime": "12:30",
-    "availableSeats": 180,
-    "flightPoints": 15,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 390,
+    "Gate": "D3",
+    "DepartureAirport": "Istanbul, Istanbul Airport",
+    "ArrivalDestination": "Frankfurt, Frankfurt Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "28-01-2025",
+    "FlightTime": "15:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 39,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 43,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 44,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -19518,7 +19998,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -19700,31 +20180,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 390,
-    "gate": "D3",
-    "departureAirport": "Istanbul, Istanbul Airport",
-    "arrivalDestination": "Frankfurt, Frankfurt Airport",
-    "isCancelled": false,
-    "departureDate": "28-01-2025",
-    "flightTime": "15:30",
-    "availableSeats": 180,
-    "flightPoints": 39,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 250,
+    "Gate": "B1",
+    "DepartureAirport": "Istanbul, Istanbul Airport",
+    "ArrivalDestination": "Paris, Charles de Gaulle Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "16-01-2025",
+    "FlightTime": "14:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 25,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 44,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 45,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -19906,7 +20388,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -20088,31 +20570,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 250,
-    "gate": "B1",
-    "departureAirport": "Istanbul, Istanbul Airport",
-    "arrivalDestination": "Paris, Charles de Gaulle Airport",
-    "isCancelled": false,
-    "departureDate": "16-01-2025",
-    "flightTime": "14:30",
-    "availableSeats": 180,
-    "flightPoints": 25,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 550,
+    "Gate": "B6",
+    "DepartureAirport": "Amsterdam, Schiphol Airport",
+    "ArrivalDestination": "London, Heathrow Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "14-02-2025",
+    "FlightTime": "14:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 55,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 45,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 46,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -20294,7 +20778,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -20476,31 +20960,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 550,
-    "gate": "B6",
-    "departureAirport": "Amsterdam, Schiphol Airport",
-    "arrivalDestination": "London, Heathrow Airport",
-    "isCancelled": false,
-    "departureDate": "14-02-2025",
-    "flightTime": "14:30",
-    "availableSeats": 180,
-    "flightPoints": 55,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 350,
+    "Gate": "C7",
+    "DepartureAirport": "Istanbul, Istanbul Airport",
+    "ArrivalDestination": "Amsterdam, Schiphol Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "18-02-2025",
+    "FlightTime": "09:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 35,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 46,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 47,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -20682,7 +21168,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -20864,31 +21350,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 350,
-    "gate": "C7",
-    "departureAirport": "Istanbul, Istanbul Airport",
-    "arrivalDestination": "Amsterdam, Schiphol Airport",
-    "isCancelled": false,
-    "departureDate": "18-02-2025",
-    "flightTime": "09:30",
-    "availableSeats": 180,
-    "flightPoints": 35,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 250,
+    "Gate": "E2",
+    "DepartureAirport": "Frankfurt, Frankfurt Airport",
+    "ArrivalDestination": "Rotterdam, The Hague Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "22-02-2025",
+    "FlightTime": "18:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 25,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 47,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 48,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -21070,7 +21558,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -21252,31 +21740,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 250,
-    "gate": "E2",
-    "departureAirport": "Frankfurt, Frankfurt Airport",
-    "arrivalDestination": "Rotterdam, The Hague Airport",
-    "isCancelled": false,
-    "departureDate": "22-02-2025",
-    "flightTime": "18:30",
-    "availableSeats": 180,
-    "flightPoints": 25,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 450,
+    "Gate": "C1",
+    "DepartureAirport": "Madrid, Madrid Barajas Airport",
+    "ArrivalDestination": "Istanbul, Istanbul Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "11-02-2025",
+    "FlightTime": "12:10",
+    "AvailableSeats": 180,
+    "FlightPoints": 45,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 48,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 49,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -21458,7 +21948,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -21640,31 +22130,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 450,
-    "gate": "C1",
-    "departureAirport": "Madrid, Madrid Barajas Airport",
-    "arrivalDestination": "Istanbul, Istanbul Airport",
-    "isCancelled": false,
-    "departureDate": "11-02-2025",
-    "flightTime": "12:10",
-    "availableSeats": 180,
-    "flightPoints": 45,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 270,
+    "Gate": "D9",
+    "DepartureAirport": "Rotterdam, The Hague Airport",
+    "ArrivalDestination": "Naples, Naples Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "18-01-2025",
+    "FlightTime": "10:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 27,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 49,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 50,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -21846,7 +22338,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -22028,31 +22520,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 270,
-    "gate": "D9",
-    "departureAirport": "Rotterdam, The Hague Airport",
-    "arrivalDestination": "Naples, Naples Airport",
-    "isCancelled": false,
-    "departureDate": "18-01-2025",
-    "flightTime": "10:30",
-    "availableSeats": 180,
-    "flightPoints": 27,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 250,
+    "Gate": "B3",
+    "DepartureAirport": "Madrid, Madrid Barajas Airport",
+    "ArrivalDestination": "Vienna, International Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "23-01-2025",
+    "FlightTime": "19:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 25,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 50,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 51,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -22234,7 +22728,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -22416,31 +22910,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 250,
-    "gate": "B3",
-    "departureAirport": "Madrid, Madrid Barajas Airport",
-    "arrivalDestination": "Vienna, International Airport",
-    "isCancelled": false,
-    "departureDate": "23-01-2025",
-    "flightTime": "19:30",
-    "availableSeats": 180,
-    "flightPoints": 25,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 350,
+    "Gate": "C2",
+    "DepartureAirport": "Istanbul, Istanbul Airport",
+    "ArrivalDestination": "Rotterdam, The Hague Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "04-02-2025",
+    "FlightTime": "14:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 35,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 51,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 52,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -22622,7 +23118,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -22804,31 +23300,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 350,
-    "gate": "C2",
-    "departureAirport": "Istanbul, Istanbul Airport",
-    "arrivalDestination": "Rotterdam, The Hague Airport",
-    "isCancelled": false,
-    "departureDate": "04-02-2025",
-    "flightTime": "14:30",
-    "availableSeats": 180,
-    "flightPoints": 35,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 280,
+    "Gate": "B4",
+    "DepartureAirport": "Paris, Charles de Gaulle Airport",
+    "ArrivalDestination": "Milan, Malpensa Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "20-02-2025",
+    "FlightTime": "17:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 28,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 52,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 53,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -23010,7 +23508,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -23192,31 +23690,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 280,
-    "gate": "B4",
-    "departureAirport": "Paris, Charles de Gaulle Airport",
-    "arrivalDestination": "Milan, Malpensa Airport",
-    "isCancelled": false,
-    "departureDate": "20-02-2025",
-    "flightTime": "17:30",
-    "availableSeats": 180,
-    "flightPoints": 28,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 290,
+    "Gate": "C5",
+    "DepartureAirport": "Paris, Charles de Gaulle Airport",
+    "ArrivalDestination": "Milan, Malpensa Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "23-02-2025",
+    "FlightTime": "03:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 29,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 53,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 54,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -23398,7 +23898,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -23580,31 +24080,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 290,
-    "gate": "C5",
-    "departureAirport": "Paris, Charles de Gaulle Airport",
-    "arrivalDestination": "Milan, Malpensa Airport",
-    "isCancelled": false,
-    "departureDate": "23-02-2025",
-    "flightTime": "03:30",
-    "availableSeats": 180,
-    "flightPoints": 29,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 320,
+    "Gate": "A2",
+    "DepartureAirport": "Brussels, Brussels Airport",
+    "ArrivalDestination": "Mallorca, Palma de Mallorca Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "12-03-2025",
+    "FlightTime": "07:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 32,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 54,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 55,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -23786,7 +24288,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -23968,31 +24470,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 320,
-    "gate": "A2",
-    "departureAirport": "Brussels, Brussels Airport",
-    "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
-    "isCancelled": false,
-    "departureDate": "12-03-2025",
-    "flightTime": "07:30",
-    "availableSeats": 180,
-    "flightPoints": 32,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 230,
+    "Gate": "A5",
+    "DepartureAirport": "Athens, Eleftherios Venizelos",
+    "ArrivalDestination": "Paris, Charles de Gaulle Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "21-02-2025",
+    "FlightTime": "16:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 23,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 55,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 56,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -24174,7 +24678,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -24356,31 +24860,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 230,
-    "gate": "A5",
-    "departureAirport": "Athens, Eleftherios Venizelos",
-    "arrivalDestination": "Paris, Charles de Gaulle Airport",
-    "isCancelled": false,
-    "departureDate": "21-02-2025",
-    "flightTime": "16:30",
-    "availableSeats": 180,
-    "flightPoints": 23,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 450,
+    "Gate": "D3",
+    "DepartureAirport": "Rotterdam, The Hague Airport",
+    "ArrivalDestination": "London, Heathrow Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "25-01-2025",
+    "FlightTime": "21:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 45,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 56,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 57,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -24562,7 +25068,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -24744,31 +25250,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 450,
-    "gate": "D3",
-    "departureAirport": "Rotterdam, The Hague Airport",
-    "arrivalDestination": "London, Heathrow Airport",
-    "isCancelled": false,
-    "departureDate": "25-01-2025",
-    "flightTime": "21:30",
-    "availableSeats": 180,
-    "flightPoints": 45,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 250,
+    "Gate": "A2",
+    "DepartureAirport": "Lisbon, Lisbon Airport",
+    "ArrivalDestination": "Paris, Charles de Gaulle Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "23-01-2025",
+    "FlightTime": "11:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 25,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 57,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 58,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -24950,7 +25458,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -25132,31 +25640,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 250,
-    "gate": "A2",
-    "departureAirport": "Lisbon, Lisbon Airport",
-    "arrivalDestination": "Paris, Charles de Gaulle Airport",
-    "isCancelled": false,
-    "departureDate": "23-01-2025",
-    "flightTime": "11:30",
-    "availableSeats": 180,
-    "flightPoints": 25,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 260,
+    "Gate": "A5",
+    "DepartureAirport": "Frankfurt, Frankfurt Airport",
+    "ArrivalDestination": "Budapest, International Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "07-02-2025",
+    "FlightTime": "09:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 26,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 58,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 59,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -25338,7 +25848,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -25520,31 +26030,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 260,
-    "gate": "A5",
-    "departureAirport": "Frankfurt, Frankfurt Airport",
-    "arrivalDestination": "Budapest, International Airport",
-    "isCancelled": false,
-    "departureDate": "07-02-2025",
-    "flightTime": "09:30",
-    "availableSeats": 180,
-    "flightPoints": 26,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 550,
+    "Gate": "C7",
+    "DepartureAirport": "Lisbon, Lisbon Airport",
+    "ArrivalDestination": "Amsterdam, Schiphol Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "13-02-2025",
+    "FlightTime": "12:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 55,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 59,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 60,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -25726,7 +26238,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -25908,31 +26420,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 550,
-    "gate": "C7",
-    "departureAirport": "Lisbon, Lisbon Airport",
-    "arrivalDestination": "Amsterdam, Schiphol Airport",
-    "isCancelled": false,
-    "departureDate": "13-02-2025",
-    "flightTime": "12:30",
-    "availableSeats": 180,
-    "flightPoints": 55,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 350,
+    "Gate": "C6",
+    "DepartureAirport": "Milan, Malpensa Airport",
+    "ArrivalDestination": "Madrid, Madrid Barajas Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "02-02-2025",
+    "FlightTime": "14:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 35,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 60,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 61,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -26114,7 +26628,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -26296,31 +26810,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 350,
-    "gate": "C6",
-    "departureAirport": "Milan, Malpensa Airport",
-    "arrivalDestination": "Madrid, Madrid Barajas Airport",
-    "isCancelled": false,
-    "departureDate": "02-02-2025",
-    "flightTime": "14:30",
-    "availableSeats": 180,
-    "flightPoints": 35,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 250,
+    "Gate": "B3",
+    "DepartureAirport": "Istanbul, Istanbul Airport",
+    "ArrivalDestination": "Rotterdam, The Hague Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "22-02-2025",
+    "FlightTime": "11:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 25,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 61,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 62,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -26502,7 +27018,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -26684,31 +27200,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 250,
-    "gate": "B3",
-    "departureAirport": "Istanbul, Istanbul Airport",
-    "arrivalDestination": "Rotterdam, The Hague Airport",
-    "isCancelled": false,
-    "departureDate": "22-02-2025",
-    "flightTime": "11:30",
-    "availableSeats": 180,
-    "flightPoints": 25,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 350,
+    "Gate": "D2",
+    "DepartureAirport": "Paris, Charles de Gaulle Airport",
+    "ArrivalDestination": "Istanbul, Istanbul Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "28-01-2025",
+    "FlightTime": "15:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 35,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 62,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 63,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -26890,7 +27408,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -27072,31 +27590,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 350,
-    "gate": "D2",
-    "departureAirport": "Paris, Charles de Gaulle Airport",
-    "arrivalDestination": "Istanbul, Istanbul Airport",
-    "isCancelled": false,
-    "departureDate": "28-01-2025",
-    "flightTime": "15:30",
-    "availableSeats": 180,
-    "flightPoints": 35,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 350,
+    "Gate": "E2",
+    "DepartureAirport": "Madrid, Madrid Barajas Airport",
+    "ArrivalDestination": "Amsterdam, Schiphol Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "19-02-2025",
+    "FlightTime": "19:15",
+    "AvailableSeats": 180,
+    "FlightPoints": 35,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 63,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 64,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -27278,7 +27798,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -27460,31 +27980,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 350,
-    "gate": "E2",
-    "departureAirport": "Madrid, Madrid Barajas Airport",
-    "arrivalDestination": "Amsterdam, Schiphol Airport",
-    "isCancelled": false,
-    "departureDate": "19-02-2025",
-    "flightTime": "19:15",
-    "availableSeats": 180,
-    "flightPoints": 35,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 150,
+    "Gate": "A12",
+    "DepartureAirport": "Milan, Malpensa Airport",
+    "ArrivalDestination": "Vienna, International Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "19-01-2025",
+    "FlightTime": "12:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 15,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 64,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 65,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -27666,7 +28188,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -27848,31 +28370,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 150,
-    "gate": "A12",
-    "departureAirport": "Milan, Malpensa Airport",
-    "arrivalDestination": "Vienna, International Airport",
-    "isCancelled": false,
-    "departureDate": "19-01-2025",
-    "flightTime": "12:30",
-    "availableSeats": 180,
-    "flightPoints": 15,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 420,
+    "Gate": "B3",
+    "DepartureAirport": "London, Heathrow Airport",
+    "ArrivalDestination": "Mallorca, Palma de Mallorca Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "20-03-2025",
+    "FlightTime": "14:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 42,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 65,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 66,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -28054,7 +28578,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -28236,31 +28760,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 420,
-    "gate": "B3",
-    "departureAirport": "London, Heathrow Airport",
-    "arrivalDestination": "Mallorca, Palma de Mallorca Airport",
-    "isCancelled": false,
-    "departureDate": "20-03-2025",
-    "flightTime": "14:30",
-    "availableSeats": 180,
-    "flightPoints": 42,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 250,
+    "Gate": "C3",
+    "DepartureAirport": "Paris, Charles de Gaulle Airport",
+    "ArrivalDestination": "Athens, Eleftherios Venizelos",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "12-01-2025",
+    "FlightTime": "10:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 25,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 66,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 67,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -28442,7 +28968,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -28624,31 +29150,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 250,
-    "gate": "C3",
-    "departureAirport": "Paris, Charles de Gaulle Airport",
-    "arrivalDestination": "Athens, Eleftherios Venizelos",
-    "isCancelled": false,
-    "departureDate": "12-01-2025",
-    "flightTime": "10:30",
-    "availableSeats": 180,
-    "flightPoints": 25,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 250,
+    "Gate": "A1",
+    "DepartureAirport": "Lisbon, Lisbon Airport",
+    "ArrivalDestination": "London, Heathrow Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "10-01-2025",
+    "FlightTime": "13:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 25,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 67,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 68,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -28830,7 +29358,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -29012,31 +29540,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 250,
-    "gate": "A1",
-    "departureAirport": "Lisbon, Lisbon Airport",
-    "arrivalDestination": "London, Heathrow Airport",
-    "isCancelled": false,
-    "departureDate": "10-01-2025",
-    "flightTime": "13:30",
-    "availableSeats": 180,
-    "flightPoints": 25,
-    "totalPets": 0,
-    "hasTakenOff": true
+    "TicketPrice": 350,
+    "Gate": "A2",
+    "DepartureAirport": "London, Heathrow Airport",
+    "ArrivalDestination": "Paris, Charles de Gaulle Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "22-01-2025",
+    "FlightTime": "06:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 35,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 68,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 69,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -29218,7 +29748,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -29400,31 +29930,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 350,
-    "gate": "A2",
-    "departureAirport": "London, Heathrow Airport",
-    "arrivalDestination": "Paris, Charles de Gaulle Airport",
-    "isCancelled": false,
-    "departureDate": "22-01-2025",
-    "flightTime": "06:30",
-    "availableSeats": 180,
-    "flightPoints": 35,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 300,
+    "Gate": "B5",
+    "DepartureAirport": "Istanbul, Istanbul Airport",
+    "ArrivalDestination": "Zurich, Zurich Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "03-02-2025",
+    "FlightTime": "14:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 30,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 69,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 70,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -29606,7 +30138,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -29788,31 +30320,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 300,
-    "gate": "B5",
-    "departureAirport": "Istanbul, Istanbul Airport",
-    "arrivalDestination": "Zurich, Zurich Airport",
-    "isCancelled": false,
-    "departureDate": "03-02-2025",
-    "flightTime": "14:30",
-    "availableSeats": 180,
-    "flightPoints": 30,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 250,
+    "Gate": "B4",
+    "DepartureAirport": "Milan, Malpensa Airport",
+    "ArrivalDestination": "Amsterdam, Schiphol Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "19-01-2025",
+    "FlightTime": "14:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 25,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 70,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 71,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -29994,7 +30528,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -30176,31 +30710,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 250,
-    "gate": "B4",
-    "departureAirport": "Milan, Malpensa Airport",
-    "arrivalDestination": "Amsterdam, Schiphol Airport",
-    "isCancelled": false,
-    "departureDate": "19-01-2025",
-    "flightTime": "14:30",
-    "availableSeats": 180,
-    "flightPoints": 25,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 185,
+    "Gate": "D2",
+    "DepartureAirport": "Frankfurt, Frankfurt Airport",
+    "ArrivalDestination": "Rotterdam, The Hague Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "24-01-2025",
+    "FlightTime": "04:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 19,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 71,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 72,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -30382,7 +30918,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -30564,31 +31100,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 185,
-    "gate": "D2",
-    "departureAirport": "Frankfurt, Frankfurt Airport",
-    "arrivalDestination": "Rotterdam, The Hague Airport",
-    "isCancelled": false,
-    "departureDate": "24-01-2025",
-    "flightTime": "04:30",
-    "availableSeats": 180,
-    "flightPoints": 19,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 350,
+    "Gate": "A12",
+    "DepartureAirport": "London, Heathrow Airport",
+    "ArrivalDestination": "Amsterdam, Schiphol Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "30-01-2025",
+    "FlightTime": "04:20",
+    "AvailableSeats": 180,
+    "FlightPoints": 35,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 72,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 73,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -30770,7 +31308,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -30952,31 +31490,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 350,
-    "gate": "A12",
-    "departureAirport": "London, Heathrow Airport",
-    "arrivalDestination": "Amsterdam, Schiphol Airport",
-    "isCancelled": false,
-    "departureDate": "30-01-2025",
-    "flightTime": "04:20",
-    "availableSeats": 180,
-    "flightPoints": 35,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 450,
+    "Gate": "F3",
+    "DepartureAirport": "Paris, Charles de Gaulle Airport",
+    "ArrivalDestination": "Istanbul, Istanbul Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "23-02-2025",
+    "FlightTime": "14:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 15,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 73,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 74,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -31158,7 +31698,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -31340,31 +31880,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 450,
-    "gate": "F3",
-    "departureAirport": "Paris, Charles de Gaulle Airport",
-    "arrivalDestination": "Istanbul, Istanbul Airport",
-    "isCancelled": false,
-    "departureDate": "23-02-2025",
-    "flightTime": "14:30",
-    "availableSeats": 180,
-    "flightPoints": 15,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 150,
+    "Gate": "D9",
+    "DepartureAirport": "Milan, Malpensa Airport",
+    "ArrivalDestination": "Riga, Riga International Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "25-01-2025",
+    "FlightTime": "04:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 15,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 74,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 75,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -31546,7 +32088,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -31728,31 +32270,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 150,
-    "gate": "D9",
-    "departureAirport": "Milan, Malpensa Airport",
-    "arrivalDestination": "Riga, Riga International Airport",
-    "isCancelled": false,
-    "departureDate": "25-01-2025",
-    "flightTime": "04:30",
-    "availableSeats": 180,
-    "flightPoints": 15,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 250,
+    "Gate": "E11",
+    "DepartureAirport": "Milan, Malpensa Airport",
+    "ArrivalDestination": "Vienna, International Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "25-01-2025",
+    "FlightTime": "17:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 25,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 75,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 76,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -31934,7 +32478,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -32116,31 +32660,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 250,
-    "gate": "E11",
-    "departureAirport": "Milan, Malpensa Airport",
-    "arrivalDestination": "Vienna, International Airport",
-    "isCancelled": false,
-    "departureDate": "25-01-2025",
-    "flightTime": "17:30",
-    "availableSeats": 180,
-    "flightPoints": 25,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 330,
+    "Gate": "F4",
+    "DepartureAirport": "Amsterdam, Schiphol Airport",
+    "ArrivalDestination": "London, Heathrow Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "22-01-2025",
+    "FlightTime": "10:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 33,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 76,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 77,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -32322,7 +32868,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -32504,31 +33050,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 330,
-    "gate": "F4",
-    "departureAirport": "Amsterdam, Schiphol Airport",
-    "arrivalDestination": "London, Heathrow Airport",
-    "isCancelled": false,
-    "departureDate": "22-01-2025",
-    "flightTime": "10:30",
-    "availableSeats": 180,
-    "flightPoints": 33,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 450,
+    "Gate": "C4",
+    "DepartureAirport": "Istanbul, Istanbul Airport",
+    "ArrivalDestination": "Milan, Malpensa Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "28-01-2025",
+    "FlightTime": "22:15",
+    "AvailableSeats": 180,
+    "FlightPoints": 45,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 77,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 78,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -32710,7 +33258,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -32892,31 +33440,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 450,
-    "gate": "C4",
-    "departureAirport": "Istanbul, Istanbul Airport",
-    "arrivalDestination": "Milan, Malpensa Airport",
-    "isCancelled": false,
-    "departureDate": "28-01-2025",
-    "flightTime": "22:15",
-    "availableSeats": 180,
-    "flightPoints": 45,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 380,
+    "Gate": "F3",
+    "DepartureAirport": "Istanbul, Istanbul Airport",
+    "ArrivalDestination": "Milan, Malpensa Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "20-01-2025",
+    "FlightTime": "11:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 38,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 78,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 79,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -33098,7 +33648,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -33280,31 +33830,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 380,
-    "gate": "F3",
-    "departureAirport": "Istanbul, Istanbul Airport",
-    "arrivalDestination": "Milan, Malpensa Airport",
-    "isCancelled": false,
-    "departureDate": "20-01-2025",
-    "flightTime": "11:30",
-    "availableSeats": 180,
-    "flightPoints": 38,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 320,
+    "Gate": "C4",
+    "DepartureAirport": "Lisbon, Lisbon Airport",
+    "ArrivalDestination": "Paris, Charles de Gaulle Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "15-01-2025",
+    "FlightTime": "04:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 32,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 79,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 80,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -33486,7 +34038,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -33668,31 +34220,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 320,
-    "gate": "C4",
-    "departureAirport": "Lisbon, Lisbon Airport",
-    "arrivalDestination": "Paris, Charles de Gaulle Airport",
-    "isCancelled": false,
-    "departureDate": "15-01-2025",
-    "flightTime": "04:30",
-    "availableSeats": 180,
-    "flightPoints": 32,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 350,
+    "Gate": "C8",
+    "DepartureAirport": "Frankfurt, Frankfurt Airport",
+    "ArrivalDestination": "Madrid, Madrid Barajas Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "16-01-2025",
+    "FlightTime": "12:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 15,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 80,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 81,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -33874,7 +34428,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -34056,31 +34610,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 350,
-    "gate": "C8",
-    "departureAirport": "Frankfurt, Frankfurt Airport",
-    "arrivalDestination": "Madrid, Madrid Barajas Airport",
-    "isCancelled": false,
-    "departureDate": "16-01-2025",
-    "flightTime": "12:30",
-    "availableSeats": 180,
-    "flightPoints": 15,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 250,
+    "Gate": "D5",
+    "DepartureAirport": "Amsterdam, Schiphol Airport",
+    "ArrivalDestination": "Milan, Malpensa Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "10-02-2025",
+    "FlightTime": "11:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 25,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   },
   {
-    "id": 81,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 82,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -34262,7 +34818,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -34444,31 +35000,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 250,
-    "gate": "D5",
-    "departureAirport": "Amsterdam, Schiphol Airport",
-    "arrivalDestination": "Milan, Malpensa Airport",
-    "isCancelled": false,
-    "departureDate": "10-02-2025",
-    "flightTime": "11:30",
-    "availableSeats": 180,
-    "flightPoints": 25,
-    "totalPets": 0,
-    "hasTakenOff": true
+    "TicketPrice": 450,
+    "Gate": "A12",
+    "DepartureAirport": "Rotterdam, The Hague Airport",
+    "ArrivalDestination": "Istanbul, Istanbul Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "25-02-2025",
+    "FlightTime": "02:10",
+    "AvailableSeats": 180,
+    "FlightPoints": 45,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 82,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 83,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -34650,7 +35208,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -34832,31 +35390,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 450,
-    "gate": "A12",
-    "departureAirport": "Rotterdam, The Hague Airport",
-    "arrivalDestination": "Istanbul, Istanbul Airport",
-    "isCancelled": false,
-    "departureDate": "25-02-2025",
-    "flightTime": "02:10",
-    "availableSeats": 180,
-    "flightPoints": 45,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 350,
+    "Gate": "C2",
+    "DepartureAirport": "Istanbul, Istanbul Airport",
+    "ArrivalDestination": "Lisbon, Lisbon Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "24-02-2025",
+    "FlightTime": "03:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 35,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 83,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 84,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -35038,7 +35598,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -35220,31 +35780,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 350,
-    "gate": "C2",
-    "departureAirport": "Istanbul, Istanbul Airport",
-    "arrivalDestination": "Lisbon, Lisbon Airport",
-    "isCancelled": false,
-    "departureDate": "24-02-2025",
-    "flightTime": "03:30",
-    "availableSeats": 180,
-    "flightPoints": 35,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 500,
+    "Gate": "A12",
+    "DepartureAirport": "Frankfurt, Frankfurt Airport",
+    "ArrivalDestination": "London, Heathrow Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "14-01-2025",
+    "FlightTime": "10:15",
+    "AvailableSeats": 180,
+    "FlightPoints": 50,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 84,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 85,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -35426,7 +35988,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -35608,31 +36170,33 @@
         "10A",
         "30D"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 500,
-    "gate": "A12",
-    "departureAirport": "Frankfurt, Frankfurt Airport",
-    "arrivalDestination": "London, Heathrow Airport",
-    "isCancelled": false,
-    "departureDate": "14-01-2025",
-    "flightTime": "10:15",
-    "availableSeats": 180,
-    "flightPoints": 50,
-    "totalPets": 0,
-    "hasTakenOff": false
+    "TicketPrice": 550,
+    "Gate": "B12",
+    "DepartureAirport": "Paris, Charles de Gaulle Airport",
+    "ArrivalDestination": "London, Heathrow Airport",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "27-01-2025",
+    "FlightTime": "11:30",
+    "AvailableSeats": 180,
+    "FlightPoints": 15,
+    "TotalPets": 0,
+    "HasTakenOff": false,
+    "ReturnFlight": null
   },
   {
-    "id": 85,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
+    "Id": 86,
+    "Airline": "BOSST AIRLINES",
+    "Layout": {
+      "Rows": 30,
+      "Columns": 6,
+      "SeatArrangement": [
         "01A",
         "01B",
         "01C",
@@ -35814,7 +36378,7 @@
         "30E",
         "30F"
       ],
-      "availableSeats": [
+      "AvailableSeats": [
         "01A",
         "01B",
         "01C",
@@ -35869,6 +36433,7 @@
         "09D",
         "09E",
         "09F",
+        "10A",
         "10B",
         "10C",
         "10D",
@@ -35991,415 +36556,28 @@
         "30A",
         "30B",
         "30C",
+        "30D",
         "30E",
-        "30F",
-        "10A",
-        "30D"
+        "30F"
       ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
+      "BookedSeats": [],
+      "ChosenSeats": [],
+      "IsAirbusA330": false,
+      "IsBoeing787": false,
+      "SeatInitials": {}
     },
-    "ticketPrice": 550,
-    "gate": "B12",
-    "departureAirport": "Paris, Charles de Gaulle Airport",
-    "arrivalDestination": "London, Heathrow Airport",
-    "isCancelled": false,
-    "departureDate": "27-01-2025",
-    "flightTime": "11:30",
-    "availableSeats": 180,
-    "flightPoints": 15,
-    "totalPets": 0,
-    "hasTakenOff": false
-  },
-  {
-    "id": 86,
-    "airline": "BOSST AIRLINES",
-    "layout": {
-      "rows": 30,
-      "columns": 6,
-      "seatArrangement": [
-        "01A",
-        "01B",
-        "01C",
-        "01D",
-        "01E",
-        "01F",
-        "02A",
-        "02B",
-        "02C",
-        "02D",
-        "02E",
-        "02F",
-        "03A",
-        "03B",
-        "03C",
-        "03D",
-        "03E",
-        "03F",
-        "04A",
-        "04B",
-        "04C",
-        "04D",
-        "04E",
-        "04F",
-        "05A",
-        "05B",
-        "05C",
-        "05D",
-        "05E",
-        "05F",
-        "06A",
-        "06B",
-        "06C",
-        "06D",
-        "06E",
-        "06F",
-        "07A",
-        "07B",
-        "07C",
-        "07D",
-        "07E",
-        "07F",
-        "08A",
-        "08B",
-        "08C",
-        "08D",
-        "08E",
-        "08F",
-        "09A",
-        "09B",
-        "09C",
-        "09D",
-        "09E",
-        "09F",
-        "10A",
-        "10B",
-        "10C",
-        "10D",
-        "10E",
-        "10F",
-        "11A",
-        "11B",
-        "11C",
-        "11D",
-        "11E",
-        "11F",
-        "12A",
-        "12B",
-        "12C",
-        "12D",
-        "12E",
-        "12F",
-        "13A",
-        "13B",
-        "13C",
-        "13D",
-        "13E",
-        "13F",
-        "14A",
-        "14B",
-        "14C",
-        "14D",
-        "14E",
-        "14F",
-        "15A",
-        "15B",
-        "15C",
-        "15D",
-        "15E",
-        "15F",
-        "16A",
-        "16B",
-        "16C",
-        "16D",
-        "16E",
-        "16F",
-        "17A",
-        "17B",
-        "17C",
-        "17D",
-        "17E",
-        "17F",
-        "18A",
-        "18B",
-        "18C",
-        "18D",
-        "18E",
-        "18F",
-        "19A",
-        "19B",
-        "19C",
-        "19D",
-        "19E",
-        "19F",
-        "20A",
-        "20B",
-        "20C",
-        "20D",
-        "20E",
-        "20F",
-        "21A",
-        "21B",
-        "21C",
-        "21D",
-        "21E",
-        "21F",
-        "22A",
-        "22B",
-        "22C",
-        "22D",
-        "22E",
-        "22F",
-        "23A",
-        "23B",
-        "23C",
-        "23D",
-        "23E",
-        "23F",
-        "24A",
-        "24B",
-        "24C",
-        "24D",
-        "24E",
-        "24F",
-        "25A",
-        "25B",
-        "25C",
-        "25D",
-        "25E",
-        "25F",
-        "26A",
-        "26B",
-        "26C",
-        "26D",
-        "26E",
-        "26F",
-        "27A",
-        "27B",
-        "27C",
-        "27D",
-        "27E",
-        "27F",
-        "28A",
-        "28B",
-        "28C",
-        "28D",
-        "28E",
-        "28F",
-        "29A",
-        "29B",
-        "29C",
-        "29D",
-        "29E",
-        "29F",
-        "30A",
-        "30B",
-        "30C",
-        "30D",
-        "30E",
-        "30F"
-      ],
-      "availableSeats": [
-        "01A",
-        "01B",
-        "01C",
-        "01D",
-        "01E",
-        "01F",
-        "02A",
-        "02B",
-        "02C",
-        "02D",
-        "02E",
-        "02F",
-        "03A",
-        "03B",
-        "03C",
-        "03D",
-        "03E",
-        "03F",
-        "04A",
-        "04B",
-        "04C",
-        "04D",
-        "04E",
-        "04F",
-        "05A",
-        "05B",
-        "05C",
-        "05D",
-        "05E",
-        "05F",
-        "06A",
-        "06B",
-        "06C",
-        "06D",
-        "06E",
-        "06F",
-        "07A",
-        "07B",
-        "07C",
-        "07D",
-        "07E",
-        "07F",
-        "08A",
-        "08B",
-        "08C",
-        "08D",
-        "08E",
-        "08F",
-        "09A",
-        "09B",
-        "09C",
-        "09D",
-        "09E",
-        "09F",
-        "10A",
-        "10B",
-        "10C",
-        "10D",
-        "10E",
-        "10F",
-        "11A",
-        "11B",
-        "11C",
-        "11D",
-        "11E",
-        "11F",
-        "12A",
-        "12B",
-        "12C",
-        "12D",
-        "12E",
-        "12F",
-        "13A",
-        "13B",
-        "13C",
-        "13D",
-        "13E",
-        "13F",
-        "14A",
-        "14B",
-        "14C",
-        "14D",
-        "14E",
-        "14F",
-        "15A",
-        "15B",
-        "15C",
-        "15D",
-        "15E",
-        "15F",
-        "16A",
-        "16B",
-        "16C",
-        "16D",
-        "16E",
-        "16F",
-        "17A",
-        "17B",
-        "17C",
-        "17D",
-        "17E",
-        "17F",
-        "18A",
-        "18B",
-        "18C",
-        "18D",
-        "18E",
-        "18F",
-        "19A",
-        "19B",
-        "19C",
-        "19D",
-        "19E",
-        "19F",
-        "20A",
-        "20B",
-        "20C",
-        "20D",
-        "20E",
-        "20F",
-        "21A",
-        "21B",
-        "21C",
-        "21D",
-        "21E",
-        "21F",
-        "22A",
-        "22B",
-        "22C",
-        "22D",
-        "22E",
-        "22F",
-        "23A",
-        "23B",
-        "23C",
-        "23D",
-        "23E",
-        "23F",
-        "24A",
-        "24B",
-        "24C",
-        "24D",
-        "24E",
-        "24F",
-        "25A",
-        "25B",
-        "25C",
-        "25D",
-        "25E",
-        "25F",
-        "26A",
-        "26B",
-        "26C",
-        "26D",
-        "26E",
-        "26F",
-        "27A",
-        "27B",
-        "27C",
-        "27D",
-        "27E",
-        "27F",
-        "28A",
-        "28B",
-        "28C",
-        "28D",
-        "28E",
-        "28F",
-        "29A",
-        "29B",
-        "29C",
-        "29D",
-        "29E",
-        "29F",
-        "30A",
-        "30B",
-        "30C",
-        "30D",
-        "30E",
-        "30F"
-      ],
-      "bookedSeats": [],
-      "chosenSeats": [],
-      "isAirbusA330": false,
-      "isBoeing787": false,
-      "seatInitials": {}
-    },
-    "ticketPrice": 150,
-    "gate": "A01",
-    "departureAirport": "Rotterdam, The Hague Airport",
-    "arrivalDestination": "Stockholm-Arlanda",
-    "isCancelled": false,
-    "departureDate": "11-01-2025",
-    "flightTime": "11:30",
-    "availableSeats": 0,
-    "flightPoints": 15,
-    "totalPets": 0,
-    "hasTakenOff": true
+    "TicketPrice": 150,
+    "Gate": "A01",
+    "DepartureAirport": "Rotterdam, The Hague Airport",
+    "ArrivalDestination": "Stockholm-Arlanda",
+    "TimeOfDay": null,
+    "IsCancelled": false,
+    "DepartureDate": "11-01-2025",
+    "FlightTime": "11:30",
+    "AvailableSeats": 0,
+    "FlightPoints": 15,
+    "TotalPets": 0,
+    "HasTakenOff": true,
+    "ReturnFlight": null
   }
 ]

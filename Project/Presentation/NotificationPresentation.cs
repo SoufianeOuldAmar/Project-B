@@ -10,7 +10,7 @@ public static class NotificationPresentation
         if (notifications == null || !notifications.Any())
         {
             Console.Clear();
-            Console.WriteLine("========== Notifications ==========\n");
+            Console.WriteLine("========== 🔔 Notifications ==========\n");
             Console.WriteLine("No notifications available.");
             MenuLogic.PopMenu();
             return;
@@ -19,7 +19,7 @@ public static class NotificationPresentation
         while (true)
         {
             Console.Clear();
-            Console.WriteLine("========== Notifications ==========\n");
+            Console.WriteLine("========== 🔔 Notifications ==========\n");
             for (int i = 0; i < notifications.Count; i++)
             {
                 var notification = notifications[i];
@@ -51,7 +51,7 @@ public static class NotificationPresentation
     private static void ShowNotificationDetails(Notification notification, AccountModel currentAccount)
     {
         Console.Clear();
-        Console.WriteLine("========== Notification Details ==========\n");
+        Console.WriteLine("========== 📋 Notification Details ==========\n");
         Console.WriteLine($"Notification ID: {notification.Id}");
         Console.WriteLine($"Flight ID: {notification.FlightID}");
         Console.WriteLine();
@@ -73,11 +73,11 @@ public static class NotificationPresentation
         }
 
         Console.WriteLine();
-        Console.WriteLine("========== Description ==========\n");
+        Console.WriteLine("========== 📃 Description ==========\n");
         Console.WriteLine(notification.Description);
         Console.WriteLine();
 
-        Console.WriteLine("========== Status ==========\n");
+        Console.WriteLine("========== ⌛ Status ==========\n");
         Console.WriteLine($"Is Read: {(notification.IsRead ? "Yes" : "No")}");
         Console.WriteLine();
 
@@ -99,7 +99,7 @@ public static class NotificationPresentation
         if (choice == "1")
         {
             notification.IsRead = true;
-            AccountsAccess.UpdateCurrentAccount(currentAccount);
+            DataAccessClass.UpdateCurrentAccount(currentAccount);
             Console.WriteLine("\nNotification marked as read.");
         }
         else if (choice == "2")

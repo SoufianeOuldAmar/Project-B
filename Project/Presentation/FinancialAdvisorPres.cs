@@ -98,8 +98,7 @@ public class FinancialAdvisorPres
                 {
                     if (year >= 0)
                     {
-                        var financialReport = new FinancialReport();
-                        financialReport.GenerateDataForReport(year);
+                        FinancialReportPresentation.GenerateDataForReport(year);
                     }
                     else
                     {

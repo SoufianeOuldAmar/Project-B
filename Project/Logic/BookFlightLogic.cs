@@ -71,7 +71,8 @@ public static class BookFlightLogic
     {
         try
         {
-            PassengerAccess.SavePassengers(passengers);
+            // PassengerAccess.SavePassengers(passengers);
+            DataAccessClass.WriteList<PassengerModel>("DataSources/passengers.json", passengers);
 
             var currentAccount = AccountsLogic.CurrentAccount;
 
@@ -96,7 +97,8 @@ public static class BookFlightLogic
             BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, BookFlightPresentation.allBookedFlights[currentAccount.EmailAddress]);
 
             flight.AvailableSeats -= selectedSeats.Count;
-            FlightsAccess.WriteAll(BookFlightPresentation.allFlights);
+            DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", BookFlightPresentation.allFlights);
+
 
             return true;
         }
@@ -109,7 +111,7 @@ public static class BookFlightLogic
 
     public static void TakeOff()
     {
-        var allFlights = FlightsAccess.ReadAll();
+        var allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
         var allBookedFlights = BookedFlightsAccess.LoadAll();
 
         DateTime currentDateTime = DateTime.Now;
@@ -167,21 +169,14 @@ public static class BookFlightLogic
                         // Only add points if they haven't been added before
                         if (bookedFlight.FlightPoints == 0) // Check if no points were added yet
                         {
-                            // Console.WriteLine("OEEEEEEEEEEEEEEEEEEH");
-                            // Thread.Sleep(5000);
                             bookedFlight.FlightPoints += flight.FlightPoints * bookedFlight.BookedSeats.Count;
                             account.TotalFlightPoints += flight.FlightPoints * bookedFlight.BookedSeats.Count;
 
-                            AccountsAccess.UpdateCurrentAccount(account);
+                            DataAccessClass.UpdateCurrentAccount(account);
 
                             updated = true;
                         }
                     }
-                }
-                else
-                {
-                    // Console.WriteLine("WAAAAAAAAAAAAAAAAAAAAAH");
-                    // Thread.Sleep(5000);
                 }
             }
 
@@ -193,7 +188,8 @@ public static class BookFlightLogic
         }
 
         // Save the updated flights and booked flights only once
-        FlightsAccess.WriteAll(allFlights);
+        DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", allFlights);
+
 
         // Write back only the emails that had updates
         foreach (var kvp in updatedBookedFlights)

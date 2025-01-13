@@ -1,18 +1,16 @@
 {
   "n@b.c": [
     {
-      "FlightID": 36,
+      "FlightID": 38,
       "BookedSeats": [
-        "10A",
         "11A"
       ],
       "Pets": [],
       "BaggageInfo": [],
-      "IsCancelled": true,
-      "TicketBill": 275,
-      "FlightPoints": 54,
+      "IsCancelled": false,
+      "TicketBill": 425,
+      "FlightPoints": 0,
       "SeatInitials": {
-        "10A": "SA",
         "11A": "SO"
       },
       "Email": "n@b.c",

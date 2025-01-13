@@ -5,36 +5,8 @@ namespace DataAccess
 
     public static class AdminManageBookingLogic
     {
-        public static List<FlightModel> allFlights = FlightsAccess.ReadAll();
+        public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
         public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
-
-        // public static void SaveChangesLogic(string email, Dictionary<string, List<BookedFlightsModel>> flights)
-        // {
-        //     Dictionary<string, List<BookedFlightsModel>> bookedFlights = LoadAll();
-        // string filePath = "bookedflights.json";
-        // try
-        // {
-
-        //     var options = new JsonSerializerOptions
-        //     {
-        //         WriteIndented = true
-        //     };
-        //     string jsonString = JsonSerializer.Serialize(flights, options);
-
-
-        //     File.WriteAllText(filePath, jsonString);
-
-        //     Console.WriteLine("Data successfully saved to the JSON file.");
-        // }
-        // catch (Exception ex)
-        // {
-        //     Console.WriteLine($"Error saving data: {ex.Message}");
-        // }
-        // }
-
-
-
-
 
         public static bool SeatLogic(string newSeat)
         {

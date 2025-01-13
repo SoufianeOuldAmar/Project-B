@@ -1,5 +1,7 @@
 using DataAccess;
 using PresentationLayer;
+using DataModels;
+
 public class LayoutModel
 {
     public int Rows { get; set; }
@@ -70,7 +72,8 @@ public class LayoutModel
 
     public void ResetAllSeats()
     {
-        var allFlights = FlightsAccess.ReadAll();
+        var allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
+
         string filePath = "DataSources/bookedflights.json";
 
         foreach (var flight in allFlights)
@@ -95,14 +98,15 @@ public class LayoutModel
             throw new Exception($"Error resetting seats: {ex.Message}");
         }
 
-        var allAccounts = AccountsAccess.LoadAll();
+        var allAccounts = DataAccessClass.ReadList<AccountModel>("DataSources/accounts.json");
         foreach (var account in allAccounts)
         {
             account.FlightPointsDataList.Clear();
         }
 
-        FlightsAccess.WriteAll(allFlights);
-        AccountsAccess.WriteAll(allAccounts);
+        DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", allFlights);
+
+        DataAccessClass.WriteList<AccountModel>("DataSources/accounts.json", allAccounts);
     }
 
     public static LayoutModel CreateBoeing737Layout()

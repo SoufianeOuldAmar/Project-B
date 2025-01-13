@@ -164,13 +164,16 @@ public class CancelPres
 
     public static void BookedFlights(string email)
     {
-        if (!BookFlightPresentation.allBookedFlights.ContainsKey(email) || BookFlightPresentation.allBookedFlights[email].Count == 0)
+
+        var allBookedFlights = BookedFlightsAccess.LoadAll();
+
+        if (!allBookedFlights.ContainsKey(email) || allBookedFlights[email].Count == 0)
         {
             Console.WriteLine("You have no flights booked.");
             return;
         }
 
-        Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
+        // Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
         var bookedFlights = allBookedFlights[email];
 
         const int tableWidth = 153;
@@ -289,13 +292,13 @@ public class CancelPres
             }
 
             if (flight.FoodAndDrinkItems?.Count > 0)
+            {
+                Console.WriteLine($"  Food and Drinks on this flight:");
+                foreach (var item in flight.FoodAndDrinkItems)
                 {
-                    Console.WriteLine($"  Food and Drinks on this flight:");
-                    foreach (var item in flight.FoodAndDrinkItems)
-                    {
-                        Console.WriteLine($"    Item: {item.Name}, Price: €{item.Price:F2}");
-                    }
+                    Console.WriteLine($"    Item: {item.Name}, Price: €{item.Price:F2}");
                 }
+            }
             else
             {
                 Console.WriteLine($"  No food and drinks added for this flight.");
