@@ -276,7 +276,7 @@ public static class BookFlightPresentation
                         break;
                     }
 
-                    if (!selectedFlight.Layout.TryBookSeat(selectedFlight, seat))
+                    if (!selectedFlight.Layout.TryBookSeat(seat))
                     {
                         Console.WriteLine("This seat is already booked or invalid. Please choose another seat.");
                         continue;
