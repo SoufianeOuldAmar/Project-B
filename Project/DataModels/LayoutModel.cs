@@ -61,9 +61,8 @@ public class LayoutModel
 
     public bool TryBookSeat(string seat)
     {
-        if (!BookedSeats.Contains(seat))
+        if (SeatArrangement.Contains(seat) && !BookedSeats.Contains(seat) && AvailableSeats.Contains(seat))
         {
-            BookedSeats.Add(seat);
             return true;
         }
         return false;

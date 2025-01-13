@@ -14,25 +14,37 @@ public class BookedFlightsModel
     public int FlightPoints { get; set; }
     public Dictionary<string, string> SeatInitials { get; set; }
     public string Email { get; set; }
+    public List<FoodAndDrinkItem> FoodAndDrinkItems { get; set; }
 
-    // Nieuwe eigenschap voor eten en drinken
-    public List<FoodAndDrinkItem> FoodAndDrinkItems { get; set; } = new List<FoodAndDrinkItem>();
-
-    public BookedFlightsModel(int flightID, List<string> bookedSeats, List<BaggageLogic> baggageInfo, List<PetLogic> pets, bool isCancelled, string email)
+    // Add parameterless constructor for JSON deserialization
+    public BookedFlightsModel()
     {
-        FlightID = flightID;
-        BookedSeats = bookedSeats;
-        Pets = pets;
-        BaggageInfo = baggageInfo;
-        IsCancelled = isCancelled;
-        TicketBill = 0;
-        FlightPoints = 0;
-        Email = email;
+        BookedSeats = new List<string>();
+        Pets = new List<PetLogic>();
+        BaggageInfo = new List<BaggageLogic>();
         SeatInitials = new Dictionary<string, string>();
         FoodAndDrinkItems = new List<FoodAndDrinkItem>();
     }
 
-    // Total fee 
+    public BookedFlightsModel(int flightID, List<string> bookedSeats, List<BaggageLogic> baggageInfo, List<PetLogic> pets, bool isCancelled)
+    {
+        FlightID = flightID;
+        BookedSeats = bookedSeats ?? new List<string>();
+        Pets = pets ?? new List<PetLogic>();
+        BaggageInfo = baggageInfo ?? new List<BaggageLogic>();
+        IsCancelled = isCancelled;
+        TicketBill = 0;
+        FlightPoints = 0;
+        SeatInitials = new Dictionary<string, string>();
+        FoodAndDrinkItems = new List<FoodAndDrinkItem>();
+    }
+
+    public BookedFlightsModel(int flightID, List<string> bookedSeats, List<BaggageLogic> baggageInfo, List<PetLogic> pets, bool isCancelled, string email) 
+        : this(flightID, bookedSeats, baggageInfo, pets, isCancelled)
+    {
+        Email = email;
+    }
+
     public double FeeTotal()
     {
         double fee = 0;
