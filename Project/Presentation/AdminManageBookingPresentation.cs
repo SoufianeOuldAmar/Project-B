@@ -353,9 +353,10 @@ namespace DataAccess
 
 
                             while (true)
-                            {
+                            {   
+                                Console.WriteLine();
                                 Console.WriteLine("A. Add a new pet\nC. Change an existing pet\n");
-                                Console.Write("Choose an option (leave empty to keep current seat): ");
+                                Console.Write("Choose an option (leave empty to keep current pet): ");
                                 string choice = Console.ReadLine().ToLower();
 
                                 if (!string.IsNullOrWhiteSpace(choice))
@@ -461,9 +462,10 @@ namespace DataAccess
 
 
                             while (true)
-                            {
+                            {   
+                                Console.WriteLine();
                                 Console.WriteLine("A. Add new baggage\n");
-                                Console.Write("Choose an option (leave empty to keep current seat): ");
+                                Console.Write("Choose an option (leave empty to keep current baggage): ");
                                 string choice = Console.ReadLine().ToLower();
 
                                 if (!string.IsNullOrWhiteSpace(choice))
