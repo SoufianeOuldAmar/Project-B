@@ -54,7 +54,7 @@ namespace PresentationLayer
 
                     if (currentRow >= 1 && currentRow <= 9)
                     {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.ForegroundColor = ConsoleColor.Green;
                     }
                     else if (currentRow >= 10)
                     {
@@ -114,7 +114,7 @@ namespace PresentationLayer
                     string seat = layout.SeatArrangement[index + seatIndex];
                     if (row <= 10)
                     {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.ForegroundColor = ConsoleColor.Green;
                     }
                     else
                     {
@@ -194,7 +194,7 @@ namespace PresentationLayer
                         }
                         else
                         {
-                            Console.ForegroundColor = ConsoleColor.Yellow;
+                            Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write($"{seat}  ");
                         }
 
