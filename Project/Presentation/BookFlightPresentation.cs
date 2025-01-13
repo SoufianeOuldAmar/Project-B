@@ -198,75 +198,9 @@ public static class BookFlightPresentation
         List<PetLogic> petInfo = new List<PetLogic>();
         List<PassengerModel> passengers = new List<PassengerModel>();
         double totalPrice = 0;
+        bool quit = false;
 
         FlightModel selectedFlight = flightModel;
-
-        if (!searchFlightFunction)
-        {
-            while (true)
-            {
-                Console.WriteLine("=== Book Ticket ===\n");
-                if (allFlights.Count == 0)
-                {
-                    Console.WriteLine("No flights available.");
-                    return;
-                }
-
-                Console.WriteLine("{0,-5} {1,-25} {2,-46} {3,-58} {4,-15} {5,-14} {6,-14} {7,-15} {8,-10}",
-                    "ID", "Airline", "Departure Airport", "Arrival Destination",
-                    "Flight Date", "Flight Time", "Ticket Price", "Return Flight", "Cancelled");
-                Console.WriteLine(new string('-', 213));
-
-                foreach (var flight in allFlights)
-                {
-                    Console.WriteLine("{0,-5} {1,-25} {2,-46} {3,-58} {4,-15} {5,-14} {6,-14} {7,-15} {8,-10}",
-                        flight.Id,
-                        flight.Airline,
-                        flight.DepartureAirport,
-                        flight.ArrivalDestination,
-                        flight.DepartureDate,
-                        flight.FlightTime,
-                        flight.TicketPrice,
-                        flight.ReturnFlight == null ? "No" : "Yes",
-                        flight.IsCancelled ? "Yes" : "No");
-                }
-
-                Console.WriteLine("\n" + new string('-', 213));
-                Console.Write("\nEnter the ID of the flight you wish to book (or 'Q' to quit): ");
-
-                var input = Console.ReadLine();
-                if (input?.ToUpper() == "Q")
-                {
-                    Console.WriteLine("Booking canceled. Returning to main menu.");
-                    MenuLogic.PopMenu();
-                    break;
-                }
-
-                if (int.TryParse(input, out int selectedId))
-                {
-                    selectedFlight = BookFlightLogic.SearchFlightByID(selectedId);
-                    if (selectedFlight != null)
-                    {
-                        BookFlightLogic.LoadExistingBookings(selectedFlight, currentAccount.EmailAddress);
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid flight ID. Please try again.");
-                        Console.WriteLine("Press any key to continue...");
-                        Console.ReadKey();
-                        Console.Clear();
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter a numeric ID.");
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ReadKey();
-                    Console.Clear();
-                }
-            }
-        }
 
         if (selectedFlight != null)
         {
@@ -293,19 +227,43 @@ public static class BookFlightPresentation
                 List<string> chosenSeats = new List<string>();
                 List<double> foodAndDrinkCosts = new List<double>(); // Houd kosten per passagier bij
 
-                if (searchFlightFunction)
-                {
-                    BookFlightLogic.LoadExistingBookings(selectedFlight, currentAccount.EmailAddress);
-                }
+                // if (searchFlightFunction)
+                // {
+                //     BookFlightLogic.LoadExistingBookings(selectedFlight, currentAccount.EmailAddress);
+                // }
+
+
+
                 LayoutPresentation.PrintLayout(selectedFlight.Layout);
                 while (true)
                 {
+                    if (quit) break;
+
                     Console.Write("\nWhich seat do you want? (press Q to quit or Enter to confirm booking and keep choosing by seat number if you want more seats): ");
                     string seat = Console.ReadLine()?.ToUpper();
 
                     if (seat == "Q")
                     {
-                        break;
+                        while (true)
+                        {
+                            Console.Write("Are you sure you want to quit. All your progress will get lost (yes/no): ");
+                            string quitYesNo = Console.ReadLine();
+
+                            if (quitYesNo == "no")
+                            {
+                                continue;
+                            }
+                            else if (quitYesNo == "yes")
+                            {
+                                quit = true;
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Wrong input, try again.");
+                            }
+                        }
+
                     }
                     else if (string.IsNullOrWhiteSpace(seat))
                     {
@@ -318,11 +276,14 @@ public static class BookFlightPresentation
                         break;
                     }
 
-                    if (!selectedFlight.Layout.TryBookSeat(seat))
+                    if (!selectedFlight.Layout.TryBookSeat(selectedFlight, seat))
                     {
                         Console.WriteLine("This seat is already booked or invalid. Please choose another seat.");
                         continue;
                     }
+
+                    // selectedFlight.Layout.ChosenSeats.Add(seat);
+
 
                     PassengerModel passenger = new PassengerModel();
                     Console.WriteLine($"\nEnter Passenger Information for seat {seat}:");
@@ -449,21 +410,11 @@ public static class BookFlightPresentation
                     // FinancialReportAccess.SavePayements(allPayments);
                     DataAccessClass.WriteList<Payement>("DataSources/FinancialReport.json", allPayments);
 
-
-
-
-
-
-                    // }
-                    // catch (ArgumentException ex)
-                    // {
-                    //     Console.WriteLine($"Error: {ex.Message}");
-                    //     continue;
-                    // }
-
                     Console.Clear();
                     LayoutPresentation.PrintLayout(selectedFlight.Layout);
                 }
+
+                if (quit) return;
 
                 // Show booking summary
                 Console.Clear();
@@ -500,18 +451,6 @@ public static class BookFlightPresentation
 
                 var sss = BookedFlightsAccess.LoadAll();
                 int allFlightPoints = currentAccount.TotalFlightPoints;
-
-                // foreach (var item in sss)
-                // {
-                //     if (item.Key == currentAccount.EmailAddress)
-                //     {
-                //         foreach (var item1 in item.Value)
-                //         {
-                //             allFlightPoints += item1.FlightPoints;
-                //         }
-                //     }
-                // }
-
 
                 while (true)
                 {
@@ -602,10 +541,22 @@ public static class BookFlightPresentation
                         BookFlightLogic.RemoveDuplicateSeats(bookedFlight);
                     }
 
-                    BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, bookedFlightModel);
+                    BookedFlightsAccess.SaveSingle(currentAccount.EmailAddress, bookedFlight1);
+
+
+                    selectedFlight.Layout.BookedSeats = selectedFlight.Layout.BookedSeats.Distinct().ToList();
+
+                    for (int i = 0; i < allFlights.Count; i++)
+                    {
+                        if (allFlights[i].Id == selectedFlight.Id)
+                        {
+                            allFlights[i] = selectedFlight;
+                            break;
+                        }
+                    }
+
 
                     DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", allFlights);
-
 
                     Console.WriteLine("\nBooking confirmed successfully!");
                     Console.WriteLine("All passenger information has been saved.");

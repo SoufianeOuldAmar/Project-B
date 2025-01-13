@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace DataModels
 {
@@ -17,6 +18,7 @@ namespace DataModels
         public string DepartureDate { get; set; }
         public string FlightTime { get; set; }
         public int AvailableSeats { get; set; }
+
         public int FlightPoints { get; set; }
 
         public int TotalPets { get; set; } = 0;

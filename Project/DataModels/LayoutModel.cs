@@ -61,8 +61,8 @@ public class LayoutModel
         LayoutPresentation.PrintBookingConfirmed();
     }
 
-    public bool TryBookSeat(string seat)
-    {
+    public bool TryBookSeat(FlightModel flight, string seat)
+    {   
         if (!BookedSeats.Contains(seat))
         {
             BookedSeats.Add(seat);
