@@ -451,7 +451,7 @@ public static class BookFlightPresentation
 
                 var sss = BookedFlightsAccess.LoadAll();
                 int allFlightPoints = currentAccount.TotalFlightPoints;
-                double discountToApply;
+                double discountToApply = 0;
 
                 while (true)
                 {
