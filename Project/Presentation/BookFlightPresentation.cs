@@ -55,7 +55,6 @@ public static class BookFlightPresentation
 
         while (choice != "yes" && choice != "no")
         {
-
             continue;
         }
 
@@ -513,39 +512,63 @@ public static class BookFlightPresentation
                 //     }
                 // }
 
-                Console.Write($"\nBefore confirming your booking do you want to use your flight points for discount? You have {(allFlightPoints)} points. (yes/no): ");
 
-                string discountYesOrNo = Console.ReadLine();
-
-                if (discountYesOrNo == "yes" && allFlightPoints > 0)
+                while (true)
                 {
-                    Console.Write("How many points would you like to use? (1 point equals 1 euro, and you can use your points for up to a 20% discount on the price.): ");
-                    string amountFlightPointsStr = Console.ReadLine();
+                    Console.Write($"\nBefore confirming your booking, do you want to use your flight points for a discount? You have {allFlightPoints} points. (yes/no): ");
+                    string discountYesOrNo = Console.ReadLine()?.Trim().ToLower();
 
-                    if (int.TryParse(amountFlightPointsStr, out int amountFlightPoints))
+                    if (discountYesOrNo == "yes")
                     {
-                        double maxDiscount = totalPrice * 0.2;
-                        double discountToApply = Math.Min(amountFlightPoints, Math.Min(maxDiscount, allFlightPoints));
+                        if (allFlightPoints > 0)
+                        {
+                            while (true)
+                            {
+                                Console.Write("How many points would you like to use? (1 point equals 1 euro, and you can use your points for up to a 20% discount on the price.) (Enter 'Q' to quit.): ");
+                                string amountFlightPointsStr = Console.ReadLine();
 
-                        totalPrice -= discountToApply;
-                        currentAccount.TotalFlightPoints -= (int)discountToApply;
+                                if (int.TryParse(amountFlightPointsStr, out int amountFlightPoints) && amountFlightPoints >= 0)
+                                {
+                                    double discountToApply = FlightPointsLogic.CalculateFlightPoint(amountFlightPoints, totalPrice, allFlightPoints);
 
-                        Console.WriteLine($"You used {discountToApply:C} worth of flight points.");
-                        Console.WriteLine($"Updated Total Price: {totalPrice:C}");
+                                    totalPrice -= discountToApply;
+                                    currentAccount.TotalFlightPoints -= (int)discountToApply;
+
+                                    Console.WriteLine($"You used {discountToApply:C} worth of flight points.");
+                                    Console.WriteLine($"Updated Total Price: {totalPrice:C}");
+                                    break; // Exit the inner loop after successfully applying the discount
+                                }
+                                else if (amountFlightPointsStr.ToUpper() == "Q")
+                                {
+                                    break; // Exit the inner loop if user quits
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Invalid input. Please enter a valid integer.");
+                                }
+                            }
+
+                            break; // Exit the outer loop after processing the discount
+                        }
+                        else
+                        {
+                            Console.WriteLine("You don't have enough flight points for a discount.");
+                            break; // Exit the outer loop if the user doesn't have enough points
+                        }
+                    }
+                    else if (discountYesOrNo == "no")
+                    {
+                        Console.WriteLine("You chose not to use flight points.");
+                        break; // Exit the outer loop if the user doesn't want to use points
                     }
                     else
                     {
-                        Console.WriteLine("Incorrect input. Enter a valid integer.");
+                        Console.WriteLine("Invalid choice. Please answer with 'yes' or 'no'.");
                     }
                 }
-                else if (discountYesOrNo == "yes" && allFlightPoints == 0)
-                {
-                    Console.WriteLine("You don't have enough flight points for a discount.");
-                }
-                else if (discountYesOrNo == "no")
-                {
-                    Console.WriteLine();
-                }
+
+
+
 
                 Console.Write("\nConfirm booking? (yes/no): ");
                 string finalConfirmation = Console.ReadLine().ToLower();
