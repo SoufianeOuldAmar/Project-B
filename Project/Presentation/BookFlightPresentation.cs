@@ -522,16 +522,29 @@ public static class BookFlightPresentation
                     // PassengerAccess.SavePassengers(existingPassengers);
                     DataAccessClass.WriteList<PassengerModel>("DataSources/passengers.json", existingPassengers);
 
-                    var bookedFlight1 = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false, currentAccount.EmailAddress);
+                    var bookedFlight1 = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false);
                     bookedFlight1.TicketBill += totalPrice;
-                    bookedFlight1.FoodAndDrinkItems = selectedItems;
 
-                    bookedFlight1.UpdateSeatInitials(selectedFlight.Layout.SeatInitials);
+                    foreach (var seat in chosenSeats)
+                    {
+                        if (selectedFlight.Layout.SeatInitials.ContainsKey(seat))
+                        {
+                            bookedFlight1.SeatInitials[seat] = selectedFlight.Layout.SeatInitials[seat];
+                        }
+                    }
+
+                    bookedFlight1.Email = currentAccount.EmailAddress;
 
                     List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
-                    {
-                        bookedFlight1
-                    };
+    {
+        bookedFlight1
+    };
+
+                    var existingBookings = BookedFlightsAccess.LoadByEmail(currentAccount.EmailAddress);
+
+                    existingBookings.RemoveAll(b => b.FlightID == selectedFlight.Id);
+
+                    existingBookings.Add(bookedFlight1);
 
                     DataAccessClass.WriteList<AccountModel>("DataSources/accounts.json", AccountsLogic._accounts);
                     DataAccessClass.UpdateCurrentAccount(currentAccount);
@@ -542,6 +555,7 @@ public static class BookFlightPresentation
                     }
 
                     BookedFlightsAccess.SaveSingle(currentAccount.EmailAddress, bookedFlight1);
+                    // BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, existingBookings);
 
 
                     selectedFlight.Layout.BookedSeats = selectedFlight.Layout.BookedSeats.Distinct().ToList();
