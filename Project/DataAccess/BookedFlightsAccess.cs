@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 public static class BookedFlightsAccess
 {
@@ -9,15 +10,30 @@ public static class BookedFlightsAccess
 
     public static Dictionary<string, List<BookedFlightsModel>> LoadAll()
     {
-        // Load JSON from the file
-        if (!File.Exists(path))
+        try
         {
-            // If the file doesn't exist, return an empty dictionary
+            if (!File.Exists(path))
+            {
+                return new Dictionary<string, List<BookedFlightsModel>>();
+            }
+
+            string json = File.ReadAllText(path);
+
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                PropertyNameCaseInsensitive = true,
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+            };
+
+            return JsonSerializer.Deserialize<Dictionary<string, List<BookedFlightsModel>>>(json, options)
+                ?? new Dictionary<string, List<BookedFlightsModel>>();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error loading booked flights: {ex.Message}");
             return new Dictionary<string, List<BookedFlightsModel>>();
         }
-
-        string json = File.ReadAllText(path);
-        return JsonSerializer.Deserialize<Dictionary<string, List<BookedFlightsModel>>>(json);
     }
 
     public static void WriteAll(string email, List<BookedFlightsModel> newBookedFlights)

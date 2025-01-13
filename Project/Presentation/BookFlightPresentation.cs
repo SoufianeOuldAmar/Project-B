@@ -694,16 +694,29 @@ public static class BookFlightPresentation
                     existingPassengers.AddRange(passengers);
                     PassengerAccess.SavePassengers(existingPassengers);
 
-                    var bookedFlight1 = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false, currentAccount.EmailAddress);
+                    var bookedFlight1 = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false);
                     bookedFlight1.TicketBill += totalPrice;
-                    bookedFlight1.FoodAndDrinkItems = selectedItems;
 
-                    bookedFlight1.UpdateSeatInitials(selectedFlight.Layout.SeatInitials);
+                    foreach (var seat in chosenSeats)
+                    {
+                        if (selectedFlight.Layout.SeatInitials.ContainsKey(seat))
+                        {
+                            bookedFlight1.SeatInitials[seat] = selectedFlight.Layout.SeatInitials[seat];
+                        }
+                    }
+
+                    bookedFlight1.Email = currentAccount.EmailAddress;
 
                     List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
-                    {
-                        bookedFlight1
-                    };
+    {
+        bookedFlight1
+    };
+
+                    var existingBookings = BookedFlightsAccess.LoadByEmail(currentAccount.EmailAddress);
+
+                    existingBookings.RemoveAll(b => b.FlightID == selectedFlight.Id);
+
+                    existingBookings.Add(bookedFlight1);
 
                     AccountsAccess.WriteAll(AccountsLogic._accounts);
                     AccountsAccess.UpdateCurrentAccount(currentAccount);
@@ -713,7 +726,7 @@ public static class BookFlightPresentation
                         BookFlightLogic.RemoveDuplicateSeats(bookedFlight);
                     }
 
-                    BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, bookedFlightModel);
+                    BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, existingBookings);
 
                     BookFlightPresentation.allBookedFlights = BookedFlightsAccess.LoadAll();
 
