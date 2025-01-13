@@ -451,6 +451,7 @@ public static class BookFlightPresentation
 
                 var sss = BookedFlightsAccess.LoadAll();
                 int allFlightPoints = currentAccount.TotalFlightPoints;
+                double discountToApply;
 
                 while (true)
                 {
@@ -468,10 +469,10 @@ public static class BookFlightPresentation
 
                                 if (int.TryParse(amountFlightPointsStr, out int amountFlightPoints) && amountFlightPoints >= 0)
                                 {
-                                    double discountToApply = FlightPointsLogic.CalculateFlightPoint(amountFlightPoints, totalPrice, allFlightPoints);
+                                    discountToApply = FlightPointsLogic.CalculateFlightPoint(amountFlightPoints, totalPrice, allFlightPoints);
 
                                     totalPrice -= discountToApply;
-                                    currentAccount.TotalFlightPoints -= (int)discountToApply;
+
 
                                     Console.WriteLine($"You used {discountToApply:C} worth of flight points.");
                                     Console.WriteLine($"Updated Total Price: {totalPrice:C}");
@@ -513,6 +514,7 @@ public static class BookFlightPresentation
                 string finalConfirmation = Console.ReadLine().ToLower();
                 if (finalConfirmation == "yes")
                 {
+                    currentAccount.TotalFlightPoints -= (int)discountToApply;
                     selectedFlight.Layout.ConfirmBooking();
 
                     // var existingPassengers = PassengerAccess.LoadPassengers();
@@ -521,6 +523,7 @@ public static class BookFlightPresentation
                     existingPassengers.AddRange(passengers);
                     // PassengerAccess.SavePassengers(existingPassengers);
                     DataAccessClass.WriteList<PassengerModel>("DataSources/passengers.json", existingPassengers);
+                    DataAccessClass.UpdateCurrentAccount(currentAccount); // Update flight points
 
                     var bookedFlight1 = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false);
                     bookedFlight1.TicketBill += totalPrice;
