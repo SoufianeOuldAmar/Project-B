@@ -1,111 +1,115 @@
 // using Microsoft.VisualStudio.TestTools.UnitTesting;
 // using System.Collections.Generic;
-// using System.IO;
-// using System.Text.Json;
-// using Testing;
+// using System.Linq;
 // using DataModels;
-// using DataAccess;
 
-// namespace RescheduleLogicTest
+// namespace Testing
 // {
 //     [TestClass]
-//     public class RescheduleLogicTests
+//     public class TestRescheduleLogic
 //     {
-
-//         [TestInitialize]
-//         public void SetUp()
+//         // fake data 
+//         private static class MockFlightData
 //         {
-//             LayoutModel LayoutSimple = new LayoutModel(10, 6, new List<string> { "01A", "01B", "01C", "01D", "01E", "01F"});
-
-//             var flightsToTest= new List<FlightModel>
+//             public static LayoutModel GetMockLayout()
 //             {
-//                 new FlightModel("KLM", LayoutSimple, 200, "GateA", "Airport1", "Destination1", false, "2024-12-02", "11:00 AM", 6, 0) { Id = 1},
-//                 new FlightModel("Ryanair", LayoutSimple, 200, "GateB", "Airport2", "Destination2", false, "2025-12-02", "12:00 AM", 5, 0) { Id = 2},
-           
-//             };
+//                 List<string> seatArrangement = new List<string> { "01A", "01B", "02A", "02B", "03A", "03B" };
+//                 return new LayoutModel(
+//                     rows: 3,
+//                     columns: 2,
+//                     seatArrangement: seatArrangement,
+//                     isAirbusA330: false,
+//                     isBoeing787: false
+//                 );
+//             }
 
-
-//             //Minimal Mock Booked Flights 
-//             List<string> bookedSeats = new List<string> { "01A" }; 
-//             List<BaggageLogic> baggageInfo = new List<BaggageLogic> { new BaggageLogic("AA", "Carry-On", 10) }; 
-//             List<PetLogic> pets = new List<PetLogic> { new PetLogic("Cat")};
-
-//             // data to test 
-//             BookFlightPresentation.allFlights = flightsToTest; 
-//             BookFlightPresentation.allBookedFlights = new Dictionary<string, List<BookedFlightsModel>> 
-//             { 
-            
+//             public static FlightModel GetMockFlight(int id, bool isCancelled = false)
+//             {
+//                 return new FlightModel(
+//                     layout: GetMockLayout(),
+//                     ticketPrice: 200.0,
+//                     gate: "Gate A1",
+//                     departureAirport: "JFK",
+//                     arrivalDestination: "LAX",
+//                     isCancelled: isCancelled,
+//                     departureDate: "2025-01-15",
+//                     flightTime: "12:00",
+//                     availableSeats: 100,
+//                     timeOfDay: "Morning"
+//                 )
 //                 {
-//                     "emaildoesntexist@gmail.com", 
-//                     new List<BookedFlightsModel>
+//                     Id = id
+//                 };
+//             }
+
+//             public static List<FlightModel> GetMockFlights()
+//             {
+//                 return new List<FlightModel>
+//                 {
+//                     GetMockFlight(1), // Flight ID 1 (existing flight)
+//                     GetMockFlight(2), // Flight ID 2 (new flight to reschedule to)
+//                 };
+//             }
+
+//             public static Dictionary<string, List<BookedFlightsModel>> GetMockBookedFlights()
+//             {
+//                 return new Dictionary<string, List<BookedFlightsModel>>
+//                 {
 //                     {
-//                         new BookedFlightsModel (1, bookedSeats, baggageInfo, pets, false), 
-//                         new BookedFlightsModel (2, bookedSeats, baggageInfo, pets, false)
+//                         "n@b.c", // Email
+//                         new List<BookedFlightsModel>
+//                         {
+//                             new BookedFlightsModel { FlightID = 1, IsCancelled = false } // Not cancelled flight
+//                         }
 //                     }
-
-//                 }
-              
-                
-//             };
-
+//                 };
+//             }
 //         }
 
 //         [TestMethod]
-//         public void TestReschedulingFlight_ReschedulingNotSucessfull()
+//         public void TestRescheduleFlight_Success()
 //         {
-//             string email = "emaildoesntexist@gmail.com";
-//             int bookedFlightID = 2;
-//             int rescheduleToId= 1;
+//             // Arrange
+//             BookFlightPresentation.allBookedFlights = MockFlightData.GetMockBookedFlights();
+//             BookFlightPresentation.allFlights = MockFlightData.GetMockFlights();
 
-//             string result = RescheduleLogic.RescheduleFlight(email, bookedFlightID, rescheduleToId);
-//             Assert.IsFalse(result.Contains("no flight with id"), result );
+//             string expectedMessage = "Flight successfully rescheduled.";
+//             string actualMessage = RescheduleLogic.RescheduleFlight("n@b.c", 1, 2); 
 
+//             Assert.AreEqual(expectedMessage, actualMessage);
 //         }
-
-//         [TestMethod]
-//         public void TestReschedulingFlight_InvalidIdProvided()
-//         {
-//             string email = "emaildoesntexist@gmail.com";
-//             int bookedFlightID = 2200;
-//             int rescheduleToId= 2;
-
-//             string result = RescheduleLogic.RescheduleFlight(email, bookedFlightID, rescheduleToId);
-//             Assert.IsTrue(result.Contains($"No booked flights with this ID: {bookedFlightID}"), result);
-
-
-
-//         }
-
-
-
-
 
 
 
 //     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
