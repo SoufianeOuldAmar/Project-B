@@ -1,7 +1,12 @@
 [
   {
     "ItemType": "Ticket",
-    "Amount": 425,
-    "DatePayement": "2025-01-13T13:47:44.23845+01:00"
+    "Amount": 275,
+    "DatePayement": "2025-01-15T13:31:15.5619546+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 275,
+    "DatePayement": "2025-01-15T13:40:21.238105+01:00"
   }
 ]

@@ -1,15 +1,34 @@
 {
   "n@b.c": [
     {
-      "FlightID": 38,
+      "FlightID": 20,
+      "BookedSeats": [
+        "11A",
+        "11B",
+        "12A",
+        "13B"
+      ],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 300,
+      "FlightPoints": 30,
+      "SeatInitials": {
+        "13B": "SO"
+      },
+      "Email": "n@b.c",
+      "FoodAndDrinkItems": []
+    },
+    {
+      "FlightID": 29,
       "BookedSeats": [
         "11A"
       ],
       "Pets": [],
       "BaggageInfo": [],
       "IsCancelled": false,
-      "TicketBill": 425,
-      "FlightPoints": 0,
+      "TicketBill": 275,
+      "FlightPoints": 27,
       "SeatInitials": {
         "11A": "SO"
       },

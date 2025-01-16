@@ -13,6 +13,8 @@ public class FlightPoint
     [JsonPropertyName("flightId")]
     public int FlightId { get; set; }
 
+    [JsonPropertyName("earned")]
+    public bool Earned { get; set; } = false;
 
     public FlightPoint(DateTime ticketsBought, int points, int flightId)
     {
