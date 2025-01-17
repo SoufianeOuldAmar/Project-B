@@ -73,5 +73,15 @@
     "ItemType": "Ticket",
     "Amount": 150,
     "DatePayement": "2025-01-18T12:42:43.8701713+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 230,
+    "DatePayement": "2025-01-17T16:34:43.7832893+01:00"
+  },
+  {
+    "ItemType": "Ticket",
+    "Amount": 230,
+    "DatePayement": "2025-01-17T16:37:51.3433918+01:00"
   }
 ]

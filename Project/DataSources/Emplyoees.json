@@ -6,5 +6,13 @@
     "Accepted": "good job you\u0027re hired",
     "CvFileName": "galgje python code.txt",
     "RegistrationID": 45284
+  },
+  {
+    "Id": 2,
+    "Name": "Soufiane Ouldamar",
+    "Age": 22,
+    "Accepted": "Not reviewed yet",
+    "CvFileName": "CV.txt",
+    "RegistrationID": 29230
   }
 ]

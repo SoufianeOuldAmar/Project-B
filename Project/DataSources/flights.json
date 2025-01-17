@@ -4020,7 +4020,6 @@
         "10G",
         "10J",
         "10K",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -4421,11 +4420,15 @@
         "50J",
         "50K"
       ],
-      "BookedSeats": [],
+      "BookedSeats": [
+        "11A"
+      ],
       "ChosenSeats": [],
       "IsAirbusA330": true,
       "IsBoeing787": false,
-      "SeatInitials": {}
+      "SeatInitials": {
+        "11A": "SO"
+      }
     },
     "TicketPrice": 230,
     "Gate": "G7",
@@ -16678,8 +16681,8 @@
     "ArrivalDestination": "Milan, Malpensa Airport",
     "TimeOfDay": null,
     "IsCancelled": false,
-    "DepartureDate": "09-01-2025",
-    "FlightTime": "12:00",
+    "DepartureDate": "10-01-2025",
+    "FlightTime": "13:00",
     "AvailableSeats": 180,
     "FlightPoints": 27,
     "TotalPets": 0,

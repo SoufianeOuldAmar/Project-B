@@ -117,7 +117,7 @@ public static class EmployeesPresentation
             Id = employees.Count() + 1
         };
 
-        // employees.Add(newEmployee);
+        employees.Add(newEmployee);
         DataAccessClass.WriteList<EmployeesModel>("DataSources/Emplyoees.json", employees);
         Console.WriteLine("Your application has been received successfully. It will be processed shortly.");
 
