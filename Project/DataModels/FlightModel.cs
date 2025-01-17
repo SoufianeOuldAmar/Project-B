@@ -28,7 +28,9 @@ namespace DataModels
         public FlightModel? ReturnFlight { get; set; }
 
 
-        public FlightModel(LayoutModel layout, double ticketPrice, string gate, string departureAirport, string arrivalDestination, bool isCancelled, string departureDate, string flightTime, int availableSeats, string timeOfDay = null)
+        public FlightModel(LayoutModel layout, double ticketPrice, string gate,
+        string departureAirport, string arrivalDestination, bool isCancelled,
+        string departureDate, string flightTime, int availableSeats, string timeOfDay = null)
         {
             Layout = layout;
             TicketPrice = ticketPrice;

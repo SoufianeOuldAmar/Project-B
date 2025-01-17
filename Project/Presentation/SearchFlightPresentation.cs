@@ -12,7 +12,7 @@ public static class SearchFlightPresentation
     {
         BookFlightPresentation.BookFlightMenu(true, selectedFlight);
     }
-    public static void SearchFlightMenu(bool beforeLogIn)
+    public static void SearchFlightMenu(bool beforeLogIn = false)
     {
         Console.Clear();
         Console.WriteLine("=== 🔍 Search Flights ===\n");

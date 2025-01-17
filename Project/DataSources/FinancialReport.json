@@ -1,87 +1,17 @@
 [
   {
-    "ItemType": "Ticket",
-    "Amount": 275,
-    "DatePayement": "2025-01-15T13:31:15.5619546+01:00"
+    "ItemType": "FoodAndDrink",
+    "Amount": 14.5,
+    "DatePayement": "2025-01-17T17:23:18.1493342+01:00"
   },
   {
     "ItemType": "Ticket",
-    "Amount": 275,
-    "DatePayement": "2025-01-15T13:40:21.238105+01:00"
+    "Amount": 264.5,
+    "DatePayement": "2025-01-17T17:23:20.4854312+01:00"
   },
   {
     "ItemType": "Ticket",
-    "Amount": 270,
-    "DatePayement": "2025-01-17T11:12:41.0121988+01:00"
-  },
-  {
-    "ItemType": "Ticket",
-    "Amount": 270,
-    "DatePayement": "2025-01-17T11:53:23.5493231+01:00"
-  },
-  {
-    "ItemType": "Ticket",
-    "Amount": 270,
-    "DatePayement": "2025-01-17T12:02:21.3012722+01:00"
-  },
-  {
-    "ItemType": "Ticket",
-    "Amount": 270,
-    "DatePayement": "2025-01-17T12:08:55.8259447+01:00"
-  },
-  {
-    "ItemType": "Ticket",
-    "Amount": 270,
-    "DatePayement": "2025-01-17T12:10:46.4549436+01:00"
-  },
-  {
-    "ItemType": "Ticket",
-    "Amount": 270,
-    "DatePayement": "2025-01-17T12:14:28.8325707+01:00"
-  },
-  {
-    "ItemType": "Ticket",
-    "Amount": 270,
-    "DatePayement": "2025-01-17T12:16:34.74367+01:00"
-  },
-  {
-    "ItemType": "Ticket",
-    "Amount": 270,
-    "DatePayement": "2025-01-17T12:18:18.3984997+01:00"
-  },
-  {
-    "ItemType": "Ticket",
-    "Amount": 270,
-    "DatePayement": "2025-01-17T12:19:43.9536493+01:00"
-  },
-  {
-    "ItemType": "Ticket",
-    "Amount": 270,
-    "DatePayement": "2025-01-17T12:21:04.6270775+01:00"
-  },
-  {
-    "ItemType": "Ticket",
-    "Amount": 270,
-    "DatePayement": "2025-01-17T12:33:27.9750864+01:00"
-  },
-  {
-    "ItemType": "Ticket",
-    "Amount": 270,
-    "DatePayement": "2025-01-17T12:37:21.7898692+01:00"
-  },
-  {
-    "ItemType": "Ticket",
-    "Amount": 150,
-    "DatePayement": "2025-01-18T12:42:43.8701713+01:00"
-  },
-  {
-    "ItemType": "Ticket",
-    "Amount": 230,
-    "DatePayement": "2025-01-17T16:34:43.7832893+01:00"
-  },
-  {
-    "ItemType": "Ticket",
-    "Amount": 230,
-    "DatePayement": "2025-01-17T16:37:51.3433918+01:00"
+    "Amount": 550,
+    "DatePayement": "2025-01-17T18:53:38.7930937+01:00"
   }
 ]

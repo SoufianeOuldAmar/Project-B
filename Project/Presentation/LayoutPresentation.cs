@@ -1,3 +1,5 @@
+using System.Threading;
+
 namespace PresentationLayer
 {
     public static class LayoutPresentation
@@ -29,11 +31,11 @@ namespace PresentationLayer
                 PrintAirbusA330Layout(layout);
             }
             else if (layout.IsBoeing787)
-            {   
+            {
                 PrintBoeing787Layout(layout);
             }
             else
-            {   
+            {
                 PrintStandardLayout(layout);
             }
         }
@@ -95,7 +97,7 @@ namespace PresentationLayer
             var currentAccount = AccountsLogic.CurrentAccount;
             var currentUserBookings = BookedFlightsAccess.LoadByEmail(currentAccount.EmailAddress);
             int currentFlightId = BookFlightPresentation.allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
-            
+
             int index = 0;
             for (int row = 1; row <= layout.Rows; row++)
             {
@@ -159,95 +161,109 @@ namespace PresentationLayer
 
         private static void PrintBoeing787Layout(LayoutModel layout)
         {
-            var currentAccount = AccountsLogic.CurrentAccount;
-            var currentUserBookings = BookedFlightsAccess.LoadByEmail(currentAccount.EmailAddress);
-            int currentFlightId = BookFlightPresentation.allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
-
-            int index = 0;
-            for (int row = 1; row <= layout.Rows; row++)
+            try
             {
-                if (row == 1)
-                    Console.WriteLine("Business Class ↓");
-                else if (row == 7)
-                {
-                    Console.WriteLine("\nEconomy Class ↓");
-                }
+                var currentAccount = AccountsLogic.CurrentAccount;
+                var currentUserBookings = BookedFlightsAccess.LoadByEmail(currentAccount.EmailAddress);
+                int currentFlightId = BookFlightPresentation.allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
 
-                if (row <= 6)
+                int index = 0;
+
+                Console.WriteLine(layout.Rows);
+                Console.WriteLine(layout.Columns);
+                Console.WriteLine(layout.SeatArrangement.Count);
+                Thread.Sleep(2500);
+                for (int row = 1; row <= layout.Rows; row++)
                 {
-                    for (int seatIndex = 0; seatIndex < 6; seatIndex++)
+                    if (row == 1)
+                        Console.WriteLine("Business Class ↓");
+                    else if (row == 7)
+                        Console.WriteLine("\nEconomy Class ↓");
+
+                    try
                     {
-                        string seat = layout.SeatArrangement[index + seatIndex];
-
-                        if (layout.BookedSeats.Contains(seat))
+                        if (row <= 6)
                         {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            bool isCurrentUsersSeat = IsCurrentUsersSeat(seat, currentUserBookings, currentFlightId);
-                            string display = isCurrentUsersSeat ? GetDisplayText(seat, currentUserBookings, currentFlightId) : seat;
-                            Console.Write($"{display}  ");
-                        }
-                        else if (layout.ChosenSeats.Contains(seat))
-                        {
-                            Console.ForegroundColor = ConsoleColor.Magenta;
-                            string display = layout.SeatInitials.ContainsKey(seat) ? layout.SeatInitials[seat] : seat;
-                            Console.Write($"{display}  ");
-                        }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            Console.Write($"{seat}  ");
-                        }
+                            for (int seatIndex = 0; seatIndex < 6; seatIndex++)
+                            {
+                                string seat = layout.SeatArrangement[index + seatIndex];
 
-                        Console.ResetColor();
+                                PrintSeat(layout, seat, currentUserBookings, currentFlightId);
+                                if (seatIndex == 1 || seatIndex == 3)
+                                    Console.Write("    ");
+                            }
+                            index += 6;
+                        }
+                        else if (row != 15 && row != 27)
+                        {
+                            for (int seatIndex = 0; seatIndex < 9; seatIndex++)
+                            {
+                                string seat = layout.SeatArrangement[index + seatIndex];
 
-                        if (seatIndex == 1 || seatIndex == 3)
-                            Console.Write("    ");
+                                PrintSeat(layout, seat, currentUserBookings, currentFlightId);
+                                if (seatIndex == 2 || seatIndex == 5)
+                                    Console.Write("    ");
+                            }
+                            index += 9;
+                        }
+                        else if (row == 15)
+                        {
+                            Console.Write("       [EXIT]         [EXIT]          [EXIT]");
+                        }
+                        else if (row == 27)
+                        {
+                            Console.Write("        [LAV]          [GAL]          [LAV]");
+                        }
+                        Console.WriteLine();
                     }
-                    index += 6;
-                }
-                else if (row != 15 && row != 27)
-                {
-                    for (int seatIndex = 0; seatIndex < 9; seatIndex++)
+                    catch (Exception ex)
                     {
-                        string seat = layout.SeatArrangement[index + seatIndex];
-
-                        if (layout.BookedSeats.Contains(seat))
-                        {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            bool isCurrentUsersSeat = IsCurrentUsersSeat(seat, currentUserBookings, currentFlightId);
-                            string display = isCurrentUsersSeat ? GetDisplayText(seat, currentUserBookings, currentFlightId) : seat;
-                            Console.Write($"{display}  ");
-                        }
-                        else if (layout.ChosenSeats.Contains(seat))
-                        {
-                            Console.ForegroundColor = ConsoleColor.Magenta;
-                            string display = layout.SeatInitials.ContainsKey(seat) ? layout.SeatInitials[seat] : seat;
-                            Console.Write($"{display}  ");
-                        }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Cyan;
-                            Console.Write($"{seat}  ");
-                        }
-
-                        Console.ResetColor();
-
-                        if (seatIndex == 2 || seatIndex == 5)
-                            Console.Write("    ");
+                        Console.WriteLine($"An error occurred while processing row {row}: {ex.Message}");
                     }
-                    index += 9;
                 }
-                else if (row == 15)
-                {
-                    Console.Write("       [EXIT]         [EXIT]          [EXIT]");
-                }
-                else if (row == 27)
-                {
-                    Console.Write("        [LAV]          [GAL]          [LAV]");
-                }
-                Console.WriteLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An unexpected error occurred: {ex.Message}");
             }
         }
+
+        private static void PrintSeat(LayoutModel layout, string seat, List<BookedFlightsModel> currentUserBookings, int currentFlightId)
+        {
+            try
+            {
+                if (layout.BookedSeats.Contains(seat))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    bool isCurrentUsersSeat = IsCurrentUsersSeat(seat, currentUserBookings, currentFlightId);
+                    string display = isCurrentUsersSeat ? GetDisplayText(seat, currentUserBookings, currentFlightId) : seat;
+                    Console.Write($"{display}  ");
+                }
+                else if (layout.ChosenSeats.Contains(seat))
+                {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    string display = layout.SeatInitials.ContainsKey(seat) ? layout.SeatInitials[seat] : seat;
+                    Console.Write($"{display}  ");
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.Write($"{seat}  ");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write($"[ERR]  "); // Indicate the seat couldn't be displayed properly
+                Console.ResetColor();
+                Console.WriteLine($"Error processing seat {seat}: {ex.Message}");
+            }
+            finally
+            {
+                Console.ResetColor();
+            }
+        }
+
 
         public static void PrintBookingSuccess(string seat, string initials)
         {

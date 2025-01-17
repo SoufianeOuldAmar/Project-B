@@ -159,7 +159,7 @@ public static class MenuPresentation
 
     public static void SearchFlightsMenu()
     {
-        SearchFlightPresentation.SearchFlightMenu(false);
+        SearchFlightPresentation.SearchFlightMenu();
     }
 
     public static void NotificationPage()

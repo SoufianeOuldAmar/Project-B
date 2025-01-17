@@ -375,7 +375,7 @@
       "IsBoeing787": false,
       "SeatInitials": {}
     },
-    "TicketPrice": 150,
+    "TicketPrice": 175,
     "Gate": "A12",
     "DepartureAirport": "Istanbul, Istanbul Airport",
     "ArrivalDestination": "Paris, Charles de Gaulle Airport",
@@ -4430,7 +4430,7 @@
         "11A": "SO"
       }
     },
-    "TicketPrice": 230,
+    "TicketPrice": 250,
     "Gate": "G7",
     "DepartureAirport": "Rotterdam, The Hague Airport",
     "ArrivalDestination": "Lisbon, Lisbon Airport",
@@ -36173,7 +36173,7 @@
       "BookedSeats": [],
       "ChosenSeats": [],
       "IsAirbusA330": false,
-      "IsBoeing787": false,
+      "IsBoeing787": true,
       "SeatInitials": {}
     },
     "TicketPrice": 550,

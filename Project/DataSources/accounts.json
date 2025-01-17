@@ -27,6 +27,16 @@
         "NewDetails": "20A",
         "IsRead": true,
         "ActionRequired": false
+      },
+      {
+        "Id": 1,
+        "FlightID": 8,
+        "NewStatus": null,
+        "Description": "Ticket price changed",
+        "OldDetails": "230",
+        "NewDetails": "250",
+        "IsRead": true,
+        "ActionRequired": false
       }
     ]
   },
