@@ -353,7 +353,7 @@ namespace DataAccess
 
 
                             while (true)
-                            {   
+                            {
                                 Console.WriteLine();
                                 Console.WriteLine("A. Add a new pet\nC. Change an existing pet\n");
                                 Console.Write("Choose an option (leave empty to keep current pet): ");
@@ -418,18 +418,16 @@ namespace DataAccess
                                                 string newPetType = Console.ReadLine().ToLower();
                                                 if (newPetType == "dog" || newPetType == "cat" || newPetType == "bunny" || newPetType == "bird")
                                                 {
-                                                    // PetLogic oldPet = selectedBooking.Pets[PetIndex - 1];
-                                                    // Console.WriteLine();
-                                                    // PetLogic newPet = new PetLogic(newPetType) { Fee = 50.0 };
-                                                    // selectedBooking.Pets[PetIndex - 1] = newPet;
-                                                    // Console.WriteLine("What is the name of the new pet?");
-                                                    // string petName = Console.ReadLine();
+                                                    selectedBooking.Pets.RemoveAt(PetIndex - 1);// -1 to match the index
 
-                                                    // selectedBooking.Pets[PetIndex - 1] = new PetLogic(newPetType, petName) { Fee = 50.0 };
-                                                    // Console.WriteLine("Pet updated successfully!");
-                                                    // petChanges.Add(oldPet);
-                                                    // petChanges.Add(newPet);
-                                                    // break;
+                                                    Console.WriteLine("Name of the pet: ");
+                                                    string petName = Console.ReadLine();
+
+                                                    // Add the new pet
+                                                    PetLogic newPet = new PetLogic(newPetType, petName);
+                                                    selectedBooking.Pets.Insert(PetIndex - 1, newPet);
+
+                                                    Console.WriteLine($"Pet {PetIndex} has been replaced with a {newPetType}.");
                                                 }
                                                 else
                                                 {
@@ -462,7 +460,7 @@ namespace DataAccess
 
 
                             while (true)
-                            {   
+                            {
                                 Console.WriteLine();
                                 Console.WriteLine("A. Add new baggage\n");
                                 Console.Write("Choose an option (leave empty to keep current baggage): ");

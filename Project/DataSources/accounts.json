@@ -37,6 +37,16 @@
         "NewDetails": "250",
         "IsRead": true,
         "ActionRequired": false
+      },
+      {
+        "Id": 4,
+        "FlightID": 8,
+        "NewStatus": null,
+        "Description": "New Pet Added",
+        "OldDetails": null,
+        "NewDetails": "dog",
+        "IsRead": false,
+        "ActionRequired": false
       }
     ]
   },

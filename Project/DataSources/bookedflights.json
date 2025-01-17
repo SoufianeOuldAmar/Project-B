@@ -5,7 +5,13 @@
       "BookedSeats": [
         "11A"
       ],
-      "Pets": [],
+      "Pets": [
+        {
+          "AnimalType": "cat",
+          "PetName": "Poepert",
+          "Fee": 50
+        }
+      ],
       "BaggageInfo": [],
       "IsCancelled": false,
       "TicketBill": 230,
