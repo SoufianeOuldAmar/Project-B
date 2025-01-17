@@ -22123,19 +22123,15 @@
         "10A",
         "13A",
         "13B",
-        "22A"
-      ],
-      "BookedSeats": [
+        "22A",
         "11A",
         "11B"
       ],
+      "BookedSeats": [],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
-      "SeatInitials": {
-        "11A": "SO",
-        "11B": "SO"
-      }
+      "SeatInitials": {}
     },
     "TicketPrice": 270,
     "Gate": "D9",
@@ -27978,17 +27974,14 @@
         "30E",
         "30F",
         "10A",
-        "30D"
-      ],
-      "BookedSeats": [
+        "30D",
         "11A"
       ],
+      "BookedSeats": [],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
-      "SeatInitials": {
-        "11A": "SI"
-      }
+      "SeatInitials": {}
     },
     "TicketPrice": 150,
     "Gate": "A12",

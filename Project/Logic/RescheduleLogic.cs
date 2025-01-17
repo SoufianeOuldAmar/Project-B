@@ -124,10 +124,8 @@ public static class RescheduleLogic
             return $"Account with email {email} not found.";
         }
 
-
+        BookedFlightsAccess.WriteAll(email, BookFlightPresentation.allBookedFlights[email]);
         return $"Flight successfully rescheduled. Additional fee: {totalFee:C} and new Price {totalNewPrice:C}. New Flight Date: {newFlightIdGiven.DepartureDate} at {newFlightIdGiven.FlightTime}.";
-
-
     }
 
 

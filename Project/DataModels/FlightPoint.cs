@@ -15,7 +15,7 @@ public class FlightPoint
 
     [JsonPropertyName("earned")]
     public bool Earned { get; set; } = false;
-1
+
     public FlightPoint(string ticketsBought, int points, int flightId)
     {
         TicketsBought = ticketsBought;
