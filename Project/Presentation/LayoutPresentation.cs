@@ -29,11 +29,11 @@ namespace PresentationLayer
                 PrintAirbusA330Layout(layout);
             }
             else if (layout.IsBoeing787)
-            {
+            {   
                 PrintBoeing787Layout(layout);
             }
             else
-            {
+            {   
                 PrintStandardLayout(layout);
             }
         }

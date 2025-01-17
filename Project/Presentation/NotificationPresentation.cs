@@ -34,6 +34,8 @@ public static class NotificationPresentation
             if (!int.TryParse(Console.ReadLine(), out int choice) || choice < 0 || choice > notifications.Count)
             {
                 Console.WriteLine("Invalid input. Please try again.");
+                MenuPresentation.PressAnyKey();
+                
                 continue;
             }
 

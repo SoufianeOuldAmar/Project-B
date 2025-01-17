@@ -82,4 +82,13 @@ public static class DataAccessClass
         }
     }
 
+    public static void SavePayments(List<Payement> payements)
+    {
+        string _path = "DataSources/FinancialReport.json";
+        var existingPayments = ReadList<Payement>(_path);
+        existingPayments.AddRange(payements);
+        var jsonData = JsonSerializer.Serialize(existingPayments, new JsonSerializerOptions { WriteIndented = true });
+        File.WriteAllText(_path, jsonData);
+    }
+
 }

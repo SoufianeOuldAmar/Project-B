@@ -5079,7 +5079,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -5199,7 +5198,8 @@
         "30D",
         "30E",
         "30F",
-        "10A"
+        "10A",
+        "11A"
       ],
       "BookedSeats": [],
       "ChosenSeats": [],
@@ -5218,7 +5218,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 31,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -5728,7 +5728,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 31,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -9100,20 +9100,16 @@
         "10D",
         "10E",
         "10F",
-        "11A",
-        "11B",
         "11C",
         "11D",
         "11E",
         "11F",
-        "12A",
         "12B",
         "12C",
         "12D",
         "12E",
         "12F",
         "13A",
-        "13B",
         "13C",
         "13D",
         "13E",
@@ -9219,7 +9215,11 @@
         "30D",
         "30E",
         "30F",
-        "22B"
+        "22B",
+        "11A",
+        "11B",
+        "12A",
+        "13B"
       ],
       "BookedSeats": [],
       "ChosenSeats": [],
@@ -9238,7 +9238,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 30,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -10019,7 +10019,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 27,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -13213,7 +13213,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -13333,7 +13332,8 @@
         "30D",
         "30E",
         "30F",
-        "10A"
+        "10A",
+        "11A"
       ],
       "BookedSeats": [],
       "ChosenSeats": [],
@@ -13352,7 +13352,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 27,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -17834,17 +17834,14 @@
         "30D",
         "11A",
         "11B",
-        "11B"
-      ],
-      "BookedSeats": [
+        "11B",
         "11A"
       ],
+      "BookedSeats": [],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
-      "SeatInitials": {
-        "11A": "SO"
-      }
+      "SeatInitials": {}
     },
     "TicketPrice": 425,
     "Gate": "B1",
@@ -20197,7 +20194,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 25,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -22008,8 +22005,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
-        "11B",
         "11C",
         "11D",
         "11E",
@@ -22020,8 +22015,6 @@
         "12D",
         "12E",
         "12F",
-        "13A",
-        "13B",
         "13C",
         "13D",
         "13E",
@@ -22074,7 +22067,6 @@
         "21D",
         "21E",
         "21F",
-        "22A",
         "22B",
         "22C",
         "22D",
@@ -22127,8 +22119,13 @@
         "30C",
         "30E",
         "30F",
+        "30D",
         "10A",
-        "30D"
+        "13A",
+        "13B",
+        "22A",
+        "11A",
+        "11B"
       ],
       "BookedSeats": [],
       "ChosenSeats": [],
@@ -22147,7 +22144,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 27,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -27858,7 +27855,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -27978,7 +27974,8 @@
         "30E",
         "30F",
         "10A",
-        "30D"
+        "30D",
+        "11A"
       ],
       "BookedSeats": [],
       "ChosenSeats": [],
@@ -27997,7 +27994,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 15,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -33847,7 +33844,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 32,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -34237,7 +34234,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 15,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -35797,7 +35794,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 50,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -36572,7 +36569,7 @@
     "ArrivalDestination": "Stockholm-Arlanda",
     "TimeOfDay": null,
     "IsCancelled": false,
-    "DepartureDate": "11-01-2025",
+    "DepartureDate": "18-01-2025",
     "FlightTime": "11:30",
     "AvailableSeats": 0,
     "FlightPoints": 15,

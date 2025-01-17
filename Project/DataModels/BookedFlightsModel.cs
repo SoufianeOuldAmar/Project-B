@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Runtime.InteropServices;
@@ -11,10 +12,11 @@ public class BookedFlightsModel
     public List<BaggageLogic> BaggageInfo { get; set; }
     public bool IsCancelled { get; set; }
     public double TicketBill { get; set; }
-    public int FlightPoints { get; set; }
+    public FlightPoint FlightPoints { get; set; }
     public Dictionary<string, string> SeatInitials { get; set; }
     public string Email { get; set; }
     public List<FoodAndDrinkItem> FoodAndDrinkItems { get; set; }
+    public string DateTicketsBought { get; set; }
 
     // Add parameterless constructor for JSON deserialization
     public BookedFlightsModel()
@@ -34,12 +36,12 @@ public class BookedFlightsModel
         BaggageInfo = baggageInfo ?? new List<BaggageLogic>();
         IsCancelled = isCancelled;
         TicketBill = 0;
-        FlightPoints = 0;
+        // FlightPoints = 0;
         SeatInitials = new Dictionary<string, string>();
         FoodAndDrinkItems = new List<FoodAndDrinkItem>();
     }
 
-    public BookedFlightsModel(int flightID, List<string> bookedSeats, List<BaggageLogic> baggageInfo, List<PetLogic> pets, bool isCancelled, string email) 
+    public BookedFlightsModel(int flightID, List<string> bookedSeats, List<BaggageLogic> baggageInfo, List<PetLogic> pets, bool isCancelled, string email)
         : this(flightID, bookedSeats, baggageInfo, pets, isCancelled)
     {
         Email = email;

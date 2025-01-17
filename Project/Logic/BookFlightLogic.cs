@@ -67,47 +67,6 @@ public static class BookFlightLogic
         }
     }
 
-    public static bool SaveBooking(FlightModel flight, List<string> selectedSeats, List<PassengerModel> passengers, List<BaggageLogic> baggageInfo, List<PetLogic> petInfo, double totalPrice)
-    {
-        try
-        {
-            // PassengerAccess.SavePassengers(passengers);
-            DataAccessClass.WriteList<PassengerModel>("DataSources/passengers.json", passengers);
-
-            var currentAccount = AccountsLogic.CurrentAccount;
-
-            var bookedFlight = new BookedFlightsModel(
-                flight.Id,
-                selectedSeats,
-                baggageInfo,
-                petInfo,
-                false,
-                currentAccount.EmailAddress
-            );
-
-            bookedFlight.UpdateSeatInitials(flight.Layout.SeatInitials);
-            bookedFlight.TicketBill = totalPrice;
-
-            if (!BookFlightPresentation.allBookedFlights.ContainsKey(currentAccount.EmailAddress))
-            {
-                BookFlightPresentation.allBookedFlights[currentAccount.EmailAddress] = new List<BookedFlightsModel>();
-            }
-            BookFlightPresentation.allBookedFlights[currentAccount.EmailAddress].Add(bookedFlight);
-
-            BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, BookFlightPresentation.allBookedFlights[currentAccount.EmailAddress]);
-
-            flight.AvailableSeats -= selectedSeats.Count;
-            DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", BookFlightPresentation.allFlights);
-
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error saving booking: {ex.Message}");
-            return false;
-        }
-    }
 
     public static void TakeOff()
     {
@@ -140,8 +99,7 @@ public static class BookFlightLogic
             }
             catch (FormatException ex)
             {
-                Console.WriteLine($"Error parsing date: {departureDateTimeString}");
-                Console.WriteLine($"Exception: {ex.Message}");
+                throw new FormatException($"Error parsing the departure date and time: {departureDateTimeString}. Ensure it follows the format 'dd-MM-yyyy HH:mm'.", ex);
             }
         }
 
@@ -167,10 +125,12 @@ public static class BookFlightLogic
                     if (flight != null)
                     {
                         // Only add points if they haven't been added before
-                        if (bookedFlight.FlightPoints == 0) // Check if no points were added yet
+                        if (bookedFlight.FlightPoints.Points == 0) // Check if no points were added yet
                         {
-                            bookedFlight.FlightPoints += flight.FlightPoints * bookedFlight.BookedSeats.Count;
-                            account.TotalFlightPoints += flight.FlightPoints * bookedFlight.BookedSeats.Count;
+                            // var f = flight.FlightPoints * bookedFlight.BookedSeats.Count;
+                            bookedFlight.FlightPoints.Points = flight.FlightPoints * bookedFlight.BookedSeats.Count;
+                            bookedFlight.FlightPoints.Earned = true;
+                            account.TotalFlightPoints += flight.FlightPoints;
 
                             DataAccessClass.UpdateCurrentAccount(account);
 

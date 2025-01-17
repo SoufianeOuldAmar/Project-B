@@ -1,13 +1,13 @@
-public class FinancialAdvisorPres 
+public class FinancialAdvisorPres
 {
     public static void LogInFinancialAdvisor()
     {
         FinancialAdvisorLogic financial = new FinancialAdvisorLogic();
 
-        Console.WriteLine("Enter Username: ");
+        Console.Write("Enter Username: ");
         string username = Console.ReadLine();
 
-        Console.Clear();
+        // Console.Clear();
 
         Console.Write("Enter Password: ");
         string password = HidePassword();
@@ -35,14 +35,14 @@ public class FinancialAdvisorPres
         {
             Console.WriteLine("Invalid username or password. Please try again.");
             Console.WriteLine("You will need to wait for 30 seconds before trying again...");
-            Thread.Sleep(30000); 
+            Thread.Sleep(30000);
             LogInFinancialAdvisor();
         }
 
 
 
 
-    } 
+    }
 
     public static string HidePassword()
     {
@@ -50,7 +50,7 @@ public class FinancialAdvisorPres
 
         ConsoleKeyInfo keyy;
 
-        while(true)
+        while (true)
         {
             keyy = Console.ReadKey(true);
 
@@ -80,46 +80,66 @@ public class FinancialAdvisorPres
 
     public static void FrontPageFinancialAdvisor(FinancialAccountModel financial)
     {
-        Console.WriteLine($"Logged in as Financial Advisor: {financial.UserName}");
-        Console.WriteLine("=== Front page ===");
-        Console.WriteLine("1. Display yearly Financial report ");
-        Console.WriteLine("2. Log out");
 
-        Console.Write("\nChoose an option: ");
-        string choice = Console.ReadLine();
-
-        switch (choice)
+        while (true)
         {
-            case "1":
-                Console.Write("Enter the year for the financial report: ");
-                string yearStr = Console.ReadLine();
+            Console.Clear();
 
-                if (int.TryParse(yearStr, out int year))
-                {
-                    if (year >= 0)
+            Console.WriteLine($"Logged in as Financial Advisor: {financial.UserName}");
+            Console.WriteLine("\n=== Front page ===");
+            Console.WriteLine("1. Display yearly Financial report ");
+            Console.WriteLine("2. Log out");
+
+            Console.Write("\nChoose an option: ");
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    while (true)
                     {
-                        FinancialReportPresentation.GenerateDataForReport(year);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid year. A year can't be negative.");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please enter a valid year.");
-                }
-                break;
+                        Console.Clear();
 
-            case "2":
-                MenuLogic.PopMenu(); 
-                break;
+                        Console.Write("Enter the year for the financial report: ");
+                        string yearStr = Console.ReadLine();
 
-            default:
-                Console.WriteLine("Invalid choice. Please try again.");
-                break;
+                        if (int.TryParse(yearStr, out int year))
+                        {
+                            if (year >= 0)
+                            {
+                                FinancialReportPresentation.GenerateDataForReport(year);
+                                MenuPresentation.PressAnyKey();
+
+                                break; // Exit the loop after successfully generating the report.
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid year. A year can't be negative.");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input. Please enter a valid year.");
+                        }
+
+                        MenuPresentation.PressAnyKey();
+                    }
+                    break;
+
+
+                case "2":
+                    Console.WriteLine("Logging out...");
+                    MenuLogic.PopMenu();
+                    return; // Exit the method after logging out.
+
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    MenuPresentation.PressAnyKey();
+                    break;
+            }
         }
-    } 
+    }
+
 
 
 

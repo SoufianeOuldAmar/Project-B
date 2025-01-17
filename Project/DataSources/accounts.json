@@ -5,8 +5,8 @@
     "password": "xyz",
     "fullName": "Nikola Tesla",
     "flightPointsDataList": [],
-    "TotalFlightPoints": 69,
-    "fees": 0,
+    "TotalFlightPoints": 123,
+    "fees": 230,
     "Notifications": [
       {
         "Id": 1,

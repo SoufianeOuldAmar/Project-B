@@ -202,6 +202,7 @@ public static class BookFlightPresentation
 
         FlightModel selectedFlight = flightModel;
 
+    bookFlightConfirm:
         if (selectedFlight != null)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -217,6 +218,7 @@ public static class BookFlightPresentation
             Console.WriteLine("{0,-20} {1,-35}", "Available Seats:", selectedFlight.AvailableSeats);
             Console.WriteLine("{0,-20} {1,-35}", "Is Cancelled:", (selectedFlight.IsCancelled ? "Yes" : "No"));
             Console.ResetColor();
+
 
             Console.Write("\nAre you sure you want to book this flight? (yes/no): ");
             string confirmation = Console.ReadLine();
@@ -406,9 +408,7 @@ public static class BookFlightPresentation
                         allPayments.Add(petPayment);
                     }
 
-                    // Save all payments at once
-                    // FinancialReportAccess.SavePayements(allPayments);
-                    DataAccessClass.WriteList<Payement>("DataSources/FinancialReport.json", allPayments);
+                    DataAccessClass.SavePayments(allPayments);
 
                     Console.Clear();
                     LayoutPresentation.PrintLayout(selectedFlight.Layout);
@@ -512,6 +512,8 @@ public static class BookFlightPresentation
 
                 Console.Write("\nConfirm booking? (yes/no): ");
                 string finalConfirmation = Console.ReadLine().ToLower();
+
+
                 if (finalConfirmation == "yes")
                 {
                     currentAccount.TotalFlightPoints -= (int)discountToApply;
@@ -526,7 +528,11 @@ public static class BookFlightPresentation
                     DataAccessClass.UpdateCurrentAccount(currentAccount); // Update flight points
 
                     var bookedFlight1 = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false);
+                    bookedFlight1.DateTicketsBought = DateTime.Now.ToString("dd-MM-yyyy");
+
+
                     bookedFlight1.TicketBill += totalPrice;
+                    bookedFlight1.FlightPoints = new FlightPoint(bookedFlight1.DateTicketsBought, 0, selectedFlight.Id);
 
                     foreach (var seat in chosenSeats)
                     {
@@ -539,9 +545,9 @@ public static class BookFlightPresentation
                     bookedFlight1.Email = currentAccount.EmailAddress;
 
                     List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
-    {
-        bookedFlight1
-    };
+                    {
+                        bookedFlight1
+                    };
 
                     var existingBookings = BookedFlightsAccess.LoadByEmail(currentAccount.EmailAddress);
 
@@ -586,14 +592,11 @@ public static class BookFlightPresentation
             else if (confirmation.ToLower() == "no")
             {
                 Console.WriteLine("Booking flight is cancelled, choose a new flight.\n");
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
             }
             else
             {
-                Console.WriteLine("Invalid input, try again.\n");
-                Console.WriteLine("Press any key to continue...");
-                Console.ReadKey();
+                Console.WriteLine("Invalid input, try again.");
+                goto bookFlightConfirm;
             }
         }
         else
