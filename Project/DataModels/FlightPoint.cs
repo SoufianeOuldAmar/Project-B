@@ -5,7 +5,7 @@ public class FlightPoint
 {
 
     [JsonPropertyName("ticketsBought")]
-    public DateTime TicketsBought { get; set; }
+    public string TicketsBought { get; set; }
 
     [JsonPropertyName("points")]
     public int Points { get; set; }
@@ -15,8 +15,8 @@ public class FlightPoint
 
     [JsonPropertyName("earned")]
     public bool Earned { get; set; } = false;
-
-    public FlightPoint(DateTime ticketsBought, int points, int flightId)
+1
+    public FlightPoint(string ticketsBought, int points, int flightId)
     {
         TicketsBought = ticketsBought;
         Points = points;

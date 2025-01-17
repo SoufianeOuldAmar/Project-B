@@ -7,37 +7,6 @@ using System.Security.Cryptography.X509Certificates;
 public static class RescheduleLogic
 {
     public static string fileName = "DataSources/flights.json";
-    public static void WriteJson(string fileName, List<FlightModel> allFlights)
-    {
-        string json = JsonSerializer.Serialize(allFlights, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText(fileName, json);
-    }
-
-    public static List<FlightModel> LoadFlights(string fileName)
-    {
-        if (File.Exists(fileName))
-        {
-            string json = File.ReadAllText(fileName);
-
-            List<FlightModel> flights = JsonSerializer.Deserialize<List<FlightModel>>(json);
-
-
-            if (flights != null)
-            {
-                return flights;
-            }
-            else
-            {
-                return new List<FlightModel>();
-            }
-        }
-        else
-        {
-            return new List<FlightModel>();
-        }
-    }
-
-
 
     public static List<BookedFlightsModel> BookedFlightsUser(string email)
     {

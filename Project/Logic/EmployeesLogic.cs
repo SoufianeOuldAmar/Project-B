@@ -23,6 +23,7 @@ public static class EmployeesLogic
 
         return false;
     }
+    
     public static bool NameLogic(string input)
     {
         foreach (char c in input)
@@ -76,7 +77,7 @@ public static class EmployeesLogic
         else
         {
             // If the operating system is unsupported, show an error message
-            Console.WriteLine("Unsupported operating system for opening files.");
+            throw new PlatformNotSupportedException("Unsupported operating system for opening files.");
         }
     }
 

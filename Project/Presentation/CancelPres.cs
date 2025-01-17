@@ -176,7 +176,7 @@ public class CancelPres
         // Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
         var bookedFlights = allBookedFlights[email];
 
-        const int tableWidth = 153;
+        const int tableWidth = 173;
         string separator = new string('-', tableWidth);
 
         // Header
@@ -211,6 +211,11 @@ public class CancelPres
 
         Console.ForegroundColor = ConsoleColor.White;
         Console.Write($"{"Ticket Price",-15}");
+        Console.ResetColor();
+        Console.Write(" | ");
+
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write($"{"Tickets Bought On",-15}");
         Console.ResetColor();
         Console.Write(" | ");
 
@@ -264,6 +269,11 @@ public class CancelPres
             Console.Write(" | ");
             Console.ForegroundColor = ConsoleColor.White; // Color for Ticket Price
             Console.Write($"€{totalTicketPrice,-14}");
+            Console.ResetColor();
+
+            Console.Write(" | ");
+            Console.ForegroundColor = ConsoleColor.White; // Color for Ticket Price
+            Console.Write($"{flight.DateTicketsBought.ToString(),-17}");
             Console.ResetColor();
 
             Console.Write(" | ");

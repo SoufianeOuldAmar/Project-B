@@ -1,39 +1,49 @@
 {
   "n@b.c": [
     {
-      "FlightID": 20,
+      "FlightID": 49,
       "BookedSeats": [
         "11A",
-        "11B",
-        "12A",
-        "13B"
+        "11B"
       ],
       "Pets": [],
       "BaggageInfo": [],
       "IsCancelled": false,
-      "TicketBill": 300,
-      "FlightPoints": 30,
+      "TicketBill": 270,
+      "FlightPoints": {
+        "ticketsBought": "17-01-2025",
+        "points": 54,
+        "flightId": 49,
+        "earned": true
+      },
       "SeatInitials": {
-        "13B": "SO"
+        "11B": "SO"
       },
       "Email": "n@b.c",
-      "FoodAndDrinkItems": []
+      "FoodAndDrinkItems": [],
+      "DateTicketsBought": "17-01-2025"
     },
     {
-      "FlightID": 29,
+      "FlightID": 64,
       "BookedSeats": [
         "11A"
       ],
       "Pets": [],
       "BaggageInfo": [],
       "IsCancelled": false,
-      "TicketBill": 275,
-      "FlightPoints": 27,
+      "TicketBill": 150,
+      "FlightPoints": {
+        "ticketsBought": "18-01-2025",
+        "points": 15,
+        "flightId": 64,
+        "earned": true
+      },
       "SeatInitials": {
-        "11A": "SO"
+        "11A": "SI"
       },
       "Email": "n@b.c",
-      "FoodAndDrinkItems": []
+      "FoodAndDrinkItems": [],
+      "DateTicketsBought": "18-01-2025"
     }
   ]
 }

@@ -528,8 +528,11 @@ public static class BookFlightPresentation
                     DataAccessClass.UpdateCurrentAccount(currentAccount); // Update flight points
 
                     var bookedFlight1 = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false);
+                    bookedFlight1.DateTicketsBought = DateTime.Now.ToString("dd-MM-yyyy");
+
+
                     bookedFlight1.TicketBill += totalPrice;
-                    bookedFlight1.FlightPoints = selectedFlight.FlightPoints * passengers.Count;
+                    bookedFlight1.FlightPoints = new FlightPoint(bookedFlight1.DateTicketsBought, 0, selectedFlight.Id);
 
                     foreach (var seat in chosenSeats)
                     {
