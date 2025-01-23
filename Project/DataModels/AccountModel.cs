@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using System.Linq; // Required for LINQ
 using System.Text.Json.Serialization;
 
-public class AccountModel
-{
-    [JsonPropertyName("id")]
-    public int Id { get; set; }
+using System;
+using System.Collections.Generic;
 
+public class AccountModel : BaseAccountModel, IDataModel
+{
     [JsonPropertyName("emailAddress")]
     public string EmailAddress { get; set; }
-
-    [JsonPropertyName("password")]
-    public string Password { get; set; }
 
     [JsonPropertyName("fullName")]
     public string FullName { get; set; }
@@ -20,20 +17,18 @@ public class AccountModel
     [JsonPropertyName("flightPointsDataList")]
     public List<FlightPoint> FlightPointsDataList { get; set; }
 
-    // Recalculate TotalFlightPoints dynamically
-    public int TotalFlightPoints { get; set; }
+    public int TotalFlightPoints { get; set; } // Still dynamically calculated
 
     [JsonPropertyName("fees")]
     public double Fee { get; set; }
 
-    [JsonPropertyName("Notifications")]
+    [JsonPropertyName("notifications")]
     public List<Notification> Notifications { get; set; }
 
     public AccountModel(int id, string emailAddress, string password, string fullName)
+        : base(id, password)
     {
-        Id = id;
         EmailAddress = emailAddress;
-        Password = password;
         FullName = fullName;
         FlightPointsDataList = new List<FlightPoint>();
         Fee = 0;

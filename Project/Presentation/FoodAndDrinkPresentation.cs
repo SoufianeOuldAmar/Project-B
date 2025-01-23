@@ -59,15 +59,17 @@ public class FoodAndDrinkPresentation
             Console.WriteLine("No food or drinks added to your booking.");
         }
 
-        List<Payement> allPayments = new List<Payement>();
+        List<Payment> allPayments = new List<Payment>();
+        var paymentsList = DataAccessClass.ReadList<Payment>("DataSources/financialreports.json");
+
         foreach (var item in selectedItems)
         {
-            Payement foodAndDrinkPayment = new Payement("FoodAndDrink", item.Price, DateTime.Now);
+            Payment foodAndDrinkPayment = new Payment(paymentsList.Count + allPayments.Count + 1, "FoodAndDrink", item.Price, DateTime.Now);
             allPayments.Add(foodAndDrinkPayment);
         }
 
-        // FinancialReportAccess.SavePayements(allPayments);
-        DataAccessClass.WriteList<Payement>("DataSources/FinancialReport.json", allPayments);
+        // FinancialReportAccess.SavePayments(allPayments);
+        DataAccessClass.WriteList<Payment>("DataSources/financialreports.json", allPayments);
 
 
         return (totalCost, selectedItems);
