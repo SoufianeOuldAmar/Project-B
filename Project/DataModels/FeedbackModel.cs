@@ -1,6 +1,6 @@
 namespace DataModels
 {
-    public class FeedbackModel
+    public class FeedbackModel: IDataModel
     {
         public int Id { get; set; }
         public string UserEmail { get; set; }

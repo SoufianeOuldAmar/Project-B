@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "ItemType": "FoodAndDrink",
+    "Amount": 14.5,
+    "DatePayment": "2025-01-23T01:30:00.2014901+01:00"
+  },
+  {
+    "Id": 2,
+    "ItemType": "Ticket",
+    "Amount": 214.5,
+    "DatePayment": "2025-01-23T01:31:03.6503369+01:00"
+  },
+  {
+    "Id": 3,
+    "ItemType": "Baggage",
+    "Amount": 35,
+    "DatePayment": "2025-01-23T01:31:03.6503407+01:00"
+  },
+  {
+    "Id": 4,
+    "ItemType": "Pet",
+    "Amount": 50,
+    "DatePayment": "2025-01-23T01:31:03.6506738+01:00"
+  }
+]

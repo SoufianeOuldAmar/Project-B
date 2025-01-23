@@ -10,7 +10,7 @@ public static class DataAccessClass
     /// <summary>
     /// Reads a JSON file and deserializes it into a list.
     /// </summary>
-    public static List<T> ReadList<T>(string filePath)
+    public static List<T> ReadList<T>(string filePath) where T : IDataModel
     {
         if (!File.Exists(filePath))
         {
@@ -24,7 +24,7 @@ public static class DataAccessClass
     /// <summary>
     /// Serializes and writes a list to a JSON file.
     /// </summary>
-    public static void WriteList<T>(string filePath, List<T> data)
+    public static void WriteList<T>(string filePath, List<T> data) where T : IDataModel
     {
         string json = JsonSerializer.Serialize(data, Options);
         File.WriteAllText(filePath, json);
@@ -82,11 +82,11 @@ public static class DataAccessClass
         }
     }
 
-    public static void SavePayments(List<Payement> payements)
+    public static void SavePayments(List<Payment> payments)
     {
-        string _path = "DataSources/FinancialReport.json";
-        var existingPayments = ReadList<Payement>(_path);
-        existingPayments.AddRange(payements);
+        string _path = "DataSources/financialreports.json";
+        var existingPayments = ReadList<Payment>(_path);
+        existingPayments.AddRange(payments);
         var jsonData = JsonSerializer.Serialize(existingPayments, new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(_path, jsonData);
     }

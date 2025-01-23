@@ -1,164 +1,82 @@
 [
   {
-    "id": 1,
     "emailAddress": "n@b.c",
-    "password": "xyz",
     "fullName": "Nikola Tesla",
     "flightPointsDataList": [],
-    "TotalFlightPoints": 123,
+    "TotalFlightPoints": 146,
     "fees": 230,
-    "Notifications": [
-      {
-        "Id": 1,
-        "FlightID": 36,
-        "NewStatus": null,
-        "Description": "New Seat Added",
-        "OldDetails": null,
-        "NewDetails": "20A",
-        "IsRead": true,
-        "ActionRequired": false
-      },
-      {
-        "Id": 2,
-        "FlightID": 9,
-        "NewStatus": null,
-        "Description": "New Seat Added",
-        "OldDetails": null,
-        "NewDetails": "20A",
-        "IsRead": true,
-        "ActionRequired": false
-      },
-      {
-        "Id": 1,
-        "FlightID": 8,
-        "NewStatus": null,
-        "Description": "Ticket price changed",
-        "OldDetails": "230",
-        "NewDetails": "250",
-        "IsRead": true,
-        "ActionRequired": false
-      },
-      {
-        "Id": 4,
-        "FlightID": 8,
-        "NewStatus": null,
-        "Description": "New Pet Added",
-        "OldDetails": null,
-        "NewDetails": "dog",
-        "IsRead": false,
-        "ActionRequired": false
-      }
-    ]
+    "notifications": [],
+    "id": 1,
+    "password": "xyz"
   },
   {
-    "id": 2,
     "emailAddress": "t@b.c",
-    "password": "xyz",
     "fullName": "Thomas Edison",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,
-    "Notifications": [
-      {
-        "Id": 1,
-        "FlightID": 16,
-        "NewStatus": null,
-        "Description": "Ticket price changed",
-        "OldDetails": "2",
-        "NewDetails": "2",
-        "IsRead": false,
-        "ActionRequired": false
-      },
-      {
-        "Id": 1,
-        "FlightID": 16,
-        "NewStatus": null,
-        "Description": "Gate changed",
-        "OldDetails": "E5",
-        "NewDetails": "E8",
-        "IsRead": false,
-        "ActionRequired": false
-      },
-      {
-        "Id": 1,
-        "FlightID": 16,
-        "NewStatus": null,
-        "Description": "Ticket price changed",
-        "OldDetails": "2",
-        "NewDetails": "4",
-        "IsRead": false,
-        "ActionRequired": false
-      },
-      {
-        "Id": 1,
-        "FlightID": 16,
-        "NewStatus": null,
-        "Description": "Flight got cancelled. Make sure to book a new flight!",
-        "OldDetails": "",
-        "NewDetails": "",
-        "IsRead": false,
-        "ActionRequired": true
-      }
-    ]
+    "notifications": [],
+    "id": 2,
+    "password": "xyz"
   },
   {
-    "id": 3,
     "emailAddress": "soufiane_ouldamar@",
-    "password": "password1",
     "fullName": "Soufiane Ould Amar",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,
-    "Notifications": []
+    "notifications": [],
+    "id": 3,
+    "password": "password1"
   },
   {
+    "emailAddress": "la@gmail.com",
+    "fullName": "lala",
+    "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
+    "fees": 0,
+    "notifications": [],
     "id": 4,
+    "password": "password"
+  },
+  {
     "emailAddress": "la@gmail.com",
-    "password": "password",
     "fullName": "lala",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,
-    "Notifications": []
-  },
-  {
+    "notifications": [],
     "id": 5,
-    "emailAddress": "la@gmail.com",
-    "password": "passwordd",
-    "fullName": "lala",
-    "flightPointsDataList": [],
-    "TotalFlightPoints": 0,
-    "fees": 0,
-    "Notifications": []
+    "password": "passwordd"
   },
   {
-    "id": 6,
     "emailAddress": "n@x.c",
-    "password": "xyz",
     "fullName": "Soufiane OuLD",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,
-    "Notifications": []
+    "notifications": [],
+    "id": 6,
+    "password": "xyz"
   },
   {
-    "id": 7,
     "emailAddress": "niemand@",
-    "password": "password1",
     "fullName": "Iemand Anders",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,
-    "Notifications": []
+    "notifications": [],
+    "id": 7,
+    "password": "password1"
   },
   {
-    "id": 8,
     "emailAddress": "new@",
-    "password": "W8woordA!",
     "fullName": "New",
     "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,
-    "Notifications": []
+    "notifications": [],
+    "id": 8,
+    "password": "W8woordA!"
   }
 ]

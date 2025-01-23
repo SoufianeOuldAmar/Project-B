@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-public class EmployeesModel
+public class EmployeesModel: IDataModel
 {
     [JsonPropertyName("Id")]
     public int Id { get; set; }

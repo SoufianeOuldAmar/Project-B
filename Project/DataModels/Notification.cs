@@ -1,4 +1,6 @@
-public class Notification
+using System.Globalization;
+
+public class Notification : IDataModel
 {
     public int Id { get; set; }
     public int FlightID { get; set; }

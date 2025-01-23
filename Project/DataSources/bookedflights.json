@@ -1,24 +1,31 @@
 {
   "n@b.c": [
     {
-      "FlightID": 8,
+      "FlightID": 2,
       "BookedSeats": [
         "11A"
       ],
       "Pets": [
         {
-          "AnimalType": "cat",
-          "PetName": "Poepert",
+          "AnimalType": "dog",
+          "PetName": "pikkie",
           "Fee": 50
         }
       ],
-      "BaggageInfo": [],
+      "BaggageInfo": [
+        {
+          "Initials": "SO",
+          "BaggageType": "Checked \u002B Carry-On",
+          "BaggageWeight": 20,
+          "Fee": 35
+        }
+      ],
       "IsCancelled": false,
-      "TicketBill": 230,
+      "TicketBill": 314,
       "FlightPoints": {
-        "ticketsBought": "17-01-2025",
+        "ticketsBought": "23-01-2025",
         "points": 0,
-        "flightId": 8,
+        "flightId": 2,
         "earned": false
       },
       "SeatInitials": {
@@ -26,7 +33,7 @@
       },
       "Email": "n@b.c",
       "FoodAndDrinkItems": [],
-      "DateTicketsBought": "17-01-2025"
+      "DateTicketsBought": "23-01-2025"
     }
   ]
 }

@@ -294,6 +294,9 @@ public static class BookFlightPresentation
                     {
                         Console.Write("First Name: ");
                         string firstName = Console.ReadLine();
+                        var passengersList = DataAccessClass.ReadList<PassengerModel>("DataSources/passengers.json");
+
+                        passenger.Id = passengersList.Count + 1;
                         // Allow letters and spaces, but ensure it's not just spaces
                         if (!string.IsNullOrWhiteSpace(firstName) && firstName.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)) && firstName.Trim().Length > 0)
                         {
@@ -386,16 +389,17 @@ public static class BookFlightPresentation
                     ProcessPassengerDetails(passenger, seat, ref totalPrice, selectedFlight.TicketPrice, initials, passengers, chosenSeats, baggageInfo, petInfo, selectedFlight);
 
                     // list of all payments to save
-                    List<Payement> allPayments = new List<Payement>();
+                    List<Payment> allPayments = new List<Payment>();
 
+                    var paymentsList = DataAccessClass.ReadList<Payment>("DataSources/financialreports.json");
                     // Add the ticket payment
-                    Payement ticketPayment = new Payement("Ticket", selectedFlight.TicketPrice, DateTime.Now);
+                    Payment ticketPayment = new Payment(paymentsList.Count + 1, "Ticket", selectedFlight.TicketPrice, DateTime.Now);
                     allPayments.Add(ticketPayment);
 
                     // Add the baggage payments
                     foreach (var baggage in baggageInfo)
                     {
-                        Payement baggagePayment = new Payement("Baggage", baggage.Fee, DateTime.Now);
+                        Payment baggagePayment = new Payment(paymentsList.Count + allPayments.Count + 1, "Baggage", baggage.Fee, DateTime.Now);
                         allPayments.Add(baggagePayment);
                         selectedFlight.Layout.BookFlight(seat, initials);
                         // ProcessPassengerDetails(passenger, seat, ref totalPrice, selectedFlight.TicketPrice, initials, passengers, chosenSeats, baggageInfo, petInfo, selectedFlight);
@@ -404,7 +408,7 @@ public static class BookFlightPresentation
                     // Add the pet payments
                     foreach (var pet in petInfo)
                     {
-                        Payement petPayment = new Payement("Pet", pet.Fee, DateTime.Now);
+                        Payment petPayment = new Payment(paymentsList.Count + allPayments.Count + 1, "Pet", pet.Fee, DateTime.Now);
                         allPayments.Add(petPayment);
                     }
 

@@ -5,19 +5,19 @@ using System.Linq;
 public static class FinancialReportLogic
 {
 
-    public static List<Payement> GetPaymentsByYear(int year)
+    public static List<Payment> GetPaymentsByYear(int year)
     {
-        // var payements = FinancialReportAccess.LoadPayements();
-        var payements = DataAccessClass.ReadList<Payement>("DataSources/FinancialReport.json");
+        // var Payments = FinancialReportAccess.LoadPayments();
+        var Payments = DataAccessClass.ReadList<Payment>("DataSources/financialreports.json");
 
         var currentDate = DateTime.Now;
 
-        return payements
-            .Where(x => x.DatePayement.Year == year && x.DatePayement <= currentDate)
+        return Payments
+            .Where(x => x.DatePayment.Year == year && x.DatePayment <= currentDate)
             .ToList();
     }
 
-    public static IEnumerable<dynamic> GroupPaymentsByItemType(List<Payement> payments)
+    public static IEnumerable<dynamic> GroupPaymentsByItemType(List<Payment> payments)
     {
         return payments.GroupBy(x => x.ItemType).Select(group => new
         {

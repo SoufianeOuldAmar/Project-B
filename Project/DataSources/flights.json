@@ -386,7 +386,7 @@
     "AvailableSeats": 178,
     "FlightPoints": 15,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -638,7 +638,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -756,17 +755,20 @@
         "30C",
         "30D",
         "30E",
-        "30F"
-      ],
-      "BookedSeats": [],
-      "ChosenSeats": [
+        "30F",
         "30B"
       ],
+      "BookedSeats": [
+        "11A"
+      ],
+      "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
-      "SeatInitials": {}
+      "SeatInitials": {
+        "11A": "SO"
+      }
     },
-    "TicketPrice": 200,
+    "TicketPrice": 214.5,
     "Gate": "B4",
     "DepartureAirport": "Rotterdam, The Hague Airport",
     "ArrivalDestination": "London, Heathrow Airport",
@@ -776,7 +778,7 @@
     "FlightTime": "09:45",
     "AvailableSeats": 178,
     "FlightPoints": 20,
-    "TotalPets": 0,
+    "TotalPets": 1,
     "HasTakenOff": false,
     "ReturnFlight": null
   },
@@ -4418,17 +4420,14 @@
         "50G",
         "50H",
         "50J",
-        "50K"
-      ],
-      "BookedSeats": [
+        "50K",
         "11A"
       ],
+      "BookedSeats": [],
       "ChosenSeats": [],
       "IsAirbusA330": true,
       "IsBoeing787": false,
-      "SeatInitials": {
-        "11A": "SO"
-      }
+      "SeatInitials": {}
     },
     "TicketPrice": 250,
     "Gate": "G7",
@@ -4441,7 +4440,7 @@
     "AvailableSeats": 179,
     "FlightPoints": 23,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -6121,7 +6120,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 21,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -12965,7 +12964,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 27,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -17857,7 +17856,7 @@
     "AvailableSeats": 178,
     "FlightPoints": 43,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -18637,7 +18636,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 25,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -29557,7 +29556,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 35,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -30337,7 +30336,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 25,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -32677,7 +32676,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 33,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -33457,7 +33456,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 38,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
