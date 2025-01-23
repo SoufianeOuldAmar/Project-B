@@ -57,10 +57,10 @@ public static class DataAccessClass
         DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", flights);
     }
 
-    public static void UpdateCurrentAccount(AccountModel currentAccount)
+    public static void UpdateCurrentAccount(UserAccountModel currentAccount)
     {
         // Load all accounts from the JSON file
-        var accounts = DataAccessClass.ReadList<AccountModel>("DataSources/accounts.json");
+        var accounts = DataAccessClass.ReadList<UserAccountModel>("DataSources/accounts.json");
 
         // Find the current account in the list by its ID
         var accountIndex = accounts.FindIndex(acc => acc.Id == currentAccount.Id);
@@ -73,7 +73,7 @@ public static class DataAccessClass
             accounts[accountIndex] = currentAccount;
 
             // Write the updated list back to the JSON file
-            DataAccessClass.WriteList<AccountModel>("DataSources/accounts.json", accounts);
+            DataAccessClass.WriteList<UserAccountModel>("DataSources/accounts.json", accounts);
             // Console.WriteLine("Account successfully updated in the JSON file.");
         }
         else

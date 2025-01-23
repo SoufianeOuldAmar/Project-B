@@ -10,7 +10,7 @@ public static class BookFlightPresentation
 {
     public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
     public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
-    public static AccountModel currentAccount = AccountsLogic.CurrentAccount;
+    public static UserAccountModel currentAccount = AccountsLogic.CurrentAccount;
     public static List<FoodAndDrinkItem> selectedItems = new List<FoodAndDrinkItem>();
 
     public static List<BaggageLogic> baggageInfo = new List<BaggageLogic>();
@@ -559,7 +559,7 @@ public static class BookFlightPresentation
 
                     existingBookings.Add(bookedFlight1);
 
-                    DataAccessClass.WriteList<AccountModel>("DataSources/accounts.json", AccountsLogic._accounts);
+                    DataAccessClass.WriteList<UserAccountModel>("DataSources/accounts.json", AccountsLogic._accounts);
                     DataAccessClass.UpdateCurrentAccount(currentAccount);
 
                     foreach (var bookedFlight in bookedFlightModel)

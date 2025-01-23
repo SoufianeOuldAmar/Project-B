@@ -3,7 +3,7 @@ using System.Collections.Generic;
 public static class NotificationPresentation
 {
 
-    public static void PrintNotificationPage(AccountModel currentAccount)
+    public static void PrintNotificationPage(UserAccountModel currentAccount)
     {
         List<Notification> notifications = currentAccount.Notifications;
 
@@ -50,7 +50,7 @@ public static class NotificationPresentation
         }
     }
 
-    private static void ShowNotificationDetails(Notification notification, AccountModel currentAccount)
+    private static void ShowNotificationDetails(Notification notification, UserAccountModel currentAccount)
     {
         Console.Clear();
         Console.WriteLine("========== 📋 Notification Details ==========\n");

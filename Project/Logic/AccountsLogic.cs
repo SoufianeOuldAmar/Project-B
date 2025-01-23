@@ -11,10 +11,10 @@ public static class AccountsLogic
         CorrectCredentials
     }
 
-    public static List<AccountModel> _accounts = DataAccessClass.ReadList<AccountModel>("DataSources/accounts.json");
-    static public AccountModel? CurrentAccount { get; private set; }
+    public static List<UserAccountModel> _accounts = DataAccessClass.ReadList<UserAccountModel>("DataSources/accounts.json");
+    static public UserAccountModel? CurrentAccount { get; private set; }
 
-    public static void UpdateList(AccountModel acc)
+    public static void UpdateList(UserAccountModel acc)
     {
         int index = _accounts.FindIndex(s => s.Id == acc.Id);
 
@@ -29,7 +29,7 @@ public static class AccountsLogic
             _accounts.Add(acc);
         }
 
-        DataAccessClass.WriteList<AccountModel>("DataSources/accounts.json", _accounts);
+        DataAccessClass.WriteList<UserAccountModel>("DataSources/accounts.json", _accounts);
 
     }
 
@@ -40,7 +40,7 @@ public static class AccountsLogic
         if (statusList.Count == 0)
         {
             int id = _accounts.Count + 1; // Use the next id
-            AccountModel account = new AccountModel(id, email, password, fullName);
+            UserAccountModel account = new UserAccountModel(id, email, password, fullName);
             UpdateList(account);
             return "\nAccount created successfully!";
         }
@@ -113,7 +113,7 @@ public static class AccountsLogic
         return statusList;
     }
 
-    public static AccountModel GetByEmail(string email)
+    public static UserAccountModel GetByEmail(string email)
     {
         return _accounts.Find(i => i.EmailAddress == email);
     }
@@ -130,7 +130,7 @@ public static class AccountsLogic
         return allEmails;
     }
 
-    public static AccountModel CheckLogin(string email, string password)
+    public static UserAccountModel CheckLogin(string email, string password)
     {
         if (email == null || password == null)
         {

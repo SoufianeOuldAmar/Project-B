@@ -43,11 +43,11 @@ public static class AccountPresentation
                 Console.Write("🔒 Password: ");
                 string password = Console.ReadLine();
 
-                AccountModel? accountModel = AccountsLogic.CheckLogin(emailAddress, password);
-                if (accountModel != null)
+                UserAccountModel? userAccountModel = AccountsLogic.CheckLogin(emailAddress, password);
+                if (userAccountModel != null)
                 {
                     Console.WriteLine("\n✅ Success! Welcome back!");
-                    MenuLogic.PushMenu(() => MenuPresentation.FrontPageUser(accountModel));
+                    MenuLogic.PushMenu(() => MenuPresentation.FrontPageUser(userAccountModel));
                     break;
                 }
                 else

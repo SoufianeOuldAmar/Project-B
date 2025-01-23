@@ -98,7 +98,7 @@ public class LayoutModel
             throw new Exception($"Error resetting seats: {ex.Message}");
         }
 
-        var allAccounts = DataAccessClass.ReadList<AccountModel>("DataSources/accounts.json");
+        var allAccounts = DataAccessClass.ReadList<UserAccountModel>("DataSources/accounts.json");
         foreach (var account in allAccounts)
         {
             account.FlightPointsDataList.Clear();
@@ -106,7 +106,7 @@ public class LayoutModel
 
         DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", allFlights);
 
-        DataAccessClass.WriteList<AccountModel>("DataSources/accounts.json", allAccounts);
+        DataAccessClass.WriteList<UserAccountModel>("DataSources/accounts.json", allAccounts);
     }
 
     public static LayoutModel CreateBoeing737Layout()

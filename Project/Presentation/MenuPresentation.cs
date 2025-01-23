@@ -8,8 +8,8 @@ public static class MenuPresentation
 {
     public static Stack<Action> menuStack = new Stack<Action>(); // Een stack voor functies
 
-    public static AccountModel currentAccount { get; set; }
-    public static List<AccountModel> GotNotificationScreen = new List<AccountModel>();
+    public static UserAccountModel currentAccount { get; set; }
+    public static List<UserAccountModel> GotNotificationScreen = new List<UserAccountModel>();
 
     public static void Start()
     {
@@ -95,22 +95,22 @@ public static class MenuPresentation
         SearchFlightPresentation.SearchFlightMenu(true);
     }
 
-    public static void FrontPageUser(AccountModel accountModel)
+    public static void FrontPageUser(UserAccountModel UserAccountModel)
     {
-        bool NotificationsPresent = NotificationLogic.CheckForNotifications(accountModel);
-        currentAccount = accountModel;
+        bool NotificationsPresent = NotificationLogic.CheckForNotifications(UserAccountModel);
+        currentAccount = UserAccountModel;
 
-        if (NotificationsPresent && !GotNotificationScreen.Contains(accountModel))
+        if (NotificationsPresent && !GotNotificationScreen.Contains(UserAccountModel))
         {
             Console.WriteLine("You have notifications to check!");
             PressAnyKey();
-            GotNotificationScreen.Add(accountModel);
+            GotNotificationScreen.Add(UserAccountModel);
             Console.Clear();
         }
 
         string exclamationMark = NotificationsPresent ? " ❗" : "";
 
-        Console.WriteLine($"Logged in as: 👤 {accountModel.FullName}\n");
+        Console.WriteLine($"Logged in as: 👤 {UserAccountModel.FullName}\n");
         Console.WriteLine("=== 🏠 Front Page ====");
         Console.WriteLine("1. 🔍 Search for flights");
         Console.WriteLine("2. 🧾 View history of tickets");
@@ -128,7 +128,7 @@ public static class MenuPresentation
                 SearchFlightsMenu();
                 break;
             case "2":
-                MenuLogic.PushMenu(() => CancelMain(accountModel.EmailAddress));
+                MenuLogic.PushMenu(() => CancelMain(UserAccountModel.EmailAddress));
                 break;
             case "3":
                 MenuLogic.PushMenu(ViewFlightPointsMenu);
@@ -140,7 +140,7 @@ public static class MenuPresentation
                 MenuLogic.PushMenu(AboutUsPres.aboutUsMenu);
                 break;
             case "6":
-                FeedbackPresentation.FeedbackMenu(accountModel);
+                FeedbackPresentation.FeedbackMenu(UserAccountModel);
                 break;
             case "7":
                 Console.WriteLine("\nLogging out...");

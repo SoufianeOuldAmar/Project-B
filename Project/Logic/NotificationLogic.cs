@@ -159,9 +159,9 @@ public static class NotificationLogic
 
     }
 
-    public static bool CheckForNotifications(AccountModel accountModel)
+    public static bool CheckForNotifications(UserAccountModel userAccountModel)
     {
-        foreach (Notification notification in accountModel.Notifications)
+        foreach (Notification notification in userAccountModel.Notifications)
         {
             if (!notification.IsRead)
             {

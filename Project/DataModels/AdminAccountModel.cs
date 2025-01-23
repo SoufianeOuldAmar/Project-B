@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-public class AdminAccountModel : BaseAccountModel, IDataModel
+public class AdminAccountModel : AccountModel, IDataModel
 {
     [JsonPropertyName("username")]
     public string UserName { get; set; }

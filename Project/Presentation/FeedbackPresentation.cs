@@ -2,7 +2,7 @@ using BusinessLogic;
 
 public static class FeedbackPresentation
 {
-    public static void FeedbackMenu(AccountModel accountModel)
+    public static void FeedbackMenu(UserAccountModel userAccountModel)
     {
         bool isValidChoice = false;
 
@@ -20,12 +20,12 @@ public static class FeedbackPresentation
 
             if (choice == "1")
             {
-                SubmitFeedbackMenu(accountModel);
+                SubmitFeedbackMenu(userAccountModel);
                 isValidChoice = true;
             }
             else if (choice == "2")
             {
-                ManageUserFeedbacks(accountModel);
+                ManageUserFeedbacks(userAccountModel);
                 isValidChoice = true;
             }
             else if (choice == "3")
@@ -42,7 +42,7 @@ public static class FeedbackPresentation
 
     }
 
-    public static void SubmitFeedbackMenu(AccountModel accountModel)
+    public static void SubmitFeedbackMenu(UserAccountModel userAccountModel)
     {
         Console.Clear();
         Console.WriteLine("=== 📝 Submit Feedback ===\n");
@@ -51,7 +51,7 @@ public static class FeedbackPresentation
 
         try
         {
-            FeedbackLogic.SubmitFeedback(accountModel.EmailAddress, content);
+            FeedbackLogic.SubmitFeedback(userAccountModel.EmailAddress, content);
             Console.WriteLine("Thank you for your feedback! Your feedback has been submitted successfully.");
         }
         catch (ArgumentException ex)
@@ -62,10 +62,10 @@ public static class FeedbackPresentation
         // MenuPresentation.PressAnyKey();
     }
 
-    public static void ManageUserFeedbacks(AccountModel accountModel)
+    public static void ManageUserFeedbacks(UserAccountModel userAccountModel)
     {
         Console.Clear();
-        var feedbacks = FeedbackLogic.GetAllFeedbacks().Where(f => f.UserEmail == accountModel.EmailAddress).ToList();
+        var feedbacks = FeedbackLogic.GetAllFeedbacks().Where(f => f.UserEmail == userAccountModel.EmailAddress).ToList();
 
         if (feedbacks.Count == 0)
         {
