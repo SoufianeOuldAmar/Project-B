@@ -15,22 +15,13 @@ public class FinancialAdvisorLogic
             new FinancialAccountModel(2, "Advisor", "xyz")
         };
     }
-
-    
-
     public bool ValidateLogin(string username, string password)
-    {
-        return FinancialAccount.Any(x => x.UserName.ToLower() == username.ToLower() && x.Password == password);
-
+    {   
+        return FinancialAccount.Any(x => x.UserName == username && x.Password == password);
     }
 
     public FinancialAccountModel GetFinancialAccountByUsername(string username)
     {
         return FinancialAccount.FirstOrDefault(x => x.UserName.ToLower() == username.ToLower());
     }
-
-    
-
-
-
 }

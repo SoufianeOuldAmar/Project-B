@@ -264,7 +264,6 @@ namespace PresentationLayer
             }
         }
 
-
         public static void PrintBookingSuccess(string seat, string initials)
         {
             Console.WriteLine($"Seat {seat} is temporarily chosen by {initials}.");

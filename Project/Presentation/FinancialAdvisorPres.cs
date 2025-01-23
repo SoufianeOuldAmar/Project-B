@@ -1,4 +1,4 @@
-public class FinancialAdvisorPres
+public static class FinancialAdvisorPresentation
 {
     public static void LogInFinancialAdvisor()
     {
@@ -38,10 +38,6 @@ public class FinancialAdvisorPres
             Thread.Sleep(30000);
             LogInFinancialAdvisor();
         }
-
-
-
-
     }
 
     public static string HidePassword()
@@ -139,9 +135,4 @@ public class FinancialAdvisorPres
             }
         }
     }
-
-
-
-
-
 }

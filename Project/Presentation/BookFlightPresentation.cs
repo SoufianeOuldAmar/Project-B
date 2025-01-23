@@ -567,7 +567,7 @@ public static class BookFlightPresentation
                         BookFlightLogic.RemoveDuplicateSeats(bookedFlight);
                     }
 
-                    BookedFlightsAccess.SaveSingle(currentAccount.EmailAddress, bookedFlight1);
+                    BookedFlightsAccess.Save(currentAccount.EmailAddress, bookedFlight1);
                     // BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, existingBookings);
 
 

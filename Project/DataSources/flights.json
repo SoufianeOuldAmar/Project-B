@@ -779,7 +779,7 @@
     "AvailableSeats": 178,
     "FlightPoints": 20,
     "TotalPets": 1,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {

@@ -51,59 +51,6 @@ public class AdminAddFlightsPresentation
             }
         }
 
-        // string gateStr;
-        // while (true)
-        // {
-        //     Console.Write("\nEnter Gate (or 'q' to go back): ");
-        //     string gate = Console.ReadLine();
-        //     if (gate.ToLower() == "q")
-        //     {
-        //         while (true)
-        //         {
-        //             Console.Write("\nDo you really want to quit this operation? (yes/no): ");
-        //             string quitConfirmation = Console.ReadLine();
-        //             if (quitConfirmation == "yes")
-        //             {
-        //                 return null;
-        //             }
-        //             else if (quitConfirmation == "no")
-        //             {
-        //                 break;
-        //             }
-        //             else
-        //             {
-        //                 Console.WriteLine("Wrong input, input either yes or no.");
-        //             }
-        //         }
-        //     }
-
-
-        //     else if (gate.Length >= 2 && gate.Length <= 3 && "ABCDEF".Contains(char.ToUpper(gate[0])) &&
-        //         int.TryParse(gate.Substring(1), out int number) &&
-        //         number >= 1 && number <= 30)
-        //     {
-        //         string letterPart = gate.Substring(0, 1).ToUpper();
-        //         string numberPart = gate.Substring(1);
-        //         gateStr = $"{letterPart}{numberPart}";
-
-        //         bool isConflict = allFlights.Any(flight => flight.Gate == gateStr &&
-        //         flight.DepartureDate == date && flight.TimeOfDay == time);
-
-        //         if (isConflict)
-        //         {
-        //             Console.WriteLine("This gate is already occupied at the given time. Choose another gate.");
-        //         }
-        //         else
-        //         {
-        //             break;
-        //         }
-        //     }
-        //     else
-        //     {
-        //         Console.WriteLine("Invalid format. The string must be a letter followed by digit.");
-        //     }
-        // }
-
         string departureAirport;
         while (true)
         {

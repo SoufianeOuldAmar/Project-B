@@ -3,7 +3,6 @@ using System.Text.Json.Serialization;
 
 public class FlightPoint
 {
-
     [JsonPropertyName("ticketsBought")]
     public string TicketsBought { get; set; }
 

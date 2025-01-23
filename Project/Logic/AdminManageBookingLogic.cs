@@ -27,13 +27,8 @@ namespace DataAccess
 
                     }
                 }
-
             }
             return true;
-
-
         }
-
-
     }
 }

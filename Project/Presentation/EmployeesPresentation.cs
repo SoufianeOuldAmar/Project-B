@@ -159,13 +159,6 @@ public static class EmployeesPresentation
                 MenuPresentation.PressAnyKey();
                 Console.Clear();
                 return;
-
-                // }
-                // else
-                // {
-                //     Console.WriteLine("Invalid Registration ID format. Please enter a valid ID.");
-                // }
-                // }
             }
         }
     }

@@ -1,9 +1,6 @@
 using System.Text.Json.Serialization;
-public class FinancialAccountModel : IDataModel
+public class FinancialAccountModel : BaseAccountModel, IDataModel
 {
-    [JsonPropertyName("id")]
-    public int Id { get; set; }
-
     [JsonPropertyName("username")]
     public string UserName { get; set; }
 
@@ -11,10 +8,8 @@ public class FinancialAccountModel : IDataModel
     public string Password { get; set; }
 
 
-    public FinancialAccountModel(int id, string username, string password)
+    public FinancialAccountModel(int id, string username, string password) : base(id, password)
     {
-        Id = id;
         UserName = username;
-        Password = password;
     }
 }

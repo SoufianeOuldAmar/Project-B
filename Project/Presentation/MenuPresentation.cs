@@ -82,7 +82,7 @@ public static class MenuPresentation
 
     public static void CancelMain(string email)
     {
-        CancelPres.CancelMain(email);
+        CancelPresentation.CancelMain(email);
     }
 
     public static void ViewFlightPointsMenu()

@@ -1,6 +1,6 @@
 using System.Threading;
 
-public class CancelPres
+public class CancelPresentation
 {
     public static void CancelMain(string email)
     {

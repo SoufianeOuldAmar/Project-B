@@ -25,7 +25,6 @@ public class AdminAccountLogic
     {
         AdminAccountModel account = _accounts1.Find(i => i.UserName.ToLower() == username.ToLower());
 
-
         if (account != null)
         {
             return true;
@@ -33,5 +32,4 @@ public class AdminAccountLogic
 
         return false;
     }
-
 }

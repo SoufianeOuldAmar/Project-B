@@ -61,7 +61,7 @@ public static class BookedFlightsAccess
         File.WriteAllText(path, json);
     }
 
-    public static void SaveSingle(string email, BookedFlightsModel singleFlight)
+    public static void Save(string email, BookedFlightsModel singleFlight)
     {
         Save(email, new List<BookedFlightsModel> { singleFlight });
     }
