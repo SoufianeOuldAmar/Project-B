@@ -24,9 +24,9 @@
       "TicketBill": 314,
       "FlightPoints": {
         "ticketsBought": "23-01-2025",
-        "points": 20,
+        "points": 0,
         "flightId": 2,
-        "earned": true
+        "earned": false
       },
       "SeatInitials": {
         "11A": "SO"

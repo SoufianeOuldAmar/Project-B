@@ -8,5 +8,4 @@ public class FoodAndDrinkItem
         Name = name;
         Price = price;
     }
-
 }
