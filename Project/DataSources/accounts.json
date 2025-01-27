@@ -78,5 +78,15 @@
     "notifications": [],
     "id": 8,
     "password": "W8woordA!"
+  },
+  {
+    "emailAddress": "souf@I",
+    "fullName": "Souifoia",
+    "flightPointsDataList": [],
+    "TotalFlightPoints": 0,
+    "fees": 0,
+    "notifications": [],
+    "id": 9,
+    "password": "ViezeHoer"
   }
 ]

@@ -2280,7 +2280,7 @@
     "AvailableSeats": 173,
     "FlightPoints": 25,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -13744,7 +13744,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 30,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -14734,7 +14734,7 @@
     "AvailableSeats": 178,
     "FlightPoints": 41,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -15514,7 +15514,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 20,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -18246,7 +18246,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 25,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -22536,7 +22536,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 25,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -24876,7 +24876,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 45,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -30726,7 +30726,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 19,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -31896,7 +31896,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 15,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -32286,7 +32286,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 25,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -36186,7 +36186,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 15,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
