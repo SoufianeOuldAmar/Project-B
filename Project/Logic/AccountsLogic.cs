@@ -33,48 +33,6 @@ public static class AccountsLogic
 
     }
 
-    public static string CreateAccount(string fullName, string email, string password)
-    {
-        List<CreateAccountStatus> statusList = CheckCreateAccount(fullName, email, password);
-
-        if (statusList.Count == 0)
-        {
-            int id = _accounts.Count + 1; // Use the next id
-            UserAccountModel account = new UserAccountModel(id, email, password, fullName);
-            UpdateList(account);
-            return "\nAccount created successfully!";
-        }
-        else
-        {
-            string errorMessages = "\nError messages!:\n";
-            foreach (var item in statusList)
-            {
-                if (item == CreateAccountStatus.IncorrectFullName)
-                {
-                    errorMessages += "Full name is incorrect. Please enter a valid name.\n";
-                }
-
-                if (item == CreateAccountStatus.IncorrectEmail)
-                {
-                    errorMessages += "Email is incorrect. Please enter a valid email.\n";
-                }
-
-                if (item == CreateAccountStatus.IncorrectPassword)
-                {
-                    errorMessages += "Password is too short. It must be at least 5 characters.\n";
-                }
-
-                if (item == CreateAccountStatus.EmailExists)
-                {
-                    errorMessages += "Email already exists. Use another email.\n";
-                }
-
-            }
-
-            return errorMessages;
-        }
-    }
-
     public static List<CreateAccountStatus> CheckCreateAccount(string fullName, string email, string password)
     {
         List<CreateAccountStatus> statusList = new List<CreateAccountStatus>();
