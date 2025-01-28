@@ -42,7 +42,7 @@ public static class DataAccessClass
         // Optional: Check for duplicates (e.g., based on `Id`)
         if (feedbacks.Any(f => f.Id == feedback.Id))
         {
-            Console.WriteLine("Feedback with the same ID already exists.");
+            throw new("Feedback with the same ID already exists.");
             return;
         }
 
@@ -60,12 +60,11 @@ public static class DataAccessClass
     public static void UpdateCurrentAccount(UserAccountModel currentAccount)
     {
         // Load all accounts from the JSON file
-        var accounts = DataAccessClass.ReadList<UserAccountModel>("DataSources/accounts.json");
+        var accounts = DataAccessClass.ReadList<UserAccountModel>("DataSources/useraccounts.json");
 
         // Find the current account in the list by its ID
         var accountIndex = accounts.FindIndex(acc => acc.Id == currentAccount.Id);
 
-        // currentAccount.TotalFlightPoints = currentAccount.FlightPointsDataList.Sum(flightPointModel => flightPointModel.Points);
 
         if (accountIndex != -1)
         {
@@ -73,12 +72,11 @@ public static class DataAccessClass
             accounts[accountIndex] = currentAccount;
 
             // Write the updated list back to the JSON file
-            DataAccessClass.WriteList<UserAccountModel>("DataSources/accounts.json", accounts);
-            // Console.WriteLine("Account successfully updated in the JSON file.");
+            DataAccessClass.WriteList<UserAccountModel>("DataSources/useraccounts.json", accounts);
         }
         else
         {
-            Console.WriteLine("Current account not found in the JSON file.");
+            throw new("Current account not found in the JSON file.");
         }
     }
 

@@ -12,7 +12,7 @@ public static class NotificationLogic
     List<PetLogic> petChanges)
     {
         // Fetch the account for the provided email
-        var account = AccountsLogic.GetByEmail(email);
+        var account = UserAccountLogic.GetByEmail(email);
 
         // Initialize a list to hold all new notifications
         var newNotifications = new List<Notification>();
@@ -104,7 +104,7 @@ public static class NotificationLogic
     {
         var newNotifications = new List<Notification>();
         var allBookedFlights = BookedFlightsAccess.LoadAll();
-        var allEmails = AccountsLogic.GetAllEmails();
+        var allEmails = UserAccountLogic.GetAllEmails();
 
         if (ticketPriceChange.Count > 1)
         {
@@ -148,7 +148,7 @@ public static class NotificationLogic
                     {
                         if (bookedFlight.FlightID == flightID)
                         {
-                            var account = AccountsLogic.GetByEmail(email);
+                            var account = UserAccountLogic.GetByEmail(email);
                             account.Notifications.AddRange(newNotifications);
                             DataAccessClass.UpdateCurrentAccount(account);
                         }

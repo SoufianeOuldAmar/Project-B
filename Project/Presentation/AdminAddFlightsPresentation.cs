@@ -8,7 +8,7 @@ public class AdminAddFlightsPresentation
 {
     public FlightModel AddNewFlights()
     {
-        var allFlights = AdminFlightManagerLogic.GetAllFlights();
+        var allFlights = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
         Console.Clear();
         LayoutModel layout = LayoutModel.CreateBoeing737Layout();
 

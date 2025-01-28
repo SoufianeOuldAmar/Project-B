@@ -756,17 +756,14 @@
         "30D",
         "30E",
         "30F",
-        "30B"
-      ],
-      "BookedSeats": [
+        "30B",
         "11A"
       ],
+      "BookedSeats": [],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
-      "SeatInitials": {
-        "11A": "SO"
-      }
+      "SeatInitials": {}
     },
     "TicketPrice": 214.5,
     "Gate": "B4",
@@ -3060,7 +3057,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 14,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -11403,7 +11400,7 @@
     "AvailableSeats": 179,
     "FlightPoints": 33,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -19277,7 +19274,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -19397,7 +19393,8 @@
         "30E",
         "30F",
         "10A",
-        "30D"
+        "30D",
+        "11A"
       ],
       "BookedSeats": [],
       "ChosenSeats": [],
@@ -19806,7 +19803,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 39,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -27216,7 +27213,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 35,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {

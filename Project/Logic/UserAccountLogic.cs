@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-public static class AccountsLogic
+public static class UserAccountLogic
 {
     public enum CreateAccountStatus
     {
@@ -11,7 +11,7 @@ public static class AccountsLogic
         CorrectCredentials
     }
 
-    public static List<UserAccountModel> _accounts = DataAccessClass.ReadList<UserAccountModel>("DataSources/accounts.json");
+    public static List<UserAccountModel> _accounts = DataAccessClass.ReadList<UserAccountModel>("DataSources/useraccounts.json");
     static public UserAccountModel? CurrentAccount { get; private set; }
 
     public static void UpdateList(UserAccountModel acc)
@@ -29,7 +29,7 @@ public static class AccountsLogic
             _accounts.Add(acc);
         }
 
-        DataAccessClass.WriteList<UserAccountModel>("DataSources/accounts.json", _accounts);
+        DataAccessClass.WriteList<UserAccountModel>("DataSources/useraccounts.json", _accounts);
 
     }
 
@@ -104,5 +104,10 @@ public static class AccountsLogic
         if (input.ToLower() == "yes") return true;
         else if (input.ToLower() == "no") return false;
         else return null;
+    }
+    
+    public static List<UserAccountModel> GetAllUserAccounts()
+    {
+        return DataAccessClass.ReadList<UserAccountModel>("DataSources/useraccounts.json");
     }
 }

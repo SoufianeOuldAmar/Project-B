@@ -43,12 +43,12 @@ public class AboutUsPres
                 switch (choice)
                 {
                     case 1: 
-                        allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
                         Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("🌍 Our Network");
                         Console.ResetColor();
                         Console.WriteLine("Here at BOSST Airlines, we have a vast network of destinations.");
+                        allFlights = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
                         var allDestinations = allFlights.Select(flight => flight.ArrivalDestination).Distinct().ToList();
                         Console.WriteLine("Our destinations include:");
                         foreach (var destination in allDestinations)

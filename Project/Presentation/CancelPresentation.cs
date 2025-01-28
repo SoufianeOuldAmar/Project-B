@@ -25,7 +25,6 @@ public class CancelPresentation
                     // Cancel a flight
 
                     CancelFlights(email);
-
                     break;
 
                 case "2":
@@ -54,7 +53,7 @@ public class CancelPresentation
                     }
 
                     // Call the RescheduleFlight method to get the available flights
-                    string rescheduleMessage = RescheduleLogic.RescheduleFlight(email, flightIDToReschedule);
+                    string rescheduleMessage = ReschedulePresentation.RescheduleFlight(email, flightIDToReschedule);
 
                     // No available flights message
                     Console.WriteLine(rescheduleMessage);
@@ -83,7 +82,7 @@ public class CancelPresentation
                     }
 
                     // Call the reschedule logic to reschedule the flight
-                    string rescheduleResult = RescheduleLogic.RescheduleFlight(email, flightIDToReschedule, selectedFlightID);
+                    string rescheduleResult = ReschedulePresentation.RescheduleFlight(email, flightIDToReschedule, selectedFlightID);
 
                     // Output the result of the rescheduling
                     Console.WriteLine(rescheduleResult);
@@ -101,7 +100,7 @@ public class CancelPresentation
                 case "4":
                     Console.Clear();
 
-                    string policy = RescheduleLogic.Policy();
+                    string policy = ReschedulePresentation.Policy();
                     Console.WriteLine(policy);
                     MenuPresentation.PressAnyKey();
                     break;
@@ -165,7 +164,7 @@ public class CancelPresentation
     public static void BookedFlights(string email)
     {
 
-        var allBookedFlights = BookedFlightsAccess.LoadAll();
+        var allBookedFlights = BookFlightLogic.GetAllBookedFlights();
 
         if (!allBookedFlights.ContainsKey(email) || allBookedFlights[email].Count == 0)
         {
@@ -173,7 +172,6 @@ public class CancelPresentation
             return;
         }
 
-        // Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
         var bookedFlights = allBookedFlights[email];
 
         const int tableWidth = 173;
@@ -407,12 +405,10 @@ public class CancelPresentation
             bookedFlight.IsCancelled = true;
 
             // Save changes to the JSON file
-            BookedFlightsAccess.WriteAll(email, bookedFlights);  // Pass updated list of booked flights
+            DataManagerLogic.WriteAll(email, bookedFlights);  // Pass updated list of booked flights
 
             Console.WriteLine($"Flight with ID {flightID} has been cancelled.");
             break;  // Exit the loop after successful cancellation
         }
     }
 }
-
-

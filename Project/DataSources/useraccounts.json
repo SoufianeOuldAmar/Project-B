@@ -2,9 +2,8 @@
   {
     "emailAddress": "n@b.c",
     "fullName": "Nikola Tesla",
-    "flightPointsDataList": [],
-    "TotalFlightPoints": 166,
-    "fees": 230,
+    "TotalFlightPoints": 0,
+    "fees": 0,
     "notifications": [],
     "id": 1,
     "password": "xyz"
@@ -12,7 +11,6 @@
   {
     "emailAddress": "t@b.c",
     "fullName": "Thomas Edison",
-    "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,
     "notifications": [],
@@ -22,7 +20,6 @@
   {
     "emailAddress": "soufiane_ouldamar@",
     "fullName": "Soufiane Ould Amar",
-    "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,
     "notifications": [],
@@ -32,7 +29,6 @@
   {
     "emailAddress": "la@gmail.com",
     "fullName": "lala",
-    "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,
     "notifications": [],
@@ -42,7 +38,6 @@
   {
     "emailAddress": "la@gmail.com",
     "fullName": "lala",
-    "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,
     "notifications": [],
@@ -52,7 +47,6 @@
   {
     "emailAddress": "n@x.c",
     "fullName": "Soufiane OuLD",
-    "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,
     "notifications": [],
@@ -62,7 +56,6 @@
   {
     "emailAddress": "niemand@",
     "fullName": "Iemand Anders",
-    "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,
     "notifications": [],
@@ -72,21 +65,10 @@
   {
     "emailAddress": "new@",
     "fullName": "New",
-    "flightPointsDataList": [],
     "TotalFlightPoints": 0,
     "fees": 0,
     "notifications": [],
     "id": 8,
     "password": "W8woordA!"
-  },
-  {
-    "emailAddress": "souf@I",
-    "fullName": "Souifoia",
-    "flightPointsDataList": [],
-    "TotalFlightPoints": 0,
-    "fees": 0,
-    "notifications": [],
-    "id": 9,
-    "password": "ViezeHoer"
   }
 ]

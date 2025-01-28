@@ -60,7 +60,7 @@ public class FoodAndDrinkPresentation
         }
 
         List<Payment> allPayments = new List<Payment>();
-        var paymentsList = DataAccessClass.ReadList<Payment>("DataSources/financialreports.json");
+        var paymentsList = DataManagerLogic.GetAll<Payment>("DataSources/financialreports.json");
 
         foreach (var item in selectedItems)
         {
@@ -69,7 +69,7 @@ public class FoodAndDrinkPresentation
         }
 
         // FinancialReportAccess.SavePayments(allPayments);
-        DataAccessClass.WriteList<Payment>("DataSources/financialreports.json", allPayments);
+        DataManagerLogic.Save<Payment>("DataSources/financialreports.json", allPayments);
 
 
         return (totalCost, selectedItems);
@@ -184,7 +184,7 @@ public class FoodAndDrinkPresentation
             Console.ResetColor();
 
             // Save the updated flight details
-            BookedFlightsAccess.Save(bookedFlight.Email, bookedFlight);
+            DataManagerLogic.Save(bookedFlight.Email, bookedFlight);
         }
         else
         {

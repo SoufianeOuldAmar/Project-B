@@ -73,7 +73,7 @@ public class LayoutModel
     public void ResetAllSeats()
     {
         var allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
-
+        var allBookedFlights = BookFlightLogic.GetAllBookedFlights();
         string filePath = "DataSources/bookedflights.json";
 
         foreach (var flight in allFlights)
@@ -98,15 +98,17 @@ public class LayoutModel
             throw new Exception($"Error resetting seats: {ex.Message}");
         }
 
-        var allAccounts = DataAccessClass.ReadList<UserAccountModel>("DataSources/accounts.json");
+        var allAccounts = DataAccessClass.ReadList<UserAccountModel>("DataSources/useraccounts.json");
         foreach (var account in allAccounts)
         {
-            account.FlightPointsDataList.Clear();
+            account.TotalFlightPoints = 0;
+            account.Fee = 0;
+
         }
 
         DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", allFlights);
 
-        DataAccessClass.WriteList<UserAccountModel>("DataSources/accounts.json", allAccounts);
+        DataAccessClass.WriteList<UserAccountModel>("DataSources/useraccounts.json", allAccounts);
     }
 
     public static LayoutModel CreateBoeing737Layout()

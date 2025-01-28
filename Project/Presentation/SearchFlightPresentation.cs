@@ -18,7 +18,7 @@ public static class SearchFlightPresentation
         Console.WriteLine("=== 🔍 Search Flights ===\n");
 
         // Lees JSON-data in
-        List<FlightModel> flights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
+        List<FlightModel> flights = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
 
     start:
         string departureAirport = string.Empty;

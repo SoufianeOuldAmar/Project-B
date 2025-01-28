@@ -9,6 +9,18 @@ using System.Globalization;
 public static class BookFlightLogic
 {
     // Method to search for a flight by its ID
+
+    public static List<FlightModel> GetAllFlights()
+    {
+        List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
+        return allFlights;
+    }
+
+    public static Dictionary<string, List<BookedFlightsModel>> GetAllBookedFlights()
+    {
+        return BookedFlightsAccess.LoadAll();
+    }
+
     public static FlightModel SearchFlightByID(int id)
     {
         var allFlights = BookFlightPresentation.allFlights;
@@ -112,7 +124,7 @@ public static class BookFlightLogic
             string email = kvp.Key; // Access the key (email)
             List<BookedFlightsModel> bookedFlights = kvp.Value; // Access the value (list of booked flights)
             bool updated = false;
-            var account = AccountsLogic.GetByEmail(email);
+            var account = UserAccountLogic.GetByEmail(email);
 
             // Process each booked flight for this email
             foreach (var bookedFlight in bookedFlights)

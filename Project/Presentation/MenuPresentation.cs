@@ -3,6 +3,7 @@ using DataAccess;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Net;
+using System.Collections.Generic;
 
 public static class MenuPresentation
 {
@@ -10,6 +11,7 @@ public static class MenuPresentation
 
     public static UserAccountModel currentAccount { get; set; }
     public static List<UserAccountModel> GotNotificationScreen = new List<UserAccountModel>();
+
 
     public static void Start()
     {
@@ -155,7 +157,6 @@ public static class MenuPresentation
     }
 
     public static List<FlightModel> bookedFlights = new List<FlightModel>(); // We maken een lijst van geboekte vluchten
-    public static List<FlightModel> flights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json"); // dit zorgt ervoor dat we de json file kunnen lezen
 
     public static void SearchFlightsMenu()
     {

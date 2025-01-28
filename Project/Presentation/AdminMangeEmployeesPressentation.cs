@@ -9,7 +9,7 @@ namespace DataAccess
         public static void DisplayEmployeesInfo()
         {
 
-            var AllEmployees = EmployeesLogic.GetAllEmployees();
+            var AllEmployees = DataManagerLogic.GetAll<EmployeesModel>("DataSources/Emplyoees.json");
             const int pageSize = 3;
             int currentPage = 0;
             int totalPages = (int)Math.Ceiling(AllEmployees.Count / (double)pageSize);

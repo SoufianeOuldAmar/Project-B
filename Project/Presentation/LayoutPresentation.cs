@@ -42,8 +42,8 @@ namespace PresentationLayer
 
         private static void PrintStandardLayout(LayoutModel layout)
         {
-            var currentAccount = AccountsLogic.CurrentAccount;
-            var currentUserBookings = BookedFlightsAccess.LoadByEmail(currentAccount.EmailAddress);
+            var currentAccount = UserAccountLogic.CurrentAccount;
+            var currentUserBookings = DataManagerLogic.LoadByEmail(currentAccount.EmailAddress);
             int currentFlightId = BookFlightPresentation.allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
 
             for (int i = 0; i < layout.SeatArrangement.Count; i += layout.Columns)
@@ -94,8 +94,8 @@ namespace PresentationLayer
 
         private static void PrintAirbusA330Layout(LayoutModel layout)
         {
-            var currentAccount = AccountsLogic.CurrentAccount;
-            var currentUserBookings = BookedFlightsAccess.LoadByEmail(currentAccount.EmailAddress);
+            var currentAccount = UserAccountLogic.CurrentAccount;
+            var currentUserBookings = DataManagerLogic.LoadByEmail(currentAccount.EmailAddress);
             int currentFlightId = BookFlightPresentation.allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
 
             int index = 0;
@@ -163,8 +163,8 @@ namespace PresentationLayer
         {
             try
             {
-                var currentAccount = AccountsLogic.CurrentAccount;
-                var currentUserBookings = BookedFlightsAccess.LoadByEmail(currentAccount.EmailAddress);
+                var currentAccount = UserAccountLogic.CurrentAccount;
+                var currentUserBookings = DataManagerLogic.LoadByEmail(currentAccount.EmailAddress);
                 int currentFlightId = BookFlightPresentation.allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
 
                 int index = 0;

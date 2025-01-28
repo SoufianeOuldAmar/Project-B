@@ -1,5 +1,5 @@
 using BusinessLogic;
-
+using DataModels;
 public static class FeedbackPresentation
 {
     public static void FeedbackMenu(UserAccountModel userAccountModel)
@@ -65,7 +65,7 @@ public static class FeedbackPresentation
     public static void ManageUserFeedbacks(UserAccountModel userAccountModel)
     {
         Console.Clear();
-        var feedbacks = FeedbackLogic.GetAllFeedbacks().Where(f => f.UserEmail == userAccountModel.EmailAddress).ToList();
+        var feedbacks = DataManagerLogic.GetAll<FeedbackModel>("DataSources/feedback.json").Where(f => f.UserEmail == userAccountModel.EmailAddress).ToList();
 
         if (feedbacks.Count == 0)
         {
@@ -105,7 +105,7 @@ public static class FeedbackPresentation
     public static void ViewFeedbackMenu()
     {
         Console.Clear();
-        var feedbacks = FeedbackLogic.GetAllFeedbacks();
+        var feedbacks = DataManagerLogic.GetAll<FeedbackModel>("DataSources/feedback.json");
 
         if (feedbacks.Count == 0)
         {

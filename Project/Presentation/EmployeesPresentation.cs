@@ -105,7 +105,7 @@ public static class EmployeesPresentation
 
         string cvFileName = Path.GetFileName(filePath);
 
-        List<EmployeesModel> employees = DataAccessClass.ReadList<EmployeesModel>("DataSources/Emplyoees.json");
+        List<EmployeesModel> employees = DataManagerLogic.GetAll<EmployeesModel>("DataSources/Emplyoees.json");
         EmployeesModel newEmployee = new EmployeesModel(
             name,
             age,
@@ -118,14 +118,14 @@ public static class EmployeesPresentation
         };
 
         employees.Add(newEmployee);
-        DataAccessClass.WriteList<EmployeesModel>("DataSources/Emplyoees.json", employees);
+        DataManagerLogic.Save<EmployeesModel>("DataSources/Emplyoees.json", employees);
         Console.WriteLine("Your application has been received successfully. It will be processed shortly.");
 
     }
 
     public static void ViewRegistrationStatus(int registerID)
     {
-        var AllEmployees = EmployeesLogic.GetAllEmployees();
+        var AllEmployees = DataManagerLogic.GetAll<EmployeesModel>("DataSources/Emplyoees.json");
 
         while (true)
         {

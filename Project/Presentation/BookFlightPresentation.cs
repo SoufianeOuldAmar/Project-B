@@ -8,9 +8,9 @@ using PresentationLayer;
 
 public static class BookFlightPresentation
 {
-    public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
-    public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
-    public static UserAccountModel currentAccount = AccountsLogic.CurrentAccount;
+    public static List<FlightModel> allFlights = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
+    public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookFlightLogic.GetAllBookedFlights();
+    public static UserAccountModel currentAccount = UserAccountLogic.CurrentAccount;
     public static List<FoodAndDrinkItem> selectedItems = new List<FoodAndDrinkItem>();
 
     public static List<BaggageLogic> baggageInfo = new List<BaggageLogic>();
@@ -193,7 +193,7 @@ public static class BookFlightPresentation
     public static void BookFlightMenu(bool searchFlightFunction = false, FlightModel flightModel = null, bool showFoodAndDrinks = true)
     {
 
-        var currentAccount = AccountsLogic.CurrentAccount;
+        var currentAccount = UserAccountLogic.CurrentAccount;
         List<BaggageLogic> baggageInfo = new List<BaggageLogic>();
         List<PetLogic> petInfo = new List<PetLogic>();
         List<PassengerModel> passengers = new List<PassengerModel>();
@@ -294,7 +294,7 @@ public static class BookFlightPresentation
                     {
                         Console.Write("First Name: ");
                         string firstName = Console.ReadLine();
-                        var passengersList = DataAccessClass.ReadList<PassengerModel>("DataSources/passengers.json");
+                        var passengersList = DataManagerLogic.GetAll<PassengerModel>("DataSources/passengers.json");
 
                         passenger.Id = passengersList.Count + 1;
                         // Allow letters and spaces, but ensure it's not just spaces
@@ -391,7 +391,7 @@ public static class BookFlightPresentation
                     // list of all payments to save
                     List<Payment> allPayments = new List<Payment>();
 
-                    var paymentsList = DataAccessClass.ReadList<Payment>("DataSources/financialreports.json");
+                    var paymentsList = DataManagerLogic.GetAll<Payment>("DataSources/financialreports.json");
                     // Add the ticket payment
                     Payment ticketPayment = new Payment(paymentsList.Count + 1, "Ticket", selectedFlight.TicketPrice, DateTime.Now);
                     allPayments.Add(ticketPayment);
@@ -453,7 +453,6 @@ public static class BookFlightPresentation
                 if (foodAndDrinkCost > 0) Console.WriteLine($"Food and Drinks: {foodAndDrinkCost:C}");
                 Console.WriteLine($"Total Price: {totalPrice:C}");
 
-                var sss = BookedFlightsAccess.LoadAll();
                 int allFlightPoints = currentAccount.TotalFlightPoints;
                 double discountToApply = 0;
 
@@ -524,12 +523,12 @@ public static class BookFlightPresentation
                     selectedFlight.Layout.ConfirmBooking();
 
                     // var existingPassengers = PassengerAccess.LoadPassengers();
-                    var existingPassengers = DataAccessClass.ReadList<PassengerModel>("DataSources/passengers.json");
+                    var existingPassengers = DataManagerLogic.GetAll<PassengerModel>("DataSources/passengers.json");
 
                     existingPassengers.AddRange(passengers);
                     // PassengerAccess.SavePassengers(existingPassengers);
-                    DataAccessClass.WriteList<PassengerModel>("DataSources/passengers.json", existingPassengers);
-                    DataAccessClass.UpdateCurrentAccount(currentAccount); // Update flight points
+                    DataManagerLogic.Save<PassengerModel>("DataSources/passengers.json", existingPassengers);
+                    DataManagerLogic.UpdateCurrentAccount(currentAccount);
 
                     var bookedFlight1 = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, baggageInfo, petInfo, false);
                     bookedFlight1.DateTicketsBought = DateTime.Now.ToString("dd-MM-yyyy");
@@ -553,13 +552,13 @@ public static class BookFlightPresentation
                         bookedFlight1
                     };
 
-                    var existingBookings = BookedFlightsAccess.LoadByEmail(currentAccount.EmailAddress);
+                    var existingBookings = DataManagerLogic.LoadByEmail(currentAccount.EmailAddress);
 
                     existingBookings.RemoveAll(b => b.FlightID == selectedFlight.Id);
 
                     existingBookings.Add(bookedFlight1);
 
-                    DataAccessClass.WriteList<UserAccountModel>("DataSources/accounts.json", AccountsLogic._accounts);
+                    DataManagerLogic.Save<UserAccountModel>("DataSources/useraccounts.json", UserAccountLogic._accounts);
                     DataAccessClass.UpdateCurrentAccount(currentAccount);
 
                     foreach (var bookedFlight in bookedFlightModel)
@@ -567,9 +566,7 @@ public static class BookFlightPresentation
                         BookFlightLogic.RemoveDuplicateSeats(bookedFlight);
                     }
 
-                    BookedFlightsAccess.Save(currentAccount.EmailAddress, bookedFlight1);
-                    // BookedFlightsAccess.WriteAll(currentAccount.EmailAddress, existingBookings);
-
+                    DataManagerLogic.Save(currentAccount.EmailAddress, bookedFlight1);
 
                     selectedFlight.Layout.BookedSeats = selectedFlight.Layout.BookedSeats.Distinct().ToList();
 
@@ -583,7 +580,7 @@ public static class BookFlightPresentation
                     }
 
 
-                    DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", allFlights);
+                    DataManagerLogic.Save<FlightModel>("DataSources/flights.json", allFlights);
 
                     Console.WriteLine("\nBooking confirmed successfully!");
                     Console.WriteLine("All passenger information has been saved.");

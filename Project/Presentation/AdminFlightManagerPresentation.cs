@@ -12,7 +12,7 @@ namespace DataAccess
         public static void UpdateDetailsPresentation()
         {
 
-            var allFlights = AdminFlightManagerLogic.GetAllFlights();
+            var allFlights = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
             if (allFlights == null || allFlights.Count == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;

@@ -43,7 +43,7 @@ public static class AccountPresentation
                 Console.Write("🔒 Password: ");
                 string password = Console.ReadLine();
 
-                UserAccountModel? userAccountModel = AccountsLogic.CheckLogin(emailAddress, password);
+                UserAccountModel? userAccountModel = UserAccountLogic.CheckLogin(emailAddress, password);
                 if (userAccountModel != null)
                 {
                     Console.WriteLine("\n✅ Success! Welcome back!");
@@ -67,7 +67,7 @@ public static class AccountPresentation
                         string newLine = newLineValid ? "\n" : "";
                         Console.Write($"{newLine}Username or password is incorrect! Do you want to try again? (Input either yes or no): ");
                         string choice = Console.ReadLine();
-                        bool? yesOrNo = AccountsLogic.TryLogInAgain(choice);
+                        bool? yesOrNo = UserAccountLogic.TryLogInAgain(choice);
                         if (yesOrNo.HasValue && yesOrNo.Value)
                         {
                             Console.Clear();
@@ -129,13 +129,13 @@ public static class AccountPresentation
             }
 
             // Attempt to create the account
-            List<AccountsLogic.CreateAccountStatus> statusList = AccountsLogic.CheckCreateAccount(fullName, emailAddress, password);
+            List<UserAccountLogic.CreateAccountStatus> statusList = UserAccountLogic.CheckCreateAccount(fullName, emailAddress, password);
 
             if (statusList.Count == 0)
             {
-                int id = AccountsLogic._accounts.Count + 1; // Use the next id
+                int id = UserAccountLogic._accounts.Count + 1; // Use the next id
                 UserAccountModel account = new UserAccountModel(id, emailAddress, password, fullName);
-                AccountsLogic.UpdateList(account);
+                UserAccountLogic.UpdateList(account);
                 Console.WriteLine("\nAccount created successfully!");
                 validInput = true;
                 MenuLogic.PopMenu();
@@ -148,16 +148,16 @@ public static class AccountPresentation
                 {
                     switch (status)
                     {
-                        case AccountsLogic.CreateAccountStatus.IncorrectFullName:
+                        case UserAccountLogic.CreateAccountStatus.IncorrectFullName:
                             Console.WriteLine("- Full name is incorrect. Please enter a valid name.");
                             break;
-                        case AccountsLogic.CreateAccountStatus.IncorrectEmail:
+                        case UserAccountLogic.CreateAccountStatus.IncorrectEmail:
                             Console.WriteLine("- Email is incorrect. Please enter a valid email.");
                             break;
-                        case AccountsLogic.CreateAccountStatus.IncorrectPassword:
+                        case UserAccountLogic.CreateAccountStatus.IncorrectPassword:
                             Console.WriteLine("- Password is too short. It must be at least 5 characters.");
                             break;
-                        case AccountsLogic.CreateAccountStatus.EmailExists:
+                        case UserAccountLogic.CreateAccountStatus.EmailExists:
                             Console.WriteLine("- Email already exists. Use another email.");
                             break;
                     }
@@ -166,7 +166,7 @@ public static class AccountPresentation
                 // Ask if the user wants to try again
                 Console.Write("\nWould you like to try again? (yes/no): ");
                 string choice = Console.ReadLine();
-                bool? tryAgain = AccountsLogic.TryLogInAgain(choice);
+                bool? tryAgain = UserAccountLogic.TryLogInAgain(choice);
 
                 if (tryAgain.HasValue && !tryAgain.Value)
                 {
@@ -228,7 +228,7 @@ public static class AccountPresentation
     public static void ViewFlightPoints()
     {
         Console.WriteLine("=== Flight Points ===\n");
-        // Console.WriteLine($"Total flight points: {AccountsLogic.CurrentAccount.FlightPoints}");
+        // Console.WriteLine($"Total flight points: {UserAccountLogic.CurrentAccount.FlightPoints}");
 
         while (true)
         {

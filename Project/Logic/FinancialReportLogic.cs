@@ -4,7 +4,6 @@ using System.Linq;
 
 public static class FinancialReportLogic
 {
-
     public static List<Payment> GetPaymentsByYear(int year)
     {
         // var Payments = FinancialReportAccess.LoadPayments();
@@ -25,5 +24,10 @@ public static class FinancialReportLogic
             TotalAmount = group.Sum(p => p.Amount),
             Count = group.Count()
         });
+    }
+
+    public static List<Payment> GetAllPayments()
+    {
+        return DataAccessClass.ReadList<Payment>("DataSources/financialreports.json");
     }
 }

@@ -17,8 +17,8 @@ namespace DataAccess
 
             Console.WriteLine("=== 📅 Manage the bookings ===\n");
 
-            var flightDetails = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
-            var BookedFlight = BookedFlightsAccess.LoadAll();
+            List<FlightModel> flightDetails = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
+            var BookedFlight = BookFlightLogic.GetAllBookedFlights();
 
 
             if (BookedFlight.Count == 0)
@@ -97,10 +97,10 @@ namespace DataAccess
         }
 
 
-        public static List<BookedFlightsModel> SearchBookedPresentaion(string email) // List<BookedFlightsModel> 
+        public static List<BookedFlightsModel> SearchBookedPresentation(string email) // List<BookedFlightsModel> 
         {
-            var flightDetails = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
-            var BookedFlight = BookedFlightsAccess.LoadAll();
+            var flightDetails = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
+            var BookedFlight = BookFlightLogic.GetAllBookedFlights();
             List<BookedFlightsModel> bookings = new List<BookedFlightsModel>();
 
             if (BookedFlight.ContainsKey(email))
@@ -169,8 +169,8 @@ namespace DataAccess
         public static void UpdateBookedDetailsPresentation()
         {
 
-            var BookdeFlight = BookedFlightsAccess.LoadAll();
-            var flightDetails = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
+            var BookdeFlight = BookFlightLogic.GetAllBookedFlights();
+            var flightDetails = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
 
             List<string> seatChanges = new List<string>();
             List<string> newSeats = new List<string>();
@@ -192,7 +192,7 @@ namespace DataAccess
                 string email = Console.ReadLine();
 
                 Console.Clear();
-                var bookings = SearchBookedPresentaion(email);
+                var bookings = SearchBookedPresentation(email);
                 if (bookings.Count == 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -637,7 +637,7 @@ namespace DataAccess
                 string answer = Console.ReadLine().ToLower();
                 if (answer == "yes")
                 {
-                    BookedFlightsAccess.Save(email, bookings);
+                    DataManagerLogic.Save(email, bookings);
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Saving...");
                     MenuPresentation.PressAnyKey();
@@ -652,36 +652,7 @@ namespace DataAccess
                 {
                     Console.WriteLine("Invalid input. Please try again");
                 }
-
-
             }
         }
-
-
-
-        // public static void Another()
-        // {
-        //     Console.WriteLine("Do you want to manage another booking?");
-        //     string input1 = Console.ReadLine().ToLower();
-        //     if (input1 == "yes")
-        //     {
-        //         UpdateBookedDetailsPresentation();
-        //     }
-        //     else if (input1 == "no")
-        //     {
-        //         return;
-        //     }
-        //     else
-        //     {
-        //         Console.WriteLine("Invalid input. Please try again");
-        //     }
-        // }
-
-
-
-
-
-
     }
-
 }

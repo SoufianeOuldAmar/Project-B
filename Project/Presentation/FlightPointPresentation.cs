@@ -8,7 +8,7 @@ public static class FlightPointPresentation
         string email = MenuPresentation.currentAccount.EmailAddress;
 
         // Load the booked flights for this specific email
-        var bookedFlights = BookedFlightsAccess.LoadByEmail(email);
+        var bookedFlights = DataManagerLogic.LoadByEmail(email);
 
         if (bookedFlights.Count > 0)
         {
