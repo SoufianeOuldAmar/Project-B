@@ -95,8 +95,7 @@ static class AdminAccountPresentation
                     }
                     else if (keyInfo == "3")
                     {
-                        LayoutModel layout = LayoutModel.CreateBoeing737Layout();
-                        layout.ResetAllSeats();
+                        LayoutLogic.ResetAllSeats();
                         MenuPresentation.PressAnyKey();
                         Console.Clear();
                     }

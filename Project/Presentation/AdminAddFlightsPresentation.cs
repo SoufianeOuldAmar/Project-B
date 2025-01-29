@@ -10,7 +10,7 @@ public class AdminAddFlightsPresentation
     {
         var allFlights = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
         Console.Clear();
-        LayoutModel layout = LayoutModel.CreateBoeing737Layout();
+        LayoutModel layout = LayoutLogic.CreateBoeing737Layout();
 
         Console.WriteLine("=== ➕ Add a new flight ===");
 
@@ -475,7 +475,7 @@ public class AdminAddFlightsPresentation
                     }
                 }
 
-                returnFlight = newFlight.CreateReturnFlight(returnDate, returnTime, returnGate);
+                returnFlight = FlightLogic.CreateReturnFlight(newFlight, returnDate, returnTime, returnGate);
                 break;
             }
         }

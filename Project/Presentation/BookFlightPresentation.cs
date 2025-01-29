@@ -278,7 +278,7 @@ public static class BookFlightPresentation
                         break;
                     }
 
-                    if (!selectedFlight.Layout.TryBookSeat(seat))
+                    if (!LayoutLogic.TryBookSeat(selectedFlight.Layout, seat))
                     {
                         Console.WriteLine("This seat is already booked or invalid. Please choose another seat.");
                         continue;
@@ -385,7 +385,7 @@ public static class BookFlightPresentation
                     // try
                     // {
                     string initials = GenerateInitials(passenger);
-                    selectedFlight.Layout.BookFlight(seat, initials);
+                    LayoutLogic.BookFlight(selectedFlight.Layout, seat, initials);
                     ProcessPassengerDetails(passenger, seat, ref totalPrice, selectedFlight.TicketPrice, initials, passengers, chosenSeats, baggageInfo, petInfo, selectedFlight);
 
                     // list of all payments to save
@@ -401,7 +401,7 @@ public static class BookFlightPresentation
                     {
                         Payment baggagePayment = new Payment(paymentsList.Count + allPayments.Count + 1, "Baggage", baggage.Fee, DateTime.Now);
                         allPayments.Add(baggagePayment);
-                        selectedFlight.Layout.BookFlight(seat, initials);
+                        LayoutLogic.BookFlight(selectedFlight.Layout, seat, initials);
                         // ProcessPassengerDetails(passenger, seat, ref totalPrice, selectedFlight.TicketPrice, initials, passengers, chosenSeats, baggageInfo, petInfo, selectedFlight);
                     }
 
@@ -520,7 +520,7 @@ public static class BookFlightPresentation
                 if (finalConfirmation == "yes")
                 {
                     currentAccount.TotalFlightPoints -= (int)discountToApply;
-                    selectedFlight.Layout.ConfirmBooking();
+                    LayoutLogic.ConfirmBooking(selectedFlight.Layout);
 
                     // var existingPassengers = PassengerAccess.LoadPassengers();
                     var existingPassengers = DataManagerLogic.GetAll<PassengerModel>("DataSources/passengers.json");

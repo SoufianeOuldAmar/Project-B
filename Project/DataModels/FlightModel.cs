@@ -45,21 +45,5 @@ namespace DataModels
             FlightPoints = Convert.ToInt32(TicketPrice) / 10;
         }
 
-        public FlightModel CreateReturnFlight(string returnDate, string returnTime, string returnGate)
-        {
-            return new FlightModel(
-                Layout,
-                TicketPrice, // Same ticket price
-                returnGate, // New gate for the return flight
-                ArrivalDestination, // Swap the departure and arrival
-                DepartureAirport,
-                false, // Assuming the return flight isn't cancelled
-                returnDate,
-                returnTime,
-                AvailableSeats // Assume same number of seats initially
-            );
-        }
     }
-
-    // Constructor sort of values terug geven
 }
