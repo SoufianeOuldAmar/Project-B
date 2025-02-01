@@ -163,22 +163,21 @@ namespace DataAccess
                 }
             }
             return bookings;
-
         }
 
         public static void UpdateBookedDetailsPresentation()
         {
 
-            var BookdeFlight = BookFlightLogic.GetAllBookedFlights();
+            var BookedFlight = BookFlightLogic.GetAllBookedFlights();
             var flightDetails = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
 
             List<string> seatChanges = new List<string>();
             List<string> newSeats = new List<string>();
 
-            List<PetLogic> petChanges = new List<PetLogic>();
-            List<PetLogic> newPets = new List<PetLogic>();
+            List<PetModel> petChanges = new List<PetModel>();
+            List<PetModel> newPets = new List<PetModel>();
 
-            List<BaggageLogic> newBaggageAdded = new List<BaggageLogic>();
+            List<BaggageModel> newBaggageAdded = new List<BaggageModel>();
 
 
             while (true)
@@ -205,7 +204,7 @@ namespace DataAccess
                 else if (bookings.Count > 0 && bookings != null)
                 {
 
-                    Console.Write("Choose a FlighID: ");
+                    Console.Write("Choose a FlightID: ");
                     string input = Console.ReadLine();
                     Console.Clear();
 
@@ -377,7 +376,7 @@ namespace DataAccess
 
                                         if (petType == "dog" || petType == "cat" || petType == "bunny" || petType == "bird")
                                         {
-                                            var newPet = new PetLogic(petType, petName) { Fee = 50.0 };
+                                            var newPet = new PetModel(petType, petName) { Fee = 50.0 };
                                             selectedBooking.Pets.Add(newPet);
                                             newPets.Add(newPet);
                                             flight.TotalPets++;
@@ -424,7 +423,7 @@ namespace DataAccess
                                                     string petName = Console.ReadLine();
 
                                                     // Add the new pet
-                                                    PetLogic newPet = new PetLogic(newPetType, petName);
+                                                    PetModel newPet = new PetModel(newPetType, petName);
                                                     selectedBooking.Pets.Insert(PetIndex - 1, newPet);
 
                                                     Console.WriteLine($"Pet {PetIndex} has been replaced with a {newPetType}.");
@@ -487,7 +486,7 @@ namespace DataAccess
                                             {
                                                 feeBaggage = 45;
                                                 Console.WriteLine($"Your carry on goes over the 10kg limit. You'll have to pay a fee of {feeBaggage} EUR.");
-                                                var newBaggage = new BaggageLogic(initials, baggageType, weightBaggage) { Fee = feeBaggage };
+                                                var newBaggage = new BaggageModel(initials, baggageType, weightBaggage) { Fee = feeBaggage };
                                                 selectedBooking.BaggageInfo.Add(newBaggage);
                                                 newBaggageAdded.Add(newBaggage);
 
@@ -497,7 +496,7 @@ namespace DataAccess
                                             {
                                                 feeBaggage = 50;
                                                 Console.WriteLine($"Your carry on goes over the 10kg limit. You'll have to pay a fee of {feeBaggage} EUR.");
-                                                var newBaggage = new BaggageLogic(initials, baggageType, weightBaggage) { Fee = feeBaggage };
+                                                var newBaggage = new BaggageModel(initials, baggageType, weightBaggage) { Fee = feeBaggage };
                                                 selectedBooking.BaggageInfo.Add(newBaggage);
                                                 newBaggageAdded.Add(newBaggage);
 
@@ -516,7 +515,7 @@ namespace DataAccess
                                             if (weightBaggage == 20)
                                             {
                                                 Console.WriteLine("Your checked baggage weight is 20 kg. No additional fee required.");
-                                                var newBaggage = new BaggageLogic(initials, baggageType, weightBaggage) { Fee = feeBaggage };
+                                                var newBaggage = new BaggageModel(initials, baggageType, weightBaggage) { Fee = feeBaggage };
                                                 selectedBooking.BaggageInfo.Add(newBaggage);
                                                 newBaggageAdded.Add(newBaggage);
 
@@ -525,7 +524,7 @@ namespace DataAccess
                                             else if (weightBaggage == 25)
                                             {
                                                 Console.WriteLine("Your checked baggage weight is 25 kg. No additional fee required.");
-                                                var newBaggage = new BaggageLogic(initials, baggageType, weightBaggage) { Fee = feeBaggage };
+                                                var newBaggage = new BaggageModel(initials, baggageType, weightBaggage) { Fee = feeBaggage };
                                                 selectedBooking.BaggageInfo.Add(newBaggage);
                                                 newBaggageAdded.Add(newBaggage);
 
@@ -535,7 +534,7 @@ namespace DataAccess
                                             {
                                                 feeBaggage = 50;
                                                 Console.WriteLine($"Your checked baggage weight exceeds the 25 kg limit. You'll have to pay a fee of {feeBaggage} EUR.");
-                                                var newBaggage = new BaggageLogic(initials, baggageType, weightBaggage) { Fee = feeBaggage };
+                                                var newBaggage = new BaggageModel(initials, baggageType, weightBaggage) { Fee = feeBaggage };
                                                 selectedBooking.BaggageInfo.Add(newBaggage);
                                                 newBaggageAdded.Add(newBaggage);
 
@@ -585,39 +584,6 @@ namespace DataAccess
                 {
                     Console.WriteLine("No booking foud. pleas try again!!!!");
                 }
-
-                // // Loop through seat changes
-                // foreach (var seatChange in seatChanges)
-                // {
-                //     Console.WriteLine($"Original Seat: {seatChange.Key}, New Seat: {seatChange.Value}");
-                // }
-
-                // // Loop through new seats
-                // foreach (var newSeat in newSeats)
-                // {
-                //     Console.WriteLine($"New Seat: {newSeat}");
-                // }
-
-                // // Loop through pet changes
-                // foreach (var petChange in petChanges)
-                // {
-                //     Console.WriteLine($"Original Pet: {petChange.Key}, Updated Pet: {petChange.Value}");
-                // }
-
-                // // Loop through new pets
-                // foreach (var newPet in newPets)
-                // {
-                //     Console.WriteLine($"New Pet: {newPet}");
-                // }
-
-                // // Loop through new baggage added
-                // foreach (var baggage in newBaggageAdded)
-                // {
-                //     Console.WriteLine($"New Baggage Added: {baggage}");
-                // }
-
-                // MenuPresentation.PressAnyKey();
-
 
                 saving(email, bookings);
                 NotificationLogic.NotifyBookingModification(email, bookings, newPets, newSeats, newBaggageAdded, seatChanges, petChanges);

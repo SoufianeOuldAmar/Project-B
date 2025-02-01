@@ -58,8 +58,6 @@ public static class FeedbackPresentation
         {
             Console.WriteLine($"Error: {ex.Message}");
         }
-
-        // MenuPresentation.PressAnyKey();
     }
 
     public static void ManageUserFeedbacks(UserAccountModel userAccountModel)

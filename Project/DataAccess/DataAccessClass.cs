@@ -50,7 +50,7 @@ public static class DataAccessClass
         WriteList<FeedbackModel>("DataSources/feedback.json", feedbacks);
     }
 
-    public static void AdminAddNewFlight(FlightModel newFlight)
+    public static void AddSingleFlight(FlightModel newFlight)
     {
         var flights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
         flights.Add(newFlight);

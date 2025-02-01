@@ -10,11 +10,22 @@ public static class BookFlightLogic
 {
     // Method to search for a flight by its ID
 
+    public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
+    public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = DataManagerLogic.LoadAll();
+
     public static List<FlightModel> GetAllFlights()
     {
-        List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
         return allFlights;
     }
+
+    public static BookedFlightsModel SearchBookedFlightByFlightID(int id, string email)
+    {
+        var bookedFlights = allBookedFlights[email];
+        var bookedFlight = bookedFlights.FirstOrDefault(bf => bf.FlightID == id);
+
+        return bookedFlight;
+    }
+
 
     public static Dictionary<string, List<BookedFlightsModel>> GetAllBookedFlights()
     {
@@ -23,7 +34,6 @@ public static class BookFlightLogic
 
     public static FlightModel SearchFlightByID(int id)
     {
-        var allFlights = BookFlightPresentation.allFlights;
         return allFlights.FirstOrDefault(flight => flight.Id == id);
     }
 
@@ -39,7 +49,7 @@ public static class BookFlightLogic
 
     public static List<FlightModel> SearchFlights(string departureAirport, string arrivalDestination)
     {
-        var availableFlights = BookFlightPresentation.allFlights
+        var availableFlights = allFlights
             .Where(flight => flight.DepartureAirport == departureAirport && flight.ArrivalDestination == arrivalDestination && !flight.IsCancelled)
             .ToList();
 
@@ -82,7 +92,6 @@ public static class BookFlightLogic
 
     public static void TakeOff()
     {
-        var allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
         var allBookedFlights = BookedFlightsAccess.LoadAll();
 
         DateTime currentDateTime = DateTime.Now;
@@ -198,5 +207,52 @@ public static class BookFlightLogic
             return null;
         }
         return $"{passenger.FirstName[0]}{passenger.LastName[0]}".ToUpper();
+    }
+
+    public static double CalculateSeatPrice(PassengerModel passenger, double baseTicketPrice, string seat, List<string> chosenSeats, double totalPrice)
+    {
+        double seatPrice = baseTicketPrice;
+        if (passenger.AgeGroup == "child")
+        {
+            seatPrice *= 0.75; // 25% discount for children
+        }
+        else if (passenger.AgeGroup == "infant")
+        {
+            seatPrice *= 0.1; // 90% discount for infants
+        }
+        totalPrice += seatPrice;
+
+        return totalPrice;
+    }
+
+    public static (bool, double) IsValidBaggageWeight(string checkedWeightInput)
+    {
+        bool isValidBaggageWeight = double.TryParse(checkedWeightInput, out double bagWeight) && (bagWeight == 20 || bagWeight == 25);
+        return (isValidBaggageWeight, bagWeight);
+    }
+
+    public static bool IsValidMaxBaggageWeight(double currentTotalWeight, double totalBagWeight)
+    {
+        double maxBaggageCapacity = 2500;
+        return currentTotalWeight + totalBagWeight > maxBaggageCapacity;
+    }
+
+    public static double CalculateTotalBagWeight(double bagWeight, double bagCount)
+    {
+        return bagWeight * bagCount;
+    }
+
+    public static string DetermineBaggageType(string carryOnChoice, string checkChecked)
+    {
+        if (carryOnChoice == "yes" && checkChecked == "no") return "1";
+        if (carryOnChoice == "no" && checkChecked == "yes") return "2";
+        if (carryOnChoice == "yes" && checkChecked == "yes") return "3";
+
+        return null;
+    }
+
+    public static bool IsValidPetType(string petType)
+    {
+        return petType == "dog" || petType == "cat" || petType == "bunny" || petType == "bird";
     }
 }

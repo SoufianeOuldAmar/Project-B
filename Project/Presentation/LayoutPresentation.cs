@@ -1,9 +1,12 @@
 using System.Threading;
+using DataModels;
 
 namespace PresentationLayer
 {
     public static class LayoutPresentation
     {
+        public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
+
         private static bool IsCurrentUsersSeat(string seat, List<BookedFlightsModel> currentUserBookings, int flightId)
         {
             var relevantBooking = currentUserBookings.FirstOrDefault(b => b.FlightID == flightId);
@@ -44,7 +47,7 @@ namespace PresentationLayer
         {
             var currentAccount = UserAccountLogic.CurrentAccount;
             var currentUserBookings = DataManagerLogic.LoadByEmail(currentAccount.EmailAddress);
-            int currentFlightId = BookFlightPresentation.allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
+            int currentFlightId = allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
 
             for (int i = 0; i < layout.SeatArrangement.Count; i += layout.Columns)
             {
@@ -96,7 +99,7 @@ namespace PresentationLayer
         {
             var currentAccount = UserAccountLogic.CurrentAccount;
             var currentUserBookings = DataManagerLogic.LoadByEmail(currentAccount.EmailAddress);
-            int currentFlightId = BookFlightPresentation.allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
+            int currentFlightId = allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
 
             int index = 0;
             for (int row = 1; row <= layout.Rows; row++)
@@ -165,7 +168,7 @@ namespace PresentationLayer
             {
                 var currentAccount = UserAccountLogic.CurrentAccount;
                 var currentUserBookings = DataManagerLogic.LoadByEmail(currentAccount.EmailAddress);
-                int currentFlightId = BookFlightPresentation.allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
+                int currentFlightId = allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
 
                 int index = 0;
 

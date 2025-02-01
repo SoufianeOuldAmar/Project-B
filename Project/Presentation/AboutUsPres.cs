@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 public class AboutUsPres
 {
-    private static List<FlightModel> allFlights;
     public static void aboutUsMenu()
     {
 
@@ -48,8 +47,7 @@ public class AboutUsPres
                         Console.WriteLine("🌍 Our Network");
                         Console.ResetColor();
                         Console.WriteLine("Here at BOSST Airlines, we have a vast network of destinations.");
-                        allFlights = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
-                        var allDestinations = allFlights.Select(flight => flight.ArrivalDestination).Distinct().ToList();
+                        var allDestinations = FlightLogic.GetAllDestinations();
                         Console.WriteLine("Our destinations include:");
                         foreach (var destination in allDestinations)
                         {

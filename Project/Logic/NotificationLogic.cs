@@ -5,11 +5,11 @@ public static class NotificationLogic
     public static void NotifyBookingModification(
     string email,
     List<BookedFlightsModel> bookings,
-    List<PetLogic> newPets,
+    List<PetModel> newPets,
     List<string> newSeats,
-    List<BaggageLogic> newBaggageAdded,
+    List<BaggageModel> newBaggageAdded,
     List<string> seatChanges,
-    List<PetLogic> petChanges)
+    List<PetModel> petChanges)
     {
         // Fetch the account for the provided email
         var account = UserAccountLogic.GetByEmail(email);

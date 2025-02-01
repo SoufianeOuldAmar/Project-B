@@ -133,11 +133,6 @@ public static class CalendarLogic
         return (currentDay, currentMonth, currentYear);
     }
 
-    // public static List<FlightModel> GetFlightsByDate(DateTime date)
-    // {
-    //     return allFlights
-    //         .Where(flight => DateTime.TryParse(flight.DepartureDate, out DateTime departureDate) && departureDate.Date == date.Date && !flight.IsCancelled).ToList();
-    // }
     public static List<FlightModel> GetFlightsByDate(DateTime date, string departureAirport, string destination)
     {
 

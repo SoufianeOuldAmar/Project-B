@@ -120,7 +120,6 @@ public static class EmployeesPresentation
         employees.Add(newEmployee);
         DataManagerLogic.Save<EmployeesModel>("DataSources/Emplyoees.json", employees);
         Console.WriteLine("Your application has been received successfully. It will be processed shortly.");
-
     }
 
     public static void ViewRegistrationStatus(int registerID)

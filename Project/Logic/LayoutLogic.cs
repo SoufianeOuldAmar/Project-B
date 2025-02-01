@@ -37,6 +37,51 @@ public static class LayoutLogic
         LayoutPresentation.PrintBookingConfirmed();
     }
 
+    public static void ArrangeNewSeat(LayoutModel layout, string seat, FlightModel flight)
+    {
+        layout.BookedSeats.Add(seat);
+        if (!layout.SeatInitials.ContainsKey(seat))
+        {
+            layout.SeatInitials[seat] = seat;
+        }
+        layout.AvailableSeats.Remove(seat);
+
+        var allNewFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
+        var allBookedFlights = BookedFlightsAccess.LoadAll();
+
+        for (int i = 0; i < allNewFlights.Count; i++)
+        {
+            if (allNewFlights[i].Id == flight.Id)
+            {
+                allNewFlights[i] = flight;
+            }
+        }
+
+        if (allBookedFlights.TryGetValue(MenuPresentation.currentAccount.EmailAddress, out var bookedFlights))
+        {
+            foreach (var bookedFlight in bookedFlights)
+            {
+                if (bookedFlight.FlightID == flight.Id)
+                {
+                    string oldSeat = bookedFlight.BookedSeats.FirstOrDefault();
+                    bookedFlight.BookedSeats.Clear();
+                    bookedFlight.BookedSeats.Add(seat);
+
+                    if (oldSeat != null && bookedFlight.SeatInitials.ContainsKey(oldSeat))
+                    {
+                        string seatInitials = bookedFlight.SeatInitials[oldSeat];
+                        bookedFlight.SeatInitials.Remove(oldSeat);
+                        bookedFlight.SeatInitials[seat] = seatInitials;
+                    }
+                }
+            }
+        }
+
+        DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", allNewFlights);
+        BookedFlightsAccess.WriteAll(MenuPresentation.currentAccount.EmailAddress, allBookedFlights[MenuPresentation.currentAccount.EmailAddress]);
+
+    }
+
     public static bool TryBookSeat(LayoutModel layout, string seat)
     {
         if (layout.SeatArrangement.Contains(seat) && !layout.BookedSeats.Contains(seat) && layout.AvailableSeats.Contains(seat))

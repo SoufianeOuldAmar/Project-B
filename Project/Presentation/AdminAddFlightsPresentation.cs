@@ -2,13 +2,16 @@ using System.Text.RegularExpressions;
 using DataModels;
 using System;
 using System.Globalization;
+using System.Collections.Generic;
 namespace DataAccess;
 
-public class AdminAddFlightsPresentation
+public static class AdminAddFlightsPresentation
 {
-    public FlightModel AddNewFlights()
+    public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = DataManagerLogic.LoadAll();
+    public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
+
+    public static FlightModel AddNewFlights()
     {
-        var allFlights = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
         Console.Clear();
         LayoutModel layout = LayoutLogic.CreateBoeing737Layout();
 
@@ -318,7 +321,7 @@ public class AdminAddFlightsPresentation
             }
         }
 
-        int nextFlightId = BookFlightPresentation.allFlights.Count;
+        int nextFlightId = allFlights.Count;
         FlightModel newFlight = new FlightModel(
             layout,
             ticketPrice,
@@ -484,12 +487,6 @@ public class AdminAddFlightsPresentation
 
         Console.WriteLine("New flight added.");
         return newFlight;
-    }
-
-    public void Exit()
-    {
-        MenuPresentation.PressAnyKey();
-        Console.Clear();
     }
 
 }

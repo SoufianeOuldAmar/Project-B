@@ -36,7 +36,7 @@ public static class DataManagerLogic
 
     public static void AdminAddNewFlight(FlightModel newFlight)
     {
-        DataAccessClass.AdminAddNewFlight(newFlight);
+        DataAccessClass.AddSingleFlight(newFlight);
     }
 
     public static void UpdateCurrentAccount(UserAccountModel userAccountModel)
@@ -52,6 +52,11 @@ public static class DataManagerLogic
     public static void WriteAll(string email, List<BookedFlightsModel> newBookedFlights)
     {
         BookedFlightsAccess.WriteAll(email, newBookedFlights);
+    }
+
+    public static Dictionary<string, List<BookedFlightsModel>> LoadAll()
+    {
+        return BookedFlightsAccess.LoadAll();
     }
 
     public static void Save(string email, BookedFlightsModel singleFlight)

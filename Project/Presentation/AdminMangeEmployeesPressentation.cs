@@ -4,7 +4,7 @@ using DataModels;
 
 namespace DataAccess
 {
-    public static class AdminMangeEmployeesPressentation
+    public static class AdminManageEmployeesPresentation
     {
         public static void DisplayEmployeesInfo()
         {

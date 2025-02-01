@@ -9488,7 +9488,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -9608,7 +9607,8 @@
         "30D",
         "30E",
         "30F",
-        "09A"
+        "09A",
+        "11A"
       ],
       "BookedSeats": [],
       "ChosenSeats": [],
@@ -9616,7 +9616,7 @@
       "IsBoeing787": false,
       "SeatInitials": {}
     },
-    "TicketPrice": 215,
+    "TicketPrice": 229.5,
     "Gate": "E4",
     "DepartureAirport": "Istanbul, Istanbul Airport",
     "ArrivalDestination": "Vienna, International Airport",
@@ -9626,7 +9626,7 @@
     "FlightTime": "11:20",
     "AvailableSeats": 180,
     "FlightPoints": 21,
-    "TotalPets": 0,
+    "TotalPets": 1,
     "HasTakenOff": false,
     "ReturnFlight": null
   },
@@ -19392,8 +19392,8 @@
         "30C",
         "30E",
         "30F",
-        "10A",
         "30D",
+        "10A",
         "11A"
       ],
       "BookedSeats": [],
@@ -19413,7 +19413,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 15,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -21614,7 +21614,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -21734,7 +21733,8 @@
         "30E",
         "30F",
         "10A",
-        "30D"
+        "30D",
+        "11A"
       ],
       "BookedSeats": [],
       "ChosenSeats": [],
@@ -21742,7 +21742,7 @@
       "IsBoeing787": false,
       "SeatInitials": {}
     },
-    "TicketPrice": 450,
+    "TicketPrice": 464.5,
     "Gate": "C1",
     "DepartureAirport": "Madrid, Madrid Barajas Airport",
     "ArrivalDestination": "Istanbul, Istanbul Airport",
@@ -21752,7 +21752,7 @@
     "FlightTime": "12:10",
     "AvailableSeats": 180,
     "FlightPoints": 45,
-    "TotalPets": 0,
+    "TotalPets": 1,
     "HasTakenOff": false,
     "ReturnFlight": null
   },
@@ -22784,7 +22784,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -22903,8 +22902,9 @@
         "30C",
         "30E",
         "30F",
-        "10A",
-        "30D"
+        "30D",
+        "11A",
+        "10A"
       ],
       "BookedSeats": [],
       "ChosenSeats": [],
@@ -22912,7 +22912,7 @@
       "IsBoeing787": false,
       "SeatInitials": {}
     },
-    "TicketPrice": 350,
+    "TicketPrice": 379,
     "Gate": "C2",
     "DepartureAirport": "Istanbul, Istanbul Airport",
     "ArrivalDestination": "Rotterdam, The Hague Airport",
@@ -22922,7 +22922,7 @@
     "FlightTime": "14:30",
     "AvailableSeats": 180,
     "FlightPoints": 35,
-    "TotalPets": 0,
+    "TotalPets": 2,
     "HasTakenOff": false,
     "ReturnFlight": null
   },
@@ -26803,8 +26803,8 @@
         "30C",
         "30E",
         "30F",
-        "10A",
-        "30D"
+        "30D",
+        "10A"
       ],
       "BookedSeats": [],
       "ChosenSeats": [],
@@ -31113,7 +31113,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 35,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {

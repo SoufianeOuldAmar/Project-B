@@ -77,12 +77,11 @@ static class AdminAccountPresentation
 
                     if (keyInfo == "1")
                     {
-                        AdminAddFlightsPresentation adminAddflight = new AdminAddFlightsPresentation();
-                        FlightModel newFlight = adminAddflight.AddNewFlights();
+                        FlightModel newFlight = AdminAddFlightsPresentation.AddNewFlights();
 
                         if (newFlight != null)
                         {
-                            DataAccessClass.AdminAddNewFlight(newFlight);
+                            DataAccessClass.AddSingleFlight(newFlight);
                         }
 
                         Console.Clear();
@@ -115,7 +114,7 @@ static class AdminAccountPresentation
                     }
                     else if (keyInfo == "6")
                     {
-                        AdminMangeEmployeesPressentation.DisplayEmployeesInfo();
+                        AdminManageEmployeesPresentation.DisplayEmployeesInfo();
                         MenuPresentation.PressAnyKey();
                         Console.Clear();
                         // break;
