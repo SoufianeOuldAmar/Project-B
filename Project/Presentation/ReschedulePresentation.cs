@@ -18,8 +18,15 @@ public static class ReschedulePresentation
     {
 
     ChooseFlightID:
-        Console.Write("Please enter the Flight ID of the flight you want to reschedule (or enter 'Q' to quit): ");
+        Console.Write("\nPlease enter the Flight ID of the flight you want to reschedule (or enter 'Q' to quit): ");
         string chosenFlightID = Console.ReadLine();
+
+        if (chosenFlightID.ToLower() == "q")
+        {
+            MenuPresentation.PressAnyKey();
+            return;
+        }
+        
 
         if (!int.TryParse(chosenFlightID, out int chosenFlightIDInt))
         {
@@ -38,13 +45,15 @@ public static class ReschedulePresentation
 
         Console.WriteLine("Eligible flight(s) for rescheduling:");
 
+        Console.Clear();
+
         foreach (var flight in eligibleFlights)
         {
             SearchFlightPresentation.PrintSearchResult(eligibleFlights);
         }
 
     ChooseNewFlight:
-        Console.Write("Enter the index number of the flight you wish to reschedule to: ");
+        Console.Write("\nEnter the index number of the flight you wish to reschedule to: ");
         string newChosenFlight = Console.ReadLine();
 
         if (!int.TryParse(newChosenFlight, out int newChosenFlightInt))

@@ -3,14 +3,12 @@ using DataModels;
 using System;
 using System.Globalization;
 using System.Collections.Generic;
+
 namespace DataAccess;
 
 public static class AdminAddFlightsPresentation
 {
-    public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = DataManagerLogic.LoadAll();
-    public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
-
-    public static FlightModel AddNewFlights()
+    public static void AddNewFlightsMenu()
     {
         Console.Clear();
         LayoutModel layout = LayoutLogic.CreateBoeing737Layout();
@@ -30,7 +28,7 @@ public static class AdminAddFlightsPresentation
                     string quitConfirmation = Console.ReadLine();
                     if (quitConfirmation == "yes")
                     {
-                        return null;
+                        return;
                     }
                     else if (quitConfirmation == "no")
                     {
@@ -44,22 +42,34 @@ public static class AdminAddFlightsPresentation
 
             }
 
-            else if (double.TryParse(input, out ticketPrice) && ticketPrice > 0)
+            else if (AdminAddFlightsLogic.GetTicketPrice(input).Item1)
             {
+                ticketPrice = AdminAddFlightsLogic.GetTicketPrice(input).Item2;
                 break;
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter digits only.");
+                MenuPresentation.PrintColored("Invalid input. Please enter digits only and the digit must be above 0.", ConsoleColor.Red);
             }
         }
 
         string departureAirport;
+        Console.WriteLine();
+
+        int indexDep = 1;
+        foreach (string departure in AdminAddFlightsLogic.GetAllDepartureAirports())
+        {
+            Console.WriteLine($"{indexDep}. {departure}");
+            indexDep++;
+        }
+
         while (true)
         {
-            Console.Write("\nEnter Departure Airport (or 'q' to go back): ");
-            departureAirport = Console.ReadLine();
-            if (departureAirport.ToLower() == "q")
+
+
+            Console.Write("\nEnter Departure Airport by the index number (or 'q' to go back): ");
+            string departureAirportIndex = Console.ReadLine();
+            if (departureAirportIndex.ToLower() == "q")
             {
                 while (true)
                 {
@@ -67,7 +77,7 @@ public static class AdminAddFlightsPresentation
                     string quitConfirmation = Console.ReadLine();
                     if (quitConfirmation == "yes")
                     {
-                        return null;
+                        return;
                     }
                     else if (quitConfirmation == "no")
                     {
@@ -80,39 +90,33 @@ public static class AdminAddFlightsPresentation
                 }
             }
 
-            else if (!string.IsNullOrEmpty(departureAirport))
+            else if (AdminAddFlightsLogic.GetDepartureAirport(departureAirportIndex).Item1)
             {
+                departureAirport = AdminAddFlightsLogic.GetDepartureAirport(departureAirportIndex).Item2;
                 break;
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter letters only.");
+                MenuPresentation.PrintColored("\nInvalid index. Please choose the correct index.", ConsoleColor.Red);
             }
         }
 
-        var europeanCapitalsAirports = new List<string>
-    {
-        "Amsterdam-Schiphol", "Athens-Eleftherios Venizelos", "Belgrade-Nikola Tesla",
-        "Berlin-Brandenburg", "Brussels-Zaventem", "Bucharest-Henri Coandă",
-        "Budapest-Ferenc Liszt", "Copenhagen-Kastrup", "Dublin-Dublin Airport",
-        "Helsinki-Vantaa", "Lisbon-Humberto Delgado", "London-Heathrow",
-        "Madrid-Barajas", "Oslo-Gardermoen", "Paris-Charles de Gaulle",
-        "Prague-Václav Havel", "Rome-Fiumicino", "Stockholm-Arlanda",
-        "Vienna-Schwechat", "Warsaw-Chopin"
-    };
+        string arrivalDestination;
 
         int index = 1;
-        foreach (var capital in europeanCapitalsAirports)
+        foreach (var capital in AdminAddFlightsLogic.europeanCapitalsAirports)
         {
             Console.WriteLine($"{index}. {capital}");
             index++;
         }
 
-        string arrivalDestination;
         while (true)
         {
+
+
             Console.Write("\nEnter Arrival Destination (choose by index or 'q' to go back): ");
             string input = Console.ReadLine();
+
             if (input.ToLower() == "q")
             {
                 while (true)
@@ -121,7 +125,7 @@ public static class AdminAddFlightsPresentation
                     string quitConfirmation = Console.ReadLine();
                     if (quitConfirmation == "yes")
                     {
-                        return null;
+                        return;
                     }
                     else if (quitConfirmation == "no")
                     {
@@ -132,22 +136,18 @@ public static class AdminAddFlightsPresentation
                         Console.WriteLine("Wrong input, input either yes or no.");
                     }
                 }
-
-
-
             }
-
-            else if (int.TryParse(input, out int arrivalDestinationIndex) &&
-                arrivalDestinationIndex >= 1 && arrivalDestinationIndex <= europeanCapitalsAirports.Count)
+            else if (AdminAddFlightsLogic.GetArrivalDestination(input).Item1)
             {
-                arrivalDestination = europeanCapitalsAirports[arrivalDestinationIndex - 1];
+                arrivalDestination = AdminAddFlightsLogic.GetArrivalDestination(input).Item2;
                 break;
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a valid number.");
+                MenuPresentation.PrintColored("\nInvalid input. Please enter a valid index number.", ConsoleColor.Red);
             }
         }
+
 
         string date;
         while (true)
@@ -162,7 +162,7 @@ public static class AdminAddFlightsPresentation
                     string quitConfirmation = Console.ReadLine();
                     if (quitConfirmation == "yes")
                     {
-                        return null;
+                        return;
                     }
                     else if (quitConfirmation == "no")
                     {
@@ -174,19 +174,16 @@ public static class AdminAddFlightsPresentation
                     }
                 }
 
-
-
             }
 
-            else if (DateTime.TryParseExact(input, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedDate) &&
-                parsedDate >= DateTime.Now)
+            else if (AdminAddFlightsLogic.GetDate(input).Item1)
             {
-                date = parsedDate.ToString("dd-MM-yyyy");
+                date = AdminAddFlightsLogic.GetDate(input).Item2;
                 break;
             }
             else
             {
-                Console.WriteLine("Invalid date. Please enter a valid date.");
+                MenuPresentation.PrintColored("\nInvalid date. Please enter a valid date.", ConsoleColor.Red);
             }
         }
 
@@ -203,7 +200,7 @@ public static class AdminAddFlightsPresentation
                     string quitConfirmation = Console.ReadLine();
                     if (quitConfirmation == "yes")
                     {
-                        return null;
+                        return;
                     }
                     else if (quitConfirmation == "no")
                     {
@@ -219,55 +216,19 @@ public static class AdminAddFlightsPresentation
 
             }
 
-            else if (DateTime.TryParseExact(input, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedTime))
+            else if (AdminAddFlightsLogic.GetFlightTime(input).Item1)
             {
-                time = parsedTime.ToString("HH:mm");
+                time = AdminAddFlightsLogic.GetFlightTime(input).Item2;
                 break;
             }
             else
             {
-                Console.WriteLine("Invalid time format. Please enter in HH:MM format.");
+                MenuPresentation.PrintColored("\nInvalid time format. Please enter in HH:MM format.", ConsoleColor.Red);
             }
         }
 
         int totalPets = 0;
-        while (true)
-        {
-            Console.Write("\nEnter the current total number of pets on this flight (0-7 or 'q' to go back): ");
-            string input = Console.ReadLine();
-            if (input.ToLower() == "q")
-            {
-                while (true)
-                {
-                    Console.Write("\nDo you really want to quit this operation? (yes/no): ");
-                    string quitConfirmation = Console.ReadLine();
-                    if (quitConfirmation == "yes")
-                    {
-                        return null;
-                    }
-                    else if (quitConfirmation == "no")
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Wrong input, input either yes or no.");
-                    }
-                }
 
-
-
-            }
-
-            else if (int.TryParse(input, out totalPets) && totalPets >= 0 && totalPets <= 7)
-            {
-                break;
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. The number must be between 0 and 7.");
-            }
-        }
         string gateStr;
         while (true)
         {
@@ -281,7 +242,7 @@ public static class AdminAddFlightsPresentation
                     string quitConfirmation = Console.ReadLine();
                     if (quitConfirmation == "yes")
                     {
-                        return null;
+                        return;
                     }
                     else if (quitConfirmation == "no")
                     {
@@ -295,16 +256,14 @@ public static class AdminAddFlightsPresentation
             }
 
 
-            else if (gate.Length >= 2 && gate.Length <= 3 && "ABCDEF".Contains(char.ToUpper(gate[0])) &&
-                int.TryParse(gate.Substring(1), out int number) &&
-                number >= 1 && number <= 30)
+            else if (AdminAddFlightsLogic.GetGate(gate).Item1)
             {
+                gate = AdminAddFlightsLogic.GetGate(gate).Item2;
                 string letterPart = gate.Substring(0, 1).ToUpper();
                 string numberPart = gate.Substring(1);
                 gateStr = $"{letterPart}{numberPart}";
 
-                bool isConflict = allFlights.Any(flight => flight.Gate == gateStr &&
-                flight.DepartureDate == date && flight.TimeOfDay == time);
+                bool isConflict = AdminAddFlightsLogic.CheckConflict(gateStr, date, time);
 
                 if (isConflict)
                 {
@@ -321,21 +280,7 @@ public static class AdminAddFlightsPresentation
             }
         }
 
-        int nextFlightId = allFlights.Count;
-        FlightModel newFlight = new FlightModel(
-            layout,
-            ticketPrice,
-            gateStr,
-            departureAirport,
-            arrivalDestination,
-            false,
-            date,
-            time,
-            totalPets
-        )
-        {
-            Id = ++nextFlightId
-        };
+        FlightModel newFlight = AdminAddFlightsLogic.CreateFlightModel(layout, ticketPrice, gateStr, departureAirport, arrivalDestination, date, time);
 
         FlightModel returnFlight = null;
         while (true)
@@ -351,7 +296,7 @@ public static class AdminAddFlightsPresentation
 
                     if (quitConfirmation == "yes")
                     {
-                        return null;
+                        return;
                     }
                     else if (quitConfirmation == "no")
                     {
@@ -379,7 +324,7 @@ public static class AdminAddFlightsPresentation
 
                             if (quitConfirmation == "yes")
                             {
-                                return null;
+                                return;
                             }
                             else if (quitConfirmation == "no")
                             {
@@ -389,15 +334,14 @@ public static class AdminAddFlightsPresentation
 
                     }
 
-                    if (DateTime.TryParseExact(input, "dd-MM-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedReturnDate) &&
-                        parsedReturnDate > DateTime.Now)
+                    if (AdminAddFlightsLogic.GetDate(input).Item1)
                     {
-                        returnDate = parsedReturnDate.ToString("dd-MM-yyyy");
+                        returnDate = AdminAddFlightsLogic.GetDate(input).Item2;
                         break;
                     }
                     else
                     {
-                        Console.WriteLine("Invalid date. Please try again.");
+                        MenuPresentation.PrintColored("\nInvalid date. Please try again.", ConsoleColor.Red);
                     }
                 }
 
@@ -416,7 +360,7 @@ public static class AdminAddFlightsPresentation
 
                             if (quitConfirmation == "yes")
                             {
-                                return null;
+                                return;
                             }
                             else if (quitConfirmation == "no")
                             {
@@ -427,14 +371,14 @@ public static class AdminAddFlightsPresentation
 
                     }
 
-                    else if (DateTime.TryParseExact(input, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedReturnTime))
+                    else if (AdminAddFlightsLogic.GetFlightTime(input).Item1)
                     {
-                        returnTime = parsedReturnTime.ToString("HH:mm");
+                        returnTime = AdminAddFlightsLogic.GetFlightTime(input).Item2;
                         break;
                     }
                     else
                     {
-                        Console.WriteLine("Invalid time format. Please try again.");
+                        MenuPresentation.PrintColored("\nInvalid time format. Please try again.", ConsoleColor.Red);
                     }
                 }
 
@@ -454,7 +398,7 @@ public static class AdminAddFlightsPresentation
 
                             if (quitConfirmation == "yes")
                             {
-                                return null;
+                                return;
                             }
                             else if (quitConfirmation == "no")
                             {
@@ -464,9 +408,9 @@ public static class AdminAddFlightsPresentation
 
                     }
 
-                    else if (input.Length >= 2 && input.Length <= 3 && "ABCDEF".Contains(char.ToUpper(input[0])) &&
-                        int.TryParse(input.Substring(1), out int number) && number >= 1 && number <= 30)
+                    else if (AdminAddFlightsLogic.GetGate(input).Item1)
                     {
+                        input = AdminAddFlightsLogic.GetGate(input).Item2;
                         string letterPart = input.Substring(0, 1).ToUpper();
                         string numberPart = input.Substring(1);
                         returnGate = $"{letterPart}{numberPart}";
@@ -483,10 +427,11 @@ public static class AdminAddFlightsPresentation
             }
         }
 
-        newFlight.ReturnFlight = returnFlight;
+        AdminAddFlightsLogic.CreateFlight(newFlight, returnFlight);
 
-        Console.WriteLine("New flight added.");
-        return newFlight;
+        MenuPresentation.PrintColored("\nNew flight added.", ConsoleColor.Green);
+
+        MenuPresentation.PressAnyKey();
     }
 
 }

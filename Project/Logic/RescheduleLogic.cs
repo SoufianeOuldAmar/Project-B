@@ -52,7 +52,8 @@ public static class RescheduleLogic
     public static List<string> AreFormerSeatsTaken(int newFlightID, int oldFlightId)
     {
         var bookedFlight = allBookedFlights[MenuPresentation.currentAccount.EmailAddress];
-        FlightModel flight = FlightLogic.SearchFlightByID(newFlightID);
+        FlightModel newFlight = FlightLogic.SearchFlightByID(newFlightID);
+        FlightModel oldFlight = FlightLogic.SearchFlightByID(oldFlightId);
         List<string> seats = new List<string>();
         List<string> occupiedSeats = new List<string>();
 
@@ -66,28 +67,42 @@ public static class RescheduleLogic
                     seats.Add(seat);
                 }
 
+                // Remove old seats from booked list and add back to available seats
+                foreach (var seat in seats)
+                {
+                    if (oldFlight.Layout.BookedSeats.Contains(seat))
+                    {
+                        oldFlight.Layout.BookedSeats.Remove(seat);
+                        oldFlight.Layout.AvailableSeats.Add(seat);
+                    }
+                }
+
                 break;
             }
         }
 
         foreach (var seat in seats)
         {
-            if (flight.Layout.BookedSeats.Contains(seat))
+            if (newFlight.Layout.BookedSeats.Contains(seat))
             {
                 occupiedSeats.Add(seat);
             }
-            else if (flight.Layout.AvailableSeats.Contains(seat)) // Check if seat is available
+            else if (newFlight.Layout.AvailableSeats.Contains(seat)) // Check if seat is available
             {
-                flight.Layout.AvailableSeats.Remove(seat); // Remove from available seats
-                flight.Layout.BookedSeats.Add(seat); // Add to booked seats
+                newFlight.Layout.AvailableSeats.Remove(seat); // Remove from available seats
+                newFlight.Layout.BookedSeats.Add(seat); // Add to booked seats
             }
         }
 
         for (int i = 0; i < allFlights.Count; i++)
         {
-            if (allFlights[i].Id == flight.Id)
+            if (allFlights[i].Id == newFlight.Id)
             {
-                allFlights[i] = flight;
+                allFlights[i] = newFlight;
+            }
+            if (allFlights[i].Id == oldFlight.Id)
+            {
+                allFlights[i] = oldFlight;
             }
         }
 
@@ -95,6 +110,6 @@ public static class RescheduleLogic
         BookedFlightsAccess.WriteAll(MenuPresentation.currentAccount.EmailAddress, bookedFlight);
 
         return occupiedSeats;
-
     }
+
 }

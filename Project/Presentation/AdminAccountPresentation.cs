@@ -77,13 +77,7 @@ static class AdminAccountPresentation
 
                     if (keyInfo == "1")
                     {
-                        FlightModel newFlight = AdminAddFlightsPresentation.AddNewFlights();
-
-                        if (newFlight != null)
-                        {
-                            DataAccessClass.AddSingleFlight(newFlight);
-                        }
-
+                        AdminAddFlightsPresentation.AddNewFlightsMenu();
                         Console.Clear();
                     }
                     else if (keyInfo == "2")
