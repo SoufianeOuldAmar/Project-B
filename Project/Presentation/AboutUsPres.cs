@@ -63,7 +63,7 @@ public class AboutUsPres
                         Console.WriteLine("🛩️ Our Fleet");
                         Console.ResetColor();
                         Console.WriteLine("Our fleet consists of state-of-the-art aircraft:");
-                        Console.WriteLine("Airbus A330 and Boeing 787, ensuring a comfortable and enjoyable journey. 🛫");
+                        Console.WriteLine("Airbus A330, Boeing 787 and Boeing 737, ensuring a comfortable and enjoyable journey. 🛫");
                         break;
 
                     case 3: 
