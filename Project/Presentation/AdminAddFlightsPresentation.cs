@@ -268,7 +268,7 @@ public class AdminAddFlightsPresentation
         string gateStr;
         while (true)
         {
-            Console.Write("\nEnter Gate (or 'q' to go back): ");
+            Console.Write("\nEnter Gate (letters A-Z and numbers 1-9) (or 'q' to go back): ");
             string gate = Console.ReadLine();
             if (gate.ToLower() == "q")
             {
@@ -438,7 +438,7 @@ public class AdminAddFlightsPresentation
                 string returnGate;
                 while (true)
                 {
-                    Console.Write("\nEnter Return Gate (or 'q' to go back): ");
+                    Console.Write("\nEnter Return Gate (letters A-Z and numbers 1-9) (or 'q' to go back): ");
                     input = Console.ReadLine();
                     if (input.ToLower() == "q")
                     {
