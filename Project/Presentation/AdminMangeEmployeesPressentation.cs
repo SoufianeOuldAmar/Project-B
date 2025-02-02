@@ -116,7 +116,7 @@ namespace DataAccess
         {
             while (true)
             {
-                string cvFilePath = Path.Combine(Environment.CurrentDirectory, "EmployeesCV", selectedEmployee.CvFileName);
+                string cvFilePath = Path.Combine(Environment.CurrentDirectory, "DataSources/EmployeesCV", selectedEmployee.CvFileName);
                 if (!File.Exists(cvFilePath))
                 {
                     Console.WriteLine("The CV file for this employee could not be found");

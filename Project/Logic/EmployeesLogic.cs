@@ -10,7 +10,7 @@ public static class EmployeesLogic
     {
         if (File.Exists(filePath))
         {
-            string destinationPath = Path.Combine(Environment.CurrentDirectory, "EmployeesCV");
+            string destinationPath = Path.Combine(Environment.CurrentDirectory, "DataSources/EmployeesCV");
 
             if (!Directory.Exists(destinationPath))
             {

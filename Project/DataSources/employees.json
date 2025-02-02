@@ -14,5 +14,13 @@
     "Accepted": "Not reviewed yet",
     "CvFileName": "CV.txt",
     "RegistrationID": 29230
+  },
+  {
+    "Id": 3,
+    "Name": "SOufiane",
+    "Age": 22,
+    "Accepted": "Not reviewed yet",
+    "CvFileName": "Individual contribution Shukri Shuuriye(1060594) Final.docx",
+    "RegistrationID": 50574
   }
 ]
