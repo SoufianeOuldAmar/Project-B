@@ -96,7 +96,7 @@ namespace Testing
             string result = CancelLogic.CancelFlights("n@b.c", 2); 
 
             // Check if the correct error message is given
-            Assert.AreEqual("You have already cancelled this flight", result);
+            Assert.AreEqual("You have already cancelled the flight", result);
         }
     }
 }

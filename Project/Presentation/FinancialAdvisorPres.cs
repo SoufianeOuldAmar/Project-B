@@ -23,7 +23,7 @@ public static class FinancialAdvisorPresentation
 
             if (financialAccount != null)
             {
-                // Call the menu method with the actual FinancialAccountModel
+
                 FrontPageFinancialAdvisor(financialAccount);
             }
             else
