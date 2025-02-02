@@ -5,6 +5,7 @@ using System.IO;
 
 public static class EmployeesLogic
 {
+    public static List<EmployeesModel> AllEmployees = DataAccessClass.ReadList<EmployeesModel>("DataSources/Emplyoees.json");
     public static bool EmpCopyToDestinationLogic(string filePath)
     {
         if (File.Exists(filePath))
@@ -80,5 +81,33 @@ public static class EmployeesLogic
             // If the operating system is unsupported, show an error message
             throw new PlatformNotSupportedException("Unsupported operating system for opening files.");
         }
+    }
+
+    public static void SaveEmployee(string name, int age, string cvFileName, int registrationID)
+    {
+        List<EmployeesModel> employees = DataAccessClass.ReadList<EmployeesModel>("DataSources/Emplyoees.json");
+        EmployeesModel newEmployee = new EmployeesModel(
+            name,
+            age,
+            // false,
+            cvFileName,
+            registrationID
+        )
+        {
+            Id = employees.Count() + 1
+        };
+
+        employees.Add(newEmployee);
+        DataAccessClass.WriteList<EmployeesModel>("DataSources/Emplyoees.json", employees);
+    }
+
+    public static EmployeesModel GetEmployeeByID(int id)
+    {
+        return AllEmployees.FirstOrDefault(f => f.RegistrationID == id);
+    }
+
+    public static EmployeesModel GetEmployeeByName(string name)
+    {
+        return AllEmployees.FirstOrDefault(r => r.Name == name);
     }
 }

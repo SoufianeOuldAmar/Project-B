@@ -12,8 +12,7 @@ namespace DataAccess
         public static void UpdateDetailsPresentation()
         {
 
-            var allFlights = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
-            if (allFlights == null || allFlights.Count == 0)
+            if (AdminFlightManagerLogic.CheckForFlights())
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("No flights found.");
@@ -23,10 +22,10 @@ namespace DataAccess
 
             const int pageSize = 3;
             int currentPage = 0;
-            int totalPages = (int)Math.Ceiling(allFlights.Count / (double)pageSize);
+            int totalPages = AdminFlightManagerLogic.CalculatePages(pageSize);
 
             while (true)
-            {   
+            {
                 Console.Clear();
 
                 Console.WriteLine("=== ✏️  Change current flight details ===\n");
@@ -37,10 +36,7 @@ namespace DataAccess
                 Console.ResetColor();
 
                 // Get flights for the current page
-                var flightsToDisplay = allFlights
-                    .Skip(currentPage * pageSize)
-                    .Take(pageSize)
-                    .ToList();
+                var flightsToDisplay = AdminFlightManagerLogic.GetFlightsForPage(currentPage, pageSize);
 
                 foreach (var flight in flightsToDisplay)
                 {
@@ -117,25 +113,16 @@ namespace DataAccess
 
                 string input = Console.ReadLine().ToUpper();
 
-                if (input == "N" && currentPage < totalPages - 1)
-                {
-                    currentPage++;
-                }
-                else if (input == "B" && currentPage > 0)
-                {
-                    currentPage--;
-                }
-                else if (input == "E")
+                if (input == "E")
                 {
                     Console.Write("Enter the Flight ID to edit: ");
 
                     if (int.TryParse(Console.ReadLine(), out int flightId))
                     {
-                        var flight = allFlights.FirstOrDefault(f => f.Id == flightId);
+                        FlightModel flight = FlightLogic.SearchFlightByID(flightId);
                         if (flight != null)
                         {
-                            EditFlightDetails(flight); // Call a method to edit the flight
-                            // SaveChanges(flight);
+                            EditFlightDetails(flight);
                         }
                         else
                         {
@@ -161,6 +148,8 @@ namespace DataAccess
                     Console.WriteLine("Invalid option.");
                     Console.ResetColor();
                 }
+
+                currentPage = AdminFlightManagerLogic.ChangePage(currentPage, totalPages, input);
             }
         }
 
@@ -234,13 +223,13 @@ namespace DataAccess
                         }
                         else
                         {
-                            Console.WriteLine("Invalid input. Please Try Again.");
+                            MenuPresentation.PrintColored("Invalid input. Please try Again.", ConsoleColor.Red);
                         }
 
                     }
                     else
                     {
-                        Console.WriteLine("Invalid input. Please Try Again.");
+                        MenuPresentation.PrintColored("Invalid input. Please try Again.", ConsoleColor.Red);
                     }
                 }
                 else
@@ -258,10 +247,7 @@ namespace DataAccess
                 {
                     if (AdminFlightManagerLogic.GateLogic(newGate))
                     {
-                        // Substring(startIndex, length);
-                        string letterPart = newGate.Substring(0, 1).ToUpper();
-                        string numberPart = newGate.Substring(1);
-                        newgateStr = $"{letterPart}{numberPart}";
+                        newgateStr = AdminFlightManagerLogic.CreateGate(newGate);
                         flight.Gate = newgateStr;
                         gateChange.Add(newgateStr);
                         break;
@@ -299,7 +285,7 @@ namespace DataAccess
                     }
                     else
                     {
-                        Console.WriteLine("Invalid date format. Please enter a valid date in yyyy-mm-dd format.");
+                        MenuPresentation.PrintColored("Invalid date format. Please enter a valid date in yyyy-mm-dd format.\n", ConsoleColor.Red);
                     }
                 }
                 else
@@ -314,35 +300,20 @@ namespace DataAccess
             {
                 Console.Write("Enter new Flight Time (leave empty to keep current): ");
                 string newFlightTime = Console.ReadLine();
-                if (!string.IsNullOrWhiteSpace(newFlightTime))
-                {
-                    if (!newFlightTime.Contains(":"))
-                    {
-                        Console.WriteLine("Invalid format. Please use ':' as a separator between hours and minutes.");
-                        continue;
-                    }
-                    string[] flightParts = newFlightTime.Split(':');
 
-                    string hourStr = flightParts[0];
-                    string minStr = flightParts[1].PadLeft(2, '0');
+                if (newFlightTime == "") break;
 
-                    if (int.TryParse(hourStr, out int hour) && hour >= 0 && hour <= 23 &&
-                    int.TryParse(minStr, out int minute) && minute >= 0 && minute <= 59)
-                    {
-                        newTime = $"{hourStr}:{minStr}";
-                        flight.FlightTime = newTime;
-                        newTimeChange.Add(newTime);
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid Time, Please try again.");
-                    }
-                }
-                else
+                if (AdminAddFlightsLogic.GetFlightTime(newFlightTime).Item1)
                 {
+                    flight.FlightTime = AdminAddFlightsLogic.GetFlightTime(newFlightTime).Item2;
                     break;
                 }
+
+                else
+                {
+                    MenuPresentation.PrintColored("\nInvalid Time, Please try again.\n", ConsoleColor.Red);
+                }
+
             }
             SaveChanges(flight, ticketPriceChange, gateChange, newIsCancelled, newTimeChange);
         }
@@ -351,7 +322,7 @@ namespace DataAccess
         {
             while (true)
             {
-                Console.WriteLine("Do you want to save the changes? (yes/no): ");
+                Console.Write("Do you want to save the changes? (yes/no): ");
                 string saveChoice = Console.ReadLine();
                 if (saveChoice.ToLower() == "yes")
                 {
@@ -359,8 +330,7 @@ namespace DataAccess
                     Console.WriteLine();
                     Console.ForegroundColor = ConsoleColor.Red;
                     NotificationLogic.NotifyFlightModification(flight.Id, ticketPriceChange, gateChange, isCancelled, newTimeChange);
-                    Console.WriteLine("Flight details updated and saved.");
-                    Console.ResetColor();
+                    MenuPresentation.PrintColored("Flight details updated and saved.", ConsoleColor.Green);
                     MenuPresentation.PressAnyKey();
                     break;
                 }

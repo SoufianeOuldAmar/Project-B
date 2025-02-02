@@ -5,13 +5,22 @@ using DataModels;
 using DataAccess;
 using System.Threading;
 using System.Globalization;
+using System.Diagnostics.Contracts;
 
 public static class BookFlightLogic
 {
     // Method to search for a flight by its ID
 
     public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
-    public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = DataManagerLogic.LoadAll();
+    public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
+    public static List<BaggageModel> baggageInfo = new List<BaggageModel>();
+    public static List<PassengerModel> passengers = new List<PassengerModel>();
+    public static List<PetModel> petInfo = new List<PetModel>();
+    public static List<string> chosenSeats = new List<string>();
+    public static List<double> foodAndDrinkCosts = new List<double>();
+    public static List<FoodAndDrinkItem> selectedItems = new List<FoodAndDrinkItem>();
+    public static List<Payment> allPayments = new List<Payment>();
+
 
     public static List<FlightModel> GetAllFlights()
     {
@@ -37,6 +46,18 @@ public static class BookFlightLogic
         return allFlights.FirstOrDefault(flight => flight.Id == id);
     }
 
+    public static List<BookedFlightsModel> SearchByEmail(string email)
+    {
+        // Check if the email exists and return the list of booked flights for that email
+        if (allBookedFlights.ContainsKey(email))
+        {
+            return allBookedFlights[email];
+        }
+
+        // Return an empty list if the email doesn't exist
+        return new List<BookedFlightsModel>();
+    }
+
     public static bool IsSeatAlreadyBooked(FlightModel flight, string seat)
     {
         return flight.Layout.BookedSeats.Contains(seat);
@@ -59,7 +80,7 @@ public static class BookFlightLogic
     // New method to load existing bookings including seat initials
     public static void LoadExistingBookings(FlightModel flight, string email)
     {
-        var bookedFlights = BookedFlightsAccess.LoadByEmail(email);
+        var bookedFlights = SearchByEmail(email);
         var existingBooking = bookedFlights.FirstOrDefault(b => b.FlightID == flight.Id);
 
         if (existingBooking != null)
@@ -254,5 +275,79 @@ public static class BookFlightLogic
     public static bool IsValidPetType(string petType)
     {
         return petType == "dog" || petType == "cat" || petType == "bunny" || petType == "bird";
+    }
+
+    public static void AddBaggageInfo(BaggageModel baggage)
+    {
+        baggageInfo.Add(baggage);
+    }
+
+    public static void SaveBooking(FlightModel selectedFlight, double discountToApply, double totalPrice)
+    {
+        var currentAccount = MenuPresentation.currentAccount;
+        MenuPresentation.currentAccount.TotalFlightPoints -= (int)discountToApply;
+        LayoutLogic.ConfirmBooking(selectedFlight.Layout);
+
+        PassengerLogic.AddPassengersToFile();
+
+        DataAccessClass.UpdateCurrentAccount(currentAccount);
+
+        var bookedFlight1 = new BookedFlightsModel(selectedFlight.Id, selectedFlight.Layout.BookedSeats, BookFlightLogic.baggageInfo, BookFlightLogic.petInfo, false);
+        bookedFlight1.DateTicketsBought = DateTime.Now.ToString("dd-MM-yyyy");
+
+
+        bookedFlight1.TicketBill += totalPrice;
+        bookedFlight1.FlightPoints = new FlightPoint(bookedFlight1.DateTicketsBought, 0, selectedFlight.Id);
+
+        foreach (var seat in BookFlightLogic.chosenSeats)
+        {
+            if (selectedFlight.Layout.SeatInitials.ContainsKey(seat))
+            {
+                bookedFlight1.SeatInitials[seat] = selectedFlight.Layout.SeatInitials[seat];
+            }
+        }
+
+        bookedFlight1.FoodAndDrinkItems = selectedItems;
+        bookedFlight1.Email = currentAccount.EmailAddress;
+
+        List<BookedFlightsModel> bookedFlightModel = new List<BookedFlightsModel>
+                    {
+                        bookedFlight1
+                    };
+
+        var existingBookings = SearchByEmail(currentAccount.EmailAddress);
+
+        existingBookings.RemoveAll(b => b.FlightID == selectedFlight.Id);
+
+        existingBookings.Add(bookedFlight1);
+
+        DataAccessClass.WriteList<UserAccountModel>("DataSources/useraccounts.json", UserAccountLogic._accounts);
+        DataAccessClass.UpdateCurrentAccount(currentAccount);
+
+        foreach (var bookedFlight in bookedFlightModel)
+        {
+            BookFlightLogic.RemoveDuplicateSeats(bookedFlight);
+        }
+
+        BookedFlightsAccess.Save(currentAccount.EmailAddress, bookedFlight1);
+
+        selectedFlight.Layout.BookedSeats = selectedFlight.Layout.BookedSeats.Distinct().ToList();
+
+        for (int i = 0; i < allFlights.Count; i++)
+        {
+            if (allFlights[i].Id == selectedFlight.Id)
+            {
+                allFlights[i] = selectedFlight;
+                break;
+            }
+        }
+
+
+        DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", allFlights);
+    }
+
+    public static (bool, Dictionary<string, List<BookedFlightsModel>>) CheckForBookedFlights()
+    {
+        return (allBookedFlights.Count > 0, allBookedFlights);
     }
 }

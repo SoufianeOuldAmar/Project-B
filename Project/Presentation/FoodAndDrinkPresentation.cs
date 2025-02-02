@@ -20,7 +20,6 @@ public class FoodAndDrinkPresentation
 
         Console.WriteLine("0. If you want to continue");
 
-        List<FoodAndDrinkItem> selectedItems = new List<FoodAndDrinkItem>();
         double totalCost = 0;
 
         while (true)
@@ -35,7 +34,7 @@ public class FoodAndDrinkPresentation
             if (int.TryParse(choice, out int index) && index >= 1 && index <= FoodAndDrinkLogic.FoodAndDrinksMenu.Count)
             {
                 var selectedItem = FoodAndDrinkLogic.FoodAndDrinksMenu[index - 1];
-                selectedItems.Add(selectedItem);
+                FoodAndDrinkLogic.selectedItems.Add(selectedItem);
                 totalCost += selectedItem.Price;
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"Added {selectedItem.Name} to your booking.");
@@ -50,39 +49,29 @@ public class FoodAndDrinkPresentation
         }
 
 
-        if (selectedItems.Count > 0)
+        if (FoodAndDrinkLogic.selectedItems.Count > 0)
         {
-            totalCost = ConfirmFoodAndDrinksOrder(selectedItems, flightModel);
+            totalCost = ConfirmFoodAndDrinksOrder(flightModel);
         }
         else
         {
             Console.WriteLine("No food or drinks added to your booking.");
         }
 
-        List<Payment> allPayments = new List<Payment>();
-        var paymentsList = DataManagerLogic.GetAll<Payment>("DataSources/financialreports.json");
-
-        foreach (var item in selectedItems)
-        {
-            Payment foodAndDrinkPayment = new Payment(paymentsList.Count + allPayments.Count + 1, "FoodAndDrink", item.Price, DateTime.Now);
-            allPayments.Add(foodAndDrinkPayment);
-        }
-
-        // FinancialReportAccess.SavePayments(allPayments);
-        DataManagerLogic.Save<Payment>("DataSources/financialreports.json", allPayments);
+        FinancialReportLogic.GenerateFinancialReportForFoodAndDrinks();
 
 
-        return (totalCost, selectedItems);
+        return (totalCost, FoodAndDrinkLogic.selectedItems);
     }
 
-    public static double ConfirmFoodAndDrinksOrder(List<FoodAndDrinkItem> selectedItems, FlightModel flightModel)
+    public static double ConfirmFoodAndDrinksOrder(FlightModel flightModel)
     {
         Console.Clear();
         Console.WriteLine("=== Confirm Your Order ===\n");
         Console.WriteLine("You have selected the following items:");
 
         double totalCost = 0;
-        foreach (var item in selectedItems)
+        foreach (var item in FoodAndDrinkLogic.selectedItems)
         {
             Console.WriteLine($"- {item.Name}: €{item.Price:F2}");
             totalCost += item.Price;
@@ -116,7 +105,10 @@ public class FoodAndDrinkPresentation
         Console.WriteLine($"Current Total Price: €{bookedFlight.TicketBill:F2}");
         Console.WriteLine("\nPreviously Added Food and Drinks:");
 
-        if (bookedFlight.FoodAndDrinkItems != null && bookedFlight.FoodAndDrinkItems.Count > 0)
+        bool IsValidFlightID = FoodAndDrinkLogic.CheckForFoodAndDrinks(bookedFlight).Item1;
+        // List<BookedFlightModel> bookedFlight = FoodAndDrinkLogic.CheckForFoodAndDrinks(bookedFlight).Item2;
+
+        if (IsValidFlightID)
         {
             foreach (var item in bookedFlight.FoodAndDrinkItems)
             {
@@ -139,7 +131,6 @@ public class FoodAndDrinkPresentation
 
         Console.WriteLine("0. Finish adding food and drinks");
 
-        List<FoodAndDrinkItem> newItems = new List<FoodAndDrinkItem>();
         double additionalCost = 0;
 
         while (true)
@@ -152,13 +143,12 @@ public class FoodAndDrinkPresentation
                 break;
             }
 
-            if (int.TryParse(choice, out int index) && index >= 1 && index <= FoodAndDrinkLogic.FoodAndDrinksMenu.Count)
+            if (FoodAndDrinkLogic.IsValidIndex(choice).Item1)
             {
-                var selectedItem = FoodAndDrinkLogic.FoodAndDrinksMenu[index - 1];
-                newItems.Add(selectedItem);
-                additionalCost += selectedItem.Price;
+                int index = FoodAndDrinkLogic.IsValidIndex(choice).Item2;
+                additionalCost = FoodAndDrinkLogic.CalculateCost(index).Item1;
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Added {selectedItem.Name} to your booking.");
+                Console.WriteLine($"Added {FoodAndDrinkLogic.CalculateCost(index).Item2} to your booking.");
                 Console.ResetColor();
             }
             else
@@ -169,22 +159,20 @@ public class FoodAndDrinkPresentation
             }
         }
 
-        if (newItems.Count > 0)
+        if (FoodAndDrinkLogic.newItems.Count > 0)
         {
             if (bookedFlight.FoodAndDrinkItems == null)
             {
                 bookedFlight.FoodAndDrinkItems = new List<FoodAndDrinkItem>();
             }
 
-            bookedFlight.FoodAndDrinkItems.AddRange(newItems);
-            bookedFlight.TicketBill += additionalCost;
+            FoodAndDrinkLogic.AddFoodAndDrinksToExistingBooking(bookedFlight, additionalCost);
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"\nFood and drinks added successfully! Updated Total Price: €{bookedFlight.TicketBill:F2}");
             Console.ResetColor();
 
             // Save the updated flight details
-            DataManagerLogic.Save(bookedFlight.Email, bookedFlight);
         }
         else
         {

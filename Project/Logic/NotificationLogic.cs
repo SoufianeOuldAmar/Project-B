@@ -172,4 +172,10 @@ public static class NotificationLogic
         return false;
     }
 
+    public static void ReadNotification(Notification notification, UserAccountModel currentAccount)
+    {
+        notification.IsRead = true;
+        DataAccessClass.UpdateCurrentAccount(currentAccount);
+    }
+
 }

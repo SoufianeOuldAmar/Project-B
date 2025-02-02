@@ -35,7 +35,7 @@ public static class NotificationPresentation
             {
                 Console.WriteLine("Invalid input. Please try again.");
                 MenuPresentation.PressAnyKey();
-                
+
                 continue;
             }
 
@@ -100,8 +100,7 @@ public static class NotificationPresentation
         string choice = Console.ReadLine();
         if (choice == "1")
         {
-            notification.IsRead = true;
-            DataAccessClass.UpdateCurrentAccount(currentAccount);
+            NotificationLogic.ReadNotification(notification, currentAccount);
             Console.WriteLine("\nNotification marked as read.");
         }
         else if (choice == "2")

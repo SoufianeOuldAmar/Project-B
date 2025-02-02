@@ -21,6 +21,133 @@
       "Email": "n@b.c",
       "FoodAndDrinkItems": [],
       "DateTicketsBought": "01-02-2025"
+    },
+    {
+      "FlightID": 58,
+      "BookedSeats": [
+        "11A"
+      ],
+      "Pets": [
+        {
+          "AnimalType": "dog",
+          "PetName": "Pikkebaas",
+          "Fee": 50
+        }
+      ],
+      "BaggageInfo": [
+        {
+          "Initials": "SO",
+          "BaggageType": "3",
+          "BaggageWeight": 20,
+          "Fee": 20
+        }
+      ],
+      "IsCancelled": false,
+      "TicketBill": 330,
+      "FlightPoints": {
+        "ticketsBought": "02-02-2025",
+        "points": 0,
+        "flightId": 58,
+        "earned": false
+      },
+      "SeatInitials": {
+        "11A": "SO"
+      },
+      "Email": "n@b.c",
+      "FoodAndDrinkItems": [],
+      "DateTicketsBought": "02-02-2025"
+    },
+    {
+      "FlightID": 16,
+      "BookedSeats": [
+        "11A"
+      ],
+      "Pets": [
+        {
+          "AnimalType": "dog",
+          "PetName": "pikkebaas",
+          "Fee": 50
+        }
+      ],
+      "BaggageInfo": [
+        {
+          "Initials": "SO",
+          "BaggageType": "3",
+          "BaggageWeight": 20,
+          "Fee": 20
+        }
+      ],
+      "IsCancelled": false,
+      "TicketBill": 499,
+      "FlightPoints": {
+        "ticketsBought": "02-02-2025",
+        "points": 0,
+        "flightId": 16,
+        "earned": false
+      },
+      "SeatInitials": {
+        "11A": "SO"
+      },
+      "Email": "n@b.c",
+      "FoodAndDrinkItems": [
+        {
+          "Name": "Rice With Chicken",
+          "Price": 14.5
+        }
+      ],
+      "DateTicketsBought": "02-02-2025"
+    },
+    {
+      "FlightID": 47,
+      "BookedSeats": [
+        "11A"
+      ],
+      "Pets": [
+        {
+          "AnimalType": "bunny",
+          "PetName": "pikkeaas",
+          "Fee": 50
+        }
+      ],
+      "BaggageInfo": [
+        {
+          "Initials": "SO",
+          "BaggageType": "3",
+          "BaggageWeight": 40,
+          "Fee": 20
+        }
+      ],
+      "IsCancelled": false,
+      "TicketBill": 385.1,
+      "FlightPoints": {
+        "ticketsBought": "02-02-2025",
+        "points": 0,
+        "flightId": 47,
+        "earned": false
+      },
+      "SeatInitials": {
+        "11A": "SO"
+      },
+      "Email": "n@b.c",
+      "FoodAndDrinkItems": [
+        {
+          "Name": "Rice With Chicken",
+          "Price": 14.5
+        },
+        {
+          "Name": "Sandwhich Chicken Teryaki",
+          "Price": 9.75
+        },
+        {
+          "Name": "Rice With Chicken",
+          "Price": 14.5
+        },
+        {
+          "Name": "Water Bottle",
+          "Price": 2.1
+        }
+      ],
+      "DateTicketsBought": "02-02-2025"
     }
   ]
 }

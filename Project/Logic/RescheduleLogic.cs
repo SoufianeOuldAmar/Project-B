@@ -4,7 +4,7 @@ using DataModels;
 public static class RescheduleLogic
 {
     public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
-    public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = DataManagerLogic.LoadAll();
+    public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
 
     public static List<FlightModel> GetEligibleFlights(int FlightID)
     {

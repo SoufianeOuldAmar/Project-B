@@ -9,15 +9,12 @@ namespace DataAccess
         public static void DisplayEmployeesInfo()
         {
 
-            var AllEmployees = DataManagerLogic.GetAll<EmployeesModel>("DataSources/Emplyoees.json");
             const int pageSize = 3;
             int currentPage = 0;
-            int totalPages = (int)Math.Ceiling(AllEmployees.Count / (double)pageSize);
+            int totalPages = AdminManageEmployeesLogic.CalculatePages(pageSize);
 
-            
-
-            if (AllEmployees == null || AllEmployees.Count == 0)
-            {   
+            if (AdminManageEmployeesLogic.CheckForEmployees())
+            {
                 Console.WriteLine("=== 👤 Review employee(s) ===\n");
 
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -26,7 +23,7 @@ namespace DataAccess
                 return;
             }
             while (true)
-            {   
+            {
                 Console.Clear();
                 Console.WriteLine("=== 👤 Review employee(s) ===\n");
                 Console.ForegroundColor = ConsoleColor.Yellow;
@@ -35,12 +32,9 @@ namespace DataAccess
                 Console.ResetColor();
 
                 // Get employees for the current page
-                var emlooesTodisplay = AllEmployees
-                    .Skip(currentPage * pageSize)
-                    .Take(pageSize)
-                    .ToList();
+                var employeesToDisplay = AdminManageEmployeesLogic.GetEmployeesForPage(currentPage, pageSize);
 
-                foreach (var employee in AllEmployees)
+                foreach (var employee in employeesToDisplay)
                 {
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write($"Employee ID: ");
@@ -84,20 +78,12 @@ namespace DataAccess
                 Console.ResetColor();
                 string input = Console.ReadLine().ToUpper();
 
-                if (input == "N" && currentPage < totalPages - 1)
+                if (input == "R")
                 {
-                    currentPage++;
-                }
-                else if (input == "B" && currentPage > 0)
-                {
-                    currentPage--;
-                }
-                else if (input == "R")
-                {
-                    Console.Write("Enter the Emplooy ID to review: ");
+                    Console.Write("Enter the Employee ID to review: ");
                     if (int.TryParse(Console.ReadLine(), out int employeeId))
                     {
-                        var employee = AllEmployees.FirstOrDefault(f => f.Id == employeeId);
+                        var employee = AdminManageEmployeesLogic.GetEmployeeByID(employeeId);
                         if (employee != null)
                         {
                             ReviewJobApplication(employee); // Call a review to edit the employee
@@ -117,10 +103,11 @@ namespace DataAccess
                 }
                 else
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Invalid option.");
-                    Console.ResetColor();
+                    MenuPresentation.PrintColored("Invalid option.", ConsoleColor.Red);
+                    MenuPresentation.PressAnyKey();
                 }
+
+                currentPage = AdminFlightManagerLogic.ChangePage(currentPage, totalPages, input);
 
             }
         }

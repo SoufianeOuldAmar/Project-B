@@ -7539,7 +7539,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -7660,13 +7659,17 @@
         "30E",
         "30F"
       ],
-      "BookedSeats": [],
+      "BookedSeats": [
+        "11A"
+      ],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
-      "SeatInitials": {}
+      "SeatInitials": {
+        "11A": "SO"
+      }
     },
-    "TicketPrice": 400,
+    "TicketPrice": 414.5,
     "Gate": "E8",
     "DepartureAirport": "Rotterdam, The Hague Airport",
     "ArrivalDestination": "Milan, Malpensa Airport",
@@ -7676,7 +7679,7 @@
     "FlightTime": "09:50",
     "AvailableSeats": 180,
     "FlightPoints": 18,
-    "TotalPets": 0,
+    "TotalPets": 1,
     "HasTakenOff": false,
     "ReturnFlight": null
   },
@@ -15121,7 +15124,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 30,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -21224,7 +21227,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -21346,13 +21348,17 @@
         "10A",
         "30D"
       ],
-      "BookedSeats": [],
+      "BookedSeats": [
+        "11A"
+      ],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
-      "SeatInitials": {}
+      "SeatInitials": {
+        "11A": "SO"
+      }
     },
-    "TicketPrice": 250,
+    "TicketPrice": 274.25,
     "Gate": "E2",
     "DepartureAirport": "Frankfurt, Frankfurt Airport",
     "ArrivalDestination": "Rotterdam, The Hague Airport",
@@ -21362,7 +21368,7 @@
     "FlightTime": "18:30",
     "AvailableSeats": 180,
     "FlightPoints": 25,
-    "TotalPets": 0,
+    "TotalPets": 1,
     "HasTakenOff": false,
     "ReturnFlight": null
   },
@@ -25516,7 +25522,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -25638,11 +25643,15 @@
         "10A",
         "30D"
       ],
-      "BookedSeats": [],
+      "BookedSeats": [
+        "11A"
+      ],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
-      "SeatInitials": {}
+      "SeatInitials": {
+        "11A": "SO"
+      }
     },
     "TicketPrice": 260,
     "Gate": "A5",
@@ -25654,7 +25663,7 @@
     "FlightTime": "09:30",
     "AvailableSeats": 180,
     "FlightPoints": 26,
-    "TotalPets": 0,
+    "TotalPets": 1,
     "HasTakenOff": false,
     "ReturnFlight": null
   },
@@ -26435,7 +26444,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 35,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -36955,7 +36964,7 @@
       "IsBoeing787": false,
       "SeatInitials": {}
     },
-    "TicketPrice": 450,
+    "TicketPrice": 300,
     "Gate": "A12",
     "DepartureAirport": "Amsterdam, Schiphol Airport",
     "ArrivalDestination": "Belgrade-Nikola Tesla",

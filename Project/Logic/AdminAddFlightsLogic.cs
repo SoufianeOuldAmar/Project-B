@@ -74,9 +74,15 @@ public static class AdminAddFlightsLogic
 
     public static (bool, string) GetGate(string gate)
     {
-        return (gate.Length >= 2 && gate.Length <= 3 && "ABCDEF".Contains(char.ToUpper(gate[0])) &&
+        bool isValidGate = gate.Length >= 2 && gate.Length <= 3 && "ABCDEF".Contains(char.ToUpper(gate[0])) &&
                 int.TryParse(gate.Substring(1), out int number) &&
-                number >= 1 && number <= 30, gate);
+                number >= 1 && number <= 30;
+
+        string letterPart = gate.Substring(0, 1).ToUpper();
+        string numberPart = gate.Substring(1);
+        string gateStr = $"{letterPart}{numberPart}";
+
+        return (isValidGate, gateStr);
     }
 
     public static bool CheckConflict(string gateStr, string date, string time)

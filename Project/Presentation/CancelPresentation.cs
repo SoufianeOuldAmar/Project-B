@@ -3,9 +3,6 @@ using System.Threading;
 
 public static class CancelPresentation
 {
-
-    public static Dictionary<string, List<BookedFlightsModel>> bookedFlights1 = DataManagerLogic.LoadAll();
-
     public static void CancelMain(string email)
     {
 
@@ -75,9 +72,9 @@ public static class CancelPresentation
                     if (int.TryParse(flightIdInput, out int flightId))
                     {
                         // Zoek de geboekte vlucht met het opgegeven Flight ID
-                        if (bookedFlights1.TryGetValue(email, out var bookedFlights))
+                        if (CancelLogic.CheckBookedFlights(email))
                         {
-                            var selectedFlight = bookedFlights.FirstOrDefault(f => f.FlightID == flightId);
+                            var selectedFlight = BookFlightLogic.SearchBookedFlightByFlightID(flightId, email);
                             if (selectedFlight != null)
                             {
                                 // Voeg eten en drinken toe aan de geselecteerde vlucht
@@ -117,15 +114,15 @@ public static class CancelPresentation
     public static void BookedFlights(string email)
     {
 
-        var allBookedFlights = BookFlightLogic.GetAllBookedFlights();
+        var allBookedFlights = BookFlightLogic.SearchByEmail(email);
 
-        if (!allBookedFlights.ContainsKey(email) || allBookedFlights[email].Count == 0)
+        if (allBookedFlights.Count == 0)
         {
             Console.WriteLine("You have no flights booked.");
             return;
         }
 
-        var bookedFlights = allBookedFlights[email];
+        var bookedFlights = BookFlightLogic.SearchByEmail(email);
 
         const int tableWidth = 173;
         string separator = new string('-', tableWidth);
@@ -326,7 +323,7 @@ public static class CancelPresentation
             }
 
             // Proceed with cancellation logic
-            if (!bookedFlights1.ContainsKey(email))
+            if (BookFlightLogic.SearchByEmail(email).Count == 0)
             {
                 Console.WriteLine("No booked flights found for this user.");
                 MenuPresentation.PressAnyKey();
@@ -351,11 +348,7 @@ public static class CancelPresentation
                 continue;  // Continue the loop if the flight is already cancelled
             }
 
-            // Set the flight as cancelled
-            bookedFlight.IsCancelled = true;
 
-            // Save changes to the JSON file
-            DataManagerLogic.Save(email, bookedFlight);  // Pass updated list of booked flights
 
             Console.WriteLine($"Flight with ID {flightID} has been cancelled.");
             MenuPresentation.PressAnyKey();

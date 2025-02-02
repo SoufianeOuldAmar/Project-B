@@ -95,11 +95,6 @@ public static class AccountPresentation
     }
 
 
-    // public static string CreateAccount(string fullName, string email, string password)
-    // {
-
-    // }
-
     public static void CreateAccount()
     {
         bool validInput = false;

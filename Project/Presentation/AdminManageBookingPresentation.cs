@@ -17,11 +17,11 @@ namespace DataAccess
 
             Console.WriteLine("=== 📅 Manage the bookings ===\n");
 
-            List<FlightModel> flightDetails = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
-            var BookedFlight = BookFlightLogic.GetAllBookedFlights();
+            bool isThereBookedFlight = BookFlightLogic.CheckForBookedFlights().Item1;
+            var BookedFlight = BookFlightLogic.CheckForBookedFlights().Item2;
 
 
-            if (BookedFlight.Count == 0)
+            if (!isThereBookedFlight)
             {
                 Console.WriteLine("No booked flights available");
                 IsEmpty = true;
@@ -75,7 +75,7 @@ namespace DataAccess
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(books.IsCancelled);
 
-                    var flight = flightDetails.Find(f => f.Id == books.FlightID);
+                    var flight = FlightLogic.SearchFlightByID(books.FlightID);
 
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write($"  Date: ");
@@ -99,13 +99,10 @@ namespace DataAccess
 
         public static List<BookedFlightsModel> SearchBookedPresentation(string email) // List<BookedFlightsModel> 
         {
-            var flightDetails = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
-            var BookedFlight = BookFlightLogic.GetAllBookedFlights();
-            List<BookedFlightsModel> bookings = new List<BookedFlightsModel>();
+            List<BookedFlightsModel> bookings = BookFlightLogic.SearchByEmail(email);
 
-            if (BookedFlight.ContainsKey(email))
+            if (bookings.Count > 0)
             {
-                bookings = BookedFlight[email];
                 foreach (var books in bookings)
                 {
 
@@ -144,7 +141,7 @@ namespace DataAccess
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(books.IsCancelled);
 
-                    var flight = flightDetails.Find(f => f.Id == books.FlightID);
+                    var flight = FlightLogic.SearchFlightByID(books.FlightID);
 
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write($"  Date: ");
@@ -161,16 +158,17 @@ namespace DataAccess
                     Console.WriteLine();
                     Console.ResetColor();
                 }
+                return bookings;
+
             }
-            return bookings;
+            else
+            {
+                return new List<BookedFlightsModel>();
+            }
         }
 
         public static void UpdateBookedDetailsPresentation()
         {
-
-            var BookedFlight = BookFlightLogic.GetAllBookedFlights();
-            var flightDetails = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
-
             List<string> seatChanges = new List<string>();
             List<string> newSeats = new List<string>();
 
@@ -249,7 +247,7 @@ namespace DataAccess
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine(selectedBooking.IsCancelled);
 
-                            var flight = flightDetails.Find(f => f.Id == selectedBooking.FlightID);
+                            var flight = FlightLogic.SearchFlightByID(selectedBooking.FlightID);
 
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.Write($"  Date: ");
@@ -585,7 +583,7 @@ namespace DataAccess
                     Console.WriteLine("No booking foud. pleas try again!!!!");
                 }
 
-                saving(email, bookings);
+                Saving(email, bookings);
                 NotificationLogic.NotifyBookingModification(email, bookings, newPets, newSeats, newBaggageAdded, seatChanges, petChanges);
 
                 break;
@@ -595,7 +593,7 @@ namespace DataAccess
 
         }
 
-        public static void saving(string email, List<BookedFlightsModel> bookings)
+        public static void Saving(string email, List<BookedFlightsModel> bookings)
         {
             while (true)
             {
@@ -603,8 +601,8 @@ namespace DataAccess
                 string answer = Console.ReadLine().ToLower();
                 if (answer == "yes")
                 {
-                    DataManagerLogic.Save(email, bookings);
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    AdminManageBookingLogic.SaveBookingData(email, bookings);
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Saving...");
                     MenuPresentation.PressAnyKey();
                     Console.ResetColor();

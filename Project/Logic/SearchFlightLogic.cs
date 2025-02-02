@@ -3,7 +3,7 @@ using DataModels;
 
 public static class SearchFlightLogic
 {
-    public static List<FlightModel> flights = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
+    public static List<FlightModel> flights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
 
     public static List<string> UniqueDepartures()
     {

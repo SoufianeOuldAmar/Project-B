@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using DataModels;
 
 public static class FlightLogic
-{   
+{
     public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
 
     public static FlightModel CreateReturnFlight(FlightModel originalFlight, string returnDate, string returnTime, string returnGate)
@@ -22,7 +22,6 @@ public static class FlightLogic
 
     public static List<string> GetAllDestinations()
     {
-        var allFlights = DataManagerLogic.GetAll<FlightModel>("DataSources/flights.json");
         List<string> allDestinations = allFlights.Select(flight => flight.ArrivalDestination).Distinct().ToList();
 
         return allDestinations;
@@ -32,4 +31,10 @@ public static class FlightLogic
     {
         return allFlights.FirstOrDefault(flight => flight.Id == id);
     }
+
+    public static int GetFlightIdByLayout(LayoutModel layout)
+    {
+        return allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
+    }
+
 }

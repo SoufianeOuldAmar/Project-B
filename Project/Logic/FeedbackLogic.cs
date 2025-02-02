@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DataAccess;
 using DataModels;
 
@@ -5,6 +6,7 @@ namespace BusinessLogic
 {
     public static class FeedbackLogic
     {
+        public static List<FeedbackModel> feedbacks = DataAccessClass.ReadList<FeedbackModel>("DataSources/feedback.json");
         public static void SubmitFeedback(string userEmail, string content)
         {
             if (string.IsNullOrWhiteSpace(content))
@@ -12,7 +14,6 @@ namespace BusinessLogic
                 throw new ArgumentException("Feedback cannot be empty.");
             }
 
-            var feedbacks = DataAccessClass.ReadList<FeedbackModel>("DataSources/feedback.json");
             int newId = feedbacks.Count > 0 ? feedbacks.Max(f => f.Id) + 1 : 1;
             var feedback = new FeedbackModel(newId, userEmail, content);
             DataAccessClass.AddFeedback(feedback);
@@ -21,6 +22,11 @@ namespace BusinessLogic
         public static List<FeedbackModel> GetAllFeedbacks()
         {
             return DataAccessClass.ReadList<FeedbackModel>("DataSources/feedback.json");
+        }
+
+        public static FeedbackModel GetFeedbackByID(int id)
+        {
+            return feedbacks.FirstOrDefault(f => f.Id == id);
         }
 
         public static void CloseFeedback(int id)
@@ -44,5 +50,24 @@ namespace BusinessLogic
                 DataAccessClass.WriteList<FeedbackModel>("DataSources/feedback.json", feedbacks);
             }
         }
+
+        public static List<FeedbackModel> GetFeedbackForUser()
+        {
+            string userEmail = MenuPresentation.currentAccount.EmailAddress;
+            // Load all feedback from the file
+            var allFeedback = DataAccessClass.ReadList<FeedbackModel>("DataSources/feedback.json");
+
+            // Filter feedback based on the user's email address
+            var userFeedback = allFeedback.Where(f => f.UserEmail == userEmail).ToList();
+
+            return userFeedback;
+        }
+
+        public static (bool, List<FeedbackModel>) CheckForFeedback()
+        {
+            var feedbacks = DataAccessClass.ReadList<FeedbackModel>("DataSources/feedback.json");
+            return (feedbacks.Count > 0, feedbacks);
+        }
+
     }
 }

@@ -63,7 +63,7 @@ public static class FeedbackPresentation
     public static void ManageUserFeedbacks(UserAccountModel userAccountModel)
     {
         Console.Clear();
-        var feedbacks = DataManagerLogic.GetAll<FeedbackModel>("DataSources/feedback.json").Where(f => f.UserEmail == userAccountModel.EmailAddress).ToList();
+        var feedbacks = FeedbackLogic.GetFeedbackForUser();
 
         if (feedbacks.Count == 0)
         {
@@ -86,7 +86,7 @@ public static class FeedbackPresentation
 
         if (int.TryParse(input, out int id))
         {
-            var feedbackToDelete = feedbacks.FirstOrDefault(f => f.Id == id);
+            var feedbackToDelete = FeedbackLogic.GetFeedbackByID(id);
             if (feedbackToDelete != null)
             {
                 FeedbackLogic.DeleteFeedback(id);
@@ -103,9 +103,11 @@ public static class FeedbackPresentation
     public static void ViewFeedbackMenu()
     {
         Console.Clear();
-        var feedbacks = DataManagerLogic.GetAll<FeedbackModel>("DataSources/feedback.json");
+        var isFeedbackAvailable = FeedbackLogic.CheckForFeedback().Item1;
+        var feedbacks = FeedbackLogic.CheckForFeedback().Item2;
 
-        if (feedbacks.Count == 0)
+
+        if (!isFeedbackAvailable)
         {
             Console.WriteLine("No feedback available.");
             MenuPresentation.PressAnyKey();
@@ -127,7 +129,7 @@ public static class FeedbackPresentation
 
         if (int.TryParse(input, out int id))
         {
-            var feedbackToUpdate = feedbacks.FirstOrDefault(f => f.Id == id);
+            var feedbackToUpdate = FeedbackLogic.GetFeedbackByID(id);
 
             if (feedbackToUpdate != null)
             {

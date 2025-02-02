@@ -5,8 +5,6 @@ namespace PresentationLayer
 {
     public static class LayoutPresentation
     {
-        public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
-
         private static bool IsCurrentUsersSeat(string seat, List<BookedFlightsModel> currentUserBookings, int flightId)
         {
             var relevantBooking = currentUserBookings.FirstOrDefault(b => b.FlightID == flightId);
@@ -46,8 +44,8 @@ namespace PresentationLayer
         private static void PrintStandardLayout(LayoutModel layout)
         {
             var currentAccount = UserAccountLogic.CurrentAccount;
-            var currentUserBookings = DataManagerLogic.LoadByEmail(currentAccount.EmailAddress);
-            int currentFlightId = allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
+            var currentUserBookings = BookFlightLogic.SearchByEmail(currentAccount.EmailAddress);
+            int currentFlightId = FlightLogic.GetFlightIdByLayout(layout);
 
             for (int i = 0; i < layout.SeatArrangement.Count; i += layout.Columns)
             {
@@ -98,8 +96,8 @@ namespace PresentationLayer
         private static void PrintAirbusA330Layout(LayoutModel layout)
         {
             var currentAccount = UserAccountLogic.CurrentAccount;
-            var currentUserBookings = DataManagerLogic.LoadByEmail(currentAccount.EmailAddress);
-            int currentFlightId = allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
+            var currentUserBookings = BookFlightLogic.SearchByEmail(currentAccount.EmailAddress);
+            int currentFlightId = FlightLogic.GetFlightIdByLayout(layout);
 
             int index = 0;
             for (int row = 1; row <= layout.Rows; row++)
@@ -167,15 +165,15 @@ namespace PresentationLayer
             try
             {
                 var currentAccount = UserAccountLogic.CurrentAccount;
-                var currentUserBookings = DataManagerLogic.LoadByEmail(currentAccount.EmailAddress);
-                int currentFlightId = allFlights.FirstOrDefault(f => f.Layout == layout)?.Id ?? 0;
+                var currentUserBookings = BookFlightLogic.SearchByEmail(currentAccount.EmailAddress);
+                int currentFlightId = FlightLogic.GetFlightIdByLayout(layout);
 
                 int index = 0;
 
                 Console.WriteLine(layout.Rows);
                 Console.WriteLine(layout.Columns);
                 Console.WriteLine(layout.SeatArrangement.Count);
-                Thread.Sleep(2500);
+
                 for (int row = 1; row <= layout.Rows; row++)
                 {
                     if (row == 1)

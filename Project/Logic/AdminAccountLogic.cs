@@ -32,9 +32,4 @@ public class AdminAccountLogic
 
         return false;
     }
-
-    public static List<AdminAccountModel> GetAllAdminAccounts()
-    {
-        return DataAccessClass.ReadList<AdminAccountModel>("DataSources/AdminAccount.json");
-    }
 }

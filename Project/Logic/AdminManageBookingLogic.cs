@@ -1,4 +1,5 @@
 using DataModels;
+using System.Collections.Generic;
 using System.Text.Json;
 namespace DataAccess
 {
@@ -29,6 +30,11 @@ namespace DataAccess
                 }
             }
             return true;
+        }
+
+        public static void SaveBookingData(string email, List<BookedFlightsModel> booking)
+        {
+            BookedFlightsAccess.Save(email, booking);
         }
     }
 }

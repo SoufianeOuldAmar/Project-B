@@ -258,10 +258,7 @@ public static class AdminAddFlightsPresentation
 
             else if (AdminAddFlightsLogic.GetGate(gate).Item1)
             {
-                gate = AdminAddFlightsLogic.GetGate(gate).Item2;
-                string letterPart = gate.Substring(0, 1).ToUpper();
-                string numberPart = gate.Substring(1);
-                gateStr = $"{letterPart}{numberPart}";
+                gateStr = AdminAddFlightsLogic.GetGate(gate).Item2;
 
                 bool isConflict = AdminAddFlightsLogic.CheckConflict(gateStr, date, time);
 
