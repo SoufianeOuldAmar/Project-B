@@ -10,11 +10,11 @@ public static class FinancialReportPresentation
 
         if (payments.Count == 0)
         {
-            Console.WriteLine($"No purchases made for the year {year}.");
+            Console.WriteLine($"No ❌ purchases made for the year {year}.");
             return;
         }
 
-        Console.WriteLine($"Financial Report for {year} (up to {DateTime.Now:dd-MM-yyyy}):");
+        Console.WriteLine($"Financial Report 🏦 for {year} (up to {DateTime.Now:dd-MM-yyyy}):");
         Console.WriteLine("---------------------------------------------------------------");
         Console.WriteLine("| Item Type        | Total Amount   | Amount of Transactions |");
         Console.WriteLine("---------------------------------------------------------------");
