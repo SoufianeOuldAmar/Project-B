@@ -94,7 +94,7 @@ public static class LayoutLogic
     public static void ResetAllSeats()
     {
         var allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
-        var allBookedFlights = BookFlightLogic.GetAllBookedFlights();
+        var allBookedFlights = BookedFlightsAccess.LoadAll();
         string filePath = "DataSources/bookedflights.json";
 
         foreach (var flight in allFlights)

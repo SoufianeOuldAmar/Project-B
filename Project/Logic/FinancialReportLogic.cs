@@ -42,11 +42,6 @@ public static class FinancialReportLogic
         DataAccessClass.WriteList<Payment>("DataSources/financialreports.json", allPayments);
     }
 
-    public static List<Payment> GetAllPayments()
-    {
-        return DataAccessClass.ReadList<Payment>("DataSources/financialreports.json");
-    }
-
     public static int GetPaymentID()
     {
         return DataAccessClass.ReadList<Payment>("DataSources/financialreports.json").Count + 1;

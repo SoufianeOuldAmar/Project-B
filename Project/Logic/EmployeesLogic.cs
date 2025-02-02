@@ -38,10 +38,6 @@ public static class EmployeesLogic
         return false;
     }
 
-    public static List<EmployeesModel> GetAllEmployees()
-    {
-        return DataAccessClass.ReadList<EmployeesModel>("DataSources/employees.json");
-    }
     public static EmployeesModel SelectEmployeeId(int id)
     {
         var employee = DataAccessClass.ReadList<EmployeesModel>("DataSources/employees.json");

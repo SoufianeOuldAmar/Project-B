@@ -106,8 +106,4 @@ public static class UserAccountLogic
         else return null;
     }
     
-    public static List<UserAccountModel> GetAllUserAccounts()
-    {
-        return DataAccessClass.ReadList<UserAccountModel>("DataSources/useraccounts.json");
-    }
 }

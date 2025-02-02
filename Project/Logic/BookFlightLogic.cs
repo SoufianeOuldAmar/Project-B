@@ -22,23 +22,12 @@ public static class BookFlightLogic
     public static List<Payment> allPayments = new List<Payment>();
 
 
-    public static List<FlightModel> GetAllFlights()
-    {
-        return allFlights;
-    }
-
     public static BookedFlightsModel SearchBookedFlightByFlightID(int id, string email)
     {
         var bookedFlights = allBookedFlights[email];
         var bookedFlight = bookedFlights.FirstOrDefault(bf => bf.FlightID == id);
 
         return bookedFlight;
-    }
-
-
-    public static Dictionary<string, List<BookedFlightsModel>> GetAllBookedFlights()
-    {
-        return BookedFlightsAccess.LoadAll();
     }
 
     public static FlightModel SearchFlightByID(int id)

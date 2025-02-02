@@ -19,11 +19,6 @@ namespace BusinessLogic
             DataAccessClass.AddFeedback(feedback);
         }
 
-        public static List<FeedbackModel> GetAllFeedbacks()
-        {
-            return DataAccessClass.ReadList<FeedbackModel>("DataSources/feedback.json");
-        }
-
         public static FeedbackModel GetFeedbackByID(int id)
         {
             return feedbacks.FirstOrDefault(f => f.Id == id);
