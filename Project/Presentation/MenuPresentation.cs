@@ -99,8 +99,8 @@ public static class MenuPresentation
 
     public static void FrontPageUser(UserAccountModel UserAccountModel)
     {
-        bool NotificationsPresent = NotificationLogic.CheckForNotifications(UserAccountModel);
         currentAccount = UserAccountModel;
+        bool NotificationsPresent = NotificationLogic.CheckForNotifications(UserAccountModel);
 
         if (NotificationsPresent && !GotNotificationScreen.Contains(UserAccountModel))
         {
@@ -165,7 +165,7 @@ public static class MenuPresentation
 
     public static void NotificationPage()
     {
-        NotificationPresentation.PrintNotificationPage(currentAccount);
+        NotificationPresentation.PrintNotificationPage();
     }
 
     public static void PressAnyKey()

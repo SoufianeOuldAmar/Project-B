@@ -15,6 +15,7 @@ namespace DataAccess
 
             if (AdminManageEmployeesLogic.CheckForEmployees())
             {
+                Console.Clear();
                 Console.WriteLine("=== 👤 Review employee(s) ===\n");
 
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -116,11 +117,14 @@ namespace DataAccess
         {
             while (true)
             {
-                string cvFilePath = Path.Combine(Environment.CurrentDirectory, "DataSources/EmployeesCV", selectedEmployee.CvFileName);
+                string cvFilePath = Path.Combine(Environment.CurrentDirectory, @"DataSources\EmployeesCV", selectedEmployee.CvFileName);
+
+                Console.WriteLine(cvFilePath);
+
                 if (!File.Exists(cvFilePath))
                 {
                     Console.WriteLine("The CV file for this employee could not be found");
-                    continue;
+                    break;
                 }
 
                 Console.WriteLine($"Do you want to open the CV for {selectedEmployee.Name}? (y/n)");

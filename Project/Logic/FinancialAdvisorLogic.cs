@@ -21,9 +21,6 @@ public class FinancialAdvisorLogic
 
     public bool ValidateLogin(string username, string password)
     {   
-        Console.WriteLine(username + " " + FinancialAccount[0].UserName);
-        Console.WriteLine(password + " " + FinancialAccount[0].Password);
-
         return FinancialAccount.Any(x => x.UserName == username && x.Password == password);
     }
 
@@ -33,7 +30,4 @@ public class FinancialAdvisorLogic
         return FinancialAccount.FirstOrDefault(x => x.UserName.ToLower() == username.ToLower());
         
     }
-
-
-
 }

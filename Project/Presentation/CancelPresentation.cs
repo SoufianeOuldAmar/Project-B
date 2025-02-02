@@ -66,6 +66,7 @@ public static class CancelPresentation
                     if (flightIdInput.Trim().ToUpper() == "Q")
                     {
                         Console.WriteLine("Returning to the main menu...");
+                        MenuPresentation.PressAnyKey();
                         break;
                     }
 
@@ -325,7 +326,7 @@ public static class CancelPresentation
             // Proceed with cancellation logic
             if (BookFlightLogic.SearchByEmail(email).Count == 0)
             {
-                Console.WriteLine("No booked flights found for this user.");
+                MenuPresentation.PrintColored("\nNo booked flights found for this user.", ConsoleColor.Red);
                 MenuPresentation.PressAnyKey();
                 break;  // Exit the loop if no flights are found
             }
@@ -335,7 +336,7 @@ public static class CancelPresentation
 
             if (bookedFlight == null)
             {
-                Console.WriteLine($"Flight with ID {flightID} not found.");
+                MenuPresentation.PrintColored($"\nFlight with ID {flightID} not found.", ConsoleColor.Red);
                 MenuPresentation.PressAnyKey();
                 continue;  // Continue the loop if the flight is not found
             }
@@ -343,14 +344,14 @@ public static class CancelPresentation
             // Check if the flight is already cancelled
             if (CancelLogic.IsBookedFlightCancelled(bookedFlight))
             {
-                Console.WriteLine($"You have already cancelled the flight with ID {flightID}.");
+                MenuPresentation.PrintColored($"You have already cancelled the flight with ID {flightID}.", ConsoleColor.Yellow);
                 MenuPresentation.PressAnyKey();
                 continue;  // Continue the loop if the flight is already cancelled
             }
 
             CancelLogic.CancelFlight(email, bookedFlight);
 
-            Console.WriteLine($"Flight with ID {flightID} has been cancelled.");
+            MenuPresentation.PrintColored($"\nFlight with ID {flightID} has been cancelled.", ConsoleColor.Green);
             MenuPresentation.PressAnyKey();
             break;  // Exit the loop after successful cancellation
         }

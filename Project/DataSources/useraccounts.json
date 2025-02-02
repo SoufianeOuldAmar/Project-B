@@ -4,7 +4,38 @@
     "fullName": "Nikola Tesla",
     "TotalFlightPoints": 0,
     "fees": 0,
-    "notifications": [],
+    "notifications": [
+      {
+        "Id": 1,
+        "FlightID": 61,
+        "NewStatus": null,
+        "Description": "New Pet Added",
+        "OldDetails": null,
+        "NewDetails": "dog",
+        "IsRead": true,
+        "ActionRequired": false
+      },
+      {
+        "Id": 2,
+        "FlightID": 61,
+        "NewStatus": null,
+        "Description": "New Seat Added",
+        "OldDetails": null,
+        "NewDetails": "30A",
+        "IsRead": true,
+        "ActionRequired": false
+      },
+      {
+        "Id": 3,
+        "FlightID": 61,
+        "NewStatus": null,
+        "Description": "New Baggage Added",
+        "OldDetails": null,
+        "NewDetails": "3",
+        "IsRead": true,
+        "ActionRequired": false
+      }
+    ],
     "id": 1,
     "password": "xyz"
   },
@@ -13,7 +44,68 @@
     "fullName": "Thomas Edison",
     "TotalFlightPoints": 0,
     "fees": 0,
-    "notifications": [],
+    "notifications": [
+      {
+        "Id": 1,
+        "FlightID": 88,
+        "NewStatus": null,
+        "Description": "Flight time changed",
+        "OldDetails": "17:00",
+        "NewDetails": "18:00",
+        "IsRead": true,
+        "ActionRequired": false
+      },
+      {
+        "Id": 1,
+        "FlightID": 88,
+        "NewStatus": null,
+        "Description": "Ticket price changed",
+        "OldDetails": "6",
+        "NewDetails": "300",
+        "IsRead": true,
+        "ActionRequired": false
+      },
+      {
+        "Id": 1,
+        "FlightID": 88,
+        "NewStatus": null,
+        "Description": "Gate changed",
+        "OldDetails": "A8",
+        "NewDetails": "B9",
+        "IsRead": true,
+        "ActionRequired": false
+      },
+      {
+        "Id": 1,
+        "FlightID": 88,
+        "NewStatus": null,
+        "Description": "Flight date changed",
+        "OldDetails": "18-02-2025",
+        "NewDetails": "19-02-2025",
+        "IsRead": true,
+        "ActionRequired": false
+      },
+      {
+        "Id": 1,
+        "FlightID": 88,
+        "NewStatus": null,
+        "Description": "Flight got cancelled. Make sure to book a new flight!",
+        "OldDetails": "",
+        "NewDetails": "",
+        "IsRead": true,
+        "ActionRequired": true
+      },
+      {
+        "Id": 1,
+        "FlightID": 88,
+        "NewStatus": null,
+        "Description": "Ticket price changed",
+        "OldDetails": "300",
+        "NewDetails": "270",
+        "IsRead": true,
+        "ActionRequired": false
+      }
+    ],
     "id": 2,
     "password": "xyz"
   },
@@ -58,7 +150,68 @@
     "fullName": "Iemand Anders",
     "TotalFlightPoints": 0,
     "fees": 0,
-    "notifications": [],
+    "notifications": [
+      {
+        "Id": 1,
+        "FlightID": 88,
+        "NewStatus": null,
+        "Description": "Flight time changed",
+        "OldDetails": "17:00",
+        "NewDetails": "18:00",
+        "IsRead": true,
+        "ActionRequired": false
+      },
+      {
+        "Id": 1,
+        "FlightID": 88,
+        "NewStatus": null,
+        "Description": "Ticket price changed",
+        "OldDetails": "6",
+        "NewDetails": "300",
+        "IsRead": true,
+        "ActionRequired": false
+      },
+      {
+        "Id": 1,
+        "FlightID": 88,
+        "NewStatus": null,
+        "Description": "Gate changed",
+        "OldDetails": "A8",
+        "NewDetails": "B9",
+        "IsRead": true,
+        "ActionRequired": false
+      },
+      {
+        "Id": 1,
+        "FlightID": 88,
+        "NewStatus": null,
+        "Description": "Flight date changed",
+        "OldDetails": "18-02-2025",
+        "NewDetails": "19-02-2025",
+        "IsRead": true,
+        "ActionRequired": false
+      },
+      {
+        "Id": 1,
+        "FlightID": 88,
+        "NewStatus": null,
+        "Description": "Flight got cancelled. Make sure to book a new flight!",
+        "OldDetails": "",
+        "NewDetails": "",
+        "IsRead": true,
+        "ActionRequired": true
+      },
+      {
+        "Id": 1,
+        "FlightID": 88,
+        "NewStatus": null,
+        "Description": "Ticket price changed",
+        "OldDetails": "300",
+        "NewDetails": "270",
+        "IsRead": true,
+        "ActionRequired": false
+      }
+    ],
     "id": 7,
     "password": "password1"
   },

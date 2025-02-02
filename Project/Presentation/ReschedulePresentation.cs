@@ -21,11 +21,11 @@ public static class ReschedulePresentation
             MenuPresentation.PressAnyKey();
             return;
         }
-        
+
 
         if (!int.TryParse(chosenFlightID, out int chosenFlightIDInt))
         {
-            MenuPresentation.PrintColored("Invalid input! Enter an integer!", ConsoleColor.Red);
+            MenuPresentation.PrintColored("\nInvalid input! Enter an integer!", ConsoleColor.Red);
             goto ChooseFlightID;
         }
 
@@ -33,7 +33,7 @@ public static class ReschedulePresentation
 
         if (eligibleFlights.Count == 0)
         {
-            Console.WriteLine("No eligible flights found for rescheduling.");
+            MenuPresentation.PrintColored("\nNo eligible flights found for rescheduling.", ConsoleColor.Red);
             MenuPresentation.PressAnyKey();
             return;
         }
@@ -42,28 +42,47 @@ public static class ReschedulePresentation
 
         Console.Clear();
 
+    ChooseNewFlight:
         foreach (var flight in eligibleFlights)
         {
             SearchFlightPresentation.PrintSearchResult(eligibleFlights);
         }
-
-    ChooseNewFlight:
-        Console.Write("\nEnter the index number of the flight you wish to reschedule to: ");
+        Console.Write("\nEnter the index number of the flight you wish to reschedule to (or enter 'Q' to quit to operation): ");
         string newChosenFlight = Console.ReadLine();
+
+        if (newChosenFlight.ToUpper() == "Q")
+        {
+            MenuPresentation.PrintColored("'\nYou decided to quit the operation", ConsoleColor.Red);
+        }
 
         if (!int.TryParse(newChosenFlight, out int newChosenFlightInt))
         {
-            MenuPresentation.PrintColored("Invalid input! Enter an integer!", ConsoleColor.Red);
+            MenuPresentation.PrintColored("\nInvalid input! Enter an integer!", ConsoleColor.Red);
+            MenuPresentation.PressAnyKey();
+            Console.Clear();
             goto ChooseNewFlight;
         }
 
-        FlightModel newFlight = eligibleFlights[newChosenFlightInt - 1];
+        FlightModel newFlight;
+
+        try
+        {
+            newFlight = eligibleFlights[newChosenFlightInt - 1];
+        }
+        catch (ArgumentOutOfRangeException)
+        {
+            MenuPresentation.PrintColored("\nInvalid flight selection. Please choose a valid flight number.", ConsoleColor.Red);
+            MenuPresentation.PressAnyKey();
+            Console.Clear();
+            goto ChooseNewFlight;
+        }
+
         List<string> occupiedSeats = RescheduleLogic.AreFormerSeatsTaken(newFlight.Id, chosenFlightIDInt);
         var layout = newFlight.Layout;
 
         if (occupiedSeats.Count == 0)
         {
-            MenuPresentation.PrintColored($"Flight has been rescheduled to {newFlight.DepartureDate} {newFlight.FlightTime}.", ConsoleColor.Green);
+            MenuPresentation.PrintColored($"\nFlight has been rescheduled to {newFlight.DepartureDate} {newFlight.FlightTime}.", ConsoleColor.Green);
         }
         else
         {

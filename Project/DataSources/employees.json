@@ -1,26 +1,10 @@
 [
   {
     "Id": 1,
-    "Name": "Ikka",
-    "Age": 20,
-    "Accepted": "good job you\u0027re hired",
-    "CvFileName": "galgje python code.txt",
-    "RegistrationID": 45284
-  },
-  {
-    "Id": 2,
-    "Name": "Soufiane Ouldamar",
-    "Age": 22,
-    "Accepted": "Not reviewed yet",
-    "CvFileName": "CV.txt",
-    "RegistrationID": 29230
-  },
-  {
-    "Id": 3,
-    "Name": "SOufiane",
-    "Age": 22,
-    "Accepted": "Not reviewed yet",
-    "CvFileName": "Individual contribution Shukri Shuuriye(1060594) Final.docx",
-    "RegistrationID": 50574
+    "Name": "Soufiane",
+    "Age": 21,
+    "Accepted": "Good job you\u0027re hired",
+    "CvFileName": "cheat sheet oodp.docx",
+    "RegistrationID": 19656
   }
 ]

@@ -55,7 +55,7 @@ public class FoodAndDrinkPresentation
         }
         else
         {
-            Console.WriteLine("No food or drinks added to your booking.");
+            MenuPresentation.PrintColored("No food or drinks added to your booking.", ConsoleColor.Yellow);
         }
 
         FinancialReportLogic.GenerateFinancialReportForFoodAndDrinks();
@@ -78,20 +78,29 @@ public class FoodAndDrinkPresentation
         }
 
         Console.WriteLine($"\nTotal cost: €{totalCost:F2}");
-        Console.Write("\nAre you sure you want to confirm this order? This cannot be canceled. (yes/no): ");
 
-        string confirmation = Console.ReadLine()?.ToLower();
-        if (confirmation == "yes")
+        while (true)
         {
-            flightModel.TicketPrice += totalCost;
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"\nOrder confirmed! Your flight total is now €{flightModel.TicketPrice:F2}.");
-            Console.ResetColor();
-        }
-        else
-        {
-            Console.WriteLine("\nOrder canceled. No changes made to your booking.");
-            totalCost = 0; // Reset cost if order is canceled
+            Console.Write("\nAre you sure you want to confirm this order? This cannot be canceled. (yes/no): ");
+            string confirmation = Console.ReadLine()?.ToLower();
+            if (confirmation == "yes")
+            {
+                flightModel.TicketPrice += totalCost;
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"\nOrder confirmed! Your flight total is now €{flightModel.TicketPrice:F2}.");
+                Console.ResetColor();
+                break;
+            }
+            else if (confirmation == "no")
+            {
+                MenuPresentation.PrintColored("\nOrder canceled. No changes made to your booking.", ConsoleColor.Yellow);
+                totalCost = 0; // Reset cost if order is canceled
+                break;
+            }
+            else
+            {
+                MenuPresentation.PrintColored("\nInvalid input. Enter either 'yes or 'no'.", ConsoleColor.Red);
+            }
         }
 
         return totalCost;
@@ -146,11 +155,17 @@ public class FoodAndDrinkPresentation
             if (FoodAndDrinkLogic.IsValidIndex(choice).Item1)
             {
                 int index = FoodAndDrinkLogic.IsValidIndex(choice).Item2;
-                additionalCost = FoodAndDrinkLogic.CalculateCost(index).Item1;
+
+                // Call CalculateCost only once
+                var costResult = FoodAndDrinkLogic.CalculateCost(index);
+                additionalCost = costResult.Item1;
+                string addedItemName = costResult.Item2;
+
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"Added {FoodAndDrinkLogic.CalculateCost(index).Item2} to your booking.");
+                Console.WriteLine($"Added {addedItemName} to your booking.");
                 Console.ResetColor();
             }
+
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -176,7 +191,7 @@ public class FoodAndDrinkPresentation
         }
         else
         {
-            Console.WriteLine("\nNo additional food and drinks were added.");
+            MenuPresentation.PrintColored("\nNo additional food and drinks were added.", ConsoleColor.Yellow);
         }
     }
 }

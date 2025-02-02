@@ -276,7 +276,7 @@ public static class BookFlightPresentation
 
                     if (!LayoutLogic.TryBookSeat(selectedFlight.Layout, seat))
                     {
-                        Console.WriteLine("This seat is already booked or invalid. Please choose another seat.");
+                        MenuPresentation.PrintColored("\nThis seat is already booked or invalid. Please choose another seat.", ConsoleColor.Red);
                         continue;
                     }
 
@@ -374,7 +374,8 @@ public static class BookFlightPresentation
 
                         BookFlightLogic.foodAndDrinkCosts.Add(foodCost); // Voeg toe aan lijst met food and drink kosten
                         totalPrice += foodCost;
-                        Console.WriteLine($"Food and drinks have been added. Updated total price: €{totalPrice:F2}");
+
+                        if (BookFlightLogic.selectedItems.Count > 0) Console.WriteLine($"Food and drinks have been added. Updated total price: €{totalPrice:F2}");
                     }
                     else
                     {
@@ -386,30 +387,6 @@ public static class BookFlightPresentation
                     string initials = GenerateInitials(passenger);
                     LayoutLogic.BookFlight(selectedFlight.Layout, seat, initials);
                     ProcessPassengerDetails(passenger, seat, ref totalPrice, selectedFlight.TicketPrice, initials, selectedFlight);
-
-
-                    // int paymentID = FinancialReportLogic.GetPaymentID();
-
-                    // // Add the ticket payment
-                    // Payment ticketPayment = new Payment(paymentID, "Ticket", selectedFlight.TicketPrice, DateTime.Now);
-                    // BookFlightLogic.allPayments.Add(ticketPayment);
-
-                    // // Add the baggage payments
-                    // foreach (var baggage in BookFlightLogic.baggageInfo)
-                    // {
-                    //     Payment baggagePayment = new Payment(paymentID + BookFlightLogic.allPayments.Count + 1, "Baggage", baggage.Fee, DateTime.Now);
-                    //     BookFlightLogic.allPayments.Add(baggagePayment);
-                    //     LayoutLogic.BookFlight(selectedFlight.Layout, seat, initials);
-                    // }
-
-                    // // Add the pet payments
-                    // foreach (var pet in BookFlightLogic.petInfo)
-                    // {
-                    //     Payment petPayment = new Payment(paymentID + BookFlightLogic.allPayments.Count + 1, "Pet", pet.Fee, DateTime.Now);
-                    //     BookFlightLogic.allPayments.Add(petPayment);
-                    // }
-
-                    // DataAccessClass.SavePayments(BookFlightLogic.allPayments);
 
                     FinancialReportLogic.SavePayments(selectedFlight, seat, initials);
 
@@ -522,29 +499,38 @@ public static class BookFlightPresentation
             }
             else if (discountYesOrNo == "no")
             {
-                Console.WriteLine("You chose not to use flight points.");
+                MenuPresentation.PrintColored("You chose not to use flight points.", ConsoleColor.Yellow);
                 break;
             }
             else
             {
-                Console.WriteLine("Invalid choice. Please answer with 'yes' or 'no'.");
+                MenuPresentation.PrintColored("\nInvalid input. Please answer with 'yes' or 'no'.", ConsoleColor.Red);
             }
         }
 
-        Console.Write("\nConfirm booking? (yes/no): ");
-        string finalConfirmation = Console.ReadLine().ToLower();
-
-
-        if (finalConfirmation == "yes")
+        while (true)
         {
-            BookFlightLogic.SaveBooking(selectedFlight, discountToApply, totalPrice);
+            Console.Write("\nConfirm booking? (yes/no): ");
+            string finalConfirmation = Console.ReadLine().ToLower();
 
-            Console.WriteLine("\nBooking confirmed successfully!");
-            Console.WriteLine("All passenger information has been saved.");
+            if (finalConfirmation == "yes")
+            {
+                BookFlightLogic.SaveBooking(selectedFlight, discountToApply, totalPrice);
+
+                MenuPresentation.PrintColored("\nBooking confirmed successfully!", ConsoleColor.Green);
+                MenuPresentation.PrintColored("All passenger information has been saved.", ConsoleColor.Yellow);
+                break;
+            }
+            else if (finalConfirmation == "no")
+            {
+                MenuPresentation.PrintColored("\nBooking cancelled.", ConsoleColor.Red);
+                break;
+            }
+            else
+            {
+                MenuPresentation.PrintColored("\nInvalid input. Enter either 'yes or 'no'.'", ConsoleColor.Red);
+            }
         }
-        else
-        {
-            Console.WriteLine("\nBooking cancelled.");
-        }
+
     }
 }

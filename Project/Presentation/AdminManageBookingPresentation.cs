@@ -604,7 +604,6 @@ namespace DataAccess
                     AdminManageBookingLogic.SaveBookingData(email, bookings);
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Saving...");
-                    MenuPresentation.PressAnyKey();
                     Console.ResetColor();
                     break;
                 }

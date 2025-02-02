@@ -279,10 +279,5 @@ namespace PresentationLayer
         {
             Console.WriteLine($"Seat {seat} is not available.");
         }
-
-        public static void PrintBookingConfirmed()
-        {
-            Console.WriteLine("Seats have been successfully booked.");
-        }
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading;
 
 public static class NotificationLogic
 {
@@ -100,7 +101,7 @@ public static class NotificationLogic
 
     // TODO: Verander ticketprice, gate en newtime, met olddetails en iscancelled is voor de andere constructor
 
-    public static void NotifyFlightModification(int flightID, List<double> ticketPriceChange, List<string> gateChange, bool isCancelled, List<string> newTimeChange)
+    public static void NotifyFlightModification(int flightID, List<double> ticketPriceChange, List<string> gateChange, bool isCancelled, List<string> newTimeChange, List<string> dateChange)
     {
         var newNotifications = new List<Notification>();
         var allBookedFlights = BookedFlightsAccess.LoadAll();
@@ -138,6 +139,12 @@ public static class NotificationLogic
             newNotifications.Add(notification);
         }
 
+        if (dateChange.Count > 1)
+        {
+            Notification notification = new Notification(1, flightID, "Flight date changed", dateChange[0].ToString(), dateChange[1].ToString());
+            newNotifications.Add(notification);
+        }
+
         foreach (string email in allEmails)
         {
             foreach (var kvp in allBookedFlights)
@@ -150,6 +157,7 @@ public static class NotificationLogic
                         {
                             var account = UserAccountLogic.GetByEmail(email);
                             account.Notifications.AddRange(newNotifications);
+
                             DataAccessClass.UpdateCurrentAccount(account);
                         }
                     }

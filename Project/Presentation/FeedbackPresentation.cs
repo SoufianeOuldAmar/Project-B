@@ -30,7 +30,6 @@ public static class FeedbackPresentation
             }
             else if (choice == "3")
             {
-                MenuPresentation.PressAnyKey();
                 isValidChoice = true;
             }
             else
@@ -52,7 +51,7 @@ public static class FeedbackPresentation
         try
         {
             FeedbackLogic.SubmitFeedback(userAccountModel.EmailAddress, content);
-            Console.WriteLine("Thank you for your feedback! Your feedback has been submitted successfully.");
+            MenuPresentation.PrintColored("\nThank you for your feedback! Your feedback has been submitted successfully.", ConsoleColor.Green);
         }
         catch (ArgumentException ex)
         {
@@ -142,25 +141,25 @@ public static class FeedbackPresentation
                 {
                     case "1":
                         FeedbackLogic.CloseFeedback(id);
-                        Console.WriteLine("Feedback marked as closed.");
+                        MenuPresentation.PrintColored("Feedback marked as closed.", ConsoleColor.Yellow);
                         break;
 
                     case "2":
                         FeedbackLogic.DeleteFeedback(id);
-                        Console.WriteLine("Feedback deleted successfully.");
+                        MenuPresentation.PrintColored("Feedback deleted successfully.", ConsoleColor.Green);
                         break;
 
                     default:
-                        Console.WriteLine("Invalid action. Returning to the feedback menu.");
+                        MenuPresentation.PrintColored("Invalid action. Returning to the feedback menu.", ConsoleColor.Red);
                         break;
                 }
             }
             else
             {
-                Console.WriteLine("Invalid ID. Returning to the feedback menu.");
+                MenuPresentation.PrintColored("Invalid ID. Returning to the feedback menu.", ConsoleColor.Red);
             }
         }
 
-        // MenuPresentation.PressAnyKey();
+        MenuPresentation.PressAnyKey();
     }
 }

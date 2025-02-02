@@ -202,6 +202,8 @@ namespace DataAccess
             List<double> ticketPriceChange = new List<double> { flight.TicketPrice };
             List<string> gateChange = new List<string> { flight.Gate };
             List<string> newTimeChange = new List<string> { flight.FlightTime };
+            List<string> dateChange = new List<string> { flight.DepartureDate };
+
 
 
             double ticketPrice = 0;
@@ -281,6 +283,7 @@ namespace DataAccess
                     if (AdminFlightManagerLogic.Date(input) == true)
                     {
                         flight.DepartureDate = input;
+                        dateChange.Add(flight.DepartureDate);
                         break;
                     }
                     else
@@ -306,6 +309,7 @@ namespace DataAccess
                 if (AdminAddFlightsLogic.GetFlightTime(newFlightTime).Item1)
                 {
                     flight.FlightTime = AdminAddFlightsLogic.GetFlightTime(newFlightTime).Item2;
+                    newTimeChange.Add(flight.FlightTime);
                     break;
                 }
 
@@ -315,10 +319,10 @@ namespace DataAccess
                 }
 
             }
-            SaveChanges(flight, ticketPriceChange, gateChange, newIsCancelled, newTimeChange);
+            SaveChanges(flight, ticketPriceChange, gateChange, newIsCancelled, newTimeChange, dateChange);
         }
 
-        public static void SaveChanges(FlightModel flight, List<double> ticketPriceChange, List<string> gateChange, bool isCancelled, List<string> newTimeChange)
+        public static void SaveChanges(FlightModel flight, List<double> ticketPriceChange, List<string> gateChange, bool isCancelled, List<string> newTimeChange, List<string> dateChange)
         {
             while (true)
             {
@@ -329,7 +333,7 @@ namespace DataAccess
                     AdminFlightManagerLogic.SaveChangesLogic(flight);
                     Console.WriteLine();
                     Console.ForegroundColor = ConsoleColor.Red;
-                    NotificationLogic.NotifyFlightModification(flight.Id, ticketPriceChange, gateChange, isCancelled, newTimeChange);
+                    NotificationLogic.NotifyFlightModification(flight.Id, ticketPriceChange, gateChange, isCancelled, newTimeChange, dateChange);
                     MenuPresentation.PrintColored("Flight details updated and saved.", ConsoleColor.Green);
                     MenuPresentation.PressAnyKey();
                     break;

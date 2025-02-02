@@ -55,7 +55,7 @@ public static class FlightPointPresentation
             }
             else
             {
-                Console.WriteLine("You have no earned flight points yet.\n");
+                Console.WriteLine("You have no earned flight points yet. You get your flight points when the plane take off.\n");
             }
         }
         else

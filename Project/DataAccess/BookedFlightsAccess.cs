@@ -31,7 +31,7 @@ public static class BookedFlightsAccess
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error loading booked flights: {ex.Message}");
+            throw new($"Error loading booked flights: {ex.Message}");
             return new Dictionary<string, List<BookedFlightsModel>>();
         }
     }

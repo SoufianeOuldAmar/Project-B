@@ -25,7 +25,8 @@ public static class AdminManageEmployeesLogic
     }
 
     public static EmployeesModel GetEmployeeByID(int employeeId)
-    {
+    {   
+        var AllEmployees = DataAccessClass.ReadList<EmployeesModel>("DataSources/employees.json");
         return AllEmployees.FirstOrDefault(f => f.Id == employeeId);
     }
 }

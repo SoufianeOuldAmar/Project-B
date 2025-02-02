@@ -8,7 +8,7 @@
       "Pets": [],
       "BaggageInfo": [],
       "IsCancelled": false,
-      "TicketBill": 379,
+      "TicketBill": 393.5,
       "FlightPoints": {
         "ticketsBought": "01-02-2025",
         "points": 0,
@@ -19,31 +19,37 @@
         "11A": "SO"
       },
       "Email": "n@b.c",
-      "FoodAndDrinkItems": [],
+      "FoodAndDrinkItems": [
+        {
+          "Name": "Sandwich Healthy",
+          "Price": 7.5
+        },
+        {
+          "Name": "Sandwich Healthy",
+          "Price": 7.5
+        },
+        {
+          "Name": "Rice With Chicken",
+          "Price": 14.5
+        },
+        {
+          "Name": "Rice With Chicken",
+          "Price": 14.5
+        }
+      ],
       "DateTicketsBought": "01-02-2025"
     },
     {
       "FlightID": 58,
       "BookedSeats": [
-        "11A"
+        "11A",
+        "11B",
+        "11C"
       ],
-      "Pets": [
-        {
-          "AnimalType": "dog",
-          "PetName": "Pikkebaas",
-          "Fee": 50
-        }
-      ],
-      "BaggageInfo": [
-        {
-          "Initials": "SO",
-          "BaggageType": "3",
-          "BaggageWeight": 20,
-          "Fee": 20
-        }
-      ],
-      "IsCancelled": false,
-      "TicketBill": 330,
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": true,
+      "TicketBill": 267.5,
       "FlightPoints": {
         "ticketsBought": "02-02-2025",
         "points": 0,
@@ -51,10 +57,19 @@
         "earned": false
       },
       "SeatInitials": {
-        "11A": "SO"
+        "11C": "SO"
       },
       "Email": "n@b.c",
-      "FoodAndDrinkItems": [],
+      "FoodAndDrinkItems": [
+        {
+          "Name": "Sandwich Healthy",
+          "Price": 7.5
+        },
+        {
+          "Name": "Sandwich Healthy",
+          "Price": 7.5
+        }
+      ],
       "DateTicketsBought": "02-02-2025"
     },
     {
@@ -78,7 +93,7 @@
         }
       ],
       "IsCancelled": false,
-      "TicketBill": 499,
+      "TicketBill": 506.5,
       "FlightPoints": {
         "ticketsBought": "02-02-2025",
         "points": 0,
@@ -93,6 +108,10 @@
         {
           "Name": "Rice With Chicken",
           "Price": 14.5
+        },
+        {
+          "Name": "Sandwich Healthy",
+          "Price": 7.5
         }
       ],
       "DateTicketsBought": "02-02-2025"
@@ -100,12 +119,18 @@
     {
       "FlightID": 47,
       "BookedSeats": [
-        "11A"
+        "11A",
+        "30A"
       ],
       "Pets": [
         {
           "AnimalType": "bunny",
           "PetName": "pikkeaas",
+          "Fee": 50
+        },
+        {
+          "AnimalType": "dog",
+          "PetName": "pik",
           "Fee": 50
         }
       ],
@@ -115,6 +140,12 @@
           "BaggageType": "3",
           "BaggageWeight": 50,
           "Fee": 20
+        },
+        {
+          "Initials": "SO",
+          "BaggageType": "3",
+          "BaggageWeight": 20,
+          "Fee": 0
         }
       ],
       "IsCancelled": true,
@@ -147,6 +178,56 @@
           "Price": 2.1
         }
       ],
+      "DateTicketsBought": "02-02-2025"
+    }
+  ],
+  "t@b.c": [
+    {
+      "FlightID": 88,
+      "BookedSeats": [
+        "11A"
+      ],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 250,
+      "FlightPoints": {
+        "ticketsBought": "02-02-2025",
+        "points": 0,
+        "flightId": 88,
+        "earned": false
+      },
+      "SeatInitials": {
+        "11A": "TE"
+      },
+      "Email": "t@b.c",
+      "FoodAndDrinkItems": [],
+      "DateTicketsBought": "02-02-2025"
+    }
+  ],
+  "niemand@": [
+    {
+      "FlightID": 88,
+      "BookedSeats": [
+        "11A",
+        "11B"
+      ],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 250,
+      "FlightPoints": {
+        "ticketsBought": "02-02-2025",
+        "points": 0,
+        "flightId": 88,
+        "earned": false
+      },
+      "SeatInitials": {
+        "11A": "TE",
+        "11B": "IA"
+      },
+      "Email": "niemand@",
+      "FoodAndDrinkItems": [],
       "DateTicketsBought": "02-02-2025"
     }
   ]

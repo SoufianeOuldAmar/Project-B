@@ -10,7 +10,7 @@ public static class LayoutLogic
             layout.AvailableSeats.Remove(seat);
             layout.ChosenSeats.Add(seat);
             layout.SeatInitials[seat] = initials;
-            LayoutPresentation.PrintBookingSuccess(seat, initials);
+            // LayoutPresentation.PrintBookingSuccess(seat, initials);
         }
         else if (layout.BookedSeats.Contains(seat))
         {
@@ -34,7 +34,7 @@ public static class LayoutLogic
             }
         }
         layout.ChosenSeats.Clear();
-        LayoutPresentation.PrintBookingConfirmed();
+
     }
 
     public static void ArrangeNewSeat(LayoutModel layout, string seat, FlightModel flight)

@@ -37,7 +37,9 @@ public static class BookFlightLogic
 
     public static List<BookedFlightsModel> SearchByEmail(string email)
     {
-        // Check if the email exists and return the list of booked flights for that email
+        // Get a fresh list of BookedFlightModels to ensure data is constantly updated
+        var allBookedFlights = BookedFlightsAccess.LoadAll();
+
         if (allBookedFlights.ContainsKey(email))
         {
             return allBookedFlights[email];
