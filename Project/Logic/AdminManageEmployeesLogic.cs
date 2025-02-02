@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 public static class AdminManageEmployeesLogic
 {
-    public static List<EmployeesModel> AllEmployees = DataAccessClass.ReadList<EmployeesModel>("DataSources/Emplyoees.json");
+    public static List<EmployeesModel> AllEmployees = DataAccessClass.ReadList<EmployeesModel>("DataSources/employees.json");
 
     public static bool CheckForEmployees()
     {
