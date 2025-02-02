@@ -2280,7 +2280,7 @@
     "AvailableSeats": 173,
     "FlightPoints": 25,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -3060,7 +3060,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 14,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -3450,7 +3450,7 @@
     "AvailableSeats": 179,
     "FlightPoints": 19,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -9630,7 +9630,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 21,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -11403,7 +11403,7 @@
     "AvailableSeats": 179,
     "FlightPoints": 33,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -13744,7 +13744,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 30,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -14734,7 +14734,7 @@
     "AvailableSeats": 178,
     "FlightPoints": 41,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -15124,7 +15124,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 30,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -15514,7 +15514,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 20,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -15904,7 +15904,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 21,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -16295,7 +16295,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 28,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -17075,7 +17075,7 @@
     "AvailableSeats": 0,
     "FlightPoints": 15,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": {
       "Id": 0,
       "Airline": "BOSST AIRLINES",
@@ -18246,7 +18246,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 25,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -19416,7 +19416,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 15,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -19806,7 +19806,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 39,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -22536,7 +22536,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 25,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -24876,7 +24876,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 45,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -26436,7 +26436,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 35,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -27216,7 +27216,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 35,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -30726,7 +30726,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 19,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -31116,7 +31116,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 35,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -31896,7 +31896,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 15,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -32286,7 +32286,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 25,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -33066,7 +33066,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 45,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -36186,7 +36186,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 15,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
