@@ -13,4 +13,9 @@ public static class CancelLogic
     {
         return allBookedFlights.TryGetValue(email, out var bookedFlights);
     }
+
+    public static bool IsBookedFlightCancelled(BookedFlightsModel bookedFlight)
+    {
+        return bookedFlight.IsCancelled;
+    }
 }

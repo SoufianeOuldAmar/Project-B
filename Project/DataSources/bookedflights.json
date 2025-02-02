@@ -113,11 +113,11 @@
         {
           "Initials": "SO",
           "BaggageType": "3",
-          "BaggageWeight": 40,
+          "BaggageWeight": 50,
           "Fee": 20
         }
       ],
-      "IsCancelled": false,
+      "IsCancelled": true,
       "TicketBill": 385.1,
       "FlightPoints": {
         "ticketsBought": "02-02-2025",

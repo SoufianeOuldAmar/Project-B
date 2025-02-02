@@ -5,9 +5,9 @@ public class TestAccountLogic
 {
     [TestMethod]
     public void TestLogin()
-    {   
-        var existingAccount = AccountsLogic.CheckLogin("n@b.c", "xyz");
-        var nonExistentAccount = AccountsLogic.CheckLogin("iemand@outlook.com", "password");
+    {
+        var existingAccount = UserAccountLogic.CheckLogin("n@b.c", "xyz");
+        var nonExistentAccount = UserAccountLogic.CheckLogin("iemand@outlook.com", "password");
 
         Assert.IsNotNull(existingAccount, "Account should not be null");
         Assert.IsNull(nonExistentAccount, "Account should be null");
@@ -15,39 +15,39 @@ public class TestAccountLogic
 
     [TestMethod]
     public void TestCreateAccount()
-    {   
+    {
 
         // Expected result for a successful account creation
-        List<AccountsLogic.CreateAccountStatus> statusListEmpty = new List<AccountsLogic.CreateAccountStatus>();
-        var successfulAccount = AccountsLogic.CheckCreateAccount("Soufiane Ould Amar", "soufiane_ouldamar@outlook.com", "password");
+        List<UserAccountLogic.CreateAccountStatus> statusListEmpty = new List<UserAccountLogic.CreateAccountStatus>();
+        var successfulAccount = UserAccountLogic.CheckCreateAccount("Soufiane Ould Amar", "soufiane_ouldamar@outlook.com", "password");
 
         // Expected result for an unsuccessful account creation due to incorrect full name
-        List<AccountsLogic.CreateAccountStatus> statusListFullNameWrong = new List<AccountsLogic.CreateAccountStatus>
+        List<UserAccountLogic.CreateAccountStatus> statusListFullNameWrong = new List<UserAccountLogic.CreateAccountStatus>
         {
-            AccountsLogic.CreateAccountStatus.IncorrectFullName
+            UserAccountLogic.CreateAccountStatus.IncorrectFullName
         };
-        var unsuccessfulFullNameAccount = AccountsLogic.CheckCreateAccount("123", "iemand_anders@outlook.com", "password");
+        var unsuccessfulFullNameAccount = UserAccountLogic.CheckCreateAccount("123", "iemand_anders@outlook.com", "password");
 
         // Expected result for an unsuccessful account creation due to incorrect email
-        List<AccountsLogic.CreateAccountStatus> statusListEmailWrong = new List<AccountsLogic.CreateAccountStatus>
+        List<UserAccountLogic.CreateAccountStatus> statusListEmailWrong = new List<UserAccountLogic.CreateAccountStatus>
         {
-            AccountsLogic.CreateAccountStatus.IncorrectEmail
+            UserAccountLogic.CreateAccountStatus.IncorrectEmail
         };
-        var unsuccessfulEmailAccount = AccountsLogic.CheckCreateAccount("Iemand", "iemand", "password");
+        var unsuccessfulEmailAccount = UserAccountLogic.CheckCreateAccount("Iemand", "iemand", "password");
 
         // Expected result for an unsuccessful account creation due to incorrect password
-        List<AccountsLogic.CreateAccountStatus> statusListPasswordWrong = new List<AccountsLogic.CreateAccountStatus>
+        List<UserAccountLogic.CreateAccountStatus> statusListPasswordWrong = new List<UserAccountLogic.CreateAccountStatus>
         {
-            AccountsLogic.CreateAccountStatus.IncorrectPassword
+            UserAccountLogic.CreateAccountStatus.IncorrectPassword
         };
-        var unsuccessfulPasswordAccount = AccountsLogic.CheckCreateAccount("Iemand", "iemand@outlook.com", "pass");
+        var unsuccessfulPasswordAccount = UserAccountLogic.CheckCreateAccount("Iemand", "iemand@outlook.com", "pass");
 
         // Expected result for an unsuccessful account creation due to email already existing.
-        List<AccountsLogic.CreateAccountStatus> statusListEmailExists = new List<AccountsLogic.CreateAccountStatus>
+        List<UserAccountLogic.CreateAccountStatus> statusListEmailExists = new List<UserAccountLogic.CreateAccountStatus>
         {
-            AccountsLogic.CreateAccountStatus.EmailExists
+            UserAccountLogic.CreateAccountStatus.EmailExists
         };
-        var unsuccessfulEmailExistsAccount = AccountsLogic.CheckCreateAccount("Iemand", "n@b.c", "password");
+        var unsuccessfulEmailExistsAccount = UserAccountLogic.CheckCreateAccount("Iemand", "n@b.c", "password");
 
         // Use CollectionAssert to compare the contents of the lists
         CollectionAssert.AreEqual(statusListEmpty, successfulAccount, "statusListEmpty should be empty.");
@@ -58,5 +58,5 @@ public class TestAccountLogic
 
     }
 
-    
+
 }

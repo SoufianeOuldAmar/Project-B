@@ -16,9 +16,9 @@ namespace Testing
 
                 List<string> seatArrangement = new List<string> { "01A", "01B", "02A", "02B", "03A", "03B" };
                 return new LayoutModel(
-                    rows: 3,                   
-                    columns: 2,                
-                    seatArrangement: seatArrangement,  
+                    rows: 3,
+                    columns: 2,
+                    seatArrangement: seatArrangement,
                     isAirbusA330: false,
                     isBoeing787: false
                 );
@@ -28,19 +28,19 @@ namespace Testing
             public static FlightModel GetMockFlight(int id, bool isCancelled = false)
             {
                 return new FlightModel(
-                    layout: GetMockLayout(), 
-                    ticketPrice: 200.0,      
-                    gate: "Gate A1",          
-                    departureAirport: "JFK",    
-                    arrivalDestination: "LAX", 
-                    isCancelled: isCancelled,   
-                    departureDate: "2025-01-15", 
-                    flightTime: "12:00",       
-                    availableSeats: 100,      
-                    timeOfDay: "Morning"       
+                    layout: GetMockLayout(),
+                    ticketPrice: 200.0,
+                    gate: "Gate A1",
+                    departureAirport: "JFK",
+                    arrivalDestination: "LAX",
+                    isCancelled: isCancelled,
+                    departureDate: "2025-01-15",
+                    flightTime: "12:00",
+                    availableSeats: 100,
+                    timeOfDay: "Morning"
                 )
                 {
-                    Id = id  
+                    Id = id
                 };
             }
 
@@ -58,7 +58,7 @@ namespace Testing
                 return new Dictionary<string, List<BookedFlightsModel>>
                 {
                     {
-                        "n@b.c", 
+                        "n@b.c",
                         new List<BookedFlightsModel>
                         {
                             new BookedFlightsModel { FlightID = 1, IsCancelled = false }, // not cancelled flight 
@@ -69,20 +69,18 @@ namespace Testing
             }
         }
 
- 
+
         [TestMethod]
         public void TestCancelFlights()
         {
 
-            BookFlightPresentation.allBookedFlights = MockFlightData.GetMockBookedFlights();
-            BookFlightPresentation.allFlights = MockFlightData.GetMockFlights();
+            BookFlightLogic.allBookedFlights = MockFlightData.GetMockBookedFlights();
 
-            string result = CancelLogic.CancelFlights("n@b.c", 1); 
+            var flightToCancel = BookFlightLogic.SearchBookedFlightByFlightID(1, "n@b.c");
 
-            Assert.AreEqual("Flight is cancelled", result);
+            CancelLogic.CancelFlight("n@b.c", flightToCancel);
 
-            // Check if the flight cancellation status is updated
-            Assert.IsTrue(BookFlightPresentation.allBookedFlights["n@b.c"][0].IsCancelled);
+            Assert.IsTrue(flightToCancel.IsCancelled);
         }
 
 
@@ -90,18 +88,13 @@ namespace Testing
         public void TestCancelFlights_AlreadyCancelled()
         {
 
-            BookFlightPresentation.allBookedFlights = MockFlightData.GetMockBookedFlights();
-            BookFlightPresentation.allFlights = MockFlightData.GetMockFlights();
+            BookFlightLogic.allBookedFlights = MockFlightData.GetMockBookedFlights();
 
-            string result = CancelLogic.CancelFlights("n@b.c", 2); 
+            var bookedFlight = BookFlightLogic.SearchBookedFlightByFlightID(2, "n@b.c");
 
-            // Check if the correct error message is given
-            Assert.AreEqual("You have already cancelled the flight", result);
+            CancelLogic.CancelFlight("n@b.c", bookedFlight);
+
+            Assert.IsTrue(CancelLogic.IsBookedFlightCancelled(bookedFlight));
         }
     }
 }
-
-
-
-
-

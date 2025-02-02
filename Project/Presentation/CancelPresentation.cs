@@ -341,14 +341,14 @@ public static class CancelPresentation
             }
 
             // Check if the flight is already cancelled
-            if (bookedFlight.IsCancelled)
+            if (CancelLogic.IsBookedFlightCancelled(bookedFlight))
             {
                 Console.WriteLine($"You have already cancelled the flight with ID {flightID}.");
                 MenuPresentation.PressAnyKey();
                 continue;  // Continue the loop if the flight is already cancelled
             }
 
-
+            CancelLogic.CancelFlight(email, bookedFlight);
 
             Console.WriteLine($"Flight with ID {flightID} has been cancelled.");
             MenuPresentation.PressAnyKey();
