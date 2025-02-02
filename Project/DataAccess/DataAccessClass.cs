@@ -89,4 +89,19 @@ public static class DataAccessClass
         File.WriteAllText(_path, jsonData);
     }
 
+    public static void DeleteBookedFlights(string path)
+    {
+        try
+        {
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+        }
+        catch (Exception ex)
+        {
+            throw new Exception($"Error deleting bookedflights.json: {ex.Message}");
+        }
+    }
+
 }

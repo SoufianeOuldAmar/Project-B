@@ -99,32 +99,33 @@ public static class LayoutLogic
 
         foreach (var flight in allFlights)
         {
+            // Move all booked seats back to available seats
             foreach (var seat in flight.Layout.BookedSeats.ToList())
             {
                 flight.Layout.BookedSeats.Remove(seat);
                 flight.Layout.AvailableSeats.Add(seat);
             }
+
+            // Clear seat initials
             flight.Layout.SeatInitials.Clear();
+
+            flight.Layout.AvailableSeats = flight.Layout.AvailableSeats
+                .OrderBy(seat => int.Parse(seat.Substring(0, seat.Length - 1))) // Extract number part
+                .ThenBy(seat => seat.Last()) // Extract letter part
+                .ToList();
         }
 
-        try
-        {
-            if (File.Exists(filePath))
-            {
-                File.Delete(filePath);
-            }
-        }
-        catch (Exception ex)
-        {
-            throw new Exception($"Error resetting seats: {ex.Message}");
-        }
+
+        DataAccessClass.DeleteBookedFlights(System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/bookedflights.json")));
+        DataAccessClass.DeleteBookedFlights(System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/passengers.json")));
+        DataAccessClass.DeleteBookedFlights(System.IO.Path.GetFullPath(System.IO.Path.Combine(Environment.CurrentDirectory, @"DataSources/financialreports.json.json")));
 
         var allAccounts = DataAccessClass.ReadList<UserAccountModel>("DataSources/useraccounts.json");
         foreach (var account in allAccounts)
         {
             account.TotalFlightPoints = 0;
             account.Fee = 0;
-
+            account.Notifications.Clear();
         }
 
         DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", allFlights);
