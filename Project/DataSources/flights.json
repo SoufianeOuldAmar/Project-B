@@ -25655,7 +25655,7 @@
     "FlightTime": "09:30",
     "AvailableSeats": 180,
     "FlightPoints": 26,
-    "TotalPets": 1,
+    "TotalPets": 2,
     "HasTakenOff": false,
     "ReturnFlight": null
   },
@@ -29946,7 +29946,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 30,
     "TotalPets": 0,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {

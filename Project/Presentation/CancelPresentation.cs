@@ -185,10 +185,7 @@ public static class CancelPresentation
                 continue;
             }
 
-            string returnFlightAvailable = neededFlight.ReturnFlight != null ? "Yes" : "No";
-            double totalPetFee = bookedFlight.Pets?.Sum(pet => pet.Fee) ?? 0;
-            double totalBaggageFee = bookedFlight.BaggageInfo?.Sum(bag => bag.Fee) ?? 0;
-            double totalTicketPrice = neededFlight.TicketPrice + totalPetFee + totalBaggageFee;
+            double totalTicketPrice = CancelLogic.CalculateTotalCost(bookedFlight, neededFlight);
 
             Console.Write("| ");
             Console.ForegroundColor = ConsoleColor.Blue; // Color for Flight ID

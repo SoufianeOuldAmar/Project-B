@@ -5,25 +5,6 @@ namespace PresentationLayer
 {
     public static class LayoutPresentation
     {
-        private static bool IsCurrentUsersSeat(string seat, List<BookedFlightsModel> currentUserBookings, int flightId)
-        {
-            var relevantBooking = currentUserBookings.FirstOrDefault(b => b.FlightID == flightId);
-            if (relevantBooking != null && relevantBooking.SeatInitials != null)
-            {
-                return relevantBooking.SeatInitials.ContainsKey(seat);
-            }
-            return false;
-        }
-
-        private static string GetDisplayText(string seat, List<BookedFlightsModel> currentUserBookings, int flightId)
-        {
-            var booking = currentUserBookings.FirstOrDefault(b => b.FlightID == flightId);
-            if (booking != null && booking.SeatInitials.ContainsKey(seat))
-            {
-                return booking.SeatInitials[seat];
-            }
-            return seat;
-        }
 
         public static void PrintLayout(LayoutModel layout)
         {
@@ -67,8 +48,8 @@ namespace PresentationLayer
                     if (layout.BookedSeats.Contains(seat))
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        bool isCurrentUsersSeat = IsCurrentUsersSeat(seat, currentUserBookings, currentFlightId);
-                        string display = isCurrentUsersSeat ? GetDisplayText(seat, currentUserBookings, currentFlightId) : seat;
+                        bool isCurrentUsersSeat = LayoutLogic.IsCurrentUsersSeat(seat, currentUserBookings, currentFlightId);
+                        string display = isCurrentUsersSeat ? LayoutLogic.GetDisplayText(seat, currentUserBookings, currentFlightId) : seat;
                         Console.Write($"{display,-4}");
                     }
                     else if (layout.ChosenSeats.Contains(seat))
@@ -127,8 +108,8 @@ namespace PresentationLayer
                     if (layout.BookedSeats.Contains(seat))
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        bool isCurrentUsersSeat = IsCurrentUsersSeat(seat, currentUserBookings, currentFlightId);
-                        string display = isCurrentUsersSeat ? GetDisplayText(seat, currentUserBookings, currentFlightId) : seat;
+                        bool isCurrentUsersSeat = LayoutLogic.IsCurrentUsersSeat(seat, currentUserBookings, currentFlightId);
+                        string display = isCurrentUsersSeat ? LayoutLogic.GetDisplayText(seat, currentUserBookings, currentFlightId) : seat;
                         Console.Write($"{display}  ");
                     }
                     else if (layout.ChosenSeats.Contains(seat))
@@ -236,8 +217,8 @@ namespace PresentationLayer
                 if (layout.BookedSeats.Contains(seat))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    bool isCurrentUsersSeat = IsCurrentUsersSeat(seat, currentUserBookings, currentFlightId);
-                    string display = isCurrentUsersSeat ? GetDisplayText(seat, currentUserBookings, currentFlightId) : seat;
+                    bool isCurrentUsersSeat = LayoutLogic.IsCurrentUsersSeat(seat, currentUserBookings, currentFlightId);
+                    string display = isCurrentUsersSeat ? LayoutLogic.GetDisplayText(seat, currentUserBookings, currentFlightId) : seat;
                     Console.Write($"{display}  ");
                 }
                 else if (layout.ChosenSeats.Contains(seat))

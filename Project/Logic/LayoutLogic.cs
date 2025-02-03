@@ -23,6 +23,26 @@ public static class LayoutLogic
         }
     }
 
+    public static bool IsCurrentUsersSeat(string seat, List<BookedFlightsModel> currentUserBookings, int flightId)
+    {
+        var relevantBooking = currentUserBookings.FirstOrDefault(b => b.FlightID == flightId);
+        if (relevantBooking != null && relevantBooking.SeatInitials != null)
+        {
+            return relevantBooking.SeatInitials.ContainsKey(seat);
+        }
+        return false;
+    }
+
+    public static string GetDisplayText(string seat, List<BookedFlightsModel> currentUserBookings, int flightId)
+    {
+        var booking = currentUserBookings.FirstOrDefault(b => b.FlightID == flightId);
+        if (booking != null && booking.SeatInitials.ContainsKey(seat))
+        {
+            return booking.SeatInitials[seat];
+        }
+        return seat;
+    }
+
     public static void ConfirmBooking(LayoutModel layout)
     {
         foreach (var seat in layout.ChosenSeats)

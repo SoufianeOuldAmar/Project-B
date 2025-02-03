@@ -169,14 +169,6 @@ namespace DataAccess
 
         public static void UpdateBookedDetailsPresentation()
         {
-            // List<string> seatChanges = new List<string>();
-            // List<string> newSeats = new List<string>();
-
-            List<PetModel> petChanges = new List<PetModel>();
-            List<PetModel> newPets = new List<PetModel>();
-
-            List<BaggageModel> newBaggageAdded = new List<BaggageModel>();
-
 
             while (true)
             {
@@ -277,11 +269,10 @@ namespace DataAccess
                                     {
                                         Console.Write("Enter the new seat: ");
                                         string seat = Console.ReadLine();
-                                        bool isValidSeat = AdminManageBookingLogic.NewSeatLogic(seat, selectedBooking).Item1;
+                                        bool isValidSeat = AdminManageBookingLogic.NewSeatLogic(seat, selectedBooking);
 
                                         if (isValidSeat)
                                         {
-                                            seatStr = AdminManageBookingLogic.NewSeatLogic(seat, selectedBooking).Item2;
                                             break;
                                         }
                                         else
@@ -364,12 +355,9 @@ namespace DataAccess
                                         Console.WriteLine("Enter your animal's name: ");
                                         string petName = Console.ReadLine();
 
-                                        if (petType == "dog" || petType == "cat" || petType == "bunny" || petType == "bird")
+                                        if (AdminManageBookingLogic.IsPetTypeValid(petType))
                                         {
-                                            var newPet = new PetModel(petType, petName) { Fee = 50.0 };
-                                            selectedBooking.Pets.Add(newPet);
-                                            newPets.Add(newPet);
-                                            flight.TotalPets++;
+                                            AdminManageBookingLogic.CreateNewPet(petType, petName, selectedBooking, flight);
                                             Console.WriteLine($"Pet {petType} added. Fee: 50 EUR.");
 
                                             if (flight.TotalPets >= 7)
@@ -401,20 +389,20 @@ namespace DataAccess
                                             }
                                             Console.WriteLine("Enter the number of the pet you want to replace:");
                                             string number = Console.ReadLine();
-                                            if (int.TryParse(number, out int PetIndex) && PetIndex > 0 && PetIndex <= selectedBooking.Pets.Count)
+                                            bool isValidSelection = AdminManageBookingLogic.CheckValidSelectionPet(number, selectedBooking).Item1;
+                                            int PetIndex = AdminManageBookingLogic.CheckValidSelectionPet(number, selectedBooking).Item2;
+
+                                            if (isValidSelection)
                                             {
                                                 Console.WriteLine("What type of pet do you want to replace it with? (dog, cat, bunny, bird): ");
                                                 string newPetType = Console.ReadLine().ToLower();
-                                                if (newPetType == "dog" || newPetType == "cat" || newPetType == "bunny" || newPetType == "bird")
+                                                if (AdminManageBookingLogic.IsPetTypeValid(newPetType))
                                                 {
-                                                    selectedBooking.Pets.RemoveAt(PetIndex - 1);// -1 to match the index
-
                                                     Console.WriteLine("Name of the pet: ");
                                                     string petName = Console.ReadLine();
 
-                                                    // Add the new pet
-                                                    PetModel newPet = new PetModel(newPetType, petName);
-                                                    selectedBooking.Pets.Insert(PetIndex - 1, newPet);
+                                                    AdminManageBookingLogic.ChangePetLogic(selectedBooking, petName, newPetType, PetIndex);
+
 
                                                     Console.WriteLine($"Pet {PetIndex} has been replaced with a {newPetType}.");
                                                 }
@@ -465,31 +453,22 @@ namespace DataAccess
                                         string baggageType = Console.ReadLine().ToLower();
 
                                         double weightBaggage = 0;
-                                        double feeBaggage = 0;
+                                        // double feeBaggage = 0;
 
                                         if (baggageType == "1")
                                         {
                                             Console.WriteLine("Enter weight for carry on (in kg): ");
                                             weightBaggage = double.Parse(Console.ReadLine());
+                                            int isValidCarryOn = AdminManageBookingLogic.CarryOnIsValid(weightBaggage, initials, baggageType, selectedBooking);
 
-                                            if (weightBaggage > 0 && weightBaggage <= 20)
+                                            if (isValidCarryOn == 50)
                                             {
-                                                feeBaggage = 45;
-                                                Console.WriteLine($"Your carry on goes over the 10kg limit. You'll have to pay a fee of {feeBaggage} EUR.");
-                                                var newBaggage = new BaggageModel(initials, baggageType, weightBaggage) { Fee = feeBaggage };
-                                                selectedBooking.BaggageInfo.Add(newBaggage);
-                                                newBaggageAdded.Add(newBaggage);
-
+                                                Console.WriteLine($"Your carry on goes over the 10kg limit. You'll have to pay a fee of {isValidCarryOn} EUR.");
                                                 break;
                                             }
-                                            else if (weightBaggage > 20 && weightBaggage <= 25)
+                                            else if (isValidCarryOn == 0)
                                             {
-                                                feeBaggage = 50;
-                                                Console.WriteLine($"Your carry on goes over the 10kg limit. You'll have to pay a fee of {feeBaggage} EUR.");
-                                                var newBaggage = new BaggageModel(initials, baggageType, weightBaggage) { Fee = feeBaggage };
-                                                selectedBooking.BaggageInfo.Add(newBaggage);
-                                                newBaggageAdded.Add(newBaggage);
-
+                                                Console.WriteLine("Your checked baggage weight is 20 kg. No additional fee required.");
                                                 break;
                                             }
                                             else
@@ -501,36 +480,24 @@ namespace DataAccess
                                         {
                                             Console.WriteLine("Enter weight for checked baggage (choose 20 or 25 kg): ");
                                             weightBaggage = double.Parse(Console.ReadLine());
+                                            var result = AdminManageBookingLogic.CheckedIsValid(weightBaggage, initials, baggageType, selectedBooking);
 
-                                            if (weightBaggage == 20)
+                                            if (result == BaggageValidationResult.Valid20Kg)
                                             {
                                                 Console.WriteLine("Your checked baggage weight is 20 kg. No additional fee required.");
-                                                var newBaggage = new BaggageModel(initials, baggageType, weightBaggage) { Fee = feeBaggage };
-                                                selectedBooking.BaggageInfo.Add(newBaggage);
-                                                newBaggageAdded.Add(newBaggage);
-
                                                 break;
                                             }
-                                            else if (weightBaggage == 25)
+                                            else if (result == BaggageValidationResult.Valid25Kg)
                                             {
                                                 Console.WriteLine("Your checked baggage weight is 25 kg. No additional fee required.");
-                                                var newBaggage = new BaggageModel(initials, baggageType, weightBaggage) { Fee = feeBaggage };
-                                                selectedBooking.BaggageInfo.Add(newBaggage);
-                                                newBaggageAdded.Add(newBaggage);
-
                                                 break;
                                             }
-                                            else if (weightBaggage > 25)
+                                            else if (result == BaggageValidationResult.Overweight)
                                             {
-                                                feeBaggage = 50;
-                                                Console.WriteLine($"Your checked baggage weight exceeds the 25 kg limit. You'll have to pay a fee of {feeBaggage} EUR.");
-                                                var newBaggage = new BaggageModel(initials, baggageType, weightBaggage) { Fee = feeBaggage };
-                                                selectedBooking.BaggageInfo.Add(newBaggage);
-                                                newBaggageAdded.Add(newBaggage);
-
+                                                Console.WriteLine($"Your checked baggage weight exceeds the 25 kg limit. You'll have to pay a fee of 50 EUR.");
                                                 break;
                                             }
-                                            else
+                                            else if (result == BaggageValidationResult.InvalidWeight)
                                             {
                                                 Console.WriteLine("Invalid weight. Please enter a valid weight for your checked baggage.");
                                             }
@@ -570,7 +537,7 @@ namespace DataAccess
                 }
 
                 Saving(email, bookings);
-                NotificationLogic.NotifyBookingModification(email, bookings, newPets, NotificationLogic.newSeats, newBaggageAdded, NotificationLogic.seatChanges, petChanges);
+                NotificationLogic.NotifyBookingModification(email, bookings);
 
                 break;
             }

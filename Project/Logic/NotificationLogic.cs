@@ -12,14 +12,7 @@ public static class NotificationLogic
 
     public static List<BaggageModel> newBaggageAdded = new List<BaggageModel>();
 
-    public static void NotifyBookingModification(
-    string email,
-    List<BookedFlightsModel> bookings,
-    List<PetModel> newPets,
-    List<string> newSeats,
-    List<BaggageModel> newBaggageAdded,
-    List<string> seatChanges,
-    List<PetModel> petChanges)
+    public static void NotifyBookingModification(string email, List<BookedFlightsModel> bookings)
     {
         // Fetch the account for the provided email
         var account = UserAccountLogic.GetByEmail(email);
