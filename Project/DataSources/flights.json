@@ -25515,6 +25515,7 @@
         "10D",
         "10E",
         "10F",
+        "11A",
         "11B",
         "11C",
         "11D",
@@ -25635,15 +25636,11 @@
         "30E",
         "30F"
       ],
-      "BookedSeats": [
-        "11A"
-      ],
+      "BookedSeats": [],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
-      "SeatInitials": {
-        "11A": "SO"
-      }
+      "SeatInitials": {}
     },
     "TicketPrice": 260,
     "Gate": "A5",
