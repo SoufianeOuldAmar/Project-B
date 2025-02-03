@@ -14,9 +14,6 @@ public class UserAccountModel : AccountModel, IDataModel
     [JsonPropertyName("fullName")]
     public string FullName { get; set; }
 
-    [JsonPropertyName("flightPointsDataList")]
-    public List<FlightPoint> FlightPointsDataList { get; set; }
-
     public int TotalFlightPoints { get; set; } // Still dynamically calculated
 
     [JsonPropertyName("fees")]
@@ -30,7 +27,6 @@ public class UserAccountModel : AccountModel, IDataModel
     {
         EmailAddress = emailAddress;
         FullName = fullName;
-        FlightPointsDataList = new List<FlightPoint>();
         Fee = 0;
         Notifications = new List<Notification>();
     }

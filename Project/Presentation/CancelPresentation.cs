@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using System.Threading;
 
-public class CancelPresentation
+public static class CancelPresentation
 {
     public static void CancelMain(string email)
     {
@@ -25,7 +26,6 @@ public class CancelPresentation
                     // Cancel a flight
 
                     CancelFlights(email);
-
                     break;
 
                 case "2":
@@ -34,59 +34,7 @@ public class CancelPresentation
 
                     Console.WriteLine("\nBooked Flights:\n");
                     BookedFlights(email);
-
-                    Console.Write("\nPlease enter the Flight ID of the flight you want to reschedule (or enter 'Q' to quit): ");
-                    string rescheduleFlightIDInput = Console.ReadLine();
-
-                    // Check for quit option
-                    if (rescheduleFlightIDInput.Trim().ToUpper() == "Q")
-                    {
-                        Console.WriteLine("Rescheduling process aborted.");
-                        break;
-                    }
-
-                    // Validate input
-                    if (!int.TryParse(rescheduleFlightIDInput, out int flightIDToReschedule))
-                    {
-                        Console.WriteLine("Invalid Flight ID. Please enter a valid number.");
-                        Thread.Sleep(5000);
-                        break;
-                    }
-
-                    // Call the RescheduleFlight method to get the available flights
-                    string rescheduleMessage = RescheduleLogic.RescheduleFlight(email, flightIDToReschedule);
-
-                    // No available flights message
-                    Console.WriteLine(rescheduleMessage);
-                    if (rescheduleMessage.Contains("No available flights"))
-                    {
-                        Console.WriteLine("Exiting rescheduling process.");
-                        Thread.Sleep(5000);
-                        break;
-                    }
-
-                    Console.Write("Please enter the Flight ID of the flight you want to reschedule to (or enter 'Q' to quit): ");
-                    string selectedFlightIDInput = Console.ReadLine();
-
-                    // Check for quit option
-                    if (selectedFlightIDInput.Trim().ToUpper() == "Q")
-                    {
-                        Console.WriteLine("Rescheduling process aborted.");
-                        break;
-                    }
-
-                    // Validate input
-                    if (!int.TryParse(selectedFlightIDInput, out int selectedFlightID))
-                    {
-                        Console.WriteLine("Invalid Flight ID. Please enter a valid number.");
-                        break;
-                    }
-
-                    // Call the reschedule logic to reschedule the flight
-                    string rescheduleResult = RescheduleLogic.RescheduleFlight(email, flightIDToReschedule, selectedFlightID);
-
-                    // Output the result of the rescheduling
-                    Console.WriteLine(rescheduleResult);
+                    ReschedulePresentation.RescheduleFlightMenu();
                     break;
 
                 case "3":
@@ -101,7 +49,8 @@ public class CancelPresentation
                 case "4":
                     Console.Clear();
 
-                    string policy = RescheduleLogic.Policy();
+                    string policy = "Cancellation policy: Tickets are non-refundable \n" +
+               "Rescheduling policy: Reschedule your flight with a €50 fee, plus any price difference for the new flight.";
                     Console.WriteLine(policy);
                     MenuPresentation.PressAnyKey();
                     break;
@@ -117,15 +66,16 @@ public class CancelPresentation
                     if (flightIdInput.Trim().ToUpper() == "Q")
                     {
                         Console.WriteLine("Returning to the main menu...");
+                        MenuPresentation.PressAnyKey();
                         break;
                     }
 
                     if (int.TryParse(flightIdInput, out int flightId))
                     {
                         // Zoek de geboekte vlucht met het opgegeven Flight ID
-                        if (BookFlightPresentation.allBookedFlights.TryGetValue(email, out var bookedFlights))
+                        if (CancelLogic.CheckBookedFlights(email))
                         {
-                            var selectedFlight = bookedFlights.FirstOrDefault(f => f.FlightID == flightId);
+                            var selectedFlight = BookFlightLogic.SearchBookedFlightByFlightID(flightId, email);
                             if (selectedFlight != null)
                             {
                                 // Voeg eten en drinken toe aan de geselecteerde vlucht
@@ -165,16 +115,15 @@ public class CancelPresentation
     public static void BookedFlights(string email)
     {
 
-        var allBookedFlights = BookedFlightsAccess.LoadAll();
+        var allBookedFlights = BookFlightLogic.SearchByEmail(email);
 
-        if (!allBookedFlights.ContainsKey(email) || allBookedFlights[email].Count == 0)
+        if (allBookedFlights.Count == 0)
         {
             Console.WriteLine("You have no flights booked.");
             return;
         }
 
-        // Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
-        var bookedFlights = allBookedFlights[email];
+        var bookedFlights = BookFlightLogic.SearchByEmail(email);
 
         const int tableWidth = 173;
         string separator = new string('-', tableWidth);
@@ -227,19 +176,16 @@ public class CancelPresentation
         Console.WriteLine(separator);
 
 
-        foreach (var flight in bookedFlights)
+        foreach (var bookedFlight in bookedFlights)
         {
             // Find the needed flight details
-            var neededFlight = BookFlightPresentation.allFlights.Find(x => x.Id == flight.FlightID);
+            var neededFlight = FlightLogic.SearchFlightByID(bookedFlight.FlightID);
             if (neededFlight == null)
             {
                 continue;
             }
 
-            string returnFlightAvailable = neededFlight.ReturnFlight != null ? "Yes" : "No";
-            double totalPetFee = flight.Pets?.Sum(pet => pet.Fee) ?? 0;
-            double totalBaggageFee = flight.BaggageInfo?.Sum(bag => bag.Fee) ?? 0;
-            double totalTicketPrice = neededFlight.TicketPrice + totalPetFee + totalBaggageFee;
+            double totalTicketPrice = CancelLogic.CalculateTotalCost(bookedFlight, neededFlight);
 
             Console.Write("| ");
             Console.ForegroundColor = ConsoleColor.Blue; // Color for Flight ID
@@ -253,12 +199,12 @@ public class CancelPresentation
 
             Console.Write(" | ");
             Console.ForegroundColor = ConsoleColor.Cyan; // Color for Departure Airport
-            Console.Write($"{BookFlightLogic.SearchFlightByID(neededFlight.Id).DepartureAirport,-30}");
+            Console.Write($"{FlightLogic.SearchFlightByID(neededFlight.Id).DepartureAirport,-30}");
             Console.ResetColor();
 
             Console.Write(" | ");
             Console.ForegroundColor = ConsoleColor.Cyan; // Color for Arrival Destination
-            Console.Write($"{BookFlightLogic.SearchFlightByID(neededFlight.Id).ArrivalDestination,-37}");
+            Console.Write($"{FlightLogic.SearchFlightByID(neededFlight.Id).ArrivalDestination,-37}");
             Console.ResetColor();
 
             Console.Write(" | ");
@@ -273,12 +219,12 @@ public class CancelPresentation
 
             Console.Write(" | ");
             Console.ForegroundColor = ConsoleColor.White; // Color for Ticket Price
-            Console.Write($"{flight.DateTicketsBought.ToString(),-17}");
+            Console.Write($"{bookedFlight.DateTicketsBought.ToString(),-17}");
             Console.ResetColor();
 
             Console.Write(" | ");
             Console.ForegroundColor = ConsoleColor.Red; // Color for Cancelled status
-            string IsCancelled = flight.IsCancelled ? "Yes" : "No";
+            string IsCancelled = bookedFlight.IsCancelled ? "Yes" : "No";
 
             Console.Write($"{IsCancelled,-10}");
             Console.ResetColor();
@@ -288,10 +234,10 @@ public class CancelPresentation
             Console.WriteLine(separator);
 
             // Pets Details
-            if (flight.Pets?.Count > 0)
+            if (bookedFlight.Pets?.Count > 0)
             {
                 Console.WriteLine($"  Pets on this flight:");
-                foreach (var pet in flight.Pets)
+                foreach (var pet in bookedFlight.Pets)
                 {
                     Console.WriteLine($"    Animal: {pet.AnimalType}, Fee: €{pet.Fee}");
                 }
@@ -301,10 +247,10 @@ public class CancelPresentation
                 Console.WriteLine($"  No pets booked for this flight.");
             }
 
-            if (flight.FoodAndDrinkItems?.Count > 0)
+            if (bookedFlight.FoodAndDrinkItems?.Count > 0)
             {
                 Console.WriteLine($"  Food and Drinks on this flight:");
-                foreach (var item in flight.FoodAndDrinkItems)
+                foreach (var item in bookedFlight.FoodAndDrinkItems)
                 {
                     Console.WriteLine($"    Item: {item.Name}, Price: €{item.Price:F2}");
                 }
@@ -315,10 +261,10 @@ public class CancelPresentation
             }
 
             // Baggage Details
-            if (flight.BaggageInfo?.Count > 0)
+            if (bookedFlight.BaggageInfo?.Count > 0)
             {
                 Console.WriteLine($"  Baggage Details:");
-                foreach (var baggage in flight.BaggageInfo)
+                foreach (var baggage in bookedFlight.BaggageInfo)
                 {
                     string baggageType = baggage.BaggageType switch
                     {
@@ -348,11 +294,11 @@ public class CancelPresentation
 
     public static void CancelFlights(string email)
     {
-
         while (true)
         {
             Console.Clear();
             Console.WriteLine("\nBooked Flights:\n");
+            // BookedFlightsModel bookedFlights = allBo
             BookedFlights(email);  // Display the user's booked flights
 
             Console.Write("Please enter the Flight ID of the flight you want to cancel (or enter 'Q' to quit the process): ");
@@ -375,44 +321,36 @@ public class CancelPresentation
             }
 
             // Proceed with cancellation logic
-            if (!BookFlightPresentation.allBookedFlights.ContainsKey(email))
+            if (BookFlightLogic.SearchByEmail(email).Count == 0)
             {
-                Console.WriteLine("No booked flights found for this user.");
+                MenuPresentation.PrintColored("\nNo booked flights found for this user.", ConsoleColor.Red);
                 MenuPresentation.PressAnyKey();
                 break;  // Exit the loop if no flights are found
             }
 
-            // Get user's booked flights
-            var bookedFlights = BookFlightPresentation.allBookedFlights[email];
-
             // Find the flight by ID
-            var bookedFlight = bookedFlights.FirstOrDefault(x => x.FlightID == flightID);
+            BookedFlightsModel bookedFlight = BookFlightLogic.SearchBookedFlightByFlightID(flightID, email);
 
             if (bookedFlight == null)
             {
-                Console.WriteLine($"Flight with ID {flightID} not found.");
+                MenuPresentation.PrintColored($"\nFlight with ID {flightID} not found.", ConsoleColor.Red);
                 MenuPresentation.PressAnyKey();
                 continue;  // Continue the loop if the flight is not found
             }
 
             // Check if the flight is already cancelled
-            if (bookedFlight.IsCancelled)
+            if (CancelLogic.IsBookedFlightCancelled(bookedFlight))
             {
-                Console.WriteLine($"You have already cancelled the flight with ID {flightID}.");
+                MenuPresentation.PrintColored($"You have already cancelled the flight with ID {flightID}.", ConsoleColor.Yellow);
                 MenuPresentation.PressAnyKey();
                 continue;  // Continue the loop if the flight is already cancelled
             }
 
-            // Set the flight as cancelled
-            bookedFlight.IsCancelled = true;
+            CancelLogic.CancelFlight(email, bookedFlight);
 
-            // Save changes to the JSON file
-            BookedFlightsAccess.WriteAll(email, bookedFlights);  // Pass updated list of booked flights
-
-            Console.WriteLine($"Flight with ID {flightID} has been cancelled.");
+            MenuPresentation.PrintColored($"\nFlight with ID {flightID} has been cancelled.", ConsoleColor.Green);
+            MenuPresentation.PressAnyKey();
             break;  // Exit the loop after successful cancellation
         }
     }
 }
-
-

@@ -1,142 +1,115 @@
-using System.Net;
-using System.Text;
-using System.Text.Json;
+using System.Collections.Generic;
 using DataModels;
-using DataAccess;
-using System.Security.Cryptography.X509Certificates;
+
 public static class RescheduleLogic
 {
-    public static string fileName = "DataSources/flights.json";
+    public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
+    public static Dictionary<string, List<BookedFlightsModel>> allBookedFlights = BookedFlightsAccess.LoadAll();
 
-    public static List<BookedFlightsModel> BookedFlightsUser(string email)
+    public static List<FlightModel> GetEligibleFlights(int FlightID)
     {
+        var bookedFlight = allBookedFlights[MenuPresentation.currentAccount.EmailAddress];
 
-        if (!BookFlightPresentation.allBookedFlights.ContainsKey(email))
+        // Find the specific booked flight by its ID
+        var specificBookedFlight = bookedFlight.FirstOrDefault(bf => bf.FlightID == FlightID);
+        if (specificBookedFlight == null)
         {
-            return new List<BookedFlightsModel>();
+            return new List<FlightModel>(); // Return empty if not found
         }
 
-        return BookFlightPresentation.allBookedFlights[email];
+        var currentFlight = FlightLogic.SearchFlightByID(FlightID);
+        if (currentFlight == null)
+        {
+            return new List<FlightModel>(); // Return empty if flight not found
+        }
 
+        string currentDepartureAirport = currentFlight.DepartureAirport;
+        string currentArrivalDestination = currentFlight.ArrivalDestination;
+        string currentDepartureDate = currentFlight.DepartureDate;
+
+        var eligibleFlights = allFlights.Where(f =>
+            f.Id != FlightID &&
+            f.DepartureAirport == currentDepartureAirport &&
+            f.ArrivalDestination == currentArrivalDestination &&
+            !f.IsCancelled &&
+            !f.HasTakenOff
+        ).ToList();
+
+        return eligibleFlights;
     }
 
-    public static string RescheduleFlight(string email, int bookedFlightID, int? newFlightInput = null)
+    public static void RescheduleFlight(int newFlightID, int oldFlightId)
     {
-        var retrieveBookFlights = BookedFlightsUser(email);
+        var bookedFlight = allBookedFlights[MenuPresentation.currentAccount.EmailAddress];
+        int index = bookedFlight.FindIndex(flight => flight.FlightID == oldFlightId);
 
-        if (retrieveBookFlights.Count == 0)
+        if (index != -1) // If found
         {
-            return $"No booked flights for {email}";
+            bookedFlight[index].FlightID = newFlightID;
         }
+    }
 
-        // get from BookflightModel
-        var specificFlight = retrieveBookFlights.FirstOrDefault(x => x.FlightID == bookedFlightID);
-        if (specificFlight == null)
+    public static List<string> AreFormerSeatsTaken(int newFlightID, int oldFlightId)
+    {
+        var bookedFlight = allBookedFlights[MenuPresentation.currentAccount.EmailAddress];
+        FlightModel newFlight = FlightLogic.SearchFlightByID(newFlightID);
+        FlightModel oldFlight = FlightLogic.SearchFlightByID(oldFlightId);
+        List<string> seats = new List<string>();
+        List<string> occupiedSeats = new List<string>();
+
+        foreach (var bf in bookedFlight)
         {
-            return $"No booked flights with this ID: {bookedFlightID}";
-        }
-
-        var GetFlightDetails = BookFlightPresentation.allFlights.FirstOrDefault(x => x.Id == specificFlight.FlightID);
-
-        if (GetFlightDetails == null)
-        {
-            return $"Can't find a flight with the ID {bookedFlightID}.";
-        }
-
-        string currentDepartureAirport = GetFlightDetails.DepartureAirport;
-        string currentArrivalDestination = GetFlightDetails.ArrivalDestination;
-
-
-        if (newFlightInput == null)
-        {
-            // use searchFlights without already booked flights 
-            var availableFlights = BookFlightLogic.SearchFlights(currentDepartureAirport, currentArrivalDestination).Where(x => x.Id != bookedFlightID).ToList();
-
-            if (availableFlights.Count == 0)
+            if (bf.FlightID == oldFlightId)
             {
-                return $"No available flights from {currentDepartureAirport} to {currentArrivalDestination}.";
+                bf.FlightID = newFlightID;
+                foreach (var seat in bf.BookedSeats)
+                {
+                    seats.Add(seat);
+                }
+
+                // Remove old seats from booked list and add back to available seats
+                foreach (var seat in seats)
+                {
+                    if (oldFlight.Layout.BookedSeats.Contains(seat))
+                    {
+                        oldFlight.Layout.BookedSeats.Remove(seat);
+                        oldFlight.Layout.AvailableSeats.Add(seat);
+                    }
+                }
+
+                break;
             }
+        }
 
-            Console.Clear();
-
-            StringBuilder availableFlightsDetails = new StringBuilder("Available flights to reschedule to:\n");
-            foreach (var flight in availableFlights)
+        foreach (var seat in seats)
+        {
+            if (newFlight.Layout.BookedSeats.Contains(seat))
             {
-                availableFlightsDetails.AppendLine($"Flight ID: {flight.Id}, Date: {flight.DepartureDate}, Time: {flight.FlightTime}, Price: {flight.TicketPrice:C}");
+                occupiedSeats.Add(seat);
             }
-            return availableFlightsDetails.ToString();
-
+            else if (newFlight.Layout.AvailableSeats.Contains(seat)) // Check if seat is available
+            {
+                newFlight.Layout.AvailableSeats.Remove(seat); // Remove from available seats
+                newFlight.Layout.BookedSeats.Add(seat); // Add to booked seats
+            }
         }
-        // user cant choose ids outside of list 
-        var availableFlightsToReschedule = BookFlightLogic.SearchFlights(currentDepartureAirport, currentArrivalDestination).Where(x => x.Id != bookedFlightID).Select(flight => flight.Id).ToList();
-        if (!availableFlightsToReschedule.Contains(newFlightInput.Value))
+
+        for (int i = 0; i < allFlights.Count; i++)
         {
-            return $"Selected flight with ID {newFlightInput.Value} is not in the list of available flights.";
+            if (allFlights[i].Id == newFlight.Id)
+            {
+                allFlights[i] = newFlight;
+            }
+            if (allFlights[i].Id == oldFlight.Id)
+            {
+                allFlights[i] = oldFlight;
+            }
         }
 
+        DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", allFlights);
+        BookedFlightsAccess.WriteAll(MenuPresentation.currentAccount.EmailAddress, bookedFlight);
 
-        var newFlightIdGiven = BookFlightPresentation.allFlights.FirstOrDefault(x => x.Id == newFlightInput.Value);
-        if (newFlightIdGiven == null)
-        {
-            return $"Selected flight with ID {newFlightInput.Value} not found.";
-        }
-
-        if (newFlightIdGiven.AvailableSeats <= 0)
-        {
-
-            return $"Selected flight with ID {newFlightInput.Value} has no available seats.";
-        }
-
-        double priceDifference = (double)(newFlightIdGiven.TicketPrice - GetFlightDetails.TicketPrice);
-        double fee50 = 50.00;
-        double totalFee;
-        if (priceDifference > 0)
-        {
-            totalFee = priceDifference + fee50;
-
-        }
-        else
-        {
-            totalFee = fee50;
-        }
-
-        double totalNewPrice = (double)newFlightIdGiven.TicketPrice + totalFee;
-
-
-        // update 
-        specificFlight.FlightID = newFlightIdGiven.Id;
-        BookFlightPresentation.allBookedFlights[email] = retrieveBookFlights;
-        DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", BookFlightPresentation.allFlights);
-
-
-        totalFee = Math.Round(totalFee, 2);
-
-        // update the fee to users account
-        List<UserAccountModel> userAccounts = DataAccessClass.ReadList<UserAccountModel>("DataSources/accounts.json");
-        UserAccountModel account = userAccounts.FirstOrDefault(x => x.EmailAddress == email);
-        if (account != null)
-        {
-            account.Fee = totalFee; DataAccessClass.WriteList<UserAccountModel>("DataSources/accounts.json", userAccounts);
-
-        }
-        else
-        {
-            return $"Account with email {email} not found.";
-        }
-
-        BookedFlightsAccess.WriteAll(email, BookFlightPresentation.allBookedFlights[email]);
-        return $"Flight successfully rescheduled. Additional fee: {totalFee:C} and new Price {totalNewPrice:C}. New Flight Date: {newFlightIdGiven.DepartureDate} at {newFlightIdGiven.FlightTime}.";
+        return occupiedSeats;
     }
-
-
-
-
-    // Show / Review Policy
-    public static string Policy()
-    {
-        return "Cancellation policy: Tickets are non-refundable \n" +
-               "Rescheduling policy: Reschedule your flight with a €50 fee, plus any price difference for the new flight.";
-    }
-
 
 }

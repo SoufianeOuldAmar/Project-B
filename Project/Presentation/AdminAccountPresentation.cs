@@ -77,14 +77,7 @@ static class AdminAccountPresentation
 
                     if (keyInfo == "1")
                     {
-                        AdminAddFlightsPresentation adminAddflight = new AdminAddFlightsPresentation();
-                        FlightModel newFlight = adminAddflight.AddNewFlights();
-
-                        if (newFlight != null)
-                        {
-                            DataAccessClass.AdminAddNewFlight(newFlight);
-                        }
-
+                        AdminAddFlightsPresentation.AddNewFlightsMenu();
                         Console.Clear();
                     }
                     else if (keyInfo == "2")
@@ -95,8 +88,7 @@ static class AdminAccountPresentation
                     }
                     else if (keyInfo == "3")
                     {
-                        LayoutModel layout = LayoutModel.CreateBoeing737Layout();
-                        layout.ResetAllSeats();
+                        LayoutLogic.ResetAllSeats();
                         MenuPresentation.PressAnyKey();
                         Console.Clear();
                     }
@@ -116,7 +108,7 @@ static class AdminAccountPresentation
                     }
                     else if (keyInfo == "6")
                     {
-                        AdminMangeEmployeesPressentation.DisplayEmployeesInfo();
+                        AdminManageEmployeesPresentation.DisplayEmployeesInfo();
                         MenuPresentation.PressAnyKey();
                         Console.Clear();
                         // break;

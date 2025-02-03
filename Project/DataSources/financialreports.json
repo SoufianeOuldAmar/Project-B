@@ -1,26 +1,62 @@
 [
   {
     "Id": 1,
-    "ItemType": "FoodAndDrink",
-    "Amount": 14.5,
-    "DatePayment": "2025-01-23T01:30:00.2014901+01:00"
+    "ItemType": "Ticket",
+    "Amount": 260,
+    "DatePayment": "2025-02-02T22:02:27.1312885+01:00"
   },
   {
     "Id": 2,
     "ItemType": "Ticket",
-    "Amount": 214.5,
-    "DatePayment": "2025-01-23T01:31:03.6503369+01:00"
+    "Amount": 260,
+    "DatePayment": "2025-02-02T22:03:40.3803256+01:00"
   },
   {
     "Id": 3,
-    "ItemType": "Baggage",
-    "Amount": 35,
-    "DatePayment": "2025-01-23T01:31:03.6503407+01:00"
+    "ItemType": "Ticket",
+    "Amount": 260,
+    "DatePayment": "2025-02-02T22:08:35.5161215+01:00"
   },
   {
     "Id": 4,
+    "ItemType": "Ticket",
+    "Amount": 260,
+    "DatePayment": "2025-02-02T22:11:37.7878064+01:00"
+  },
+  {
+    "Id": 5,
+    "ItemType": "Ticket",
+    "Amount": 250,
+    "DatePayment": "2025-02-02T23:10:44.0384794+01:00"
+  },
+  {
+    "Id": 5,
+    "ItemType": "Ticket",
+    "Amount": 250,
+    "DatePayment": "2025-02-02T23:10:44.0384794+01:00"
+  },
+  {
+    "Id": 6,
+    "ItemType": "Ticket",
+    "Amount": 250,
+    "DatePayment": "2025-02-02T23:12:17.2505981+01:00"
+  },
+  {
+    "Id": 8,
+    "ItemType": "Ticket",
+    "Amount": 260,
+    "DatePayment": "2025-02-03T13:33:29.4896822+01:00"
+  },
+  {
+    "Id": 9,
+    "ItemType": "Ticket",
+    "Amount": 260,
+    "DatePayment": "2025-02-03T14:11:26.4615496+01:00"
+  },
+  {
+    "Id": 11,
     "ItemType": "Pet",
     "Amount": 50,
-    "DatePayment": "2025-01-23T01:31:03.6506738+01:00"
+    "DatePayment": "2025-02-03T14:11:26.4615699+01:00"
   }
 ]

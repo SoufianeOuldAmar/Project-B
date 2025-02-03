@@ -3,6 +3,7 @@ using DataAccess;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Net;
+using System.Collections.Generic;
 
 public static class SearchFlightPresentation
 {
@@ -17,15 +18,14 @@ public static class SearchFlightPresentation
         Console.Clear();
         Console.WriteLine("=== 🔍 Search Flights ===\n");
 
-        // Lees JSON-data in
-        List<FlightModel> flights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
+    // Lees JSON-data in
 
     start:
         string departureAirport = string.Empty;
         while (true)
         {
             // Toon een lijst van unieke vertrekpunten
-            var uniqueDepartures = flights.Select(f => f.DepartureAirport).Distinct().OrderBy(d => d).ToList();
+            var uniqueDepartures = SearchFlightLogic.UniqueDepartures();
 
             Console.WriteLine("Available departure airports:");
             for (int i = 0; i < uniqueDepartures.Count; i++)
@@ -33,6 +33,7 @@ public static class SearchFlightPresentation
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine($"{i + 1}. {uniqueDepartures[i]}");
             }
+
             Console.ResetColor();
             Console.WriteLine("0. Leave blank for any");
 
@@ -48,7 +49,7 @@ public static class SearchFlightPresentation
                     MenuLogic.PopMenu();
                     return;
                 }
-                // MenuLogic.PopMenu();
+
                 return;
             }
 
@@ -80,13 +81,7 @@ public static class SearchFlightPresentation
         {
             Console.Clear();
             // Dynamische bestemmingen op basis van vertrekpunt
-            var validDestinations = string.IsNullOrEmpty(departureAirport)
-                ? flights.Select(f => f.ArrivalDestination).Distinct().OrderBy(d => d).ToList()
-                : flights.Where(f => f.DepartureAirport.Equals(departureAirport, StringComparison.OrdinalIgnoreCase))
-                         .Select(f => f.ArrivalDestination)
-                         .Distinct()
-                         .OrderBy(d => d)
-                         .ToList();
+            var validDestinations = SearchFlightLogic.GetValidDestinations(departureAirport);
 
             Console.WriteLine("\nAvailable destinations:");
             for (int i = 0; i < validDestinations.Count; i++)
@@ -146,7 +141,6 @@ public static class SearchFlightPresentation
         Console.WriteLine($"Selected Destination: {arrivalDestination}");
 
     departureDate:
-
         DateTime departureDate;
         string departureDateString;
 
@@ -251,7 +245,7 @@ public static class SearchFlightPresentation
                 Console.WriteLine($"{flight.Id}: {flight.Airline} to {flight.ArrivalDestination} at {flight.FlightTime}");
             }
 
-            Console.WriteLine("Do you want to proceed with a this flight? (Yes / No)");
+            Console.WriteLine("Do you want to proceed with this flight? (Yes / No)");
             string input = Console.ReadLine().ToLower();
             if (input == "yes")
             {
@@ -275,7 +269,6 @@ public static class SearchFlightPresentation
                         Console.WriteLine("Invalid flight ID.");
                     }
                 }
-
 
                 else
                 {
@@ -331,27 +324,11 @@ public static class SearchFlightPresentation
             }
         }
 
-        Dictionary<string, (TimeSpan Start, TimeSpan End)> timeOfDayMapping = new Dictionary<string, (TimeSpan Start, TimeSpan End)>
-        {
-            { "morning", (Start: new TimeSpan(6, 0, 0), End: new TimeSpan(11, 59, 59)) },
-            { "midday", (Start: new TimeSpan(12, 0, 0), End: new TimeSpan(17, 59, 59)) },
-            { "evening", (Start: new TimeSpan(18, 0, 0), End: new TimeSpan(23, 59, 59)) },
-            { "night", (Start: new TimeSpan(0, 0, 0), End: new TimeSpan(5, 59, 59)) }
-        };
+
 
         // Console.WriteLine($"Parameters: Departure Airport: {departureAirport}, Arrival Destination: {arrivalDestination}, Departure Date: {departureDateString}, Time of Day: {timeOfDay}, Seat Count: {seatCount}");
-        var searchResults = flights.Where(flight =>
-    !flight.HasTakenOff && // Exclude flights that have already taken off
-    (string.IsNullOrEmpty(departureAirport) || flight.DepartureAirport.Contains(departureAirport, StringComparison.OrdinalIgnoreCase)) &&
-    (string.IsNullOrEmpty(arrivalDestination) || flight.ArrivalDestination.Contains(arrivalDestination, StringComparison.OrdinalIgnoreCase)) &&
-    (string.IsNullOrEmpty(departureDateString) || flight.DepartureDate.Contains(departureDateString)) &&
-    (string.IsNullOrEmpty(timeOfDay) ||
-        (timeOfDayMapping.TryGetValue(timeOfDay, out var timeRange) &&
-        DateTime.TryParse(flight.FlightTime, out var flightTime) &&
-        flightTime.TimeOfDay >= timeRange.Start && flightTime.TimeOfDay <= timeRange.End))
-    &&
-    (seatCount == 0 || flight.AvailableSeats >= seatCount)
-).ToList();
+
+        var searchResults = SearchFlightLogic.FilterAvailableFlights(departureAirport, arrivalDestination, departureDateString, timeOfDay, seatCount);
 
 
         Console.Clear();
@@ -372,16 +349,7 @@ public static class SearchFlightPresentation
         }
         else
         {
-            Console.WriteLine($"{"#",-3} {"🌍 From",-30} {"🌍 To",-30} {"📅 Date",-16} {"⏰ Time",-10} {"💶 Price",-10} {"🪑 Seats"}");
-            Console.WriteLine(new string('-', 110));
-            for (int i = 0; i < searchResults.Count; i++)
-            {
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine(
-                    $"{(i + 1),-3} {searchResults[i].DepartureAirport,-30} {searchResults[i].ArrivalDestination,-30} " +
-                    $"{searchResults[i].DepartureDate,-16} {searchResults[i].FlightTime,-10} €{searchResults[i].TicketPrice,-9} {searchResults[i].AvailableSeats}");
-            }
-            Console.ResetColor();
+            PrintSearchResult(searchResults);
 
             if (beforeLogIn)
             {
@@ -426,6 +394,21 @@ public static class SearchFlightPresentation
                 }
             }
         }
+
     }
 
+    public static void PrintSearchResult(List<FlightModel> flights)
+    {
+        Console.WriteLine($"{"#",-3} {"🌍 From",-35} {"🌍 To",-35} {"📅 Date",-16} {"⏰ Time",-9} {"💶 Price",-9} {"🪑 Seats"}");
+        Console.WriteLine(new string('-', 124));
+
+        for (int i = 0; i < flights.Count; i++)
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine(
+                $"{(i + 1),-3} {flights[i].DepartureAirport,-35} {flights[i].ArrivalDestination,-35} " +
+                $"{flights[i].DepartureDate,-16} {flights[i].FlightTime,-10} €{flights[i].TicketPrice,-9} {flights[i].AvailableSeats}");
+        }
+        Console.ResetColor();
+    }
 }

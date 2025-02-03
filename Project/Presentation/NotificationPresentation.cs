@@ -3,9 +3,9 @@ using System.Collections.Generic;
 public static class NotificationPresentation
 {
 
-    public static void PrintNotificationPage(UserAccountModel currentAccount)
+    public static void PrintNotificationPage()
     {
-        List<Notification> notifications = currentAccount.Notifications;
+        List<Notification> notifications = MenuPresentation.currentAccount.Notifications;
 
         if (notifications == null || !notifications.Any())
         {
@@ -35,7 +35,7 @@ public static class NotificationPresentation
             {
                 Console.WriteLine("Invalid input. Please try again.");
                 MenuPresentation.PressAnyKey();
-                
+
                 continue;
             }
 
@@ -46,7 +46,7 @@ public static class NotificationPresentation
             }
 
             var selectedNotification = notifications[choice - 1];
-            ShowNotificationDetails(selectedNotification, currentAccount);
+            ShowNotificationDetails(selectedNotification, MenuPresentation.currentAccount);
         }
     }
 
@@ -100,8 +100,7 @@ public static class NotificationPresentation
         string choice = Console.ReadLine();
         if (choice == "1")
         {
-            notification.IsRead = true;
-            DataAccessClass.UpdateCurrentAccount(currentAccount);
+            NotificationLogic.ReadNotification(notification, currentAccount);
             Console.WriteLine("\nNotification marked as read.");
         }
         else if (choice == "2")

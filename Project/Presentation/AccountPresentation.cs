@@ -43,7 +43,7 @@ public static class AccountPresentation
                 Console.Write("🔒 Password: ");
                 string password = Console.ReadLine();
 
-                UserAccountModel? userAccountModel = AccountsLogic.CheckLogin(emailAddress, password);
+                UserAccountModel? userAccountModel = UserAccountLogic.CheckLogin(emailAddress, password);
                 if (userAccountModel != null)
                 {
                     Console.WriteLine("\n✅ Success! Welcome back!");
@@ -67,7 +67,7 @@ public static class AccountPresentation
                         string newLine = newLineValid ? "\n" : "";
                         Console.Write($"{newLine}Username or password is incorrect! Do you want to try again? (Input either yes or no): ");
                         string choice = Console.ReadLine();
-                        bool? yesOrNo = AccountsLogic.TryLogInAgain(choice);
+                        bool? yesOrNo = UserAccountLogic.TryLogInAgain(choice);
                         if (yesOrNo.HasValue && yesOrNo.Value)
                         {
                             Console.Clear();
@@ -94,186 +94,136 @@ public static class AccountPresentation
         }
     }
 
+
     public static void CreateAccount()
     {
         bool validInput = false;
 
         do
-
         {
             Console.Clear();
-            Console.WriteLine("=== Create account ===");
-            string fullName;
-            string emailAddress;
-            string password;
+            Console.WriteLine("=== Create Account ===");
 
-            string quitConfirmation = null;
-            string quitConfirmation1 = null;
-            string quitConfirmation2 = null;
+            string fullName = null;
+            string emailAddress = null;
+            string password = null;
 
-            while (true)
+            if (!GetInputWithQuitOption("Full name", out fullName))
             {
-                Console.Write("\nFull name (or enter 'Q' to quit the process): ");
-                fullName = Console.ReadLine();
-
-                if (fullName.ToUpper() == "Q")
-                {
-                    while (true)
-                    {
-                        Console.Write("\nDo you really want to quit this operation? (yes/no): ");
-                        quitConfirmation = Console.ReadLine();
-
-                        if (quitConfirmation == "yes")
-                        {
-                            MenuLogic.PopMenu();
-                            break;
-                        }
-                        else if (quitConfirmation == "no")
-                        {
-                            break;
-                        }
-                    }
-
-                    if (quitConfirmation == "yes")
-                    {
-                        break;
-                    }
-
-                }
-                else
-                {
-                    break;
-                }
+                return;
             }
 
-            if (quitConfirmation == "yes")
+            if (!GetInputWithQuitOption("Email address", out emailAddress))
             {
-                break;
+                return;
             }
 
-            while (true)
+            if (!GetInputWithQuitOption("Password", out password))
             {
-                Console.Write("Email address (or enter 'Q' to quit the process): ");
-                emailAddress = Console.ReadLine();
-
-                if (emailAddress.ToUpper() == "Q")
-                {
-                    while (true)
-                    {
-                        Console.Write("\nDo you really want to quit this operation? (yes/no): ");
-                        quitConfirmation1 = Console.ReadLine();
-
-                        if (quitConfirmation1 == "yes")
-                        {
-                            MenuLogic.PopMenu();
-                            break;
-                        }
-                        else if (quitConfirmation1 == "no")
-                        {
-                            break;
-                        }
-                    }
-
-                    if (quitConfirmation1 == "yes")
-                    {
-                        break;
-                    }
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            if (quitConfirmation1 == "yes")
-            {
-                break;
-            }
-
-            while (true)
-            {
-                Console.Write("Password (or enter 'Q' to quit the process): ");
-                password = Console.ReadLine();
-
-                if (password.ToUpper() == "Q")
-                {
-                    while (true)
-                    {
-                        Console.Write("\nDo you really want to quit this operation? (yes/no): ");
-                        quitConfirmation2 = Console.ReadLine();
-
-                        if (quitConfirmation2 == "yes")
-                        {
-                            break;
-                        }
-                        else if (quitConfirmation2 == "no")
-                        {
-                            break;
-                        }
-                    }
-
-                    if (quitConfirmation2 == "yes")
-                    {
-                        break;
-                    }
-                }
-                else
-                {
-                    break;
-                }
-            }
-
-            if (quitConfirmation2 == "yes")
-            {
-                MenuLogic.PopMenu();
-                break;
+                return;
             }
 
             // Attempt to create the account
-            string resultMessage = AccountsLogic.CreateAccount(fullName, emailAddress, password);
-            Console.WriteLine(resultMessage);
+            List<UserAccountLogic.CreateAccountStatus> statusList = UserAccountLogic.CheckCreateAccount(fullName, emailAddress, password);
 
-            // Check if the account was created successfully
-            if (resultMessage == "\nAccount created successfully!") // Adjust this condition based on your actual success message
+            if (statusList.Count == 0)
             {
-                validInput = true; // Exit the loop if the account is created successfully
+                int id = UserAccountLogic._accounts.Count + 1; // Use the next id
+                UserAccountModel account = new UserAccountModel(id, emailAddress, password, fullName);
+                UserAccountLogic.UpdateList(account);
+                Console.WriteLine("\nAccount created successfully!");
+                validInput = true;
                 MenuLogic.PopMenu();
             }
             else
             {
-                // Only ask the user if they want to try again if account creation failed
-                Console.Write("\nWould you like to try again? (Input either yes or no): ");
-                string choice = Console.ReadLine();
-                bool? yesOrNo = AccountsLogic.TryLogInAgain(choice);
-
-                if (yesOrNo.HasValue && yesOrNo.Value)
+                // Display error messages
+                Console.WriteLine("\nError messages:");
+                foreach (var status in statusList)
                 {
-                    // Clear the screen and try again
-                    Console.Clear();
-                    validInput = false; // Stay in the loop, which is the default state
+                    switch (status)
+                    {
+                        case UserAccountLogic.CreateAccountStatus.IncorrectFullName:
+                            Console.WriteLine("- Full name is incorrect. Please enter a valid name.");
+                            break;
+                        case UserAccountLogic.CreateAccountStatus.IncorrectEmail:
+                            Console.WriteLine("- Email is incorrect. Please enter a valid email.");
+                            break;
+                        case UserAccountLogic.CreateAccountStatus.IncorrectPassword:
+                            Console.WriteLine("- Password is too short. It must be at least 5 characters.");
+                            break;
+                        case UserAccountLogic.CreateAccountStatus.EmailExists:
+                            Console.WriteLine("- Email already exists. Use another email.");
+                            break;
+                    }
                 }
-                else if (yesOrNo.HasValue && !yesOrNo.Value)
+
+                // Ask if the user wants to try again
+                Console.Write("\nWould you like to try again? (yes/no): ");
+                string choice = Console.ReadLine();
+                bool? tryAgain = UserAccountLogic.TryLogInAgain(choice);
+
+                if (tryAgain.HasValue && !tryAgain.Value)
                 {
-                    // Exit the menu
                     MenuLogic.PopMenu();
                     return;
                 }
-                else
-                {
-                    // Invalid input, prompt again
-                    Console.WriteLine("Invalid input! Please type 'yes' or 'no'.");
-                    MenuPresentation.PressAnyKey();
-                    Console.Clear();
-                }
             }
 
-        } while (!validInput); // Loop until a valid account is created or user opts to quit
+        } while (!validInput);
     }
+
+    private static bool GetInputWithQuitOption(string prompt, out string input)
+    {
+        input = null;
+
+        while (true)
+        {
+            Console.Write($"{prompt} (or enter 'Q' to quit the process): ");
+            input = Console.ReadLine();
+
+            if (input.ToUpper() == "Q")
+            {
+                if (ConfirmQuit())
+                {
+                    MenuLogic.PopMenu();
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
+    }
+
+    private static bool ConfirmQuit()
+    {
+        while (true)
+        {
+            Console.Write("\nDo you really want to quit this operation? (yes/no): ");
+            string response = Console.ReadLine();
+
+            if (response.Equals("yes", StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+            else if (response.Equals("no", StringComparison.OrdinalIgnoreCase))
+            {
+                return false;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input! Please type 'yes' or 'no'.");
+            }
+        }
+    }
+
 
     public static void ViewFlightPoints()
     {
         Console.WriteLine("=== Flight Points ===\n");
-        // Console.WriteLine($"Total flight points: {AccountsLogic.CurrentAccount.FlightPoints}");
+        // Console.WriteLine($"Total flight points: {UserAccountLogic.CurrentAccount.FlightPoints}");
 
         while (true)
         {

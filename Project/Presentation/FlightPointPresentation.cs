@@ -8,7 +8,7 @@ public static class FlightPointPresentation
         string email = MenuPresentation.currentAccount.EmailAddress;
 
         // Load the booked flights for this specific email
-        var bookedFlights = BookedFlightsAccess.LoadByEmail(email);
+        var bookedFlights = BookFlightLogic.SearchByEmail(email);
 
         if (bookedFlights.Count > 0)
         {
@@ -55,7 +55,7 @@ public static class FlightPointPresentation
             }
             else
             {
-                Console.WriteLine("You have no earned flight points yet.\n");
+                Console.WriteLine("You have no earned flight points yet. You get your flight points when the plane take off.\n");
             }
         }
         else

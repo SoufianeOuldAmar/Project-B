@@ -13,7 +13,7 @@ public class FinancialAdvisorLogic
 
         FinancialAccount = new List<FinancialAccountModel>
         {
-            new FinancialAccountModel(2, "Advisor", "xyz")
+            new FinancialAccountModel(1, "Advisor", "xyz")
         };
     }
 
@@ -30,7 +30,4 @@ public class FinancialAdvisorLogic
         return FinancialAccount.FirstOrDefault(x => x.UserName.ToLower() == username.ToLower());
         
     }
-
-
-
 }

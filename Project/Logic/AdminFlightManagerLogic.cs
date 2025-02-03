@@ -11,10 +11,8 @@ namespace DataAccess
     public static class AdminFlightManagerLogic
     {
 
-        public static List<FlightModel> GetAllFlights()
-        {
-            return DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
-        }
+        public static List<FlightModel> allFlights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
+
         public static bool SaveChangesLogic(FlightModel flight)
         {
             var flights = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
@@ -28,18 +26,11 @@ namespace DataAccess
                 flightToUpdate.IsCancelled = flight.IsCancelled;
                 flightToUpdate.DepartureDate = flight.DepartureDate;
                 flightToUpdate.FlightTime = flight.FlightTime;
-                
+
                 DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", flights);
                 return true;
             }
             return false;
-        }
-
-
-        public static FlightModel SearchFlightLogic(int id)
-        {
-            var Flight = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
-            return Flight.FirstOrDefault(flight => flight.Id == id);
         }
 
         public static bool TicketPriceLogic(double newTicketPrice)
@@ -100,6 +91,45 @@ namespace DataAccess
             return false;
         }
 
+        public static bool CheckForFlights()
+        {
+            return allFlights == null || allFlights.Count == 0;
+        }
 
+        public static int CalculatePages(int pageSize)
+        {
+            return (int)Math.Ceiling(allFlights.Count / (double)pageSize);
+        }
+
+        public static List<FlightModel> GetFlightsForPage(int currentPage, int pageSize)
+        {
+            return allFlights
+            .Skip(currentPage * pageSize)
+            .Take(pageSize)
+            .ToList();
+        }
+
+        public static int ChangePage(int currentPage, int totalPages, string input)
+        {
+            if (input == "N" && currentPage < totalPages - 1)
+            {
+                currentPage++;
+            }
+            else if (input == "B" && currentPage > 0)
+            {
+                currentPage--;
+            }
+
+            return currentPage;
+        }
+
+        public static string CreateGate(string newGate)
+        {
+            string letterPart = newGate.Substring(0, 1).ToUpper();
+            string numberPart = newGate.Substring(1);
+            string newGateStr = $"{letterPart}{numberPart}";
+
+            return newGateStr;
+        }
     }
 }

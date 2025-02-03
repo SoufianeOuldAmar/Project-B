@@ -1,14 +1,16 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 
 public static class EmployeesLogic
 {
+    public static List<EmployeesModel> AllEmployees = DataAccessClass.ReadList<EmployeesModel>("DataSources/employees.json");
     public static bool EmpCopyToDestinationLogic(string filePath)
     {
         if (File.Exists(filePath))
         {
-            string destinationPath = Path.Combine(Environment.CurrentDirectory, "EmployeesCV");
+            string destinationPath = Path.Combine(Environment.CurrentDirectory, "DataSources/EmployeesCV");
 
             if (!Directory.Exists(destinationPath))
             {
@@ -23,7 +25,7 @@ public static class EmployeesLogic
 
         return false;
     }
-    
+
     public static bool NameLogic(string input)
     {
         foreach (char c in input)
@@ -36,27 +38,22 @@ public static class EmployeesLogic
         return false;
     }
 
-    public static List<EmployeesModel> GetAllEmployees()
-    {
-        return DataAccessClass.ReadList<EmployeesModel>("DataSources/Emplyoees.json");
-    }
     public static EmployeesModel SelectEmployeeId(int id)
     {
-        var employee = DataAccessClass.ReadList<EmployeesModel>("DataSources/Emplyoees.json");
-
+        var employee = DataAccessClass.ReadList<EmployeesModel>("DataSources/employees.json");
 
         return employee.FirstOrDefault(empl => empl.Id == id);
     }
 
     public static bool SaveChangesLogic(EmployeesModel employee)
     {
-        var employees = DataAccessClass.ReadList<EmployeesModel>("DataSources/Emplyoees.json");
+        var employees = DataAccessClass.ReadList<EmployeesModel>("DataSources/employees.json");
         var emloyeeToUpdate = employees.FirstOrDefault(f => f.Id == employee.Id);
         if (emloyeeToUpdate != null)
         {
             emloyeeToUpdate.Accepted = employee.Accepted;
             // EmployeesAccess.WriteAll(employees);
-            DataAccessClass.WriteList<EmployeesModel>("DataSources/Emplyoees.json", employees);
+            DataAccessClass.WriteList<EmployeesModel>("DataSources/employees.json", employees);
             return true;
         }
         return false;
@@ -81,4 +78,31 @@ public static class EmployeesLogic
         }
     }
 
+    public static void SaveEmployee(string name, int age, string cvFileName, int registrationID)
+    {
+        List<EmployeesModel> employees = DataAccessClass.ReadList<EmployeesModel>("DataSources/employees.json");
+        EmployeesModel newEmployee = new EmployeesModel(
+            name,
+            age,
+            // false,
+            cvFileName,
+            registrationID
+        )
+        {
+            Id = employees.Count() + 1
+        };
+
+        employees.Add(newEmployee);
+        DataAccessClass.WriteList<EmployeesModel>("DataSources/employees.json", employees);
+    }
+
+    public static EmployeesModel GetEmployeeByID(int id)
+    {
+        return AllEmployees.FirstOrDefault(f => f.RegistrationID == id);
+    }
+
+    public static EmployeesModel GetEmployeeByName(string name)
+    {
+        return AllEmployees.FirstOrDefault(r => r.Name == name);
+    }
 }

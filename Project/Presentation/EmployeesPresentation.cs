@@ -105,37 +105,25 @@ public static class EmployeesPresentation
 
         string cvFileName = Path.GetFileName(filePath);
 
-        List<EmployeesModel> employees = DataAccessClass.ReadList<EmployeesModel>("DataSources/Emplyoees.json");
-        EmployeesModel newEmployee = new EmployeesModel(
-            name,
+        EmployeesLogic.SaveEmployee(name,
             age,
-            // false,
             cvFileName,
-            registrationID
-        )
-        {
-            Id = employees.Count() + 1
-        };
+            registrationID);
 
-        employees.Add(newEmployee);
-        DataAccessClass.WriteList<EmployeesModel>("DataSources/Emplyoees.json", employees);
         Console.WriteLine("Your application has been received successfully. It will be processed shortly.");
-
     }
 
     public static void ViewRegistrationStatus(int registerID)
     {
-        var AllEmployees = EmployeesLogic.GetAllEmployees();
-
         while (true)
         {
 
-            var register = AllEmployees.FirstOrDefault(f => f.RegistrationID == registerID);
+            var register = EmployeesLogic.GetEmployeeByID(registerID);
             if (register != null)
             {
                 Console.Write("Enter your name: ");
                 string name = Console.ReadLine();
-                var RegisterName = AllEmployees.FirstOrDefault(r => r.Name == name);
+                var RegisterName = EmployeesLogic.GetEmployeeByName(name);
                 if (register.Name == name)
                 {
                     Console.Write($"Your application status: ");
@@ -189,7 +177,7 @@ public static class EmployeesPresentation
                 Console.Clear();
 
                 while (true)
-                {   
+                {
                     Console.WriteLine("=== 🕒 Status of your registration ===\n");
 
                     Console.Write("Enter your Registration ID to view the status: ");

@@ -1,18 +1,21 @@
 using System.Collections.Generic;
+using System.Threading;
 
 public static class NotificationLogic
 {
-    public static void NotifyBookingModification(
-    string email,
-    List<BookedFlightsModel> bookings,
-    List<PetLogic> newPets,
-    List<string> newSeats,
-    List<BaggageLogic> newBaggageAdded,
-    List<string> seatChanges,
-    List<PetLogic> petChanges)
+
+    public static List<string> seatChanges = new List<string>();
+    public static List<string> newSeats = new List<string>();
+
+    public static List<PetModel> petChanges = new List<PetModel>();
+    public static List<PetModel> newPets = new List<PetModel>();
+
+    public static List<BaggageModel> newBaggageAdded = new List<BaggageModel>();
+
+    public static void NotifyBookingModification(string email, List<BookedFlightsModel> bookings)
     {
         // Fetch the account for the provided email
-        var account = AccountsLogic.GetByEmail(email);
+        var account = UserAccountLogic.GetByEmail(email);
 
         // Initialize a list to hold all new notifications
         var newNotifications = new List<Notification>();
@@ -100,11 +103,11 @@ public static class NotificationLogic
 
     // TODO: Verander ticketprice, gate en newtime, met olddetails en iscancelled is voor de andere constructor
 
-    public static void NotifyFlightModification(int flightID, List<double> ticketPriceChange, List<string> gateChange, bool isCancelled, List<string> newTimeChange)
+    public static void NotifyFlightModification(int flightID, List<double> ticketPriceChange, List<string> gateChange, bool isCancelled, List<string> newTimeChange, List<string> dateChange)
     {
         var newNotifications = new List<Notification>();
         var allBookedFlights = BookedFlightsAccess.LoadAll();
-        var allEmails = AccountsLogic.GetAllEmails();
+        var allEmails = UserAccountLogic.GetAllEmails();
 
         if (ticketPriceChange.Count > 1)
         {
@@ -138,6 +141,12 @@ public static class NotificationLogic
             newNotifications.Add(notification);
         }
 
+        if (dateChange.Count > 1)
+        {
+            Notification notification = new Notification(1, flightID, "Flight date changed", dateChange[0].ToString(), dateChange[1].ToString());
+            newNotifications.Add(notification);
+        }
+
         foreach (string email in allEmails)
         {
             foreach (var kvp in allBookedFlights)
@@ -148,8 +157,9 @@ public static class NotificationLogic
                     {
                         if (bookedFlight.FlightID == flightID)
                         {
-                            var account = AccountsLogic.GetByEmail(email);
+                            var account = UserAccountLogic.GetByEmail(email);
                             account.Notifications.AddRange(newNotifications);
+
                             DataAccessClass.UpdateCurrentAccount(account);
                         }
                     }
@@ -170,6 +180,12 @@ public static class NotificationLogic
         }
 
         return false;
+    }
+
+    public static void ReadNotification(Notification notification, UserAccountModel currentAccount)
+    {
+        notification.IsRead = true;
+        DataAccessClass.UpdateCurrentAccount(currentAccount);
     }
 
 }

@@ -1,5 +1,5 @@
 using BusinessLogic;
-
+using DataModels;
 public static class FeedbackPresentation
 {
     public static void FeedbackMenu(UserAccountModel userAccountModel)
@@ -30,7 +30,6 @@ public static class FeedbackPresentation
             }
             else if (choice == "3")
             {
-                MenuPresentation.PressAnyKey();
                 isValidChoice = true;
             }
             else
@@ -52,20 +51,18 @@ public static class FeedbackPresentation
         try
         {
             FeedbackLogic.SubmitFeedback(userAccountModel.EmailAddress, content);
-            Console.WriteLine("Thank you for your feedback! Your feedback has been submitted successfully.");
+            MenuPresentation.PrintColored("\nThank you for your feedback! Your feedback has been submitted successfully.", ConsoleColor.Green);
         }
         catch (ArgumentException ex)
         {
             Console.WriteLine($"Error: {ex.Message}");
         }
-
-        // MenuPresentation.PressAnyKey();
     }
 
     public static void ManageUserFeedbacks(UserAccountModel userAccountModel)
     {
         Console.Clear();
-        var feedbacks = FeedbackLogic.GetAllFeedbacks().Where(f => f.UserEmail == userAccountModel.EmailAddress).ToList();
+        var feedbacks = FeedbackLogic.GetFeedbackForUser();
 
         if (feedbacks.Count == 0)
         {
@@ -88,7 +85,7 @@ public static class FeedbackPresentation
 
         if (int.TryParse(input, out int id))
         {
-            var feedbackToDelete = feedbacks.FirstOrDefault(f => f.Id == id);
+            var feedbackToDelete = FeedbackLogic.GetFeedbackByID(id);
             if (feedbackToDelete != null)
             {
                 FeedbackLogic.DeleteFeedback(id);
@@ -105,9 +102,11 @@ public static class FeedbackPresentation
     public static void ViewFeedbackMenu()
     {
         Console.Clear();
-        var feedbacks = FeedbackLogic.GetAllFeedbacks();
+        var isFeedbackAvailable = FeedbackLogic.CheckForFeedback().Item1;
+        var feedbacks = FeedbackLogic.CheckForFeedback().Item2;
 
-        if (feedbacks.Count == 0)
+
+        if (!isFeedbackAvailable)
         {
             Console.WriteLine("No feedback available.");
             MenuPresentation.PressAnyKey();
@@ -129,7 +128,7 @@ public static class FeedbackPresentation
 
         if (int.TryParse(input, out int id))
         {
-            var feedbackToUpdate = feedbacks.FirstOrDefault(f => f.Id == id);
+            var feedbackToUpdate = FeedbackLogic.GetFeedbackByID(id);
 
             if (feedbackToUpdate != null)
             {
@@ -142,25 +141,25 @@ public static class FeedbackPresentation
                 {
                     case "1":
                         FeedbackLogic.CloseFeedback(id);
-                        Console.WriteLine("Feedback marked as closed.");
+                        MenuPresentation.PrintColored("Feedback marked as closed.", ConsoleColor.Yellow);
                         break;
 
                     case "2":
                         FeedbackLogic.DeleteFeedback(id);
-                        Console.WriteLine("Feedback deleted successfully.");
+                        MenuPresentation.PrintColored("Feedback deleted successfully.", ConsoleColor.Green);
                         break;
 
                     default:
-                        Console.WriteLine("Invalid action. Returning to the feedback menu.");
+                        MenuPresentation.PrintColored("Invalid action. Returning to the feedback menu.", ConsoleColor.Red);
                         break;
                 }
             }
             else
             {
-                Console.WriteLine("Invalid ID. Returning to the feedback menu.");
+                MenuPresentation.PrintColored("Invalid ID. Returning to the feedback menu.", ConsoleColor.Red);
             }
         }
 
-        // MenuPresentation.PressAnyKey();
+        MenuPresentation.PressAnyKey();
     }
 }

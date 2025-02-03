@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-public static class AccountsLogic
+public static class UserAccountLogic
 {
     public enum CreateAccountStatus
     {
@@ -11,7 +11,7 @@ public static class AccountsLogic
         CorrectCredentials
     }
 
-    public static List<UserAccountModel> _accounts = DataAccessClass.ReadList<UserAccountModel>("DataSources/accounts.json");
+    public static List<UserAccountModel> _accounts = DataAccessClass.ReadList<UserAccountModel>("DataSources/useraccounts.json");
     static public UserAccountModel? CurrentAccount { get; private set; }
 
     public static void UpdateList(UserAccountModel acc)
@@ -29,50 +29,8 @@ public static class AccountsLogic
             _accounts.Add(acc);
         }
 
-        DataAccessClass.WriteList<UserAccountModel>("DataSources/accounts.json", _accounts);
+        DataAccessClass.WriteList<UserAccountModel>("DataSources/useraccounts.json", _accounts);
 
-    }
-
-    public static string CreateAccount(string fullName, string email, string password)
-    {
-        List<CreateAccountStatus> statusList = CheckCreateAccount(fullName, email, password);
-
-        if (statusList.Count == 0)
-        {
-            int id = _accounts.Count + 1; // Use the next id
-            UserAccountModel account = new UserAccountModel(id, email, password, fullName);
-            UpdateList(account);
-            return "\nAccount created successfully!";
-        }
-        else
-        {
-            string errorMessages = "\nError messages!:\n";
-            foreach (var item in statusList)
-            {
-                if (item == CreateAccountStatus.IncorrectFullName)
-                {
-                    errorMessages += "Full name is incorrect. Please enter a valid name.\n";
-                }
-
-                if (item == CreateAccountStatus.IncorrectEmail)
-                {
-                    errorMessages += "Email is incorrect. Please enter a valid email.\n";
-                }
-
-                if (item == CreateAccountStatus.IncorrectPassword)
-                {
-                    errorMessages += "Password is too short. It must be at least 5 characters.\n";
-                }
-
-                if (item == CreateAccountStatus.EmailExists)
-                {
-                    errorMessages += "Email already exists. Use another email.\n";
-                }
-
-            }
-
-            return errorMessages;
-        }
     }
 
     public static List<CreateAccountStatus> CheckCreateAccount(string fullName, string email, string password)
@@ -147,4 +105,5 @@ public static class AccountsLogic
         else if (input.ToLower() == "no") return false;
         else return null;
     }
+    
 }

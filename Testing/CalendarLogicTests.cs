@@ -16,7 +16,7 @@ namespace CalendarLogicTests
 
             string result = CalendarLogic.GetCalendarHeader(month, year);
 
-            Assert.AreEqual("2025               januari\nSun Mon Tue Wed Thu Fri Sat", result);
+            Assert.AreEqual("2025               January\nSun Mon Tue Wed Thu Fri Sat", result);
         }
 
         [TestMethod]

@@ -17,11 +17,11 @@ namespace DataAccess
 
             Console.WriteLine("=== 📅 Manage the bookings ===\n");
 
-            var flightDetails = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
-            var BookedFlight = BookedFlightsAccess.LoadAll();
+            bool isThereBookedFlight = BookFlightLogic.CheckForBookedFlights().Item1;
+            var BookedFlight = BookFlightLogic.CheckForBookedFlights().Item2;
 
 
-            if (BookedFlight.Count == 0)
+            if (!isThereBookedFlight)
             {
                 Console.WriteLine("No booked flights available");
                 IsEmpty = true;
@@ -75,7 +75,7 @@ namespace DataAccess
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(books.IsCancelled);
 
-                    var flight = flightDetails.Find(f => f.Id == books.FlightID);
+                    var flight = FlightLogic.SearchFlightByID(books.FlightID);
 
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write($"  Date: ");
@@ -97,15 +97,12 @@ namespace DataAccess
         }
 
 
-        public static List<BookedFlightsModel> SearchBookedPresentaion(string email) // List<BookedFlightsModel> 
+        public static List<BookedFlightsModel> SearchBookedPresentation(string email) // List<BookedFlightsModel> 
         {
-            var flightDetails = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
-            var BookedFlight = BookedFlightsAccess.LoadAll();
-            List<BookedFlightsModel> bookings = new List<BookedFlightsModel>();
+            List<BookedFlightsModel> bookings = BookFlightLogic.SearchByEmail(email);
 
-            if (BookedFlight.ContainsKey(email))
+            if (bookings.Count > 0)
             {
-                bookings = BookedFlight[email];
                 foreach (var books in bookings)
                 {
 
@@ -144,7 +141,7 @@ namespace DataAccess
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(books.IsCancelled);
 
-                    var flight = flightDetails.Find(f => f.Id == books.FlightID);
+                    var flight = FlightLogic.SearchFlightByID(books.FlightID);
 
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.Write($"  Date: ");
@@ -161,25 +158,17 @@ namespace DataAccess
                     Console.WriteLine();
                     Console.ResetColor();
                 }
-            }
-            return bookings;
+                return bookings;
 
+            }
+            else
+            {
+                return new List<BookedFlightsModel>();
+            }
         }
 
         public static void UpdateBookedDetailsPresentation()
         {
-
-            var BookdeFlight = BookedFlightsAccess.LoadAll();
-            var flightDetails = DataAccessClass.ReadList<FlightModel>("DataSources/flights.json");
-
-            List<string> seatChanges = new List<string>();
-            List<string> newSeats = new List<string>();
-
-            List<PetLogic> petChanges = new List<PetLogic>();
-            List<PetLogic> newPets = new List<PetLogic>();
-
-            List<BaggageLogic> newBaggageAdded = new List<BaggageLogic>();
-
 
             while (true)
             {
@@ -192,7 +181,7 @@ namespace DataAccess
                 string email = Console.ReadLine();
 
                 Console.Clear();
-                var bookings = SearchBookedPresentaion(email);
+                var bookings = SearchBookedPresentation(email);
                 if (bookings.Count == 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -205,7 +194,7 @@ namespace DataAccess
                 else if (bookings.Count > 0 && bookings != null)
                 {
 
-                    Console.Write("Choose a FlighID: ");
+                    Console.Write("Choose a FlightID: ");
                     string input = Console.ReadLine();
                     Console.Clear();
 
@@ -250,7 +239,7 @@ namespace DataAccess
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine(selectedBooking.IsCancelled);
 
-                            var flight = flightDetails.Find(f => f.Id == selectedBooking.FlightID);
+                            var flight = FlightLogic.SearchFlightByID(selectedBooking.FlightID);
 
                             Console.ForegroundColor = ConsoleColor.Cyan;
                             Console.Write($"  Date: ");
@@ -280,13 +269,10 @@ namespace DataAccess
                                     {
                                         Console.Write("Enter the new seat: ");
                                         string seat = Console.ReadLine();
-                                        if (AdminManageBookingLogic.SeatLogic(seat))
+                                        bool isValidSeat = AdminManageBookingLogic.NewSeatLogic(seat, selectedBooking);
+
+                                        if (isValidSeat)
                                         {
-                                            string letterPart = seat.Substring(1).ToUpper();
-                                            string numberPart = seat.Substring(0, 1);
-                                            seatStr = $"{numberPart}{letterPart}";
-                                            selectedBooking.BookedSeats.Add(seatStr);
-                                            newSeats.Add(seatStr);
                                             break;
                                         }
                                         else
@@ -305,22 +291,16 @@ namespace DataAccess
                                             }
                                             Console.WriteLine("Enter the number of the seat you want to replace:");
                                             string number = Console.ReadLine();
+                                            bool isValidSelection = AdminManageBookingLogic.CheckValidSelection(number, selectedBooking).Item1;
+                                            int seatIndex = AdminManageBookingLogic.CheckValidSelection(number, selectedBooking).Item2;
 
-                                            if (int.TryParse(number, out int seatIndex) && seatIndex > 0 && seatIndex <= selectedBooking.BookedSeats.Count)
+
+                                            if (isValidSelection)
                                             {
                                                 Console.Write("Enter the new seat: ");
                                                 string newSeat = Console.ReadLine();
-                                                if (AdminManageBookingLogic.SeatLogic(newSeat))
+                                                if (AdminManageBookingLogic.ChangeSeatLogic(newSeat, selectedBooking, seatIndex))
                                                 {
-                                                    string letterPart = newSeat.Substring(1).ToUpper();
-                                                    string numberPart = newSeat.Substring(0, 1);
-                                                    newSeat = $"{numberPart}{letterPart}";
-                                                    var oldSeat = selectedBooking.BookedSeats[seatIndex - 1];
-                                                    selectedBooking.BookedSeats[seatIndex - 1] = newSeat;
-
-                                                    seatChanges.Add(oldSeat);
-                                                    seatChanges.Add(newSeat);
-
                                                     Console.WriteLine($"Seat updated successfully! New seats list: {string.Join(", ", selectedBooking.BookedSeats)}");
                                                     break;
                                                 }
@@ -375,12 +355,9 @@ namespace DataAccess
                                         Console.WriteLine("Enter your animal's name: ");
                                         string petName = Console.ReadLine();
 
-                                        if (petType == "dog" || petType == "cat" || petType == "bunny" || petType == "bird")
+                                        if (AdminManageBookingLogic.IsPetTypeValid(petType))
                                         {
-                                            var newPet = new PetLogic(petType, petName) { Fee = 50.0 };
-                                            selectedBooking.Pets.Add(newPet);
-                                            newPets.Add(newPet);
-                                            flight.TotalPets++;
+                                            AdminManageBookingLogic.CreateNewPet(petType, petName, selectedBooking, flight);
                                             Console.WriteLine($"Pet {petType} added. Fee: 50 EUR.");
 
                                             if (flight.TotalPets >= 7)
@@ -412,20 +389,20 @@ namespace DataAccess
                                             }
                                             Console.WriteLine("Enter the number of the pet you want to replace:");
                                             string number = Console.ReadLine();
-                                            if (int.TryParse(number, out int PetIndex) && PetIndex > 0 && PetIndex <= selectedBooking.Pets.Count)
+                                            bool isValidSelection = AdminManageBookingLogic.CheckValidSelectionPet(number, selectedBooking).Item1;
+                                            int PetIndex = AdminManageBookingLogic.CheckValidSelectionPet(number, selectedBooking).Item2;
+
+                                            if (isValidSelection)
                                             {
                                                 Console.WriteLine("What type of pet do you want to replace it with? (dog, cat, bunny, bird): ");
                                                 string newPetType = Console.ReadLine().ToLower();
-                                                if (newPetType == "dog" || newPetType == "cat" || newPetType == "bunny" || newPetType == "bird")
+                                                if (AdminManageBookingLogic.IsPetTypeValid(newPetType))
                                                 {
-                                                    selectedBooking.Pets.RemoveAt(PetIndex - 1);// -1 to match the index
-
                                                     Console.WriteLine("Name of the pet: ");
                                                     string petName = Console.ReadLine();
 
-                                                    // Add the new pet
-                                                    PetLogic newPet = new PetLogic(newPetType, petName);
-                                                    selectedBooking.Pets.Insert(PetIndex - 1, newPet);
+                                                    AdminManageBookingLogic.ChangePetLogic(selectedBooking, petName, newPetType, PetIndex);
+
 
                                                     Console.WriteLine($"Pet {PetIndex} has been replaced with a {newPetType}.");
                                                 }
@@ -476,31 +453,22 @@ namespace DataAccess
                                         string baggageType = Console.ReadLine().ToLower();
 
                                         double weightBaggage = 0;
-                                        double feeBaggage = 0;
+                                        // double feeBaggage = 0;
 
                                         if (baggageType == "1")
                                         {
                                             Console.WriteLine("Enter weight for carry on (in kg): ");
                                             weightBaggage = double.Parse(Console.ReadLine());
+                                            int isValidCarryOn = AdminManageBookingLogic.CarryOnIsValid(weightBaggage, initials, baggageType, selectedBooking);
 
-                                            if (weightBaggage > 0 && weightBaggage <= 20)
+                                            if (isValidCarryOn == 50)
                                             {
-                                                feeBaggage = 45;
-                                                Console.WriteLine($"Your carry on goes over the 10kg limit. You'll have to pay a fee of {feeBaggage} EUR.");
-                                                var newBaggage = new BaggageLogic(initials, baggageType, weightBaggage) { Fee = feeBaggage };
-                                                selectedBooking.BaggageInfo.Add(newBaggage);
-                                                newBaggageAdded.Add(newBaggage);
-
+                                                Console.WriteLine($"Your carry on goes over the 10kg limit. You'll have to pay a fee of {isValidCarryOn} EUR.");
                                                 break;
                                             }
-                                            else if (weightBaggage > 20 && weightBaggage <= 25)
+                                            else if (isValidCarryOn == 0)
                                             {
-                                                feeBaggage = 50;
-                                                Console.WriteLine($"Your carry on goes over the 10kg limit. You'll have to pay a fee of {feeBaggage} EUR.");
-                                                var newBaggage = new BaggageLogic(initials, baggageType, weightBaggage) { Fee = feeBaggage };
-                                                selectedBooking.BaggageInfo.Add(newBaggage);
-                                                newBaggageAdded.Add(newBaggage);
-
+                                                Console.WriteLine("Your checked baggage weight is 20 kg. No additional fee required.");
                                                 break;
                                             }
                                             else
@@ -512,36 +480,24 @@ namespace DataAccess
                                         {
                                             Console.WriteLine("Enter weight for checked baggage (choose 20 or 25 kg): ");
                                             weightBaggage = double.Parse(Console.ReadLine());
+                                            var result = AdminManageBookingLogic.CheckedIsValid(weightBaggage, initials, baggageType, selectedBooking);
 
-                                            if (weightBaggage == 20)
+                                            if (result == BaggageValidationResult.Valid20Kg)
                                             {
                                                 Console.WriteLine("Your checked baggage weight is 20 kg. No additional fee required.");
-                                                var newBaggage = new BaggageLogic(initials, baggageType, weightBaggage) { Fee = feeBaggage };
-                                                selectedBooking.BaggageInfo.Add(newBaggage);
-                                                newBaggageAdded.Add(newBaggage);
-
                                                 break;
                                             }
-                                            else if (weightBaggage == 25)
+                                            else if (result == BaggageValidationResult.Valid25Kg)
                                             {
                                                 Console.WriteLine("Your checked baggage weight is 25 kg. No additional fee required.");
-                                                var newBaggage = new BaggageLogic(initials, baggageType, weightBaggage) { Fee = feeBaggage };
-                                                selectedBooking.BaggageInfo.Add(newBaggage);
-                                                newBaggageAdded.Add(newBaggage);
-
                                                 break;
                                             }
-                                            else if (weightBaggage > 25)
+                                            else if (result == BaggageValidationResult.Overweight)
                                             {
-                                                feeBaggage = 50;
-                                                Console.WriteLine($"Your checked baggage weight exceeds the 25 kg limit. You'll have to pay a fee of {feeBaggage} EUR.");
-                                                var newBaggage = new BaggageLogic(initials, baggageType, weightBaggage) { Fee = feeBaggage };
-                                                selectedBooking.BaggageInfo.Add(newBaggage);
-                                                newBaggageAdded.Add(newBaggage);
-
+                                                Console.WriteLine($"Your checked baggage weight exceeds the 25 kg limit. You'll have to pay a fee of 50 EUR.");
                                                 break;
                                             }
-                                            else
+                                            else if (result == BaggageValidationResult.InvalidWeight)
                                             {
                                                 Console.WriteLine("Invalid weight. Please enter a valid weight for your checked baggage.");
                                             }
@@ -561,9 +517,6 @@ namespace DataAccess
                                     break;
                                 }
                             }
-
-
-
                         }
                         else
                         {
@@ -572,64 +525,25 @@ namespace DataAccess
                             Console.ResetColor();
                             break;
                         }
-
-
                     }
                     else
                     {
                         Console.WriteLine("This email has no booking with this flightID. Please try again");
                     }
-
                 }
                 else
                 {
                     Console.WriteLine("No booking foud. pleas try again!!!!");
                 }
 
-                // // Loop through seat changes
-                // foreach (var seatChange in seatChanges)
-                // {
-                //     Console.WriteLine($"Original Seat: {seatChange.Key}, New Seat: {seatChange.Value}");
-                // }
-
-                // // Loop through new seats
-                // foreach (var newSeat in newSeats)
-                // {
-                //     Console.WriteLine($"New Seat: {newSeat}");
-                // }
-
-                // // Loop through pet changes
-                // foreach (var petChange in petChanges)
-                // {
-                //     Console.WriteLine($"Original Pet: {petChange.Key}, Updated Pet: {petChange.Value}");
-                // }
-
-                // // Loop through new pets
-                // foreach (var newPet in newPets)
-                // {
-                //     Console.WriteLine($"New Pet: {newPet}");
-                // }
-
-                // // Loop through new baggage added
-                // foreach (var baggage in newBaggageAdded)
-                // {
-                //     Console.WriteLine($"New Baggage Added: {baggage}");
-                // }
-
-                // MenuPresentation.PressAnyKey();
-
-
-                saving(email, bookings);
-                NotificationLogic.NotifyBookingModification(email, bookings, newPets, newSeats, newBaggageAdded, seatChanges, petChanges);
+                Saving(email, bookings);
+                NotificationLogic.NotifyBookingModification(email, bookings);
 
                 break;
-
             }
-
-
         }
 
-        public static void saving(string email, List<BookedFlightsModel> bookings)
+        public static void Saving(string email, List<BookedFlightsModel> bookings)
         {
             while (true)
             {
@@ -637,10 +551,9 @@ namespace DataAccess
                 string answer = Console.ReadLine().ToLower();
                 if (answer == "yes")
                 {
-                    BookedFlightsAccess.Save(email, bookings);
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    AdminManageBookingLogic.SaveBookingData(email, bookings);
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Saving...");
-                    MenuPresentation.PressAnyKey();
                     Console.ResetColor();
                     break;
                 }
@@ -652,36 +565,7 @@ namespace DataAccess
                 {
                     Console.WriteLine("Invalid input. Please try again");
                 }
-
-
             }
         }
-
-
-
-        // public static void Another()
-        // {
-        //     Console.WriteLine("Do you want to manage another booking?");
-        //     string input1 = Console.ReadLine().ToLower();
-        //     if (input1 == "yes")
-        //     {
-        //         UpdateBookedDetailsPresentation();
-        //     }
-        //     else if (input1 == "no")
-        //     {
-        //         return;
-        //     }
-        //     else
-        //     {
-        //         Console.WriteLine("Invalid input. Please try again");
-        //     }
-        // }
-
-
-
-
-
-
     }
-
 }
