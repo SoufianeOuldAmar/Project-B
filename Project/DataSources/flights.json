@@ -6507,7 +6507,7 @@
     "AvailableSeats": 180,
     "FlightPoints": 27,
     "TotalPets": 1,
-    "HasTakenOff": false,
+    "HasTakenOff": true,
     "ReturnFlight": null
   },
   {
@@ -25515,7 +25515,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -25636,11 +25635,15 @@
         "30E",
         "30F"
       ],
-      "BookedSeats": [],
+      "BookedSeats": [
+        "11A"
+      ],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
-      "SeatInitials": {}
+      "SeatInitials": {
+        "11A": "SO"
+      }
     },
     "TicketPrice": 260,
     "Gate": "A5",

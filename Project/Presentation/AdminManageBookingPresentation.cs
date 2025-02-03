@@ -169,8 +169,8 @@ namespace DataAccess
 
         public static void UpdateBookedDetailsPresentation()
         {
-            List<string> seatChanges = new List<string>();
-            List<string> newSeats = new List<string>();
+            // List<string> seatChanges = new List<string>();
+            // List<string> newSeats = new List<string>();
 
             List<PetModel> petChanges = new List<PetModel>();
             List<PetModel> newPets = new List<PetModel>();
@@ -277,13 +277,11 @@ namespace DataAccess
                                     {
                                         Console.Write("Enter the new seat: ");
                                         string seat = Console.ReadLine();
-                                        if (AdminManageBookingLogic.SeatLogic(seat))
+                                        bool isValidSeat = AdminManageBookingLogic.NewSeatLogic(seat, selectedBooking).Item1;
+
+                                        if (isValidSeat)
                                         {
-                                            string letterPart = seat.Substring(1).ToUpper();
-                                            string numberPart = seat.Substring(0, 1);
-                                            seatStr = $"{numberPart}{letterPart}";
-                                            selectedBooking.BookedSeats.Add(seatStr);
-                                            newSeats.Add(seatStr);
+                                            seatStr = AdminManageBookingLogic.NewSeatLogic(seat, selectedBooking).Item2;
                                             break;
                                         }
                                         else
@@ -302,22 +300,16 @@ namespace DataAccess
                                             }
                                             Console.WriteLine("Enter the number of the seat you want to replace:");
                                             string number = Console.ReadLine();
+                                            bool isValidSelection = AdminManageBookingLogic.CheckValidSelection(number, selectedBooking).Item1;
+                                            int seatIndex = AdminManageBookingLogic.CheckValidSelection(number, selectedBooking).Item2;
 
-                                            if (int.TryParse(number, out int seatIndex) && seatIndex > 0 && seatIndex <= selectedBooking.BookedSeats.Count)
+
+                                            if (isValidSelection)
                                             {
                                                 Console.Write("Enter the new seat: ");
                                                 string newSeat = Console.ReadLine();
-                                                if (AdminManageBookingLogic.SeatLogic(newSeat))
+                                                if (AdminManageBookingLogic.ChangeSeatLogic(newSeat, selectedBooking, seatIndex))
                                                 {
-                                                    string letterPart = newSeat.Substring(1).ToUpper();
-                                                    string numberPart = newSeat.Substring(0, 1);
-                                                    newSeat = $"{numberPart}{letterPart}";
-                                                    var oldSeat = selectedBooking.BookedSeats[seatIndex - 1];
-                                                    selectedBooking.BookedSeats[seatIndex - 1] = newSeat;
-
-                                                    seatChanges.Add(oldSeat);
-                                                    seatChanges.Add(newSeat);
-
                                                     Console.WriteLine($"Seat updated successfully! New seats list: {string.Join(", ", selectedBooking.BookedSeats)}");
                                                     break;
                                                 }
@@ -558,9 +550,6 @@ namespace DataAccess
                                     break;
                                 }
                             }
-
-
-
                         }
                         else
                         {
@@ -569,14 +558,11 @@ namespace DataAccess
                             Console.ResetColor();
                             break;
                         }
-
-
                     }
                     else
                     {
                         Console.WriteLine("This email has no booking with this flightID. Please try again");
                     }
-
                 }
                 else
                 {
@@ -584,13 +570,10 @@ namespace DataAccess
                 }
 
                 Saving(email, bookings);
-                NotificationLogic.NotifyBookingModification(email, bookings, newPets, newSeats, newBaggageAdded, seatChanges, petChanges);
+                NotificationLogic.NotifyBookingModification(email, bookings, newPets, NotificationLogic.newSeats, newBaggageAdded, NotificationLogic.seatChanges, petChanges);
 
                 break;
-
             }
-
-
         }
 
         public static void Saving(string email, List<BookedFlightsModel> bookings)

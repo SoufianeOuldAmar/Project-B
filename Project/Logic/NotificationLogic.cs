@@ -3,6 +3,15 @@ using System.Threading;
 
 public static class NotificationLogic
 {
+
+    public static List<string> seatChanges = new List<string>();
+    public static List<string> newSeats = new List<string>();
+
+    public static List<PetModel> petChanges = new List<PetModel>();
+    public static List<PetModel> newPets = new List<PetModel>();
+
+    public static List<BaggageModel> newBaggageAdded = new List<BaggageModel>();
+
     public static void NotifyBookingModification(
     string email,
     List<BookedFlightsModel> bookings,

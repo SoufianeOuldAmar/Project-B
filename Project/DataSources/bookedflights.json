@@ -1,0 +1,28 @@
+{
+  "n@b.c": [
+    {
+      "FlightID": 58,
+      "BookedSeats": [
+        "11A",
+        "20A",
+        "20A"
+      ],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 260,
+      "FlightPoints": {
+        "ticketsBought": "03-02-2025",
+        "points": 0,
+        "flightId": 58,
+        "earned": false
+      },
+      "SeatInitials": {
+        "11A": "SO"
+      },
+      "Email": "n@b.c",
+      "FoodAndDrinkItems": [],
+      "DateTicketsBought": "03-02-2025"
+    }
+  ]
+}

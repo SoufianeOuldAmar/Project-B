@@ -40,5 +40,11 @@
     "ItemType": "Ticket",
     "Amount": 250,
     "DatePayment": "2025-02-02T23:12:17.2505981+01:00"
+  },
+  {
+    "Id": 8,
+    "ItemType": "Ticket",
+    "Amount": 260,
+    "DatePayment": "2025-02-03T13:33:29.4896822+01:00"
   }
 ]

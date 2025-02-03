@@ -407,10 +407,7 @@ public static class AdminAddFlightsPresentation
 
                     else if (AdminAddFlightsLogic.GetGate(input).Item1)
                     {
-                        input = AdminAddFlightsLogic.GetGate(input).Item2;
-                        string letterPart = input.Substring(0, 1).ToUpper();
-                        string numberPart = input.Substring(1);
-                        returnGate = $"{letterPart}{numberPart}";
+                        returnGate = AdminAddFlightsLogic.GetGate(input).Item2;
                         break;
                     }
                     else
