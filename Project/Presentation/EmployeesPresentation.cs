@@ -53,34 +53,29 @@ public static class EmployeesPresentation
         {
             Console.Write("Please enter the full path of the CV file (you do that by dragging the wanted file to the terminal and making sure to enclose the path with ''): ");
             filePath = Console.ReadLine();
+            var fileOperationStatus = EmployeesLogic.SaveEmployeeFile(filePath);
 
-
-            if (string.IsNullOrWhiteSpace(filePath))
+            if (fileOperationStatus == FileOperationStatus.EmptyPath)
             {
                 Console.WriteLine("File path cannot be empty. Please try again.");
                 continue;
             }
 
 
-            if (!File.Exists(filePath))
+            if (fileOperationStatus == FileOperationStatus.FileDoesNotExist)
             {
                 Console.WriteLine("The file does not exist. Please check the path and try again.");
                 continue;
             }
 
-            break;
+            if (fileOperationStatus == FileOperationStatus.Success)
+            {
+                Console.WriteLine("File was successfully uploaded.");
+                break;
+            }
+
         }
 
-        bool success = EmployeesLogic.EmpCopyToDestinationLogic(filePath);
-
-        if (success)
-        {
-            Console.WriteLine("File successfully uploaded!");
-        }
-        else
-        {
-            Console.WriteLine("There was an error uploading the file.");
-        }
         Random random = new Random();
         HashSet<int> UniqueRegistrationID = new HashSet<int>();
 

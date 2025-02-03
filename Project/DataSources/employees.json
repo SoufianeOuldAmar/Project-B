@@ -1,10 +1,10 @@
 [
   {
     "Id": 1,
-    "Name": "Soufiane",
-    "Age": 21,
-    "Accepted": "Good job you\u0027re hired",
-    "CvFileName": "cheat sheet oodp.docx",
-    "RegistrationID": 19656
+    "Name": "Een Persoon",
+    "Age": 23,
+    "Accepted": "Not reviewed yet",
+    "CvFileName": "cv file.txt",
+    "RegistrationID": 36446
   }
 ]

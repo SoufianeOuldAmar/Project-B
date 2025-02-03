@@ -2,29 +2,31 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
+public enum FileOperationStatus
+{
+    EmptyPath,
+    FileDoesNotExist,
+    Success
+}
+
 
 public static class EmployeesLogic
 {
     public static List<EmployeesModel> AllEmployees = DataAccessClass.ReadList<EmployeesModel>("DataSources/employees.json");
-    public static bool EmpCopyToDestinationLogic(string filePath)
+    public static FileOperationStatus SaveEmployeeFile(string filePath)
     {
-        if (File.Exists(filePath))
-        {
-            string destinationPath = Path.Combine(Environment.CurrentDirectory, "DataSources/EmployeesCV");
+        if (string.IsNullOrWhiteSpace(filePath))
+            return FileOperationStatus.EmptyPath;
 
-            if (!Directory.Exists(destinationPath))
-            {
-                Directory.CreateDirectory(destinationPath);
-            }
+        bool success = DataAccessClass.EmpCopyToDestinationLogic(filePath);
 
-            string fileName = Path.GetFileName(filePath);
-            string newFilePath = Path.Combine(destinationPath, fileName);
-            File.Copy(filePath, newFilePath, true);
-            return true;
-        }
+        if (!success)
+            return FileOperationStatus.FileDoesNotExist;
 
-        return false;
+        return FileOperationStatus.Success;
     }
+
+
 
     public static bool NameLogic(string input)
     {

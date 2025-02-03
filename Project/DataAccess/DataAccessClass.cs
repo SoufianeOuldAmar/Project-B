@@ -104,4 +104,24 @@ public static class DataAccessClass
         }
     }
 
+    public static bool EmpCopyToDestinationLogic(string filePath)
+    {
+        if (File.Exists(filePath))
+        {
+            string destinationPath = Path.Combine(Environment.CurrentDirectory, "DataSources/EmployeesCV");
+
+            if (!Directory.Exists(destinationPath))
+            {
+                Directory.CreateDirectory(destinationPath);
+            }
+
+            string fileName = Path.GetFileName(filePath);
+            string newFilePath = Path.Combine(destinationPath, fileName);
+            File.Copy(filePath, newFilePath, true);
+            return true;
+        }
+
+        return false;
+    }
+
 }
