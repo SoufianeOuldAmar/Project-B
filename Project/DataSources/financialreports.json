@@ -1,62 +1,50 @@
 [
   {
-    "Id": 1,
-    "ItemType": "Ticket",
-    "Amount": 260,
-    "DatePayment": "2025-02-02T22:02:27.1312885+01:00"
+    "Id": 10,
+    "ItemType": "FoodAndDrink",
+    "Amount": 9.75,
+    "DatePayment": "2025-02-03T22:24:35.5233436+01:00"
+  },
+  {
+    "Id": 11,
+    "ItemType": "FoodAndDrink",
+    "Amount": 7.5,
+    "DatePayment": "2025-02-03T22:24:35.5233453+01:00"
   },
   {
     "Id": 2,
     "ItemType": "Ticket",
-    "Amount": 260,
-    "DatePayment": "2025-02-02T22:03:40.3803256+01:00"
+    "Amount": 284,
+    "DatePayment": "2025-02-03T22:22:38.1176709+01:00"
   },
   {
     "Id": 3,
     "ItemType": "Ticket",
-    "Amount": 260,
-    "DatePayment": "2025-02-02T22:08:35.5161215+01:00"
-  },
-  {
-    "Id": 4,
-    "ItemType": "Ticket",
-    "Amount": 260,
-    "DatePayment": "2025-02-02T22:11:37.7878064+01:00"
+    "Amount": 550,
+    "DatePayment": "2025-02-03T22:23:03.7418563+01:00"
   },
   {
     "Id": 5,
     "ItemType": "Ticket",
-    "Amount": 250,
-    "DatePayment": "2025-02-02T23:10:44.0384794+01:00"
-  },
-  {
-    "Id": 5,
-    "ItemType": "Ticket",
-    "Amount": 250,
-    "DatePayment": "2025-02-02T23:10:44.0384794+01:00"
-  },
-  {
-    "Id": 6,
-    "ItemType": "Ticket",
-    "Amount": 250,
-    "DatePayment": "2025-02-02T23:12:17.2505981+01:00"
-  },
-  {
-    "Id": 8,
-    "ItemType": "Ticket",
-    "Amount": 260,
-    "DatePayment": "2025-02-03T13:33:29.4896822+01:00"
+    "Amount": 450,
+    "DatePayment": "2025-02-03T22:23:47.64185+01:00"
   },
   {
     "Id": 9,
-    "ItemType": "Ticket",
-    "Amount": 260,
-    "DatePayment": "2025-02-03T14:11:26.4615496+01:00"
+    "ItemType": "Baggage",
+    "Amount": 50,
+    "DatePayment": "2025-02-03T22:23:47.6418531+01:00"
   },
   {
-    "Id": 11,
-    "ItemType": "Pet",
+    "Id": 3,
+    "ItemType": "Ticket",
+    "Amount": 396.25,
+    "DatePayment": "2025-02-03T22:24:46.0437544+01:00"
+  },
+  {
+    "Id": 9,
+    "ItemType": "Baggage",
     "Amount": 50,
-    "DatePayment": "2025-02-03T14:11:26.4615699+01:00"
+    "DatePayment": "2025-02-03T22:24:46.0437564+01:00"
   }
 ]

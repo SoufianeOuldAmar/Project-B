@@ -1,0 +1,152 @@
+{
+  "n@b.c": [
+    {
+      "FlightID": 55,
+      "BookedSeats": [
+        "11A"
+      ],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 230,
+      "FlightPoints": {
+        "ticketsBought": "03-02-2025",
+        "points": 0,
+        "flightId": 55,
+        "earned": false
+      },
+      "SeatInitials": {
+        "11A": "SD"
+      },
+      "Email": "n@b.c",
+      "FoodAndDrinkItems": [],
+      "DateTicketsBought": "03-02-2025"
+    },
+    {
+      "FlightID": 47,
+      "BookedSeats": [
+        "11A"
+      ],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 293.75,
+      "FlightPoints": {
+        "ticketsBought": "03-02-2025",
+        "points": 0,
+        "flightId": 47,
+        "earned": false
+      },
+      "SeatInitials": {
+        "11A": "IO"
+      },
+      "Email": "n@b.c",
+      "FoodAndDrinkItems": [
+        {
+          "Name": "Sandwhich Chicken Teryaki",
+          "Price": 9.75
+        }
+      ],
+      "DateTicketsBought": "03-02-2025"
+    },
+    {
+      "FlightID": 59,
+      "BookedSeats": [
+        "11A"
+      ],
+      "Pets": [],
+      "BaggageInfo": [],
+      "IsCancelled": false,
+      "TicketBill": 550,
+      "FlightPoints": {
+        "ticketsBought": "03-02-2025",
+        "points": 0,
+        "flightId": 59,
+        "earned": false
+      },
+      "SeatInitials": {
+        "11A": "IO"
+      },
+      "Email": "n@b.c",
+      "FoodAndDrinkItems": [
+        {
+          "Name": "Sandwhich Chicken Teryaki",
+          "Price": 9.75
+        }
+      ],
+      "DateTicketsBought": "03-02-2025"
+    },
+    {
+      "FlightID": 82,
+      "BookedSeats": [
+        "12A"
+      ],
+      "Pets": [],
+      "BaggageInfo": [
+        {
+          "Initials": "SO",
+          "BaggageType": "3",
+          "BaggageWeight": 50,
+          "Fee": 50
+        }
+      ],
+      "IsCancelled": false,
+      "TicketBill": 500,
+      "FlightPoints": {
+        "ticketsBought": "03-02-2025",
+        "points": 0,
+        "flightId": 82,
+        "earned": false
+      },
+      "SeatInitials": {
+        "12A": "SO"
+      },
+      "Email": "n@b.c",
+      "FoodAndDrinkItems": [
+        {
+          "Name": "Sandwhich Chicken Teryaki",
+          "Price": 9.75
+        }
+      ],
+      "DateTicketsBought": "03-02-2025"
+    },
+    {
+      "FlightID": 51,
+      "BookedSeats": [
+        "17A"
+      ],
+      "Pets": [],
+      "BaggageInfo": [
+        {
+          "Initials": "SO",
+          "BaggageType": "3",
+          "BaggageWeight": 50,
+          "Fee": 50
+        }
+      ],
+      "IsCancelled": false,
+      "TicketBill": 463.5,
+      "FlightPoints": {
+        "ticketsBought": "03-02-2025",
+        "points": 0,
+        "flightId": 51,
+        "earned": false
+      },
+      "SeatInitials": {
+        "17A": "CC"
+      },
+      "Email": "n@b.c",
+      "FoodAndDrinkItems": [
+        {
+          "Name": "Sandwhich Chicken Teryaki",
+          "Price": 9.75
+        },
+        {
+          "Name": "Sandwich Healthy",
+          "Price": 7.5
+        }
+      ],
+      "DateTicketsBought": "03-02-2025"
+    }
+  ]
+}

@@ -21225,7 +21225,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -21346,13 +21345,17 @@
         "30E",
         "30F"
       ],
-      "BookedSeats": [],
+      "BookedSeats": [
+        "11A"
+      ],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
-      "SeatInitials": {}
+      "SeatInitials": {
+        "11A": "IO"
+      }
     },
-    "TicketPrice": 274.25,
+    "TicketPrice": 284,
     "Gate": "E2",
     "DepartureAirport": "Frankfurt, Frankfurt Airport",
     "ArrivalDestination": "Rotterdam, The Hague Airport",
@@ -22821,7 +22824,6 @@
         "16D",
         "16E",
         "16F",
-        "17A",
         "17B",
         "17C",
         "17D",
@@ -22906,13 +22908,17 @@
         "30E",
         "30F"
       ],
-      "BookedSeats": [],
+      "BookedSeats": [
+        "17A"
+      ],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
-      "SeatInitials": {}
+      "SeatInitials": {
+        "17A": "CC"
+      }
     },
-    "TicketPrice": 379,
+    "TicketPrice": 396.25,
     "Gate": "C2",
     "DepartureAirport": "Istanbul, Istanbul Airport",
     "ArrivalDestination": "Rotterdam, The Hague Airport",
@@ -24345,7 +24351,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -24466,11 +24471,15 @@
         "30E",
         "30F"
       ],
-      "BookedSeats": [],
+      "BookedSeats": [
+        "11A"
+      ],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
-      "SeatInitials": {}
+      "SeatInitials": {
+        "11A": "SD"
+      }
     },
     "TicketPrice": 230,
     "Gate": "A5",
@@ -25905,7 +25914,6 @@
         "10D",
         "10E",
         "10F",
-        "11A",
         "11B",
         "11C",
         "11D",
@@ -26026,11 +26034,15 @@
         "30E",
         "30F"
       ],
-      "BookedSeats": [],
+      "BookedSeats": [
+        "11A"
+      ],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
-      "SeatInitials": {}
+      "SeatInitials": {
+        "11A": "IO"
+      }
     },
     "TicketPrice": 550,
     "Gate": "C7",
@@ -34881,7 +34893,6 @@
         "11D",
         "11E",
         "11F",
-        "12A",
         "12B",
         "12C",
         "12D",
@@ -34996,11 +35007,15 @@
         "30E",
         "30F"
       ],
-      "BookedSeats": [],
+      "BookedSeats": [
+        "12A"
+      ],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
-      "SeatInitials": {}
+      "SeatInitials": {
+        "12A": "SO"
+      }
     },
     "TicketPrice": 450,
     "Gate": "A12",

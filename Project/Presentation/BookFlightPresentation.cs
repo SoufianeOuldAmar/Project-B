@@ -22,8 +22,9 @@ public static class BookFlightPresentation
     }
 
     private static void ProcessPassengerDetails(PassengerModel passenger, string seat, ref double totalPrice, double baseTicketPrice, string initials, FlightModel flight)
-    {
+    {   
         // Add passenger and calculate price
+        BookFlightLogic.passengers.Clear();
         BookFlightLogic.passengers.Add(passenger);
         BookFlightLogic.chosenSeats.Add(seat);
 
@@ -201,7 +202,7 @@ public static class BookFlightPresentation
     }
 
     public static void BookFlightMenu(bool searchFlightFunction = false, FlightModel flightModel = null, bool showFoodAndDrinks = true)
-    {
+    {   
         var currentAccount = UserAccountLogic.CurrentAccount;
         double totalPrice = 0;
         bool quit = false;
@@ -422,8 +423,8 @@ public static class BookFlightPresentation
         Console.WriteLine($"Flight: {selectedFlight.Airline}");
         Console.WriteLine($"Route: {selectedFlight.DepartureAirport} to {selectedFlight.ArrivalDestination}");
         Console.WriteLine($"Date: {selectedFlight.DepartureDate}, Time: {selectedFlight.FlightTime}");
-
         Console.WriteLine("\nPassenger Details:");
+        
         for (int i = 0; i < BookFlightLogic.passengers.Count; i++)
         {
             var p = BookFlightLogic.passengers[i];
