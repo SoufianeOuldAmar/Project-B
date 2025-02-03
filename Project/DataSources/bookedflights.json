@@ -124,7 +124,7 @@
           "Fee": 50
         }
       ],
-      "IsCancelled": false,
+      "IsCancelled": true,
       "TicketBill": 463.5,
       "FlightPoints": {
         "ticketsBought": "03-02-2025",
