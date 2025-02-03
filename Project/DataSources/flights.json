@@ -22906,11 +22906,10 @@
         "30C",
         "30D",
         "30E",
-        "30F"
-      ],
-      "BookedSeats": [
+        "30F",
         "17A"
       ],
+      "BookedSeats": [],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,
@@ -26733,7 +26732,6 @@
         "16D",
         "16E",
         "16F",
-        "17A",
         "17B",
         "17C",
         "17D",
@@ -26818,7 +26816,9 @@
         "30E",
         "30F"
       ],
-      "BookedSeats": [],
+      "BookedSeats": [
+        "17A"
+      ],
       "ChosenSeats": [],
       "IsAirbusA330": false,
       "IsBoeing787": false,

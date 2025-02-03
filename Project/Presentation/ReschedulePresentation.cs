@@ -77,11 +77,14 @@ public static class ReschedulePresentation
             goto ChooseNewFlight;
         }
 
-        List<string> occupiedSeats = RescheduleLogic.AreFormerSeatsTaken(newFlight.Id, chosenFlightIDInt);
+        List<string> occupiedSeats = RescheduleLogic.AreFormerSeatsTaken(newFlight.Id, chosenFlightIDInt).Item1;
+        bool isFee = RescheduleLogic.AreFormerSeatsTaken(newFlight.Id, chosenFlightIDInt).Item2;
+
         var layout = newFlight.Layout;
 
         if (occupiedSeats.Count == 0)
-        {
+        {   
+
             MenuPresentation.PrintColored($"\nFlight has been rescheduled to {newFlight.DepartureDate} {newFlight.FlightTime}.", ConsoleColor.Green);
         }
         else
@@ -104,6 +107,9 @@ public static class ReschedulePresentation
 
             }
         }
+
+        if (isFee) Console.WriteLine("You got a 50 euro fee because the ticket price of your new flight is lower");
+
         MenuPresentation.PressAnyKey();
 
     }

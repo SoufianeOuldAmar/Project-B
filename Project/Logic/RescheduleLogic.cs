@@ -49,16 +49,30 @@ public static class RescheduleLogic
         }
     }
 
-    public static List<string> AreFormerSeatsTaken(int newFlightID, int oldFlightId)
+    public static (List<string>, bool) AreFormerSeatsTaken(int newFlightID, int oldFlightId)
     {
         var bookedFlight = allBookedFlights[MenuPresentation.currentAccount.EmailAddress];
         FlightModel newFlight = FlightLogic.SearchFlightByID(newFlightID);
         FlightModel oldFlight = FlightLogic.SearchFlightByID(oldFlightId);
         List<string> seats = new List<string>();
         List<string> occupiedSeats = new List<string>();
+        bool isFee = false;
 
         foreach (var bf in bookedFlight)
         {
+
+            if (newFlight.TicketPrice >= oldFlight.TicketPrice)
+            {
+                var result = bf.TicketBill - oldFlight.TicketPrice;
+                bf.TicketBill = newFlight.TicketPrice;
+                bf.TicketBill += result;
+            }
+            else
+            {
+                isFee = true;
+                bf.TicketBill += 50;
+            }
+
             if (bf.FlightID == oldFlightId)
             {
                 bf.FlightID = newFlightID;
@@ -106,10 +120,12 @@ public static class RescheduleLogic
             }
         }
 
+
+
         DataAccessClass.WriteList<FlightModel>("DataSources/flights.json", allFlights);
         BookedFlightsAccess.WriteAll(MenuPresentation.currentAccount.EmailAddress, bookedFlight);
 
-        return occupiedSeats;
+        return (occupiedSeats, isFee);
     }
 
 }

@@ -8,7 +8,7 @@
       "Pets": [],
       "BaggageInfo": [],
       "IsCancelled": false,
-      "TicketBill": 230,
+      "TicketBill": 622.5,
       "FlightPoints": {
         "ticketsBought": "03-02-2025",
         "points": 0,
@@ -30,7 +30,7 @@
       "Pets": [],
       "BaggageInfo": [],
       "IsCancelled": false,
-      "TicketBill": 293.75,
+      "TicketBill": 686.25,
       "FlightPoints": {
         "ticketsBought": "03-02-2025",
         "points": 0,
@@ -57,7 +57,7 @@
       "Pets": [],
       "BaggageInfo": [],
       "IsCancelled": false,
-      "TicketBill": 550,
+      "TicketBill": 942.5,
       "FlightPoints": {
         "ticketsBought": "03-02-2025",
         "points": 0,
@@ -91,7 +91,7 @@
         }
       ],
       "IsCancelled": false,
-      "TicketBill": 500,
+      "TicketBill": 892.5,
       "FlightPoints": {
         "ticketsBought": "03-02-2025",
         "points": 0,
@@ -111,7 +111,7 @@
       "DateTicketsBought": "03-02-2025"
     },
     {
-      "FlightID": 51,
+      "FlightID": 61,
       "BookedSeats": [
         "17A"
       ],
@@ -125,7 +125,7 @@
         }
       ],
       "IsCancelled": true,
-      "TicketBill": 463.5,
+      "TicketBill": 856,
       "FlightPoints": {
         "ticketsBought": "03-02-2025",
         "points": 0,
