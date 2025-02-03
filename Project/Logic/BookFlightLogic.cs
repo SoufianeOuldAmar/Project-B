@@ -54,10 +54,6 @@ public static class BookFlightLogic
         return flight.Layout.BookedSeats.Contains(seat);
     }
 
-    public static int GetAvailableSeatsCount(FlightModel flight)
-    {
-        return (flight.Layout.Rows * flight.Layout.Columns) - flight.Layout.BookedSeats.Count;
-    }
 
     public static List<FlightModel> SearchFlights(string departureAirport, string arrivalDestination)
     {

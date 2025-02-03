@@ -180,5 +180,4 @@ public static class MenuPresentation
         Console.WriteLine(text);
         Console.ResetColor();
     }
-
 }

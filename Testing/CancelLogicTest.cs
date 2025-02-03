@@ -28,6 +28,7 @@ namespace Testing
             public static FlightModel GetMockFlight(int id, bool isCancelled = false)
             {
                 return new FlightModel(
+                    id,
                     layout: GetMockLayout(),
                     ticketPrice: 200.0,
                     gate: "Gate A1",
@@ -38,10 +39,7 @@ namespace Testing
                     flightTime: "12:00",
                     availableSeats: 100,
                     timeOfDay: "Morning"
-                )
-                {
-                    Id = id
-                };
+                );
             }
 
             public static List<FlightModel> GetMockFlights()

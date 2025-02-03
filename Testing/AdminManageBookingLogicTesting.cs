@@ -28,35 +28,35 @@ namespace Testing
         [TestMethod]
         public void SeatLogic_ValidAndAvailableSeat_ReturnsTrue()
         {
-            bool result = AdminManageBookingLogic.SeatLogic("15B");
+            bool result = AdminManageBookingLogic.NewSeatLogic("15B", AdminManageBookingLogic.allBookedFlights["Flight1"][0]);
             Assert.IsTrue(result, "Expected valid and available seat to return true.");
         }
 
         [TestMethod]
         public void SeatLogic_AlreadyBookedSeat_ReturnsFalse()
         {
-            bool result = AdminManageBookingLogic.SeatLogic("12A");
+            bool result = AdminManageBookingLogic.NewSeatLogic("12A", AdminManageBookingLogic.allBookedFlights["Flight1"][0]);
             Assert.IsFalse(result, "Expected already booked seat to return false.");
         }
 
         [TestMethod]
         public void SeatLogic_InvalidSeatFormat_ReturnsFalse()
         {
-            bool result = AdminManageBookingLogic.SeatLogic("40Z");
+            bool result = AdminManageBookingLogic.NewSeatLogic("40Z", AdminManageBookingLogic.allBookedFlights["Flight1"][0]);
             Assert.IsFalse(result, "Expected invalid seat format to return false.");
         }
 
         [TestMethod]
         public void SeatLogic_LowerCaseSeat_ReturnsFalse()
         {
-            bool result = AdminManageBookingLogic.SeatLogic("5c");
+            bool result = AdminManageBookingLogic.NewSeatLogic("5c", AdminManageBookingLogic.allBookedFlights["Flight1"][0]);
             Assert.IsFalse(result, "Expected case-insensitive check for already booked seat to return false.");
         }
 
         [TestMethod]
         public void SeatLogic_OutOfRangeRow_ReturnsFalse()
         {
-            bool result = AdminManageBookingLogic.SeatLogic("31A");
+            bool result = AdminManageBookingLogic.NewSeatLogic("31A", AdminManageBookingLogic.allBookedFlights["Flight1"][0]);
             Assert.IsFalse(result, "Expected out-of-range row number to return false.");
         }
     }

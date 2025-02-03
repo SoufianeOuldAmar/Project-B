@@ -7,9 +7,6 @@ public static class DataAccessClass
 {
     private static readonly JsonSerializerOptions Options = new JsonSerializerOptions { WriteIndented = true };
 
-    /// <summary>
-    /// Reads a JSON file and deserializes it into a list.
-    /// </summary>
     public static List<T> ReadList<T>(string filePath) where T : IDataModel
     {
         if (!File.Exists(filePath))
@@ -21,9 +18,6 @@ public static class DataAccessClass
         return JsonSerializer.Deserialize<List<T>>(json, Options) ?? new List<T>();
     }
 
-    /// <summary>
-    /// Serializes and writes a list to a JSON file.
-    /// </summary>
     public static void WriteList<T>(string filePath, List<T> data) where T : IDataModel
     {
         string json = JsonSerializer.Serialize(data, Options);
@@ -39,7 +33,6 @@ public static class DataAccessClass
 
         var feedbacks = DataAccessClass.ReadList<FeedbackModel>("DataSources/feedback.json");
 
-        // Optional: Check for duplicates (e.g., based on `Id`)
         if (feedbacks.Any(f => f.Id == feedback.Id))
         {
             throw new("Feedback with the same ID already exists.");
