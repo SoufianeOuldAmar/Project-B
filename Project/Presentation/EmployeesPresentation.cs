@@ -51,7 +51,7 @@ public static class EmployeesPresentation
         string filePath;
         while (true)
         {
-            Console.Write("Please enter the full path of the CV file: ");
+            Console.Write("Please enter the full path of the CV file (you do that by dragging the wanted file to the terminal and making sure to enclose the path with ''): ");
             filePath = Console.ReadLine();
 
 
