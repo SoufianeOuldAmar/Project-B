@@ -282,8 +282,7 @@ public static class BookFlightPresentation
 
                     // selectedFlight.Layout.ChosenSeats.Add(seat);
 
-
-                    PassengerModel passenger = new PassengerModel();
+                    PassengerModel passenger = new PassengerModel(PassengerLogic.GetPassengerID());
                     Console.WriteLine($"\nEnter Passenger Information for seat {seat}:");
 
                     while (true)
@@ -291,7 +290,6 @@ public static class BookFlightPresentation
                         Console.Write("First Name: ");
                         string firstName = Console.ReadLine();
 
-                        passenger.Id = PassengerLogic.GetPassengerID();
                         // Allow letters and spaces, but ensure it's not just spaces
                         if (!string.IsNullOrWhiteSpace(firstName) && firstName.All(c => char.IsLetter(c) || char.IsWhiteSpace(c)) && firstName.Trim().Length > 0)
                         {

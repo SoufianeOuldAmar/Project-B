@@ -7,7 +7,9 @@ public static class FlightLogic
 
     public static FlightModel CreateReturnFlight(FlightModel originalFlight, string returnDate, string returnTime, string returnGate)
     {
+        int nextFlightId = allFlights.Count + 1;
         return new FlightModel(
+            nextFlightId,
             originalFlight.Layout,
             originalFlight.TicketPrice, // Same ticket price
             returnGate, // New gate for the return flight

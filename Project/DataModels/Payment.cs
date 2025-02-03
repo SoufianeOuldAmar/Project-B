@@ -1,6 +1,6 @@
 public class Payment : IDataModel
 {
-    public int Id { get; set; }
+    public int Id { get; }
     public string ItemType { get; set; }
     public double Amount { get; set; }
 

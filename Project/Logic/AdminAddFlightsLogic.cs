@@ -101,6 +101,7 @@ public static class AdminAddFlightsLogic
     {
         int nextFlightId = allFlights.Count;
         FlightModel newFlight = new FlightModel(
+            ++nextFlightId,
             layout,
             ticketPrice,
             gateStr,
@@ -110,10 +111,7 @@ public static class AdminAddFlightsLogic
             date,
             time,
             0
-        )
-        {
-            Id = ++nextFlightId
-        };
+        );
 
         return newFlight;
     }

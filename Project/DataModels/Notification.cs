@@ -2,7 +2,7 @@ using System.Globalization;
 
 public class Notification : IDataModel
 {
-    public int Id { get; set; }
+    public int Id { get; }
     public int FlightID { get; set; }
     public string NewStatus { get; set; }
     public string Description { get; set; }

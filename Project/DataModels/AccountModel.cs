@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 public abstract class AccountModel
 {
     [JsonPropertyName("id")]
-    public int Id { get; set; }
+    public int Id { get; }
 
     [JsonPropertyName("password")]
     public string Password { get; set; }

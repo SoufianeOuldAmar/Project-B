@@ -84,15 +84,13 @@ public static class EmployeesLogic
     {
         List<EmployeesModel> employees = DataAccessClass.ReadList<EmployeesModel>("DataSources/employees.json");
         EmployeesModel newEmployee = new EmployeesModel(
+            employees.Count() + 1,
             name,
             age,
             // false,
             cvFileName,
             registrationID
-        )
-        {
-            Id = employees.Count() + 1
-        };
+        );
 
         employees.Add(newEmployee);
         DataAccessClass.WriteList<EmployeesModel>("DataSources/employees.json", employees);

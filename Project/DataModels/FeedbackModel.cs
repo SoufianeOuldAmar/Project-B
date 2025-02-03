@@ -2,7 +2,7 @@ namespace DataModels
 {
     public class FeedbackModel : IDataModel
     {
-        public int Id { get; set; }
+        public int Id { get; }
         public string UserEmail { get; set; }
         public string Content { get; set; }
         public bool IsClosed { get; set; } = false;
